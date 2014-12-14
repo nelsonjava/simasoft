@@ -2,9 +2,9 @@ package co.simasoft.generator.jar;
 
 import co.simasoft.utils.*;
 
-public class Pom extends FileTxt {
+public class JarPom extends FileTxt {
 
-  public void Generar(String artifactId,String groupId) {
+  public JarPom(String artifactId,String groupId) {
 
 line("<project xmlns=\"http://maven.apache.org/POM/4.0.0\"");
 line("         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"");

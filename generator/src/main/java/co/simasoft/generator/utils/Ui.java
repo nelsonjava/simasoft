@@ -38,6 +38,7 @@ public class Ui{
                      break;
 
             case 2:  System.out.println("War " + typeApp);
+                     TypeApp.War(artifactId,groupId);
                      break;
 
             case 3:  System.out.println("typeApp " + typeApp);
