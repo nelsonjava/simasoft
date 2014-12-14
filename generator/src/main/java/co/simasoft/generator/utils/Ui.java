@@ -1,23 +1,16 @@
 package co.simasoft.generator.utils;
 
+import co.simasoft.generator.utils.*;
+
 import java.io.*;
-
-/*
-  <groupId>co.simasoft.generator</groupId>
-  <artifactId>generator</artifactId>
-  <packaging>jar</packaging>
-  <version>1.0-SNAPSHOT</version>
-  <name>generator</name>
-*/
-
 
 public class Ui{
 
-    public static int typeApp() throws IOException {
+    public static void typeApp() throws IOException {
 
         BufferedReader lectura = new BufferedReader(new InputStreamReader(System.in));
-        String tipoIngresado = "";
-        int tipo = 0;
+        String type = "";
+        int typeApp = 0;
 
         System.out.println();
         System.out.println("Tipo de aplicacion: ");
@@ -28,15 +21,32 @@ public class Ui{
 
         System.out.print("Seleccione el tipo de aplicacion: ");
 
-        tipoIngresado = lectura.readLine();
+        type = lectura.readLine();
         try{
-            tipo = Integer.parseInt(tipoIngresado);
+            typeApp = Integer.parseInt(type);
         }
         catch (NumberFormatException nfe) {
             System.out.println("!!Error!! No se ingreso un numero");
         }
 
-        return tipo;
+        String artifactId = artifactId();
+        String groupId = groupId();
+
+        switch (typeApp) {
+            case 1:  System.out.println("jar " + typeApp);
+                     TypeApp.Jar(artifactId,groupId);
+                     break;
+
+            case 2:  System.out.println("War " + typeApp);
+                     break;
+
+            case 3:  System.out.println("typeApp " + typeApp);
+                     break;
+
+            default: System.out.println("!!Error!! Numero incorrecto: " + typeApp);
+                     break;
+        }
+
 
     } // typeApp
 
@@ -46,7 +56,7 @@ public class Ui{
         String artifactId = "";
 
         System.out.println();
-        System.out.println("artifactId: ");
+        System.out.print("artifactId: ");
         artifactId = lectura.readLine();
         return artifactId;
 
@@ -58,7 +68,7 @@ public class Ui{
         String groupId = "";
 
         System.out.println();
-        System.out.println("groupId: ");
+        System.out.print("groupId: ");
         groupId = lectura.readLine();
         return groupId;
 
