@@ -35,7 +35,7 @@ public class Utils {
 
     public static String mkDirs(String paquete) {
 
-        //System.out.println("mkDirs="+paquete);
+System.out.println("mkDirs="+paquete);
 
         File myDir;
         String[] carpetas = paquete.split("\\.");
