@@ -11,6 +11,7 @@ public class TypeApp{
     public static void Jar(String artifactId,String groupId){
 
         Utils.mkDirs(artifactId+".src.main.java."+groupId);
+        Utils.mkDirs(artifactId+".src.resources");
 
         JarPom filePom = new JarPom(artifactId,groupId);
         Utils.fileMake(artifactId, "pom.xml", filePom);

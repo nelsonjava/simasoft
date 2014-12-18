@@ -46,7 +46,15 @@ line("    </dependency>\n");
 
 line("  </dependencies>\n");
 
-line("  <build>");
+line("  <build>\n");
+
+line("    <resources>");
+line("      <resource>");
+line("        <directory>src/resources</directory>");
+line("        <excludes><exclude>**/*.java</exclude></excludes>");
+line("      </resource>");
+line("    </resources>\n");
+
 line("    <plugins>\n");
 
 line("      <plugin>");
