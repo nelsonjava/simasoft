@@ -25,7 +25,7 @@
   <target name="del" description="Initialize the build">
     <delete dir="simasoft/target" failonerror="no"/>
     <delete dir="generator/target" failonerror="no"/>
-    <delete dir="generator/targets" failonerror="no"/>
+    <delete dir="simavirtual/targets" failonerror="no"/>
   </target>
 
   <target name="site" description="Initialize the build">
