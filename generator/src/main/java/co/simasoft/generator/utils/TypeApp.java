@@ -15,6 +15,9 @@ public class TypeApp{
 
         JarPom filePom = new JarPom(artifactId,groupId);
         Utils.fileMake(artifactId, "pom.xml", filePom);
+        
+        BuildJar fileBuildJar = new BuildJar(artifactId,groupId);
+        Utils.fileMake(artifactId, "build.xml", fileBuildJar);
 
         App fileApp = new App();
         fileApp.Generar(groupId);

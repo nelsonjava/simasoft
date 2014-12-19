@@ -33,6 +33,26 @@ public class Utils {
         return cadena.substring(0,1).toUpperCase() + cadena.substring(1, cadena.length());
     } // _1raMay
 
+    public static String Paths(String paquete) {
+
+        String[] carpetas = paquete.split("\\.");
+
+        // Si el nombre del paquete no tiene puntos
+        if(carpetas.length == 1) {
+            return carpetas[0];
+        }
+
+        String carpetasPaquetes = carpetas[0];
+
+        // Se crean las carpetas de los paquetes
+        for(String carpeta : carpetas) {
+            carpetasPaquetes += "/" + carpeta;
+        }
+
+        return carpetasPaquetes;
+
+    } // Path
+
     public static String mkDirs(String paquete) {
 
 System.out.println("mkDirs="+paquete);
@@ -120,7 +140,7 @@ System.out.println("mkDirs="+paquete);
 
         return true;
     } // copyFile
-    
+
     /** Copia archivos(imagenes preferiblemente) de una carpeta origen, a otra carpeta destino. */
     public static boolean copyFiles(String dirSource, String dirDest) {
 
