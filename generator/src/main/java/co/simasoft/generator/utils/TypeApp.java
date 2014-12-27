@@ -25,10 +25,13 @@ public class TypeApp{
 
     } // Jar
 
-    public static void War(String artifactId,String groupId){
+    public static void War(String artifactId,String groupId) throws IOException {
 
         Utils.mkDirs(artifactId+".src.main.java."+groupId);
         Utils.mkDirs(artifactId+".src.main.resources");
+        Utils.mkDirs(artifactId+".src.main.webapp.resources.css");
+        Utils.mkDirs(artifactId+".src.main.webapp.resources.img");
+        Utils.mkDirs(artifactId+".src.main.webapp.resources.templates");
         Utils.mkDirs(artifactId+".src.main.webapp.WEB-INF");
 
         Utils.mkDirs(artifactId+".src.test.java");
@@ -48,6 +51,14 @@ public class TypeApp{
 
         FacesConfig fileFacesConfig = new FacesConfig(artifactId,groupId);
         Utils.fileMake(artifactId+".src.main.webapp.WEB-INF", "faces-config.xml", fileFacesConfig);
+
+        Utils.fileJar("index.html",artifactId+"\\src\\main\\webapp\\");
+        Utils.fileJar("home.xhtml",artifactId+"\\src\\main\\webapp\\");
+        Utils.fileJar("default.xhtml",artifactId+"\\src\\main\\webapp\\resources\\templates\\");
+        Utils.fileJar("screen.css",artifactId+"\\src\\main\\webapp\\resources\\css\\");
+        Utils.fileJar("logo.jpg",artifactId+"\\src\\main\\webapp\\resources\\img\\");
+
+
 
     } // War
 
