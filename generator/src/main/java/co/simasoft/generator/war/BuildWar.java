@@ -1,4 +1,4 @@
-package co.simasoft.generator.jar;
+package co.simasoft.generator.war;
 
 import co.simasoft.utils.*;
 
@@ -10,7 +10,8 @@ line("<?xml version=\"1.0\"?>");
 line("<project name=\"naif\" default=\"deploy\" basedir=\".\">\n");
 
 line("        <tstamp/>");
-line("        <property name=\"bak\"         value=\"../backups\"/>");
+line("        <property name=\"bak\"        value=\"/dev/backups/"+Utils.Paths(groupId)+"\"/>\n");
+
 line("        <property name=\"project.name\" value=\""+artifactId+"\"/>");
 line("        <property name=\"jboss.home\" value=\"d:/javasrv/jboss-7.0.2.Final\"/>\n");
 

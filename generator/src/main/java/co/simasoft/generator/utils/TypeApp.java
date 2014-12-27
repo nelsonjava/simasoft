@@ -15,7 +15,7 @@ public class TypeApp{
 
         JarPom filePom = new JarPom(artifactId,groupId);
         Utils.fileMake(artifactId, "pom.xml", filePom);
-        
+
         BuildJar fileBuildJar = new BuildJar(artifactId,groupId);
         Utils.fileMake(artifactId, "build.xml", fileBuildJar);
 
@@ -39,6 +39,9 @@ public class TypeApp{
 
         WarPom filePom = new WarPom(artifactId,groupId);
         Utils.fileMake(artifactId, "pom.xml", filePom);
+        
+        BuildWar fileBuildWar = new BuildWar(artifactId,groupId);
+        Utils.fileMake(artifactId, "build.xml", fileBuildWar);
 
         Home fileHome = new Home(artifactId,groupId);
         Utils.fileMake(artifactId+".src.main.webapp", "home.xhtml", fileHome);
