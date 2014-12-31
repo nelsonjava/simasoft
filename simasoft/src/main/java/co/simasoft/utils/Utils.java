@@ -167,6 +167,53 @@ System.out.println("dirDest="+dirDest);
         return paquete.replace('.','/');
     }
 
+    public static String lenField(String type) {
+        String[] fieldAndLength = type.split("\\(");
+
+        if (fieldAndLength.length != 2) {
+            return null;
+        }
+
+        return fieldAndLength[1].substring( 0 , (fieldAndLength[1].length() - 1) );
+    }
+
+    public static boolean isFieldNull(String type) {
+        if (type.substring(0,1).equals("*")) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public static String typeField(String type) {
+
+        // In case of type field WITHOUT length
+        if (!type.contains("(")) {
+            if (isFieldNull(type)) {
+                return type.substring( 1 , (type.length()) );
+            } else {
+                return type;
+            }
+        }
+
+        // For a type field WITH length
+        String[] fieldAndLength = type.split("\\(");
+
+        if (fieldAndLength.length != 2) {
+            return null;
+        }
+
+        String field;
+        if (isFieldNull(fieldAndLength[0])) {
+            field = fieldAndLength[0].substring( 1 , (fieldAndLength[0].length()) );
+        } else {
+            field = fieldAndLength[0];
+        }
+
+        return field;
+    }
+
+
     public static void fileJar( String farchivo, String directory ) throws IOException {
 
        java.util.jar.JarFile jar = new java.util.jar.JarFile("g.jar");
