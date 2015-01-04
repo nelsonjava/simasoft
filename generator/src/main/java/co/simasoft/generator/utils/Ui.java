@@ -17,6 +17,7 @@ public class Ui{
         System.out.println("1:jar");
         System.out.println("2:war");
         System.out.println("3:ear");
+        System.out.println("4:Modelo Contabilidad Basica");
         System.out.println();
 
         System.out.print("Seleccione el tipo de aplicacion: ");
@@ -43,6 +44,11 @@ public class Ui{
 
             case 3:  System.out.println("typeApp " + typeApp);
                      break;
+
+            case 4:  System.out.println("modelo " + typeApp);
+                     TypeApp.Contabilidad(artifactId,groupId);
+                     break;
+
 
             default: System.out.println("!!Error!! Numero incorrecto: " + typeApp);
                      break;

@@ -5,6 +5,7 @@ import co.simasoft.generator.jar.*;
 import co.simasoft.generator.war.*;
 
 import java.io.*;
+import java.util.*;
 
 public class TypeApp{
 
@@ -39,7 +40,7 @@ public class TypeApp{
 
         WarPom filePom = new WarPom(artifactId,groupId);
         Utils.fileMake(artifactId, "pom.xml", filePom);
-        
+
         BuildWar fileBuildWar = new BuildWar(artifactId,groupId);
         Utils.fileMake(artifactId, "build.xml", fileBuildWar);
 
@@ -64,6 +65,52 @@ public class TypeApp{
 
 
     } // War
+    
+    public static void Contabilidad(String artifactId,String groupId) throws IOException {
+
+        Utils.mkDirs(artifactId+".src.main.java."+groupId);
+        Utils.mkDirs(artifactId+".src.resources");
+
+        JarPom filePom = new JarPom(artifactId,groupId);
+        Utils.fileMake(artifactId, "pom.xml", filePom);
+
+        BuildJar fileBuildJar = new BuildJar(artifactId,groupId);
+        Utils.fileMake(artifactId, "build.xml", fileBuildJar);
+
+        App fileApp = new App();
+        fileApp.Generar(groupId);
+        Utils.fileMake(artifactId+".src.main.java."+groupId, "App.java", fileApp);
+        
+
+        ArrayList<Entidad> entidades = new ArrayList<Entidad>();
+        ArrayList<Atributos> atributos = new ArrayList<Atributos>();
+
+        PowerDesigner.Entidades("/dev/njava/modelos/uml/contab/contab.oob");
+        
+        for(int i=0;i<entidades.size();i++) {
+
+          Entidad entidad = entidades.get(i);
+          System.out.println(entidad.getName());
+
+          atributos = entidad.getAtributos();
+          for(int j=0;j<atributos.size();j++) {
+              Atributos atributo = atributos.get(j);
+              System.out.println("------");
+              System.out.println("    campo:"+atributo.getField());
+              System.out.println("    unico:"+atributo.getUnique());
+              System.out.println("    tipo:"+atributo.getType());
+              System.out.println("    nulo:"+atributo.getLength());
+              System.out.println("    len:"+atributo.getNulo());
+
+          } // for atributos
+
+
+        } // for entidades
+
+
+
+    } // Jar
+
 
 
 
