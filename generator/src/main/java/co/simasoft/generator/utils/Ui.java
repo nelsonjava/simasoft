@@ -46,7 +46,7 @@ public class Ui{
                      break;
 
             case 4:  System.out.println("modelo " + typeApp);
-                     TypeApp.Contabilidad(artifactId,groupId);
+                     TypeApp.ModeloAsciidoc(artifactId,groupId);
                      break;
 
 

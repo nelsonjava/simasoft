@@ -3,6 +3,7 @@ package co.simasoft.generator.utils;
 import co.simasoft.utils.*;
 import co.simasoft.generator.jar.*;
 import co.simasoft.generator.war.*;
+import co.simasoft.generator.asciidoc.*;
 
 import java.io.*;
 import java.util.*;
@@ -65,28 +66,29 @@ public class TypeApp{
 
 
     } // War
-    
-    public static void Contabilidad(String artifactId,String groupId) throws IOException {
 
-        Utils.mkDirs(artifactId+".src.main.java."+groupId);
-        Utils.mkDirs(artifactId+".src.resources");
+    public static void ModeloAsciidoc(String artifactId,String groupId) throws IOException {
 
-        JarPom filePom = new JarPom(artifactId,groupId);
-        Utils.fileMake(artifactId, "pom.xml", filePom);
+        Utils.mkDirs(artifactId+".src.main.asciidoc.en-US.images");
+        Utils.mkDirs(artifactId+".src.main.asciidoc.en-US.modules");
 
-        BuildJar fileBuildJar = new BuildJar(artifactId,groupId);
-        Utils.fileMake(artifactId, "build.xml", fileBuildJar);
+        Utils.fileJar("pom.xml",artifactId+"\\");
+        Utils.fileJar("master.asciidoc",artifactId+"\\src\\main\\asciidoc\\en-US\\");
+        Utils.fileJar("master-docinfo.xml",artifactId+"\\src\\main\\asciidoc\\en-US\\");
 
-        App fileApp = new App();
-        fileApp.Generar(groupId);
-        Utils.fileMake(artifactId+".src.main.java."+groupId, "App.java", fileApp);
-        
+        Asciidoc fileAsciidoc = new Asciidoc(artifactId,groupId);
+        Utils.fileMake(artifactId+".src.main.asciidoc.en-US.modules", "modelo.asciidoc", fileAsciidoc);
 
+
+
+
+
+/*
         ArrayList<Entidad> entidades = new ArrayList<Entidad>();
         ArrayList<Atributos> atributos = new ArrayList<Atributos>();
 
         PowerDesigner.Entidades("/dev/njava/modelos/uml/contab/contab.oob");
-        
+
         for(int i=0;i<entidades.size();i++) {
 
           Entidad entidad = entidades.get(i);
@@ -107,9 +109,9 @@ public class TypeApp{
 
         } // for entidades
 
+*/
 
-
-    } // Jar
+    } // ModeloAsciidoc
 
 
 
