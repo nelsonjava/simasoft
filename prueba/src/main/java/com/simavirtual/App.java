@@ -13,7 +13,7 @@ import org.w3c.dom.Node;
 import org.w3c.dom.Element;
 
 public class App{
-  
+
     public static ArrayList<Entidad> Prueba(String fileOob) throws IOException {
 
         ArrayList<Entidad> entidades = new ArrayList<Entidad>();
@@ -113,23 +113,45 @@ public class App{
 
             NodeList nAssocs = xml.getElementsByTagName("o:Association");
 
-//            System.out.println("PASO:");
-//            System.out.println(nAssocs.getLength());
-
             for(int i=0;i<nAssocs.getLength();i++) {
 
               Node nAssoc = nAssocs.item(i);
 
               NodeList aRelations = nAssoc.getChildNodes();
 
-//              System.out.println("PASO2:");
-//               System.out.println(aRelations.getLength());
-
-//              System.out.println(nAssoc.getNodeName());
+              Relation relation = new Relation();
 
               if (nAssoc.getNodeName().equals("o:Association")) {
-//                  System.out.println(nAssoc.getNodeName());
-                  System.out.println(nAssoc.getTextContent());
+
+                  NodeList relas = nAssoc.getChildNodes();
+
+                  for (int z = 0; z < relas.getLength(); z++) {
+                      Node rela = relas.item(z);
+
+
+                      if (rela.getNodeName().equals("a:Name")) {
+                         relation.setFrom(rela.getTextContent());
+                      }
+
+                      if (rela.getNodeName().equals("a:Code")) {
+                         relation.setTo(rela.getTextContent());
+                      }
+
+                      if (rela.getNodeName().equals("a:RoleAMultiplicity")) {
+                      }
+
+                      if (rela.getNodeName().equals("a:RoleBMultiplicity")) {
+                      }
+
+
+                  }
+
+                  if (!relation.getTo().equals("")) {
+                      System.out.println("Relations:");
+                      System.out.println("    to:"+relation.getTo());
+                      System.out.println("  from:"+relation.getFrom());
+                  }
+
               } // if
 
 
@@ -171,7 +193,8 @@ public class App{
         ArrayList<Entidad> entidades = new ArrayList<Entidad>();
         ArrayList<Atributos> atributos = new ArrayList<Atributos>();
 
-        Prueba("/tem/prueba/src/resources/contab-copia.oob");
+        Prueba("/dev/njava/simasoft/prueba/src/resources/contab1.oob");
+
 
 
         for(int i=0;i<entidades.size();i++) {
