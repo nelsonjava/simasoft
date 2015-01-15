@@ -6,6 +6,7 @@ import java.util.*;
 public class Entidad {
 
     private String name = "";
+    private String ref = "";
 
     private ArrayList<Atributos> atributos;
 
@@ -14,6 +15,14 @@ public class Entidad {
 
     public Entidad(String name) {
         this.name = name;
+    }
+
+    public void setRef(String ref){
+        this.ref = ref;
+    }
+    
+    public String getRef(){
+        return ref;
     }
 
     public void setName(String name){

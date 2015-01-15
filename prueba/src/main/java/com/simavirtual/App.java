@@ -1,6 +1,7 @@
 package com.simavirtual;
 
 import co.simasoft.utils.*;
+import co.simasoft.utils.PowerDesigner;
 
 import java.io.*;
 import java.util.*;
@@ -37,11 +38,19 @@ public class App{
 
 	    for (int i = 0; i < nList.getLength(); i++) {
 
-                Entidad entidad = new Entidad();
                 ArrayList<Atributos> atr = new ArrayList<Atributos>();
 
                 Node nNode = nList.item(i);
                 NodeList etiquetas = nNode.getChildNodes();
+
+                Entidad entidad = new Entidad();
+                if (nNode.getNodeName().equals("o:Class")) {
+                    Element e = (Element)nNode;
+                    if (!e.getAttribute("Id").equals("")) {
+                       entidad.setRef(e.getAttribute("Id"));
+                    }
+                }
+
 
                 for(int j=0; j<etiquetas.getLength(); j++) {
 
@@ -143,14 +152,38 @@ public class App{
                       if (rela.getNodeName().equals("a:RoleBMultiplicity")) {
                       }
 
+                      if (rela.getNodeName().equals("c:Object1")) {
+                         NodeList aRefsTo = rela.getChildNodes();
+                         for (int zz = 0; zz < aRefsTo.getLength(); zz++) {
+                             Node aRefTo = aRefsTo.item(zz);
+                             if (aRefTo.getNodeName().equals("o:Class")) {
+                                relation.setRefTo(aRefTo.getAttributes().getNamedItem("Ref").getNodeValue());
+                             }
+                         }
+                      }
+
+                      if (rela.getNodeName().equals("c:Object2")) {
+                         NodeList aRefsFrom = rela.getChildNodes();
+                         for (int zz = 0; zz < aRefsFrom.getLength(); zz++) {
+                             Node aRefFrom = aRefsFrom.item(zz);
+                             if (aRefFrom.getNodeName().equals("o:Class")) {
+                                relation.setRefFrom(aRefFrom.getAttributes().getNamedItem("Ref").getNodeValue());
+                             }
+                         }
+                      }
 
                   }
+
 
                   if (!relation.getTo().equals("")) {
                       System.out.println("Relations:");
-                      System.out.println("    to:"+relation.getTo());
-                      System.out.println("  from:"+relation.getFrom());
+                      System.out.println("    refTo:"+relation.getRefTo());
+                      System.out.println("  refFrom:"+relation.getRefFrom());
+
+                      System.out.println("       to:"+relation.getTo());
+                      System.out.println("     from:"+relation.getFrom());
                   }
+
 
               } // if
 
@@ -168,16 +201,10 @@ public class App{
                   } // if
 
 
-              }
+              } // for
 
 
-            }
-
-
-
-
-
-
+            } // for
 
         } // try
         catch (Exception e) {
@@ -192,15 +219,22 @@ public class App{
 
         ArrayList<Entidad> entidades = new ArrayList<Entidad>();
         ArrayList<Atributos> atributos = new ArrayList<Atributos>();
+        ArrayList<Relation> relations = new ArrayList<Relation>();
 
-        Prueba("/dev/njava/simasoft/prueba/src/resources/contab1.oob");
+        PowerDesigner powerDesigner = new PowerDesigner("/dev/njava/simasoft/prueba/src/resources/contab1.oob");
 
+        entidades = powerDesigner.getEntidades();
+        relations = powerDesigner.getRelations();
+//        relations = powerDesigner.getRelationsPower();
 
+//        entidades = Prueba("/dev/njava/simasoft/prueba/src/resources/contab1.oob");
 
+/*
         for(int i=0;i<entidades.size();i++) {
 
           Entidad entidad = entidades.get(i);
-          System.out.println(entidad.getName());
+          System.out.println(entidad.getName()+":"+entidad.getRef());
+          System.out.println(powerDesigner.getEntityName(entidad.getRef()));
 
           atributos = entidad.getAtributos();
 
@@ -216,6 +250,18 @@ public class App{
 
         } // for entidades
 
+*/
+
+
+        for(Relation relation : relations) {
+           System.out.println("-------------");
+           System.out.println("           to:"+relation.getTo());
+           System.out.println("            A:"+relation.getMultiplicityA());
+           System.out.println("NavigabilityA:"+relation.getNavigabilityA());
+           System.out.println("            B:"+relation.getMultiplicityB());
+           System.out.println("NavigabilityB:"+relation.getNavigabilityB());
+           System.out.println("         from:"+relation.getFrom());
+        } // for atributos
 
 
 
