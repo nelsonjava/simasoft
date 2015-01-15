@@ -4,12 +4,22 @@ public class Relation{
 
     private String refTo = "";
     private String refFrom = "";
-    private String to = "";
-    private String from = "";
-    private String multiplicityA = "";
-    private String multiplicityB = "";
+
+    private String to = "";                 // Movimientos
+    private String from = "";               // Pucs
+
+    private String multiplicityA = "";      // 0..1
+    private String multiplicityB = "";      // 0..*
+
     private String cardinality = "";
+    private String cardinalityA = "";       // 1..*
+    private String cardinalityB = "";       // *..1
+
     private boolean optionality = true;
+    private boolean optionalityA = true;    // 0=true
+    private boolean optionalityB = true;    // 0=true
+
+    private boolean navigability = false;
     private boolean navigabilityA = false;
     private boolean navigabilityB = false;
 
@@ -73,6 +83,21 @@ public class Relation{
         this.cardinality = cardinality;
     }
 
+    public String getCardinalityA(){
+        return cardinalityA;
+    }
+
+    public void setCardinalityA(String cardinality){
+        this.cardinalityA = cardinality;
+    }
+
+    public String getCardinalityB(){
+        return cardinalityB;
+    }
+
+    public void setCardinalityB(String cardinality){
+        this.cardinalityB = cardinality;
+    }
 
     public boolean getOptionality(){
         return optionality ;
@@ -80,6 +105,30 @@ public class Relation{
 
     public void setOptionality(boolean optionality){
         this.optionality = optionality;
+    }
+
+    public boolean getOptionalityA(){
+        return optionalityA ;
+    }
+
+    public void setOptionalityA(boolean optionality){
+        this.optionalityA = optionality;
+    }
+
+    public boolean getOptionalityB(){
+        return optionalityB ;
+    }
+
+    public void setOptionalityB(boolean optionality){
+        this.optionalityB = optionality;
+    }
+
+    public boolean getNavigability(){
+        return navigability;
+    }
+
+    public void setNavigability(boolean navigability ){
+        this.navigability = navigability;
     }
 
     public boolean getNavigabilityA(){
@@ -105,6 +154,33 @@ public class Relation{
              setNavigabilityB(true);
            }
         }
+    }
+
+    public void cardinality(){
+        String cardinalityA = getMultiplicityA();
+        String cardinalityB = getMultiplicityB();
+        setCardinalityA(cardinalityA.substring(3,4)+".."+cardinalityB.substring(3,4));
+        setCardinalityB(cardinalityB.substring(3,4)+".."+cardinalityA.substring(3,4));
+    }
+
+    public void optionality(){
+        String cardinalityA = getMultiplicityA();
+        String cardinalityB = getMultiplicityB();
+
+        if (cardinalityA.substring(0,1).equals("0")){
+           setOptionalityA(true);
+        }
+        else{
+           setOptionalityA(false);
+        }
+
+        if (cardinalityB.substring(0,1).equals("0")){
+           setOptionalityB(true);
+        }
+        else{
+           setOptionalityB(false);
+        }
+
     }
 
 }

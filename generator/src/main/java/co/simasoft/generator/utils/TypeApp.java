@@ -79,7 +79,8 @@ public class TypeApp{
         Asciidoc fileAsciidoc = new Asciidoc(artifactId,groupId);
         Utils.fileMake(artifactId+".src.main.asciidoc.en-US.modules", "modelo.asciidoc", fileAsciidoc);
 
-
+        Test fileTest = new Test(artifactId,groupId);
+        Utils.fileMake(artifactId+".src.main.asciidoc.en-US.modules", "test.asciidoc", fileTest);
 
 
 

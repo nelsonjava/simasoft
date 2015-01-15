@@ -23,6 +23,7 @@ public class PowerDesigner {
         generar();
         relationsPower();
         relations();
+        relationsEntities();
     }
 
     public static void generar() throws IOException {
@@ -228,7 +229,7 @@ public class PowerDesigner {
     public ArrayList<Relation> getRelations(){
         return relations;
     }
-    
+
     public ArrayList<Relation> getRelationsPower(){
         return relationsPower;
     }
@@ -243,10 +244,23 @@ public class PowerDesigner {
        return "";
     }
 
+    public Relation getRelationName(String entityName){
+
+       Relation relation = new Relation();
+       for (Relation rela : relations) {
+            if (rela.getTo().equals(entityName)) {
+                relation = rela;
+            }
+       }
+       return relation;
+    }
+
     public void relationsPower(){
         for (Relation relation : relationsPower) {
             relation.setTo(getEntityName(relation.getRefTo()));
             relation.setFrom(getEntityName(relation.getRefFrom()));
+            relation.cardinality();
+            relation.optionality();
         }
     }
 
@@ -257,33 +271,60 @@ public class PowerDesigner {
             Relation relaTo = new Relation();
             Relation relaFrom = new Relation();
 
-/*
-            System.out.println("PASO1");
-            System.out.println(relationPower.getTo());
-            System.out.println(relationPower.getFrom());
-*/
-
             relaTo.setTo(relationPower.getTo());
             relaTo.setFrom(relationPower.getFrom());
-
-/*
-            System.out.println("PASO2");
-            System.out.println(relaTo.getTo());
-            System.out.println(relaTo.getFrom());
-*/            
-
-
+            relaTo.setMultiplicityA(relationPower.getMultiplicityA());
+            relaTo.setMultiplicityB(relationPower.getMultiplicityB());
+            relaTo.setCardinalityA(relationPower.getCardinalityA());
+            relaTo.setCardinalityB(relationPower.getCardinalityB());
+            relaTo.setCardinality(relationPower.getCardinalityB());
+            relaTo.setOptionalityA(relationPower.getOptionalityA());
+            relaTo.setOptionalityB(relationPower.getOptionalityB());
+            relaTo.setOptionality(relationPower.getOptionalityB());
+            relaTo.setNavigabilityA(relationPower.getNavigabilityA());
+            relaTo.setNavigabilityB(relationPower.getNavigabilityB());
+            relaTo.setNavigability(relationPower.getNavigabilityB());
 
             relations.add(relaTo);
 
             relaFrom.setTo(relationPower.getFrom());
             relaFrom.setFrom(relationPower.getTo());
+            relaFrom.setMultiplicityA(relationPower.getMultiplicityA());
+            relaFrom.setMultiplicityB(relationPower.getMultiplicityB());
+            relaFrom.setCardinalityA(relationPower.getCardinalityA());
+            relaFrom.setCardinalityB(relationPower.getCardinalityB());
+            relaFrom.setCardinality(relationPower.getCardinalityA());
+            relaFrom.setOptionalityA(relationPower.getOptionalityA());
+            relaFrom.setOptionalityB(relationPower.getOptionalityB());
+            relaFrom.setOptionality(relationPower.getOptionalityA());
+            relaFrom.setNavigabilityA(relationPower.getNavigabilityA());
+            relaFrom.setNavigabilityB(relationPower.getNavigabilityB());
+            relaFrom.setNavigability(relationPower.getNavigabilityA());
+
+
             relations.add(relaFrom);
 
+        } // for relationPower
+
+    } // relations
+
+    public void relationsEntities(){
+
+        for (Entidad entidad : entidades) {
+
+             Relation relationEntity = getRelationName(entidad.getName());
+
+             if (relationEntity.getTo().equals(entidad.getName())){
+                entidad.addRelations(relationEntity);
+             }
+
+             if (relationEntity.getFrom().equals(entidad.getName())){
+                entidad.addRelations(relationEntity);
+             }
+
         }
-    }
 
-
+    } // relationsEntities
 
 
 } // PowerDesigner

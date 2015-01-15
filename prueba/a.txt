@@ -1,70 +1,60 @@
 -------------
-           to:Movimientos
-            A:
-NavigabilityA:false
-            B:
-NavigabilityB:false
-         from:Pucs
+Relation     :Movimientos-TO:*..1:Pucs-FROM
+cardinality1 :1..*
+cardinality2 :*..1
+Optionality  :true
+Navigability:true
 -------------
-           to:Pucs
-            A:
-NavigabilityA:false
-            B:
-NavigabilityB:false
-         from:Movimientos
+Relation     :Pucs-FROM:1..*:Movimientos-TO
+cardinality1 :1..*
+cardinality2 :*..1
+Optionality  :true
+Navigability:true
 -------------
-           to:Movimientos
-            A:
-NavigabilityA:false
-            B:
-NavigabilityB:false
-         from:Terceros
+Relation     :Movimientos-TO:*..1:Terceros-FROM
+cardinality1 :1..*
+cardinality2 :*..1
+Optionality  :true
+Navigability:true
 -------------
-           to:Terceros
-            A:
-NavigabilityA:false
-            B:
-NavigabilityB:false
-         from:Movimientos
+Relation     :Terceros-FROM:1..*:Movimientos-TO
+cardinality1 :1..*
+cardinality2 :*..1
+Optionality  :true
+Navigability:true
 -------------
-           to:Pucs
-            A:
-NavigabilityA:false
-            B:
-NavigabilityB:false
-         from:Saldos
+Relation     :Pucs-TO:1..*:Saldos-FROM
+cardinality1 :*..1
+cardinality2 :1..*
+Optionality  :true
+Navigability:true
 -------------
-           to:Saldos
-            A:
-NavigabilityA:false
-            B:
-NavigabilityB:false
-         from:Pucs
+Relation     :Saldos-FROM:*..1:Pucs-TO
+cardinality1 :*..1
+cardinality2 :1..*
+Optionality  :true
+Navigability:true
 -------------
-           to:Saldos
-            A:
-NavigabilityA:false
-            B:
-NavigabilityB:false
-         from:Terceros
+Relation     :Saldos-TO:*..1:Terceros-FROM
+cardinality1 :1..*
+cardinality2 :*..1
+Optionality  :true
+Navigability:true
 -------------
-           to:Terceros
-            A:
-NavigabilityA:false
-            B:
-NavigabilityB:false
-         from:Saldos
+Relation     :Terceros-FROM:1..*:Saldos-TO
+cardinality1 :1..*
+cardinality2 :*..1
+Optionality  :true
+Navigability:true
 -------------
-           to:Pucs
-            A:
-NavigabilityA:false
-            B:
-NavigabilityB:false
-         from:Pucs
+Relation     :Pucs-TO:*..1:Pucs-FROM
+cardinality1 :1..*
+cardinality2 :*..1
+Optionality  :true
+Navigability:true
 -------------
-           to:Pucs
-            A:
-NavigabilityA:false
-            B:
-NavigabilityB:false
-         from:Pucs
+Relation     :Pucs-FROM:1..*:Pucs-TO
+cardinality1 :1..*
+cardinality2 :*..1
+Optionality  :true
+Navigability:true
