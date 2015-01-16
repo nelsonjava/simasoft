@@ -7,15 +7,16 @@ import java.util.*;
 
 public class Test extends FileTxt {
 
-  public Test(String artifactId,String groupId) throws IOException {
+    private Set<Relation> relations = new HashSet<Relation>(0);
 
-      ArrayList<Entidad> entidades = new ArrayList<Entidad>();
-      ArrayList<Atributos> atributos = new ArrayList<Atributos>();
-      ArrayList<Relation> relations = new ArrayList<Relation>();
+    public void setRelations(Set<Relation> relations){
+        this.relations = relations;
+    }
 
-      PowerDesigner powerDesigner = new PowerDesigner("/dev/njava/modelos/uml/contab/contab.oob");
-      entidades = powerDesigner.getEntidades();
-      relations = powerDesigner.getRelations();
+
+    public Test(String artifactId,String groupId,Set<Relation> relations) throws IOException {
+
+        this.relations = relations;
 
 line("[[wildfly-test]]");
 
@@ -30,7 +31,7 @@ line("////");
 line("== TEST");
 line("image::images/modelo.jpg[]");
 
-line("*RELATIONS:*");
+line("*RELATIONS:*"+relations.size());
 line("[options=\"header\"]");
 line("|===");
 line("|From      |Cardinality               |To       |Optionality  |Navigability ");
@@ -40,7 +41,7 @@ line("|"+relation.getFrom()+"|"+relation.getCardinality()+"|"+relation.getTo()+"
           } // for Relation
 line("|===");
 
-  } // Asciidoc
+    } // Test
 
 } // Test
 

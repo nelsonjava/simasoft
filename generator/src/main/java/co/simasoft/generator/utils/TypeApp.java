@@ -69,6 +69,13 @@ public class TypeApp{
 
     public static void ModeloAsciidoc(String artifactId,String groupId) throws IOException {
 
+        ArrayList<Entidad> entidades = new ArrayList<Entidad>();
+        Set<Relation> relations = new HashSet<Relation>(0);
+
+        PowerDesigner powerDesigner = new PowerDesigner("/dev/njava/modelos/uml/contab/contab.oob");
+        entidades = powerDesigner.getEntidades();
+        relations = powerDesigner.getRelations();
+
         Utils.mkDirs(artifactId+".src.main.asciidoc.en-US.images");
         Utils.mkDirs(artifactId+".src.main.asciidoc.en-US.modules");
 
@@ -76,10 +83,10 @@ public class TypeApp{
         Utils.fileJar("master.asciidoc",artifactId+"\\src\\main\\asciidoc\\en-US\\");
         Utils.fileJar("master-docinfo.xml",artifactId+"\\src\\main\\asciidoc\\en-US\\");
 
-        Asciidoc fileAsciidoc = new Asciidoc(artifactId,groupId);
+        Asciidoc fileAsciidoc = new Asciidoc(artifactId,groupId,entidades);
         Utils.fileMake(artifactId+".src.main.asciidoc.en-US.modules", "modelo.asciidoc", fileAsciidoc);
 
-        Test fileTest = new Test(artifactId,groupId);
+        Test fileTest = new Test(artifactId,groupId,relations);
         Utils.fileMake(artifactId+".src.main.asciidoc.en-US.modules", "test.asciidoc", fileTest);
 
 

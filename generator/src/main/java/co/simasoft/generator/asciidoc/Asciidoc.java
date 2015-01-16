@@ -7,18 +7,13 @@ import java.util.*;
 
 public class Asciidoc extends FileTxt {
 
-  public Asciidoc(String artifactId,String groupId) throws IOException {
+    private ArrayList<Entidad> entidades = new ArrayList<Entidad>();
+    private ArrayList<Atributos> atributos = new ArrayList<Atributos>();
+    private ArrayList<Relation> relations = new ArrayList<Relation>();
 
-      ArrayList<Entidad> entidades = new ArrayList<Entidad>();
-      ArrayList<Atributos> atributos = new ArrayList<Atributos>();
-      ArrayList<Relation> relations = new ArrayList<Relation>();
+    public Asciidoc(String artifactId,String groupId,ArrayList<Entidad> entidades) throws IOException {
 
-      PowerDesigner powerDesigner = new PowerDesigner("/dev/njava/modelos/uml/contab/contab.oob");
-      entidades = powerDesigner.getEntidades();
-//      relations = powerDesigner.getRelations();
-
-
-
+        this.entidades = entidades;
 
 line("[[wildfly-instalacion]]");
 
@@ -71,7 +66,7 @@ line("|"+relation.getFrom()+"|"+relation.getCardinality()+"|"+relation.getTo()+"
           } // for Relation
 line("|===");
 
-      } // for entidades
+    } // for entidades
 
 
   } // Asciidoc

@@ -1,60 +1,35 @@
+*RELATIONS:*
+[options="header"]
+|===
+|From      |Cardinality               |To       |Optionality  |Navigability 
+|Pucs|1..*|Pucs|true|true
+|Movimientos|1..*|Pucs|true|true
+|Pucs|*..1|Saldos|true|true
+|Saldos|1..*|Terceros|true|true
+|Terceros|*..1|Movimientos|true|true
+|Saldos|1..*|Pucs|true|true
+|Pucs|*..1|Pucs|true|true
+|Terceros|*..1|Saldos|true|true
+|Movimientos|1..*|Terceros|true|true
+|Pucs|*..1|Movimientos|true|true
+|===
 -------------
-Relation     :Movimientos-TO:*..1:Pucs-FROM
-cardinality1 :1..*
-cardinality2 :*..1
-Optionality  :true
-Navigability:true
+Relation     :Pucs:1..*:Pucs
 -------------
-Relation     :Pucs-FROM:1..*:Movimientos-TO
-cardinality1 :1..*
-cardinality2 :*..1
-Optionality  :true
-Navigability:true
+Relation     :Movimientos:1..*:Pucs
 -------------
-Relation     :Movimientos-TO:*..1:Terceros-FROM
-cardinality1 :1..*
-cardinality2 :*..1
-Optionality  :true
-Navigability:true
+Relation     :Pucs:*..1:Saldos
 -------------
-Relation     :Terceros-FROM:1..*:Movimientos-TO
-cardinality1 :1..*
-cardinality2 :*..1
-Optionality  :true
-Navigability:true
+Relation     :Saldos:1..*:Terceros
 -------------
-Relation     :Pucs-TO:1..*:Saldos-FROM
-cardinality1 :*..1
-cardinality2 :1..*
-Optionality  :true
-Navigability:true
+Relation     :Terceros:*..1:Movimientos
 -------------
-Relation     :Saldos-FROM:*..1:Pucs-TO
-cardinality1 :*..1
-cardinality2 :1..*
-Optionality  :true
-Navigability:true
+Relation     :Saldos:1..*:Pucs
 -------------
-Relation     :Saldos-TO:*..1:Terceros-FROM
-cardinality1 :1..*
-cardinality2 :*..1
-Optionality  :true
-Navigability:true
+Relation     :Pucs:*..1:Pucs
 -------------
-Relation     :Terceros-FROM:1..*:Saldos-TO
-cardinality1 :1..*
-cardinality2 :*..1
-Optionality  :true
-Navigability:true
+Relation     :Terceros:*..1:Saldos
 -------------
-Relation     :Pucs-TO:*..1:Pucs-FROM
-cardinality1 :1..*
-cardinality2 :*..1
-Optionality  :true
-Navigability:true
+Relation     :Movimientos:1..*:Terceros
 -------------
-Relation     :Pucs-FROM:1..*:Pucs-TO
-cardinality1 :1..*
-cardinality2 :*..1
-Optionality  :true
-Navigability:true
+Relation     :Pucs:*..1:Movimientos

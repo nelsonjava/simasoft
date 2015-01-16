@@ -16,7 +16,7 @@ public class PowerDesigner {
     private static String fileOob;
     private static ArrayList<Entidad> entidades = new ArrayList<Entidad>();
     private static ArrayList<Relation> relationsPower = new ArrayList<Relation>();
-    private static ArrayList<Relation> relations = new ArrayList<Relation>();
+    private static Set<Relation> relations = new HashSet<Relation>(0);
 
     public PowerDesigner(String fileOob) throws IOException {
         this.fileOob = fileOob;
@@ -226,7 +226,7 @@ public class PowerDesigner {
         return entidades;
     }
 
-    public ArrayList<Relation> getRelations(){
+    public Set<Relation> getRelations(){
         return relations;
     }
 
@@ -303,6 +303,7 @@ public class PowerDesigner {
 
 
             relations.add(relaFrom);
+
 
         } // for relationPower
 
