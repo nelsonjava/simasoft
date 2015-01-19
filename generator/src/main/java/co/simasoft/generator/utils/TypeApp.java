@@ -79,7 +79,7 @@ public class TypeApp{
         Utils.mkDirs(artifactId+".src.main.asciidoc.en-US.images");
         Utils.mkDirs(artifactId+".src.main.asciidoc.en-US.modules");
 
-        Utils.fileJar("pom.xml",artifactId+"\\");
+        Utils.fileJar("poma.xml",artifactId+"\\");
         Utils.fileJar("master.asciidoc",artifactId+"\\src\\main\\asciidoc\\en-US\\");
         Utils.fileJar("master-docinfo.xml",artifactId+"\\src\\main\\asciidoc\\en-US\\");
 
