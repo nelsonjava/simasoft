@@ -244,17 +244,6 @@ public class PowerDesigner {
        return "";
     }
 
-    public Relation getRelationName(String entityName){
-
-       Relation relation = new Relation();
-       for (Relation rela : relations) {
-            if (rela.getTo().equals(entityName)) {
-                relation = rela;
-            }
-       }
-       return relation;
-    }
-
     public void relationsPower(){
         for (Relation relation : relationsPower) {
             relation.setTo(getEntityName(relation.getRefTo()));
@@ -309,18 +298,27 @@ public class PowerDesigner {
 
     } // relations
 
+    public Entidad getEntity(String entityName){
+
+       Entidad entity = new Entidad();
+       for (Entidad entidad : entidades) {
+
+            if (entidad.getName().equals(entityName)) {
+                entity = entidad;
+                break;
+            }
+
+       }
+       return entity;
+    }
+
     public void relationsEntities(){
 
-        for (Entidad entidad : entidades) {
+        for (Relation relation : relations) {
 
-             Relation relationEntity = getRelationName(entidad.getName());
-
-             if (relationEntity.getTo().equals(entidad.getName())){
-                entidad.addRelations(relationEntity);
-             }
-
-             if (relationEntity.getFrom().equals(entidad.getName())){
-                entidad.addRelations(relationEntity);
+             Entidad entity = getEntity(relation.getFrom());
+             if (!entity.getName().isEmpty()) {
+                entity.addRelations(relation);
              }
 
         }
