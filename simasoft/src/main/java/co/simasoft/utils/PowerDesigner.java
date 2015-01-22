@@ -260,6 +260,22 @@ public class PowerDesigner {
             Relation relaTo = new Relation();
             Relation relaFrom = new Relation();
 
+            relaFrom.setTo(relationPower.getTo());
+            relaFrom.setFrom(relationPower.getFrom());
+            relaFrom.setMultiplicityA(relationPower.getMultiplicityA());
+            relaFrom.setMultiplicityB(relationPower.getMultiplicityB());
+            relaFrom.setCardinalityA(relationPower.getCardinalityA());
+            relaFrom.setCardinalityB(relationPower.getCardinalityB());
+            relaFrom.setCardinality(relationPower.getCardinalityA());
+            relaFrom.setOptionalityA(relationPower.getOptionalityA());
+            relaFrom.setOptionalityB(relationPower.getOptionalityB());
+            relaFrom.setOptionality(relationPower.getOptionalityA());
+            relaFrom.setNavigabilityA(relationPower.getNavigabilityA());
+            relaFrom.setNavigabilityB(relationPower.getNavigabilityB());
+            relaFrom.setNavigability(relationPower.getNavigabilityA());
+
+            relations.add(relaFrom);
+
             relaTo.setTo(relationPower.getTo());
             relaTo.setFrom(relationPower.getFrom());
             relaTo.setMultiplicityA(relationPower.getMultiplicityA());
@@ -275,24 +291,6 @@ public class PowerDesigner {
             relaTo.setNavigability(relationPower.getNavigabilityB());
 
             relations.add(relaTo);
-
-            relaFrom.setTo(relationPower.getFrom());
-            relaFrom.setFrom(relationPower.getTo());
-            relaFrom.setMultiplicityA(relationPower.getMultiplicityA());
-            relaFrom.setMultiplicityB(relationPower.getMultiplicityB());
-            relaFrom.setCardinalityA(relationPower.getCardinalityA());
-            relaFrom.setCardinalityB(relationPower.getCardinalityB());
-            relaFrom.setCardinality(relationPower.getCardinalityA());
-            relaFrom.setOptionalityA(relationPower.getOptionalityA());
-            relaFrom.setOptionalityB(relationPower.getOptionalityB());
-            relaFrom.setOptionality(relationPower.getOptionalityA());
-            relaFrom.setNavigabilityA(relationPower.getNavigabilityA());
-            relaFrom.setNavigabilityB(relationPower.getNavigabilityB());
-            relaFrom.setNavigability(relationPower.getNavigabilityA());
-
-
-            relations.add(relaFrom);
-
 
         } // for relationPower
 
