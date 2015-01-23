@@ -43,28 +43,24 @@ line("|Atribute      |Type               |Length       |Null  |Unique ");
 
 line("|"+atributo.getField()+"|"+atributo.getType()+"|"+atributo.getLength()+"|"+atributo.getNulo()+"|"+atributo.getUnique());
 
-/*
-line("=== "+atributo.getField());
-line("* unico:"+atributo.getUnique());
-line("* tipo:"+atributo.getType());
-line("* nulo:"+atributo.getLength());
-line("* len:"+atributo.getNulo());
-*/
-
           } // for atributos
 line("|===");
 
-line("*RELATIONS:*");
-line("[options=\"header\"]");
-line("|===");
-line("|From      |Cardinality               |To       |Optionality  |Navigability ");
-
           relations = entidad.getRelations();
 
-          for(Relation relation : relations) {
-line("|"+relation.getFrom()+"|"+relation.getCardinality()+"|"+relation.getTo()+"|"+relation.getOptionality()+"|"+relation.getNavigability());
-          } // for Relation
+          if (relations.size() > 0){
+line("*RELATIONS:* "+relations.size());
+line("[options=\"header\"]");
 line("|===");
+line("|From | multiplicityA | multiplicityB | Cardinality | To | Optionality | Navigability ");
+          }
+
+          for(Relation relation : relations) {
+line("|"+relation.getFrom()+"|"+relation.getMultiplicityA()+"|"+relation.getMultiplicityB()+"|"+relation.getCardinality()+"|"+relation.getTo()+"|"+relation.getOptionality()+"|"+relation.getNavigability());
+          } // for Relation
+          if (relations.size() > 0){
+line("|===");
+          }
 
     } // for entidades
 

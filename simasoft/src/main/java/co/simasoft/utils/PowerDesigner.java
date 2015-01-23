@@ -18,6 +18,9 @@ public class PowerDesigner {
     private static ArrayList<Relation> relationsPower = new ArrayList<Relation>();
     private static Set<Relation> relations = new HashSet<Relation>(0);
 
+    String ref = "";
+    String multiplicity = "";
+
     public PowerDesigner(String fileOob) throws IOException {
         this.fileOob = fileOob;
         generar();
@@ -245,13 +248,109 @@ public class PowerDesigner {
     }
 
     public void relationsPower(){
+
         for (Relation relation : relationsPower) {
-            relation.setTo(getEntityName(relation.getRefTo()));
+
+            if (relation.getMultiplicityA().substring(3,4).equals(relation.getMultiplicityB().substring(3,4))){  // 1 == 1 or * == *
+
+/*             A  B
+               1  1
+               *  *
+*/
+
+               switch (relation.getMultiplicityA().substring(3,4)) {
+
+                   case "1":
+                            if (relation.getNavigabilityA()){
+                            }
+                            else{
+                            }
+                            break;
+
+                   case "*":
+                            if (relation.getNavigabilityA()){
+                            }
+                            else{
+                            }
+                            break;
+
+                   default: relation.setFrom("Error.MultiplicityA=");
+                            break;
+
+               } // switch
+
+
+            } // if
+
+            if (!relation.getMultiplicityA().substring(3,4).equals(relation.getMultiplicityB().substring(3,4))){  // Diferente
+
+/*             A  B
+               1  *
+               *  1
+*/
+
+               switch (relation.getMultiplicityA().substring(3,4)) {
+                   case "1":
+                            if (relation.getNavigabilityA()){
+                            }
+                            break;
+
+                   case "*":
+
+                            if (relation.getNavigabilityA()){
+
+                                ref = relation.getRefFrom();
+                                relation.setRefFrom(relation.getRefTo());
+                                relation.setRefTo(ref);
+
+                                multiplicity = relation.getMultiplicityA();
+                                relation.setMultiplicityA(relation.getMultiplicityB());
+                                relation.setMultiplicityB(multiplicity);
+
+                                relation.setFrom(getEntityName(relation.getRefFrom()));
+                                relation.setTo(getEntityName(relation.getRefTo()));
+
+                            }
+                            break;
+
+                   default: relation.setFrom("Error.MultiplicityA");
+                     break;
+               } // switch
+            } // if
+
+            else{
+
+/*             B  A
+               1  *
+               *  1
+*/
+
+               switch (relation.getMultiplicityB().substring(3,4)) {
+                   case "1":
+                            if (relation.getNavigabilityB()){
+                            }
+                            break;
+
+                   case "*":
+                            if (relation.getNavigabilityA()){
+                            }
+                            break;
+
+                   default: relation.setFrom("Error.MultiplicityB");
+                     break;
+               } // switch
+
+            } // else
+
             relation.setFrom(getEntityName(relation.getRefFrom()));
+            relation.setTo(getEntityName(relation.getRefTo()));
+            relation.setName(relation.getFrom()+"("+relation.getMultiplicityA()+")"+" TO "+relation.getTo()+"("+relation.getMultiplicityB()+")");
             relation.cardinality();
             relation.optionality();
-        }
-    }
+
+        } // for
+
+    } // relationsPower
 
     public void relations(){
 
@@ -260,34 +359,42 @@ public class PowerDesigner {
             Relation relaTo = new Relation();
             Relation relaFrom = new Relation();
 
-            relaFrom.setTo(relationPower.getTo());
             relaFrom.setFrom(relationPower.getFrom());
+            relaFrom.setTo(relationPower.getTo());
+
             relaFrom.setMultiplicityA(relationPower.getMultiplicityA());
             relaFrom.setMultiplicityB(relationPower.getMultiplicityB());
+
             relaFrom.setCardinalityA(relationPower.getCardinalityA());
             relaFrom.setCardinalityB(relationPower.getCardinalityB());
             relaFrom.setCardinality(relationPower.getCardinalityA());
+
             relaFrom.setOptionalityA(relationPower.getOptionalityA());
             relaFrom.setOptionalityB(relationPower.getOptionalityB());
             relaFrom.setOptionality(relationPower.getOptionalityA());
+
             relaFrom.setNavigabilityA(relationPower.getNavigabilityA());
             relaFrom.setNavigabilityB(relationPower.getNavigabilityB());
             relaFrom.setNavigability(relationPower.getNavigabilityA());
 
             relations.add(relaFrom);
 
-            relaTo.setTo(relationPower.getTo());
-            relaTo.setFrom(relationPower.getFrom());
-            relaTo.setMultiplicityA(relationPower.getMultiplicityA());
-            relaTo.setMultiplicityB(relationPower.getMultiplicityB());
-            relaTo.setCardinalityA(relationPower.getCardinalityA());
-            relaTo.setCardinalityB(relationPower.getCardinalityB());
+            relaTo.setFrom(relationPower.getTo());
+            relaTo.setTo(relationPower.getFrom());
+
+            relaTo.setMultiplicityA(relationPower.getMultiplicityB());
+            relaTo.setMultiplicityB(relationPower.getMultiplicityA());
+
+            relaTo.setCardinalityA(relationPower.getCardinalityB());
+            relaTo.setCardinalityB(relationPower.getCardinalityA());
             relaTo.setCardinality(relationPower.getCardinalityB());
-            relaTo.setOptionalityA(relationPower.getOptionalityA());
-            relaTo.setOptionalityB(relationPower.getOptionalityB());
+
+            relaTo.setOptionalityA(relationPower.getOptionalityB());
+            relaTo.setOptionalityB(relationPower.getOptionalityA());
             relaTo.setOptionality(relationPower.getOptionalityB());
-            relaTo.setNavigabilityA(relationPower.getNavigabilityA());
-            relaTo.setNavigabilityB(relationPower.getNavigabilityB());
+
+            relaTo.setNavigabilityA(relationPower.getNavigabilityB());
+            relaTo.setNavigabilityB(relationPower.getNavigabilityA());
             relaTo.setNavigability(relationPower.getNavigabilityB());
 
             relations.add(relaTo);

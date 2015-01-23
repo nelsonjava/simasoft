@@ -77,6 +77,7 @@ public class Ui{
         System.out.println();
         System.out.print("groupId: ");
         groupId = lectura.readLine();
+groupId = "com.simavirtual";
         return groupId;
 
     } // groupId

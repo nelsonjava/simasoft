@@ -14,7 +14,7 @@ public class Test extends FileTxt {
     }
 
 
-    public Test(String artifactId,String groupId,Set<Relation> relations) throws IOException {
+    public Test(String artifactId,String groupId,Set<Relation> relations,ArrayList<Relation> relationsPower) throws IOException {
 
         this.relations = relations;
 
@@ -31,15 +31,26 @@ line("////");
 line("== TEST");
 line("image::images/modelo.jpg[]");
 
-line("*RELATIONS:*"+relations.size());
+line("*RELATIONS POWER:* "+relationsPower.size());
 line("[options=\"header\"]");
 line("|===");
-line("|From      |Cardinality               |To       |Optionality  |Navigability ");
+line("|From | multiplicityA | multiplicityB | To | navigabilityA |navigabilityB");
 
-          for(Relation relation : relations) {
-line("|"+relation.getFrom()+"|"+relation.getCardinality()+"|"+relation.getTo()+"|"+relation.getOptionality()+"|"+relation.getNavigability());
+          for(Relation relaPower : relationsPower) {
+line("|"+relaPower.getFrom()+"|"+relaPower.getMultiplicityA()+"|"+relaPower.getMultiplicityB()+"|"+relaPower.getTo()+"|"+relaPower.getNavigabilityA()+"|"+relaPower.getNavigabilityB());
           } // for Relation
 line("|===");
+
+line("*RELATIONS:* "+relations.size());
+line("[options=\"header\"]");
+line("|===");
+line("|From | multiplicityA | multiplicityB | Cardinality | To | Optionality | Navigability ");
+
+          for(Relation relation : relations) {
+line("|"+relation.getFrom()+"|"+relation.getMultiplicityA()+"|"+relation.getMultiplicityB()+"|"+relation.getCardinality()+"|"+relation.getTo()+"|"+relation.getOptionality()+"|"+relation.getNavigability());
+          } // for Relation
+line("|===");
+
 
     } // Test
 

@@ -2,6 +2,8 @@ package co.simasoft.utils;
 
 public class Relation{
 
+    private String name = "";
+
     private String refTo = "";
     private String refFrom = "";
 
@@ -24,6 +26,14 @@ public class Relation{
     private boolean navigabilityB = false;
 
     public Relation() {
+    }
+
+    public String getName(){
+        return name;
+    }
+
+    public void setName(String name){
+        this.name = name;
     }
 
     public String getRefTo(){
