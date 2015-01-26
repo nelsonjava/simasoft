@@ -1,6 +1,7 @@
 package co.simasoft.generator.utils;
 
 import co.simasoft.utils.*;
+import co.simasoft.generator.jpa.*;
 import co.simasoft.generator.jar.*;
 import co.simasoft.generator.war.*;
 import co.simasoft.generator.asciidoc.*;
@@ -91,6 +92,10 @@ public class TypeApp{
         Test fileTest = new Test(artifactId,groupId,relations,relationsPower);
         Utils.fileMake(artifactId+".src.main.asciidoc.en-US.modules", "test.asciidoc", fileTest);
 
+        for(Entidad entidad : entidades) {
+            Entity1 entity1 = new Entity1(artifactId,groupId,entidad);
+            Utils.fileMake(artifactId+".src.main.java."+groupId+".model.contab",entidad.getName()+".java", entity1);
+        }
 
 
 /*
