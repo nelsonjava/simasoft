@@ -93,38 +93,13 @@ public class TypeApp{
         Utils.fileMake(artifactId+".src.main.asciidoc.en-US.modules", "test.asciidoc", fileTest);
 
         for(Entidad entidad : entidades) {
-            Entity1 entity1 = new Entity1(artifactId,groupId,entidad);
-            Utils.fileMake(artifactId+".src.main.java."+groupId+".model.contab",entidad.getName()+".java", entity1);
+
+            Entity0 entity0 = new Entity0(artifactId,groupId+".models.contab",entidad);
+            Utils.fileMake(artifactId+".src.main.java."+groupId+".models.contab.0",entidad.getName()+".java", entity0);
+
+            Entity1 entity1 = new Entity1(artifactId,groupId+".models.contab",entidad);
+            Utils.fileMake(artifactId+".src.main.java."+groupId+".models.contab.1",entidad.getName()+".java", entity1);
         }
-
-
-/*
-        ArrayList<Entidad> entidades = new ArrayList<Entidad>();
-        ArrayList<Atributos> atributos = new ArrayList<Atributos>();
-
-        PowerDesigner.Entidades("/dev/njava/modelos/uml/contab/contab.oob");
-
-        for(int i=0;i<entidades.size();i++) {
-
-          Entidad entidad = entidades.get(i);
-          System.out.println(entidad.getName());
-
-          atributos = entidad.getAtributos();
-          for(int j=0;j<atributos.size();j++) {
-              Atributos atributo = atributos.get(j);
-              System.out.println("------");
-              System.out.println("    campo:"+atributo.getField());
-              System.out.println("    unico:"+atributo.getUnique());
-              System.out.println("    tipo:"+atributo.getType());
-              System.out.println("    nulo:"+atributo.getLength());
-              System.out.println("    len:"+atributo.getNulo());
-
-          } // for atributos
-
-
-        } // for entidades
-
-*/
 
     } // ModeloAsciidoc
 

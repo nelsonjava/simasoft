@@ -17,7 +17,7 @@ public class Entidad {
     public Entidad(String name) {
         this.name = name;
     }
-    
+
     public String getRef(){
         return ref;
     }
@@ -36,6 +36,23 @@ public class Entidad {
 
     public ArrayList<Atributos> getAtributos(){
         return atributos;
+    }
+
+    public String getParameters(){
+
+        String parameters = "";
+        int j = 0;
+
+        for(int i=0;i<atributos.size();i++) {
+
+            Atributos  atributo = atributos.get(i);
+            parameters = parameters+atributo.getType()+" "+atributo.getField();
+
+            if (++j<atributos.size()){
+               parameters = parameters+",";
+            }
+        }
+        return parameters;
     }
 
     public void setAtributos(ArrayList<Atributos> atributos){

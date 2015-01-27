@@ -30,7 +30,7 @@ public class Atributos{
     }
 
     public String getType(){
-        return type;
+        return typeField(type);
     }
 
     public String getLength(){
@@ -69,4 +69,37 @@ public class Atributos{
         this.unique = unique;
     }
 
-}
+    public String typeField(String type){
+
+        String typeField = "";
+
+        switch (type) {
+
+            case "Long":
+                 typeField = "long";
+                 break;
+
+            case "Date":
+                 typeField = "date";
+                 break;
+
+            case "Text":
+                 typeField = "text";
+                 break;
+                 
+            case "number":
+                 typeField = "float";
+                 break;
+
+            default:
+                 typeField = type;
+                 break;
+
+        } // switch
+
+        return typeField;
+
+    } // typeField
+
+
+} // Atributos

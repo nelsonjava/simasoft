@@ -21,8 +21,12 @@ public class Entity1 extends FileTxt {
         this.atributos = entity.getAtributos();
         this.relations = entity.getRelations();
 
+line("package "+groupId+";\n");
+
+line("import "+groupId+".*;\n");
+
 line("import java.util.ArrayList;");
-line("import java.util.List;");
+line("import java.util.List;\n");
 
 line("import javax.persistence.ElementCollection;");
 line("import javax.persistence.Entity;");
@@ -31,40 +35,48 @@ line("import javax.persistence.GenerationType;");
 line("import javax.persistence.Id;");
 line("import javax.persistence.ManyToOne;");
 line("import javax.persistence.OrderColumn;");
-line("import javax.validation.constraints.NotNull;");
+line("import javax.validation.constraints.NotNull;\n");
 
 line("@Entity");
-line("public class "+entity.getName()+" {");
+line("public class "+entity.getName()+" {\n");
 
-line("	@Id");
-line("	@GeneratedValue(strategy=GenerationType.TABLE)");
-line("	public long id;");
+line("    @Id");
+line("    @GeneratedValue(strategy=GenerationType.TABLE)");
+line("    public long id;\n");
 
         for(Atributos atributo : atributos) {
 
            if (atributo.getNulo()) {
-line("	@NotNull");
+line("    @NotNull");
            }
-line("	public "+atributo.getType()+" "+atributo.getField()+";");
+line("    public "+atributo.getType()+" "+atributo.getField()+";\n");
 
         } // for atributos
 
         for(Relation relation : relations) {
 
            if(relation.getCardinality().equals("*..1")) {
-line("	@ManyToOne");
-line("	public "+relation.getTo()+" "+relation.getTo().toLowerCase()+";");
+line("    @ManyToOne");
+line("    public "+relation.getTo()+" "+relation.getTo().toLowerCase()+";\n");
            }
 
            if(relation.getCardinality().equals("1..*")) {
-line("	@OneToMany");
-line("	public Set<"+relation.getTo()+"> "+relation.getTo().toLowerCase()+" = new HashSet<>();");
+line("    @OneToMany");
+line("    public Set<"+relation.getTo()+"> "+relation.getTo().toLowerCase()+" = new HashSet<>();\n");
            }
 
         } // for relations
 
-line("	"+entity.getName()+"() {");
-line("	}");
+line("    "+entity.getName()+"() {");
+line("    }\n");
+
+line("    "+entity.getName()+"("+entity.getParameters()+") {");
+        for(Atributos atributo : atributos) {
+line("        this."+atributo.getField()+" = "+atributo.getField()+";");
+        }
+line("    }\n");
+
+line("} // entity"+"\n");
 
     } // Entity1
 
