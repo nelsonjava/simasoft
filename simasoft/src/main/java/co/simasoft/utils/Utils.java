@@ -46,7 +46,7 @@ public class Utils {
 
         // Se crean las carpetas de los paquetes
         for(String carpeta : carpetas) {
-            carpetasPaquetes += "/" + carpeta;
+            carpetasPaquetes += "//" + carpeta;
         }
 
         return carpetasPaquetes;
@@ -214,9 +214,9 @@ System.out.println("dirDest="+dirDest);
     }
 
 
-    public static void fileJar( String farchivo, String directory ) throws IOException {
+    public static void fileJar( String farchivo, String directory, String fileJar ) throws IOException {
 
-       java.util.jar.JarFile jar = new java.util.jar.JarFile("g.jar");
+       java.util.jar.JarFile jar = new java.util.jar.JarFile(fileJar);
        java.util.Enumeration otra = jar.entries();
 
        java.io.File f = new java.io.File(directory+farchivo);

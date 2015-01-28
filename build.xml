@@ -27,7 +27,8 @@
     <delete dir="generator/target" failonerror="no"/>
     <delete dir="simavirtual/target" failonerror="no"/>
     <delete dir="demo-war/target" failonerror="no"/>
-    <delete dir="prueba/target" failonerror="no"/>    
+    <delete dir="prueba/target" failonerror="no"/>
+    <delete dir="models/target" failonerror="no"/>    
   </target>
 
   <target name="site" description="Initialize the build">
