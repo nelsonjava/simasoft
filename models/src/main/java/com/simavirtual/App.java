@@ -25,9 +25,13 @@ public class App{
     private static String asciidocModules = "src.main.asciidoc.en-US.modules";
 
     public static void generarModelo(String pathPaquete,String artifactId) throws IOException {
+      
+        // Cleanup - Reinigung
+        entidades.clear();
+        relationsPower.clear();
+        relations.clear();
 
-//        path = Utils.Paths(pathPaquete);
-          path = pathPaquete;
+        path = Utils.Paths(pathPaquete);
 
         filePowerDesigner = "src/resources/models/"+path+"/"+artifactId+"/"+artifactId+".oob";
 
@@ -64,7 +68,7 @@ public class App{
 
     public static void main( String[] args ) throws IOException {
 
-//        generarModelo("contab","modelo");
+        generarModelo("contab","contab");
         generarModelo("iso","archivo-inactivo");
         generarModelo("iso","lmd");
         generarModelo("iso","lmr");

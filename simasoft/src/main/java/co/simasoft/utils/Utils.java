@@ -34,22 +34,7 @@ public class Utils {
     } // _1raMay
 
     public static String Paths(String paquete) {
-
-        String[] carpetas = paquete.split("\\.");
-
-        // Si el nombre del paquete no tiene puntos
-        if(carpetas.length == 1) {
-            return carpetas[0];
-        }
-
-        String carpetasPaquetes = carpetas[0];
-
-        // Se crean las carpetas de los paquetes
-        for(String carpeta : carpetas) {
-            carpetasPaquetes += "//" + carpeta;
-        }
-
-        return carpetasPaquetes;
+        return paquete.replace(".", "/");
 
     } // Path
 
