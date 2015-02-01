@@ -30,6 +30,8 @@
     <delete dir="prueba/target" failonerror="no"/>
     <delete dir="models/target" failonerror="no"/>
     <delete dir="models/docs" failonerror="no"/>
+    <delete dir="mongoApp/target" failonerror="no"/>
+
   </target>
 
   <target name="site" description="Initialize the build">
