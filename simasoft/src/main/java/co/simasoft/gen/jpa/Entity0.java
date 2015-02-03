@@ -69,8 +69,7 @@ public Entity0(String artifactId,String groupId,Entidad entity) throws IOExcepti
 //>>IMPORTS DE LA CLASE
       line("import "+groupId+".*;\n");
 
-      line("import java.util.ArrayList;");
-      line("import java.util.List;\n");
+      line("import java.util.*;\n");
 
       line("import javax.persistence.ElementCollection;");
       line("import javax.persistence.Entity;");
@@ -78,9 +77,26 @@ public Entity0(String artifactId,String groupId,Entidad entity) throws IOExcepti
       line("import javax.persistence.GenerationType;");
       line("import javax.persistence.Id;");
       line("import javax.persistence.ManyToOne;");
-      line("import javax.persistence.OrderColumn;");
-      line("import javax.validation.constraints.NotNull;\n");
+      line("import javax.persistence.OneToMany;");
+      line("import javax.persistence.OrderColumn;\n");
 //>>FIN IMPORTS DE LA CLASE
+
+//>>DOCUMENTACION DE LA CLASE
+line("/****************************************************************************************************************");
+line("* CLASE : "+entity.getName()+"                                                                                   *");
+line("*****************************************************************************************************************\n");
+
+line("AUTOR: Nelson A Fernández Gómez                FECHA DE INICIO: DIA DD MES/AAAA   FECHA FINAL: DIA DD MES/AAAA");
+line("       SIMASOFT Bucaramanga / SAN / Colombia   FECHA DE LA ULTIMA MODIFICACION:   DIA DD MES/AAAA HORA: HH:MM AM-PM\n");
+
+line("OBJETIVOS:\n");
+
+line("1- Entiy para MongoDb.\n");
+
+line("*---------------------------------------------------------------------------------------------------------------*");
+line("*------------------------------------------- DECLARACION DE LA CLASE -------------------------------------------*");
+line("*---------------------------------------------------------------------------------------------------------------*/\n");
+//>>FIN DOCUMENTACION DE LA CLASE
 
 //>>NAMEDQUERIES DE LA CLASE
 //>>FIN NAMEDQUERIES DE LA CLASE
@@ -110,7 +126,7 @@ public Entity0(String artifactId,String groupId,Entidad entity) throws IOExcepti
 
 //********ANNOTATIONS DEL ATTRIBUTO
            if (attribute.getNulo()) {
-               line("    @NotNull");
+//               line("    @NotNull");
            }
 //********FIN ANNOTATIONS DEL ATTRIBUTO
 
@@ -138,7 +154,7 @@ public Entity0(String artifactId,String groupId,Entidad entity) throws IOExcepti
 
 //********RELACION UNO A MUCHOS
             if(relation.getCardinality().equals("1..*")) {
-              line("    private Set<"+relation.getTo()+"> "+relation.getTo().toLowerCase()+" = new HashSet<>();\n");
+              line("    private Set<"+relation.getTo()+"> "+relation.getTo().toLowerCase()+" = new HashSet<"+relation.getTo()+">();\n");
             }
 //********FIN RELACION UNO A MUCHOS
 
@@ -163,25 +179,13 @@ public Entity0(String artifactId,String groupId,Entidad entity) throws IOExcepti
 
 //>>GET Y SET id
       line("    @Id");
-      line("    @GeneratedValue(strategy = IDENTITY)");
-      line("    @Column(name = \"id\", nullable=false, unique=true, length=0, precision=0, columnDefinition=\"\")");
-      line("    public Long getId() {");
+      line("    public long getId() {");
       line("        return this.id;");
-      line("    public void setId(Long id) {");
+      line("    }\n");
+      line("    public void setId(long id) {");
       line("        this.id = id;");
       line("    }\n");
 //>>FIN GET Y SET id
-
-//>>GET Y SET optlock
-      line("    @Version");
-      line("    @Column(name = \"optlock\", nullable=true, unique=false, length=0, precision=0, columnDefinition=\"\")");
-      line("    public Integer getOptlock() {");
-      line("        return this.optlock;");
-      line("    }");
-      line("    public void setOptlock(Integer optlock) {");
-      line("        this.optlock = optlock;");
-      line("    }\n");
-//>>FIN GET Y SET optlock
 
 //>>GET Y SET DE ATRIBUTOS
       for(Atributos atributo : atributos) {
@@ -205,7 +209,7 @@ public Entity0(String artifactId,String groupId,Entidad entity) throws IOExcepti
             if(relation.getCardinality().equals("*..1")) {
                line("    @ManyToOne");
                line("    public " + relation.getTo() + " get" + Utils._1raMay(relation.getTo()) + "() {");
-               line("        return " + relation.getTo() + ";");
+               line("        return " + Utils._1raMin(relation.getTo()) + ";");
                line("    }");
                line("    public void set" + Utils._1raMay(relation.getTo()) + "(" + Utils._1raMay(relation.getTo()) + " " + Utils._1raMin(relation.getTo()) + ") {");
                line("        this." + Utils._1raMin(relation.getTo()) + " = " + Utils._1raMin(relation.getTo()) + ";");
@@ -216,10 +220,10 @@ public Entity0(String artifactId,String groupId,Entidad entity) throws IOExcepti
 //********RELACION UNO A MUCHOS
             if(relation.getCardinality().equals("1..*")) {
                line("    @OneToMany");
-               line("    public " + relation.getTo() + " get" + Utils._1raMay(relation.getTo()) + "() {");
-               line("        return " + relation.getTo() + ";");
+               line("    public Set<" + relation.getTo() + "> get" + Utils._1raMay(relation.getTo()) + "() {");
+               line("        return " + Utils._1raMin(relation.getTo()) + ";");
                line("    }");
-               line("    public void set" + Utils._1raMay(relation.getTo()) + "(" + Utils._1raMay(relation.getTo()) + " " + Utils._1raMin(relation.getTo()) + ") {");
+               line("    public void set" + Utils._1raMay(relation.getTo()) + "(Set<" + Utils._1raMay(relation.getTo()) + "> " + Utils._1raMin(relation.getTo()) + ") {");
                line("        this." + Utils._1raMin(relation.getTo()) + " = " + Utils._1raMin(relation.getTo()) + ";");
                line("    }\n");
             }

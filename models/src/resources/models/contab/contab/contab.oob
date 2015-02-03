@@ -1385,8 +1385,8 @@ Multiplicity 0 Arial,8,N</a:FontList>
 <a:ModificationDate>1422385670</a:ModificationDate>
 <a:SourceTextOffset>(37, 887)</a:SourceTextOffset>
 <a:DestinationTextOffset>(-1463, 388)</a:DestinationTextOffset>
-<a:Rect>((-4958,-16260), (11289,-1079))</a:Rect>
-<a:ListOfPoints>((-4958,-16260),(11289,-16260),(11289,-1079))</a:ListOfPoints>
+<a:Rect>((-4958,-16260), (11301,-1079))</a:Rect>
+<a:ListOfPoints>((-4958,-16260),(11301,-16260),(11301,-1079))</a:ListOfPoints>
 <a:CornerStyle>1</a:CornerStyle>
 <a:ArrowStyle>0</a:ArrowStyle>
 <a:LineColor>16744448</a:LineColor>
@@ -1570,7 +1570,7 @@ LABL 0 Arial,8,N</a:FontList>
 <o:ClassSymbol Id="o15">
 <a:CreationDate>1361052634</a:CreationDate>
 <a:ModificationDate>1361056435</a:ModificationDate>
-<a:Rect>((6586,-2470), (16292,6520))</a:Rect>
+<a:Rect>((6972,-2470), (15906,6520))</a:Rect>
 <a:LineColor>16744448</a:LineColor>
 <a:FillColor>16770222</a:FillColor>
 <a:ShadowColor>12632256</a:ShadowColor>
@@ -1795,9 +1795,9 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Code>valor</a:Code>
 <a:CreationDate>1361055552</a:CreationDate>
 <a:Creator>admin</a:Creator>
-<a:ModificationDate>1361055552</a:ModificationDate>
+<a:ModificationDate>1422963737</a:ModificationDate>
 <a:Modifier>admin</a:Modifier>
-<a:DataType>number</a:DataType>
+<a:DataType>float</a:DataType>
 <a:Attribute.Visibility>-</a:Attribute.Visibility>
 </o:Attribute>
 <o:Attribute Id="o45">
@@ -1817,9 +1817,9 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Code>base</a:Code>
 <a:CreationDate>1361055747</a:CreationDate>
 <a:Creator>admin</a:Creator>
-<a:ModificationDate>1361055747</a:ModificationDate>
+<a:ModificationDate>1422963737</a:ModificationDate>
 <a:Modifier>admin</a:Modifier>
-<a:DataType>number</a:DataType>
+<a:DataType>float</a:DataType>
 <a:Attribute.Visibility>-</a:Attribute.Visibility>
 </o:Attribute>
 <o:Attribute Id="o47">
@@ -1855,7 +1855,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Code>Saldos</a:Code>
 <a:CreationDate>1361052634</a:CreationDate>
 <a:Creator>admin</a:Creator>
-<a:ModificationDate>1422385612</a:ModificationDate>
+<a:ModificationDate>1422963804</a:ModificationDate>
 <a:Modifier>admin</a:Modifier>
 <a:UseParentNamespace>0</a:UseParentNamespace>
 <c:Attributes>
@@ -1887,9 +1887,9 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Code>debitos</a:Code>
 <a:CreationDate>1361055961</a:CreationDate>
 <a:Creator>admin</a:Creator>
-<a:ModificationDate>1361055961</a:ModificationDate>
+<a:ModificationDate>1422963804</a:ModificationDate>
 <a:Modifier>admin</a:Modifier>
-<a:DataType>number</a:DataType>
+<a:DataType>float</a:DataType>
 <a:Attribute.Visibility>-</a:Attribute.Visibility>
 </o:Attribute>
 <o:Attribute Id="o52">
@@ -1898,9 +1898,9 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Code>creditos</a:Code>
 <a:CreationDate>1361055961</a:CreationDate>
 <a:Creator>admin</a:Creator>
-<a:ModificationDate>1361055961</a:ModificationDate>
+<a:ModificationDate>1422963804</a:ModificationDate>
 <a:Modifier>admin</a:Modifier>
-<a:DataType>number</a:DataType>
+<a:DataType>float</a:DataType>
 <a:Attribute.Visibility>-</a:Attribute.Visibility>
 </o:Attribute>
 <o:Attribute Id="o53">
@@ -1909,9 +1909,9 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Code>saldoInicial</a:Code>
 <a:CreationDate>1361056006</a:CreationDate>
 <a:Creator>admin</a:Creator>
-<a:ModificationDate>1361056006</a:ModificationDate>
+<a:ModificationDate>1422963804</a:ModificationDate>
 <a:Modifier>admin</a:Modifier>
-<a:DataType>number</a:DataType>
+<a:DataType>float</a:DataType>
 <a:Attribute.Visibility>-</a:Attribute.Visibility>
 </o:Attribute>
 <o:Attribute Id="o54">
@@ -1920,9 +1920,9 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Code>saldoFinal</a:Code>
 <a:CreationDate>1361056006</a:CreationDate>
 <a:Creator>admin</a:Creator>
-<a:ModificationDate>1361056006</a:ModificationDate>
+<a:ModificationDate>1422963804</a:ModificationDate>
 <a:Modifier>admin</a:Modifier>
-<a:DataType>number</a:DataType>
+<a:DataType>float</a:DataType>
 <a:Attribute.Visibility>-</a:Attribute.Visibility>
 </o:Attribute>
 </c:Attributes>

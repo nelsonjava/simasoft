@@ -79,14 +79,14 @@ public class Atributos{
                  typeField = "long";
                  break;
 
-            case "Date":
-                 typeField = "date";
+            case "date":
+                 typeField = "Date";
                  break;
 
             case "Text":
-                 typeField = "text";
+                 typeField = "String";
                  break;
-                 
+
             case "number":
                  typeField = "float";
                  break;
