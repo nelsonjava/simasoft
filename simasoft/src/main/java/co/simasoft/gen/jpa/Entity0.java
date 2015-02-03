@@ -70,15 +70,8 @@ public Entity0(String artifactId,String groupId,Entidad entity) throws IOExcepti
       line("import "+groupId+".*;\n");
 
       line("import java.util.*;\n");
-
-      line("import javax.persistence.ElementCollection;");
-      line("import javax.persistence.Entity;");
-      line("import javax.persistence.GeneratedValue;");
-      line("import javax.persistence.GenerationType;");
-      line("import javax.persistence.Id;");
-      line("import javax.persistence.ManyToOne;");
-      line("import javax.persistence.OneToMany;");
-      line("import javax.persistence.OrderColumn;\n");
+      line("import javax.persistence.*;");
+      line("import javax.validation.constraints.*;\n");
 //>>FIN IMPORTS DE LA CLASE
 
 //>>DOCUMENTACION DE LA CLASE

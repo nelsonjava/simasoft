@@ -1,25 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+         http://maven.apache.org/maven-v4_0_0.xsd">
 
-  <!-- java -jar target/mongoApp-1.0-SNAPSHOT.jar -->
-  <!-- java -jar target/mongoApp-1.0-SNAPSHOT-jar-with-dependencies.jar  -->
-  <!-- mvn clean compile assembly:single -->
-
-  <!-- 1. Maven add classpath to manifest -->
-  <!-- 2. Copy dependencies to target folder -->
-  <!-- 3. Add third-party libraries -->
-  <!-- 4. maven add dependencies to jar -->
-  <!-- http://stackoverflow.com/questions/574594/how-can-i-create-an-executable-jar-with-dependencies-using-maven  -->
+  <!-- http://sinjava.blogspot.com/2012/10/hola-mundo-jsf.html -->
+  <!-- mvn clean package wildfly:deploy -->
+  <!-- http://localhost:8080 -->
+  <!-- http://localhost:8080/mongoWar -->
 
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.simavirtual</groupId>
-  <artifactId>mongoApp</artifactId>
-  <packaging>jar</packaging>
-  <version>1.0-SNAPSHOT</version>
-  <name>mongoApp</name>
-  <url>http://maven.apache.org</url>
+  <artifactId>mongoWar</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
+  <packaging>war</packaging>
+
+  <repositories>
+    <repository>
+      <id>JBOSS_NEXUS</id>
+      <url>http://repository.jboss.org/nexus/content/groups/public</url>
+    </repository>
+  </repositories>
+
+    <properties>
+      <!-- Explicitly declaring the source encoding eliminates the following message: -->
+      <!-- [WARNING] Using platform encoding (UTF-8 actually) to copy filtered
+           resources, i.e. build is platform dependent! -->
+      <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
 
   <dependencyManagement>
     <dependencies>
@@ -54,9 +63,10 @@
     </dependencies>
   </dependencyManagement>
 
-  <dependencies>
 
-    <dependency>
+  <dependencies>
+  
+      <dependency>
       <groupId>co.simasoft</groupId>
       <artifactId>simasoft</artifactId>
       <version>1.0-SNAPSHOT</version>
@@ -117,58 +127,64 @@
         <artifactId>jbossjta</artifactId>
     </dependency>
 
+
+    <!-- Import the CDI API, we use provided scope as the API is included in JBoss WildFly -->
+    <dependency>
+      <groupId>javax.enterprise</groupId>
+      <artifactId>cdi-api</artifactId>
+      <scope>provided</scope>
+    </dependency>
+
+    <!-- Import the Common Annotations API (JSR-250), we use provided scope
+         as the API is included in JBoss WildFly -->
+    <dependency>
+      <groupId>org.jboss.spec.javax.annotation</groupId>
+      <artifactId>jboss-annotations-api_1.2_spec</artifactId>
+      <scope>provided</scope>
+    </dependency>
+
+    <!-- https://www.jcp.org/en/jsr/detail?id=314 - JSR 314: JavaServer Faces 2.0 -->
+    <!-- https://www.jcp.org/en/jsr/detail?id=344 - JSR 344: JavaServerTM Faces 2.2 -->
+    <!-- Import the JSF API, we use provided scope as the API is included in JBoss WildFly -->
+    <dependency>
+      <groupId>org.jboss.spec.javax.faces</groupId>
+      <artifactId>jboss-jsf-api_2.2_spec</artifactId>
+      <scope>provided</scope>
+    </dependency>
+
   </dependencies>
 
   <build>
-
-    <resources>
-      <resource>
-        <directory>src/resources</directory>
-        <excludes><exclude>**/*.java</exclude></excludes>
-      </resource>
-    </resources>
-
+    <finalName>${project.artifactId}</finalName>
     <plugins>
 
       <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-jar-plugin</artifactId>
-        <version>2.4</version>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>2.1.1</version>
         <configuration>
-          <archive>
-            <manifest>
-              <mainClass>com.simavirtual.App</mainClass>
-            </manifest>
-          </archive>
+          <!-- Java EE 7 doesn't require web.xml, Maven needs to catch up! -->
+          <failOnMissingWebXml>false</failOnMissingWebXml>
         </configuration>
       </plugin>
 
+      <!-- WildFly plugin to deploy war -->
       <plugin>
-        <artifactId>maven-assembly-plugin</artifactId>
+        <groupId>org.wildfly.plugins</groupId>
+        <artifactId>wildfly-maven-plugin</artifactId>
+        <version>1.0.2.Final</version>
+      </plugin>
+      <!-- Compiler plugin enforces Java 1.7 compatibility and activates annotation processors -->
+      <!-- mvn archetype:generate > a.txt -->
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.1</version>
         <configuration>
-          <archive>
-            <manifest>
-              <mainClass>com.simavirtual.App</mainClass>
-            </manifest>
-          </archive>
-          <descriptorRefs>
-            <descriptorRef>jar-with-dependencies</descriptorRef>
-          </descriptorRefs>
+          <source>1.7</source>
+          <target>1.7</target>
+          <encoding>UTF-8</encoding>
         </configuration>
-        <executions>
-          <execution>
-            <id>make-assembly</id> <!-- this is used for inheritance merges -->
-            <phase>package</phase> <!-- bind to the packaging phase -->
-            <goals>
-              <goal>single</goal>
-            </goals>
-          </execution>
-        </executions>
       </plugin>
 
     </plugins>
-
   </build>
-
 </project>
-
