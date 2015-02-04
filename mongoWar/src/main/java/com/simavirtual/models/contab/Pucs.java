@@ -43,7 +43,11 @@ public class Pucs {
 
     private String observaciones;
 
+    private Pucs objPadre;
+
     private Set<Saldos> saldos = new HashSet<Saldos>();
+
+    private Set<Pucs> objHijos = new HashSet<Pucs>();
 
     private Set<Movimientos> movimientos = new HashSet<Movimientos>();
 
@@ -102,12 +106,28 @@ public class Pucs {
         this.observaciones = observaciones;
     }
 
+    @ManyToOne
+    public Pucs getObjPadre() {
+        return this.objPadre;
+    }
+    public void setObjPadre(Pucs objPadre) {
+        this.objPadre = objPadre;
+    }
+
     @OneToMany
     public Set<Saldos> getSaldos() {
         return saldos;
     }
     public void setSaldos(Set<Saldos> saldos) {
         this.saldos = saldos;
+    }
+
+    @OneToMany
+    public Set<Pucs> getObjHijos() {
+        return this.objHijos;
+    }
+    public void setObjHijos(Set<Pucs> objHijos) {
+        this.objHijos = objHijos;
     }
 
     @OneToMany

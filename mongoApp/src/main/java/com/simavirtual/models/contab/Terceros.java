@@ -43,9 +43,9 @@ public class Terceros {
 
     private String observaciones;
 
-    private Set<Saldos> saldos = new HashSet<Saldos>();
-
     private Set<Movimientos> movimientos = new HashSet<Movimientos>();
+
+    private Set<Saldos> saldos = new HashSet<Saldos>();
 
     Terceros() {
     }
@@ -103,19 +103,19 @@ public class Terceros {
     }
 
     @OneToMany
-    public Set<Saldos> getSaldos() {
-        return saldos;
-    }
-    public void setSaldos(Set<Saldos> saldos) {
-        this.saldos = saldos;
-    }
-
-    @OneToMany
     public Set<Movimientos> getMovimientos() {
         return movimientos;
     }
     public void setMovimientos(Set<Movimientos> movimientos) {
         this.movimientos = movimientos;
+    }
+
+    @OneToMany
+    public Set<Saldos> getSaldos() {
+        return saldos;
+    }
+    public void setSaldos(Set<Saldos> saldos) {
+        this.saldos = saldos;
     }
 
 } // entity

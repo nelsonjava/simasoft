@@ -45,9 +45,9 @@ public class Movimientos {
 
     private String detalle;
 
-    private Terceros terceros;
-
     private Pucs pucs;
+
+    private Terceros terceros;
 
     Movimientos() {
     }
@@ -113,19 +113,19 @@ public class Movimientos {
     }
 
     @ManyToOne
-    public Terceros getTerceros() {
-        return terceros;
-    }
-    public void setTerceros(Terceros terceros) {
-        this.terceros = terceros;
-    }
-
-    @ManyToOne
     public Pucs getPucs() {
         return pucs;
     }
     public void setPucs(Pucs pucs) {
         this.pucs = pucs;
+    }
+
+    @ManyToOne
+    public Terceros getTerceros() {
+        return terceros;
+    }
+    public void setTerceros(Terceros terceros) {
+        this.terceros = terceros;
     }
 
 } // entity

@@ -141,13 +141,23 @@ line("*-------------------------------------------------------------------------
 
 //********RELACION MUCHOS A UNO
             if(relation.getCardinality().equals("*..1")) {
-              line("    private "+relation.getTo()+" "+relation.getTo().toLowerCase()+";\n");
+              if (relation.getFrom().equals(relation.getTo())){   // Relación Unitaria
+                 line("    private "+relation.getTo()+" objPadre;\n");
+              }
+              else{
+                 line("    private "+relation.getTo()+" "+relation.getTo().toLowerCase()+";\n");
+              }
             }
 //********RELACION MUCHOS A UNO
 
 //********RELACION UNO A MUCHOS
             if(relation.getCardinality().equals("1..*")) {
-              line("    private Set<"+relation.getTo()+"> "+relation.getTo().toLowerCase()+" = new HashSet<"+relation.getTo()+">();\n");
+              if(relation.getFrom().equals(relation.getTo())){  // Relación Unitaria
+                line("    private Set<"+relation.getTo()+"> objHijos = new HashSet<"+relation.getTo()+">();\n");
+              }
+              else{
+                line("    private Set<"+relation.getTo()+"> "+relation.getTo().toLowerCase()+" = new HashSet<"+relation.getTo()+">();\n");
+              }
             }
 //********FIN RELACION UNO A MUCHOS
 
@@ -200,25 +210,51 @@ line("*-------------------------------------------------------------------------
 
 //********RELACION MUCHOS A UNO
             if(relation.getCardinality().equals("*..1")) {
-               line("    @ManyToOne");
-               line("    public " + relation.getTo() + " get" + Utils._1raMay(relation.getTo()) + "() {");
-               line("        return " + Utils._1raMin(relation.getTo()) + ";");
-               line("    }");
-               line("    public void set" + Utils._1raMay(relation.getTo()) + "(" + Utils._1raMay(relation.getTo()) + " " + Utils._1raMin(relation.getTo()) + ") {");
-               line("        this." + Utils._1raMin(relation.getTo()) + " = " + Utils._1raMin(relation.getTo()) + ";");
-               line("    }\n");
+
+              if(relation.getFrom().equals(relation.getTo())){  // Relación Unitaria
+                 line("    @ManyToOne");
+                 line("    public " + relation.getTo() + " getObjPadre() {");
+                 line("        return this.objPadre;");
+                 line("    }");
+                 line("    public void setObjPadre(" + Utils._1raMay(relation.getTo()) + " objPadre) {");
+                 line("        this.objPadre = objPadre;");
+                 line("    }\n");
+              }
+              else{
+                 line("    @ManyToOne");
+                 line("    public " + relation.getTo() + " get" + Utils._1raMay(relation.getTo()) + "() {");
+                 line("        return " + Utils._1raMin(relation.getTo()) + ";");
+                 line("    }");
+                 line("    public void set" + Utils._1raMay(relation.getTo()) + "(" + Utils._1raMay(relation.getTo()) + " " + Utils._1raMin(relation.getTo()) + ") {");
+                 line("        this." + Utils._1raMin(relation.getTo()) + " = " + Utils._1raMin(relation.getTo()) + ";");
+                 line("    }\n");
+              }
+
             }
 //********RELACION MUCHOS A UNO
 
 //********RELACION UNO A MUCHOS
             if(relation.getCardinality().equals("1..*")) {
-               line("    @OneToMany");
-               line("    public Set<" + relation.getTo() + "> get" + Utils._1raMay(relation.getTo()) + "() {");
-               line("        return " + Utils._1raMin(relation.getTo()) + ";");
-               line("    }");
-               line("    public void set" + Utils._1raMay(relation.getTo()) + "(Set<" + Utils._1raMay(relation.getTo()) + "> " + Utils._1raMin(relation.getTo()) + ") {");
-               line("        this." + Utils._1raMin(relation.getTo()) + " = " + Utils._1raMin(relation.getTo()) + ";");
-               line("    }\n");
+
+              if(relation.getFrom().equals(relation.getTo())){  // Relación Unitaria
+                 line("    @OneToMany");
+                 line("    public Set<" + relation.getTo() + "> getObjHijos() {");
+                 line("        return this.objHijos;");
+                 line("    }");
+                 line("    public void setObjHijos(Set<" + Utils._1raMay(relation.getTo()) + "> objHijos) {");
+                 line("        this.objHijos = objHijos;");
+                 line("    }\n");
+              }
+              else{
+                 line("    @OneToMany");
+                 line("    public Set<" + relation.getTo() + "> get" + Utils._1raMay(relation.getTo()) + "() {");
+                 line("        return " + Utils._1raMin(relation.getTo()) + ";");
+                 line("    }");
+                 line("    public void set" + Utils._1raMay(relation.getTo()) + "(Set<" + Utils._1raMay(relation.getTo()) + "> " + Utils._1raMin(relation.getTo()) + ") {");
+                 line("        this." + Utils._1raMin(relation.getTo()) + " = " + Utils._1raMin(relation.getTo()) + ";");
+                 line("    }\n");
+              }
+
             }
 //********FIN RELACION UNO A MUCHOS
 
