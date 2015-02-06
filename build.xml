@@ -31,7 +31,9 @@
     <delete dir="models/target" failonerror="no"/>
     <delete dir="models/docs" failonerror="no"/>
     <delete dir="mongoApp/target" failonerror="no"/>
-    <delete dir="mongoWar/target" failonerror="no"/>    
+    <delete dir="mongoWar/target" failonerror="no"/>
+    <delete dir="hikingApp/target" failonerror="no"/>
+    <delete dir="hikingApp-demo" failonerror="no"/>
 
   </target>
 
