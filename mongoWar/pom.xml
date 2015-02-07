@@ -78,10 +78,10 @@
       <version>3.8.1</version>
       <scope>test</scope>
     </dependency>
-    
+
     <dependency>
-        <groupId>org.hibernate.ogm</groupId>
-        <artifactId>hibernate-ogm-infinispan</artifactId>
+      <groupId>org.hibernate.ogm</groupId>
+      <artifactId>hibernate-ogm-mongodb</artifactId>
     </dependency>
 
     <dependency>
@@ -89,11 +89,6 @@
       <artifactId>hibernate-jpa-2.1-api</artifactId>
     </dependency>
 
-    <dependency>
-        <groupId>org.hibernate.ogm</groupId>
-        <artifactId>hibernate-ogm-infinispan</artifactId>
-    </dependency>
-    
     <!-- JSR-303 (Bean Validation) Implementation -->
     <!-- Provides portable constraints such as @Email -->
     <!-- Hibernate Validator is shipped in JBoss WildFly -->

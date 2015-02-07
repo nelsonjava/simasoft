@@ -49,10 +49,25 @@
           <type>pom</type>
           <scope>import</scope>
         </dependency>
+        
+      <!-- https://repository.jboss.org/nexus/content/groups/public-jboss/org/hibernate/ogm/hibernate-ogm-bom/ -->
+      <dependency>
+        <groupId>org.hibernate.ogm</groupId>
+        <artifactId>hibernate-ogm-bom</artifactId>
+        <version>4.1.1.Final</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+
       </dependencies>
     </dependencyManagement>
 
   <dependencies>
+  
+    <dependency>
+      <groupId>org.hibernate.ogm</groupId>
+      <artifactId>hibernate-ogm-mongodb</artifactId>
+    </dependency>
 
     <!-- Import the CDI API, we use provided scope as the API is included in JBoss WildFly -->
     <dependency>

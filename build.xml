@@ -33,7 +33,7 @@
     <delete dir="mongoApp/target" failonerror="no"/>
     <delete dir="mongoWar/target" failonerror="no"/>
     <delete dir="hikingApp/target" failonerror="no"/>
-    <delete dir="hikingApp-demo" failonerror="no"/>
+    <delete dir="hiking-demo/target" failonerror="no"/>
 
   </target>
 
