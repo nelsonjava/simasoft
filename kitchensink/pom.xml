@@ -41,6 +41,8 @@
         <!-- [WARNING] Using platform encoding (UTF-8 actually) to copy filtered
             resources, i.e. build is platform dependent! -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        
+        <org.hibernate.ogm.version>4.1.0.Final</org.hibernate.ogm.version>        
 
         <!-- JBoss dependency versions -->
         <version.wildfly.maven.plugin>1.0.2.Final</version.wildfly.maven.plugin>
@@ -89,6 +91,13 @@
     </dependencyManagement>
 
     <dependencies>
+    
+        <dependency>
+            <groupId>org.hibernate.ogm</groupId>
+            <artifactId>hibernate-ogm-mongodb</artifactId>
+            <version>${org.hibernate.ogm.version}</version>
+            <scope>provided</scope>
+        </dependency>
 
         <!-- First declare the APIs we depend on and need for compilation. All
             of them are provided by JBoss WildFly -->
