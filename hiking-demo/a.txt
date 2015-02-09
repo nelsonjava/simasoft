@@ -1,0 +1,187 @@
+[INFO] Scanning for projects...
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building hibernate-ogm-hiking-demo 1.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ hiking-demo ---
+[INFO] Deleting D:\dev\njava\simasoft\hiking-demo\target
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ hiking-demo ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ hiking-demo ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ hiking-demo ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ hiking-demo ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 2 source files to D:\dev\njava\simasoft\hiking-demo\target\test-classes
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /D:/dev/njava/simasoft/hiking-demo/src/test/java/org/hibernate/ogm/hiking/HikeRepositoryIT.java:[12,38] package org.hibernate.ogm.hiking.model does not exist
+[ERROR] /D:/dev/njava/simasoft/hiking-demo/src/test/java/org/hibernate/ogm/hiking/HikeRepositoryIT.java:[13,38] package org.hibernate.ogm.hiking.model does not exist
+[ERROR] /D:/dev/njava/simasoft/hiking-demo/src/test/java/org/hibernate/ogm/hiking/HikeRepositoryIT.java:[14,43] package org.hibernate.ogm.hiking.repository does not exist
+[ERROR] /D:/dev/njava/simasoft/hiking-demo/src/test/java/org/hibernate/ogm/hiking/HikeRepositoryIT.java:[33,17] cannot find symbol
+  symbol:   class HikeRepository
+  location: class org.hibernate.ogm.hiking.HikeRepositoryIT
+[ERROR] /D:/dev/njava/simasoft/hiking-demo/src/test/java/org/hibernate/ogm/hiking/HikeTest.java:[9,38] package org.hibernate.ogm.hiking.model does not exist
+[ERROR] /D:/dev/njava/simasoft/hiking-demo/src/test/java/org/hibernate/ogm/hiking/HikeTest.java:[10,38] package org.hibernate.ogm.hiking.model does not exist
+[ERROR] /D:/dev/njava/simasoft/hiking-demo/src/test/java/org/hibernate/ogm/hiking/HikeTest.java:[11,38] package org.hibernate.ogm.hiking.model does not exist
+[ERROR] /D:/dev/njava/simasoft/hiking-demo/src/test/java/org/hibernate/ogm/hiking/HikeRepositoryIT.java:[43,38] cannot find symbol
+  symbol:   class HikeRepository
+  location: class org.hibernate.ogm.hiking.HikeRepositoryIT
+[ERROR] /D:/dev/njava/simasoft/hiking-demo/src/test/java/org/hibernate/ogm/hiking/HikeRepositoryIT.java:[42,38] cannot find symbol
+  symbol:   class Hike
+  location: class org.hibernate.ogm.hiking.HikeRepositoryIT
+[ERROR] /D:/dev/njava/simasoft/hiking-demo/src/test/java/org/hibernate/ogm/hiking/HikeRepositoryIT.java:[54,17] cannot find symbol
+  symbol:   class Hike
+  location: class org.hibernate.ogm.hiking.HikeRepositoryIT
+[ERROR] /D:/dev/njava/simasoft/hiking-demo/src/test/java/org/hibernate/ogm/hiking/HikeRepositoryIT.java:[54,60] cannot find symbol
+  symbol:   class Hike
+  location: class org.hibernate.ogm.hiking.HikeRepositoryIT
+[ERROR] /D:/dev/njava/simasoft/hiking-demo/src/test/java/org/hibernate/ogm/hiking/HikeRepositoryIT.java:[54,97] cannot find symbol
+  symbol:   class Person
+  location: class org.hibernate.ogm.hiking.HikeRepositoryIT
+[ERROR] /D:/dev/njava/simasoft/hiking-demo/src/test/java/org/hibernate/ogm/hiking/HikeRepositoryIT.java:[59,44] cannot find symbol
+  symbol:   class Hike
+  location: class org.hibernate.ogm.hiking.HikeRepositoryIT
+[ERROR] /D:/dev/njava/simasoft/hiking-demo/src/test/java/org/hibernate/ogm/hiking/HikeTest.java:[35,17] cannot find symbol
+  symbol:   class Hike
+  location: class org.hibernate.ogm.hiking.HikeTest
+[ERROR] /D:/dev/njava/simasoft/hiking-demo/src/test/java/org/hibernate/ogm/hiking/HikeTest.java:[35,33] cannot find symbol
+  symbol:   class Hike
+  location: class org.hibernate.ogm.hiking.HikeTest
+[ERROR] /D:/dev/njava/simasoft/hiking-demo/src/test/java/org/hibernate/ogm/hiking/HikeTest.java:[41,44] cannot find symbol
+  symbol:   class Hike
+  location: class org.hibernate.ogm.hiking.HikeTest
+[ERROR] /D:/dev/njava/simasoft/hiking-demo/src/test/java/org/hibernate/ogm/hiking/HikeTest.java:[53,17] cannot find symbol
+  symbol:   class Hike
+  location: class org.hibernate.ogm.hiking.HikeTest
+[ERROR] /D:/dev/njava/simasoft/hiking-demo/src/test/java/org/hibernate/ogm/hiking/HikeTest.java:[53,33] cannot find symbol
+  symbol:   class Hike
+  location: class org.hibernate.ogm.hiking.HikeTest
+[ERROR] /D:/dev/njava/simasoft/hiking-demo/src/test/java/org/hibernate/ogm/hiking/HikeTest.java:[54,40] cannot find symbol
+  symbol:   class Section
+  location: class org.hibernate.ogm.hiking.HikeTest
+[ERROR] /D:/dev/njava/simasoft/hiking-demo/src/test/java/org/hibernate/ogm/hiking/HikeTest.java:[55,40] cannot find symbol
+  symbol:   class Section
+  location: class org.hibernate.ogm.hiking.HikeTest
+[ERROR] /D:/dev/njava/simasoft/hiking-demo/src/test/java/org/hibernate/ogm/hiking/HikeTest.java:[61,44] cannot find symbol
+  symbol:   class Hike
+  location: class org.hibernate.ogm.hiking.HikeTest
+[ERROR] /D:/dev/njava/simasoft/hiking-demo/src/test/java/org/hibernate/ogm/hiking/HikeTest.java:[74,17] cannot find symbol
+  symbol:   class Hike
+  location: class org.hibernate.ogm.hiking.HikeTest
+[ERROR] /D:/dev/njava/simasoft/hiking-demo/src/test/java/org/hibernate/ogm/hiking/HikeTest.java:[74,33] cannot find symbol
+  symbol:   class Hike
+  location: class org.hibernate.ogm.hiking.HikeTest
+[ERROR] /D:/dev/njava/simasoft/hiking-demo/src/test/java/org/hibernate/ogm/hiking/HikeTest.java:[75,17] cannot find symbol
+  symbol:   class Person
+  location: class org.hibernate.ogm.hiking.HikeTest
+[ERROR] /D:/dev/njava/simasoft/hiking-demo/src/test/java/org/hibernate/ogm/hiking/HikeTest.java:[75,34] cannot find symbol
+  symbol:   class Person
+  location: class org.hibernate.ogm.hiking.HikeTest
+[ERROR] /D:/dev/njava/simasoft/hiking-demo/src/test/java/org/hibernate/ogm/hiking/HikeTest.java:[86,44] cannot find symbol
+  symbol:   class Hike
+  location: class org.hibernate.ogm.hiking.HikeTest
+[ERROR] /D:/dev/njava/simasoft/hiking-demo/src/test/java/org/hibernate/ogm/hiking/HikeTest.java:[100,17] cannot find symbol
+  symbol:   class Hike
+  location: class org.hibernate.ogm.hiking.HikeTest
+[ERROR] /D:/dev/njava/simasoft/hiking-demo/src/test/java/org/hibernate/ogm/hiking/HikeTest.java:[100,33] cannot find symbol
+  symbol:   class Hike
+  location: class org.hibernate.ogm.hiking.HikeTest
+[INFO] 28 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 2.199s
+[INFO] Finished at: Mon Feb 09 07:10:09 COT 2015
+[INFO] Final Memory: 21M/52M
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.1:testCompile (default-testCompile) on project hiking-demo: Compilation failure: Compilation failure:
+[ERROR] /D:/dev/njava/simasoft/hiking-demo/src/test/java/org/hibernate/ogm/hiking/HikeRepositoryIT.java:[12,38] package org.hibernate.ogm.hiking.model does not exist
+[ERROR] /D:/dev/njava/simasoft/hiking-demo/src/test/java/org/hibernate/ogm/hiking/HikeRepositoryIT.java:[13,38] package org.hibernate.ogm.hiking.model does not exist
+[ERROR] /D:/dev/njava/simasoft/hiking-demo/src/test/java/org/hibernate/ogm/hiking/HikeRepositoryIT.java:[14,43] package org.hibernate.ogm.hiking.repository does not exist
+[ERROR] /D:/dev/njava/simasoft/hiking-demo/src/test/java/org/hibernate/ogm/hiking/HikeRepositoryIT.java:[33,17] cannot find symbol
+[ERROR] symbol:   class HikeRepository
+[ERROR] location: class org.hibernate.ogm.hiking.HikeRepositoryIT
+[ERROR] /D:/dev/njava/simasoft/hiking-demo/src/test/java/org/hibernate/ogm/hiking/HikeTest.java:[9,38] package org.hibernate.ogm.hiking.model does not exist
+[ERROR] /D:/dev/njava/simasoft/hiking-demo/src/test/java/org/hibernate/ogm/hiking/HikeTest.java:[10,38] package org.hibernate.ogm.hiking.model does not exist
+[ERROR] /D:/dev/njava/simasoft/hiking-demo/src/test/java/org/hibernate/ogm/hiking/HikeTest.java:[11,38] package org.hibernate.ogm.hiking.model does not exist
+[ERROR] /D:/dev/njava/simasoft/hiking-demo/src/test/java/org/hibernate/ogm/hiking/HikeRepositoryIT.java:[43,38] cannot find symbol
+[ERROR] symbol:   class HikeRepository
+[ERROR] location: class org.hibernate.ogm.hiking.HikeRepositoryIT
+[ERROR] /D:/dev/njava/simasoft/hiking-demo/src/test/java/org/hibernate/ogm/hiking/HikeRepositoryIT.java:[42,38] cannot find symbol
+[ERROR] symbol:   class Hike
+[ERROR] location: class org.hibernate.ogm.hiking.HikeRepositoryIT
+[ERROR] /D:/dev/njava/simasoft/hiking-demo/src/test/java/org/hibernate/ogm/hiking/HikeRepositoryIT.java:[54,17] cannot find symbol
+[ERROR] symbol:   class Hike
+[ERROR] location: class org.hibernate.ogm.hiking.HikeRepositoryIT
+[ERROR] /D:/dev/njava/simasoft/hiking-demo/src/test/java/org/hibernate/ogm/hiking/HikeRepositoryIT.java:[54,60] cannot find symbol
+[ERROR] symbol:   class Hike
+[ERROR] location: class org.hibernate.ogm.hiking.HikeRepositoryIT
+[ERROR] /D:/dev/njava/simasoft/hiking-demo/src/test/java/org/hibernate/ogm/hiking/HikeRepositoryIT.java:[54,97] cannot find symbol
+[ERROR] symbol:   class Person
+[ERROR] location: class org.hibernate.ogm.hiking.HikeRepositoryIT
+[ERROR] /D:/dev/njava/simasoft/hiking-demo/src/test/java/org/hibernate/ogm/hiking/HikeRepositoryIT.java:[59,44] cannot find symbol
+[ERROR] symbol:   class Hike
+[ERROR] location: class org.hibernate.ogm.hiking.HikeRepositoryIT
+[ERROR] /D:/dev/njava/simasoft/hiking-demo/src/test/java/org/hibernate/ogm/hiking/HikeTest.java:[35,17] cannot find symbol
+[ERROR] symbol:   class Hike
+[ERROR] location: class org.hibernate.ogm.hiking.HikeTest
+[ERROR] /D:/dev/njava/simasoft/hiking-demo/src/test/java/org/hibernate/ogm/hiking/HikeTest.java:[35,33] cannot find symbol
+[ERROR] symbol:   class Hike
+[ERROR] location: class org.hibernate.ogm.hiking.HikeTest
+[ERROR] /D:/dev/njava/simasoft/hiking-demo/src/test/java/org/hibernate/ogm/hiking/HikeTest.java:[41,44] cannot find symbol
+[ERROR] symbol:   class Hike
+[ERROR] location: class org.hibernate.ogm.hiking.HikeTest
+[ERROR] /D:/dev/njava/simasoft/hiking-demo/src/test/java/org/hibernate/ogm/hiking/HikeTest.java:[53,17] cannot find symbol
+[ERROR] symbol:   class Hike
+[ERROR] location: class org.hibernate.ogm.hiking.HikeTest
+[ERROR] /D:/dev/njava/simasoft/hiking-demo/src/test/java/org/hibernate/ogm/hiking/HikeTest.java:[53,33] cannot find symbol
+[ERROR] symbol:   class Hike
+[ERROR] location: class org.hibernate.ogm.hiking.HikeTest
+[ERROR] /D:/dev/njava/simasoft/hiking-demo/src/test/java/org/hibernate/ogm/hiking/HikeTest.java:[54,40] cannot find symbol
+[ERROR] symbol:   class Section
+[ERROR] location: class org.hibernate.ogm.hiking.HikeTest
+[ERROR] /D:/dev/njava/simasoft/hiking-demo/src/test/java/org/hibernate/ogm/hiking/HikeTest.java:[55,40] cannot find symbol
+[ERROR] symbol:   class Section
+[ERROR] location: class org.hibernate.ogm.hiking.HikeTest
+[ERROR] /D:/dev/njava/simasoft/hiking-demo/src/test/java/org/hibernate/ogm/hiking/HikeTest.java:[61,44] cannot find symbol
+[ERROR] symbol:   class Hike
+[ERROR] location: class org.hibernate.ogm.hiking.HikeTest
+[ERROR] /D:/dev/njava/simasoft/hiking-demo/src/test/java/org/hibernate/ogm/hiking/HikeTest.java:[74,17] cannot find symbol
+[ERROR] symbol:   class Hike
+[ERROR] location: class org.hibernate.ogm.hiking.HikeTest
+[ERROR] /D:/dev/njava/simasoft/hiking-demo/src/test/java/org/hibernate/ogm/hiking/HikeTest.java:[74,33] cannot find symbol
+[ERROR] symbol:   class Hike
+[ERROR] location: class org.hibernate.ogm.hiking.HikeTest
+[ERROR] /D:/dev/njava/simasoft/hiking-demo/src/test/java/org/hibernate/ogm/hiking/HikeTest.java:[75,17] cannot find symbol
+[ERROR] symbol:   class Person
+[ERROR] location: class org.hibernate.ogm.hiking.HikeTest
+[ERROR] /D:/dev/njava/simasoft/hiking-demo/src/test/java/org/hibernate/ogm/hiking/HikeTest.java:[75,34] cannot find symbol
+[ERROR] symbol:   class Person
+[ERROR] location: class org.hibernate.ogm.hiking.HikeTest
+[ERROR] /D:/dev/njava/simasoft/hiking-demo/src/test/java/org/hibernate/ogm/hiking/HikeTest.java:[86,44] cannot find symbol
+[ERROR] symbol:   class Hike
+[ERROR] location: class org.hibernate.ogm.hiking.HikeTest
+[ERROR] /D:/dev/njava/simasoft/hiking-demo/src/test/java/org/hibernate/ogm/hiking/HikeTest.java:[100,17] cannot find symbol
+[ERROR] symbol:   class Hike
+[ERROR] location: class org.hibernate.ogm.hiking.HikeTest
+[ERROR] /D:/dev/njava/simasoft/hiking-demo/src/test/java/org/hibernate/ogm/hiking/HikeTest.java:[100,33] cannot find symbol
+[ERROR] symbol:   class Hike
+[ERROR] location: class org.hibernate.ogm.hiking.HikeTest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

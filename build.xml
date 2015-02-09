@@ -34,6 +34,9 @@
     <delete dir="mongoWar/target" failonerror="no"/>
     <delete dir="hikingApp/target" failonerror="no"/>
     <delete dir="hiking-demo/target" failonerror="no"/>
+    <delete dir="mongoPrueba/target" failonerror="no"/>
+    <delete dir="mongoPrueba/ObjectStore" failonerror="no"/>
+    <delete dir="mongoPrueba/PutObjectStoreDirHere" failonerror="no"/>
 
   </target>
 
