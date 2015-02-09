@@ -13,7 +13,7 @@ public class Saldos {
     private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(strategy=GenerationType.TABLE)
+    @GeneratedValue(strategy=GenerationType.AUTO)
     private long id;
 
     private Integer optlock;

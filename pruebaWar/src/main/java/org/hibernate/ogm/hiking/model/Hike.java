@@ -16,7 +16,7 @@ import javax.validation.constraints.NotNull;
 public class Hike {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.TABLE)
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	public long id;
 
 	@NotNull

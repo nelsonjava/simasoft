@@ -3,10 +3,12 @@
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+  <!-- quickstart\kitchensink Aplication Base -->
   <!-- http://sinjava.blogspot.com/2012/10/hola-mundo-jsf.html -->
   <!-- mvn clean package wildfly:deploy -->
   <!-- http://localhost:8080 -->
   <!-- http://localhost:8080/pruebaWar -->
+
 
     <groupId>org.hibernate.ogm.demos</groupId>
     <artifactId>pruebaWar</artifactId>

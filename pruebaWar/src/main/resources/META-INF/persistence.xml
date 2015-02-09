@@ -19,7 +19,7 @@
 
           <properties>
             <property name="hibernate.ogm.datastore.provider" value="mongodb" />
-            <property name="hibernate.ogm.datastore.database" value="HikeDBSima5" />
+            <property name="hibernate.ogm.datastore.database" value="HikeDBSima15" />
           </properties>
 
 	</persistence-unit>
@@ -39,7 +39,7 @@
 
           <properties>
             <property name="hibernate.ogm.datastore.provider" value="mongodb" />
-            <property name="hibernate.ogm.datastore.database" value="HikeDBSima5" />
+            <property name="hibernate.ogm.datastore.database" value="HikeDBSima15" />
           </properties>
 	</persistence-unit>
 

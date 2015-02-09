@@ -11,6 +11,7 @@ import org.hibernate.ogm.hiking.model.Person;
 import org.hibernate.ogm.hiking.model.Section;
 import org.hibernate.ogm.hiking.model.User;
 import com.simavirtual.models.conta.*;
+import org.jboss.as.quickstarts.kitchensink.model.*;
 
 
 import org.junit.Before;
@@ -54,6 +55,9 @@ public class HikeTest {
 
 	        Movimientos movimientos = new Movimientos();
 		entityManager.persist( movimientos );
+		
+	        Member member = new Member("nelsonfer","nelsonfer1@gmail.com","3005639800");
+		entityManager.persist( member );
 
 		entityManager.getTransaction().commit();
 
