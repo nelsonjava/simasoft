@@ -1,0 +1,72 @@
+[INFO] Scanning for projects...
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building pruebaWar 1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ pruebaWar ---
+[INFO] Deleting D:\dev\njava\simasoft\pruebaWar\target
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ pruebaWar ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 2 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ pruebaWar ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 17 source files to D:\dev\njava\simasoft\pruebaWar\target\classes
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /D:/dev/njava/simasoft/pruebaWar/src/main/java/org/jboss/as/quickstarts/greeter/web/CreateController.java:[21,31] package javax.faces.application does not exist
+[ERROR] /D:/dev/njava/simasoft/pruebaWar/src/main/java/org/jboss/as/quickstarts/greeter/web/CreateController.java:[22,27] package javax.faces.context does not exist
+[ERROR] /D:/dev/njava/simasoft/pruebaWar/src/main/java/org/jboss/as/quickstarts/greeter/web/CreateController.java:[34,13] cannot find symbol
+  symbol:   class FacesContext
+  location: class org.jboss.as.quickstarts.greeter.web.CreateController
+[ERROR] /D:/dev/njava/simasoft/pruebaWar/src/main/java/org/jboss/as/quickstarts/greeter/Resources.java:[24,27] package javax.faces.context does not exist
+[ERROR] /D:/dev/njava/simasoft/pruebaWar/src/main/java/org/jboss/as/quickstarts/greeter/Resources.java:[44,12] cannot find symbol
+  symbol:   class FacesContext
+  location: class org.jboss.as.quickstarts.greeter.Resources
+[ERROR] /D:/dev/njava/simasoft/pruebaWar/src/main/java/org/jboss/as/quickstarts/greeter/web/CreateController.java:[48,47] cannot find symbol
+  symbol:   class FacesMessage
+  location: class org.jboss.as.quickstarts.greeter.web.CreateController
+[ERROR] /D:/dev/njava/simasoft/pruebaWar/src/main/java/org/jboss/as/quickstarts/greeter/web/CreateController.java:[51,47] cannot find symbol
+  symbol:   class FacesMessage
+  location: class org.jboss.as.quickstarts.greeter.web.CreateController
+[ERROR] /D:/dev/njava/simasoft/pruebaWar/src/main/java/org/jboss/as/quickstarts/greeter/Resources.java:[45,16] cannot find symbol
+  symbol:   variable FacesContext
+  location: class org.jboss.as.quickstarts.greeter.Resources
+[INFO] 8 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 1.949s
+[INFO] Finished at: Mon Feb 09 08:33:02 COT 2015
+[INFO] Final Memory: 19M/51M
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.1:compile (default-compile) on project pruebaWar: Compilation failure: Compilation failure:
+[ERROR] /D:/dev/njava/simasoft/pruebaWar/src/main/java/org/jboss/as/quickstarts/greeter/web/CreateController.java:[21,31] package javax.faces.application does not exist
+[ERROR] /D:/dev/njava/simasoft/pruebaWar/src/main/java/org/jboss/as/quickstarts/greeter/web/CreateController.java:[22,27] package javax.faces.context does not exist
+[ERROR] /D:/dev/njava/simasoft/pruebaWar/src/main/java/org/jboss/as/quickstarts/greeter/web/CreateController.java:[34,13] cannot find symbol
+[ERROR] symbol:   class FacesContext
+[ERROR] location: class org.jboss.as.quickstarts.greeter.web.CreateController
+[ERROR] /D:/dev/njava/simasoft/pruebaWar/src/main/java/org/jboss/as/quickstarts/greeter/Resources.java:[24,27] package javax.faces.context does not exist
+[ERROR] /D:/dev/njava/simasoft/pruebaWar/src/main/java/org/jboss/as/quickstarts/greeter/Resources.java:[44,12] cannot find symbol
+[ERROR] symbol:   class FacesContext
+[ERROR] location: class org.jboss.as.quickstarts.greeter.Resources
+[ERROR] /D:/dev/njava/simasoft/pruebaWar/src/main/java/org/jboss/as/quickstarts/greeter/web/CreateController.java:[48,47] cannot find symbol
+[ERROR] symbol:   class FacesMessage
+[ERROR] location: class org.jboss.as.quickstarts.greeter.web.CreateController
+[ERROR] /D:/dev/njava/simasoft/pruebaWar/src/main/java/org/jboss/as/quickstarts/greeter/web/CreateController.java:[51,47] cannot find symbol
+[ERROR] symbol:   class FacesMessage
+[ERROR] location: class org.jboss.as.quickstarts.greeter.web.CreateController
+[ERROR] /D:/dev/njava/simasoft/pruebaWar/src/main/java/org/jboss/as/quickstarts/greeter/Resources.java:[45,16] cannot find symbol
+[ERROR] symbol:   variable FacesContext
+[ERROR] location: class org.jboss.as.quickstarts.greeter.Resources
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

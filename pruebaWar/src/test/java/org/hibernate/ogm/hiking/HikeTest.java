@@ -9,6 +9,10 @@ import javax.persistence.Persistence;
 import org.hibernate.ogm.hiking.model.Hike;
 import org.hibernate.ogm.hiking.model.Person;
 import org.hibernate.ogm.hiking.model.Section;
+import org.hibernate.ogm.hiking.model.User;
+import com.simavirtual.models.conta.*;
+
+
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -30,10 +34,26 @@ public class HikeTest {
 
 	@Test
 	public void simpleEntityTest() {
+
 		entityManager.getTransaction().begin();
 
 		Hike hike = new Hike( "Land's End", "Bristol" );
 		entityManager.persist( hike );
+
+		User user = new User( "nelsonfer1", "nelson", "fernandez" );
+		entityManager.persist( user );
+
+		Terceros terceros = new Terceros("1234","salle","6433505","calle 67","ninguna");
+		entityManager.persist( terceros );
+
+		Saldos saldos = new Saldos();
+		entityManager.persist( saldos );
+
+		Pucs pucs = new Pucs();
+		entityManager.persist( pucs );
+
+	        Movimientos movimientos = new Movimientos();
+		entityManager.persist( movimientos );
 
 		entityManager.getTransaction().commit();
 

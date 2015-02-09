@@ -25,7 +25,7 @@ public class App{
     private static String asciidocModules = "src.main.asciidoc.en-US.modules";
 
     public static void generarModelo(String pathPaquete,String artifactId) throws IOException {
-      
+
         // Cleanup - Reinigung
         entidades.clear();
         relationsPower.clear();
@@ -68,6 +68,7 @@ public class App{
 
     public static void main( String[] args ) throws IOException {
 
+        generarModelo("conta","conta");  // Prueba
         generarModelo("contab","contab");
         generarModelo("iso","archivo-inactivo");
         generarModelo("iso","lmd");

@@ -168,12 +168,12 @@ line("*-------------------------------------------------------------------------
 //>>FIN RELACIONES DE LA CLASE
 
 //>>CONTRUCTOR DE LA CLASE No.1
-      line("    "+entity.getName()+"() {");
+      line("    public "+entity.getName()+"() {");
       line("    }\n");
 //>>FIN CONTRUCTOR DE LA CLASE No.1
 
 //>>CONTRUCTOR DE LA CLASE No.2
-      line("    "+entity.getName()+"("+entity.getParameters()+") {");
+      line("    public "+entity.getName()+"("+entity.getParameters()+") {");
       for(Atributos atributo : atributos) {
           line("        this."+atributo.getField()+" = "+atributo.getField()+";");
       }

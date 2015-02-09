@@ -5,26 +5,42 @@
 	version="1.0">
 
 	<persistence-unit name="hike-PU" transaction-type="RESOURCE_LOCAL">
-		<provider>org.hibernate.ogm.jpa.HibernateOgmPersistence</provider>
+          <provider>org.hibernate.ogm.jpa.HibernateOgmPersistence</provider>
 
-		<class>org.hibernate.ogm.hiking.model.Hike</class>
-		<class>org.hibernate.ogm.hiking.model.Person</class>
+          <class>org.hibernate.ogm.hiking.model.Hike</class>
+          <class>org.hibernate.ogm.hiking.model.Person</class>
 
-		<properties>
-			<property name="hibernate.ogm.datastore.provider" value="mongodb" />
-			<property name="hibernate.ogm.datastore.database" value="HikeDBSima2" />
-		</properties>
+          <class>org.hibernate.ogm.hiking.model.User</class>
+
+          <class>com.simavirtual.models.conta.Terceros</class>
+          <class>com.simavirtual.models.conta.Saldos</class>
+          <class>com.simavirtual.models.conta.Pucs</class>
+          <class>com.simavirtual.models.conta.Movimientos</class>
+
+          <properties>
+            <property name="hibernate.ogm.datastore.provider" value="mongodb" />
+            <property name="hibernate.ogm.datastore.database" value="HikeDBSima5" />
+          </properties>
+
 	</persistence-unit>
 
 	<persistence-unit name="hike-PU-JTA" transaction-type="JTA">
-		<provider>org.hibernate.ogm.jpa.HibernateOgmPersistence</provider>
+          <provider>org.hibernate.ogm.jpa.HibernateOgmPersistence</provider>
 
-		<class>org.hibernate.ogm.hiking.model.Hike</class>
-		<class>org.hibernate.ogm.hiking.model.Person</class>
+          <class>org.hibernate.ogm.hiking.model.Hike</class>
+          <class>org.hibernate.ogm.hiking.model.Person</class>
 
-		<properties>
-			<property name="hibernate.ogm.datastore.provider" value="mongodb" />
-			<property name="hibernate.ogm.datastore.database" value="HikeDBSima2" />
-		</properties>
+          <class>org.hibernate.ogm.hiking.model.User</class>
+
+          <class>com.simavirtual.models.conta.Terceros</class>
+          <class>com.simavirtual.models.conta.Saldos</class>
+          <class>com.simavirtual.models.conta.Pucs</class>
+          <class>com.simavirtual.models.conta.Movimientos</class>
+
+          <properties>
+            <property name="hibernate.ogm.datastore.provider" value="mongodb" />
+            <property name="hibernate.ogm.datastore.database" value="HikeDBSima5" />
+          </properties>
 	</persistence-unit>
+
 </persistence>
