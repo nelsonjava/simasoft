@@ -58,15 +58,6 @@ public class Member implements Serializable {
     @Digits(fraction = 0, integer = 12)
     @Column(name = "phone_number")
     private String phoneNumber;
-    
-    public Member() {
-    }
-
-    public Member(String name,String email,String phoneNumber) {
-      this.name = name;
-      this.email = email;
-      this.phoneNumber = phoneNumber;
-    }
 
     public Long getId() {
         return id;

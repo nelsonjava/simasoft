@@ -40,7 +40,7 @@
     <delete dir="pruebaWar/target" failonerror="no"/>
     <delete dir="pruebaWar/ObjectStore" failonerror="no"/>
     <delete dir="pruebaWar/PutObjectStoreDirHere" failonerror="no"/>
-
+    <delete dir="kitchensink/target" failonerror="no"/>
   </target>
 
   <target name="site" description="Initialize the build">
