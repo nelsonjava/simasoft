@@ -37,6 +37,9 @@
     <delete dir="mongoPrueba/target" failonerror="no"/>
     <delete dir="mongoPrueba/ObjectStore" failonerror="no"/>
     <delete dir="mongoPrueba/PutObjectStoreDirHere" failonerror="no"/>
+    <delete dir="pruebaWar/target" failonerror="no"/>
+    <delete dir="pruebaWar/ObjectStore" failonerror="no"/>
+    <delete dir="pruebaWar/PutObjectStoreDirHere" failonerror="no"/>
 
   </target>
 

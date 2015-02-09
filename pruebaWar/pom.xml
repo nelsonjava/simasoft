@@ -2,19 +2,18 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    
+
   <!-- http://sinjava.blogspot.com/2012/10/hola-mundo-jsf.html -->
   <!-- mvn clean package wildfly:deploy -->
   <!-- http://localhost:8080 -->
-  <!-- http://localhost:8080/hiking-demo -->
+  <!-- http://localhost:8080/pruebaWar -->
 
+    <groupId>org.hibernate.ogm.demos</groupId>
+    <artifactId>pruebaWar</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>war</packaging>
 
-  <groupId>com.simavirtual</groupId>
-  <artifactId>hiking-demo</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
-  <packaging>war</packaging>
-
-    <name>hibernate-ogm-hiking-demo</name>
+    <name>pruebaWar</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
