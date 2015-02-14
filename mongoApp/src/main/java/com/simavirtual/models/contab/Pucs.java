@@ -7,21 +7,6 @@ import java.util.*;
 import javax.persistence.*;
 import javax.validation.constraints.*;
 
-/****************************************************************************************************************
-* CLASE : Pucs                                                                                   *
-*****************************************************************************************************************
-
-AUTOR: Nelson A Fernández Gómez                FECHA DE INICIO: DIA DD MES/AAAA   FECHA FINAL: DIA DD MES/AAAA
-       SIMASOFT Bucaramanga / SAN / Colombia   FECHA DE LA ULTIMA MODIFICACION:   DIA DD MES/AAAA HORA: HH:MM AM-PM
-
-OBJETIVOS:
-
-1- Entiy para MongoDb.
-
-*---------------------------------------------------------------------------------------------------------------*
-*------------------------------------------- DECLARACION DE LA CLASE -------------------------------------------*
-*---------------------------------------------------------------------------------------------------------------*/
-
 @Entity
 public class Pucs {
 
@@ -52,6 +37,10 @@ public class Pucs {
     private Set<Movimientos> movimientos = new HashSet<Movimientos>();
 
     Pucs() {
+    }
+    
+    Pucs(String nombre) {
+        this.nombre = nombre;
     }
 
     Pucs(String nombre,boolean siRegistra,boolean siTercero,boolean siBase,String observaciones) {
@@ -104,38 +93,6 @@ public class Pucs {
     }
     public void setObservaciones(String observaciones) {
         this.observaciones = observaciones;
-    }
-
-    @ManyToOne
-    public Pucs getObjPadre() {
-        return this.objPadre;
-    }
-    public void setObjPadre(Pucs objPadre) {
-        this.objPadre = objPadre;
-    }
-
-    @OneToMany
-    public Set<Saldos> getSaldos() {
-        return saldos;
-    }
-    public void setSaldos(Set<Saldos> saldos) {
-        this.saldos = saldos;
-    }
-
-    @OneToMany
-    public Set<Pucs> getObjHijos() {
-        return this.objHijos;
-    }
-    public void setObjHijos(Set<Pucs> objHijos) {
-        this.objHijos = objHijos;
-    }
-
-    @OneToMany
-    public Set<Movimientos> getMovimientos() {
-        return movimientos;
-    }
-    public void setMovimientos(Set<Movimientos> movimientos) {
-        this.movimientos = movimientos;
     }
 
 } // entity

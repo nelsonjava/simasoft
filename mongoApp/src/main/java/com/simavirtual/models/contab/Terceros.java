@@ -7,21 +7,6 @@ import java.util.*;
 import javax.persistence.*;
 import javax.validation.constraints.*;
 
-/****************************************************************************************************************
-* CLASE : Terceros                                                                                   *
-*****************************************************************************************************************
-
-AUTOR: Nelson A Fernández Gómez                FECHA DE INICIO: DIA DD MES/AAAA   FECHA FINAL: DIA DD MES/AAAA
-       SIMASOFT Bucaramanga / SAN / Colombia   FECHA DE LA ULTIMA MODIFICACION:   DIA DD MES/AAAA HORA: HH:MM AM-PM
-
-OBJETIVOS:
-
-1- Entiy para MongoDb.
-
-*---------------------------------------------------------------------------------------------------------------*
-*------------------------------------------- DECLARACION DE LA CLASE -------------------------------------------*
-*---------------------------------------------------------------------------------------------------------------*/
-
 @Entity
 public class Terceros {
 
@@ -30,6 +15,7 @@ public class Terceros {
     @Id
     @GeneratedValue(strategy=GenerationType.TABLE)
     private long id;
+
 
     private Integer optlock;
 
@@ -100,22 +86,6 @@ public class Terceros {
     }
     public void setObservaciones(String observaciones) {
         this.observaciones = observaciones;
-    }
-
-    @OneToMany
-    public Set<Movimientos> getMovimientos() {
-        return movimientos;
-    }
-    public void setMovimientos(Set<Movimientos> movimientos) {
-        this.movimientos = movimientos;
-    }
-
-    @OneToMany
-    public Set<Saldos> getSaldos() {
-        return saldos;
-    }
-    public void setSaldos(Set<Saldos> saldos) {
-        this.saldos = saldos;
     }
 
 } // entity

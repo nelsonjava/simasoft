@@ -7,21 +7,6 @@ import java.util.*;
 import javax.persistence.*;
 import javax.validation.constraints.*;
 
-/****************************************************************************************************************
-* CLASE : Saldos                                                                                   *
-*****************************************************************************************************************
-
-AUTOR: Nelson A Fernández Gómez                FECHA DE INICIO: DIA DD MES/AAAA   FECHA FINAL: DIA DD MES/AAAA
-       SIMASOFT Bucaramanga / SAN / Colombia   FECHA DE LA ULTIMA MODIFICACION:   DIA DD MES/AAAA HORA: HH:MM AM-PM
-
-OBJETIVOS:
-
-1- Entiy para MongoDb.
-
-*---------------------------------------------------------------------------------------------------------------*
-*------------------------------------------- DECLARACION DE LA CLASE -------------------------------------------*
-*---------------------------------------------------------------------------------------------------------------*/
-
 @Entity
 public class Saldos {
 
@@ -112,21 +97,6 @@ public class Saldos {
         this.saldoFinal = saldoFinal;
     }
 
-    @ManyToOne
-    public Pucs getPucs() {
-        return pucs;
-    }
-    public void setPucs(Pucs pucs) {
-        this.pucs = pucs;
-    }
-
-    @ManyToOne
-    public Terceros getTerceros() {
-        return terceros;
-    }
-    public void setTerceros(Terceros terceros) {
-        this.terceros = terceros;
-    }
 
 } // entity
 
