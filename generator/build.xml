@@ -1,40 +1,42 @@
 <?xml version="1.0"?>
-<project name="naif" default="deploy" basedir=".">
 
-        <tstamp/>
-        <property name="bak"        value="/dev/backups/com/com/simavirtual"/>
+<project name="naif" default="bak" basedir=".">
 
-        <property name="project.name" value="generator"/>
-        <property name="jboss.home" value="d:/javasrv/jboss-7.0.2.Final"/>
+  <tstamp/>
+  <property name="bak"          value="/dev/backups/dev/njava/simasoft"/>
+  <property name="project.name" value="generator"/>
 
-        <target name="bak">
-           <mkdir dir="${bak}/${project.name}" />
+<!--
+  <property name="jboss.home" value="d:/javasrv/jboss-7.0.2.Final"/>
+-->
 
-           <jar jarfile="${bak}/${project.name}/${DSTAMP}-${TSTAMP}-${project.name}.zip"
-                basedir="."
-           />
-        </target>
+  <target name="bak">
+    <delete dir="target" failonerror="no"/>
+    <mkdir dir="${bak}/${project.name}" />
+    <jar jarfile="${bak}/${project.name}/${DSTAMP}-${TSTAMP}-${project.name}.zip" basedir="."/>
+  </target>
 
-        <target name="ok">
-           <mkdir dir="${bak}/${project.name}" />
-           <jar jarfile="${bak}/${project.name}/OK-${DSTAMP}-${TSTAMP}-${project.name}.zip"
-                basedir="."
-           />
-        </target>
+  <target name="ok">
+    <mkdir dir="${bak}/${project.name}" />
+    <delete dir="target" failonerror="no"/>
+    <jar jarfile="${bak}/${project.name}/ok-${DSTAMP}-${TSTAMP}-${project.name}.zip" basedir="."/>
+  </target>
 
-        <target name="del1" description="Initialize the build">
-          <delete dir="${jboss.home}" failonerror="no"/>
-        </target>
+  <target name="clean" description="Cleans up the staging directory">
+    <delete dir="target"/>
+  </target>
 
-        <target name="del" depends="del1" description="Initialize the build">
-          <mkdir dir="${jboss.home}" />
-          <copy todir="${jboss.home}">
-                <fileset dir="${jboss.home} - copia" />
-          </copy>
-        </target>
+<!--
+  <target name="del1" description="Initialize the build">
+    <delete dir="${jboss.home}" failonerror="no"/>
+  </target>
 
-        <target name="clean" description="Cleans up the staging directory">
-          <delete dir="target"/>
-        </target>
+  <target name="del" depends="del1" description="Initialize the build">
+    <mkdir dir="${jboss.home}" />
+    <copy todir="${jboss.home}">
+      <fileset dir="${jboss.home} - copia" />
+    </copy>
+  </target>
+-->
 
 </project>

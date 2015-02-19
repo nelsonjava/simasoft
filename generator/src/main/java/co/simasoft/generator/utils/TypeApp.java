@@ -1,15 +1,15 @@
 package co.simasoft.generator.utils;
 
 import co.simasoft.utils.*;
-import co.simasoft.generator.jpa.*;
 import co.simasoft.generator.jar.*;
 import co.simasoft.generator.war.*;
-import co.simasoft.generator.asciidoc.*;
 
 import java.io.*;
 import java.util.*;
 
 public class TypeApp{
+  
+    private static String fileJar = "g.jar";
 
     public static void Jar(String artifactId,String groupId){
 
@@ -58,53 +58,12 @@ public class TypeApp{
         FacesConfig fileFacesConfig = new FacesConfig(artifactId,groupId);
         Utils.fileMake(artifactId+".src.main.webapp.WEB-INF", "faces-config.xml", fileFacesConfig);
 
-        Utils.fileJar("index.html",artifactId+"\\src\\main\\webapp\\");
-        Utils.fileJar("home.xhtml",artifactId+"\\src\\main\\webapp\\");
-        Utils.fileJar("default.xhtml",artifactId+"\\src\\main\\webapp\\resources\\templates\\");
-        Utils.fileJar("screen.css",artifactId+"\\src\\main\\webapp\\resources\\css\\");
-        Utils.fileJar("logo.jpg",artifactId+"\\src\\main\\webapp\\resources\\img\\");
-
-
+        Utils.fileJar("index.html",artifactId+"\\src\\main\\webapp\\",fileJar);
+        Utils.fileJar("home.xhtml",artifactId+"\\src\\main\\webapp\\",fileJar);
+        Utils.fileJar("default.xhtml",artifactId+"\\src\\main\\webapp\\resources\\templates\\",fileJar);
+        Utils.fileJar("screen.css",artifactId+"\\src\\main\\webapp\\resources\\css\\",fileJar);
+        Utils.fileJar("logo.jpg",artifactId+"\\src\\main\\webapp\\resources\\img\\",fileJar);
 
     } // War
-
-    public static void ModeloAsciidoc(String artifactId,String groupId) throws IOException {
-
-        ArrayList<Entidad> entidades = new ArrayList<Entidad>();
-        ArrayList<Relation> relationsPower = new ArrayList<Relation>();
-        Set<Relation> relations = new HashSet<Relation>(0);
-
-        PowerDesigner powerDesigner = new PowerDesigner("/dev/njava/modelos/uml/contab/contab.oob");
-        entidades = powerDesigner.getEntidades();
-        relations = powerDesigner.getRelations();
-        relationsPower = powerDesigner.getRelationsPower();
-
-        Utils.mkDirs(artifactId+".src.main.asciidoc.en-US.images");
-        Utils.mkDirs(artifactId+".src.main.asciidoc.en-US.modules");
-
-        Utils.fileJar("poma.xml",artifactId+"\\");
-        Utils.fileJar("master.asciidoc",artifactId+"\\src\\main\\asciidoc\\en-US\\");
-        Utils.fileJar("master-docinfo.xml",artifactId+"\\src\\main\\asciidoc\\en-US\\");
-
-        Asciidoc fileAsciidoc = new Asciidoc(artifactId,groupId,entidades);
-        Utils.fileMake(artifactId+".src.main.asciidoc.en-US.modules", "modelo.asciidoc", fileAsciidoc);
-
-        Test fileTest = new Test(artifactId,groupId,relations,relationsPower);
-        Utils.fileMake(artifactId+".src.main.asciidoc.en-US.modules", "test.asciidoc", fileTest);
-
-        for(Entidad entidad : entidades) {
-
-            Entity0 entity0 = new Entity0(artifactId,groupId+".models.contab",entidad);
-            Utils.fileMake(artifactId+".src.main.java."+groupId+".models.contab.0",entidad.getName()+".java", entity0);
-
-            Entity1 entity1 = new Entity1(artifactId,groupId+".models.contab",entidad);
-            Utils.fileMake(artifactId+".src.main.java."+groupId+".models.contab.1",entidad.getName()+".java", entity1);
-        }
-
-    } // ModeloAsciidoc
-
-
-
-
 
 } // TypeApp

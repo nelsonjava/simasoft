@@ -13,11 +13,9 @@ public class Ui{
         int typeApp = 0;
 
         System.out.println();
-        System.out.println("Tipo de aplicacion: ");
+        System.out.println("Tipo de aplicacion(v.215.02.0): ");
         System.out.println("1:jar");
         System.out.println("2:war");
-        System.out.println("3:ear");
-        System.out.println("4:Modelo Contabilidad Basica");
         System.out.println();
 
         System.out.print("Seleccione el tipo de aplicacion: ");
@@ -41,14 +39,6 @@ public class Ui{
             case 2:  System.out.println("War " + typeApp);
                      TypeApp.War(artifactId,groupId);
                      break;
-
-            case 3:  System.out.println("typeApp " + typeApp);
-                     break;
-
-            case 4:  System.out.println("modelo " + typeApp);
-                     TypeApp.ModeloAsciidoc(artifactId,groupId);
-                     break;
-
 
             default: System.out.println("!!Error!! Numero incorrecto: " + typeApp);
                      break;
@@ -77,7 +67,6 @@ public class Ui{
         System.out.println();
         System.out.print("groupId: ");
         groupId = lectura.readLine();
-groupId = "com.simavirtual";
         return groupId;
 
     } // groupId

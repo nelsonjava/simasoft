@@ -1,26 +1,13 @@
 <?xml version="1.0"?>
-<!-- git clone https://github.com/nelsonjava/dev.git  -->
-<!-- git remote add origin https://github.com/nelsonjava/dev.git -->
-<!-- http://ebook.online-convert.com/es/convertir-a-epub -->
-<!-- https://github.com/nelsonjava/simasoft -->
 
-<project name="gi" default="bak" basedir=".">
+<!-- http://ebook.online-convert.com/es/convertir-a-epub -->
+<!-- git clone https://github.com/nelsonjava/simasoft -->
+
+<project name="naif" default="bak" basedir=".">
 
   <tstamp/>
-  <property name="bak"          value="../../backups/njava"/>
-  <property name="project.name" value="www"/>
-
-  <target name="bak">
-    <delete dir="target" failonerror="no"/>
-    <mkdir dir="${bak}/${project.name}" />
-    <jar jarfile="${bak}/${project.name}/${DSTAMP}-${TSTAMP}-${project.name}.zip" basedir="."/>
-  </target>
-
-  <target name="ok">
-    <mkdir dir="${bak}/${project.name}" />
-    <delete dir="target" failonerror="no"/>
-    <jar jarfile="${bak}/${project.name}/ok-${DSTAMP}-${TSTAMP}-${project.name}.zip" basedir="."/>
-  </target>
+  <property name="bak"          value="/dev/backups/dev/njava"/>
+  <property name="project.name" value="simasoft"/>
 
   <target name="del" description="Initialize the build">
     <delete dir="simasoft/target" failonerror="no"/>
@@ -42,32 +29,18 @@
     <delete dir="pruebaWar/PutObjectStoreDirHere" failonerror="no"/>
     <delete dir="kitchensink/target" failonerror="no"/>
   </target>
-
-  <target name="site" description="Initialize the build">
-    <mkdir dir="site" />
-    <mkdir dir="site/css" />
-    <mkdir dir="site/images/org/hibernate" />
-
-    <copy file="wildfly/target/docbook/publish/en-US/html_single/images/org/hibernate/title_hdr.png" tofile="site/images/org/hibernate/title_hdr.png"/>
-    <copy todir="site/css">
-       <fileset dir="wildfly/target/docbook/publish/en-US/html_single/css">
-          <include name="**/*.*"/>
-       </fileset>
-    </copy>
-    <copy file="home/index.txt" tofile="site/index.html"/>
-    <copy file="home/links.txt" tofile="site/links.html"/>
-    <copy file="proyectos/target/docbook/publish/en-US/html_single/index.html" tofile="site/proyectos.html"/>
-    <copy file="ant/target/docbook/publish/en-US/html_single/index.html" tofile="site/ant.html"/>
-    <copy file="wildfly/target/docbook/publish/en-US/html_single/index.html" tofile="site/wildfly.html"/>
-    <copy file="forge/target/docbook/publish/en-US/html_single/index.html" tofile="site/forge.html"/>
-    <copy file="java/target/docbook/publish/en-US/html_single/index.html" tofile="site/java.html"/>
-    <copy file="maven/target/docbook/publish/en-US/html_single/index.html" tofile="site/maven.html"/>
-    <copy file="mongo/target/docbook/publish/en-US/html_single/index.html" tofile="site/mongo.html"/>
-    <copy file="mongo-m101j/target/docbook/publish/en-US/html_single/index.html" tofile="site/mongo-m101j.html"/>
-    <copy file="play/target/docbook/publish/en-US/html_single/index.html" tofile="site/play.html"/>
+  
+  <target name="bak">
+    <delete dir="target" failonerror="no"/>
+    <mkdir dir="${bak}/${project.name}" />
+    <jar jarfile="${bak}/${project.name}/${DSTAMP}-${TSTAMP}-${project.name}.zip" basedir="."/>
   </target>
 
-
+  <target name="ok">
+    <mkdir dir="${bak}/${project.name}" />
+    <delete dir="target" failonerror="no"/>
+    <jar jarfile="${bak}/${project.name}/ok-${DSTAMP}-${TSTAMP}-${project.name}.zip" basedir="."/>
+  </target>
 
 </project>
 
