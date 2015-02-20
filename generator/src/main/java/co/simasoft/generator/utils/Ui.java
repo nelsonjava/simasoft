@@ -14,8 +14,9 @@ public class Ui{
 
         System.out.println();
         System.out.println("Tipo de aplicacion(v.215.02.0): ");
-        System.out.println("1:jar");
-        System.out.println("2:war");
+        System.out.println("1:jar Simple");
+        System.out.println("2:jar Hsqldb");
+        System.out.println("3:war");
         System.out.println();
 
         System.out.print("Seleccione el tipo de aplicacion: ");
@@ -36,7 +37,12 @@ public class Ui{
                      TypeApp.Jar(artifactId,groupId);
                      break;
 
-            case 2:  System.out.println("War " + typeApp);
+            case 2:  System.out.println("jar " + typeApp);
+                     TypeApp.JarHsqldb(artifactId,groupId);
+                     break;
+
+
+            case 3:  System.out.println("War " + typeApp);
                      TypeApp.War(artifactId,groupId);
                      break;
 

@@ -1,10 +1,10 @@
-package co.simasoft.generator.jar;
+package co.simasoft.generator.jar.hsqldb;
 
 import co.simasoft.utils.*;
 
-public class JarPom extends FileTxt {
+public class HsqldbPom extends FileTxt {
 
-  public JarPom(String artifactId,String groupId) {
+  public HsqldbPom(String artifactId,String groupId) {
 
 line("<project xmlns=\"http://maven.apache.org/POM/4.0.0\"");
 line("         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"");
@@ -38,12 +38,35 @@ line("      <version>1.0-SNAPSHOT</version>");
 line("    </dependency>\n");
 
 line("    <dependency>");
+line("      <groupId>org.hibernate</groupId>");
+line("      <artifactId>hibernate-entitymanager</artifactId>");
+line("      <version>4.1.5.Final</version>");
+line("    </dependency>");
+
+line("    <dependency>");
+line("      <groupId>org.hsqldb</groupId>");
+line("      <artifactId>hsqldb</artifactId>");
+line("      <version>2.2.9</version>");
+line("    </dependency>");
+
+line("    <dependency>");
+line("      <groupId>org.slf4j</groupId>");
+line("      <artifactId>slf4j-log4j12</artifactId>");
+line("      <version>1.7.2</version>");
+line("    </dependency>");
+
+line("    <dependency>");
 line("      <groupId>junit</groupId>");
 line("      <artifactId>junit</artifactId>");
-line("      <version>3.8.1</version>");
+line("      <version>4.11</version>");
 line("      <scope>test</scope>");
-line("    </dependency>\n");
+line("    </dependency>");
 
+line("    <dependency>");
+line("      <groupId>org.dbunit</groupId>");
+line("      <artifactId>dbunit</artifactId>");
+line("      <version>2.4.9</version>");
+line("    </dependency>");
 
 line("  </dependencies>\n");
 

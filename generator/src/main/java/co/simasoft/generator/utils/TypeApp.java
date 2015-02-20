@@ -2,13 +2,14 @@ package co.simasoft.generator.utils;
 
 import co.simasoft.utils.*;
 import co.simasoft.generator.jar.*;
+import co.simasoft.generator.jar.hsqldb.*;
 import co.simasoft.generator.war.*;
 
 import java.io.*;
 import java.util.*;
 
 public class TypeApp{
-  
+
     private static String fileJar = "g.jar";
 
     public static void Jar(String artifactId,String groupId){
@@ -26,7 +27,36 @@ public class TypeApp{
         fileApp.Generar(groupId);
         Utils.fileMake(artifactId+".src.main.java."+groupId, "App.java", fileApp);
 
-    } // Jar
+    } // Jar Simple
+
+    public static void JarHsqldb(String artifactId,String groupId) throws IOException {
+
+        Utils.mkDirs(artifactId+".src.main.java."+groupId+".models");
+        Utils.mkDirs(artifactId+".src.resources.META-INF");
+        Utils.mkDirs(artifactId+".src.resources.sql");
+
+        HsqldbPom hsqldbPom = new HsqldbPom(artifactId,groupId);
+        Utils.fileMake(artifactId, "pom.xml", hsqldbPom);
+
+        HsqldbBuild hsqldbBuild = new HsqldbBuild(artifactId,groupId);
+        Utils.fileMake(artifactId, "build.xml", hsqldbBuild);
+
+        HsqldbApp hsqldbApp = new HsqldbApp(artifactId,groupId);
+        Utils.fileMake(artifactId+".src.main.java."+groupId, "App.java", hsqldbApp);
+
+        HsqldbUser hsqldbUser = new HsqldbUser(artifactId,groupId);
+        Utils.fileMake(artifactId+".src.main.java."+groupId+".models", "User.java", hsqldbUser);
+
+        HsqldbPersistence hsqldbPersistence = new HsqldbPersistence(artifactId,groupId);
+        Utils.fileMake(artifactId+".src.resources.META-INF", "persistence.xml", hsqldbPersistence);
+
+        Utils.fileJar("log4j.properties",artifactId+"\\src\\resources\\",fileJar);
+        Utils.fileJar("import.sql",artifactId+"\\src\\resources\\sql\\",fileJar);
+
+
+
+
+    } // Jar Hsqldb
 
     public static void War(String artifactId,String groupId) throws IOException {
 
