@@ -10,7 +10,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /****************************************************************************************************************
-* CLASE : Entity0                                                                                               *
+* CLASE : Entity2                                                                                               *
 *****************************************************************************************************************
 
 AUTOR: Nelson A Fernández Gómez                FECHA DE INICIO: MAR 27 ENE/2015   FECHA FINAL: MAR 27 ENE/2015
@@ -70,16 +70,12 @@ public Entity2(String artifactId,String groupId,Entidad entity) throws IOExcepti
       line("import "+groupId+".*;\n");
 
       line("import java.util.*;\n");
-
-      line("import javax.persistence.ElementCollection;");
-      line("import javax.persistence.Entity;");
-      line("import javax.persistence.GeneratedValue;");
-      line("import javax.persistence.GenerationType;");
-      line("import javax.persistence.Id;");
-      line("import javax.persistence.ManyToOne;");
-      line("import javax.persistence.OrderColumn;");
-      line("import javax.validation.constraints.NotNull;\n");
+      line("import javax.persistence.*;");
+      line("import javax.validation.constraints.*;\n");
 //>>FIN IMPORTS DE LA CLASE
+
+//>>DOCUMENTACION DE LA CLASE
+ //>>FIN DOCUMENTACION DE LA CLASE
 
 //>>NAMEDQUERIES DE LA CLASE
 //>>FIN NAMEDQUERIES DE LA CLASE
@@ -98,8 +94,9 @@ public Entity2(String artifactId,String groupId,Entidad entity) throws IOExcepti
       line("    private static final long serialVersionUID = 1L;\n");
 
       line("    @Id");
-      line("    @GeneratedValue(strategy=GenerationType.TABLE)");
-      line("    private long id;\n");
+      line("	@GeneratedValue(generator = \"uuid\")");
+      line("    @GenericGenerator(name = \"uuid\", strategy = \"uuid2\")");
+      line("    private String id;\n");
 
       line("    private Integer optlock;\n");
 //>>FIN ATTRIBUTOS POR DEFECTO
@@ -109,7 +106,7 @@ public Entity2(String artifactId,String groupId,Entidad entity) throws IOExcepti
 
 //********ANNOTATIONS DEL ATTRIBUTO
            if (attribute.getNulo()) {
-               line("    @NotNull");
+//               line("    @NotNull");
            }
 //********FIN ANNOTATIONS DEL ATTRIBUTO
 
@@ -131,13 +128,23 @@ public Entity2(String artifactId,String groupId,Entidad entity) throws IOExcepti
 
 //********RELACION MUCHOS A UNO
             if(relation.getCardinality().equals("*..1")) {
-              line("    private "+relation.getTo()+" "+relation.getTo().toLowerCase()+";\n");
+              if (relation.getFrom().equals(relation.getTo())){   // Relación Unitaria
+                 line("    private "+relation.getTo()+" objPadre;\n");
+              }
+              else{
+                 line("    private "+relation.getTo()+" "+relation.getTo().toLowerCase()+";\n");
+              }
             }
 //********RELACION MUCHOS A UNO
 
 //********RELACION UNO A MUCHOS
             if(relation.getCardinality().equals("1..*")) {
-              line("    private Set<"+relation.getTo()+"> "+relation.getTo().toLowerCase()+" = new HashSet<"+relation.getTo()+">();\n");
+              if(relation.getFrom().equals(relation.getTo())){  // Relación Unitaria
+                line("    private Set<"+relation.getTo()+"> objHijos = new HashSet<"+relation.getTo()+">();\n");
+              }
+              else{
+                line("    private Set<"+relation.getTo()+"> "+relation.getTo().toLowerCase()+" = new HashSet<"+relation.getTo()+">();\n");
+              }
             }
 //********FIN RELACION UNO A MUCHOS
 
@@ -148,12 +155,12 @@ public Entity2(String artifactId,String groupId,Entidad entity) throws IOExcepti
 //>>FIN RELACIONES DE LA CLASE
 
 //>>CONTRUCTOR DE LA CLASE No.1
-      line("    "+entity.getName()+"() {");
+      line("    public "+entity.getName()+"() {");
       line("    }\n");
 //>>FIN CONTRUCTOR DE LA CLASE No.1
 
 //>>CONTRUCTOR DE LA CLASE No.2
-      line("    "+entity.getName()+"("+entity.getParameters()+") {");
+      line("    public "+entity.getName()+"("+entity.getParameters()+") {");
       for(Atributos atributo : atributos) {
           line("        this."+atributo.getField()+" = "+atributo.getField()+";");
       }
@@ -162,26 +169,13 @@ public Entity2(String artifactId,String groupId,Entidad entity) throws IOExcepti
 
 //>>GET Y SET id
       line("    @Id");
-      line("    @GeneratedValue(strategy = IDENTITY)");
-      line("    @Column(name = \"id\", nullable=false, unique=true, length=0, precision=0, columnDefinition=\"\")");
-      line("    public Long getId() {");
+      line("    public String getId() {");
       line("        return this.id;");
       line("    }\n");
-      line("    public void setId(Long id) {");
+      line("    public void setId(String id) {");
       line("        this.id = id;");
       line("    }\n");
 //>>FIN GET Y SET id
-
-//>>GET Y SET optlock
-      line("    @Version");
-      line("    @Column(name = \"optlock\", nullable=true, unique=false, length=0, precision=0, columnDefinition=\"\")");
-      line("    public Integer getOptlock() {");
-      line("        return this.optlock;");
-      line("    }");
-      line("    public void setOptlock(Integer optlock) {");
-      line("        this.optlock = optlock;");
-      line("    }\n");
-//>>FIN GET Y SET optlock
 
 //>>GET Y SET DE ATRIBUTOS
       for(Atributos atributo : atributos) {
@@ -203,25 +197,51 @@ public Entity2(String artifactId,String groupId,Entidad entity) throws IOExcepti
 
 //********RELACION MUCHOS A UNO
             if(relation.getCardinality().equals("*..1")) {
-               line("    @ManyToOne");
-               line("    public " + relation.getTo() + " get" + Utils._1raMay(relation.getTo()) + "() {");
-               line("        return " + relation.getTo() + ";");
-               line("    }");
-               line("    public void set" + Utils._1raMay(relation.getTo()) + "(" + Utils._1raMay(relation.getTo()) + " " + Utils._1raMin(relation.getTo()) + ") {");
-               line("        this." + Utils._1raMin(relation.getTo()) + " = " + Utils._1raMin(relation.getTo()) + ";");
-               line("    }\n");
+
+              if(relation.getFrom().equals(relation.getTo())){  // Relación Unitaria
+                 line("    @ManyToOne");
+                 line("    public " + relation.getTo() + " getObjPadre() {");
+                 line("        return this.objPadre;");
+                 line("    }");
+                 line("    public void setObjPadre(" + Utils._1raMay(relation.getTo()) + " objPadre) {");
+                 line("        this.objPadre = objPadre;");
+                 line("    }\n");
+              }
+              else{
+                 line("    @ManyToOne");
+                 line("    public " + relation.getTo() + " get" + Utils._1raMay(relation.getTo()) + "() {");
+                 line("        return " + Utils._1raMin(relation.getTo()) + ";");
+                 line("    }");
+                 line("    public void set" + Utils._1raMay(relation.getTo()) + "(" + Utils._1raMay(relation.getTo()) + " " + Utils._1raMin(relation.getTo()) + ") {");
+                 line("        this." + Utils._1raMin(relation.getTo()) + " = " + Utils._1raMin(relation.getTo()) + ";");
+                 line("    }\n");
+              }
+
             }
 //********RELACION MUCHOS A UNO
 
 //********RELACION UNO A MUCHOS
             if(relation.getCardinality().equals("1..*")) {
-               line("    @OneToMany");
-               line("    public " + relation.getTo() + " get" + Utils._1raMay(relation.getTo()) + "() {");
-               line("        return " + relation.getTo() + ";");
-               line("    }");
-               line("    public void set" + Utils._1raMay(relation.getTo()) + "(" + Utils._1raMay(relation.getTo()) + " " + Utils._1raMin(relation.getTo()) + ") {");
-               line("        this." + Utils._1raMin(relation.getTo()) + " = " + Utils._1raMin(relation.getTo()) + ";");
-               line("    }\n");
+
+              if(relation.getFrom().equals(relation.getTo())){  // Relación Unitaria
+                 line("    @OneToMany");
+                 line("    public Set<" + relation.getTo() + "> getObjHijos() {");
+                 line("        return this.objHijos;");
+                 line("    }");
+                 line("    public void setObjHijos(Set<" + Utils._1raMay(relation.getTo()) + "> objHijos) {");
+                 line("        this.objHijos = objHijos;");
+                 line("    }\n");
+              }
+              else{
+                 line("    @OneToMany");
+                 line("    public Set<" + relation.getTo() + "> get" + Utils._1raMay(relation.getTo()) + "() {");
+                 line("        return " + Utils._1raMin(relation.getTo()) + ";");
+                 line("    }");
+                 line("    public void set" + Utils._1raMay(relation.getTo()) + "(Set<" + Utils._1raMay(relation.getTo()) + "> " + Utils._1raMin(relation.getTo()) + ") {");
+                 line("        this." + Utils._1raMin(relation.getTo()) + " = " + Utils._1raMin(relation.getTo()) + ";");
+                 line("    }\n");
+              }
+
             }
 //********FIN RELACION UNO A MUCHOS
 

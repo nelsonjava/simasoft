@@ -62,6 +62,9 @@ public class App{
 
             Entity1 entity1 = new Entity1(artifactId,groupId+".models."+artifactId,entidad);
             Utils.fileMake(pathDocs+"."+path+"."+artifactId+".src.main.java."+groupId+".models."+artifactId+".1",entidad.getName()+".java", entity1);
+            
+            Entity2 entity2 = new Entity2(artifactId,groupId+".models."+artifactId,entidad);
+            Utils.fileMake(pathDocs+"."+path+"."+artifactId+".src.main.java."+groupId+".models."+artifactId+".2",entidad.getName()+".java", entity2);
         }
 
     }
