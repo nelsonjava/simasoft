@@ -50,11 +50,8 @@ public class TypeApp{
         HsqldbPersistence hsqldbPersistence = new HsqldbPersistence(artifactId,groupId);
         Utils.fileMake(artifactId+".src.resources.META-INF", "persistence.xml", hsqldbPersistence);
 
-        Utils.fileJar("log4j.properties",artifactId+"\\src\\resources\\",fileJar);
-        Utils.fileJar("import.sql",artifactId+"\\src\\resources\\sql\\",fileJar);
-
-
-
+        Utils.fileJar("jarHsqldb/resources","log4j.properties",artifactId+"\\src\\resources\\",fileJar);
+        Utils.fileJar("jarHsqldb/resources/sql","import.sql",artifactId+"\\src\\resources\\sql\\",fileJar);
 
     } // Jar Hsqldb
 
@@ -88,11 +85,11 @@ public class TypeApp{
         FacesConfig fileFacesConfig = new FacesConfig(artifactId,groupId);
         Utils.fileMake(artifactId+".src.main.webapp.WEB-INF", "faces-config.xml", fileFacesConfig);
 
-        Utils.fileJar("index.html",artifactId+"\\src\\main\\webapp\\",fileJar);
-        Utils.fileJar("home.xhtml",artifactId+"\\src\\main\\webapp\\",fileJar);
-        Utils.fileJar("default.xhtml",artifactId+"\\src\\main\\webapp\\resources\\templates\\",fileJar);
-        Utils.fileJar("screen.css",artifactId+"\\src\\main\\webapp\\resources\\css\\",fileJar);
-        Utils.fileJar("logo.jpg",artifactId+"\\src\\main\\webapp\\resources\\img\\",fileJar);
+        Utils.fileJar("webBasic/webapp","index.html",artifactId+"\\src\\main\\webapp\\",fileJar);
+        Utils.fileJar("webBasic/webapp","home.xhtml",artifactId+"\\src\\main\\webapp\\",fileJar);
+        Utils.fileJar("webBasic/webapp","default.xhtml",artifactId+"\\src\\main\\webapp\\resources\\templates\\",fileJar);
+        Utils.fileJar("webBasic/webapp/css","screen.css",artifactId+"\\src\\main\\webapp\\resources\\css\\",fileJar);
+        Utils.fileJar("webBasic/webapp/img","logo.jpg",artifactId+"\\src\\main\\webapp\\resources\\img\\",fileJar);
 
     } // War
 

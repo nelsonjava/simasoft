@@ -65,6 +65,18 @@ line("    </resources>\n");
 
 line("    <plugins>\n");
 
+line("      <!-- Compiler plugin enforces Java 1.7 compatibility and activates annotation processors -->");
+line("      <!-- mvn archetype:generate > a.txt -->");
+line("      <plugin>");
+line("        <artifactId>maven-compiler-plugin</artifactId>");
+line("        <version>3.1</version>");
+line("        <configuration>");
+line("          <source>1.7</source>");
+line("          <target>1.7</target>");
+line("          <encoding>UTF-8</encoding>");
+line("        </configuration>");
+line("      </plugin>\n");
+
 line("      <plugin>");
 line("        <groupId>org.apache.maven.plugins</groupId>");
 line("        <artifactId>maven-jar-plugin</artifactId>");

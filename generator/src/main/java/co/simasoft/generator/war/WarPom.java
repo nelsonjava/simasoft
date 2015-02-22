@@ -108,7 +108,7 @@ line("      <plugin>");
 line("        <groupId>org.wildfly.plugins</groupId>");
 line("        <artifactId>wildfly-maven-plugin</artifactId>");
 line("        <version>1.0.2.Final</version>");
-line("      </plugin>");
+line("      </plugin>\n");
 
 line("      <!-- Compiler plugin enforces Java 1.7 compatibility and activates annotation processors -->");
 line("      <!-- mvn archetype:generate > a.txt -->");

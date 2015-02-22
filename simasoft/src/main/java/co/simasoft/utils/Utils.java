@@ -1,6 +1,10 @@
 package co.simasoft.utils;
 
 import java.io.*;
+import java.util.jar.JarFile;
+import java.util.jar.JarEntry;
+import java.util.Enumeration;
+
 
 // Dic 13/2014 Hora:09:45 Sabado
 
@@ -198,39 +202,91 @@ System.out.println("dirDest="+dirDest);
         return field;
     }
 
+    /**
+     * This method will copy a file from inside a jar to an specified
+     * directory(Tested only in Windows).
+     *
+     * @param sourcePath Path combined with the desired file to be found
+     *                   inside the jar. Use '/' as path separator. If it
+     *                   is null, it will be omitted.
+     * @param desiredFile File required to copy from jar. Without extra
+     *                    folders, in that case use sourcePath parameter.
+     * @param outputFolder Directory where file(s) will be located. Use
+     *                     '\\' for path separator.
+     * @param jarFile Jar file name from which the desired file will be copied.
+     */
+    public static void fileJar(String sourcePath,String desiredFile,String outputFolder,String jarFile) throws IOException {
 
-    public static void fileJar( String farchivo, String directory, String fileJar ) throws IOException {
+        // -------------- Validation PHASE -------------- //
+        if (sourcePath == null) {
+            sourcePath = "";
+        }
+        if (desiredFile == null || desiredFile.isEmpty()) {
+            System.out.println("\nERROR: The desired file String is null/empty.");
+            return;
+        }
+        if (desiredFile.split("/").length > 1) {
+            System.out.println("\nERROR: Better to use the file path, with the sourcePath parameter, leave only the filename.");
+            return;
+        }
+        if (outputFolder == null || outputFolder.isEmpty()) {
+            System.out.println("\nERROR: The output folder String is null/empty.");
+            return;
+        }
+        if (jarFile == null || jarFile.isEmpty()) {
+            System.out.println("\nERROR: The jar file String is null/empty.");
+            return;
+        }
 
-       java.util.jar.JarFile jar = new java.util.jar.JarFile(fileJar);
-       java.util.Enumeration otra = jar.entries();
+        File      copiedFile              = null;
+        boolean   foundFlag               = false;
+        JarEntry  jarEntryForOutputFolder = null;
 
-       java.io.File f = new java.io.File(directory+farchivo);
-       java.util.jar.JarEntry file = new java.util.jar.JarEntry(directory);
+        JarFile jar             = new JarFile(jarFile);
+        Enumeration jarEntries  = jar.entries();
 
-       while (otra.hasMoreElements()) {
+        while (jarEntries.hasMoreElements()) {
 
-         java.util.jar.JarEntry sfile = (java.util.jar.JarEntry) otra.nextElement();
-         java.io.File ff  = new java.io.File(directory + sfile.getName());
-         java.io.File fff = new java.io.File(directory + farchivo );
+            // For files related to jar entries
+            JarEntry jarEntryFileName = (JarEntry) jarEntries.nextElement();
 
-         if (ff.getName().equals(farchivo)){
-            file = sfile;
-            f = fff;
-            System.out.println(directory+f.getName());
-            break;
-         }
-       } // while
+            // Res = A resource that can be a File/Folder
+            File path_AvailableRes = new File(outputFolder + jarEntryFileName.getName());
+            File path_DesiredRes = new File(outputFolder + desiredFile);
 
-       java.io.InputStream is = jar.getInputStream(file); // get the input stream
-       java.io.FileOutputStream fos = new java.io.FileOutputStream(f);
+            if (jarEntryFileName.toString().equals(sourcePath +"/"+ desiredFile)) {
 
-       while (is.available() > 0) {  // write contents of 'is' to 'fos'
-          fos.write(is.read());
-       }
+                jarEntryForOutputFolder = jarEntryFileName;
+                copiedFile = path_DesiredRes;
 
-       fos.close();
-       is.close();
+                System.out.println(outputFolder +desiredFile);
 
-    }
+                foundFlag = true;
+                break;
+            } // end : if
+
+        } // end : while
+
+        if (!foundFlag) {
+            System.out.println("ERROR: Not possible to find " + sourcePath + desiredFile + " inside the jar.\n");
+            return;
+        }
+
+        // If case they don't exist, create new folders.                   //
+        new File(outputFolder).mkdirs();
+
+        // Proceed to copy the file //
+        InputStream is = jar.getInputStream(jarEntryForOutputFolder);
+        FileOutputStream fos = new FileOutputStream(copiedFile);
+
+        while (is.available() > 0) {
+            fos.write(is.read());
+        }
+
+        fos.flush();
+        fos.close();
+        is.close();
+    } // end : copyFileFromJar Method
+
 
 } // Utils

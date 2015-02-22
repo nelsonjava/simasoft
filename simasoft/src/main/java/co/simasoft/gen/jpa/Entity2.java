@@ -71,7 +71,8 @@ public Entity2(String artifactId,String groupId,Entidad entity) throws IOExcepti
 
       line("import java.util.*;\n");
       line("import javax.persistence.*;");
-      line("import javax.validation.constraints.*;\n");
+      line("import javax.validation.constraints.*;");
+      line("import org.hibernate.annotations.GenericGenerator;\n");
 //>>FIN IMPORTS DE LA CLASE
 
 //>>DOCUMENTACION DE LA CLASE
@@ -94,7 +95,7 @@ public Entity2(String artifactId,String groupId,Entidad entity) throws IOExcepti
       line("    private static final long serialVersionUID = 1L;\n");
 
       line("    @Id");
-      line("	@GeneratedValue(generator = \"uuid\")");
+      line("    @GeneratedValue(generator = \"uuid\")");
       line("    @GenericGenerator(name = \"uuid\", strategy = \"uuid2\")");
       line("    private String id;\n");
 

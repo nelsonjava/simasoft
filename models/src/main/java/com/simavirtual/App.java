@@ -45,9 +45,9 @@ public class App{
 
         Utils.copyFile("src/resources/models/"+path+"/"+artifactId+"/"+artifactId+".jpg",pathDocs+"/"+path+"/"+artifactId+"/src/main/asciidoc/en-US/images/modelo.jpg");
 
-        Utils.fileJar("poma.xml",pathDocs+"\\"+path+"\\"+artifactId+"\\",fileJar);
-        Utils.fileJar("master.asciidoc",pathDocs+"\\"+path+"\\"+artifactId+"\\src\\main\\asciidoc\\en-US\\",fileJar);
-        Utils.fileJar("master-docinfo.xml",pathDocs+"\\"+path+"\\"+artifactId+"\\src\\main\\asciidoc\\en-US\\",fileJar);
+        Utils.fileJar("jdocbook","pom.xml",pathDocs+"\\"+path+"\\"+artifactId+"\\",fileJar);
+        Utils.fileJar("jdocbook","master.asciidoc",pathDocs+"\\"+path+"\\"+artifactId+"\\src\\main\\asciidoc\\en-US\\",fileJar);
+        Utils.fileJar("jdocbook","master-docinfo.xml",pathDocs+"\\"+path+"\\"+artifactId+"\\src\\main\\asciidoc\\en-US\\",fileJar);
 
         Asciidoc fileAsciidoc = new Asciidoc(artifactId,groupId,entidades);
         Utils.fileMake(pathDocs+"."+path+"."+artifactId+".src.main.asciidoc.en-US.modules", "modelo.asciidoc", fileAsciidoc);
