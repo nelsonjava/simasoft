@@ -3,6 +3,7 @@ package co.simasoft.generator.utils;
 import co.simasoft.utils.*;
 import co.simasoft.generator.jar.*;
 import co.simasoft.generator.jar.hsqldb.*;
+import co.simasoft.generator.jar.mongo.*;
 import co.simasoft.generator.war.*;
 
 import java.io.*;
@@ -52,6 +53,33 @@ public class TypeApp{
 
         Utils.fileJar("jarHsqldb/resources","log4j.properties",artifactId+"\\src\\resources\\",fileJar);
         Utils.fileJar("jarHsqldb/resources/sql","import.sql",artifactId+"\\src\\resources\\sql\\",fileJar);
+
+    } // Jar Hsqldb
+
+    public static void JarMongo(String artifactId,String groupId) throws IOException {
+
+        Utils.mkDirs(artifactId+".src.main.java."+groupId+".models");
+        Utils.mkDirs(artifactId+".src.resources.META-INF");
+
+        MongoPom mongoPom = new MongoPom(artifactId,groupId);
+        Utils.fileMake(artifactId, "pom.xml", mongoPom);
+
+        MongoBuild mongoBuild = new MongoBuild(artifactId,groupId);
+        Utils.fileMake(artifactId, "build.xml", mongoBuild);
+
+        MongoApp mongoApp = new MongoApp(artifactId,groupId);
+        Utils.fileMake(artifactId+".src.main.java."+groupId, "App.java", mongoApp);
+
+        MongoPerson mongoPerson = new MongoPerson(artifactId,groupId);
+        Utils.fileMake(artifactId+".src.main.java."+groupId+".models", "Person.java", mongoPerson);
+
+        MongoPersistence mongoPersistence = new MongoPersistence(artifactId,groupId);
+        Utils.fileMake(artifactId+".src.resources.META-INF", "persistence.xml", mongoPersistence);
+
+        Utils.fileJar("jarMongo","arjuna-properties.xml",artifactId+"\\src\\resources\\",fileJar);
+        Utils.fileJar("jarMongo","jbossts-properties.xml",artifactId+"\\src\\resources\\",fileJar);
+        Utils.fileJar("jarMongo","log4j.properties",artifactId+"\\src\\resources\\",fileJar);
+
 
     } // Jar Hsqldb
 
