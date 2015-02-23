@@ -5,6 +5,7 @@ import co.simasoft.generator.jar.*;
 import co.simasoft.generator.jar.hsqldb.*;
 import co.simasoft.generator.jar.mongo.*;
 import co.simasoft.generator.war.*;
+import co.simasoft.generator.war.mongo.*;
 
 import java.io.*;
 import java.util.*;
@@ -120,5 +121,42 @@ public class TypeApp{
         Utils.fileJar("webBasic/webapp/img","logo.jpg",artifactId+"\\src\\main\\webapp\\resources\\img\\",fileJar);
 
     } // War
+
+    public static void WarMongo(String artifactId,String groupId) throws IOException {
+
+        MongoWarPom mongofilePom = new MongoWarPom(artifactId,groupId);
+        Utils.fileMake(artifactId, "pom.xml", mongofilePom);
+
+        MongoBuildWar mongofileBuildWar = new MongoBuildWar(artifactId,groupId);
+        Utils.fileMake(artifactId, "build.xml", mongofileBuildWar);
+
+        WarMongoPerson warMongoPerson = new WarMongoPerson(artifactId,groupId);
+        Utils.fileMake(artifactId+".src.main.java."+groupId+".model", "Person.java", warMongoPerson);
+
+        WarMongoSetupBean warMongoSetupBean = new WarMongoSetupBean(artifactId,groupId);
+        Utils.fileMake(artifactId+".src.main.java."+groupId+".setup", "SetupBean.java", warMongoSetupBean);
+
+        WarMongoPersistence warMongoPersistence = new WarMongoPersistence(artifactId,groupId);
+        Utils.fileMake(artifactId+".src.main.resources.META-INF", "persistence.xml", warMongoPersistence);
+
+        MongoHome mongofileHome = new MongoHome(artifactId,groupId);
+        Utils.fileMake(artifactId+".src.main.webapp", "home.xhtml", mongofileHome);
+
+        MongoIndex mongofileIndex = new MongoIndex(artifactId,groupId);
+        Utils.fileMake(artifactId+".src.main.webapp", "index.html", mongofileIndex);
+
+        MongoBeans mongofileBeans = new MongoBeans(artifactId,groupId);
+        Utils.fileMake(artifactId+".src.main.webapp.WEB-INF", "beans.xml", mongofileBeans);
+
+        MongoFacesConfig mongofileFacesConfig = new MongoFacesConfig(artifactId,groupId);
+        Utils.fileMake(artifactId+".src.main.webapp.WEB-INF", "faces-config.xml", mongofileFacesConfig);
+
+        Utils.fileJar("webMongo/webapp","index.html",artifactId+"\\src\\main\\webapp\\",fileJar);
+        Utils.fileJar("webMongo/webapp","home.xhtml",artifactId+"\\src\\main\\webapp\\",fileJar);
+        Utils.fileJar("webMongo/webapp","default.xhtml",artifactId+"\\src\\main\\webapp\\resources\\templates\\",fileJar);
+        Utils.fileJar("webMongo/webapp/css","screen.css",artifactId+"\\src\\main\\webapp\\resources\\css\\",fileJar);
+        Utils.fileJar("webMongo/webapp/img","logo.jpg",artifactId+"\\src\\main\\webapp\\resources\\img\\",fileJar);
+
+    } // War Mongo
 
 } // TypeApp

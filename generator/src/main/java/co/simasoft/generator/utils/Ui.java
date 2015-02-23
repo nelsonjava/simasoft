@@ -18,6 +18,7 @@ public class Ui{
         System.out.println("2:jar Hsqldb");
         System.out.println("3:jar Mongodb");
         System.out.println("4:war");
+        System.out.println("5:war Mongodb");
         System.out.println();
 
         System.out.print("Seleccione el tipo de aplicacion: ");
@@ -41,7 +42,7 @@ public class Ui{
             case 2:  System.out.println("jar " + typeApp);
                      TypeApp.JarHsqldb(artifactId,groupId);
                      break;
-                     
+
             case 3:  System.out.println("jar " + typeApp);
                      TypeApp.JarMongo(artifactId,groupId);
                      break;
@@ -49,6 +50,11 @@ public class Ui{
             case 4:  System.out.println("War " + typeApp);
                      TypeApp.War(artifactId,groupId);
                      break;
+                     
+            case 5:  System.out.println("War " + typeApp);
+                     TypeApp.WarMongo(artifactId,groupId);
+                     break;
+
 
             default: System.out.println("!!Error!! Numero incorrecto: " + typeApp);
                      break;
