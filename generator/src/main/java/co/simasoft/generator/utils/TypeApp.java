@@ -152,7 +152,6 @@ public class TypeApp{
         Utils.fileMake(artifactId+".src.main.webapp.WEB-INF", "faces-config.xml", mongofileFacesConfig);
 
         Utils.fileJar("webMongo/webapp","index.html",artifactId+"\\src\\main\\webapp\\",fileJar);
-        Utils.fileJar("webMongo/webapp","home.xhtml",artifactId+"\\src\\main\\webapp\\",fileJar);
         Utils.fileJar("webMongo/webapp","default.xhtml",artifactId+"\\src\\main\\webapp\\resources\\templates\\",fileJar);
         Utils.fileJar("webMongo/webapp/css","screen.css",artifactId+"\\src\\main\\webapp\\resources\\css\\",fileJar);
         Utils.fileJar("webMongo/webapp/img","logo.jpg",artifactId+"\\src\\main\\webapp\\resources\\img\\",fileJar);

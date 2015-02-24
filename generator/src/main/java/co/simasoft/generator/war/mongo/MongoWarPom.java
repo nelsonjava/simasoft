@@ -18,6 +18,11 @@ line("  <!-- mvn clean package wildfly:deploy -->");
 line("  <!-- http://localhost:8080 -->");
 line("  <!-- http://localhost:8080/"+artifactId+" -->\n");
 
+line("  <!-- Mongo Comands -->");
+line("  <!-- show databases -->");
+line("  <!-- use "+artifactId+" -->");
+line("  <!-- show collections -->");
+line("  <!-- db.Person.find().pretty() -->\n");
 
 line("  <modelVersion>4.0.0</modelVersion>\n");
 
@@ -33,15 +38,15 @@ line("      <url>http://repository.jboss.org/nexus/content/groups/public</url>")
 line("    </repository>");
 line("  </repositories>\n");
 
-line("    <properties>");
-line("      <!-- Explicitly declaring the source encoding eliminates the following message: -->");
-line("      <!-- [WARNING] Using platform encoding (UTF-8 actually) to copy filtered");
-line("           resources, i.e. build is platform dependent! -->");
-line("      <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>");
-line("    </properties>\n");
+line("  <properties>");
+line("    <!-- Explicitly declaring the source encoding eliminates the following message: -->");
+line("    <!-- [WARNING] Using platform encoding (UTF-8 actually) to copy filtered");
+line("         resources, i.e. build is platform dependent! -->");
+line("    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>");
+line("  </properties>\n");
 
 line("  <dependencyManagement>");
-line("    <dependencies>");
+line("    <dependencies>\n");
 
 line("      <dependency>");
 line("        <groupId>org.jboss.spec</groupId>");
@@ -49,7 +54,7 @@ line("        <artifactId>jboss-javaee-7.0</artifactId>");
 line("        <version>1.0.0.Final</version>");
 line("        <type>pom</type>");
 line("        <scope>import</scope>");
-line("      </dependency>");
+line("      </dependency>\n");
 
 line("      <dependency>");
 line("        <groupId>org.wildfly.bom</groupId>");
@@ -57,7 +62,7 @@ line("        <artifactId>jboss-javaee-7.0-with-hibernate</artifactId>");
 line("        <version>8.2.1.Final</version>");
 line("        <type>pom</type>");
 line("         <scope>import</scope>");
-line("      </dependency>");
+line("      </dependency>\n");
 
 line("      <dependency>");
 line("        <groupId>org.hibernate.ogm</groupId>");
@@ -65,36 +70,36 @@ line("        <artifactId>hibernate-ogm-bom</artifactId>");
 line("        <type>pom</type>");
 line("        <version>4.1.1.Final</version>");
 line("        <scope>import</scope>");
-line("      </dependency>");
+line("      </dependency>\n");
 
 line("    </dependencies>");
-line("  </dependencyManagement>");
+line("  </dependencyManagement>\n");
 
-line("  <dependencies>");
+line("  <dependencies>\n");
 
 line("    <!-- Use this for MongoDB -->");
 line("    <dependency>");
 line("      <groupId>org.hibernate.ogm</groupId>");
 line("      <artifactId>hibernate-ogm-mongodb</artifactId>");
-line("    </dependency>");
+line("    </dependency>\n");
 
 line("    <dependency>");
 line("      <groupId>org.hibernate</groupId>");
 line("      <artifactId>hibernate-core</artifactId>");
 line("      <version>4.3.8.Final</version>");
-line("    </dependency>");
+line("    </dependency>\n");
 
 line("    <!-- Hibernate Search -->");
 line("    <dependency>");
 line("      <groupId>org.hibernate</groupId>");
 line("      <artifactId>hibernate-search-orm</artifactId>");
-line("    </dependency>");
+line("    </dependency>\n");
 
 line("    <dependency>");
 line("      <groupId>org.hibernate</groupId>");
 line("      <artifactId>hibernate-search</artifactId>");
 line("      <version>5.0.1.Final</version>");
-line("    </dependency>");
+line("    </dependency>\n");
 
 line("    <!-- JSR-303 (Bean Validation) Implementation -->");
 line("    <!-- Provides portable constraints such as @Email -->");
@@ -109,19 +114,19 @@ line("          <groupId>org.slf4j</groupId>");
 line("          <artifactId>slf4j-api</artifactId>");
 line("        </exclusion>");
 line("      </exclusions>");
-line("    </dependency>");
+line("    </dependency>\n");
 
 line("    <dependency>");
 line("      <groupId>org.jboss.jbossts</groupId>");
 line("       <artifactId>jbossjta</artifactId>");
-line("    </dependency>");
+line("    </dependency>\n");
 
 line("    <!-- Import the CDI API, we use provided scope as the API is included in JBoss WildFly -->");
 line("    <dependency>");
 line("      <groupId>javax.enterprise</groupId>");
 line("      <artifactId>cdi-api</artifactId>");
 line("      <scope>provided</scope>");
-line("    </dependency>");
+line("    </dependency>\n");
 
 line("    <!-- Import the Common Annotations API (JSR-250), we use provided scope");
 line("         as the API is included in JBoss WildFly -->");
@@ -129,21 +134,21 @@ line("    <dependency>");
 line("      <groupId>org.jboss.spec.javax.annotation</groupId>");
 line("      <artifactId>jboss-annotations-api_1.2_spec</artifactId>");
 line("      <scope>provided</scope>");
-line("    </dependency>");
+line("    </dependency>\n");
 
 line("    <dependency>");
 line("      <groupId>org.jboss.spec.javax.faces</groupId>");
 line("      <artifactId>jboss-jsf-api_2.2_spec</artifactId>");
 line("      <scope>provided</scope>");
-line("    </dependency>");
+line("    </dependency>\n");
 
 line("    <dependency>");
 line("      <groupId>org.jboss.spec</groupId>");
 line("      <artifactId>jboss-javaee-all-7.0</artifactId>");
 line("      <version>1.0.2.Final</version>");
-line("    </dependency>");
+line("    </dependency>\n");
 
-line("  </dependencies>");
+line("  </dependencies>\n");
 
 line("  <build>");
 line("    <finalName>${project.artifactId}</finalName>");

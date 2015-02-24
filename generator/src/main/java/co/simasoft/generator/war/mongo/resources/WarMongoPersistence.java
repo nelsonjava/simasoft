@@ -17,7 +17,7 @@ line("  <persistence-unit name=\""+artifactId+"PU-JTA"+"\" transaction-type=\"JT
 
 line("    <provider>org.hibernate.ogm.jpa.HibernateOgmPersistence</provider>\n");
 
-line("    <class>"+groupId+".models.Person"+"</class>\n");
+line("    <class>"+groupId+".model.Person"+"</class>\n");
 
 line("     <properties>");
 line("       <property name=\"hibernate.ogm.datastore.provider\"        value=\"mongodb\" />");
