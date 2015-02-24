@@ -20,13 +20,6 @@ line("  <!-- 3. Add third-party libraries -->");
 line("  <!-- 4. maven add dependencies to jar -->");
 line("  <!-- http://stackoverflow.com/questions/574594/how-can-i-create-an-executable-jar-with-dependencies-using-maven  -->\n");
 
-line("  <!-- LINKS -->");
-line("  <!-- http://hsqldb.org/ -->");
-line("  <!-- https://github.com/geowarin/hibernate-examples -->");
-line("  <!-- https://books.google.com.co/books?id=6k0Z0mD48QwC&pg=PA99&lpg=PA99&dq=OGM%2Bjava%2Bstandalone&source=bl&ots=piE8ac-S1b&sig=3D9yITqDlgSC3D6jZwOTuSsiZa8&hl=es&sa=X&ei=1UDnVKC0LrWCsQTriYD4CQ&ved=0CGcQ6AEwCQ#v=onepage&q=OGM%2Bjava%2Bstandalone&f=false -->");
-line("  <!-- http://geowarin.github.io/2013/01/20/using-hibernate-as-a-jpa-provider-in-a-java-se-environment-and-run-tests-with-dbunit/ -->");
-line("  <!-- http://geowarin.github.io/2013/01/21/generate-ddl-with-hibernate/ --> \n");
-
 line("  <modelVersion>4.0.0</modelVersion>\n");
 
 line("  <groupId>"+groupId+"</groupId>");

@@ -13,7 +13,7 @@ public class Ui{
         int typeApp = 0;
 
         System.out.println();
-        System.out.println("Tipo de aplicacion(v.215.02.1): ");
+        System.out.println("Tipo de aplicacion(v.215.02.2): ");
         System.out.println("1:jar Simple");
         System.out.println("2:jar Hsqldb");
         System.out.println("3:jar Mongodb");
