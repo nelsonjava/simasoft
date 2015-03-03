@@ -8,7 +8,7 @@ import co.simasoft.utils.*;
 import co.simasoft.gen.asciidoc.*;
 import co.simasoft.gen.jpa.*;
 
-public class App{
+public class App extends FileTxt{
 
     private static ArrayList<Entidad> entidades = new ArrayList<Entidad>();
     private static ArrayList<Relation> relationsPower = new ArrayList<Relation>();
@@ -20,7 +20,7 @@ public class App{
     private static String filePowerDesigner = "";
     private static String pathDocs = "docs";
     private static String artifactId = "";
-    private static String groupId = "com.simavirtual";
+    private static String groupId = "co.simasoft";
     private static String asciidocImages = "src.main.asciidoc.en-US.images";
     private static String asciidocModules = "src.main.asciidoc.en-US.modules";
 
@@ -62,16 +62,21 @@ public class App{
 
             Entity1 entity1 = new Entity1(artifactId,groupId+".models."+artifactId,entidad);
             Utils.fileMake(pathDocs+"."+path+"."+artifactId+".src.main.java."+groupId+".models."+artifactId+".1",entidad.getName()+".java", entity1);
-            
+
             Entity2 entity2 = new Entity2(artifactId,groupId+".models."+artifactId,entidad);
             Utils.fileMake(pathDocs+"."+path+"."+artifactId+".src.main.java."+groupId+".models."+artifactId+".2",entidad.getName()+".java", entity2);
         }
+
+        Persistence persistence = new Persistence(artifactId,groupId,entidades);
+        Utils.fileMake(pathDocs+"."+path+"."+artifactId+".src.main.java."+groupId+".models."+artifactId, "persistence.xml", persistence);
+
+        Datasource datasource = new Datasource(artifactId,groupId,entidades);
+        Utils.fileMake(pathDocs+"."+path+"."+artifactId+".src.main.java."+groupId+".models."+artifactId,artifactId+"-ds.xml", datasource);
 
     }
 
     public static void main( String[] args ) throws IOException {
 
-        generarModelo("conta","conta");  // Prueba
         generarModelo("contab","contab");
         generarModelo("iso","archivo-inactivo");
         generarModelo("iso","lmd");

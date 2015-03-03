@@ -28,8 +28,14 @@
     <delete dir="pruebaWar/ObjectStore" failonerror="no"/>
     <delete dir="pruebaWar/PutObjectStoreDirHere" failonerror="no"/>
     <delete dir="kitchensink/target" failonerror="no"/>
+
+    <!-- DabaBases -->
+    <delete dir="db/contabDb/target" failonerror="no"/>
+
+    <!-- Applications Web -->
+    <delete dir="contab/target" failonerror="no"/>
   </target>
-  
+
   <target name="bak">
     <delete dir="target" failonerror="no"/>
     <mkdir dir="${bak}/${project.name}" />
