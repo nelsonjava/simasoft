@@ -12,9 +12,15 @@ import org.hibernate.search.annotations.Analyze;
 import org.hibernate.search.annotations.Field;
 import org.hibernate.search.annotations.Indexed;
 
+import org.hibernate.search.annotations.Analyze;
+import org.hibernate.search.annotations.Field;
+import org.hibernate.search.annotations.Indexed;
+
 @Entity
 @Indexed
 public class Pucs {
+
+    private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(generator = "uuid")
@@ -24,8 +30,6 @@ public class Pucs {
     @Field( analyze = Analyze.NO )
     private String nombre;
 
-    private boolean siRegistra;
-
     public Pucs() {
     }
 
@@ -33,12 +37,13 @@ public class Pucs {
         this.nombre = nombre;
     }
 
+    @Id
     public String getId() {
-      return id;
+        return this.id;
     }
 
     public void setId(String id) {
-      this.id = id;
+        this.id = id;
     }
 
     public String getNombre() {
@@ -48,12 +53,5 @@ public class Pucs {
         this.nombre = nombre;
     }
 
-    public boolean getSiRegistra() {
-        return siRegistra;
-    }
-    public void setSiRegistra(boolean siRegistra) {
-        this.siRegistra = siRegistra;
-    }
 
 } // entity
-
