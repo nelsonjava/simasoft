@@ -6,7 +6,6 @@ import java.util.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
-import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 public class Movimientos {
@@ -14,9 +13,8 @@ public class Movimientos {
     private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(generator = "uuid")
-    @GenericGenerator(name = "uuid", strategy = "uuid2")
-    private String id;
+    @GeneratedValue(strategy=GenerationType.TABLE)
+    private long id;
 
     private Integer optlock;
 
@@ -32,9 +30,11 @@ public class Movimientos {
 
     private String detalle;
 
-    private Terceros terceros;
-
+    @ManyToOne
     private Pucs pucs;
+
+    @ManyToOne
+    private Terceros terceros;
 
     public Movimientos() {
     }
@@ -48,12 +48,11 @@ public class Movimientos {
         this.detalle = detalle;
     }
 
-    @Id
-    public String getId() {
+    public long getId() {
         return this.id;
     }
 
-    public void setId(String id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -99,20 +98,18 @@ public class Movimientos {
         this.detalle = detalle;
     }
 
-    @ManyToOne
-    public Terceros getTerceros() {
-        return terceros;
-    }
-    public void setTerceros(Terceros terceros) {
-        this.terceros = terceros;
-    }
-
-    @ManyToOne
     public Pucs getPucs() {
         return pucs;
     }
     public void setPucs(Pucs pucs) {
         this.pucs = pucs;
+    }
+
+    public Terceros getTerceros() {
+        return terceros;
+    }
+    public void setTerceros(Terceros terceros) {
+        this.terceros = terceros;
     }
 
 } // entity

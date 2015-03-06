@@ -130,9 +130,11 @@ public Entity2(String artifactId,String groupId,Entidad entity) throws IOExcepti
 //********RELACION MUCHOS A UNO
             if(relation.getCardinality().equals("*..1")) {
               if (relation.getFrom().equals(relation.getTo())){   // Relación Unitaria
+                 line("    @ManyToOne");
                  line("    private "+relation.getTo()+" objPadre;\n");
               }
               else{
+                 line("    @ManyToOne");
                  line("    private "+relation.getTo()+" "+relation.getTo().toLowerCase()+";\n");
               }
             }
@@ -141,9 +143,11 @@ public Entity2(String artifactId,String groupId,Entidad entity) throws IOExcepti
 //********RELACION UNO A MUCHOS
             if(relation.getCardinality().equals("1..*")) {
               if(relation.getFrom().equals(relation.getTo())){  // Relación Unitaria
+                line("    @OneToMany(mappedBy = \"objPadre\")");
                 line("    private Set<"+relation.getTo()+"> objHijos = new HashSet<"+relation.getTo()+">();\n");
               }
               else{
+                line("    @OneToMany(mappedBy = \""+Utils._1raMin(entity.getName())+"\")");
                 line("    private Set<"+relation.getTo()+"> "+relation.getTo().toLowerCase()+" = new HashSet<"+relation.getTo()+">();\n");
               }
             }
@@ -169,7 +173,6 @@ public Entity2(String artifactId,String groupId,Entidad entity) throws IOExcepti
 //>>CONTRUCTOR DE LA CLASE No.2
 
 //>>GET Y SET id
-      line("    @Id");
       line("    public String getId() {");
       line("        return this.id;");
       line("    }\n");
@@ -200,7 +203,6 @@ public Entity2(String artifactId,String groupId,Entidad entity) throws IOExcepti
             if(relation.getCardinality().equals("*..1")) {
 
               if(relation.getFrom().equals(relation.getTo())){  // Relación Unitaria
-                 line("    @ManyToOne");
                  line("    public " + relation.getTo() + " getObjPadre() {");
                  line("        return this.objPadre;");
                  line("    }");
@@ -209,7 +211,6 @@ public Entity2(String artifactId,String groupId,Entidad entity) throws IOExcepti
                  line("    }\n");
               }
               else{
-                 line("    @ManyToOne");
                  line("    public " + relation.getTo() + " get" + Utils._1raMay(relation.getTo()) + "() {");
                  line("        return " + Utils._1raMin(relation.getTo()) + ";");
                  line("    }");
@@ -225,7 +226,6 @@ public Entity2(String artifactId,String groupId,Entidad entity) throws IOExcepti
             if(relation.getCardinality().equals("1..*")) {
 
               if(relation.getFrom().equals(relation.getTo())){  // Relación Unitaria
-                 line("    @OneToMany");
                  line("    public Set<" + relation.getTo() + "> getObjHijos() {");
                  line("        return this.objHijos;");
                  line("    }");
@@ -234,7 +234,6 @@ public Entity2(String artifactId,String groupId,Entidad entity) throws IOExcepti
                  line("    }\n");
               }
               else{
-                 line("    @OneToMany");
                  line("    public Set<" + relation.getTo() + "> get" + Utils._1raMay(relation.getTo()) + "() {");
                  line("        return " + Utils._1raMin(relation.getTo()) + ";");
                  line("    }");

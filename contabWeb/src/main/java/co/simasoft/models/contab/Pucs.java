@@ -6,43 +6,56 @@ import java.util.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
-import org.hibernate.annotations.GenericGenerator;
-
-import org.hibernate.search.annotations.Analyze;
-import org.hibernate.search.annotations.Field;
-import org.hibernate.search.annotations.Indexed;
-
-import org.hibernate.search.annotations.Analyze;
-import org.hibernate.search.annotations.Field;
-import org.hibernate.search.annotations.Indexed;
 
 @Entity
-@Indexed
 public class Pucs {
 
     private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(generator = "uuid")
-    @GenericGenerator(name = "uuid", strategy = "uuid2")
-    private String id;
+    @GeneratedValue(strategy=GenerationType.TABLE)
+    private long id;
 
-    @Field( analyze = Analyze.NO )
+    private Integer optlock;
+
     private String nombre;
+
+    private boolean siRegistra;
+
+    private boolean siTercero;
+
+    private boolean siBase;
+
+    private String observaciones;
+
+    @ManyToOne
+    private Pucs objPadre;
+
+    @OneToMany(mappedBy = "pucs")
+    private Set<Movimientos> movimientos = new HashSet<Movimientos>();
+
+    @OneToMany(mappedBy = "objPadre")
+    private Set<Pucs> objHijos = new HashSet<Pucs>();
+
+    @OneToMany(mappedBy = "pucs")
+    private Set<Saldos> saldos = new HashSet<Saldos>();
 
     public Pucs() {
     }
 
-    public Pucs(String nombre) {
+    public Pucs(String nombre,boolean siRegistra,boolean siTercero,boolean siBase,String observaciones) {
         this.nombre = nombre;
+        this.siRegistra = siRegistra;
+        this.siTercero = siTercero;
+        this.siBase = siBase;
+        this.observaciones = observaciones;
     }
 
-    @Id
-    public String getId() {
+    public long getId() {
         return this.id;
     }
 
-    public void setId(String id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -53,5 +66,61 @@ public class Pucs {
         this.nombre = nombre;
     }
 
+    public boolean getSiRegistra() {
+        return siRegistra;
+    }
+    public void setSiRegistra(boolean siRegistra) {
+        this.siRegistra = siRegistra;
+    }
+
+    public boolean getSiTercero() {
+        return siTercero;
+    }
+    public void setSiTercero(boolean siTercero) {
+        this.siTercero = siTercero;
+    }
+
+    public boolean getSiBase() {
+        return siBase;
+    }
+    public void setSiBase(boolean siBase) {
+        this.siBase = siBase;
+    }
+
+    public String getObservaciones() {
+        return observaciones;
+    }
+    public void setObservaciones(String observaciones) {
+        this.observaciones = observaciones;
+    }
+
+    public Pucs getObjPadre() {
+        return this.objPadre;
+    }
+    public void setObjPadre(Pucs objPadre) {
+        this.objPadre = objPadre;
+    }
+
+    public Set<Movimientos> getMovimientos() {
+        return movimientos;
+    }
+    public void setMovimientos(Set<Movimientos> movimientos) {
+        this.movimientos = movimientos;
+    }
+
+    public Set<Pucs> getObjHijos() {
+        return this.objHijos;
+    }
+    public void setObjHijos(Set<Pucs> objHijos) {
+        this.objHijos = objHijos;
+    }
+
+    public Set<Saldos> getSaldos() {
+        return saldos;
+    }
+    public void setSaldos(Set<Saldos> saldos) {
+        this.saldos = saldos;
+    }
 
 } // entity
+

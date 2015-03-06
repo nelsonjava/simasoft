@@ -65,6 +65,10 @@ public class App extends FileTxt{
 
             Entity2 entity2 = new Entity2(artifactId,groupId+".models."+artifactId,entidad);
             Utils.fileMake(pathDocs+"."+path+"."+artifactId+".src.main.java."+groupId+".models."+artifactId+".2",entidad.getName()+".java", entity2);
+            
+            EntityPrueba1 entityPrueba1 = new EntityPrueba1(artifactId,groupId+".models."+artifactId,entidad);
+            Utils.fileMake(pathDocs+"."+path+"."+artifactId+".src.main.java."+groupId+".models."+artifactId+".prueba1",entidad.getName()+".java", entityPrueba1);
+
         }
 
         Persistence persistence = new Persistence(artifactId,groupId,entidades);
