@@ -1,0 +1,212 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] Using the builder org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder with a thread count of 1
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building contabWeb 1.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ contabWeb ---
+[INFO] Deleting d:\dev\njava\simasoft\contabWeb\target
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ contabWeb ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ contabWeb ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 34 source files to d:\dev\njava\simasoft\contabWeb\target\classes
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /d:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/models/iso/lmr/Lmrs.java:[46,13] cannot find symbol
+  symbol:   class Procesos
+  location: class co.simasoft.models.iso.lmr.Lmrs
+[ERROR] /d:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/models/iso/lmr/Lmrs.java:[178,12] cannot find symbol
+  symbol:   class Procesos
+  location: class co.simasoft.models.iso.lmr.Lmrs
+[ERROR] /d:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/models/iso/lmr/Lmrs.java:[181,29] cannot find symbol
+  symbol:   class Procesos
+  location: class co.simasoft.models.iso.lmr.Lmrs
+[ERROR] /d:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/models/iso/procesos/Procesos.java:[28,17] cannot find symbol
+  symbol:   class Lmds
+  location: class co.simasoft.models.iso.procesos.Procesos
+[ERROR] /d:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/models/iso/procesos/Procesos.java:[31,17] cannot find symbol
+  symbol:   class Lmrs
+  location: class co.simasoft.models.iso.procesos.Procesos
+[ERROR] /d:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/models/iso/procesos/Procesos.java:[74,16] cannot find symbol
+  symbol:   class Lmds
+  location: class co.simasoft.models.iso.procesos.Procesos
+[ERROR] /d:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/models/iso/procesos/Procesos.java:[77,29] cannot find symbol
+  symbol:   class Lmds
+  location: class co.simasoft.models.iso.procesos.Procesos
+[ERROR] /d:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/models/iso/procesos/Procesos.java:[81,16] cannot find symbol
+  symbol:   class Lmrs
+  location: class co.simasoft.models.iso.procesos.Procesos
+[ERROR] /d:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/models/iso/procesos/Procesos.java:[84,29] cannot find symbol
+  symbol:   class Lmrs
+  location: class co.simasoft.models.iso.procesos.Procesos
+[ERROR] /d:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/models/iso/lmd/Lmds.java:[36,13] cannot find symbol
+  symbol:   class Procesos
+  location: class co.simasoft.models.iso.lmd.Lmds
+[ERROR] /d:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/models/iso/lmd/Lmds.java:[114,12] cannot find symbol
+  symbol:   class Procesos
+  location: class co.simasoft.models.iso.lmd.Lmds
+[ERROR] /d:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/models/iso/lmd/Lmds.java:[117,29] cannot find symbol
+  symbol:   class Procesos
+  location: class co.simasoft.models.iso.lmd.Lmds
+[ERROR] /d:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/models/iso/lmr/Lmrs.java:[165,16] cannot find symbol
+  symbol:   variable tiposRegistros
+  location: class co.simasoft.models.iso.lmr.Lmrs
+[ERROR] /d:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/models/iso/lmr/Lmrs.java:[168,13] cannot find symbol
+  symbol: variable tiposRegistros
+[ERROR] /d:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/models/iso/lmr/Lmrs.java:[186,16] cannot find symbol
+  symbol:   variable trdArchivos
+  location: class co.simasoft.models.iso.lmr.Lmrs
+[ERROR] /d:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/models/iso/lmr/Lmrs.java:[189,13] cannot find symbol
+  symbol: variable trdArchivos
+[ERROR] /d:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/models/iso/lmr/Lmrs.java:[200,16] cannot find symbol
+  symbol:   variable trdAreas
+  location: class co.simasoft.models.iso.lmr.Lmrs
+[ERROR] /d:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/models/iso/lmr/Lmrs.java:[203,13] cannot find symbol
+  symbol: variable trdAreas
+[ERROR] /d:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/models/iso/lmr/Lmrs.java:[214,16] cannot find symbol
+  symbol:   variable tiposLmrs
+  location: class co.simasoft.models.iso.lmr.Lmrs
+[ERROR] /d:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/models/iso/lmr/Lmrs.java:[217,13] cannot find symbol
+  symbol: variable tiposLmrs
+[ERROR] /d:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/models/iso/lmr/Lmrs.java:[235,16] cannot find symbol
+  symbol:   variable disposicionFinal
+  location: class co.simasoft.models.iso.lmr.Lmrs
+[ERROR] /d:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/models/iso/lmr/Lmrs.java:[238,13] cannot find symbol
+  symbol: variable disposicionFinal
+[ERROR] /d:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/models/iso/lmr/Lmrs.java:[249,16] cannot find symbol
+  symbol:   variable tiposAccesos
+  location: class co.simasoft.models.iso.lmr.Lmrs
+[ERROR] /d:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/models/iso/lmr/Lmrs.java:[252,13] cannot find symbol
+  symbol: variable tiposAccesos
+[ERROR] /d:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/models/iso/procesos/Procesos.java:[28,42] cannot find symbol
+  symbol:   class Lmds
+  location: class co.simasoft.models.iso.procesos.Procesos
+[ERROR] /d:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/models/iso/procesos/Procesos.java:[31,42] cannot find symbol
+  symbol:   class Lmrs
+  location: class co.simasoft.models.iso.procesos.Procesos
+[ERROR] /d:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/models/iso/procesos/Procesos.java:[89,16] cannot find symbol
+  symbol:   variable tiposProcesos
+  location: class co.simasoft.models.iso.procesos.Procesos
+[ERROR] /d:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/models/iso/procesos/Procesos.java:[92,13] cannot find symbol
+  symbol: variable tiposProcesos
+[ERROR] /d:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/models/iso/lmd/Lmds.java:[122,16] cannot find symbol
+  symbol:   variable tiposDocumentos
+  location: class co.simasoft.models.iso.lmd.Lmds
+[ERROR] /d:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/models/iso/lmd/Lmds.java:[125,13] cannot find symbol
+  symbol: variable tiposDocumentos
+[ERROR] /d:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/models/iso/lmd/Lmds.java:[129,16] cannot find symbol
+  symbol:   variable estadosDocuementos
+  location: class co.simasoft.models.iso.lmd.Lmds
+[ERROR] /d:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/models/iso/lmd/Lmds.java:[132,13] cannot find symbol
+  symbol: variable estadosDocuementos
+[INFO] 32 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 1.821 s
+[INFO] Finished at: 2015-03-07T15:26:51-05:00
+[INFO] Final Memory: 15M/46M
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.1:compile (default-compile) on project contabWeb: Compilation failure: Compilation failure:
+[ERROR] /d:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/models/iso/lmr/Lmrs.java:[46,13] cannot find symbol
+[ERROR] symbol:   class Procesos
+[ERROR] location: class co.simasoft.models.iso.lmr.Lmrs
+[ERROR] /d:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/models/iso/lmr/Lmrs.java:[178,12] cannot find symbol
+[ERROR] symbol:   class Procesos
+[ERROR] location: class co.simasoft.models.iso.lmr.Lmrs
+[ERROR] /d:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/models/iso/lmr/Lmrs.java:[181,29] cannot find symbol
+[ERROR] symbol:   class Procesos
+[ERROR] location: class co.simasoft.models.iso.lmr.Lmrs
+[ERROR] /d:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/models/iso/procesos/Procesos.java:[28,17] cannot find symbol
+[ERROR] symbol:   class Lmds
+[ERROR] location: class co.simasoft.models.iso.procesos.Procesos
+[ERROR] /d:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/models/iso/procesos/Procesos.java:[31,17] cannot find symbol
+[ERROR] symbol:   class Lmrs
+[ERROR] location: class co.simasoft.models.iso.procesos.Procesos
+[ERROR] /d:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/models/iso/procesos/Procesos.java:[74,16] cannot find symbol
+[ERROR] symbol:   class Lmds
+[ERROR] location: class co.simasoft.models.iso.procesos.Procesos
+[ERROR] /d:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/models/iso/procesos/Procesos.java:[77,29] cannot find symbol
+[ERROR] symbol:   class Lmds
+[ERROR] location: class co.simasoft.models.iso.procesos.Procesos
+[ERROR] /d:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/models/iso/procesos/Procesos.java:[81,16] cannot find symbol
+[ERROR] symbol:   class Lmrs
+[ERROR] location: class co.simasoft.models.iso.procesos.Procesos
+[ERROR] /d:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/models/iso/procesos/Procesos.java:[84,29] cannot find symbol
+[ERROR] symbol:   class Lmrs
+[ERROR] location: class co.simasoft.models.iso.procesos.Procesos
+[ERROR] /d:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/models/iso/lmd/Lmds.java:[36,13] cannot find symbol
+[ERROR] symbol:   class Procesos
+[ERROR] location: class co.simasoft.models.iso.lmd.Lmds
+[ERROR] /d:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/models/iso/lmd/Lmds.java:[114,12] cannot find symbol
+[ERROR] symbol:   class Procesos
+[ERROR] location: class co.simasoft.models.iso.lmd.Lmds
+[ERROR] /d:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/models/iso/lmd/Lmds.java:[117,29] cannot find symbol
+[ERROR] symbol:   class Procesos
+[ERROR] location: class co.simasoft.models.iso.lmd.Lmds
+[ERROR] /d:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/models/iso/lmr/Lmrs.java:[165,16] cannot find symbol
+[ERROR] symbol:   variable tiposRegistros
+[ERROR] location: class co.simasoft.models.iso.lmr.Lmrs
+[ERROR] /d:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/models/iso/lmr/Lmrs.java:[168,13] cannot find symbol
+[ERROR] symbol: variable tiposRegistros
+[ERROR] /d:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/models/iso/lmr/Lmrs.java:[186,16] cannot find symbol
+[ERROR] symbol:   variable trdArchivos
+[ERROR] location: class co.simasoft.models.iso.lmr.Lmrs
+[ERROR] /d:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/models/iso/lmr/Lmrs.java:[189,13] cannot find symbol
+[ERROR] symbol: variable trdArchivos
+[ERROR] /d:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/models/iso/lmr/Lmrs.java:[200,16] cannot find symbol
+[ERROR] symbol:   variable trdAreas
+[ERROR] location: class co.simasoft.models.iso.lmr.Lmrs
+[ERROR] /d:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/models/iso/lmr/Lmrs.java:[203,13] cannot find symbol
+[ERROR] symbol: variable trdAreas
+[ERROR] /d:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/models/iso/lmr/Lmrs.java:[214,16] cannot find symbol
+[ERROR] symbol:   variable tiposLmrs
+[ERROR] location: class co.simasoft.models.iso.lmr.Lmrs
+[ERROR] /d:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/models/iso/lmr/Lmrs.java:[217,13] cannot find symbol
+[ERROR] symbol: variable tiposLmrs
+[ERROR] /d:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/models/iso/lmr/Lmrs.java:[235,16] cannot find symbol
+[ERROR] symbol:   variable disposicionFinal
+[ERROR] location: class co.simasoft.models.iso.lmr.Lmrs
+[ERROR] /d:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/models/iso/lmr/Lmrs.java:[238,13] cannot find symbol
+[ERROR] symbol: variable disposicionFinal
+[ERROR] /d:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/models/iso/lmr/Lmrs.java:[249,16] cannot find symbol
+[ERROR] symbol:   variable tiposAccesos
+[ERROR] location: class co.simasoft.models.iso.lmr.Lmrs
+[ERROR] /d:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/models/iso/lmr/Lmrs.java:[252,13] cannot find symbol
+[ERROR] symbol: variable tiposAccesos
+[ERROR] /d:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/models/iso/procesos/Procesos.java:[28,42] cannot find symbol
+[ERROR] symbol:   class Lmds
+[ERROR] location: class co.simasoft.models.iso.procesos.Procesos
+[ERROR] /d:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/models/iso/procesos/Procesos.java:[31,42] cannot find symbol
+[ERROR] symbol:   class Lmrs
+[ERROR] location: class co.simasoft.models.iso.procesos.Procesos
+[ERROR] /d:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/models/iso/procesos/Procesos.java:[89,16] cannot find symbol
+[ERROR] symbol:   variable tiposProcesos
+[ERROR] location: class co.simasoft.models.iso.procesos.Procesos
+[ERROR] /d:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/models/iso/procesos/Procesos.java:[92,13] cannot find symbol
+[ERROR] symbol: variable tiposProcesos
+[ERROR] /d:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/models/iso/lmd/Lmds.java:[122,16] cannot find symbol
+[ERROR] symbol:   variable tiposDocumentos
+[ERROR] location: class co.simasoft.models.iso.lmd.Lmds
+[ERROR] /d:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/models/iso/lmd/Lmds.java:[125,13] cannot find symbol
+[ERROR] symbol: variable tiposDocumentos
+[ERROR] /d:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/models/iso/lmd/Lmds.java:[129,16] cannot find symbol
+[ERROR] symbol:   variable estadosDocuementos
+[ERROR] location: class co.simasoft.models.iso.lmd.Lmds
+[ERROR] /d:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/models/iso/lmd/Lmds.java:[132,13] cannot find symbol
+[ERROR] symbol: variable estadosDocuementos
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
