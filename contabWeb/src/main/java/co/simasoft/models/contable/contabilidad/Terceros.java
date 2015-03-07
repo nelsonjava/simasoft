@@ -1,6 +1,6 @@
-package co.simasoft.models.contab;
+package co.simasoft.models.contable.contabilidad;
 
-import co.simasoft.models.contab.*;
+import co.simasoft.models.contable.contabilidad.*;
 
 import java.util.*;
 
@@ -29,10 +29,10 @@ public class Terceros {
     private String observaciones;
 
     @OneToMany(mappedBy = "terceros")
-    private Set<Saldos> saldos = new HashSet<Saldos>();
+    private Set<Movimientos> movimientos = new HashSet<Movimientos>();
 
     @OneToMany(mappedBy = "terceros")
-    private Set<Movimientos> movimientos = new HashSet<Movimientos>();
+    private Set<Saldos> saldos = new HashSet<Saldos>();
 
     public Terceros() {
     }
@@ -88,18 +88,18 @@ public class Terceros {
         this.observaciones = observaciones;
     }
 
-    public Set<Saldos> getSaldos() {
-        return saldos;
-    }
-    public void setSaldos(Set<Saldos> saldos) {
-        this.saldos = saldos;
-    }
-
     public Set<Movimientos> getMovimientos() {
         return movimientos;
     }
     public void setMovimientos(Set<Movimientos> movimientos) {
         this.movimientos = movimientos;
+    }
+
+    public Set<Saldos> getSaldos() {
+        return saldos;
+    }
+    public void setSaldos(Set<Saldos> saldos) {
+        this.saldos = saldos;
     }
 
 } // entity

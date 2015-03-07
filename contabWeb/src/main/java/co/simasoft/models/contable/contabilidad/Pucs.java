@@ -1,6 +1,6 @@
-package co.simasoft.models.contab;
+package co.simasoft.models.contable.contabilidad;
 
-import co.simasoft.models.contab.*;
+import co.simasoft.models.contable.contabilidad.*;
 
 import java.util.*;
 
@@ -28,14 +28,14 @@ public class Pucs {
 
     private String observaciones;
 
-    @ManyToOne
-    private Pucs objPadre;
+    @OneToMany(mappedBy = "objPadre")
+    private Set<Pucs> objHijos = new HashSet<Pucs>();
 
     @OneToMany(mappedBy = "pucs")
     private Set<Movimientos> movimientos = new HashSet<Movimientos>();
 
-    @OneToMany(mappedBy = "objPadre")
-    private Set<Pucs> objHijos = new HashSet<Pucs>();
+    @ManyToOne
+    private Pucs objPadre;
 
     @OneToMany(mappedBy = "pucs")
     private Set<Saldos> saldos = new HashSet<Saldos>();
@@ -94,11 +94,11 @@ public class Pucs {
         this.observaciones = observaciones;
     }
 
-    public Pucs getObjPadre() {
-        return this.objPadre;
+    public Set<Pucs> getObjHijos() {
+        return this.objHijos;
     }
-    public void setObjPadre(Pucs objPadre) {
-        this.objPadre = objPadre;
+    public void setObjHijos(Set<Pucs> objHijos) {
+        this.objHijos = objHijos;
     }
 
     public Set<Movimientos> getMovimientos() {
@@ -108,11 +108,11 @@ public class Pucs {
         this.movimientos = movimientos;
     }
 
-    public Set<Pucs> getObjHijos() {
-        return this.objHijos;
+    public Pucs getObjPadre() {
+        return this.objPadre;
     }
-    public void setObjHijos(Set<Pucs> objHijos) {
-        this.objHijos = objHijos;
+    public void setObjPadre(Pucs objPadre) {
+        this.objPadre = objPadre;
     }
 
     public Set<Saldos> getSaldos() {

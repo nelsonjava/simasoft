@@ -5,18 +5,18 @@
              version="2.0">
 
   <!-- Use this for H2 -->
-  <persistence-unit name="contabPU-JTA" transaction-type="JTA">
+  <persistence-unit name="contabilidadPU-JTA" transaction-type="JTA">
 
     <provider>org.hibernate.ejb.HibernatePersistence</provider>
 
-    <class>co.simasoft.models.contab.Person</class>
-    <class>co.simasoft.models.contab.Pucs</class>
-    <class>co.simasoft.models.contab.Terceros</class>
-    <class>co.simasoft.models.contab.Movimientos</class>
-    <class>co.simasoft.models.contab.Saldos</class>
+    <class>co.simasoft.models.contable.contabilidad.Pucs</class>
+    <class>co.simasoft.models.contable.contabilidad.Terceros</class>
+    <class>co.simasoft.models.contable.contabilidad.Movimientos</class>
+    <class>co.simasoft.models.contable.contabilidad.Saldos</class>
+
 
     <exclude-unlisted-classes>true</exclude-unlisted-classes>
-    <jta-data-source>java:jboss/datasources/contabDS</jta-data-source>
+    <jta-data-source>java:jboss/datasources/contabilidadDS</jta-data-source>
     <properties>
       <!-- <property name="javax.persistence.jdbc.url"      value="jdbc:h2:/db/contab/data"/>  -->
       <!-- <property name="javax.persistence.jdbc.user"     value="sa"/>  -->

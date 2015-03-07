@@ -1,6 +1,6 @@
-package co.simasoft.models.contab;
+package co.simasoft.models.contable.contabilidad;
 
-import co.simasoft.models.contab.*;
+import co.simasoft.models.contable.contabilidad.*;
 
 import java.util.*;
 

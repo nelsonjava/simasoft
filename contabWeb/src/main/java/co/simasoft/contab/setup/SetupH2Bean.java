@@ -1,6 +1,6 @@
 package com.simasoft.contab.setup;
 
-import co.simasoft.models.contab.*;
+import co.simasoft.models.contable.contabilidad.*;
 
 import java.util.Calendar;
 import java.util.Random;
@@ -16,7 +16,7 @@ import org.jboss.logging.Logger;
 @Named("setuph2bean")
 public class SetupH2Bean {
 
-    @PersistenceContext(unitName = "contabPU-JTA")
+    @PersistenceContext(unitName = "contabilidadPU-JTA")
     private EntityManager em;
 
     private static final Logger log = Logger.getLogger(SetupH2Bean.class.getName());

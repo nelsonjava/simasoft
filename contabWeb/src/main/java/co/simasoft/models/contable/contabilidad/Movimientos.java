@@ -1,6 +1,6 @@
-package co.simasoft.models.contab;
+package co.simasoft.models.contable.contabilidad;
 
-import co.simasoft.models.contab.*;
+import co.simasoft.models.contable.contabilidad.*;
 
 import java.util.*;
 
@@ -31,10 +31,10 @@ public class Movimientos {
     private String detalle;
 
     @ManyToOne
-    private Pucs pucs;
+    private Terceros terceros;
 
     @ManyToOne
-    private Terceros terceros;
+    private Pucs pucs;
 
     public Movimientos() {
     }
@@ -98,18 +98,18 @@ public class Movimientos {
         this.detalle = detalle;
     }
 
-    public Pucs getPucs() {
-        return pucs;
-    }
-    public void setPucs(Pucs pucs) {
-        this.pucs = pucs;
-    }
-
     public Terceros getTerceros() {
         return terceros;
     }
     public void setTerceros(Terceros terceros) {
         this.terceros = terceros;
+    }
+
+    public Pucs getPucs() {
+        return pucs;
+    }
+    public void setPucs(Pucs pucs) {
+        this.pucs = pucs;
     }
 
 } // entity
