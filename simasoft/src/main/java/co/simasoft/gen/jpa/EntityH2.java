@@ -10,7 +10,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /****************************************************************************************************************
-* CLASE : Entity2                                                                                               *
+* CLASE : EntityH2                                                                                              *
 *****************************************************************************************************************
 
 AUTOR: Nelson A Fernández Gómez                FECHA DE INICIO: MAR 27 ENE/2015   FECHA FINAL: MAR 27 ENE/2015
@@ -20,11 +20,15 @@ OBJETIVOS:
 
 1- Genera el archivo java correspondiente a una entidad del modelo de datos.
 
+2- El id es de tipo long
+
+3- Trabaja bien en H2.
+
 *---------------------------------------------------------------------------------------------------------------*
 *------------------------------------------- DECLARACION DE LA CLASE -------------------------------------------*
 *---------------------------------------------------------------------------------------------------------------*/
 
-public class EntityPrueba1 extends FileTxt {
+public class EntityH2 extends FileTxt {
 
 //>>DECLARACION DE INSTANCIAS
       private Entidad entity = new Entidad();                                // Entidad
@@ -54,7 +58,7 @@ OBJETIVOS:
 *                                           IMPLEMENTACION DEL METODO                                           *
 *---------------------------------------------------------------------------------------------------------------*/
 
-public EntityPrueba1(String artifactId,String groupId,Entidad entity) throws IOException {
+public EntityH2(String artifactId,String groupId,Entidad entity) throws IOException {
 
 //>>INICIALIZACION DE ATRIBUTOS
       this.entity = entity;
@@ -71,12 +75,11 @@ public EntityPrueba1(String artifactId,String groupId,Entidad entity) throws IOE
 
       line("import java.util.*;\n");
       line("import javax.persistence.*;");
-      line("import javax.validation.constraints.*;");
-      line("import org.hibernate.annotations.GenericGenerator;\n");
+      line("import javax.validation.constraints.*;\n");
 //>>FIN IMPORTS DE LA CLASE
 
 //>>DOCUMENTACION DE LA CLASE
- //>>FIN DOCUMENTACION DE LA CLASE
+//>>FIN DOCUMENTACION DE LA CLASE
 
 //>>NAMEDQUERIES DE LA CLASE
 //>>FIN NAMEDQUERIES DE LA CLASE
@@ -95,9 +98,8 @@ public EntityPrueba1(String artifactId,String groupId,Entidad entity) throws IOE
       line("    private static final long serialVersionUID = 1L;\n");
 
       line("    @Id");
-      line("    @GeneratedValue(generator = \"uuid\")");
-      line("    @GenericGenerator(name = \"uuid\", strategy = \"uuid2\")");
-      line("    private String id;\n");
+      line("    @GeneratedValue(strategy=GenerationType.TABLE)");
+      line("    private long id;\n");
 
       line("    private Integer optlock;\n");
 //>>FIN ATTRIBUTOS POR DEFECTO
@@ -122,6 +124,41 @@ public EntityPrueba1(String artifactId,String groupId,Entidad entity) throws IOE
 //>>FIN ATTRIBUTOS DE LA CLASE
 
 //>>RELACIONES DE LA CLASE
+      for(Relation relation : relations) {
+
+//********RELACION UNO A UNO
+//********FIN RELACION UNO A UNO
+
+//********RELACION MUCHOS A UNO
+            if(relation.getCardinality().equals("*..1")) {
+              if (relation.getFrom().equals(relation.getTo())){   // Relación Unitaria
+                 line("    @ManyToOne");
+                 line("    private "+relation.getTo()+" objPadre;\n");
+              }
+              else{
+                 line("    @ManyToOne");
+                 line("    private "+relation.getTo()+" "+relation.getTo().toLowerCase()+";\n");
+              }
+            }
+//********RELACION MUCHOS A UNO
+
+//********RELACION UNO A MUCHOS
+            if(relation.getCardinality().equals("1..*")) {
+              if(relation.getFrom().equals(relation.getTo())){  // Relación Unitaria
+                line("    @OneToMany(mappedBy = \"objPadre\")");
+                line("    private Set<"+relation.getTo()+"> objHijos = new HashSet<"+relation.getTo()+">();\n");
+              }
+              else{
+                line("    @OneToMany(mappedBy = \""+Utils._1raMin(entity.getName())+"\")");
+                line("    private Set<"+relation.getTo()+"> "+relation.getTo().toLowerCase()+" = new HashSet<"+relation.getTo()+">();\n");
+              }
+            }
+//********FIN RELACION UNO A MUCHOS
+
+//********RELACION MUCHOS A MUCHOS
+//********FIN RELACION MUCHOS A MUCHOS
+
+      } // for relations
 //>>FIN RELACIONES DE LA CLASE
 
 //>>CONTRUCTOR DE LA CLASE No.1
@@ -138,10 +175,10 @@ public EntityPrueba1(String artifactId,String groupId,Entidad entity) throws IOE
 //>>CONTRUCTOR DE LA CLASE No.2
 
 //>>GET Y SET id
-      line("    public String getId() {");
+      line("    public long getId() {");
       line("        return this.id;");
       line("    }\n");
-      line("    public void setId(String id) {");
+      line("    public void setId(long id) {");
       line("        this.id = id;");
       line("    }\n");
 //>>FIN GET Y SET id
@@ -159,6 +196,61 @@ public EntityPrueba1(String artifactId,String groupId,Entidad entity) throws IOE
 //>>FIN GET Y SET DE ATRIBUTOS
 
 //>>GET Y SET RELACIONES
+      for(Relation relation : relations) {
+
+//********RELACION UNO A UNO
+//********FIN RELACION UNO A UNO
+
+//********RELACION MUCHOS A UNO
+            if(relation.getCardinality().equals("*..1")) {
+
+              if(relation.getFrom().equals(relation.getTo())){  // Relación Unitaria
+                 line("    public " + relation.getTo() + " getObjPadre() {");
+                 line("        return this.objPadre;");
+                 line("    }");
+                 line("    public void setObjPadre(" + Utils._1raMay(relation.getTo()) + " objPadre) {");
+                 line("        this.objPadre = objPadre;");
+                 line("    }\n");
+              }
+              else{
+                 line("    public " + relation.getTo() + " get" + Utils._1raMay(relation.getTo()) + "() {");
+                 line("        return " + Utils._1raMin(relation.getTo()) + ";");
+                 line("    }");
+                 line("    public void set" + Utils._1raMay(relation.getTo()) + "(" + Utils._1raMay(relation.getTo()) + " " + Utils._1raMin(relation.getTo()) + ") {");
+                 line("        this." + Utils._1raMin(relation.getTo()) + " = " + Utils._1raMin(relation.getTo()) + ";");
+                 line("    }\n");
+              }
+
+            }
+//********RELACION MUCHOS A UNO
+
+//********RELACION UNO A MUCHOS
+            if(relation.getCardinality().equals("1..*")) {
+
+              if(relation.getFrom().equals(relation.getTo())){  // Relación Unitaria
+                 line("    public Set<" + relation.getTo() + "> getObjHijos() {");
+                 line("        return this.objHijos;");
+                 line("    }");
+                 line("    public void setObjHijos(Set<" + Utils._1raMay(relation.getTo()) + "> objHijos) {");
+                 line("        this.objHijos = objHijos;");
+                 line("    }\n");
+              }
+              else{
+                 line("    public Set<" + relation.getTo() + "> get" + Utils._1raMay(relation.getTo()) + "() {");
+                 line("        return " + Utils._1raMin(relation.getTo()) + ";");
+                 line("    }");
+                 line("    public void set" + Utils._1raMay(relation.getTo()) + "(Set<" + Utils._1raMay(relation.getTo()) + "> " + Utils._1raMin(relation.getTo()) + ") {");
+                 line("        this." + Utils._1raMin(relation.getTo()) + " = " + Utils._1raMin(relation.getTo()) + ";");
+                 line("    }\n");
+              }
+
+            }
+//********FIN RELACION UNO A MUCHOS
+
+//********RELACION MUCHOS A MUCHOS
+//********FIN RELACION MUCHOS A MUCHOS
+
+      } // for relations
 //>>FIN GET Y SET RELACIONES
 
 
