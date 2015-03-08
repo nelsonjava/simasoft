@@ -54,7 +54,7 @@ OBJETIVOS:
 *                                           IMPLEMENTACION DEL METODO                                           *
 *---------------------------------------------------------------------------------------------------------------*/
 
-public Entity0(String artifactId,String groupId,Entidad entity) throws IOException {
+public Entity0(String artifactId,String groupId,Entidad entity,ArrayList<String> imports) throws IOException {
 
 //>>INICIALIZACION DE ATRIBUTOS
       this.entity = entity;
@@ -67,7 +67,10 @@ public Entity0(String artifactId,String groupId,Entidad entity) throws IOExcepti
 //>>FIN PAQUETE DE LA CLASE
 
 //>>IMPORTS DE LA CLASE
-      line("import "+groupId+".*;\n");
+      for(int x=0;x<imports.size();x++) {
+         line("import "+imports.get(x)+".*;");
+      }
+      line("");
 
       line("import java.util.*;\n");
       line("import javax.persistence.*;");

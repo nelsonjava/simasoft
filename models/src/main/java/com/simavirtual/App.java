@@ -10,9 +10,10 @@ import co.simasoft.gen.jpa.*;
 
 public class App extends FileTxt{
 
-    private static ArrayList<Entidad> entidades = new ArrayList<Entidad>();
+    private static ArrayList<Entidad> entidades       = new ArrayList<Entidad>();
     private static ArrayList<Relation> relationsPower = new ArrayList<Relation>();
-    private static Set<Relation> relations = new HashSet<Relation>(0);
+    private static Set<Relation> relations            = new HashSet<Relation>(0);
+    private static ArrayList<Modelos> modelos         = new ArrayList<Modelos>();
 
     private static String fileJar = "../g.jar";
     private static String filePowerDesigner = "";
@@ -21,7 +22,7 @@ public class App extends FileTxt{
     private static String asciidocImages = "src.main.asciidoc.en-US.images";
     private static String asciidocModules = "src.main.asciidoc.en-US.modules";
 
-    public static void generarModelo(String modelo,String groupId,String artifactId) throws IOException {
+    public static void generarModelo(String modelo,String groupId,String artifactId,ArrayList<String> imports) throws IOException {
 
         // Cleanup - Reinigung
         entidades.clear();
@@ -53,19 +54,19 @@ public class App extends FileTxt{
 
         for(Entidad entidad : entidades) {
 
-            Entity0 entity0 = new Entity0(artifactId,groupId+".models."+modelo+"."+artifactId,entidad);
+            Entity0 entity0 = new Entity0(artifactId,groupId+".models."+modelo+"."+artifactId,entidad,imports);
             Utils.fileMake(pathDocs+"."+modelo+"."+artifactId+".src.main.java."+groupId+".models."+modelo+"."+artifactId+".0",entidad.getName()+".java", entity0);
 
-            EntityMongo entityMongo = new EntityMongo(artifactId,groupId+".models."+modelo+"."+artifactId,entidad);
+            EntityMongo entityMongo = new EntityMongo(artifactId,groupId+".models."+modelo+"."+artifactId,entidad,imports);
             Utils.fileMake(pathDocs+"."+modelo+"."+artifactId+".src.main.java."+groupId+".models."+modelo+"."+artifactId+".mongo",entidad.getName()+".java", entityMongo);
 
-            EntityH2 entityH2 = new EntityH2(artifactId,groupId+".models."+modelo+"."+artifactId,entidad);
+            EntityH2 entityH2 = new EntityH2(artifactId,groupId+".models."+modelo+"."+artifactId,entidad,imports);
             Utils.fileMake(pathDocs+"."+modelo+"."+artifactId+".src.main.java."+groupId+".models."+modelo+"."+artifactId+".h2",entidad.getName()+".java", entityH2);
 
-            EntityPruebaMongo entityPruebaMongo = new EntityPruebaMongo(artifactId,groupId+".models."+modelo+"."+artifactId,entidad);
+            EntityPruebaMongo entityPruebaMongo = new EntityPruebaMongo(artifactId,groupId+".models."+modelo+"."+artifactId,entidad,imports);
             Utils.fileMake(pathDocs+"."+modelo+"."+artifactId+".src.main.java."+groupId+".models."+modelo+"."+artifactId+".pmongo",entidad.getName()+".java", entityPruebaMongo);
 
-            EntityPruebaH2 entityPruebaH2 = new EntityPruebaH2(artifactId,groupId+".models."+modelo+"."+artifactId,entidad);
+            EntityPruebaH2 entityPruebaH2 = new EntityPruebaH2(artifactId,groupId+".models."+modelo+"."+artifactId,entidad,imports);
             Utils.fileMake(pathDocs+"."+modelo+"."+artifactId+".src.main.java."+groupId+".models."+modelo+"."+artifactId+".ph2",entidad.getName()+".java", entityPruebaH2);
         }
 
@@ -77,13 +78,45 @@ public class App extends FileTxt{
 
     }
 
+    public static void generar(ArrayList<Modelos> modelos) throws IOException {
+
+        ArrayList<String> imports = new ArrayList<String>();
+        for (Modelos modelo : modelos) {
+            imports.add(modelo.getGroupId()+".models."+modelo.getModelo()+"."+modelo.getArtifactId());
+        }
+
+        for (Modelos modelo : modelos) {
+             generarModelo(modelo.getModelo(),modelo.getGroupId(),modelo.getArtifactId(),imports);
+        }
+
+/*
+        for(int x=0;x<imports.size();x++) {
+           System.out.println(imports.get(x));
+        }
+*/
+
+    }
+
     public static void main( String[] args ) throws IOException {
 
+        modelos.add(new Modelos("contable","co.simasoft","contabilidad"));
+        generar(modelos);
+        modelos.clear();
+
+        modelos.add(new Modelos("iso","co.simasoft","archivo-inactivo"));
+        modelos.add(new Modelos("iso","co.simasoft","lmd"));
+        modelos.add(new Modelos("iso","co.simasoft","lmr"));
+        modelos.add(new Modelos("iso","co.simasoft","procesos"));
+        generar(modelos);
+        modelos.clear();
+
+/*
         generarModelo("contable","co.simasoft","contabilidad");
         generarModelo("iso","co.simasoft","archivo-inactivo");
         generarModelo("iso","co.simasoft","lmd");
         generarModelo("iso","co.simasoft","lmr");
         generarModelo("iso","co.simasoft","procesos");
+*/
 
     } // main
 
