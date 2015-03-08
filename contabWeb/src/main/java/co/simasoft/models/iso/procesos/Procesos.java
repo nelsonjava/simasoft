@@ -1,5 +1,7 @@
 package co.simasoft.models.iso.procesos;
 
+import co.simasoft.models.iso.lmd.*;
+import co.simasoft.models.iso.lmr.*;
 import co.simasoft.models.iso.procesos.*;
 
 import java.util.*;
@@ -24,14 +26,14 @@ public class Procesos {
 
     private String observaciones;
 
+    @ManyToOne
+    private TiposProcesos tiposProcesos;
+
     @OneToMany(mappedBy = "procesos")
     private Set<Lmds> lmds = new HashSet<Lmds>();
 
     @OneToMany(mappedBy = "procesos")
     private Set<Lmrs> lmrs = new HashSet<Lmrs>();
-
-    @ManyToOne
-    private TiposProcesos tiposprocesos;
 
     public Procesos() {
     }
@@ -71,6 +73,13 @@ public class Procesos {
         this.observaciones = observaciones;
     }
 
+    public TiposProcesos getTiposProcesos() {
+        return tiposProcesos;
+    }
+    public void setTiposProcesos(TiposProcesos tiposProcesos) {
+        this.tiposProcesos = tiposProcesos;
+    }
+
     public Set<Lmds> getLmds() {
         return lmds;
     }
@@ -83,13 +92,6 @@ public class Procesos {
     }
     public void setLmrs(Set<Lmrs> lmrs) {
         this.lmrs = lmrs;
-    }
-
-    public TiposProcesos getTiposProcesos() {
-        return tiposProcesos;
-    }
-    public void setTiposProcesos(TiposProcesos tiposProcesos) {
-        this.tiposProcesos = tiposProcesos;
     }
 
 } // entity

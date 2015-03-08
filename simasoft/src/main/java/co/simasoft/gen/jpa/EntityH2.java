@@ -140,7 +140,7 @@ public EntityH2(String artifactId,String groupId,Entidad entity,ArrayList<String
               }
               else{
                  line("    @ManyToOne");
-                 line("    private "+relation.getTo()+" "+relation.getTo().toLowerCase()+";\n");
+                 line("    private "+relation.getTo()+" "+Utils._1raMin(relation.getTo())+";\n");
               }
             }
 //********RELACION MUCHOS A UNO
@@ -153,7 +153,7 @@ public EntityH2(String artifactId,String groupId,Entidad entity,ArrayList<String
               }
               else{
                 line("    @OneToMany(mappedBy = \""+Utils._1raMin(entity.getName())+"\")");
-                line("    private Set<"+relation.getTo()+"> "+relation.getTo().toLowerCase()+" = new HashSet<"+relation.getTo()+">();\n");
+                line("    private Set<"+relation.getTo()+"> "+Utils._1raMin(relation.getTo())+" = new HashSet<"+relation.getTo()+">();\n");
               }
             }
 //********FIN RELACION UNO A MUCHOS

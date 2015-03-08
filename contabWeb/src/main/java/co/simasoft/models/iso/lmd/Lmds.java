@@ -1,6 +1,8 @@
 package co.simasoft.models.iso.lmd;
 
 import co.simasoft.models.iso.lmd.*;
+import co.simasoft.models.iso.lmr.*;
+import co.simasoft.models.iso.procesos.*;
 
 import java.util.*;
 
@@ -36,10 +38,10 @@ public class Lmds {
     private Procesos procesos;
 
     @ManyToOne
-    private TiposDocumentos tiposdocumentos;
+    private TiposDocumentos tiposDocumentos;
 
     @ManyToOne
-    private EstadosDocuementos estadosdocuementos;
+    private EstadosDocuementos estadosDocuementos;
 
     public Lmds() {
     }

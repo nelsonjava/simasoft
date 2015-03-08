@@ -149,8 +149,8 @@ line("*-------------------------------------------------------------------------
                  line("    private "+relation.getTo()+" objPadre;\n");
               }
               else{
-                 line("    @ManyToOne");                
-                 line("    private "+relation.getTo()+" "+relation.getTo().toLowerCase()+";\n");
+                 line("    @ManyToOne");
+                 line("    private "+relation.getTo()+" "+Utils._1raMin(relation.getTo())+";\n");
               }
             }
 //********RELACION MUCHOS A UNO
@@ -158,12 +158,12 @@ line("*-------------------------------------------------------------------------
 //********RELACION UNO A MUCHOS
             if(relation.getCardinality().equals("1..*")) {
               if(relation.getFrom().equals(relation.getTo())){  // Relación Unitaria
-                 line("    @OneToMany(mappedBy = \"objPadre\")");              
+                 line("    @OneToMany(mappedBy = \"objPadre\")");
                  line("    private Set<"+relation.getTo()+"> objHijos = new HashSet<"+relation.getTo()+">();\n");
               }
               else{
                 line("    @OneToMany(mappedBy = \""+Utils._1raMin(entity.getName())+"\")");
-                line("    private Set<"+relation.getTo()+"> "+relation.getTo().toLowerCase()+" = new HashSet<"+relation.getTo()+">();\n");
+                line("    private Set<"+relation.getTo()+"> "+Utils._1raMin(relation.getTo())+" = new HashSet<"+relation.getTo()+">();\n");
               }
             }
 //********FIN RELACION UNO A MUCHOS

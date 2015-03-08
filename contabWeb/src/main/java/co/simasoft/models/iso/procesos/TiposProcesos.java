@@ -1,5 +1,7 @@
 package co.simasoft.models.iso.procesos;
 
+import co.simasoft.models.iso.lmd.*;
+import co.simasoft.models.iso.lmr.*;
 import co.simasoft.models.iso.procesos.*;
 
 import java.util.*;

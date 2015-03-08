@@ -31,10 +31,10 @@ public class Saldos {
     private float saldoFinal;
 
     @ManyToOne
-    private Terceros terceros;
+    private Pucs pucs;
 
     @ManyToOne
-    private Pucs pucs;
+    private Terceros terceros;
 
     public Saldos() {
     }
@@ -98,18 +98,18 @@ public class Saldos {
         this.saldoFinal = saldoFinal;
     }
 
-    public Terceros getTerceros() {
-        return terceros;
-    }
-    public void setTerceros(Terceros terceros) {
-        this.terceros = terceros;
-    }
-
     public Pucs getPucs() {
         return pucs;
     }
     public void setPucs(Pucs pucs) {
         this.pucs = pucs;
+    }
+
+    public Terceros getTerceros() {
+        return terceros;
+    }
+    public void setTerceros(Terceros terceros) {
+        this.terceros = terceros;
     }
 
 } // entity

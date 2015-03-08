@@ -28,17 +28,17 @@ public class Pucs {
 
     private String observaciones;
 
-    @OneToMany(mappedBy = "objPadre")
-    private Set<Pucs> objHijos = new HashSet<Pucs>();
-
     @OneToMany(mappedBy = "pucs")
     private Set<Movimientos> movimientos = new HashSet<Movimientos>();
 
-    @ManyToOne
-    private Pucs objPadre;
-
     @OneToMany(mappedBy = "pucs")
     private Set<Saldos> saldos = new HashSet<Saldos>();
+
+    @OneToMany(mappedBy = "objPadre")
+    private Set<Pucs> objHijos = new HashSet<Pucs>();
+
+    @ManyToOne
+    private Pucs objPadre;
 
     public Pucs() {
     }
@@ -94,13 +94,6 @@ public class Pucs {
         this.observaciones = observaciones;
     }
 
-    public Set<Pucs> getObjHijos() {
-        return this.objHijos;
-    }
-    public void setObjHijos(Set<Pucs> objHijos) {
-        this.objHijos = objHijos;
-    }
-
     public Set<Movimientos> getMovimientos() {
         return movimientos;
     }
@@ -108,18 +101,25 @@ public class Pucs {
         this.movimientos = movimientos;
     }
 
-    public Pucs getObjPadre() {
-        return this.objPadre;
-    }
-    public void setObjPadre(Pucs objPadre) {
-        this.objPadre = objPadre;
-    }
-
     public Set<Saldos> getSaldos() {
         return saldos;
     }
     public void setSaldos(Set<Saldos> saldos) {
         this.saldos = saldos;
+    }
+
+    public Set<Pucs> getObjHijos() {
+        return this.objHijos;
+    }
+    public void setObjHijos(Set<Pucs> objHijos) {
+        this.objHijos = objHijos;
+    }
+
+    public Pucs getObjPadre() {
+        return this.objPadre;
+    }
+    public void setObjPadre(Pucs objPadre) {
+        this.objPadre = objPadre;
     }
 
 } // entity

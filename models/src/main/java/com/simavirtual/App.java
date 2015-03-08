@@ -103,20 +103,13 @@ public class App extends FileTxt{
         generar(modelos);
         modelos.clear();
 
-        modelos.add(new Modelos("iso","co.simasoft","archivo-inactivo"));
+//        modelos.add(new Modelos("iso","co.simasoft","archivo-inactivo"));
         modelos.add(new Modelos("iso","co.simasoft","lmd"));
         modelos.add(new Modelos("iso","co.simasoft","lmr"));
         modelos.add(new Modelos("iso","co.simasoft","procesos"));
         generar(modelos);
         modelos.clear();
 
-/*
-        generarModelo("contable","co.simasoft","contabilidad");
-        generarModelo("iso","co.simasoft","archivo-inactivo");
-        generarModelo("iso","co.simasoft","lmd");
-        generarModelo("iso","co.simasoft","lmr");
-        generarModelo("iso","co.simasoft","procesos");
-*/
 
     } // main
 

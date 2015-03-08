@@ -1,6 +1,8 @@
 package co.simasoft.models.iso.lmr;
 
+import co.simasoft.models.iso.lmd.*;
 import co.simasoft.models.iso.lmr.*;
+import co.simasoft.models.iso.procesos.*;
 
 import java.util.*;
 
@@ -37,43 +39,43 @@ public class Lmrs {
     private String observaciones;
 
     @ManyToOne
-    private TiposRegistros tiposregistros;
+    private Estados estados;
 
     @ManyToOne
-    private Dependencias dependencias;
-
-    @ManyToOne
-    private Procesos procesos;
-
-    @ManyToOne
-    private TrdArchivos trdarchivos;
+    private DisposicionFinal disposicionFinal;
 
     @ManyToOne
     private Responsables responsables;
 
     @ManyToOne
-    private TrdAreas trdareas;
+    private Instituciones instituciones;
+
+    @ManyToOne
+    private TiposAccesos tiposAccesos;
+
+    @ManyToOne
+    private TrdArchivos trdArchivos;
 
     @ManyToOne
     private Indexaciones indexaciones;
 
     @ManyToOne
-    private TiposLmrs tiposlmrs;
+    private TiposLmrs tiposLmrs;
 
     @ManyToOne
-    private Estados estados;
-
-    @ManyToOne
-    private Instituciones instituciones;
-
-    @ManyToOne
-    private DisposicionFinal disposicionfinal;
+    private Dependencias dependencias;
 
     @ManyToOne
     private Medios medios;
 
     @ManyToOne
-    private TiposAccesos tiposaccesos;
+    private TiposRegistros tiposRegistros;
+
+    @ManyToOne
+    private TrdAreas trdAreas;
+
+    @ManyToOne
+    private Procesos procesos;
 
     public Lmrs() {
     }
@@ -161,32 +163,18 @@ public class Lmrs {
         this.observaciones = observaciones;
     }
 
-    public TiposRegistros getTiposRegistros() {
-        return tiposRegistros;
+    public Estados getEstados() {
+        return estados;
     }
-    public void setTiposRegistros(TiposRegistros tiposRegistros) {
-        this.tiposRegistros = tiposRegistros;
-    }
-
-    public Dependencias getDependencias() {
-        return dependencias;
-    }
-    public void setDependencias(Dependencias dependencias) {
-        this.dependencias = dependencias;
+    public void setEstados(Estados estados) {
+        this.estados = estados;
     }
 
-    public Procesos getProcesos() {
-        return procesos;
+    public DisposicionFinal getDisposicionFinal() {
+        return disposicionFinal;
     }
-    public void setProcesos(Procesos procesos) {
-        this.procesos = procesos;
-    }
-
-    public TrdArchivos getTrdArchivos() {
-        return trdArchivos;
-    }
-    public void setTrdArchivos(TrdArchivos trdArchivos) {
-        this.trdArchivos = trdArchivos;
+    public void setDisposicionFinal(DisposicionFinal disposicionFinal) {
+        this.disposicionFinal = disposicionFinal;
     }
 
     public Responsables getResponsables() {
@@ -196,11 +184,25 @@ public class Lmrs {
         this.responsables = responsables;
     }
 
-    public TrdAreas getTrdAreas() {
-        return trdAreas;
+    public Instituciones getInstituciones() {
+        return instituciones;
     }
-    public void setTrdAreas(TrdAreas trdAreas) {
-        this.trdAreas = trdAreas;
+    public void setInstituciones(Instituciones instituciones) {
+        this.instituciones = instituciones;
+    }
+
+    public TiposAccesos getTiposAccesos() {
+        return tiposAccesos;
+    }
+    public void setTiposAccesos(TiposAccesos tiposAccesos) {
+        this.tiposAccesos = tiposAccesos;
+    }
+
+    public TrdArchivos getTrdArchivos() {
+        return trdArchivos;
+    }
+    public void setTrdArchivos(TrdArchivos trdArchivos) {
+        this.trdArchivos = trdArchivos;
     }
 
     public Indexaciones getIndexaciones() {
@@ -217,25 +219,11 @@ public class Lmrs {
         this.tiposLmrs = tiposLmrs;
     }
 
-    public Estados getEstados() {
-        return estados;
+    public Dependencias getDependencias() {
+        return dependencias;
     }
-    public void setEstados(Estados estados) {
-        this.estados = estados;
-    }
-
-    public Instituciones getInstituciones() {
-        return instituciones;
-    }
-    public void setInstituciones(Instituciones instituciones) {
-        this.instituciones = instituciones;
-    }
-
-    public DisposicionFinal getDisposicionFinal() {
-        return disposicionFinal;
-    }
-    public void setDisposicionFinal(DisposicionFinal disposicionFinal) {
-        this.disposicionFinal = disposicionFinal;
+    public void setDependencias(Dependencias dependencias) {
+        this.dependencias = dependencias;
     }
 
     public Medios getMedios() {
@@ -245,11 +233,25 @@ public class Lmrs {
         this.medios = medios;
     }
 
-    public TiposAccesos getTiposAccesos() {
-        return tiposAccesos;
+    public TiposRegistros getTiposRegistros() {
+        return tiposRegistros;
     }
-    public void setTiposAccesos(TiposAccesos tiposAccesos) {
-        this.tiposAccesos = tiposAccesos;
+    public void setTiposRegistros(TiposRegistros tiposRegistros) {
+        this.tiposRegistros = tiposRegistros;
+    }
+
+    public TrdAreas getTrdAreas() {
+        return trdAreas;
+    }
+    public void setTrdAreas(TrdAreas trdAreas) {
+        this.trdAreas = trdAreas;
+    }
+
+    public Procesos getProcesos() {
+        return procesos;
+    }
+    public void setProcesos(Procesos procesos) {
+        this.procesos = procesos;
     }
 
 } // entity
