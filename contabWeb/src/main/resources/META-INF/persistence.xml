@@ -14,6 +14,64 @@
     <class>co.simasoft.models.contable.contabilidad.Movimientos</class>
     <class>co.simasoft.models.contable.contabilidad.Saldos</class>
 
+    <class>co.simasoft.models.iso.procesos.Procesos</class>
+    <class>co.simasoft.models.iso.procesos.TiposProcesos</class>
+    <class>co.simasoft.models.iso.procesos.Lmrs</class>
+    <class>co.simasoft.models.iso.procesos.Lmds</class>
+    <class>co.simasoft.models.iso.lmd.TiposDocumentos</class>
+    <class>co.simasoft.models.iso.lmd.Lmds</class>
+    <class>co.simasoft.models.iso.lmd.EstadosDocuementos</class>
+    <class>co.simasoft.models.iso.lmd.Procesos</class>
+    <class>co.simasoft.models.iso.lmr.Lmrs</class>
+    <class>co.simasoft.models.iso.lmr.Instituciones</class>
+    <class>co.simasoft.models.iso.lmr.TiposRegistros</class>
+    <class>co.simasoft.models.iso.lmr.Medios</class>
+    <class>co.simasoft.models.iso.lmr.Dependencias</class>
+    <class>co.simasoft.models.iso.lmr.Indexaciones</class>
+    <class>co.simasoft.models.iso.lmr.Responsables</class>
+    <class>co.simasoft.models.iso.lmr.TiposAccesos</class>
+    <class>co.simasoft.models.iso.lmr.TrdAreas</class>
+    <class>co.simasoft.models.iso.lmr.DisposicionFinal</class>
+    <class>co.simasoft.models.iso.lmr.Estados</class>
+    <class>co.simasoft.models.iso.lmr.TiposLmrs</class>
+    <class>co.simasoft.models.iso.lmr.TrdArchivos</class>
+    <class>co.simasoft.models.iso.lmr.EntradasArchivos</class>
+    <class>co.simasoft.models.iso.lmr.Procesos</class>
+
+    <class>co.simasoft.models.base.direcciones.Direcciones</class>
+    <class>co.simasoft.models.base.direcciones.TiposEdificaciones</class>
+    <class>co.simasoft.models.base.direcciones.Direccioness</class>
+    <class>co.simasoft.models.base.empresas.TiposCargos</class>
+    <class>co.simasoft.models.base.empresas.Cargos</class>
+    <class>co.simasoft.models.base.empresas.Empresas</class>
+    <class>co.simasoft.models.base.empresas.Empleados</class>
+    <class>co.simasoft.models.base.mails.Mails</class>
+    <class>co.simasoft.models.base.nits.TiposIds</class>
+    <class>co.simasoft.models.base.nits.Ids</class>
+    <class>co.simasoft.models.base.nits.Nits</class>
+    <class>co.simasoft.models.base.paises.Continentes</class>
+    <class>co.simasoft.models.base.paises.Paises</class>
+    <class>co.simasoft.models.base.paises.Departamentos</class>
+    <class>co.simasoft.models.base.paises.Municipios</class>
+    <class>co.simasoft.models.base.paises.Localidades</class>
+    <class>co.simasoft.models.base.paises.TiposLocalidades</class>
+    <class>co.simasoft.models.base.paises.TiposMunicipios</class>
+    <class>co.simasoft.models.base.permisos.Permisos</class>
+    <class>co.simasoft.models.base.personas.Personas</class>
+    <class>co.simasoft.models.base.sistemas.Datos</class>
+    <class>co.simasoft.models.base.sistemas.Opciones</class>
+    <class>co.simasoft.models.base.sistemas.TiposOpciones</class>
+    <class>co.simasoft.models.base.sistemas.OpcionesSistemas</class>
+    <class>co.simasoft.models.base.sistemas.RolesSistemas</class>
+    <class>co.simasoft.models.base.sistemas.Sistemas</class>
+    <class>co.simasoft.models.base.sistemas.TiposSistemas</class>
+    <class>co.simasoft.models.base.telefonos.Celulares</class>
+    <class>co.simasoft.models.base.telefonos.Telefonos</class>
+    <class>co.simasoft.models.base.usuarios.Roles</class>
+    <class>co.simasoft.models.base.usuarios.RolesGrupos</class>
+    <class>co.simasoft.models.base.usuarios.Usuarios</class>
+    <class>co.simasoft.models.base.usuarios.UsuariosEmps</class>
+    <class>co.simasoft.models.base.usuarios.UsuariosRoles</class>
 
     <exclude-unlisted-classes>true</exclude-unlisted-classes>
     <jta-data-source>java:jboss/datasources/contabilidadDS</jta-data-source>

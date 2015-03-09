@@ -1,0 +1,20 @@
+ El volumen de la unidad D no tiene etiqueta.
+ El n£mero de serie del volumen es: 3029-3EA4
+
+ Directorio de D:\dev\njava\simasoft\models\src\resources\models\modelo-base-prueba
+
+09/03/2015  11:44 a. m.    <DIR>          .
+09/03/2015  11:44 a. m.    <DIR>          ..
+09/03/2015  11:44 a. m.                 0 a.txt
+09/03/2015  11:44 a. m.    <DIR>          direcciones
+09/03/2015  11:01 a. m.    <DIR>          divisiones_politicas
+09/03/2015  11:02 a. m.    <DIR>          empresas
+09/03/2015  11:02 a. m.    <DIR>          mails
+09/03/2015  11:03 a. m.    <DIR>          nits
+09/03/2015  11:04 a. m.    <DIR>          permisos
+09/03/2015  11:04 a. m.    <DIR>          personas
+09/03/2015  11:05 a. m.    <DIR>          sistemas
+09/03/2015  11:05 a. m.    <DIR>          telefonos
+09/03/2015  11:17 a. m.    <DIR>          usuarios
+               1 archivos              0 bytes
+              12 dirs  67.076.046.848 bytes libres

@@ -28,7 +28,7 @@ public class App extends FileTxt{
         entidades.clear();
         relationsPower.clear();
         relations.clear();
-
+        
         filePowerDesigner = "src/resources/models/"+modelo+"/"+artifactId+"/"+artifactId+".oob";
 
         PowerDesigner powerDesigner = new PowerDesigner(filePowerDesigner);
@@ -101,15 +101,26 @@ public class App extends FileTxt{
 
         modelos.add(new Modelos("contable","co.simasoft","contabilidad"));
         generar(modelos);
-        modelos.clear();
 
-//        modelos.add(new Modelos("iso","co.simasoft","archivo-inactivo"));
+        modelos.clear();
+        modelos.add(new Modelos("iso","co.simasoft","archivo-inactivo"));
         modelos.add(new Modelos("iso","co.simasoft","lmd"));
         modelos.add(new Modelos("iso","co.simasoft","lmr"));
         modelos.add(new Modelos("iso","co.simasoft","procesos"));
         generar(modelos);
-        modelos.clear();
 
+        modelos.clear();
+        modelos.add(new Modelos("base","co.simasoft","direcciones"));
+        modelos.add(new Modelos("base","co.simasoft","paises"));
+        modelos.add(new Modelos("base","co.simasoft","empresas"));
+        modelos.add(new Modelos("base","co.simasoft","mails"));
+        modelos.add(new Modelos("base","co.simasoft","nits"));
+        modelos.add(new Modelos("base","co.simasoft","permisos"));
+        modelos.add(new Modelos("base","co.simasoft","personas"));
+        modelos.add(new Modelos("base","co.simasoft","sistemas"));
+        modelos.add(new Modelos("base","co.simasoft","telefonos"));
+        modelos.add(new Modelos("base","co.simasoft","usuarios"));
+        generar(modelos);
 
     } // main
 

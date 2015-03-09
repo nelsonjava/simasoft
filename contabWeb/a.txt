@@ -1,13 +1,11 @@
 [INFO] Scanning for projects...
-[INFO] 
-[INFO] Using the builder org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder with a thread count of 1
 [INFO]                                                                         
 [INFO] ------------------------------------------------------------------------
 [INFO] Building contabWeb 1.0.0-SNAPSHOT
 [INFO] ------------------------------------------------------------------------
 [INFO] 
 [INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ contabWeb ---
-[INFO] Deleting d:\dev\njava\simasoft\contabWeb\target
+[INFO] Deleting D:\dev\njava\simasoft\contabWeb\target
 [INFO] 
 [INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ contabWeb ---
 [INFO] Using 'UTF-8' encoding to copy filtered resources.
@@ -15,29 +13,28 @@
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ contabWeb ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 34 source files to d:\dev\njava\simasoft\contabWeb\target\classes
-[INFO] 
-[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ contabWeb ---
-[INFO] Using 'UTF-8' encoding to copy filtered resources.
-[INFO] skip non existing resourceDirectory d:\dev\njava\simasoft\contabWeb\src\test\resources
-[INFO] 
-[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ contabWeb ---
-[INFO] No sources to compile
-[INFO] 
-[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ contabWeb ---
-[INFO] No tests to run.
-[INFO] 
-[INFO] --- maven-war-plugin:2.1.1:war (default-war) @ contabWeb ---
-[INFO] Packaging webapp
-[INFO] Assembling webapp [contabWeb] in [d:\dev\njava\simasoft\contabWeb\target\contabWeb]
-[INFO] Processing war project
-[INFO] Copying webapp resources [d:\dev\njava\simasoft\contabWeb\src\main\webapp]
-[INFO] Webapp assembled in [350 msecs]
-[INFO] Building war: d:\dev\njava\simasoft\contabWeb\target\contabWeb.war
+[INFO] Compiling 69 source files to D:\dev\njava\simasoft\contabWeb\target\classes
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/models/base/usuarios/RolesSistemas.java:[54,13] cannot find symbol
+  symbol: variable sISTEMAS
+[INFO] 1 error
+[INFO] -------------------------------------------------------------
 [INFO] ------------------------------------------------------------------------
-[INFO] BUILD SUCCESS
+[INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 4.998 s
-[INFO] Finished at: 2015-03-08T15:24:23-05:00
-[INFO] Final Memory: 17M/46M
+[INFO] Total time: 1.860s
+[INFO] Finished at: Mon Mar 09 15:43:30 COT 2015
+[INFO] Final Memory: 15M/48M
 [INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.1:compile (default-compile) on project contabWeb: Compilation failure
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/models/base/usuarios/RolesSistemas.java:[54,13] cannot find symbol
+[ERROR] symbol: variable sISTEMAS
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
