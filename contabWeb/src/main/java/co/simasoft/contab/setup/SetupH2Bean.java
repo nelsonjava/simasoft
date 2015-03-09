@@ -1,6 +1,20 @@
 package com.simasoft.contab.setup;
 
+import co.simasoft.models.base.direcciones.*;
+import co.simasoft.models.base.paises.*;
+import co.simasoft.models.base.empresas.*;
+import co.simasoft.models.base.mails.*;
+import co.simasoft.models.base.nits.*;
+import co.simasoft.models.base.permisos.*;
+import co.simasoft.models.base.personas.*;
+import co.simasoft.models.base.sistemas.*;
+import co.simasoft.models.base.telefonos.*;
+import co.simasoft.models.base.usuarios.*;
+import co.simasoft.models.iso.lmd.*;
+import co.simasoft.models.iso.lmr.*;
+import co.simasoft.models.iso.procesos.*;
 import co.simasoft.models.contable.contabilidad.*;
+
 
 import java.util.Calendar;
 import java.util.Random;
@@ -50,6 +64,8 @@ public class SetupH2Bean {
         saldos.setTerceros(terceros);
         em.persist(saldos);
         em.flush();
+
+
 
         log.info("Database successfully populated H2... ");
 
