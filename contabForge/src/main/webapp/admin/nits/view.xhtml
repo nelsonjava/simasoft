@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="id" value='#{nitsBean.id}'/>
+		<f:event type="preRenderView" listener='#{nitsBean.retrieve}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="View Nits"/>
+
+	<ui:define name="header">
+		Nits
+	</ui:define>
+
+	<ui:define name="subheader">
+		View existing Nits
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:panelGrid columnClasses="label,component,required" columns="3">
+			<h:outputLabel for="nitsBeanNitsPrueba" value="Prueba:"/>
+			<h:outputText id="nitsBeanNitsPrueba" value="#{nitsBean.nits.prueba}"/>
+			<h:outputText/>
+			<h:outputLabel for="nitsBeanNitsEmpresas" value="Empresas:"/>
+			<h:link id="nitsBeanNitsEmpresas" outcome="/admin/empresas/view" rendered="#{!empty nitsBean.nits.empresas}" value="#{nitsBean.nits.empresas}">
+				<f:param name="id" value="#{nitsBean.nits.empresas.id}"/>
+			</h:link>
+			<h:outputText/>
+			<h:outputLabel for="nitsBeanNitsIds" value="Ids:"/>
+			<h:link id="nitsBeanNitsIds" outcome="/admin/ids/view" rendered="#{!empty nitsBean.nits.ids}" value="#{nitsBean.nits.ids}">
+				<f:param name="id" value="#{nitsBean.nits.ids.id}"/>
+			</h:link>
+			<h:outputText/>
+			<h:outputLabel for="nitsBeanNitsPersonas" value="Personas:"/>
+			<h:link id="nitsBeanNitsPersonas" outcome="/admin/personas/view" rendered="#{!empty nitsBean.nits.personas}" value="#{nitsBean.nits.personas}">
+				<f:param name="id" value="#{nitsBean.nits.personas.id}"/>
+			</h:link>
+			<h:outputText/>
+		</h:panelGrid>
+
+		<div class="buttons">
+			<h:link value="View All" outcome="search" styleClass="btn btn-primary"/> 
+			<h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
+			<h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
+		</div>
+	</ui:define>
+
+</ui:composition>

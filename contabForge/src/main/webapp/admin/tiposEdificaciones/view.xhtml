@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:forgeview="http://jboss.org/forge/view"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="id" value='#{tiposEdificacionesBean.id}'/>
+		<f:event type="preRenderView" listener='#{tiposEdificacionesBean.retrieve}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="View Tipos Edificaciones"/>
+
+	<ui:define name="header">
+		Tipos Edificaciones
+	</ui:define>
+
+	<ui:define name="subheader">
+		View existing Tipos Edificaciones
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:panelGrid columnClasses="label,component,required" columns="3">
+			<h:outputLabel for="tiposEdificacionesBeanTiposEdificacionesNombre" value="Nombre:"/>
+			<h:outputText id="tiposEdificacionesBeanTiposEdificacionesNombre" value="#{tiposEdificacionesBean.tiposEdificaciones.nombre}"/>
+			<h:outputText/>
+			<h:outputLabel for="tiposEdificacionesBeanTiposEdificacionesDirecciones" value="Direcciones:"/>
+			<h:dataTable id="tiposEdificacionesBeanTiposEdificacionesDirecciones" styleClass="data-table" value="#{forgeview:asList(tiposEdificacionesBean.tiposEdificaciones.direcciones)}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Direccion Completa"/>
+					</f:facet>
+					<h:link outcome="/admin/direcciones/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemDireccionCompleta" value="#{_item.direccionCompleta}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Ubicacion Base"/>
+					</f:facet>
+					<h:link outcome="/admin/direcciones/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemUbicacionBase" value="#{_item.ubicacionBase}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Prefijo Base"/>
+					</f:facet>
+					<h:link outcome="/admin/direcciones/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemPrefijoBase" value="#{_item.prefijoBase}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Ubicacion Cruce"/>
+					</f:facet>
+					<h:link outcome="/admin/direcciones/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemUbicacionCruce" value="#{_item.ubicacionCruce}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Prefijo Cruce"/>
+					</f:facet>
+					<h:link outcome="/admin/direcciones/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemPrefijoCruce" value="#{_item.prefijoCruce}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<h:outputText/>
+		</h:panelGrid>
+
+		<div class="buttons">
+			<h:link value="View All" outcome="search" styleClass="btn btn-primary"/> 
+			<h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
+			<h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
+		</div>
+	</ui:define>
+
+</ui:composition>

@@ -1,0 +1,130 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:forgeview="http://jboss.org/forge/view"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="id" value='#{lmdsBean.id}'/>
+		<f:event type="preRenderView" listener='#{lmdsBean.retrieve}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="Create Lmds"/>
+
+	<ui:define name="header">
+		Lmds
+	</ui:define>
+
+	<ui:define name="subheader">
+		<c:choose>
+			<c:when test='#{!empty lmdsBean.id}'>
+				Edit existing Lmds
+			</c:when>
+			<c:otherwise>
+				Create a new Lmds
+			</c:otherwise>
+		</c:choose>
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:form id="create">
+			<h:messages globalOnly="true" styleClass="error"/>
+
+			<h:panelGrid columnClasses="label,component,required" columns="3">
+				<h:outputLabel for="lmdsBeanLmdsCodigo" value="Codigo:"/>
+				<h:panelGroup>
+					<h:inputText id="lmdsBeanLmdsCodigo" value="#{lmdsBean.lmds.codigo}"/>
+					<h:message for="lmdsBeanLmdsCodigo" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="lmdsBeanLmdsNombre" value="Nombre:"/>
+				<h:panelGroup>
+					<h:inputText id="lmdsBeanLmdsNombre" value="#{lmdsBean.lmds.nombre}"/>
+					<h:message for="lmdsBeanLmdsNombre" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="lmdsBeanLmdsVersion" value="Version:"/>
+				<h:panelGroup>
+					<h:inputText id="lmdsBeanLmdsVersion" value="#{lmdsBean.lmds.version}"/>
+					<h:message for="lmdsBeanLmdsVersion" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="lmdsBeanLmdsFecha" value="Fecha:"/>
+				<h:panelGroup>
+					<h:inputText id="lmdsBeanLmdsFecha" value="#{lmdsBean.lmds.fecha}">
+						<f:convertDateTime/>
+					</h:inputText>
+					<h:message for="lmdsBeanLmdsFecha" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="lmdsBeanLmdsUbicacion" value="Ubicacion:"/>
+				<h:panelGroup>
+					<h:inputText id="lmdsBeanLmdsUbicacion" value="#{lmdsBean.lmds.ubicacion}"/>
+					<h:message for="lmdsBeanLmdsUbicacion" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="lmdsBeanLmdsLink" value="Link:"/>
+				<h:panelGroup>
+					<h:inputText id="lmdsBeanLmdsLink" value="#{lmdsBean.lmds.link}"/>
+					<h:message for="lmdsBeanLmdsLink" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="lmdsBeanLmdsObservaciones" value="Observaciones:"/>
+				<h:panelGroup>
+					<h:inputText id="lmdsBeanLmdsObservaciones" value="#{lmdsBean.lmds.observaciones}"/>
+					<h:message for="lmdsBeanLmdsObservaciones" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="lmdsBeanLmdsProcesos" value="Procesos:"/>
+				<h:panelGroup>
+					<h:selectOneMenu converter="#{procesosBean.converter}" id="lmdsBeanLmdsProcesos" value="#{lmdsBean.lmds.procesos}">
+						<f:selectItem/>
+						<f:selectItems value="#{procesosBean.all}"/>
+					</h:selectOneMenu>
+					<h:message for="lmdsBeanLmdsProcesos" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="lmdsBeanLmdsTiposDocumentos" value="Tipos Documentos:"/>
+				<h:panelGroup>
+					<h:selectOneMenu converter="#{tiposDocumentosBean.converter}" id="lmdsBeanLmdsTiposDocumentos" value="#{lmdsBean.lmds.tiposDocumentos}">
+						<f:selectItem/>
+						<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{tiposDocumentosBean.all}" var="_item"/>
+					</h:selectOneMenu>
+					<h:message for="lmdsBeanLmdsTiposDocumentos" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="lmdsBeanLmdsEstadosDocuementos" value="Estados Docuementos:"/>
+				<h:panelGroup>
+					<h:selectOneMenu converter="#{estadosDocuementosBean.converter}" id="lmdsBeanLmdsEstadosDocuementos" value="#{lmdsBean.lmds.estadosDocuementos}">
+						<f:selectItem/>
+						<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{estadosDocuementosBean.all}" var="_item"/>
+					</h:selectOneMenu>
+					<h:message for="lmdsBeanLmdsEstadosDocuementos" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+			</h:panelGrid>
+
+			<div class="buttons">
+				<h:commandLink value="Save" action='#{lmdsBean.update}' styleClass="btn btn-primary"/>
+				<c:choose>
+					<c:when test='#{!empty lmdsBean.id}'>
+						<h:link value="Cancel" outcome="view" styleClass="btn btn-primary">
+							<f:param name="id" value='#{lmdsBean.id}'/>
+						</h:link>
+						<h:commandLink value="Delete" action='#{lmdsBean.delete}' styleClass="btn btn-primary"/>
+					</c:when>
+					<c:otherwise>
+						<h:link value="Cancel" outcome="search" styleClass="btn btn-primary"/>
+					</c:otherwise>
+				</c:choose>
+			</div>
+		</h:form>
+	</ui:define>
+
+</ui:composition>

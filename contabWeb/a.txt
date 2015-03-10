@@ -13,24 +13,584 @@
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ contabWeb ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 69 source files to D:\dev\njava\simasoft\contabWeb\target\classes
+[INFO] Compiling 73 source files to D:\dev\njava\simasoft\contabWeb\target\classes
 [INFO] -------------------------------------------------------------
 [ERROR] COMPILATION ERROR : 
 [INFO] -------------------------------------------------------------
-[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/models/base/usuarios/RolesSistemas.java:[54,13] cannot find symbol
-  symbol: variable sISTEMAS
-[INFO] 1 error
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/TercerosBean.java:[27,39] package co.simasoft.models.contabilidad does not exist
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/TercerosBean.java:[63,12] cannot find symbol
+  symbol:   class Terceros
+  location: class co.simasoft.contab.view.TercerosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/TercerosBean.java:[65,11] cannot find symbol
+  symbol:   class Terceros
+  location: class co.simasoft.contab.view.TercerosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/TercerosBean.java:[70,28] cannot find symbol
+  symbol:   class Terceros
+  location: class co.simasoft.contab.view.TercerosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/TercerosBean.java:[113,11] cannot find symbol
+  symbol:   class Terceros
+  location: class co.simasoft.contab.view.TercerosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/TercerosBean.java:[172,17] cannot find symbol
+  symbol:   class Terceros
+  location: class co.simasoft.contab.view.TercerosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/TercerosBean.java:[174,12] cannot find symbol
+  symbol:   class Terceros
+  location: class co.simasoft.contab.view.TercerosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/TercerosBean.java:[191,11] cannot find symbol
+  symbol:   class Terceros
+  location: class co.simasoft.contab.view.TercerosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/TercerosBean.java:[196,27] cannot find symbol
+  symbol:   class Terceros
+  location: class co.simasoft.contab.view.TercerosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/TercerosBean.java:[232,49] cannot find symbol
+  symbol:   class Terceros
+  location: class co.simasoft.contab.view.TercerosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/TercerosBean.java:[267,16] cannot find symbol
+  symbol:   class Terceros
+  location: class co.simasoft.contab.view.TercerosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/TercerosBean.java:[282,16] cannot find symbol
+  symbol:   class Terceros
+  location: class co.simasoft.contab.view.TercerosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/TercerosBean.java:[329,12] cannot find symbol
+  symbol:   class Terceros
+  location: class co.simasoft.contab.view.TercerosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/TercerosBean.java:[331,11] cannot find symbol
+  symbol:   class Terceros
+  location: class co.simasoft.contab.view.TercerosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/TercerosBean.java:[336,11] cannot find symbol
+  symbol:   class Terceros
+  location: class co.simasoft.contab.view.TercerosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/PucsBean.java:[27,39] package co.simasoft.models.contabilidad does not exist
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/PucsBean.java:[63,12] cannot find symbol
+  symbol:   class Pucs
+  location: class co.simasoft.contab.view.PucsBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/PucsBean.java:[65,11] cannot find symbol
+  symbol:   class Pucs
+  location: class co.simasoft.contab.view.PucsBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/PucsBean.java:[70,24] cannot find symbol
+  symbol:   class Pucs
+  location: class co.simasoft.contab.view.PucsBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/PucsBean.java:[113,11] cannot find symbol
+  symbol:   class Pucs
+  location: class co.simasoft.contab.view.PucsBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/PucsBean.java:[172,17] cannot find symbol
+  symbol:   class Pucs
+  location: class co.simasoft.contab.view.PucsBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/PucsBean.java:[174,12] cannot find symbol
+  symbol:   class Pucs
+  location: class co.simasoft.contab.view.PucsBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/PucsBean.java:[191,11] cannot find symbol
+  symbol:   class Pucs
+  location: class co.simasoft.contab.view.PucsBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/PucsBean.java:[196,27] cannot find symbol
+  symbol:   class Pucs
+  location: class co.simasoft.contab.view.PucsBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/PucsBean.java:[232,49] cannot find symbol
+  symbol:   class Pucs
+  location: class co.simasoft.contab.view.PucsBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/PucsBean.java:[257,16] cannot find symbol
+  symbol:   class Pucs
+  location: class co.simasoft.contab.view.PucsBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/PucsBean.java:[272,16] cannot find symbol
+  symbol:   class Pucs
+  location: class co.simasoft.contab.view.PucsBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/PucsBean.java:[319,12] cannot find symbol
+  symbol:   class Pucs
+  location: class co.simasoft.contab.view.PucsBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/PucsBean.java:[321,11] cannot find symbol
+  symbol:   class Pucs
+  location: class co.simasoft.contab.view.PucsBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/PucsBean.java:[326,11] cannot find symbol
+  symbol:   class Pucs
+  location: class co.simasoft.contab.view.PucsBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/SaldosBean.java:[27,39] package co.simasoft.models.contabilidad does not exist
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/SaldosBean.java:[28,39] package co.simasoft.models.contabilidad does not exist
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/SaldosBean.java:[29,39] package co.simasoft.models.contabilidad does not exist
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/SaldosBean.java:[65,12] cannot find symbol
+  symbol:   class Saldos
+  location: class co.simasoft.contab.view.SaldosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/SaldosBean.java:[67,11] cannot find symbol
+  symbol:   class Saldos
+  location: class co.simasoft.contab.view.SaldosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/SaldosBean.java:[72,26] cannot find symbol
+  symbol:   class Saldos
+  location: class co.simasoft.contab.view.SaldosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/SaldosBean.java:[115,11] cannot find symbol
+  symbol:   class Saldos
+  location: class co.simasoft.contab.view.SaldosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/SaldosBean.java:[174,17] cannot find symbol
+  symbol:   class Saldos
+  location: class co.simasoft.contab.view.SaldosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/SaldosBean.java:[176,12] cannot find symbol
+  symbol:   class Saldos
+  location: class co.simasoft.contab.view.SaldosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/SaldosBean.java:[193,11] cannot find symbol
+  symbol:   class Saldos
+  location: class co.simasoft.contab.view.SaldosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/SaldosBean.java:[198,27] cannot find symbol
+  symbol:   class Saldos
+  location: class co.simasoft.contab.view.SaldosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/SaldosBean.java:[234,49] cannot find symbol
+  symbol:   class Saldos
+  location: class co.simasoft.contab.view.SaldosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/SaldosBean.java:[254,16] cannot find symbol
+  symbol:   class Saldos
+  location: class co.simasoft.contab.view.SaldosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/SaldosBean.java:[269,16] cannot find symbol
+  symbol:   class Saldos
+  location: class co.simasoft.contab.view.SaldosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/SaldosBean.java:[316,12] cannot find symbol
+  symbol:   class Saldos
+  location: class co.simasoft.contab.view.SaldosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/SaldosBean.java:[318,11] cannot find symbol
+  symbol:   class Saldos
+  location: class co.simasoft.contab.view.SaldosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/SaldosBean.java:[323,11] cannot find symbol
+  symbol:   class Saldos
+  location: class co.simasoft.contab.view.SaldosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/MovimientosBean.java:[27,39] package co.simasoft.models.contabilidad does not exist
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/MovimientosBean.java:[28,39] package co.simasoft.models.contabilidad does not exist
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/MovimientosBean.java:[29,39] package co.simasoft.models.contabilidad does not exist
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/MovimientosBean.java:[65,12] cannot find symbol
+  symbol:   class Movimientos
+  location: class co.simasoft.contab.view.MovimientosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/MovimientosBean.java:[67,11] cannot find symbol
+  symbol:   class Movimientos
+  location: class co.simasoft.contab.view.MovimientosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/MovimientosBean.java:[72,31] cannot find symbol
+  symbol:   class Movimientos
+  location: class co.simasoft.contab.view.MovimientosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/MovimientosBean.java:[115,11] cannot find symbol
+  symbol:   class Movimientos
+  location: class co.simasoft.contab.view.MovimientosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/MovimientosBean.java:[174,17] cannot find symbol
+  symbol:   class Movimientos
+  location: class co.simasoft.contab.view.MovimientosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/MovimientosBean.java:[176,12] cannot find symbol
+  symbol:   class Movimientos
+  location: class co.simasoft.contab.view.MovimientosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/MovimientosBean.java:[193,11] cannot find symbol
+  symbol:   class Movimientos
+  location: class co.simasoft.contab.view.MovimientosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/MovimientosBean.java:[198,27] cannot find symbol
+  symbol:   class Movimientos
+  location: class co.simasoft.contab.view.MovimientosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/MovimientosBean.java:[234,49] cannot find symbol
+  symbol:   class Movimientos
+  location: class co.simasoft.contab.view.MovimientosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/MovimientosBean.java:[269,16] cannot find symbol
+  symbol:   class Movimientos
+  location: class co.simasoft.contab.view.MovimientosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/MovimientosBean.java:[284,16] cannot find symbol
+  symbol:   class Movimientos
+  location: class co.simasoft.contab.view.MovimientosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/MovimientosBean.java:[331,12] cannot find symbol
+  symbol:   class Movimientos
+  location: class co.simasoft.contab.view.MovimientosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/MovimientosBean.java:[333,11] cannot find symbol
+  symbol:   class Movimientos
+  location: class co.simasoft.contab.view.MovimientosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/MovimientosBean.java:[338,11] cannot find symbol
+  symbol:   class Movimientos
+  location: class co.simasoft.contab.view.MovimientosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/TercerosBean.java:[116,38] cannot find symbol
+  symbol:   class Terceros
+  location: class co.simasoft.contab.view.TercerosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/TercerosBean.java:[153,10] cannot find symbol
+  symbol:   class Terceros
+  location: class co.simasoft.contab.view.TercerosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/TercerosBean.java:[174,35] cannot find symbol
+  symbol:   class Terceros
+  location: class co.simasoft.contab.view.TercerosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/TercerosBean.java:[215,12] cannot find symbol
+  symbol:   class Terceros
+  location: class co.simasoft.contab.view.TercerosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/TercerosBean.java:[215,48] cannot find symbol
+  symbol:   class Terceros
+  location: class co.simasoft.contab.view.TercerosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/TercerosBean.java:[223,21] cannot find symbol
+  symbol:   class Terceros
+  location: class co.simasoft.contab.view.TercerosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/TercerosBean.java:[223,62] cannot find symbol
+  symbol:   class Terceros
+  location: class co.simasoft.contab.view.TercerosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/TercerosBean.java:[224,28] cannot find symbol
+  symbol:   class Terceros
+  location: class co.simasoft.contab.view.TercerosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/TercerosBean.java:[225,18] cannot find symbol
+  symbol:   class Terceros
+  location: class co.simasoft.contab.view.TercerosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/TercerosBean.java:[285,21] cannot find symbol
+  symbol:   class Terceros
+  location: class co.simasoft.contab.view.TercerosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/TercerosBean.java:[286,47] cannot find symbol
+  symbol:   class Terceros
+  location: class co.simasoft.contab.view.TercerosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/TercerosBean.java:[288,43] cannot find symbol
+  symbol:   class Terceros
+  location: class co.simasoft.contab.view.TercerosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/TercerosBean.java:[320,37] cannot find symbol
+  symbol: class Terceros
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/TercerosBean.java:[329,31] cannot find symbol
+  symbol:   class Terceros
+  location: class co.simasoft.contab.view.TercerosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/TercerosBean.java:[338,7] cannot find symbol
+  symbol:   class Terceros
+  location: class co.simasoft.contab.view.TercerosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/TercerosBean.java:[339,22] cannot find symbol
+  symbol:   class Terceros
+  location: class co.simasoft.contab.view.TercerosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/PucsBean.java:[116,38] cannot find symbol
+  symbol:   class Pucs
+  location: class co.simasoft.contab.view.PucsBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/PucsBean.java:[153,10] cannot find symbol
+  symbol:   class Pucs
+  location: class co.simasoft.contab.view.PucsBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/PucsBean.java:[174,31] cannot find symbol
+  symbol:   class Pucs
+  location: class co.simasoft.contab.view.PucsBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/PucsBean.java:[215,12] cannot find symbol
+  symbol:   class Pucs
+  location: class co.simasoft.contab.view.PucsBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/PucsBean.java:[215,44] cannot find symbol
+  symbol:   class Pucs
+  location: class co.simasoft.contab.view.PucsBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/PucsBean.java:[223,21] cannot find symbol
+  symbol:   class Pucs
+  location: class co.simasoft.contab.view.PucsBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/PucsBean.java:[223,58] cannot find symbol
+  symbol:   class Pucs
+  location: class co.simasoft.contab.view.PucsBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/PucsBean.java:[224,28] cannot find symbol
+  symbol:   class Pucs
+  location: class co.simasoft.contab.view.PucsBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/PucsBean.java:[225,18] cannot find symbol
+  symbol:   class Pucs
+  location: class co.simasoft.contab.view.PucsBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/PucsBean.java:[248,7] cannot find symbol
+  symbol:   class Pucs
+  location: class co.simasoft.contab.view.PucsBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/PucsBean.java:[275,21] cannot find symbol
+  symbol:   class Pucs
+  location: class co.simasoft.contab.view.PucsBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/PucsBean.java:[276,47] cannot find symbol
+  symbol:   class Pucs
+  location: class co.simasoft.contab.view.PucsBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/PucsBean.java:[278,43] cannot find symbol
+  symbol:   class Pucs
+  location: class co.simasoft.contab.view.PucsBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/PucsBean.java:[310,37] cannot find symbol
+  symbol: class Pucs
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/PucsBean.java:[319,27] cannot find symbol
+  symbol:   class Pucs
+  location: class co.simasoft.contab.view.PucsBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/PucsBean.java:[328,7] cannot find symbol
+  symbol:   class Pucs
+  location: class co.simasoft.contab.view.PucsBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/PucsBean.java:[329,22] cannot find symbol
+  symbol:   class Pucs
+  location: class co.simasoft.contab.view.PucsBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/SaldosBean.java:[118,38] cannot find symbol
+  symbol:   class Saldos
+  location: class co.simasoft.contab.view.SaldosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/SaldosBean.java:[155,10] cannot find symbol
+  symbol:   class Saldos
+  location: class co.simasoft.contab.view.SaldosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/SaldosBean.java:[176,33] cannot find symbol
+  symbol:   class Saldos
+  location: class co.simasoft.contab.view.SaldosBean
+[INFO] 100 errors 
 [INFO] -------------------------------------------------------------
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 1.860s
-[INFO] Finished at: Mon Mar 09 15:43:30 COT 2015
-[INFO] Final Memory: 15M/48M
+[INFO] Total time: 1.844s
+[INFO] Finished at: Tue Mar 10 08:59:40 COT 2015
+[INFO] Final Memory: 16M/52M
 [INFO] ------------------------------------------------------------------------
-[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.1:compile (default-compile) on project contabWeb: Compilation failure
-[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/models/base/usuarios/RolesSistemas.java:[54,13] cannot find symbol
-[ERROR] symbol: variable sISTEMAS
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.1:compile (default-compile) on project contabWeb: Compilation failure: Compilation failure:
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/TercerosBean.java:[27,39] package co.simasoft.models.contabilidad does not exist
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/TercerosBean.java:[63,12] cannot find symbol
+[ERROR] symbol:   class Terceros
+[ERROR] location: class co.simasoft.contab.view.TercerosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/TercerosBean.java:[65,11] cannot find symbol
+[ERROR] symbol:   class Terceros
+[ERROR] location: class co.simasoft.contab.view.TercerosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/TercerosBean.java:[70,28] cannot find symbol
+[ERROR] symbol:   class Terceros
+[ERROR] location: class co.simasoft.contab.view.TercerosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/TercerosBean.java:[113,11] cannot find symbol
+[ERROR] symbol:   class Terceros
+[ERROR] location: class co.simasoft.contab.view.TercerosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/TercerosBean.java:[172,17] cannot find symbol
+[ERROR] symbol:   class Terceros
+[ERROR] location: class co.simasoft.contab.view.TercerosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/TercerosBean.java:[174,12] cannot find symbol
+[ERROR] symbol:   class Terceros
+[ERROR] location: class co.simasoft.contab.view.TercerosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/TercerosBean.java:[191,11] cannot find symbol
+[ERROR] symbol:   class Terceros
+[ERROR] location: class co.simasoft.contab.view.TercerosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/TercerosBean.java:[196,27] cannot find symbol
+[ERROR] symbol:   class Terceros
+[ERROR] location: class co.simasoft.contab.view.TercerosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/TercerosBean.java:[232,49] cannot find symbol
+[ERROR] symbol:   class Terceros
+[ERROR] location: class co.simasoft.contab.view.TercerosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/TercerosBean.java:[267,16] cannot find symbol
+[ERROR] symbol:   class Terceros
+[ERROR] location: class co.simasoft.contab.view.TercerosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/TercerosBean.java:[282,16] cannot find symbol
+[ERROR] symbol:   class Terceros
+[ERROR] location: class co.simasoft.contab.view.TercerosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/TercerosBean.java:[329,12] cannot find symbol
+[ERROR] symbol:   class Terceros
+[ERROR] location: class co.simasoft.contab.view.TercerosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/TercerosBean.java:[331,11] cannot find symbol
+[ERROR] symbol:   class Terceros
+[ERROR] location: class co.simasoft.contab.view.TercerosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/TercerosBean.java:[336,11] cannot find symbol
+[ERROR] symbol:   class Terceros
+[ERROR] location: class co.simasoft.contab.view.TercerosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/PucsBean.java:[27,39] package co.simasoft.models.contabilidad does not exist
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/PucsBean.java:[63,12] cannot find symbol
+[ERROR] symbol:   class Pucs
+[ERROR] location: class co.simasoft.contab.view.PucsBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/PucsBean.java:[65,11] cannot find symbol
+[ERROR] symbol:   class Pucs
+[ERROR] location: class co.simasoft.contab.view.PucsBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/PucsBean.java:[70,24] cannot find symbol
+[ERROR] symbol:   class Pucs
+[ERROR] location: class co.simasoft.contab.view.PucsBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/PucsBean.java:[113,11] cannot find symbol
+[ERROR] symbol:   class Pucs
+[ERROR] location: class co.simasoft.contab.view.PucsBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/PucsBean.java:[172,17] cannot find symbol
+[ERROR] symbol:   class Pucs
+[ERROR] location: class co.simasoft.contab.view.PucsBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/PucsBean.java:[174,12] cannot find symbol
+[ERROR] symbol:   class Pucs
+[ERROR] location: class co.simasoft.contab.view.PucsBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/PucsBean.java:[191,11] cannot find symbol
+[ERROR] symbol:   class Pucs
+[ERROR] location: class co.simasoft.contab.view.PucsBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/PucsBean.java:[196,27] cannot find symbol
+[ERROR] symbol:   class Pucs
+[ERROR] location: class co.simasoft.contab.view.PucsBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/PucsBean.java:[232,49] cannot find symbol
+[ERROR] symbol:   class Pucs
+[ERROR] location: class co.simasoft.contab.view.PucsBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/PucsBean.java:[257,16] cannot find symbol
+[ERROR] symbol:   class Pucs
+[ERROR] location: class co.simasoft.contab.view.PucsBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/PucsBean.java:[272,16] cannot find symbol
+[ERROR] symbol:   class Pucs
+[ERROR] location: class co.simasoft.contab.view.PucsBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/PucsBean.java:[319,12] cannot find symbol
+[ERROR] symbol:   class Pucs
+[ERROR] location: class co.simasoft.contab.view.PucsBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/PucsBean.java:[321,11] cannot find symbol
+[ERROR] symbol:   class Pucs
+[ERROR] location: class co.simasoft.contab.view.PucsBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/PucsBean.java:[326,11] cannot find symbol
+[ERROR] symbol:   class Pucs
+[ERROR] location: class co.simasoft.contab.view.PucsBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/SaldosBean.java:[27,39] package co.simasoft.models.contabilidad does not exist
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/SaldosBean.java:[28,39] package co.simasoft.models.contabilidad does not exist
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/SaldosBean.java:[29,39] package co.simasoft.models.contabilidad does not exist
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/SaldosBean.java:[65,12] cannot find symbol
+[ERROR] symbol:   class Saldos
+[ERROR] location: class co.simasoft.contab.view.SaldosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/SaldosBean.java:[67,11] cannot find symbol
+[ERROR] symbol:   class Saldos
+[ERROR] location: class co.simasoft.contab.view.SaldosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/SaldosBean.java:[72,26] cannot find symbol
+[ERROR] symbol:   class Saldos
+[ERROR] location: class co.simasoft.contab.view.SaldosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/SaldosBean.java:[115,11] cannot find symbol
+[ERROR] symbol:   class Saldos
+[ERROR] location: class co.simasoft.contab.view.SaldosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/SaldosBean.java:[174,17] cannot find symbol
+[ERROR] symbol:   class Saldos
+[ERROR] location: class co.simasoft.contab.view.SaldosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/SaldosBean.java:[176,12] cannot find symbol
+[ERROR] symbol:   class Saldos
+[ERROR] location: class co.simasoft.contab.view.SaldosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/SaldosBean.java:[193,11] cannot find symbol
+[ERROR] symbol:   class Saldos
+[ERROR] location: class co.simasoft.contab.view.SaldosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/SaldosBean.java:[198,27] cannot find symbol
+[ERROR] symbol:   class Saldos
+[ERROR] location: class co.simasoft.contab.view.SaldosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/SaldosBean.java:[234,49] cannot find symbol
+[ERROR] symbol:   class Saldos
+[ERROR] location: class co.simasoft.contab.view.SaldosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/SaldosBean.java:[254,16] cannot find symbol
+[ERROR] symbol:   class Saldos
+[ERROR] location: class co.simasoft.contab.view.SaldosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/SaldosBean.java:[269,16] cannot find symbol
+[ERROR] symbol:   class Saldos
+[ERROR] location: class co.simasoft.contab.view.SaldosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/SaldosBean.java:[316,12] cannot find symbol
+[ERROR] symbol:   class Saldos
+[ERROR] location: class co.simasoft.contab.view.SaldosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/SaldosBean.java:[318,11] cannot find symbol
+[ERROR] symbol:   class Saldos
+[ERROR] location: class co.simasoft.contab.view.SaldosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/SaldosBean.java:[323,11] cannot find symbol
+[ERROR] symbol:   class Saldos
+[ERROR] location: class co.simasoft.contab.view.SaldosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/MovimientosBean.java:[27,39] package co.simasoft.models.contabilidad does not exist
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/MovimientosBean.java:[28,39] package co.simasoft.models.contabilidad does not exist
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/MovimientosBean.java:[29,39] package co.simasoft.models.contabilidad does not exist
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/MovimientosBean.java:[65,12] cannot find symbol
+[ERROR] symbol:   class Movimientos
+[ERROR] location: class co.simasoft.contab.view.MovimientosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/MovimientosBean.java:[67,11] cannot find symbol
+[ERROR] symbol:   class Movimientos
+[ERROR] location: class co.simasoft.contab.view.MovimientosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/MovimientosBean.java:[72,31] cannot find symbol
+[ERROR] symbol:   class Movimientos
+[ERROR] location: class co.simasoft.contab.view.MovimientosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/MovimientosBean.java:[115,11] cannot find symbol
+[ERROR] symbol:   class Movimientos
+[ERROR] location: class co.simasoft.contab.view.MovimientosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/MovimientosBean.java:[174,17] cannot find symbol
+[ERROR] symbol:   class Movimientos
+[ERROR] location: class co.simasoft.contab.view.MovimientosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/MovimientosBean.java:[176,12] cannot find symbol
+[ERROR] symbol:   class Movimientos
+[ERROR] location: class co.simasoft.contab.view.MovimientosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/MovimientosBean.java:[193,11] cannot find symbol
+[ERROR] symbol:   class Movimientos
+[ERROR] location: class co.simasoft.contab.view.MovimientosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/MovimientosBean.java:[198,27] cannot find symbol
+[ERROR] symbol:   class Movimientos
+[ERROR] location: class co.simasoft.contab.view.MovimientosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/MovimientosBean.java:[234,49] cannot find symbol
+[ERROR] symbol:   class Movimientos
+[ERROR] location: class co.simasoft.contab.view.MovimientosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/MovimientosBean.java:[269,16] cannot find symbol
+[ERROR] symbol:   class Movimientos
+[ERROR] location: class co.simasoft.contab.view.MovimientosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/MovimientosBean.java:[284,16] cannot find symbol
+[ERROR] symbol:   class Movimientos
+[ERROR] location: class co.simasoft.contab.view.MovimientosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/MovimientosBean.java:[331,12] cannot find symbol
+[ERROR] symbol:   class Movimientos
+[ERROR] location: class co.simasoft.contab.view.MovimientosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/MovimientosBean.java:[333,11] cannot find symbol
+[ERROR] symbol:   class Movimientos
+[ERROR] location: class co.simasoft.contab.view.MovimientosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/MovimientosBean.java:[338,11] cannot find symbol
+[ERROR] symbol:   class Movimientos
+[ERROR] location: class co.simasoft.contab.view.MovimientosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/TercerosBean.java:[116,38] cannot find symbol
+[ERROR] symbol:   class Terceros
+[ERROR] location: class co.simasoft.contab.view.TercerosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/TercerosBean.java:[153,10] cannot find symbol
+[ERROR] symbol:   class Terceros
+[ERROR] location: class co.simasoft.contab.view.TercerosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/TercerosBean.java:[174,35] cannot find symbol
+[ERROR] symbol:   class Terceros
+[ERROR] location: class co.simasoft.contab.view.TercerosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/TercerosBean.java:[215,12] cannot find symbol
+[ERROR] symbol:   class Terceros
+[ERROR] location: class co.simasoft.contab.view.TercerosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/TercerosBean.java:[215,48] cannot find symbol
+[ERROR] symbol:   class Terceros
+[ERROR] location: class co.simasoft.contab.view.TercerosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/TercerosBean.java:[223,21] cannot find symbol
+[ERROR] symbol:   class Terceros
+[ERROR] location: class co.simasoft.contab.view.TercerosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/TercerosBean.java:[223,62] cannot find symbol
+[ERROR] symbol:   class Terceros
+[ERROR] location: class co.simasoft.contab.view.TercerosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/TercerosBean.java:[224,28] cannot find symbol
+[ERROR] symbol:   class Terceros
+[ERROR] location: class co.simasoft.contab.view.TercerosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/TercerosBean.java:[225,18] cannot find symbol
+[ERROR] symbol:   class Terceros
+[ERROR] location: class co.simasoft.contab.view.TercerosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/TercerosBean.java:[285,21] cannot find symbol
+[ERROR] symbol:   class Terceros
+[ERROR] location: class co.simasoft.contab.view.TercerosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/TercerosBean.java:[286,47] cannot find symbol
+[ERROR] symbol:   class Terceros
+[ERROR] location: class co.simasoft.contab.view.TercerosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/TercerosBean.java:[288,43] cannot find symbol
+[ERROR] symbol:   class Terceros
+[ERROR] location: class co.simasoft.contab.view.TercerosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/TercerosBean.java:[320,37] cannot find symbol
+[ERROR] symbol: class Terceros
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/TercerosBean.java:[329,31] cannot find symbol
+[ERROR] symbol:   class Terceros
+[ERROR] location: class co.simasoft.contab.view.TercerosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/TercerosBean.java:[338,7] cannot find symbol
+[ERROR] symbol:   class Terceros
+[ERROR] location: class co.simasoft.contab.view.TercerosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/TercerosBean.java:[339,22] cannot find symbol
+[ERROR] symbol:   class Terceros
+[ERROR] location: class co.simasoft.contab.view.TercerosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/PucsBean.java:[116,38] cannot find symbol
+[ERROR] symbol:   class Pucs
+[ERROR] location: class co.simasoft.contab.view.PucsBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/PucsBean.java:[153,10] cannot find symbol
+[ERROR] symbol:   class Pucs
+[ERROR] location: class co.simasoft.contab.view.PucsBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/PucsBean.java:[174,31] cannot find symbol
+[ERROR] symbol:   class Pucs
+[ERROR] location: class co.simasoft.contab.view.PucsBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/PucsBean.java:[215,12] cannot find symbol
+[ERROR] symbol:   class Pucs
+[ERROR] location: class co.simasoft.contab.view.PucsBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/PucsBean.java:[215,44] cannot find symbol
+[ERROR] symbol:   class Pucs
+[ERROR] location: class co.simasoft.contab.view.PucsBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/PucsBean.java:[223,21] cannot find symbol
+[ERROR] symbol:   class Pucs
+[ERROR] location: class co.simasoft.contab.view.PucsBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/PucsBean.java:[223,58] cannot find symbol
+[ERROR] symbol:   class Pucs
+[ERROR] location: class co.simasoft.contab.view.PucsBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/PucsBean.java:[224,28] cannot find symbol
+[ERROR] symbol:   class Pucs
+[ERROR] location: class co.simasoft.contab.view.PucsBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/PucsBean.java:[225,18] cannot find symbol
+[ERROR] symbol:   class Pucs
+[ERROR] location: class co.simasoft.contab.view.PucsBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/PucsBean.java:[248,7] cannot find symbol
+[ERROR] symbol:   class Pucs
+[ERROR] location: class co.simasoft.contab.view.PucsBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/PucsBean.java:[275,21] cannot find symbol
+[ERROR] symbol:   class Pucs
+[ERROR] location: class co.simasoft.contab.view.PucsBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/PucsBean.java:[276,47] cannot find symbol
+[ERROR] symbol:   class Pucs
+[ERROR] location: class co.simasoft.contab.view.PucsBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/PucsBean.java:[278,43] cannot find symbol
+[ERROR] symbol:   class Pucs
+[ERROR] location: class co.simasoft.contab.view.PucsBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/PucsBean.java:[310,37] cannot find symbol
+[ERROR] symbol: class Pucs
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/PucsBean.java:[319,27] cannot find symbol
+[ERROR] symbol:   class Pucs
+[ERROR] location: class co.simasoft.contab.view.PucsBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/PucsBean.java:[328,7] cannot find symbol
+[ERROR] symbol:   class Pucs
+[ERROR] location: class co.simasoft.contab.view.PucsBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/PucsBean.java:[329,22] cannot find symbol
+[ERROR] symbol:   class Pucs
+[ERROR] location: class co.simasoft.contab.view.PucsBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/SaldosBean.java:[118,38] cannot find symbol
+[ERROR] symbol:   class Saldos
+[ERROR] location: class co.simasoft.contab.view.SaldosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/SaldosBean.java:[155,10] cannot find symbol
+[ERROR] symbol:   class Saldos
+[ERROR] location: class co.simasoft.contab.view.SaldosBean
+[ERROR] /D:/dev/njava/simasoft/contabWeb/src/main/java/co/simasoft/contab/view/SaldosBean.java:[176,33] cannot find symbol
+[ERROR] symbol:   class Saldos
+[ERROR] location: class co.simasoft.contab.view.SaldosBean
 [ERROR] -> [Help 1]
 [ERROR] 
 [ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.

@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:forgeview="http://jboss.org/forge/view"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="id" value='#{tiposIdsBean.id}'/>
+		<f:event type="preRenderView" listener='#{tiposIdsBean.retrieve}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="View Tipos Ids"/>
+
+	<ui:define name="header">
+		Tipos Ids
+	</ui:define>
+
+	<ui:define name="subheader">
+		View existing Tipos Ids
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:panelGrid columnClasses="label,component,required" columns="3">
+			<h:outputLabel for="tiposIdsBeanTiposIdsCodigo" value="Codigo:"/>
+			<h:outputText id="tiposIdsBeanTiposIdsCodigo" value="#{tiposIdsBean.tiposIds.codigo}"/>
+			<h:outputText/>
+			<h:outputLabel for="tiposIdsBeanTiposIdsNombre" value="Nombre:"/>
+			<h:outputText id="tiposIdsBeanTiposIdsNombre" value="#{tiposIdsBean.tiposIds.nombre}"/>
+			<h:outputText/>
+			<h:outputLabel for="tiposIdsBeanTiposIdsIds" value="Ids:"/>
+			<h:dataTable id="tiposIdsBeanTiposIdsIds" styleClass="data-table" value="#{forgeview:asList(tiposIdsBean.tiposIds.ids)}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Numero"/>
+					</f:facet>
+					<h:link outcome="/admin/ids/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemNumero" value="#{_item.numero}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Digito Verificacion"/>
+					</f:facet>
+					<h:link outcome="/admin/ids/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemDigitoVerificacion" value="#{_item.digitoVerificacion}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Fecha Expedicion"/>
+					</f:facet>
+					<h:link outcome="/admin/ids/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemFechaExpedicion" value="#{_item.fechaExpedicion}">
+							<f:convertDateTime/>
+						</h:outputText>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Si Fotocopia"/>
+					</f:facet>
+					<h:link outcome="/admin/ids/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText styleClass="#{_item.siFotocopia ? 'boolean-true' : 'boolean-false'}" value=""/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Municipios"/>
+					</f:facet>
+					<h:link outcome="/admin/ids/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemMunicipios" value="#{_item.municipios}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<h:outputText/>
+		</h:panelGrid>
+
+		<div class="buttons">
+			<h:link value="View All" outcome="search" styleClass="btn btn-primary"/> 
+			<h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
+			<h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
+		</div>
+	</ui:define>
+
+</ui:composition>

@@ -1,0 +1,251 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:forgeview="http://jboss.org/forge/view"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="id" value='#{direccionesBean.id}'/>
+		<f:event type="preRenderView" listener='#{direccionesBean.retrieve}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="Create Direcciones"/>
+
+	<ui:define name="header">
+		Direcciones
+	</ui:define>
+
+	<ui:define name="subheader">
+		<c:choose>
+			<c:when test='#{!empty direccionesBean.id}'>
+				Edit existing Direcciones
+			</c:when>
+			<c:otherwise>
+				Create a new Direcciones
+			</c:otherwise>
+		</c:choose>
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:form id="create">
+			<h:messages globalOnly="true" styleClass="error"/>
+
+			<h:panelGrid columnClasses="label,component,required" columns="3">
+				<h:outputLabel for="direccionesBeanDireccionesDireccionCompleta" value="Direccion Completa:"/>
+				<h:panelGroup>
+					<h:inputText id="direccionesBeanDireccionesDireccionCompleta" value="#{direccionesBean.direcciones.direccionCompleta}"/>
+					<h:message for="direccionesBeanDireccionesDireccionCompleta" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="direccionesBeanDireccionesUbicacionBase" value="Ubicacion Base:"/>
+				<h:panelGroup>
+					<h:inputText id="direccionesBeanDireccionesUbicacionBase" value="#{direccionesBean.direcciones.ubicacionBase}"/>
+					<h:message for="direccionesBeanDireccionesUbicacionBase" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="direccionesBeanDireccionesPrefijoBase" value="Prefijo Base:"/>
+				<h:panelGroup>
+					<h:inputText id="direccionesBeanDireccionesPrefijoBase" value="#{direccionesBean.direcciones.prefijoBase}"/>
+					<h:message for="direccionesBeanDireccionesPrefijoBase" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="direccionesBeanDireccionesUbicacionCruce" value="Ubicacion Cruce:"/>
+				<h:panelGroup>
+					<h:inputText id="direccionesBeanDireccionesUbicacionCruce" value="#{direccionesBean.direcciones.ubicacionCruce}"/>
+					<h:message for="direccionesBeanDireccionesUbicacionCruce" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="direccionesBeanDireccionesPrefijoCruce" value="Prefijo Cruce:"/>
+				<h:panelGroup>
+					<h:inputText id="direccionesBeanDireccionesPrefijoCruce" value="#{direccionesBean.direcciones.prefijoCruce}"/>
+					<h:message for="direccionesBeanDireccionesPrefijoCruce" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="direccionesBeanDireccionesNumeroCruce" value="Numero Cruce:"/>
+				<h:panelGroup>
+					<h:inputText id="direccionesBeanDireccionesNumeroCruce" value="#{direccionesBean.direcciones.numeroCruce}"/>
+					<h:message for="direccionesBeanDireccionesNumeroCruce" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="direccionesBeanDireccionesLatitud" value="Latitud:"/>
+				<h:panelGroup>
+					<h:inputText id="direccionesBeanDireccionesLatitud" value="#{direccionesBean.direcciones.latitud}"/>
+					<h:message for="direccionesBeanDireccionesLatitud" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="direccionesBeanDireccionesLongitud" value="Longitud:"/>
+				<h:panelGroup>
+					<h:inputText id="direccionesBeanDireccionesLongitud" value="#{direccionesBean.direcciones.longitud}"/>
+					<h:message for="direccionesBeanDireccionesLongitud" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="direccionesBeanDireccionesCodigozip" value="Codigozip:"/>
+				<h:panelGroup>
+					<h:inputText id="direccionesBeanDireccionesCodigozip" value="#{direccionesBean.direcciones.codigozip}"/>
+					<h:message for="direccionesBeanDireccionesCodigozip" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="direccionesBeanDireccionesObservaciones" value="Observaciones:"/>
+				<h:panelGroup>
+					<h:inputText id="direccionesBeanDireccionesObservaciones" value="#{direccionesBean.direcciones.observaciones}"/>
+					<h:message for="direccionesBeanDireccionesObservaciones" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="direccionesBeanDireccionesObjPadre" value="Obj Padre:"/>
+				<h:panelGroup>
+					<h:selectOneMenu converter="#{direccionesBean.converter}" id="direccionesBeanDireccionesObjPadre" value="#{direccionesBean.direcciones.objPadre}">
+						<f:selectItem/>
+						<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{direccionesBean.all}" var="_item"/>
+					</h:selectOneMenu>
+					<h:message for="direccionesBeanDireccionesObjPadre" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="direccionesBeanDireccionesDireccioness" value="Direccioness:"/>
+				<h:panelGroup>
+					<h:selectOneMenu converter="#{direccionessBean.converter}" id="direccionesBeanDireccionesDireccioness" value="#{direccionesBean.direcciones.direccioness}">
+						<f:selectItem/>
+						<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{direccionessBean.all}" var="_item"/>
+					</h:selectOneMenu>
+					<h:message for="direccionesBeanDireccionesDireccioness" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="direccionesBeanDireccionesLocalidades" value="Localidades:"/>
+				<h:panelGroup>
+					<h:selectOneMenu converter="#{localidadesBean.converter}" id="direccionesBeanDireccionesLocalidades" value="#{direccionesBean.direcciones.localidades}">
+						<f:selectItem/>
+						<f:selectItems value="#{localidadesBean.all}"/>
+					</h:selectOneMenu>
+					<h:message for="direccionesBeanDireccionesLocalidades" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="direccionesBeanDireccionesTiposEdificaciones" value="Tipos Edificaciones:"/>
+				<h:panelGroup>
+					<h:selectOneMenu converter="#{tiposEdificacionesBean.converter}" id="direccionesBeanDireccionesTiposEdificaciones" value="#{direccionesBean.direcciones.tiposEdificaciones}">
+						<f:selectItem/>
+						<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{tiposEdificacionesBean.all}" var="_item"/>
+					</h:selectOneMenu>
+					<h:message for="direccionesBeanDireccionesTiposEdificaciones" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="direccionesBeanDireccionesObjHijos" value="Obj Hijos:"/>
+				<h:panelGroup>
+					<ui:param name="_collection" value="#{direccionesBean.direcciones.objHijos}"/>
+					<h:dataTable id="direccionesBeanDireccionesObjHijos" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Direccion Completa"/>
+							</f:facet>
+							<h:link outcome="/admin/direcciones/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemDireccionCompleta" value="#{_item.direccionCompleta}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="direccionesBeanAddDireccionCompleta" value="#{direccionesBean.add.direccionCompleta}"/>
+								<h:message for="direccionesBeanAddDireccionCompleta" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Ubicacion Base"/>
+							</f:facet>
+							<h:link outcome="/admin/direcciones/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemUbicacionBase" value="#{_item.ubicacionBase}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="direccionesBeanAddUbicacionBase" value="#{direccionesBean.add.ubicacionBase}"/>
+								<h:message for="direccionesBeanAddUbicacionBase" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Prefijo Base"/>
+							</f:facet>
+							<h:link outcome="/admin/direcciones/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemPrefijoBase" value="#{_item.prefijoBase}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="direccionesBeanAddPrefijoBase" value="#{direccionesBean.add.prefijoBase}"/>
+								<h:message for="direccionesBeanAddPrefijoBase" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Ubicacion Cruce"/>
+							</f:facet>
+							<h:link outcome="/admin/direcciones/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemUbicacionCruce" value="#{_item.ubicacionCruce}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="direccionesBeanAddUbicacionCruce" value="#{direccionesBean.add.ubicacionCruce}"/>
+								<h:message for="direccionesBeanAddUbicacionCruce" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Prefijo Cruce"/>
+							</f:facet>
+							<h:link outcome="/admin/direcciones/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemPrefijoCruce" value="#{_item.prefijoCruce}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="direccionesBeanAddPrefijoCruce" value="#{direccionesBean.add.prefijoCruce}"/>
+								<h:message for="direccionesBeanAddPrefijoCruce" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column footerClass="remove-column" headerClass="remove-column">
+							<h:commandLink action="#{_collection.remove(_item)}" styleClass="remove-button"/>
+							<f:facet name="footer">
+								<h:commandLink action="#{_collection.add(direccionesBean.added)}" id="direccionesBeanDireccionesObjHijosAdd" styleClass="add-button">
+									<f:setPropertyActionListener target="#{direccionesBean.add.objPadre}" value="#{direccionesBean.direcciones}"/>
+								</h:commandLink>
+							</f:facet>
+						</h:column>
+					</h:dataTable>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="direccionesBeanDireccionesTelefonos" value="Telefonos:"/>
+				<h:panelGroup>
+					<ui:param name="_collection" value="#{direccionesBean.direcciones.telefonos}"/>
+					<h:dataTable id="direccionesBeanDireccionesTelefonos" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Telefonos"/>
+							</f:facet>
+							<h:link outcome="/admin/telefonos/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText value="#{_item}"/>
+							</h:link>
+						</h:column>
+					</h:dataTable>
+				</h:panelGroup>
+				<h:outputText/>
+			</h:panelGrid>
+
+			<div class="buttons">
+				<h:commandLink value="Save" action='#{direccionesBean.update}' styleClass="btn btn-primary"/>
+				<c:choose>
+					<c:when test='#{!empty direccionesBean.id}'>
+						<h:link value="Cancel" outcome="view" styleClass="btn btn-primary">
+							<f:param name="id" value='#{direccionesBean.id}'/>
+						</h:link>
+						<h:commandLink value="Delete" action='#{direccionesBean.delete}' styleClass="btn btn-primary"/>
+					</c:when>
+					<c:otherwise>
+						<h:link value="Cancel" outcome="search" styleClass="btn btn-primary"/>
+					</c:otherwise>
+				</c:choose>
+			</div>
+		</h:form>
+	</ui:define>
+
+</ui:composition>

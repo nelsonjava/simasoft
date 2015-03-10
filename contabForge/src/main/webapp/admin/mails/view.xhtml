@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="id" value='#{mailsBean.id}'/>
+		<f:event type="preRenderView" listener='#{mailsBean.retrieve}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="View Mails"/>
+
+	<ui:define name="header">
+		Mails
+	</ui:define>
+
+	<ui:define name="subheader">
+		View existing Mails
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:panelGrid columnClasses="label,component,required" columns="3">
+			<h:outputLabel for="mailsBeanMailsMail" value="Mail:"/>
+			<h:outputText id="mailsBeanMailsMail" value="#{mailsBean.mails.mail}"/>
+			<h:outputText/>
+			<h:outputLabel for="mailsBeanMailsObservacion" value="Observacion:"/>
+			<h:outputText id="mailsBeanMailsObservacion" value="#{mailsBean.mails.observacion}"/>
+			<h:outputText/>
+			<h:outputLabel for="mailsBeanMailsPersonas" value="Personas:"/>
+			<h:link id="mailsBeanMailsPersonas" outcome="/admin/personas/view" rendered="#{!empty mailsBean.mails.personas}" value="#{mailsBean.mails.personas}">
+				<f:param name="id" value="#{mailsBean.mails.personas.id}"/>
+			</h:link>
+			<h:outputText/>
+			<h:outputLabel for="mailsBeanMailsEmpresas" value="Empresas:"/>
+			<h:link id="mailsBeanMailsEmpresas" outcome="/admin/empresas/view" rendered="#{!empty mailsBean.mails.empresas}" value="#{mailsBean.mails.empresas}">
+				<f:param name="id" value="#{mailsBean.mails.empresas.id}"/>
+			</h:link>
+			<h:outputText/>
+		</h:panelGrid>
+
+		<div class="buttons">
+			<h:link value="View All" outcome="search" styleClass="btn btn-primary"/> 
+			<h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
+			<h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
+		</div>
+	</ui:define>
+
+</ui:composition>

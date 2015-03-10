@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="id" value='#{telefonosBean.id}'/>
+		<f:event type="preRenderView" listener='#{telefonosBean.retrieve}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="View Telefonos"/>
+
+	<ui:define name="header">
+		Telefonos
+	</ui:define>
+
+	<ui:define name="subheader">
+		View existing Telefonos
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:panelGrid columnClasses="label,component,required" columns="3">
+			<h:outputLabel for="telefonosBeanTelefonosTelefono" value="Telefono:"/>
+			<h:outputText id="telefonosBeanTelefonosTelefono" value="#{telefonosBean.telefonos.telefono}"/>
+			<h:outputText/>
+			<h:outputLabel for="telefonosBeanTelefonosDirecciones" value="Direcciones:"/>
+			<h:link id="telefonosBeanTelefonosDirecciones" outcome="/admin/direcciones/view" rendered="#{!empty telefonosBean.telefonos.direcciones}" value="#{telefonosBean.telefonos.direcciones}">
+				<f:param name="id" value="#{telefonosBean.telefonos.direcciones.id}"/>
+			</h:link>
+			<h:outputText/>
+			<h:outputLabel for="telefonosBeanTelefonosEmpresas" value="Empresas:"/>
+			<h:link id="telefonosBeanTelefonosEmpresas" outcome="/admin/empresas/view" rendered="#{!empty telefonosBean.telefonos.empresas}" value="#{telefonosBean.telefonos.empresas}">
+				<f:param name="id" value="#{telefonosBean.telefonos.empresas.id}"/>
+			</h:link>
+			<h:outputText/>
+			<h:outputLabel for="telefonosBeanTelefonosPersonas" value="Personas:"/>
+			<h:link id="telefonosBeanTelefonosPersonas" outcome="/admin/personas/view" rendered="#{!empty telefonosBean.telefonos.personas}" value="#{telefonosBean.telefonos.personas}">
+				<f:param name="id" value="#{telefonosBean.telefonos.personas.id}"/>
+			</h:link>
+			<h:outputText/>
+		</h:panelGrid>
+
+		<div class="buttons">
+			<h:link value="View All" outcome="search" styleClass="btn btn-primary"/> 
+			<h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
+			<h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
+		</div>
+	</ui:define>
+
+</ui:composition>

@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:forgeview="http://jboss.org/forge/view"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="id" value='#{procesosBean.id}'/>
+		<f:event type="preRenderView" listener='#{procesosBean.retrieve}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="View Procesos"/>
+
+	<ui:define name="header">
+		Procesos
+	</ui:define>
+
+	<ui:define name="subheader">
+		View existing Procesos
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:panelGrid columnClasses="label,component,required" columns="3">
+			<h:outputLabel for="procesosBeanProcesosCodigo" value="Codigo:"/>
+			<h:outputText id="procesosBeanProcesosCodigo" value="#{procesosBean.procesos.codigo}"/>
+			<h:outputText/>
+			<h:outputLabel for="procesosBeanProcesosNombre" value="Nombre:"/>
+			<h:outputText id="procesosBeanProcesosNombre" value="#{procesosBean.procesos.nombre}"/>
+			<h:outputText/>
+			<h:outputLabel for="procesosBeanProcesosObservaciones" value="Observaciones:"/>
+			<h:outputText id="procesosBeanProcesosObservaciones" value="#{procesosBean.procesos.observaciones}"/>
+			<h:outputText/>
+			<h:outputLabel for="procesosBeanProcesosTiposProcesos" value="Tipos Procesos:"/>
+			<h:link id="procesosBeanProcesosTiposProcesos" outcome="/admin/tiposProcesos/view" rendered="#{!empty procesosBean.procesos.tiposProcesos}" value="#{procesosBean.procesos.tiposProcesos}">
+				<f:param name="id" value="#{procesosBean.procesos.tiposProcesos.id}"/>
+			</h:link>
+			<h:outputText/>
+			<h:outputLabel for="procesosBeanProcesosLmds" value="Lmds:"/>
+			<h:dataTable id="procesosBeanProcesosLmds" styleClass="data-table" value="#{forgeview:asList(procesosBean.procesos.lmds)}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Lmds"/>
+					</f:facet>
+					<h:link outcome="/admin/lmds/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText value="#{_item}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<h:outputText/>
+			<h:outputLabel for="procesosBeanProcesosLmrs" value="Lmrs:"/>
+			<h:dataTable id="procesosBeanProcesosLmrs" styleClass="data-table" value="#{forgeview:asList(procesosBean.procesos.lmrs)}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Lmrs"/>
+					</f:facet>
+					<h:link outcome="/admin/lmrs/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText value="#{_item}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<h:outputText/>
+		</h:panelGrid>
+
+		<div class="buttons">
+			<h:link value="View All" outcome="search" styleClass="btn btn-primary"/> 
+			<h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
+			<h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
+		</div>
+	</ui:define>
+
+</ui:composition>

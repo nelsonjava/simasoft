@@ -1,0 +1,100 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="page" value='#{celularesBean.page}'/>
+		<f:event type="preRenderView" listener='#{celularesBean.paginate}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="Search Celulares entities"/>
+
+	<ui:define name="header">
+		Celulares
+	</ui:define>
+
+	<ui:define name="subheader">
+		Search Celulares entities
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:form id="search">
+			<f:validateBean disabled="true">
+				<h:panelGroup styleClass="search">
+
+					<h:panelGrid columnClasses="label,component,required" columns="3">
+						<h:outputLabel for="celularesBeanExampleCelular" value="Celular:"/>
+						<h:panelGroup>
+							<h:inputText id="celularesBeanExampleCelular" value="#{celularesBean.example.celular}"/>
+							<h:message for="celularesBeanExampleCelular" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="celularesBeanExampleEmpresas" value="Empresas:"/>
+						<h:panelGroup>
+							<h:selectOneMenu converter="#{empresasBean.converter}" id="celularesBeanExampleEmpresas" value="#{celularesBean.example.empresas}">
+								<f:selectItem/>
+								<f:selectItems value="#{empresasBean.all}"/>
+							</h:selectOneMenu>
+							<h:message for="celularesBeanExampleEmpresas" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="celularesBeanExamplePersonas" value="Personas:"/>
+						<h:panelGroup>
+							<h:selectOneMenu converter="#{personasBean.converter}" id="celularesBeanExamplePersonas" value="#{celularesBean.example.personas}">
+								<f:selectItem/>
+								<f:selectItems value="#{personasBean.all}"/>
+							</h:selectOneMenu>
+							<h:message for="celularesBeanExamplePersonas" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+					</h:panelGrid>
+					<h:panelGroup styleClass="buttons">
+						<h:commandLink value="Search" action='#{celularesBean.search}' styleClass="btn btn-primary"/>
+						<h:commandLink value="Create New" action='#{celularesBean.create}' styleClass="btn btn-primary"/>
+					</h:panelGroup>
+				</h:panelGroup>
+			</f:validateBean>
+			
+			<h:dataTable id="celularesBeanPageItems" styleClass="data-table" value="#{celularesBean.pageItems}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Celular"/>
+					</f:facet>
+					<h:link outcome="/admin/celulares/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemCelular" value="#{_item.celular}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Empresas"/>
+					</f:facet>
+					<h:link outcome="/admin/celulares/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemEmpresas" value="#{_item.empresas}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Personas"/>
+					</f:facet>
+					<h:link outcome="/admin/celulares/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemPersonas" value="#{_item.personas}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<ui:include src="/resources/scaffold/paginator.xhtml">
+				<ui:param name="paginatorBean" value='#{celularesBean}'/>
+			</ui:include>
+		</h:form>
+			
+	</ui:define>
+
+</ui:composition>

@@ -1,0 +1,163 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:forgeview="http://jboss.org/forge/view"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="id" value='#{idsBean.id}'/>
+		<f:event type="preRenderView" listener='#{idsBean.retrieve}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="Create Ids"/>
+
+	<ui:define name="header">
+		Ids
+	</ui:define>
+
+	<ui:define name="subheader">
+		<c:choose>
+			<c:when test='#{!empty idsBean.id}'>
+				Edit existing Ids
+			</c:when>
+			<c:otherwise>
+				Create a new Ids
+			</c:otherwise>
+		</c:choose>
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:form id="create">
+			<h:messages globalOnly="true" styleClass="error"/>
+
+			<h:panelGrid columnClasses="label,component,required" columns="3">
+				<h:outputLabel for="idsBeanIdsNumero" value="Numero:"/>
+				<h:panelGroup>
+					<h:inputText id="idsBeanIdsNumero" value="#{idsBean.ids.numero}"/>
+					<h:message for="idsBeanIdsNumero" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="idsBeanIdsDigitoVerificacion" value="Digito Verificacion:"/>
+				<h:panelGroup>
+					<h:inputText id="idsBeanIdsDigitoVerificacion" value="#{idsBean.ids.digitoVerificacion}"/>
+					<h:message for="idsBeanIdsDigitoVerificacion" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="idsBeanIdsFechaExpedicion" value="Fecha Expedicion:"/>
+				<h:panelGroup>
+					<h:inputText id="idsBeanIdsFechaExpedicion" value="#{idsBean.ids.fechaExpedicion}">
+						<f:convertDateTime/>
+					</h:inputText>
+					<h:message for="idsBeanIdsFechaExpedicion" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="idsBeanIdsSiFotocopia" value="Si Fotocopia:"/>
+				<h:panelGroup>
+					<h:selectBooleanCheckbox id="idsBeanIdsSiFotocopia" value="#{idsBean.ids.siFotocopia}"/>
+					<h:message for="idsBeanIdsSiFotocopia" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="idsBeanIdsTiposIds" value="Tipos Ids:"/>
+				<h:panelGroup>
+					<h:selectOneMenu converter="#{tiposIdsBean.converter}" id="idsBeanIdsTiposIds" value="#{idsBean.ids.tiposIds}">
+						<f:selectItem/>
+						<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{tiposIdsBean.all}" var="_item"/>
+					</h:selectOneMenu>
+					<h:message for="idsBeanIdsTiposIds" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="idsBeanIdsMunicipios" value="Municipios:"/>
+				<h:panelGroup>
+					<h:selectOneMenu converter="#{municipiosBean.converter}" id="idsBeanIdsMunicipios" value="#{idsBean.ids.municipios}">
+						<f:selectItem/>
+						<f:selectItems value="#{municipiosBean.all}"/>
+					</h:selectOneMenu>
+					<h:message for="idsBeanIdsMunicipios" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="idsBeanIdsNits" value="Nits:"/>
+				<h:panelGroup>
+					<ui:param name="_collection" value="#{idsBean.ids.nits}"/>
+					<h:dataTable id="idsBeanIdsNits" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Prueba"/>
+							</f:facet>
+							<h:link outcome="/admin/nits/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemPrueba" value="#{_item.prueba}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="nitsBeanAddPrueba" value="#{nitsBean.add.prueba}"/>
+								<h:message for="nitsBeanAddPrueba" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Empresas"/>
+							</f:facet>
+							<h:link outcome="/admin/nits/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemEmpresas" value="#{_item.empresas}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:selectOneMenu converter="#{empresasBean.converter}" id="nitsBeanAddEmpresas" value="#{nitsBean.add.empresas}">
+									<f:selectItem/>
+									<f:selectItems value="#{empresasBean.all}"/>
+								</h:selectOneMenu>
+								<h:message for="nitsBeanAddEmpresas" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Personas"/>
+							</f:facet>
+							<h:link outcome="/admin/nits/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemPersonas" value="#{_item.personas}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:selectOneMenu converter="#{personasBean.converter}" id="nitsBeanAddPersonas" value="#{nitsBean.add.personas}">
+									<f:selectItem/>
+									<f:selectItems value="#{personasBean.all}"/>
+								</h:selectOneMenu>
+								<h:message for="nitsBeanAddPersonas" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column footerClass="remove-column" headerClass="remove-column">
+							<h:commandLink action="#{_collection.remove(_item)}" styleClass="remove-button"/>
+							<f:facet name="footer">
+								<h:commandLink action="#{_collection.add(nitsBean.added)}" id="idsBeanIdsNitsAdd" styleClass="add-button">
+									<f:setPropertyActionListener target="#{nitsBean.add.ids}" value="#{idsBean.ids}"/>
+								</h:commandLink>
+							</f:facet>
+						</h:column>
+					</h:dataTable>
+				</h:panelGroup>
+				<h:outputText/>
+			</h:panelGrid>
+
+			<div class="buttons">
+				<h:commandLink value="Save" action='#{idsBean.update}' styleClass="btn btn-primary"/>
+				<c:choose>
+					<c:when test='#{!empty idsBean.id}'>
+						<h:link value="Cancel" outcome="view" styleClass="btn btn-primary">
+							<f:param name="id" value='#{idsBean.id}'/>
+						</h:link>
+						<h:commandLink value="Delete" action='#{idsBean.delete}' styleClass="btn btn-primary"/>
+					</c:when>
+					<c:otherwise>
+						<h:link value="Cancel" outcome="search" styleClass="btn btn-primary"/>
+					</c:otherwise>
+				</c:choose>
+			</div>
+		</h:form>
+	</ui:define>
+
+</ui:composition>

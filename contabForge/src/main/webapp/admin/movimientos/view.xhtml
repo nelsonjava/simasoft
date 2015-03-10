@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="id" value='#{movimientosBean.id}'/>
+		<f:event type="preRenderView" listener='#{movimientosBean.retrieve}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="View Movimientos"/>
+
+	<ui:define name="header">
+		Movimientos
+	</ui:define>
+
+	<ui:define name="subheader">
+		View existing Movimientos
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:panelGrid columnClasses="label,component,required" columns="3">
+			<h:outputLabel for="movimientosBeanMovimientosFecha" value="Fecha:"/>
+			<h:outputText id="movimientosBeanMovimientosFecha" value="#{movimientosBean.movimientos.fecha}">
+				<f:convertDateTime/>
+			</h:outputText>
+			<h:outputText/>
+			<h:outputLabel for="movimientosBeanMovimientosDocumento" value="Documento:"/>
+			<h:outputText id="movimientosBeanMovimientosDocumento" value="#{movimientosBean.movimientos.documento}"/>
+			<h:outputText/>
+			<h:outputLabel for="movimientosBeanMovimientosValor" value="Valor:"/>
+			<h:outputText id="movimientosBeanMovimientosValor" value="#{movimientosBean.movimientos.valor}"/>
+			<h:outputText/>
+			<h:outputLabel for="movimientosBeanMovimientosTipo" value="Tipo:"/>
+			<h:outputText id="movimientosBeanMovimientosTipo" value="#{movimientosBean.movimientos.tipo}"/>
+			<h:outputText/>
+			<h:outputLabel for="movimientosBeanMovimientosBase" value="Base:"/>
+			<h:outputText id="movimientosBeanMovimientosBase" value="#{movimientosBean.movimientos.base}"/>
+			<h:outputText/>
+			<h:outputLabel for="movimientosBeanMovimientosDetalle" value="Detalle:"/>
+			<h:outputText id="movimientosBeanMovimientosDetalle" value="#{movimientosBean.movimientos.detalle}"/>
+			<h:outputText/>
+			<h:outputLabel for="movimientosBeanMovimientosPucs" value="Pucs:"/>
+			<h:link id="movimientosBeanMovimientosPucs" outcome="/admin/pucs/view" rendered="#{!empty movimientosBean.movimientos.pucs}" value="#{movimientosBean.movimientos.pucs}">
+				<f:param name="id" value="#{movimientosBean.movimientos.pucs.id}"/>
+			</h:link>
+			<h:outputText/>
+			<h:outputLabel for="movimientosBeanMovimientosTerceros" value="Terceros:"/>
+			<h:link id="movimientosBeanMovimientosTerceros" outcome="/admin/terceros/view" rendered="#{!empty movimientosBean.movimientos.terceros}" value="#{movimientosBean.movimientos.terceros}">
+				<f:param name="id" value="#{movimientosBean.movimientos.terceros.id}"/>
+			</h:link>
+			<h:outputText/>
+		</h:panelGrid>
+
+		<div class="buttons">
+			<h:link value="View All" outcome="search" styleClass="btn btn-primary"/> 
+			<h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
+			<h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
+		</div>
+	</ui:define>
+
+</ui:composition>

@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<ui:param name="pageTitle" value="Welcome to Forge" />
+
+	<ui:define name="header">
+		Welcome to Forge
+	</ui:define>
+
+	<ui:define name="main">
+		<h2 class="success">
+			Your application is running.
+		</h2>
+		<p>
+			<ul>
+			        <h2>MODELO BASE</h2>
+                                <li><h:link outcome="/modelos/base/direcciones" value="Direcciones"/></li>
+                                <li><h:link outcome="/modelos/base/empresas"    value="empresas"/></li>
+                                <li><h:link outcome="/modelos/base/mails"       value="mails"/></li>
+                                <li><h:link outcome="/modelos/base/nits"        value="nits"/></li>
+                                <li><h:link outcome="/modelos/base/paises"      value="paises"/></li>
+                                <li><h:link outcome="/modelos/base/permisos"    value="permisos"/></li>
+                                <li><h:link outcome="/modelos/base/personas"    value="personas"/></li>
+                                <li><h:link outcome="/modelos/base/sistemas"    value="sistemas"/></li>
+                                <li><h:link outcome="/modelos/base/telefonos"   value="telefonos"/></li>
+                                <li><h:link outcome="/modelos/base/usuarios"    value="usuarios"/></li>
+			</ul>
+
+			<ul>
+			        <h2>ISO</h2>
+                                <li><h:link outcome="/modelos/iso/procesos" value="Procesos"/></li>
+                                <li><h:link outcome="/modelos/iso/lmd"      value="Lmd"/></li>
+                                <li><h:link outcome="/modelos/iso/lmr"      value="Lmr"/></li>
+			</ul>
+
+			<ul>
+			        <h2>CONTABLE</h2>
+                                <li><h:link outcome="/modelos/contable/contabilidad" value="Contabilidad"/></li>
+			</ul>
+
+
+
+
+
+
+
+
+
+		</p>
+	</ui:define>
+
+</ui:composition>

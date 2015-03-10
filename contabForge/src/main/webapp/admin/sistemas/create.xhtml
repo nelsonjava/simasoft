@@ -1,0 +1,361 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:forgeview="http://jboss.org/forge/view"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="id" value='#{sistemasBean.id}'/>
+		<f:event type="preRenderView" listener='#{sistemasBean.retrieve}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="Create Sistemas"/>
+
+	<ui:define name="header">
+		Sistemas
+	</ui:define>
+
+	<ui:define name="subheader">
+		<c:choose>
+			<c:when test='#{!empty sistemasBean.id}'>
+				Edit existing Sistemas
+			</c:when>
+			<c:otherwise>
+				Create a new Sistemas
+			</c:otherwise>
+		</c:choose>
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:form id="create">
+			<h:messages globalOnly="true" styleClass="error"/>
+
+			<h:panelGrid columnClasses="label,component,required" columns="3">
+				<h:outputLabel for="sistemasBeanSistemasCodigo" value="Codigo:"/>
+				<h:panelGroup>
+					<h:inputText id="sistemasBeanSistemasCodigo" value="#{sistemasBean.sistemas.codigo}"/>
+					<h:message for="sistemasBeanSistemasCodigo" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="sistemasBeanSistemasNombre" value="Nombre:"/>
+				<h:panelGroup>
+					<h:inputText id="sistemasBeanSistemasNombre" value="#{sistemasBean.sistemas.nombre}"/>
+					<h:message for="sistemasBeanSistemasNombre" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="sistemasBeanSistemasTitulo" value="Titulo:"/>
+				<h:panelGroup>
+					<h:inputText id="sistemasBeanSistemasTitulo" value="#{sistemasBean.sistemas.titulo}"/>
+					<h:message for="sistemasBeanSistemasTitulo" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="sistemasBeanSistemasDescripcion" value="Descripcion:"/>
+				<h:panelGroup>
+					<h:inputText id="sistemasBeanSistemasDescripcion" value="#{sistemasBean.sistemas.descripcion}"/>
+					<h:message for="sistemasBeanSistemasDescripcion" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="sistemasBeanSistemasPermisos" value="Permisos:"/>
+				<h:panelGroup>
+					<ui:param name="_collection" value="#{sistemasBean.sistemas.permisos}"/>
+					<h:dataTable id="sistemasBeanSistemasPermisos" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Permisos"/>
+							</f:facet>
+							<h:link outcome="/admin/permisos/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText value="#{_item}"/>
+							</h:link>
+						</h:column>
+					</h:dataTable>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="sistemasBeanSistemasObjPadre" value="Obj Padre:"/>
+				<h:panelGroup>
+					<h:selectOneMenu converter="#{sistemasBean.converter}" id="sistemasBeanSistemasObjPadre" value="#{sistemasBean.sistemas.objPadre}">
+						<f:selectItem/>
+						<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{sistemasBean.all}" var="_item"/>
+					</h:selectOneMenu>
+					<h:message for="sistemasBeanSistemasObjPadre" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="sistemasBeanSistemasOpcionesSistemas" value="Opciones Sistemas:"/>
+				<h:panelGroup>
+					<ui:param name="_collection" value="#{sistemasBean.sistemas.opcionesSistemas}"/>
+					<h:dataTable id="sistemasBeanSistemasOpcionesSistemas" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Si Principal"/>
+							</f:facet>
+							<h:link outcome="/admin/opcionesSistemas/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText styleClass="#{_item.siPrincipal ? 'boolean-true' : 'boolean-false'}" value=""/>
+							</h:link>
+							<f:facet name="footer">
+								<h:selectBooleanCheckbox id="opcionesSistemasBeanAddSiPrincipal" value="#{opcionesSistemasBean.add.siPrincipal}"/>
+								<h:message for="opcionesSistemasBeanAddSiPrincipal" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Opciones"/>
+							</f:facet>
+							<h:link outcome="/admin/opcionesSistemas/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="forgeviewdisplayitemOpciones" value="#{forgeview:display(_item.opciones)}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:selectOneMenu converter="#{opcionesBean.converter}" id="opcionesSistemasBeanAddOpciones" value="#{opcionesSistemasBean.add.opciones}">
+									<f:selectItem/>
+									<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{opcionesBean.all}" var="_item"/>
+								</h:selectOneMenu>
+								<h:message for="opcionesSistemasBeanAddOpciones" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column footerClass="remove-column" headerClass="remove-column">
+							<h:commandLink action="#{_collection.remove(_item)}" styleClass="remove-button"/>
+							<f:facet name="footer">
+								<h:commandLink action="#{_collection.add(opcionesSistemasBean.added)}" id="sistemasBeanSistemasOpcionesSistemasAdd" styleClass="add-button">
+									<f:setPropertyActionListener target="#{opcionesSistemasBean.add.sistemas}" value="#{sistemasBean.sistemas}"/>
+								</h:commandLink>
+							</f:facet>
+						</h:column>
+					</h:dataTable>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="sistemasBeanSistemasDatos" value="Datos:"/>
+				<h:panelGroup>
+					<ui:param name="_collection" value="#{sistemasBean.sistemas.datos}"/>
+					<h:dataTable id="sistemasBeanSistemasDatos" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Xyz"/>
+							</f:facet>
+							<h:link outcome="/admin/datos/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemXyz" value="#{_item.xyz}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="datosBeanAddXyz" value="#{datosBean.add.xyz}"/>
+								<h:message for="datosBeanAddXyz" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Abc"/>
+							</f:facet>
+							<h:link outcome="/admin/datos/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemAbc" value="#{_item.abc}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="datosBeanAddAbc" value="#{datosBean.add.abc}"/>
+								<h:message for="datosBeanAddAbc" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Empresas"/>
+							</f:facet>
+							<h:link outcome="/admin/datos/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemEmpresas" value="#{_item.empresas}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:selectOneMenu converter="#{empresasBean.converter}" id="datosBeanAddEmpresas" value="#{datosBean.add.empresas}">
+									<f:selectItem/>
+									<f:selectItems value="#{empresasBean.all}"/>
+								</h:selectOneMenu>
+								<h:message for="datosBeanAddEmpresas" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Personas"/>
+							</f:facet>
+							<h:link outcome="/admin/datos/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemPersonas" value="#{_item.personas}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:selectOneMenu converter="#{personasBean.converter}" id="datosBeanAddPersonas" value="#{datosBean.add.personas}">
+									<f:selectItem/>
+									<f:selectItems value="#{personasBean.all}"/>
+								</h:selectOneMenu>
+								<h:message for="datosBeanAddPersonas" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column footerClass="remove-column" headerClass="remove-column">
+							<h:commandLink action="#{_collection.remove(_item)}" styleClass="remove-button"/>
+							<f:facet name="footer">
+								<h:commandLink action="#{_collection.add(datosBean.added)}" id="sistemasBeanSistemasDatosAdd" styleClass="add-button">
+									<f:setPropertyActionListener target="#{datosBean.add.sistemas}" value="#{sistemasBean.sistemas}"/>
+								</h:commandLink>
+							</f:facet>
+						</h:column>
+					</h:dataTable>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="sistemasBeanSistemasTiposSistemas" value="Tipos Sistemas:"/>
+				<h:panelGroup>
+					<h:selectOneMenu converter="#{tiposSistemasBean.converter}" id="sistemasBeanSistemasTiposSistemas" value="#{sistemasBean.sistemas.tiposSistemas}">
+						<f:selectItem/>
+						<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{tiposSistemasBean.all}" var="_item"/>
+					</h:selectOneMenu>
+					<h:message for="sistemasBeanSistemasTiposSistemas" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="sistemasBeanSistemasObjHijos" value="Obj Hijos:"/>
+				<h:panelGroup>
+					<ui:param name="_collection" value="#{sistemasBean.sistemas.objHijos}"/>
+					<h:dataTable id="sistemasBeanSistemasObjHijos" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Codigo"/>
+							</f:facet>
+							<h:link outcome="/admin/sistemas/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemCodigo" value="#{_item.codigo}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="sistemasBeanAddCodigo" value="#{sistemasBean.add.codigo}"/>
+								<h:message for="sistemasBeanAddCodigo" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Nombre"/>
+							</f:facet>
+							<h:link outcome="/admin/sistemas/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemNombre" value="#{_item.nombre}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="sistemasBeanAddNombre" value="#{sistemasBean.add.nombre}"/>
+								<h:message for="sistemasBeanAddNombre" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Titulo"/>
+							</f:facet>
+							<h:link outcome="/admin/sistemas/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemTitulo" value="#{_item.titulo}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="sistemasBeanAddTitulo" value="#{sistemasBean.add.titulo}"/>
+								<h:message for="sistemasBeanAddTitulo" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Descripcion"/>
+							</f:facet>
+							<h:link outcome="/admin/sistemas/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemDescripcion" value="#{_item.descripcion}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="sistemasBeanAddDescripcion" value="#{sistemasBean.add.descripcion}"/>
+								<h:message for="sistemasBeanAddDescripcion" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Tipos Sistemas"/>
+							</f:facet>
+							<h:link outcome="/admin/sistemas/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="forgeviewdisplayitemTiposSistemas" value="#{forgeview:display(_item.tiposSistemas)}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:selectOneMenu converter="#{tiposSistemasBean.converter}" id="sistemasBeanAddTiposSistemas" value="#{sistemasBean.add.tiposSistemas}">
+									<f:selectItem/>
+									<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{tiposSistemasBean.all}" var="_item"/>
+								</h:selectOneMenu>
+								<h:message for="sistemasBeanAddTiposSistemas" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column footerClass="remove-column" headerClass="remove-column">
+							<h:commandLink action="#{_collection.remove(_item)}" styleClass="remove-button"/>
+							<f:facet name="footer">
+								<h:commandLink action="#{_collection.add(sistemasBean.added)}" id="sistemasBeanSistemasObjHijosAdd" styleClass="add-button">
+									<f:setPropertyActionListener target="#{sistemasBean.add.objPadre}" value="#{sistemasBean.sistemas}"/>
+								</h:commandLink>
+							</f:facet>
+						</h:column>
+					</h:dataTable>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="sistemasBeanSistemasRolesSistemas" value="Roles Sistemas:"/>
+				<h:panelGroup>
+					<ui:param name="_collection" value="#{sistemasBean.sistemas.rolesSistemas}"/>
+					<h:dataTable id="sistemasBeanSistemasRolesSistemas" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Prueba"/>
+							</f:facet>
+							<h:link outcome="/admin/rolesSistemas/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemPrueba" value="#{_item.prueba}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="rolesSistemasBeanAddPrueba" value="#{rolesSistemasBean.add.prueba}"/>
+								<h:message for="rolesSistemasBeanAddPrueba" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Roles"/>
+							</f:facet>
+							<h:link outcome="/admin/rolesSistemas/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemRoles" value="#{_item.roles}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:selectOneMenu converter="#{rolesBean.converter}" id="rolesSistemasBeanAddRoles" value="#{rolesSistemasBean.add.roles}">
+									<f:selectItem/>
+									<f:selectItems value="#{rolesBean.all}"/>
+								</h:selectOneMenu>
+								<h:message for="rolesSistemasBeanAddRoles" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column footerClass="remove-column" headerClass="remove-column">
+							<h:commandLink action="#{_collection.remove(_item)}" styleClass="remove-button"/>
+							<f:facet name="footer">
+								<h:commandLink action="#{_collection.add(rolesSistemasBean.added)}" id="sistemasBeanSistemasRolesSistemasAdd" styleClass="add-button">
+									<f:setPropertyActionListener target="#{rolesSistemasBean.add.sistemas}" value="#{sistemasBean.sistemas}"/>
+								</h:commandLink>
+							</f:facet>
+						</h:column>
+					</h:dataTable>
+				</h:panelGroup>
+				<h:outputText/>
+			</h:panelGrid>
+
+			<div class="buttons">
+				<h:commandLink value="Save" action='#{sistemasBean.update}' styleClass="btn btn-primary"/>
+				<c:choose>
+					<c:when test='#{!empty sistemasBean.id}'>
+						<h:link value="Cancel" outcome="view" styleClass="btn btn-primary">
+							<f:param name="id" value='#{sistemasBean.id}'/>
+						</h:link>
+						<h:commandLink value="Delete" action='#{sistemasBean.delete}' styleClass="btn btn-primary"/>
+					</c:when>
+					<c:otherwise>
+						<h:link value="Cancel" outcome="search" styleClass="btn btn-primary"/>
+					</c:otherwise>
+				</c:choose>
+			</div>
+		</h:form>
+	</ui:define>
+
+</ui:composition>

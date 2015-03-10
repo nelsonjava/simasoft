@@ -1,0 +1,133 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:forgeview="http://jboss.org/forge/view"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="id" value='#{usuariosBean.id}'/>
+		<f:event type="preRenderView" listener='#{usuariosBean.retrieve}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="View Usuarios"/>
+
+	<ui:define name="header">
+		Usuarios
+	</ui:define>
+
+	<ui:define name="subheader">
+		View existing Usuarios
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:panelGrid columnClasses="label,component,required" columns="3">
+			<h:outputLabel for="usuariosBeanUsuariosCuenta" value="Cuenta:"/>
+			<h:outputText id="usuariosBeanUsuariosCuenta" value="#{usuariosBean.usuarios.cuenta}"/>
+			<h:outputText/>
+			<h:outputLabel for="usuariosBeanUsuariosPassword" value="Password:"/>
+			<h:outputText id="usuariosBeanUsuariosPassword" value="#{usuariosBean.usuarios.password}"/>
+			<h:outputText/>
+			<h:outputLabel value="Enabled:"/>
+			<h:outputText styleClass="#{usuariosBean.usuarios.enabled ? 'boolean-true' : 'boolean-false'}" value=""/>
+			<h:outputText/>
+			<h:outputLabel for="usuariosBeanUsuariosUsuariosEmps" value="Usuarios Emps:"/>
+			<h:dataTable id="usuariosBeanUsuariosUsuariosEmps" styleClass="data-table" value="#{forgeview:asList(usuariosBean.usuarios.usuariosEmps)}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Enabled"/>
+					</f:facet>
+					<h:link outcome="/admin/usuariosEmps/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText styleClass="#{_item.enabled ? 'boolean-true' : 'boolean-false'}" value=""/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Ultimo Ingreso"/>
+					</f:facet>
+					<h:link outcome="/admin/usuariosEmps/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemUltimoIngreso" value="#{_item.ultimoIngreso}">
+							<f:convertDateTime/>
+						</h:outputText>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Ip"/>
+					</f:facet>
+					<h:link outcome="/admin/usuariosEmps/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemIp" value="#{_item.ip}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Personas"/>
+					</f:facet>
+					<h:link outcome="/admin/usuariosEmps/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemPersonas" value="#{_item.personas}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Empresas"/>
+					</f:facet>
+					<h:link outcome="/admin/usuariosEmps/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemEmpresas" value="#{_item.empresas}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<h:outputText/>
+			<h:outputLabel for="usuariosBeanUsuariosUsuariosRoles" value="Usuarios Roles:"/>
+			<h:dataTable id="usuariosBeanUsuariosUsuariosRoles" styleClass="data-table" value="#{forgeview:asList(usuariosBean.usuarios.usuariosRoles)}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Prueba"/>
+					</f:facet>
+					<h:link outcome="/admin/usuariosRoles/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemPrueba" value="#{_item.prueba}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Roles"/>
+					</f:facet>
+					<h:link outcome="/admin/usuariosRoles/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="forgeviewdisplayitemRoles" value="#{forgeview:display(_item.roles)}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<h:outputText/>
+			<h:outputLabel for="usuariosBeanUsuariosPermisos" value="Permisos:"/>
+			<h:dataTable id="usuariosBeanUsuariosPermisos" styleClass="data-table" value="#{forgeview:asList(usuariosBean.usuarios.permisos)}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Permisos"/>
+					</f:facet>
+					<h:link outcome="/admin/permisos/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText value="#{_item}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<h:outputText/>
+		</h:panelGrid>
+
+		<div class="buttons">
+			<h:link value="View All" outcome="search" styleClass="btn btn-primary"/> 
+			<h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
+			<h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
+		</div>
+	</ui:define>
+
+</ui:composition>

@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="id" value='#{datosBean.id}'/>
+		<f:event type="preRenderView" listener='#{datosBean.retrieve}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="View Datos"/>
+
+	<ui:define name="header">
+		Datos
+	</ui:define>
+
+	<ui:define name="subheader">
+		View existing Datos
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:panelGrid columnClasses="label,component,required" columns="3">
+			<h:outputLabel for="datosBeanDatosXyz" value="Xyz:"/>
+			<h:outputText id="datosBeanDatosXyz" value="#{datosBean.datos.xyz}"/>
+			<h:outputText/>
+			<h:outputLabel for="datosBeanDatosAbc" value="Abc:"/>
+			<h:outputText id="datosBeanDatosAbc" value="#{datosBean.datos.abc}"/>
+			<h:outputText/>
+			<h:outputLabel for="datosBeanDatosEmpresas" value="Empresas:"/>
+			<h:link id="datosBeanDatosEmpresas" outcome="/admin/empresas/view" rendered="#{!empty datosBean.datos.empresas}" value="#{datosBean.datos.empresas}">
+				<f:param name="id" value="#{datosBean.datos.empresas.id}"/>
+			</h:link>
+			<h:outputText/>
+			<h:outputLabel for="datosBeanDatosPersonas" value="Personas:"/>
+			<h:link id="datosBeanDatosPersonas" outcome="/admin/personas/view" rendered="#{!empty datosBean.datos.personas}" value="#{datosBean.datos.personas}">
+				<f:param name="id" value="#{datosBean.datos.personas.id}"/>
+			</h:link>
+			<h:outputText/>
+			<h:outputLabel for="datosBeanDatosSistemas" value="Sistemas:"/>
+			<h:link id="datosBeanDatosSistemas" outcome="/admin/sistemas/view" rendered="#{!empty datosBean.datos.sistemas}" value="#{datosBean.datos.sistemas}">
+				<f:param name="id" value="#{datosBean.datos.sistemas.id}"/>
+			</h:link>
+			<h:outputText/>
+		</h:panelGrid>
+
+		<div class="buttons">
+			<h:link value="View All" outcome="search" styleClass="btn btn-primary"/> 
+			<h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
+			<h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
+		</div>
+	</ui:define>
+
+</ui:composition>

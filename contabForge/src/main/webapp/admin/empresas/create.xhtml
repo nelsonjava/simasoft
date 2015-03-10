@@ -1,0 +1,322 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:forgeview="http://jboss.org/forge/view"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="id" value='#{empresasBean.id}'/>
+		<f:event type="preRenderView" listener='#{empresasBean.retrieve}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="Create Empresas"/>
+
+	<ui:define name="header">
+		Empresas
+	</ui:define>
+
+	<ui:define name="subheader">
+		<c:choose>
+			<c:when test='#{!empty empresasBean.id}'>
+				Edit existing Empresas
+			</c:when>
+			<c:otherwise>
+				Create a new Empresas
+			</c:otherwise>
+		</c:choose>
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:form id="create">
+			<h:messages globalOnly="true" styleClass="error"/>
+
+			<h:panelGrid columnClasses="label,component,required" columns="3">
+				<h:outputLabel for="empresasBeanEmpresasNombre" value="Nombre:"/>
+				<h:panelGroup>
+					<h:inputText id="empresasBeanEmpresasNombre" value="#{empresasBean.empresas.nombre}"/>
+					<h:message for="empresasBeanEmpresasNombre" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="empresasBeanEmpresasNombreSecundario" value="Nombre Secundario:"/>
+				<h:panelGroup>
+					<h:inputText id="empresasBeanEmpresasNombreSecundario" value="#{empresasBean.empresas.nombreSecundario}"/>
+					<h:message for="empresasBeanEmpresasNombreSecundario" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="empresasBeanEmpresasTitulo" value="Titulo:"/>
+				<h:panelGroup>
+					<h:inputText id="empresasBeanEmpresasTitulo" value="#{empresasBean.empresas.titulo}"/>
+					<h:message for="empresasBeanEmpresasTitulo" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="empresasBeanEmpresasEslogan" value="Eslogan:"/>
+				<h:panelGroup>
+					<h:inputText id="empresasBeanEmpresasEslogan" value="#{empresasBean.empresas.eslogan}"/>
+					<h:message for="empresasBeanEmpresasEslogan" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="empresasBeanEmpresasVision" value="Vision:"/>
+				<h:panelGroup>
+					<h:inputText id="empresasBeanEmpresasVision" value="#{empresasBean.empresas.vision}"/>
+					<h:message for="empresasBeanEmpresasVision" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="empresasBeanEmpresasMision" value="Mision:"/>
+				<h:panelGroup>
+					<h:inputText id="empresasBeanEmpresasMision" value="#{empresasBean.empresas.mision}"/>
+					<h:message for="empresasBeanEmpresasMision" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="empresasBeanEmpresasPoliticaCalidad" value="Politica Calidad:"/>
+				<h:panelGroup>
+					<h:inputText id="empresasBeanEmpresasPoliticaCalidad" value="#{empresasBean.empresas.politicaCalidad}"/>
+					<h:message for="empresasBeanEmpresasPoliticaCalidad" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="empresasBeanEmpresasObjetivosCalidad" value="Objetivos Calidad:"/>
+				<h:panelGroup>
+					<h:inputText id="empresasBeanEmpresasObjetivosCalidad" value="#{empresasBean.empresas.objetivosCalidad}"/>
+					<h:message for="empresasBeanEmpresasObjetivosCalidad" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="empresasBeanEmpresasObjHijos" value="Obj Hijos:"/>
+				<h:panelGroup>
+					<ui:param name="_collection" value="#{empresasBean.empresas.objHijos}"/>
+					<h:dataTable id="empresasBeanEmpresasObjHijos" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Nombre"/>
+							</f:facet>
+							<h:link outcome="/admin/empresas/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemNombre" value="#{_item.nombre}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="empresasBeanAddNombre" value="#{empresasBean.add.nombre}"/>
+								<h:message for="empresasBeanAddNombre" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Nombre Secundario"/>
+							</f:facet>
+							<h:link outcome="/admin/empresas/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemNombreSecundario" value="#{_item.nombreSecundario}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="empresasBeanAddNombreSecundario" value="#{empresasBean.add.nombreSecundario}"/>
+								<h:message for="empresasBeanAddNombreSecundario" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Titulo"/>
+							</f:facet>
+							<h:link outcome="/admin/empresas/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemTitulo" value="#{_item.titulo}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="empresasBeanAddTitulo" value="#{empresasBean.add.titulo}"/>
+								<h:message for="empresasBeanAddTitulo" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Eslogan"/>
+							</f:facet>
+							<h:link outcome="/admin/empresas/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemEslogan" value="#{_item.eslogan}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="empresasBeanAddEslogan" value="#{empresasBean.add.eslogan}"/>
+								<h:message for="empresasBeanAddEslogan" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Vision"/>
+							</f:facet>
+							<h:link outcome="/admin/empresas/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemVision" value="#{_item.vision}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="empresasBeanAddVision" value="#{empresasBean.add.vision}"/>
+								<h:message for="empresasBeanAddVision" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column footerClass="remove-column" headerClass="remove-column">
+							<h:commandLink action="#{_collection.remove(_item)}" styleClass="remove-button"/>
+							<f:facet name="footer">
+								<h:commandLink action="#{_collection.add(empresasBean.added)}" id="empresasBeanEmpresasObjHijosAdd" styleClass="add-button">
+									<f:setPropertyActionListener target="#{empresasBean.add.objPadre}" value="#{empresasBean.empresas}"/>
+								</h:commandLink>
+							</f:facet>
+						</h:column>
+					</h:dataTable>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="empresasBeanEmpresasNits" value="Nits:"/>
+				<h:panelGroup>
+					<ui:param name="_collection" value="#{empresasBean.empresas.nits}"/>
+					<h:dataTable id="empresasBeanEmpresasNits" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Nits"/>
+							</f:facet>
+							<h:link outcome="/admin/nits/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText value="#{_item}"/>
+							</h:link>
+						</h:column>
+					</h:dataTable>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="empresasBeanEmpresasDatos" value="Datos:"/>
+				<h:panelGroup>
+					<ui:param name="_collection" value="#{empresasBean.empresas.datos}"/>
+					<h:dataTable id="empresasBeanEmpresasDatos" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Datos"/>
+							</f:facet>
+							<h:link outcome="/admin/datos/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText value="#{_item}"/>
+							</h:link>
+						</h:column>
+					</h:dataTable>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="empresasBeanEmpresasEmpleados" value="Empleados:"/>
+				<h:panelGroup>
+					<ui:param name="_collection" value="#{empresasBean.empresas.empleados}"/>
+					<h:dataTable id="empresasBeanEmpresasEmpleados" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Fecha Ingreso"/>
+							</f:facet>
+							<h:link outcome="/admin/empleados/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemFechaIngreso" value="#{_item.fechaIngreso}">
+									<f:convertDateTime/>
+								</h:outputText>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="empleadosBeanAddFechaIngreso" value="#{empleadosBean.add.fechaIngreso}">
+									<f:convertDateTime/>
+								</h:inputText>
+								<h:message for="empleadosBeanAddFechaIngreso" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Fecha Retiro"/>
+							</f:facet>
+							<h:link outcome="/admin/empleados/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemFechaRetiro" value="#{_item.fechaRetiro}">
+									<f:convertDateTime/>
+								</h:outputText>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="empleadosBeanAddFechaRetiro" value="#{empleadosBean.add.fechaRetiro}">
+									<f:convertDateTime/>
+								</h:inputText>
+								<h:message for="empleadosBeanAddFechaRetiro" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Descripcion"/>
+							</f:facet>
+							<h:link outcome="/admin/empleados/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemDescripcion" value="#{_item.descripcion}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="empleadosBeanAddDescripcion" value="#{empleadosBean.add.descripcion}"/>
+								<h:message for="empleadosBeanAddDescripcion" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Personas"/>
+							</f:facet>
+							<h:link outcome="/admin/empleados/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemPersonas" value="#{_item.personas}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:selectOneMenu converter="#{personasBean.converter}" id="empleadosBeanAddPersonas" value="#{empleadosBean.add.personas}">
+									<f:selectItem/>
+									<f:selectItems value="#{personasBean.all}"/>
+								</h:selectOneMenu>
+								<h:message for="empleadosBeanAddPersonas" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column footerClass="remove-column" headerClass="remove-column">
+							<h:commandLink action="#{_collection.remove(_item)}" styleClass="remove-button"/>
+							<f:facet name="footer">
+								<h:commandLink action="#{_collection.add(empleadosBean.added)}" id="empresasBeanEmpresasEmpleadosAdd" styleClass="add-button">
+									<f:setPropertyActionListener target="#{empleadosBean.add.empresas}" value="#{empresasBean.empresas}"/>
+								</h:commandLink>
+							</f:facet>
+						</h:column>
+					</h:dataTable>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="empresasBeanEmpresasObjPadre" value="Obj Padre:"/>
+				<h:panelGroup>
+					<h:selectOneMenu converter="#{empresasBean.converter}" id="empresasBeanEmpresasObjPadre" value="#{empresasBean.empresas.objPadre}">
+						<f:selectItem/>
+						<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{empresasBean.all}" var="_item"/>
+					</h:selectOneMenu>
+					<h:message for="empresasBeanEmpresasObjPadre" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="empresasBeanEmpresasUsuariosEmps" value="Usuarios Emps:"/>
+				<h:panelGroup>
+					<ui:param name="_collection" value="#{empresasBean.empresas.usuariosEmps}"/>
+					<h:dataTable id="empresasBeanEmpresasUsuariosEmps" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Usuarios Emps"/>
+							</f:facet>
+							<h:link outcome="/admin/usuariosEmps/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText value="#{_item}"/>
+							</h:link>
+						</h:column>
+					</h:dataTable>
+				</h:panelGroup>
+				<h:outputText/>
+			</h:panelGrid>
+
+			<div class="buttons">
+				<h:commandLink value="Save" action='#{empresasBean.update}' styleClass="btn btn-primary"/>
+				<c:choose>
+					<c:when test='#{!empty empresasBean.id}'>
+						<h:link value="Cancel" outcome="view" styleClass="btn btn-primary">
+							<f:param name="id" value='#{empresasBean.id}'/>
+						</h:link>
+						<h:commandLink value="Delete" action='#{empresasBean.delete}' styleClass="btn btn-primary"/>
+					</c:when>
+					<c:otherwise>
+						<h:link value="Cancel" outcome="search" styleClass="btn btn-primary"/>
+					</c:otherwise>
+				</c:choose>
+			</div>
+		</h:form>
+	</ui:define>
+
+</ui:composition>

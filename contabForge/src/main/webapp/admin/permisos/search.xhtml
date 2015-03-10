@@ -1,0 +1,127 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="page" value='#{permisosBean.page}'/>
+		<f:event type="preRenderView" listener='#{permisosBean.paginate}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="Search Permisos entities"/>
+
+	<ui:define name="header">
+		Permisos
+	</ui:define>
+
+	<ui:define name="subheader">
+		Search Permisos entities
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:form id="search">
+			<f:validateBean disabled="true">
+				<h:panelGroup styleClass="search">
+
+					<h:panelGrid columnClasses="label,component,required" columns="3">
+						<h:outputLabel for="permisosBeanExampleRecipient" value="Recipient:"/>
+						<h:panelGroup>
+							<h:inputText id="permisosBeanExampleRecipient" value="#{permisosBean.example.recipient}"/>
+							<h:message for="permisosBeanExampleRecipient" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="permisosBeanExampleTarget" value="Target:"/>
+						<h:panelGroup>
+							<h:inputText id="permisosBeanExampleTarget" value="#{permisosBean.example.target}"/>
+							<h:message for="permisosBeanExampleTarget" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="permisosBeanExampleAction" value="Action:"/>
+						<h:panelGroup>
+							<h:inputText id="permisosBeanExampleAction" value="#{permisosBean.example.action}"/>
+							<h:message for="permisosBeanExampleAction" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="permisosBeanExampleDiscriminator" value="Discriminator:"/>
+						<h:panelGroup>
+							<h:inputText id="permisosBeanExampleDiscriminator" value="#{permisosBean.example.discriminator}"/>
+							<h:message for="permisosBeanExampleDiscriminator" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="permisosBeanExampleUsuarios" value="Usuarios:"/>
+						<h:panelGroup>
+							<h:selectOneMenu converter="#{usuariosBean.converter}" id="permisosBeanExampleUsuarios" value="#{permisosBean.example.usuarios}">
+								<f:selectItem/>
+								<f:selectItems value="#{usuariosBean.all}"/>
+							</h:selectOneMenu>
+							<h:message for="permisosBeanExampleUsuarios" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+					</h:panelGrid>
+					<h:panelGroup styleClass="buttons">
+						<h:commandLink value="Search" action='#{permisosBean.search}' styleClass="btn btn-primary"/>
+						<h:commandLink value="Create New" action='#{permisosBean.create}' styleClass="btn btn-primary"/>
+					</h:panelGroup>
+				</h:panelGroup>
+			</f:validateBean>
+			
+			<h:dataTable id="permisosBeanPageItems" styleClass="data-table" value="#{permisosBean.pageItems}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Recipient"/>
+					</f:facet>
+					<h:link outcome="/admin/permisos/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemRecipient" value="#{_item.recipient}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Target"/>
+					</f:facet>
+					<h:link outcome="/admin/permisos/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemTarget" value="#{_item.target}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Action"/>
+					</f:facet>
+					<h:link outcome="/admin/permisos/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemAction" value="#{_item.action}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Discriminator"/>
+					</f:facet>
+					<h:link outcome="/admin/permisos/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemDiscriminator" value="#{_item.discriminator}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Usuarios"/>
+					</f:facet>
+					<h:link outcome="/admin/permisos/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemUsuarios" value="#{_item.usuarios}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<ui:include src="/resources/scaffold/paginator.xhtml">
+				<ui:param name="paginatorBean" value='#{permisosBean}'/>
+			</ui:include>
+		</h:form>
+			
+	</ui:define>
+
+</ui:composition>

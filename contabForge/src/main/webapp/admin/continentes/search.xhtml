@@ -1,0 +1,94 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="page" value='#{continentesBean.page}'/>
+		<f:event type="preRenderView" listener='#{continentesBean.paginate}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="Search Continentes entities"/>
+
+	<ui:define name="header">
+		Continentes
+	</ui:define>
+
+	<ui:define name="subheader">
+		Search Continentes entities
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:form id="search">
+			<f:validateBean disabled="true">
+				<h:panelGroup styleClass="search">
+
+					<h:panelGrid columnClasses="label,component,required" columns="3">
+						<h:outputLabel for="continentesBeanExampleCodigo" value="Codigo:"/>
+						<h:panelGroup>
+							<h:inputText id="continentesBeanExampleCodigo" value="#{continentesBean.example.codigo}"/>
+							<h:message for="continentesBeanExampleCodigo" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="continentesBeanExampleNombre" value="Nombre:"/>
+						<h:panelGroup>
+							<h:inputText id="continentesBeanExampleNombre" value="#{continentesBean.example.nombre}"/>
+							<h:message for="continentesBeanExampleNombre" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="continentesBeanExampleCodigoDane" value="Codigo Dane:"/>
+						<h:panelGroup>
+							<h:inputText id="continentesBeanExampleCodigoDane" value="#{continentesBean.example.codigoDane}"/>
+							<h:message for="continentesBeanExampleCodigoDane" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+					</h:panelGrid>
+					<h:panelGroup styleClass="buttons">
+						<h:commandLink value="Search" action='#{continentesBean.search}' styleClass="btn btn-primary"/>
+						<h:commandLink value="Create New" action='#{continentesBean.create}' styleClass="btn btn-primary"/>
+					</h:panelGroup>
+				</h:panelGroup>
+			</f:validateBean>
+			
+			<h:dataTable id="continentesBeanPageItems" styleClass="data-table" value="#{continentesBean.pageItems}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Codigo"/>
+					</f:facet>
+					<h:link outcome="/admin/continentes/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemCodigo" value="#{_item.codigo}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Nombre"/>
+					</f:facet>
+					<h:link outcome="/admin/continentes/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemNombre" value="#{_item.nombre}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Codigo Dane"/>
+					</f:facet>
+					<h:link outcome="/admin/continentes/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemCodigoDane" value="#{_item.codigoDane}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<ui:include src="/resources/scaffold/paginator.xhtml">
+				<ui:param name="paginatorBean" value='#{continentesBean}'/>
+			</ui:include>
+		</h:form>
+			
+	</ui:define>
+
+</ui:composition>

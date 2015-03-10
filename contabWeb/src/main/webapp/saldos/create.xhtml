@@ -1,0 +1,117 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:forgeview="http://jboss.org/forge/view"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="id" value='#{saldosBean.id}'/>
+		<f:event type="preRenderView" listener='#{saldosBean.retrieve}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="Create Saldos"/>
+
+	<ui:define name="header">
+		Saldos
+	</ui:define>
+
+	<ui:define name="subheader">
+		<c:choose>
+			<c:when test='#{!empty saldosBean.id}'>
+				Edit existing Saldos
+			</c:when>
+			<c:otherwise>
+				Create a new Saldos
+			</c:otherwise>
+		</c:choose>
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:form id="create">
+			<h:messages globalOnly="true" styleClass="error"/>
+
+			<h:panelGrid columnClasses="label,component,required" columns="3">
+				<h:outputLabel for="saldosBeanSaldosYear" value="Year:"/>
+				<h:panelGroup>
+					<h:inputText id="saldosBeanSaldosYear" value="#{saldosBean.saldos.year}">
+						<f:convertDateTime/>
+					</h:inputText>
+					<h:message for="saldosBeanSaldosYear" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="saldosBeanSaldosMes" value="Mes:"/>
+				<h:panelGroup>
+					<h:inputText id="saldosBeanSaldosMes" value="#{saldosBean.saldos.mes}">
+						<f:convertDateTime/>
+					</h:inputText>
+					<h:message for="saldosBeanSaldosMes" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="saldosBeanSaldosDebitos" value="Debitos:"/>
+				<h:panelGroup>
+					<h:inputText id="saldosBeanSaldosDebitos" value="#{saldosBean.saldos.debitos}"/>
+					<h:message for="saldosBeanSaldosDebitos" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="saldosBeanSaldosCreditos" value="Creditos:"/>
+				<h:panelGroup>
+					<h:inputText id="saldosBeanSaldosCreditos" value="#{saldosBean.saldos.creditos}"/>
+					<h:message for="saldosBeanSaldosCreditos" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="saldosBeanSaldosSaldoInicial" value="Saldo Inicial:"/>
+				<h:panelGroup>
+					<h:inputText id="saldosBeanSaldosSaldoInicial" value="#{saldosBean.saldos.saldoInicial}"/>
+					<h:message for="saldosBeanSaldosSaldoInicial" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="saldosBeanSaldosSaldoFinal" value="Saldo Final:"/>
+				<h:panelGroup>
+					<h:inputText id="saldosBeanSaldosSaldoFinal" value="#{saldosBean.saldos.saldoFinal}"/>
+					<h:message for="saldosBeanSaldosSaldoFinal" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="saldosBeanSaldosPucs" value="Pucs:"/>
+				<h:panelGroup>
+					<h:selectOneMenu converter="#{pucsBean.converter}" id="saldosBeanSaldosPucs" value="#{saldosBean.saldos.pucs}">
+						<f:selectItem/>
+						<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{pucsBean.all}" var="_item"/>
+					</h:selectOneMenu>
+					<h:message for="saldosBeanSaldosPucs" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="saldosBeanSaldosTerceros" value="Terceros:"/>
+				<h:panelGroup>
+					<h:selectOneMenu converter="#{tercerosBean.converter}" id="saldosBeanSaldosTerceros" value="#{saldosBean.saldos.terceros}">
+						<f:selectItem/>
+						<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{tercerosBean.all}" var="_item"/>
+					</h:selectOneMenu>
+					<h:message for="saldosBeanSaldosTerceros" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+			</h:panelGrid>
+
+			<div class="buttons">
+				<h:commandLink value="Save" action='#{saldosBean.update}' styleClass="btn btn-primary"/>
+				<c:choose>
+					<c:when test='#{!empty saldosBean.id}'>
+						<h:link value="Cancel" outcome="view" styleClass="btn btn-primary">
+							<f:param name="id" value='#{saldosBean.id}'/>
+						</h:link>
+						<h:commandLink value="Delete" action='#{saldosBean.delete}' styleClass="btn btn-primary"/>
+					</c:when>
+					<c:otherwise>
+						<h:link value="Cancel" outcome="search" styleClass="btn btn-primary"/>
+					</c:otherwise>
+				</c:choose>
+			</div>
+		</h:form>
+	</ui:define>
+
+</ui:composition>

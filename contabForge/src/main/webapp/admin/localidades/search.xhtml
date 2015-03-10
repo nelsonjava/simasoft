@@ -1,0 +1,131 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:forgeview="http://jboss.org/forge/view"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="page" value='#{localidadesBean.page}'/>
+		<f:event type="preRenderView" listener='#{localidadesBean.paginate}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="Search Localidades entities"/>
+
+	<ui:define name="header">
+		Localidades
+	</ui:define>
+
+	<ui:define name="subheader">
+		Search Localidades entities
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:form id="search">
+			<f:validateBean disabled="true">
+				<h:panelGroup styleClass="search">
+
+					<h:panelGrid columnClasses="label,component,required" columns="3">
+						<h:outputLabel for="localidadesBeanExampleCodigo" value="Codigo:"/>
+						<h:panelGroup>
+							<h:inputText id="localidadesBeanExampleCodigo" value="#{localidadesBean.example.codigo}"/>
+							<h:message for="localidadesBeanExampleCodigo" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="localidadesBeanExampleNombre" value="Nombre:"/>
+						<h:panelGroup>
+							<h:inputText id="localidadesBeanExampleNombre" value="#{localidadesBean.example.nombre}"/>
+							<h:message for="localidadesBeanExampleNombre" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="localidadesBeanExampleCodigoDane" value="Codigo Dane:"/>
+						<h:panelGroup>
+							<h:inputText id="localidadesBeanExampleCodigoDane" value="#{localidadesBean.example.codigoDane}"/>
+							<h:message for="localidadesBeanExampleCodigoDane" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="localidadesBeanExampleObjPadre" value="Obj Padre:"/>
+						<h:panelGroup>
+							<h:selectOneMenu converter="#{localidadesBean.converter}" id="localidadesBeanExampleObjPadre" value="#{localidadesBean.example.objPadre}">
+								<f:selectItem/>
+								<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{localidadesBean.all}" var="_item"/>
+							</h:selectOneMenu>
+							<h:message for="localidadesBeanExampleObjPadre" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="localidadesBeanExampleTiposLocalidades" value="Tipos Localidades:"/>
+						<h:panelGroup>
+							<h:selectOneMenu converter="#{tiposLocalidadesBean.converter}" id="localidadesBeanExampleTiposLocalidades" value="#{localidadesBean.example.tiposLocalidades}">
+								<f:selectItem/>
+								<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{tiposLocalidadesBean.all}" var="_item"/>
+							</h:selectOneMenu>
+							<h:message for="localidadesBeanExampleTiposLocalidades" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+					</h:panelGrid>
+					<h:panelGroup styleClass="buttons">
+						<h:commandLink value="Search" action='#{localidadesBean.search}' styleClass="btn btn-primary"/>
+						<h:commandLink value="Create New" action='#{localidadesBean.create}' styleClass="btn btn-primary"/>
+					</h:panelGroup>
+				</h:panelGroup>
+			</f:validateBean>
+			
+			<h:dataTable id="localidadesBeanPageItems" styleClass="data-table" value="#{localidadesBean.pageItems}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Codigo"/>
+					</f:facet>
+					<h:link outcome="/admin/localidades/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemCodigo" value="#{_item.codigo}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Nombre"/>
+					</f:facet>
+					<h:link outcome="/admin/localidades/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemNombre" value="#{_item.nombre}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Codigo Dane"/>
+					</f:facet>
+					<h:link outcome="/admin/localidades/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemCodigoDane" value="#{_item.codigoDane}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Obj Padre"/>
+					</f:facet>
+					<h:link outcome="/admin/localidades/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="forgeviewdisplayitemObjPadre" value="#{forgeview:display(_item.objPadre)}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Tipos Localidades"/>
+					</f:facet>
+					<h:link outcome="/admin/localidades/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="forgeviewdisplayitemTiposLocalidades" value="#{forgeview:display(_item.tiposLocalidades)}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<ui:include src="/resources/scaffold/paginator.xhtml">
+				<ui:param name="paginatorBean" value='#{localidadesBean}'/>
+			</ui:include>
+		</h:form>
+			
+	</ui:define>
+
+</ui:composition>

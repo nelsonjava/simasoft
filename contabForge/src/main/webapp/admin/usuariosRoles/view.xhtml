@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="id" value='#{usuariosRolesBean.id}'/>
+		<f:event type="preRenderView" listener='#{usuariosRolesBean.retrieve}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="View Usuarios Roles"/>
+
+	<ui:define name="header">
+		Usuarios Roles
+	</ui:define>
+
+	<ui:define name="subheader">
+		View existing Usuarios Roles
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:panelGrid columnClasses="label,component,required" columns="3">
+			<h:outputLabel for="usuariosRolesBeanUsuariosRolesPrueba" value="Prueba:"/>
+			<h:outputText id="usuariosRolesBeanUsuariosRolesPrueba" value="#{usuariosRolesBean.usuariosRoles.prueba}"/>
+			<h:outputText/>
+			<h:outputLabel for="usuariosRolesBeanUsuariosRolesUsuarios" value="Usuarios:"/>
+			<h:link id="usuariosRolesBeanUsuariosRolesUsuarios" outcome="/admin/usuarios/view" rendered="#{!empty usuariosRolesBean.usuariosRoles.usuarios}" value="#{usuariosRolesBean.usuariosRoles.usuarios}">
+				<f:param name="id" value="#{usuariosRolesBean.usuariosRoles.usuarios.id}"/>
+			</h:link>
+			<h:outputText/>
+			<h:outputLabel for="usuariosRolesBeanUsuariosRolesRoles" value="Roles:"/>
+			<h:link id="usuariosRolesBeanUsuariosRolesRoles" outcome="/admin/roles/view" rendered="#{!empty usuariosRolesBean.usuariosRoles.roles}" value="#{usuariosRolesBean.usuariosRoles.roles}">
+				<f:param name="id" value="#{usuariosRolesBean.usuariosRoles.roles.id}"/>
+			</h:link>
+			<h:outputText/>
+		</h:panelGrid>
+
+		<div class="buttons">
+			<h:link value="View All" outcome="search" styleClass="btn btn-primary"/> 
+			<h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
+			<h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
+		</div>
+	</ui:define>
+
+</ui:composition>

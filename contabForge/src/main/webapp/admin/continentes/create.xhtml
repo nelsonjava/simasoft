@@ -1,0 +1,131 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:forgeview="http://jboss.org/forge/view"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="id" value='#{continentesBean.id}'/>
+		<f:event type="preRenderView" listener='#{continentesBean.retrieve}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="Create Continentes"/>
+
+	<ui:define name="header">
+		Continentes
+	</ui:define>
+
+	<ui:define name="subheader">
+		<c:choose>
+			<c:when test='#{!empty continentesBean.id}'>
+				Edit existing Continentes
+			</c:when>
+			<c:otherwise>
+				Create a new Continentes
+			</c:otherwise>
+		</c:choose>
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:form id="create">
+			<h:messages globalOnly="true" styleClass="error"/>
+
+			<h:panelGrid columnClasses="label,component,required" columns="3">
+				<h:outputLabel for="continentesBeanContinentesCodigo" value="Codigo:"/>
+				<h:panelGroup>
+					<h:inputText id="continentesBeanContinentesCodigo" value="#{continentesBean.continentes.codigo}"/>
+					<h:message for="continentesBeanContinentesCodigo" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="continentesBeanContinentesNombre" value="Nombre:"/>
+				<h:panelGroup>
+					<h:inputText id="continentesBeanContinentesNombre" value="#{continentesBean.continentes.nombre}"/>
+					<h:message for="continentesBeanContinentesNombre" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="continentesBeanContinentesCodigoDane" value="Codigo Dane:"/>
+				<h:panelGroup>
+					<h:inputText id="continentesBeanContinentesCodigoDane" value="#{continentesBean.continentes.codigoDane}"/>
+					<h:message for="continentesBeanContinentesCodigoDane" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="continentesBeanContinentesPaises" value="Paises:"/>
+				<h:panelGroup>
+					<ui:param name="_collection" value="#{continentesBean.continentes.paises}"/>
+					<h:dataTable id="continentesBeanContinentesPaises" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Codigo"/>
+							</f:facet>
+							<h:link outcome="/admin/paises/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemCodigo" value="#{_item.codigo}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="paisesBeanAddCodigo" value="#{paisesBean.add.codigo}"/>
+								<h:message for="paisesBeanAddCodigo" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Nombre"/>
+							</f:facet>
+							<h:link outcome="/admin/paises/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemNombre" value="#{_item.nombre}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="paisesBeanAddNombre" value="#{paisesBean.add.nombre}"/>
+								<h:message for="paisesBeanAddNombre" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Codigo Dane"/>
+							</f:facet>
+							<h:link outcome="/admin/paises/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemCodigoDane" value="#{_item.codigoDane}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="paisesBeanAddCodigoDane" value="#{paisesBean.add.codigoDane}"/>
+								<h:message for="paisesBeanAddCodigoDane" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column footerClass="remove-column" headerClass="remove-column">
+							<h:commandLink action="#{_collection.remove(_item)}" styleClass="remove-button"/>
+							<f:facet name="footer">
+								<h:commandLink action="#{_collection.add(paisesBean.added)}" id="continentesBeanContinentesPaisesAdd" styleClass="add-button">
+									<f:setPropertyActionListener target="#{paisesBean.add.continentes}" value="#{continentesBean.continentes}"/>
+								</h:commandLink>
+							</f:facet>
+						</h:column>
+					</h:dataTable>
+				</h:panelGroup>
+				<h:outputText/>
+			</h:panelGrid>
+
+			<div class="buttons">
+				<h:commandLink value="Save" action='#{continentesBean.update}' styleClass="btn btn-primary"/>
+				<c:choose>
+					<c:when test='#{!empty continentesBean.id}'>
+						<h:link value="Cancel" outcome="view" styleClass="btn btn-primary">
+							<f:param name="id" value='#{continentesBean.id}'/>
+						</h:link>
+						<h:commandLink value="Delete" action='#{continentesBean.delete}' styleClass="btn btn-primary"/>
+					</c:when>
+					<c:otherwise>
+						<h:link value="Cancel" outcome="search" styleClass="btn btn-primary"/>
+					</c:otherwise>
+				</c:choose>
+			</div>
+		</h:form>
+	</ui:define>
+
+</ui:composition>

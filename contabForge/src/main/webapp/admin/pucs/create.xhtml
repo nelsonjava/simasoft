@@ -1,0 +1,350 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:forgeview="http://jboss.org/forge/view"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="id" value='#{pucsBean.id}'/>
+		<f:event type="preRenderView" listener='#{pucsBean.retrieve}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="Create Pucs"/>
+
+	<ui:define name="header">
+		Pucs
+	</ui:define>
+
+	<ui:define name="subheader">
+		<c:choose>
+			<c:when test='#{!empty pucsBean.id}'>
+				Edit existing Pucs
+			</c:when>
+			<c:otherwise>
+				Create a new Pucs
+			</c:otherwise>
+		</c:choose>
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:form id="create">
+			<h:messages globalOnly="true" styleClass="error"/>
+
+			<h:panelGrid columnClasses="label,component,required" columns="3">
+				<h:outputLabel for="pucsBeanPucsNombre" value="Nombre:"/>
+				<h:panelGroup>
+					<h:inputText id="pucsBeanPucsNombre" value="#{pucsBean.pucs.nombre}"/>
+					<h:message for="pucsBeanPucsNombre" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="pucsBeanPucsSiRegistra" value="Si Registra:"/>
+				<h:panelGroup>
+					<h:selectBooleanCheckbox id="pucsBeanPucsSiRegistra" value="#{pucsBean.pucs.siRegistra}"/>
+					<h:message for="pucsBeanPucsSiRegistra" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="pucsBeanPucsSiTercero" value="Si Tercero:"/>
+				<h:panelGroup>
+					<h:selectBooleanCheckbox id="pucsBeanPucsSiTercero" value="#{pucsBean.pucs.siTercero}"/>
+					<h:message for="pucsBeanPucsSiTercero" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="pucsBeanPucsSiBase" value="Si Base:"/>
+				<h:panelGroup>
+					<h:selectBooleanCheckbox id="pucsBeanPucsSiBase" value="#{pucsBean.pucs.siBase}"/>
+					<h:message for="pucsBeanPucsSiBase" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="pucsBeanPucsObservaciones" value="Observaciones:"/>
+				<h:panelGroup>
+					<h:inputText id="pucsBeanPucsObservaciones" value="#{pucsBean.pucs.observaciones}"/>
+					<h:message for="pucsBeanPucsObservaciones" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="pucsBeanPucsMovimientos" value="Movimientos:"/>
+				<h:panelGroup>
+					<ui:param name="_collection" value="#{pucsBean.pucs.movimientos}"/>
+					<h:dataTable id="pucsBeanPucsMovimientos" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Fecha"/>
+							</f:facet>
+							<h:link outcome="/admin/movimientos/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemFecha" value="#{_item.fecha}">
+									<f:convertDateTime/>
+								</h:outputText>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="movimientosBeanAddFecha" value="#{movimientosBean.add.fecha}">
+									<f:convertDateTime/>
+								</h:inputText>
+								<h:message for="movimientosBeanAddFecha" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Documento"/>
+							</f:facet>
+							<h:link outcome="/admin/movimientos/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemDocumento" value="#{_item.documento}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="movimientosBeanAddDocumento" value="#{movimientosBean.add.documento}"/>
+								<h:message for="movimientosBeanAddDocumento" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Valor"/>
+							</f:facet>
+							<h:link outcome="/admin/movimientos/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemValor" value="#{_item.valor}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="movimientosBeanAddValor" value="#{movimientosBean.add.valor}"/>
+								<h:message for="movimientosBeanAddValor" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Tipo"/>
+							</f:facet>
+							<h:link outcome="/admin/movimientos/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemTipo" value="#{_item.tipo}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="movimientosBeanAddTipo" value="#{movimientosBean.add.tipo}"/>
+								<h:message for="movimientosBeanAddTipo" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Base"/>
+							</f:facet>
+							<h:link outcome="/admin/movimientos/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemBase" value="#{_item.base}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="movimientosBeanAddBase" value="#{movimientosBean.add.base}"/>
+								<h:message for="movimientosBeanAddBase" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column footerClass="remove-column" headerClass="remove-column">
+							<h:commandLink action="#{_collection.remove(_item)}" styleClass="remove-button"/>
+							<f:facet name="footer">
+								<h:commandLink action="#{_collection.add(movimientosBean.added)}" id="pucsBeanPucsMovimientosAdd" styleClass="add-button">
+									<f:setPropertyActionListener target="#{movimientosBean.add.pucs}" value="#{pucsBean.pucs}"/>
+								</h:commandLink>
+							</f:facet>
+						</h:column>
+					</h:dataTable>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="pucsBeanPucsSaldos" value="Saldos:"/>
+				<h:panelGroup>
+					<ui:param name="_collection" value="#{pucsBean.pucs.saldos}"/>
+					<h:dataTable id="pucsBeanPucsSaldos" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Year"/>
+							</f:facet>
+							<h:link outcome="/admin/saldos/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemYear" value="#{_item.year}">
+									<f:convertDateTime/>
+								</h:outputText>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="saldosBeanAddYear" value="#{saldosBean.add.year}">
+									<f:convertDateTime/>
+								</h:inputText>
+								<h:message for="saldosBeanAddYear" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Mes"/>
+							</f:facet>
+							<h:link outcome="/admin/saldos/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemMes" value="#{_item.mes}">
+									<f:convertDateTime/>
+								</h:outputText>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="saldosBeanAddMes" value="#{saldosBean.add.mes}">
+									<f:convertDateTime/>
+								</h:inputText>
+								<h:message for="saldosBeanAddMes" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Debitos"/>
+							</f:facet>
+							<h:link outcome="/admin/saldos/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemDebitos" value="#{_item.debitos}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="saldosBeanAddDebitos" value="#{saldosBean.add.debitos}"/>
+								<h:message for="saldosBeanAddDebitos" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Creditos"/>
+							</f:facet>
+							<h:link outcome="/admin/saldos/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemCreditos" value="#{_item.creditos}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="saldosBeanAddCreditos" value="#{saldosBean.add.creditos}"/>
+								<h:message for="saldosBeanAddCreditos" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Saldo Inicial"/>
+							</f:facet>
+							<h:link outcome="/admin/saldos/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemSaldoInicial" value="#{_item.saldoInicial}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="saldosBeanAddSaldoInicial" value="#{saldosBean.add.saldoInicial}"/>
+								<h:message for="saldosBeanAddSaldoInicial" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column footerClass="remove-column" headerClass="remove-column">
+							<h:commandLink action="#{_collection.remove(_item)}" styleClass="remove-button"/>
+							<f:facet name="footer">
+								<h:commandLink action="#{_collection.add(saldosBean.added)}" id="pucsBeanPucsSaldosAdd" styleClass="add-button">
+									<f:setPropertyActionListener target="#{saldosBean.add.pucs}" value="#{pucsBean.pucs}"/>
+								</h:commandLink>
+							</f:facet>
+						</h:column>
+					</h:dataTable>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="pucsBeanPucsObjHijos" value="Obj Hijos:"/>
+				<h:panelGroup>
+					<ui:param name="_collection" value="#{pucsBean.pucs.objHijos}"/>
+					<h:dataTable id="pucsBeanPucsObjHijos" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Nombre"/>
+							</f:facet>
+							<h:link outcome="/admin/pucs/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemNombre" value="#{_item.nombre}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="pucsBeanAddNombre" value="#{pucsBean.add.nombre}"/>
+								<h:message for="pucsBeanAddNombre" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Si Registra"/>
+							</f:facet>
+							<h:link outcome="/admin/pucs/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText styleClass="#{_item.siRegistra ? 'boolean-true' : 'boolean-false'}" value=""/>
+							</h:link>
+							<f:facet name="footer">
+								<h:selectBooleanCheckbox id="pucsBeanAddSiRegistra" value="#{pucsBean.add.siRegistra}"/>
+								<h:message for="pucsBeanAddSiRegistra" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Si Tercero"/>
+							</f:facet>
+							<h:link outcome="/admin/pucs/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText styleClass="#{_item.siTercero ? 'boolean-true' : 'boolean-false'}" value=""/>
+							</h:link>
+							<f:facet name="footer">
+								<h:selectBooleanCheckbox id="pucsBeanAddSiTercero" value="#{pucsBean.add.siTercero}"/>
+								<h:message for="pucsBeanAddSiTercero" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Si Base"/>
+							</f:facet>
+							<h:link outcome="/admin/pucs/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText styleClass="#{_item.siBase ? 'boolean-true' : 'boolean-false'}" value=""/>
+							</h:link>
+							<f:facet name="footer">
+								<h:selectBooleanCheckbox id="pucsBeanAddSiBase" value="#{pucsBean.add.siBase}"/>
+								<h:message for="pucsBeanAddSiBase" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Observaciones"/>
+							</f:facet>
+							<h:link outcome="/admin/pucs/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemObservaciones" value="#{_item.observaciones}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="pucsBeanAddObservaciones" value="#{pucsBean.add.observaciones}"/>
+								<h:message for="pucsBeanAddObservaciones" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column footerClass="remove-column" headerClass="remove-column">
+							<h:commandLink action="#{_collection.remove(_item)}" styleClass="remove-button"/>
+							<f:facet name="footer">
+								<h:commandLink action="#{_collection.add(pucsBean.added)}" id="pucsBeanPucsObjHijosAdd" styleClass="add-button">
+									<f:setPropertyActionListener target="#{pucsBean.add.objPadre}" value="#{pucsBean.pucs}"/>
+								</h:commandLink>
+							</f:facet>
+						</h:column>
+					</h:dataTable>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="pucsBeanPucsObjPadre" value="Obj Padre:"/>
+				<h:panelGroup>
+					<h:selectOneMenu converter="#{pucsBean.converter}" id="pucsBeanPucsObjPadre" value="#{pucsBean.pucs.objPadre}">
+						<f:selectItem/>
+						<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{pucsBean.all}" var="_item"/>
+					</h:selectOneMenu>
+					<h:message for="pucsBeanPucsObjPadre" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+			</h:panelGrid>
+
+			<div class="buttons">
+				<h:commandLink value="Save" action='#{pucsBean.update}' styleClass="btn btn-primary"/>
+				<c:choose>
+					<c:when test='#{!empty pucsBean.id}'>
+						<h:link value="Cancel" outcome="view" styleClass="btn btn-primary">
+							<f:param name="id" value='#{pucsBean.id}'/>
+						</h:link>
+						<h:commandLink value="Delete" action='#{pucsBean.delete}' styleClass="btn btn-primary"/>
+					</c:when>
+					<c:otherwise>
+						<h:link value="Cancel" outcome="search" styleClass="btn btn-primary"/>
+					</c:otherwise>
+				</c:choose>
+			</div>
+		</h:form>
+	</ui:define>
+
+</ui:composition>

@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="id" value='#{celularesBean.id}'/>
+		<f:event type="preRenderView" listener='#{celularesBean.retrieve}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="View Celulares"/>
+
+	<ui:define name="header">
+		Celulares
+	</ui:define>
+
+	<ui:define name="subheader">
+		View existing Celulares
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:panelGrid columnClasses="label,component,required" columns="3">
+			<h:outputLabel for="celularesBeanCelularesCelular" value="Celular:"/>
+			<h:outputText id="celularesBeanCelularesCelular" value="#{celularesBean.celulares.celular}"/>
+			<h:outputText/>
+			<h:outputLabel for="celularesBeanCelularesEmpresas" value="Empresas:"/>
+			<h:link id="celularesBeanCelularesEmpresas" outcome="/admin/empresas/view" rendered="#{!empty celularesBean.celulares.empresas}" value="#{celularesBean.celulares.empresas}">
+				<f:param name="id" value="#{celularesBean.celulares.empresas.id}"/>
+			</h:link>
+			<h:outputText/>
+			<h:outputLabel for="celularesBeanCelularesPersonas" value="Personas:"/>
+			<h:link id="celularesBeanCelularesPersonas" outcome="/admin/personas/view" rendered="#{!empty celularesBean.celulares.personas}" value="#{celularesBean.celulares.personas}">
+				<f:param name="id" value="#{celularesBean.celulares.personas.id}"/>
+			</h:link>
+			<h:outputText/>
+		</h:panelGrid>
+
+		<div class="buttons">
+			<h:link value="View All" outcome="search" styleClass="btn btn-primary"/> 
+			<h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
+			<h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
+		</div>
+	</ui:define>
+
+</ui:composition>

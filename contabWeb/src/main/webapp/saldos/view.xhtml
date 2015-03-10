@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="id" value='#{saldosBean.id}'/>
+		<f:event type="preRenderView" listener='#{saldosBean.retrieve}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="View Saldos"/>
+
+	<ui:define name="header">
+		Saldos
+	</ui:define>
+
+	<ui:define name="subheader">
+		View existing Saldos
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:panelGrid columnClasses="label,component,required" columns="3">
+			<h:outputLabel for="saldosBeanSaldosYear" value="Year:"/>
+			<h:outputText id="saldosBeanSaldosYear" value="#{saldosBean.saldos.year}">
+				<f:convertDateTime/>
+			</h:outputText>
+			<h:outputText/>
+			<h:outputLabel for="saldosBeanSaldosMes" value="Mes:"/>
+			<h:outputText id="saldosBeanSaldosMes" value="#{saldosBean.saldos.mes}">
+				<f:convertDateTime/>
+			</h:outputText>
+			<h:outputText/>
+			<h:outputLabel for="saldosBeanSaldosDebitos" value="Debitos:"/>
+			<h:outputText id="saldosBeanSaldosDebitos" value="#{saldosBean.saldos.debitos}"/>
+			<h:outputText/>
+			<h:outputLabel for="saldosBeanSaldosCreditos" value="Creditos:"/>
+			<h:outputText id="saldosBeanSaldosCreditos" value="#{saldosBean.saldos.creditos}"/>
+			<h:outputText/>
+			<h:outputLabel for="saldosBeanSaldosSaldoInicial" value="Saldo Inicial:"/>
+			<h:outputText id="saldosBeanSaldosSaldoInicial" value="#{saldosBean.saldos.saldoInicial}"/>
+			<h:outputText/>
+			<h:outputLabel for="saldosBeanSaldosSaldoFinal" value="Saldo Final:"/>
+			<h:outputText id="saldosBeanSaldosSaldoFinal" value="#{saldosBean.saldos.saldoFinal}"/>
+			<h:outputText/>
+			<h:outputLabel for="saldosBeanSaldosPucs" value="Pucs:"/>
+			<h:link id="saldosBeanSaldosPucs" outcome="/pucs/view" rendered="#{!empty saldosBean.saldos.pucs}" value="#{saldosBean.saldos.pucs}">
+				<f:param name="id" value="#{saldosBean.saldos.pucs.id}"/>
+			</h:link>
+			<h:outputText/>
+			<h:outputLabel for="saldosBeanSaldosTerceros" value="Terceros:"/>
+			<h:link id="saldosBeanSaldosTerceros" outcome="/terceros/view" rendered="#{!empty saldosBean.saldos.terceros}" value="#{saldosBean.saldos.terceros}">
+				<f:param name="id" value="#{saldosBean.saldos.terceros.id}"/>
+			</h:link>
+			<h:outputText/>
+		</h:panelGrid>
+
+		<div class="buttons">
+			<h:link value="View All" outcome="search" styleClass="btn btn-primary"/> 
+			<h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
+			<h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
+		</div>
+	</ui:define>
+
+</ui:composition>

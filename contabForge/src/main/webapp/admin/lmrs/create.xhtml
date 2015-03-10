@@ -1,0 +1,232 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:forgeview="http://jboss.org/forge/view"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="id" value='#{lmrsBean.id}'/>
+		<f:event type="preRenderView" listener='#{lmrsBean.retrieve}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="Create Lmrs"/>
+
+	<ui:define name="header">
+		Lmrs
+	</ui:define>
+
+	<ui:define name="subheader">
+		<c:choose>
+			<c:when test='#{!empty lmrsBean.id}'>
+				Edit existing Lmrs
+			</c:when>
+			<c:otherwise>
+				Create a new Lmrs
+			</c:otherwise>
+		</c:choose>
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:form id="create">
+			<h:messages globalOnly="true" styleClass="error"/>
+
+			<h:panelGrid columnClasses="label,component,required" columns="3">
+				<h:outputLabel for="lmrsBeanLmrsCodigo" value="Codigo:"/>
+				<h:panelGroup>
+					<h:inputText id="lmrsBeanLmrsCodigo" value="#{lmrsBean.lmrs.codigo}"/>
+					<h:message for="lmrsBeanLmrsCodigo" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="lmrsBeanLmrsNombre" value="Nombre:"/>
+				<h:panelGroup>
+					<h:inputText id="lmrsBeanLmrsNombre" value="#{lmrsBean.lmrs.nombre}"/>
+					<h:message for="lmrsBeanLmrsNombre" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="lmrsBeanLmrsVersion" value="Version:"/>
+				<h:panelGroup>
+					<h:inputText id="lmrsBeanLmrsVersion" value="#{lmrsBean.lmrs.version}"/>
+					<h:message for="lmrsBeanLmrsVersion" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="lmrsBeanLmrsFecha" value="Fecha:"/>
+				<h:panelGroup>
+					<h:inputText id="lmrsBeanLmrsFecha" value="#{lmrsBean.lmrs.fecha}">
+						<f:convertDateTime/>
+					</h:inputText>
+					<h:message for="lmrsBeanLmrsFecha" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="lmrsBeanLmrsEstado" value="Estado:"/>
+				<h:panelGroup>
+					<h:inputText id="lmrsBeanLmrsEstado" value="#{lmrsBean.lmrs.estado}"/>
+					<h:message for="lmrsBeanLmrsEstado" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="lmrsBeanLmrsUbicacion" value="Ubicacion:"/>
+				<h:panelGroup>
+					<h:inputText id="lmrsBeanLmrsUbicacion" value="#{lmrsBean.lmrs.ubicacion}"/>
+					<h:message for="lmrsBeanLmrsUbicacion" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="lmrsBeanLmrsLink" value="Link:"/>
+				<h:panelGroup>
+					<h:inputText id="lmrsBeanLmrsLink" value="#{lmrsBean.lmrs.link}"/>
+					<h:message for="lmrsBeanLmrsLink" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="lmrsBeanLmrsOrdenar" value="Ordenar:"/>
+				<h:panelGroup>
+					<h:inputText id="lmrsBeanLmrsOrdenar" value="#{lmrsBean.lmrs.ordenar}"/>
+					<h:message for="lmrsBeanLmrsOrdenar" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="lmrsBeanLmrsObservaciones" value="Observaciones:"/>
+				<h:panelGroup>
+					<h:inputText id="lmrsBeanLmrsObservaciones" value="#{lmrsBean.lmrs.observaciones}"/>
+					<h:message for="lmrsBeanLmrsObservaciones" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="lmrsBeanLmrsEstados" value="Estados:"/>
+				<h:panelGroup>
+					<h:selectOneMenu converter="#{estadosBean.converter}" id="lmrsBeanLmrsEstados" value="#{lmrsBean.lmrs.estados}">
+						<f:selectItem/>
+						<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{estadosBean.all}" var="_item"/>
+					</h:selectOneMenu>
+					<h:message for="lmrsBeanLmrsEstados" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="lmrsBeanLmrsDisposicionFinal" value="Disposicion Final:"/>
+				<h:panelGroup>
+					<h:selectOneMenu converter="#{disposicionFinalBean.converter}" id="lmrsBeanLmrsDisposicionFinal" value="#{lmrsBean.lmrs.disposicionFinal}">
+						<f:selectItem/>
+						<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{disposicionFinalBean.all}" var="_item"/>
+					</h:selectOneMenu>
+					<h:message for="lmrsBeanLmrsDisposicionFinal" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="lmrsBeanLmrsResponsables" value="Responsables:"/>
+				<h:panelGroup>
+					<h:selectOneMenu converter="#{responsablesBean.converter}" id="lmrsBeanLmrsResponsables" value="#{lmrsBean.lmrs.responsables}">
+						<f:selectItem/>
+						<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{responsablesBean.all}" var="_item"/>
+					</h:selectOneMenu>
+					<h:message for="lmrsBeanLmrsResponsables" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="lmrsBeanLmrsInstituciones" value="Instituciones:"/>
+				<h:panelGroup>
+					<h:selectOneMenu converter="#{institucionesBean.converter}" id="lmrsBeanLmrsInstituciones" value="#{lmrsBean.lmrs.instituciones}">
+						<f:selectItem/>
+						<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{institucionesBean.all}" var="_item"/>
+					</h:selectOneMenu>
+					<h:message for="lmrsBeanLmrsInstituciones" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="lmrsBeanLmrsTiposAccesos" value="Tipos Accesos:"/>
+				<h:panelGroup>
+					<h:selectOneMenu converter="#{tiposAccesosBean.converter}" id="lmrsBeanLmrsTiposAccesos" value="#{lmrsBean.lmrs.tiposAccesos}">
+						<f:selectItem/>
+						<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{tiposAccesosBean.all}" var="_item"/>
+					</h:selectOneMenu>
+					<h:message for="lmrsBeanLmrsTiposAccesos" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="lmrsBeanLmrsTrdArchivos" value="Trd Archivos:"/>
+				<h:panelGroup>
+					<h:selectOneMenu converter="#{trdArchivosBean.converter}" id="lmrsBeanLmrsTrdArchivos" value="#{lmrsBean.lmrs.trdArchivos}">
+						<f:selectItem/>
+						<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{trdArchivosBean.all}" var="_item"/>
+					</h:selectOneMenu>
+					<h:message for="lmrsBeanLmrsTrdArchivos" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="lmrsBeanLmrsIndexaciones" value="Indexaciones:"/>
+				<h:panelGroup>
+					<h:selectOneMenu converter="#{indexacionesBean.converter}" id="lmrsBeanLmrsIndexaciones" value="#{lmrsBean.lmrs.indexaciones}">
+						<f:selectItem/>
+						<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{indexacionesBean.all}" var="_item"/>
+					</h:selectOneMenu>
+					<h:message for="lmrsBeanLmrsIndexaciones" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="lmrsBeanLmrsTiposLmrs" value="Tipos Lmrs:"/>
+				<h:panelGroup>
+					<h:selectOneMenu converter="#{tiposLmrsBean.converter}" id="lmrsBeanLmrsTiposLmrs" value="#{lmrsBean.lmrs.tiposLmrs}">
+						<f:selectItem/>
+						<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{tiposLmrsBean.all}" var="_item"/>
+					</h:selectOneMenu>
+					<h:message for="lmrsBeanLmrsTiposLmrs" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="lmrsBeanLmrsDependencias" value="Dependencias:"/>
+				<h:panelGroup>
+					<h:selectOneMenu converter="#{dependenciasBean.converter}" id="lmrsBeanLmrsDependencias" value="#{lmrsBean.lmrs.dependencias}">
+						<f:selectItem/>
+						<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{dependenciasBean.all}" var="_item"/>
+					</h:selectOneMenu>
+					<h:message for="lmrsBeanLmrsDependencias" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="lmrsBeanLmrsMedios" value="Medios:"/>
+				<h:panelGroup>
+					<h:selectOneMenu converter="#{mediosBean.converter}" id="lmrsBeanLmrsMedios" value="#{lmrsBean.lmrs.medios}">
+						<f:selectItem/>
+						<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{mediosBean.all}" var="_item"/>
+					</h:selectOneMenu>
+					<h:message for="lmrsBeanLmrsMedios" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="lmrsBeanLmrsTiposRegistros" value="Tipos Registros:"/>
+				<h:panelGroup>
+					<h:selectOneMenu converter="#{tiposRegistrosBean.converter}" id="lmrsBeanLmrsTiposRegistros" value="#{lmrsBean.lmrs.tiposRegistros}">
+						<f:selectItem/>
+						<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{tiposRegistrosBean.all}" var="_item"/>
+					</h:selectOneMenu>
+					<h:message for="lmrsBeanLmrsTiposRegistros" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="lmrsBeanLmrsTrdAreas" value="Trd Areas:"/>
+				<h:panelGroup>
+					<h:selectOneMenu converter="#{trdAreasBean.converter}" id="lmrsBeanLmrsTrdAreas" value="#{lmrsBean.lmrs.trdAreas}">
+						<f:selectItem/>
+						<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{trdAreasBean.all}" var="_item"/>
+					</h:selectOneMenu>
+					<h:message for="lmrsBeanLmrsTrdAreas" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="lmrsBeanLmrsProcesos" value="Procesos:"/>
+				<h:panelGroup>
+					<h:selectOneMenu converter="#{procesosBean.converter}" id="lmrsBeanLmrsProcesos" value="#{lmrsBean.lmrs.procesos}">
+						<f:selectItem/>
+						<f:selectItems value="#{procesosBean.all}"/>
+					</h:selectOneMenu>
+					<h:message for="lmrsBeanLmrsProcesos" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+			</h:panelGrid>
+
+			<div class="buttons">
+				<h:commandLink value="Save" action='#{lmrsBean.update}' styleClass="btn btn-primary"/>
+				<c:choose>
+					<c:when test='#{!empty lmrsBean.id}'>
+						<h:link value="Cancel" outcome="view" styleClass="btn btn-primary">
+							<f:param name="id" value='#{lmrsBean.id}'/>
+						</h:link>
+						<h:commandLink value="Delete" action='#{lmrsBean.delete}' styleClass="btn btn-primary"/>
+					</c:when>
+					<c:otherwise>
+						<h:link value="Cancel" outcome="search" styleClass="btn btn-primary"/>
+					</c:otherwise>
+				</c:choose>
+			</div>
+		</h:form>
+	</ui:define>
+
+</ui:composition>

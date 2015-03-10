@@ -1,0 +1,16 @@
+clear;
+echo "Generating the scaffold.";
+scaffold-generate --webRoot /admin --targets co.simasoft.models.contable.contabilidad.*;
+scaffold-generate --webRoot /admin --targets co.simasoft.models.iso.procesos.*;
+scaffold-generate --webRoot /admin --targets co.simasoft.models.iso.lmd.*;
+scaffold-generate --webRoot /admin --targets co.simasoft.models.iso.lmr.*;
+scaffold-generate --webRoot /admin --targets co.simasoft.models.base.direcciones.*;
+scaffold-generate --webRoot /admin --targets co.simasoft.models.base.paises.*;
+scaffold-generate --webRoot /admin --targets co.simasoft.models.base.empresas.*;
+scaffold-generate --webRoot /admin --targets co.simasoft.models.base.mails.*;
+scaffold-generate --webRoot /admin --targets co.simasoft.models.base.nits.*;
+scaffold-generate --webRoot /admin --targets co.simasoft.models.base.permisos.*;
+scaffold-generate --webRoot /admin --targets co.simasoft.models.base.personas.*;
+scaffold-generate --webRoot /admin --targets co.simasoft.models.base.sistemas.*;
+scaffold-generate --webRoot /admin --targets co.simasoft.models.base.telefonos.*;
+scaffold-generate --webRoot /admin --targets co.simasoft.models.base.usuarios.*;

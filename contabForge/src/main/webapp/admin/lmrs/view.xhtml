@@ -1,0 +1,131 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="id" value='#{lmrsBean.id}'/>
+		<f:event type="preRenderView" listener='#{lmrsBean.retrieve}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="View Lmrs"/>
+
+	<ui:define name="header">
+		Lmrs
+	</ui:define>
+
+	<ui:define name="subheader">
+		View existing Lmrs
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:panelGrid columnClasses="label,component,required" columns="3">
+			<h:outputLabel for="lmrsBeanLmrsCodigo" value="Codigo:"/>
+			<h:outputText id="lmrsBeanLmrsCodigo" value="#{lmrsBean.lmrs.codigo}"/>
+			<h:outputText/>
+			<h:outputLabel for="lmrsBeanLmrsNombre" value="Nombre:"/>
+			<h:outputText id="lmrsBeanLmrsNombre" value="#{lmrsBean.lmrs.nombre}"/>
+			<h:outputText/>
+			<h:outputLabel for="lmrsBeanLmrsVersion" value="Version:"/>
+			<h:outputText id="lmrsBeanLmrsVersion" value="#{lmrsBean.lmrs.version}"/>
+			<h:outputText/>
+			<h:outputLabel for="lmrsBeanLmrsFecha" value="Fecha:"/>
+			<h:outputText id="lmrsBeanLmrsFecha" value="#{lmrsBean.lmrs.fecha}">
+				<f:convertDateTime/>
+			</h:outputText>
+			<h:outputText/>
+			<h:outputLabel for="lmrsBeanLmrsEstado" value="Estado:"/>
+			<h:outputText id="lmrsBeanLmrsEstado" value="#{lmrsBean.lmrs.estado}"/>
+			<h:outputText/>
+			<h:outputLabel for="lmrsBeanLmrsUbicacion" value="Ubicacion:"/>
+			<h:outputText id="lmrsBeanLmrsUbicacion" value="#{lmrsBean.lmrs.ubicacion}"/>
+			<h:outputText/>
+			<h:outputLabel for="lmrsBeanLmrsLink" value="Link:"/>
+			<h:outputText id="lmrsBeanLmrsLink" value="#{lmrsBean.lmrs.link}"/>
+			<h:outputText/>
+			<h:outputLabel for="lmrsBeanLmrsOrdenar" value="Ordenar:"/>
+			<h:outputText id="lmrsBeanLmrsOrdenar" value="#{lmrsBean.lmrs.ordenar}"/>
+			<h:outputText/>
+			<h:outputLabel for="lmrsBeanLmrsObservaciones" value="Observaciones:"/>
+			<h:outputText id="lmrsBeanLmrsObservaciones" value="#{lmrsBean.lmrs.observaciones}"/>
+			<h:outputText/>
+			<h:outputLabel for="lmrsBeanLmrsEstados" value="Estados:"/>
+			<h:link id="lmrsBeanLmrsEstados" outcome="/admin/estados/view" rendered="#{!empty lmrsBean.lmrs.estados}" value="#{lmrsBean.lmrs.estados}">
+				<f:param name="id" value="#{lmrsBean.lmrs.estados.id}"/>
+			</h:link>
+			<h:outputText/>
+			<h:outputLabel for="lmrsBeanLmrsDisposicionFinal" value="Disposicion Final:"/>
+			<h:link id="lmrsBeanLmrsDisposicionFinal" outcome="/admin/disposicionFinal/view" rendered="#{!empty lmrsBean.lmrs.disposicionFinal}" value="#{lmrsBean.lmrs.disposicionFinal}">
+				<f:param name="id" value="#{lmrsBean.lmrs.disposicionFinal.id}"/>
+			</h:link>
+			<h:outputText/>
+			<h:outputLabel for="lmrsBeanLmrsResponsables" value="Responsables:"/>
+			<h:link id="lmrsBeanLmrsResponsables" outcome="/admin/responsables/view" rendered="#{!empty lmrsBean.lmrs.responsables}" value="#{lmrsBean.lmrs.responsables}">
+				<f:param name="id" value="#{lmrsBean.lmrs.responsables.id}"/>
+			</h:link>
+			<h:outputText/>
+			<h:outputLabel for="lmrsBeanLmrsInstituciones" value="Instituciones:"/>
+			<h:link id="lmrsBeanLmrsInstituciones" outcome="/admin/instituciones/view" rendered="#{!empty lmrsBean.lmrs.instituciones}" value="#{lmrsBean.lmrs.instituciones}">
+				<f:param name="id" value="#{lmrsBean.lmrs.instituciones.id}"/>
+			</h:link>
+			<h:outputText/>
+			<h:outputLabel for="lmrsBeanLmrsTiposAccesos" value="Tipos Accesos:"/>
+			<h:link id="lmrsBeanLmrsTiposAccesos" outcome="/admin/tiposAccesos/view" rendered="#{!empty lmrsBean.lmrs.tiposAccesos}" value="#{lmrsBean.lmrs.tiposAccesos}">
+				<f:param name="id" value="#{lmrsBean.lmrs.tiposAccesos.id}"/>
+			</h:link>
+			<h:outputText/>
+			<h:outputLabel for="lmrsBeanLmrsTrdArchivos" value="Trd Archivos:"/>
+			<h:link id="lmrsBeanLmrsTrdArchivos" outcome="/admin/trdArchivos/view" rendered="#{!empty lmrsBean.lmrs.trdArchivos}" value="#{lmrsBean.lmrs.trdArchivos}">
+				<f:param name="id" value="#{lmrsBean.lmrs.trdArchivos.id}"/>
+			</h:link>
+			<h:outputText/>
+			<h:outputLabel for="lmrsBeanLmrsIndexaciones" value="Indexaciones:"/>
+			<h:link id="lmrsBeanLmrsIndexaciones" outcome="/admin/indexaciones/view" rendered="#{!empty lmrsBean.lmrs.indexaciones}" value="#{lmrsBean.lmrs.indexaciones}">
+				<f:param name="id" value="#{lmrsBean.lmrs.indexaciones.id}"/>
+			</h:link>
+			<h:outputText/>
+			<h:outputLabel for="lmrsBeanLmrsTiposLmrs" value="Tipos Lmrs:"/>
+			<h:link id="lmrsBeanLmrsTiposLmrs" outcome="/admin/tiposLmrs/view" rendered="#{!empty lmrsBean.lmrs.tiposLmrs}" value="#{lmrsBean.lmrs.tiposLmrs}">
+				<f:param name="id" value="#{lmrsBean.lmrs.tiposLmrs.id}"/>
+			</h:link>
+			<h:outputText/>
+			<h:outputLabel for="lmrsBeanLmrsDependencias" value="Dependencias:"/>
+			<h:link id="lmrsBeanLmrsDependencias" outcome="/admin/dependencias/view" rendered="#{!empty lmrsBean.lmrs.dependencias}" value="#{lmrsBean.lmrs.dependencias}">
+				<f:param name="id" value="#{lmrsBean.lmrs.dependencias.id}"/>
+			</h:link>
+			<h:outputText/>
+			<h:outputLabel for="lmrsBeanLmrsMedios" value="Medios:"/>
+			<h:link id="lmrsBeanLmrsMedios" outcome="/admin/medios/view" rendered="#{!empty lmrsBean.lmrs.medios}" value="#{lmrsBean.lmrs.medios}">
+				<f:param name="id" value="#{lmrsBean.lmrs.medios.id}"/>
+			</h:link>
+			<h:outputText/>
+			<h:outputLabel for="lmrsBeanLmrsTiposRegistros" value="Tipos Registros:"/>
+			<h:link id="lmrsBeanLmrsTiposRegistros" outcome="/admin/tiposRegistros/view" rendered="#{!empty lmrsBean.lmrs.tiposRegistros}" value="#{lmrsBean.lmrs.tiposRegistros}">
+				<f:param name="id" value="#{lmrsBean.lmrs.tiposRegistros.id}"/>
+			</h:link>
+			<h:outputText/>
+			<h:outputLabel for="lmrsBeanLmrsTrdAreas" value="Trd Areas:"/>
+			<h:link id="lmrsBeanLmrsTrdAreas" outcome="/admin/trdAreas/view" rendered="#{!empty lmrsBean.lmrs.trdAreas}" value="#{lmrsBean.lmrs.trdAreas}">
+				<f:param name="id" value="#{lmrsBean.lmrs.trdAreas.id}"/>
+			</h:link>
+			<h:outputText/>
+			<h:outputLabel for="lmrsBeanLmrsProcesos" value="Procesos:"/>
+			<h:link id="lmrsBeanLmrsProcesos" outcome="/admin/procesos/view" rendered="#{!empty lmrsBean.lmrs.procesos}" value="#{lmrsBean.lmrs.procesos}">
+				<f:param name="id" value="#{lmrsBean.lmrs.procesos.id}"/>
+			</h:link>
+			<h:outputText/>
+		</h:panelGrid>
+
+		<div class="buttons">
+			<h:link value="View All" outcome="search" styleClass="btn btn-primary"/> 
+			<h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
+			<h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
+		</div>
+	</ui:define>
+
+</ui:composition>

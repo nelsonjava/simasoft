@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="id" value='#{lmdsBean.id}'/>
+		<f:event type="preRenderView" listener='#{lmdsBean.retrieve}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="View Lmds"/>
+
+	<ui:define name="header">
+		Lmds
+	</ui:define>
+
+	<ui:define name="subheader">
+		View existing Lmds
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:panelGrid columnClasses="label,component,required" columns="3">
+			<h:outputLabel for="lmdsBeanLmdsCodigo" value="Codigo:"/>
+			<h:outputText id="lmdsBeanLmdsCodigo" value="#{lmdsBean.lmds.codigo}"/>
+			<h:outputText/>
+			<h:outputLabel for="lmdsBeanLmdsNombre" value="Nombre:"/>
+			<h:outputText id="lmdsBeanLmdsNombre" value="#{lmdsBean.lmds.nombre}"/>
+			<h:outputText/>
+			<h:outputLabel for="lmdsBeanLmdsVersion" value="Version:"/>
+			<h:outputText id="lmdsBeanLmdsVersion" value="#{lmdsBean.lmds.version}"/>
+			<h:outputText/>
+			<h:outputLabel for="lmdsBeanLmdsFecha" value="Fecha:"/>
+			<h:outputText id="lmdsBeanLmdsFecha" value="#{lmdsBean.lmds.fecha}">
+				<f:convertDateTime/>
+			</h:outputText>
+			<h:outputText/>
+			<h:outputLabel for="lmdsBeanLmdsUbicacion" value="Ubicacion:"/>
+			<h:outputText id="lmdsBeanLmdsUbicacion" value="#{lmdsBean.lmds.ubicacion}"/>
+			<h:outputText/>
+			<h:outputLabel for="lmdsBeanLmdsLink" value="Link:"/>
+			<h:outputText id="lmdsBeanLmdsLink" value="#{lmdsBean.lmds.link}"/>
+			<h:outputText/>
+			<h:outputLabel for="lmdsBeanLmdsObservaciones" value="Observaciones:"/>
+			<h:outputText id="lmdsBeanLmdsObservaciones" value="#{lmdsBean.lmds.observaciones}"/>
+			<h:outputText/>
+			<h:outputLabel for="lmdsBeanLmdsProcesos" value="Procesos:"/>
+			<h:link id="lmdsBeanLmdsProcesos" outcome="/admin/procesos/view" rendered="#{!empty lmdsBean.lmds.procesos}" value="#{lmdsBean.lmds.procesos}">
+				<f:param name="id" value="#{lmdsBean.lmds.procesos.id}"/>
+			</h:link>
+			<h:outputText/>
+			<h:outputLabel for="lmdsBeanLmdsTiposDocumentos" value="Tipos Documentos:"/>
+			<h:link id="lmdsBeanLmdsTiposDocumentos" outcome="/admin/tiposDocumentos/view" rendered="#{!empty lmdsBean.lmds.tiposDocumentos}" value="#{lmdsBean.lmds.tiposDocumentos}">
+				<f:param name="id" value="#{lmdsBean.lmds.tiposDocumentos.id}"/>
+			</h:link>
+			<h:outputText/>
+			<h:outputLabel for="lmdsBeanLmdsEstadosDocuementos" value="Estados Docuementos:"/>
+			<h:link id="lmdsBeanLmdsEstadosDocuementos" outcome="/admin/estadosDocuementos/view" rendered="#{!empty lmdsBean.lmds.estadosDocuementos}" value="#{lmdsBean.lmds.estadosDocuementos}">
+				<f:param name="id" value="#{lmdsBean.lmds.estadosDocuementos.id}"/>
+			</h:link>
+			<h:outputText/>
+		</h:panelGrid>
+
+		<div class="buttons">
+			<h:link value="View All" outcome="search" styleClass="btn btn-primary"/> 
+			<h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
+			<h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
+		</div>
+	</ui:define>
+
+</ui:composition>

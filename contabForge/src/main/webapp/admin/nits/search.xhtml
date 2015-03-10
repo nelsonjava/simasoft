@@ -1,0 +1,119 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:forgeview="http://jboss.org/forge/view"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="page" value='#{nitsBean.page}'/>
+		<f:event type="preRenderView" listener='#{nitsBean.paginate}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="Search Nits entities"/>
+
+	<ui:define name="header">
+		Nits
+	</ui:define>
+
+	<ui:define name="subheader">
+		Search Nits entities
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:form id="search">
+			<f:validateBean disabled="true">
+				<h:panelGroup styleClass="search">
+
+					<h:panelGrid columnClasses="label,component,required" columns="3">
+						<h:outputLabel for="nitsBeanExamplePrueba" value="Prueba:"/>
+						<h:panelGroup>
+							<h:inputText id="nitsBeanExamplePrueba" value="#{nitsBean.example.prueba}"/>
+							<h:message for="nitsBeanExamplePrueba" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="nitsBeanExampleEmpresas" value="Empresas:"/>
+						<h:panelGroup>
+							<h:selectOneMenu converter="#{empresasBean.converter}" id="nitsBeanExampleEmpresas" value="#{nitsBean.example.empresas}">
+								<f:selectItem/>
+								<f:selectItems value="#{empresasBean.all}"/>
+							</h:selectOneMenu>
+							<h:message for="nitsBeanExampleEmpresas" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="nitsBeanExampleIds" value="Ids:"/>
+						<h:panelGroup>
+							<h:selectOneMenu converter="#{idsBean.converter}" id="nitsBeanExampleIds" value="#{nitsBean.example.ids}">
+								<f:selectItem/>
+								<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{idsBean.all}" var="_item"/>
+							</h:selectOneMenu>
+							<h:message for="nitsBeanExampleIds" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="nitsBeanExamplePersonas" value="Personas:"/>
+						<h:panelGroup>
+							<h:selectOneMenu converter="#{personasBean.converter}" id="nitsBeanExamplePersonas" value="#{nitsBean.example.personas}">
+								<f:selectItem/>
+								<f:selectItems value="#{personasBean.all}"/>
+							</h:selectOneMenu>
+							<h:message for="nitsBeanExamplePersonas" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+					</h:panelGrid>
+					<h:panelGroup styleClass="buttons">
+						<h:commandLink value="Search" action='#{nitsBean.search}' styleClass="btn btn-primary"/>
+						<h:commandLink value="Create New" action='#{nitsBean.create}' styleClass="btn btn-primary"/>
+					</h:panelGroup>
+				</h:panelGroup>
+			</f:validateBean>
+			
+			<h:dataTable id="nitsBeanPageItems" styleClass="data-table" value="#{nitsBean.pageItems}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Prueba"/>
+					</f:facet>
+					<h:link outcome="/admin/nits/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemPrueba" value="#{_item.prueba}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Empresas"/>
+					</f:facet>
+					<h:link outcome="/admin/nits/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemEmpresas" value="#{_item.empresas}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Ids"/>
+					</f:facet>
+					<h:link outcome="/admin/nits/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="forgeviewdisplayitemIds" value="#{forgeview:display(_item.ids)}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Personas"/>
+					</f:facet>
+					<h:link outcome="/admin/nits/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemPersonas" value="#{_item.personas}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<ui:include src="/resources/scaffold/paginator.xhtml">
+				<ui:param name="paginatorBean" value='#{nitsBean}'/>
+			</ui:include>
+		</h:form>
+			
+	</ui:define>
+
+</ui:composition>

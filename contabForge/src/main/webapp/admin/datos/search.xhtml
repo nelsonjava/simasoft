@@ -1,0 +1,134 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:forgeview="http://jboss.org/forge/view"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="page" value='#{datosBean.page}'/>
+		<f:event type="preRenderView" listener='#{datosBean.paginate}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="Search Datos entities"/>
+
+	<ui:define name="header">
+		Datos
+	</ui:define>
+
+	<ui:define name="subheader">
+		Search Datos entities
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:form id="search">
+			<f:validateBean disabled="true">
+				<h:panelGroup styleClass="search">
+
+					<h:panelGrid columnClasses="label,component,required" columns="3">
+						<h:outputLabel for="datosBeanExampleXyz" value="Xyz:"/>
+						<h:panelGroup>
+							<h:inputText id="datosBeanExampleXyz" value="#{datosBean.example.xyz}"/>
+							<h:message for="datosBeanExampleXyz" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="datosBeanExampleAbc" value="Abc:"/>
+						<h:panelGroup>
+							<h:inputText id="datosBeanExampleAbc" value="#{datosBean.example.abc}"/>
+							<h:message for="datosBeanExampleAbc" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="datosBeanExampleEmpresas" value="Empresas:"/>
+						<h:panelGroup>
+							<h:selectOneMenu converter="#{empresasBean.converter}" id="datosBeanExampleEmpresas" value="#{datosBean.example.empresas}">
+								<f:selectItem/>
+								<f:selectItems value="#{empresasBean.all}"/>
+							</h:selectOneMenu>
+							<h:message for="datosBeanExampleEmpresas" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="datosBeanExamplePersonas" value="Personas:"/>
+						<h:panelGroup>
+							<h:selectOneMenu converter="#{personasBean.converter}" id="datosBeanExamplePersonas" value="#{datosBean.example.personas}">
+								<f:selectItem/>
+								<f:selectItems value="#{personasBean.all}"/>
+							</h:selectOneMenu>
+							<h:message for="datosBeanExamplePersonas" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="datosBeanExampleSistemas" value="Sistemas:"/>
+						<h:panelGroup>
+							<h:selectOneMenu converter="#{sistemasBean.converter}" id="datosBeanExampleSistemas" value="#{datosBean.example.sistemas}">
+								<f:selectItem/>
+								<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{sistemasBean.all}" var="_item"/>
+							</h:selectOneMenu>
+							<h:message for="datosBeanExampleSistemas" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+					</h:panelGrid>
+					<h:panelGroup styleClass="buttons">
+						<h:commandLink value="Search" action='#{datosBean.search}' styleClass="btn btn-primary"/>
+						<h:commandLink value="Create New" action='#{datosBean.create}' styleClass="btn btn-primary"/>
+					</h:panelGroup>
+				</h:panelGroup>
+			</f:validateBean>
+			
+			<h:dataTable id="datosBeanPageItems" styleClass="data-table" value="#{datosBean.pageItems}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Xyz"/>
+					</f:facet>
+					<h:link outcome="/admin/datos/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemXyz" value="#{_item.xyz}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Abc"/>
+					</f:facet>
+					<h:link outcome="/admin/datos/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemAbc" value="#{_item.abc}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Empresas"/>
+					</f:facet>
+					<h:link outcome="/admin/datos/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemEmpresas" value="#{_item.empresas}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Personas"/>
+					</f:facet>
+					<h:link outcome="/admin/datos/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemPersonas" value="#{_item.personas}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Sistemas"/>
+					</f:facet>
+					<h:link outcome="/admin/datos/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="forgeviewdisplayitemSistemas" value="#{forgeview:display(_item.sistemas)}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<ui:include src="/resources/scaffold/paginator.xhtml">
+				<ui:param name="paginatorBean" value='#{datosBean}'/>
+			</ui:include>
+		</h:form>
+			
+	</ui:define>
+
+</ui:composition>

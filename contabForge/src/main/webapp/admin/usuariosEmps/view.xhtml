@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="id" value='#{usuariosEmpsBean.id}'/>
+		<f:event type="preRenderView" listener='#{usuariosEmpsBean.retrieve}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="View Usuarios Emps"/>
+
+	<ui:define name="header">
+		Usuarios Emps
+	</ui:define>
+
+	<ui:define name="subheader">
+		View existing Usuarios Emps
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:panelGrid columnClasses="label,component,required" columns="3">
+			<h:outputLabel value="Enabled:"/>
+			<h:outputText styleClass="#{usuariosEmpsBean.usuariosEmps.enabled ? 'boolean-true' : 'boolean-false'}" value=""/>
+			<h:outputText/>
+			<h:outputLabel for="usuariosEmpsBeanUsuariosEmpsUltimoIngreso" value="Ultimo Ingreso:"/>
+			<h:outputText id="usuariosEmpsBeanUsuariosEmpsUltimoIngreso" value="#{usuariosEmpsBean.usuariosEmps.ultimoIngreso}">
+				<f:convertDateTime/>
+			</h:outputText>
+			<h:outputText/>
+			<h:outputLabel for="usuariosEmpsBeanUsuariosEmpsIp" value="Ip:"/>
+			<h:outputText id="usuariosEmpsBeanUsuariosEmpsIp" value="#{usuariosEmpsBean.usuariosEmps.ip}"/>
+			<h:outputText/>
+			<h:outputLabel for="usuariosEmpsBeanUsuariosEmpsPersonas" value="Personas:"/>
+			<h:link id="usuariosEmpsBeanUsuariosEmpsPersonas" outcome="/admin/personas/view" rendered="#{!empty usuariosEmpsBean.usuariosEmps.personas}" value="#{usuariosEmpsBean.usuariosEmps.personas}">
+				<f:param name="id" value="#{usuariosEmpsBean.usuariosEmps.personas.id}"/>
+			</h:link>
+			<h:outputText/>
+			<h:outputLabel for="usuariosEmpsBeanUsuariosEmpsUsuarios" value="Usuarios:"/>
+			<h:link id="usuariosEmpsBeanUsuariosEmpsUsuarios" outcome="/admin/usuarios/view" rendered="#{!empty usuariosEmpsBean.usuariosEmps.usuarios}" value="#{usuariosEmpsBean.usuariosEmps.usuarios}">
+				<f:param name="id" value="#{usuariosEmpsBean.usuariosEmps.usuarios.id}"/>
+			</h:link>
+			<h:outputText/>
+			<h:outputLabel for="usuariosEmpsBeanUsuariosEmpsEmpresas" value="Empresas:"/>
+			<h:link id="usuariosEmpsBeanUsuariosEmpsEmpresas" outcome="/admin/empresas/view" rendered="#{!empty usuariosEmpsBean.usuariosEmps.empresas}" value="#{usuariosEmpsBean.usuariosEmps.empresas}">
+				<f:param name="id" value="#{usuariosEmpsBean.usuariosEmps.empresas.id}"/>
+			</h:link>
+			<h:outputText/>
+		</h:panelGrid>
+
+		<div class="buttons">
+			<h:link value="View All" outcome="search" styleClass="btn btn-primary"/> 
+			<h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
+			<h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
+		</div>
+	</ui:define>
+
+</ui:composition>

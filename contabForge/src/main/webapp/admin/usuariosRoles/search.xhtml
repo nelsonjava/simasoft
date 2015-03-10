@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:forgeview="http://jboss.org/forge/view"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="page" value='#{usuariosRolesBean.page}'/>
+		<f:event type="preRenderView" listener='#{usuariosRolesBean.paginate}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="Search Usuarios Roles entities"/>
+
+	<ui:define name="header">
+		Usuarios Roles
+	</ui:define>
+
+	<ui:define name="subheader">
+		Search Usuarios Roles entities
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:form id="search">
+			<f:validateBean disabled="true">
+				<h:panelGroup styleClass="search">
+
+					<h:panelGrid columnClasses="label,component,required" columns="3">
+						<h:outputLabel for="usuariosRolesBeanExamplePrueba" value="Prueba:"/>
+						<h:panelGroup>
+							<h:inputText id="usuariosRolesBeanExamplePrueba" value="#{usuariosRolesBean.example.prueba}"/>
+							<h:message for="usuariosRolesBeanExamplePrueba" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="usuariosRolesBeanExampleUsuarios" value="Usuarios:"/>
+						<h:panelGroup>
+							<h:selectOneMenu converter="#{usuariosBean.converter}" id="usuariosRolesBeanExampleUsuarios" value="#{usuariosRolesBean.example.usuarios}">
+								<f:selectItem/>
+								<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{usuariosBean.all}" var="_item"/>
+							</h:selectOneMenu>
+							<h:message for="usuariosRolesBeanExampleUsuarios" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="usuariosRolesBeanExampleRoles" value="Roles:"/>
+						<h:panelGroup>
+							<h:selectOneMenu converter="#{rolesBean.converter}" id="usuariosRolesBeanExampleRoles" value="#{usuariosRolesBean.example.roles}">
+								<f:selectItem/>
+								<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{rolesBean.all}" var="_item"/>
+							</h:selectOneMenu>
+							<h:message for="usuariosRolesBeanExampleRoles" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+					</h:panelGrid>
+					<h:panelGroup styleClass="buttons">
+						<h:commandLink value="Search" action='#{usuariosRolesBean.search}' styleClass="btn btn-primary"/>
+						<h:commandLink value="Create New" action='#{usuariosRolesBean.create}' styleClass="btn btn-primary"/>
+					</h:panelGroup>
+				</h:panelGroup>
+			</f:validateBean>
+			
+			<h:dataTable id="usuariosRolesBeanPageItems" styleClass="data-table" value="#{usuariosRolesBean.pageItems}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Prueba"/>
+					</f:facet>
+					<h:link outcome="/admin/usuariosRoles/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemPrueba" value="#{_item.prueba}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Usuarios"/>
+					</f:facet>
+					<h:link outcome="/admin/usuariosRoles/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="forgeviewdisplayitemUsuarios" value="#{forgeview:display(_item.usuarios)}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Roles"/>
+					</f:facet>
+					<h:link outcome="/admin/usuariosRoles/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="forgeviewdisplayitemRoles" value="#{forgeview:display(_item.roles)}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<ui:include src="/resources/scaffold/paginator.xhtml">
+				<ui:param name="paginatorBean" value='#{usuariosRolesBean}'/>
+			</ui:include>
+		</h:form>
+			
+	</ui:define>
+
+</ui:composition>

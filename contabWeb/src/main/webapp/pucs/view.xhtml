@@ -1,0 +1,211 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:forgeview="http://jboss.org/forge/view"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="id" value='#{pucsBean.id}'/>
+		<f:event type="preRenderView" listener='#{pucsBean.retrieve}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="View Pucs"/>
+
+	<ui:define name="header">
+		Pucs
+	</ui:define>
+
+	<ui:define name="subheader">
+		View existing Pucs
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:panelGrid columnClasses="label,component,required" columns="3">
+			<h:outputLabel for="pucsBeanPucsNombre" value="Nombre:"/>
+			<h:outputText id="pucsBeanPucsNombre" value="#{pucsBean.pucs.nombre}"/>
+			<h:outputText/>
+			<h:outputLabel value="Si Registra:"/>
+			<h:outputText styleClass="#{pucsBean.pucs.siRegistra ? 'boolean-true' : 'boolean-false'}" value=""/>
+			<h:outputText/>
+			<h:outputLabel value="Si Tercero:"/>
+			<h:outputText styleClass="#{pucsBean.pucs.siTercero ? 'boolean-true' : 'boolean-false'}" value=""/>
+			<h:outputText/>
+			<h:outputLabel value="Si Base:"/>
+			<h:outputText styleClass="#{pucsBean.pucs.siBase ? 'boolean-true' : 'boolean-false'}" value=""/>
+			<h:outputText/>
+			<h:outputLabel for="pucsBeanPucsObservaciones" value="Observaciones:"/>
+			<h:outputText id="pucsBeanPucsObservaciones" value="#{pucsBean.pucs.observaciones}"/>
+			<h:outputText/>
+			<h:outputLabel for="pucsBeanPucsMovimientos" value="Movimientos:"/>
+			<h:dataTable id="pucsBeanPucsMovimientos" styleClass="data-table" value="#{forgeview:asList(pucsBean.pucs.movimientos)}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Fecha"/>
+					</f:facet>
+					<h:link outcome="/movimientos/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemFecha" value="#{_item.fecha}">
+							<f:convertDateTime/>
+						</h:outputText>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Documento"/>
+					</f:facet>
+					<h:link outcome="/movimientos/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemDocumento" value="#{_item.documento}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Valor"/>
+					</f:facet>
+					<h:link outcome="/movimientos/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemValor" value="#{_item.valor}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Tipo"/>
+					</f:facet>
+					<h:link outcome="/movimientos/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemTipo" value="#{_item.tipo}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Base"/>
+					</f:facet>
+					<h:link outcome="/movimientos/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemBase" value="#{_item.base}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<h:outputText/>
+			<h:outputLabel for="pucsBeanPucsSaldos" value="Saldos:"/>
+			<h:dataTable id="pucsBeanPucsSaldos" styleClass="data-table" value="#{forgeview:asList(pucsBean.pucs.saldos)}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Year"/>
+					</f:facet>
+					<h:link outcome="/saldos/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemYear" value="#{_item.year}">
+							<f:convertDateTime/>
+						</h:outputText>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Mes"/>
+					</f:facet>
+					<h:link outcome="/saldos/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemMes" value="#{_item.mes}">
+							<f:convertDateTime/>
+						</h:outputText>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Debitos"/>
+					</f:facet>
+					<h:link outcome="/saldos/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemDebitos" value="#{_item.debitos}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Creditos"/>
+					</f:facet>
+					<h:link outcome="/saldos/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemCreditos" value="#{_item.creditos}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Saldo Inicial"/>
+					</f:facet>
+					<h:link outcome="/saldos/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemSaldoInicial" value="#{_item.saldoInicial}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<h:outputText/>
+			<h:outputLabel for="pucsBeanPucsObjHijos" value="Obj Hijos:"/>
+			<h:dataTable id="pucsBeanPucsObjHijos" styleClass="data-table" value="#{forgeview:asList(pucsBean.pucs.objHijos)}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Nombre"/>
+					</f:facet>
+					<h:link outcome="/pucs/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemNombre" value="#{_item.nombre}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Si Registra"/>
+					</f:facet>
+					<h:link outcome="/pucs/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText styleClass="#{_item.siRegistra ? 'boolean-true' : 'boolean-false'}" value=""/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Si Tercero"/>
+					</f:facet>
+					<h:link outcome="/pucs/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText styleClass="#{_item.siTercero ? 'boolean-true' : 'boolean-false'}" value=""/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Si Base"/>
+					</f:facet>
+					<h:link outcome="/pucs/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText styleClass="#{_item.siBase ? 'boolean-true' : 'boolean-false'}" value=""/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Observaciones"/>
+					</f:facet>
+					<h:link outcome="/pucs/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemObservaciones" value="#{_item.observaciones}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<h:outputText/>
+			<h:outputLabel for="pucsBeanPucsObjPadre" value="Obj Padre:"/>
+			<h:link id="pucsBeanPucsObjPadre" outcome="/pucs/view" rendered="#{!empty pucsBean.pucs.objPadre}" value="#{pucsBean.pucs.objPadre}">
+				<f:param name="id" value="#{pucsBean.pucs.objPadre.id}"/>
+			</h:link>
+			<h:outputText/>
+		</h:panelGrid>
+
+		<div class="buttons">
+			<h:link value="View All" outcome="search" styleClass="btn btn-primary"/> 
+			<h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
+			<h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
+		</div>
+	</ui:define>
+
+</ui:composition>

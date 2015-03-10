@@ -1,0 +1,126 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="page" value='#{lmdsBean.page}'/>
+		<f:event type="preRenderView" listener='#{lmdsBean.paginate}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="Search Lmds entities"/>
+
+	<ui:define name="header">
+		Lmds
+	</ui:define>
+
+	<ui:define name="subheader">
+		Search Lmds entities
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:form id="search">
+			<f:validateBean disabled="true">
+				<h:panelGroup styleClass="search">
+
+					<h:panelGrid columnClasses="label,component,required" columns="3">
+						<h:outputLabel for="lmdsBeanExampleCodigo" value="Codigo:"/>
+						<h:panelGroup>
+							<h:inputText id="lmdsBeanExampleCodigo" value="#{lmdsBean.example.codigo}"/>
+							<h:message for="lmdsBeanExampleCodigo" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="lmdsBeanExampleNombre" value="Nombre:"/>
+						<h:panelGroup>
+							<h:inputText id="lmdsBeanExampleNombre" value="#{lmdsBean.example.nombre}"/>
+							<h:message for="lmdsBeanExampleNombre" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="lmdsBeanExampleVersion" value="Version:"/>
+						<h:panelGroup>
+							<h:inputText id="lmdsBeanExampleVersion" value="#{lmdsBean.example.version}"/>
+							<h:message for="lmdsBeanExampleVersion" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="lmdsBeanExampleUbicacion" value="Ubicacion:"/>
+						<h:panelGroup>
+							<h:inputText id="lmdsBeanExampleUbicacion" value="#{lmdsBean.example.ubicacion}"/>
+							<h:message for="lmdsBeanExampleUbicacion" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="lmdsBeanExampleLink" value="Link:"/>
+						<h:panelGroup>
+							<h:inputText id="lmdsBeanExampleLink" value="#{lmdsBean.example.link}"/>
+							<h:message for="lmdsBeanExampleLink" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+					</h:panelGrid>
+					<h:panelGroup styleClass="buttons">
+						<h:commandLink value="Search" action='#{lmdsBean.search}' styleClass="btn btn-primary"/>
+						<h:commandLink value="Create New" action='#{lmdsBean.create}' styleClass="btn btn-primary"/>
+					</h:panelGroup>
+				</h:panelGroup>
+			</f:validateBean>
+			
+			<h:dataTable id="lmdsBeanPageItems" styleClass="data-table" value="#{lmdsBean.pageItems}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Codigo"/>
+					</f:facet>
+					<h:link outcome="/admin/lmds/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemCodigo" value="#{_item.codigo}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Nombre"/>
+					</f:facet>
+					<h:link outcome="/admin/lmds/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemNombre" value="#{_item.nombre}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Version"/>
+					</f:facet>
+					<h:link outcome="/admin/lmds/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemVersion" value="#{_item.version}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Fecha"/>
+					</f:facet>
+					<h:link outcome="/admin/lmds/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemFecha" value="#{_item.fecha}">
+							<f:convertDateTime/>
+						</h:outputText>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Ubicacion"/>
+					</f:facet>
+					<h:link outcome="/admin/lmds/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemUbicacion" value="#{_item.ubicacion}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<ui:include src="/resources/scaffold/paginator.xhtml">
+				<ui:param name="paginatorBean" value='#{lmdsBean}'/>
+			</ui:include>
+		</h:form>
+			
+	</ui:define>
+
+</ui:composition>

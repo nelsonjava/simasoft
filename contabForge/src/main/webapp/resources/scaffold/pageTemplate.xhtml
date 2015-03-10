@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+	<title>#{empty pageTitle ? 'Page Title' : pageTitle}</title>
+	<link rel="icon" href='#{resource["favicon.ico"]}' />
+	<h:outputStylesheet name="bootstrap.css" />
+	<h:outputStylesheet name="forge-style.css" />
+</h:head>
+
+<h:body>
+	<ui:debug rendered="#{facesContext.application.projectStage == 'Development'}" />
+	<div class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<h:link id="brandLink" outcome="/index.xhtml" styleClass="brand">
+					<h:outputText value="Welcome to " rendered=" #{request.userPrincipal !=null} "/>
+                    Contab Web
+                    <h:outputText value=",  #{request.userPrincipal.name}" rendered="#{request.userPrincipal !=null} "/>
+				</h:link>
+				<div class="nav-collapse collapse">
+					<ul class="nav">
+						<li><a href="http://forge.jboss.org/docs/important_plugins/ui-scaffolding.html">How to Customize</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="container forgecontainer">
+
+		<div id="navigation">
+
+			<h:link id="homeLink" outcome="/index.xhtml">
+			   <img src="resources/img/logo.jpg" alt="Logo" border="0" />
+			</h:link>
+			
+			<ul>
+			        <h2>BASE</h2>
+
+				<h3>Paises</h3>
+				<li>
+					<h:link outcome="/admin/paises/search" value="Paises"/>
+				</li>
+				<li>
+					<h:link outcome="/admin/continentes/search" value="Continentes"/>
+				</li>
+				<li>
+					<h:link outcome="/admin/departamentos/search" value="Departamentos"/>
+				</li>
+				<li>
+					<h:link outcome="/admin/municipios/search" value="Municipios"/>
+				</li>
+				<li>
+					<h:link outcome="/admin/localidades/search" value="Localidades"/>
+				</li>
+				<li>
+					<h:link outcome="/admin/tiposLocalidades/search" value="Tipos Localidades"/>
+				</li>
+				<li>
+					<h:link outcome="/admin/tiposMunicipios/search" value="Tipos Municipios"/>
+				</li>
+
+				<h3>Direcciones</h3>
+				<li>
+					<h:link outcome="/admin/direcciones/search" value="Direcciones"/>
+				</li>
+				<li>
+					<h:link outcome="/admin/direccioness/search" value="Direccioness"/>
+				</li>
+				<li>
+					<h:link outcome="/admin/tiposEdificaciones/search" value="Tipos Edificaciones"/>
+				</li>
+
+                                <h3>Empresas</h3>
+				<li>
+					<h:link outcome="/admin/empresas/search" value="Empresas"/>
+				</li>
+
+				<li>
+					<h:link outcome="/admin/cargos/search" value="Cargos"/>
+				</li>
+				<li>
+					<h:link outcome="/admin/empleados/search" value="Empleados"/>
+				</li>
+				<li>
+					<h:link outcome="/admin/tiposCargos/search" value="Tipos Cargos"/>
+				</li>
+
+				<h3>Personas</h3>
+				<li>
+					<h:link outcome="/admin/personas/search" value="Personas"/>
+				</li>
+				
+                                <h3>Nits</h3>
+				<li>
+					<h:link outcome="/admin/ids/search" value="Ids"/>
+				</li>
+				<li>
+					<h:link outcome="/admin/nits/search" value="Nits"/>
+				</li>
+				<li>
+					<h:link outcome="/admin/tiposIds/search" value="Tipos Ids"/>
+				</li>
+				
+				<h3>Mails</h3>
+				<li>
+					<h:link outcome="/admin/mails/search" value="Mails"/>
+				</li>
+
+				<h3>Telefonos</h3>
+				<li>
+					<h:link outcome="/admin/celulares/search" value="Celulares"/>
+				</li>
+				<li>
+					<h:link outcome="/admin/telefonos/search" value="Telefonos"/>
+				</li>
+
+
+
+
+				<h3>Sistemas</h3>
+				<li>
+					<h:link outcome="/admin/datos/search" value="Datos"/>
+				</li>
+				<li>
+					<h:link outcome="/admin/opciones/search" value="Opciones"/>
+				</li>
+				<li>
+					<h:link outcome="/admin/opcionesSistemas/search" value="Opciones Sistemas"/>
+				</li>
+				<li>
+					<h:link outcome="/admin/rolesSistemas/search" value="Roles Sistemas"/>
+				</li>
+				<li>
+					<h:link outcome="/admin/sistemas/search" value="Sistemas"/>
+				</li>
+				<li>
+					<h:link outcome="/admin/tiposOpciones/search" value="Tipos Opciones"/>
+				</li>
+				<li>
+					<h:link outcome="/admin/tiposSistemas/search" value="Tipos Sistemas"/>
+				</li>
+
+                                <h3>Usuarios</h3>
+				<li>
+					<h:link outcome="/admin/roles/search" value="Roles"/>
+				</li>
+				<li>
+					<h:link outcome="/admin/rolesGrupos/search" value="Roles Grupos"/>
+				</li>
+
+				<li>
+					<h:link outcome="/admin/usuarios/search" value="Usuarios"/>
+				</li>
+				<li>
+					<h:link outcome="/admin/usuariosEmps/search" value="Usuarios Emps"/>
+				</li>
+				<li>
+					<h:link outcome="/admin/usuariosRoles/search" value="Usuarios Roles"/>
+				</li>
+
+
+                                <h3>Permisos</h3>
+				<li>
+					<h:link outcome="/admin/permisos/search" value="Permisos"/>
+				</li>
+
+
+
+			        <h2>ISO</h2>
+
+
+				<h3>Procesos</h3>
+				<li>
+					<h:link outcome="/admin/procesos/search" value="Procesos"/>
+				</li>
+				<li>
+					<h:link outcome="/admin/tiposProcesos/search" value="Tipos Procesos"/>
+				</li>
+
+
+				<h3>Lmr</h3>
+				<li>
+					<h:link outcome="/admin/lmrs/search" value="Lmrs"/>
+				</li>
+
+				<li>
+					<h:link outcome="/admin/tiposRegistros/search" value="Tipos Registros"/>
+				</li>
+
+				<li>
+					<h:link outcome="/admin/dependencias/search" value="Dependencias"/>
+				</li>
+				<li>
+					<h:link outcome="/admin/disposicionFinal/search" value="Disposicion Final"/>
+				</li>
+				<li>
+					<h:link outcome="/admin/estados/search" value="Estados"/>
+				</li>
+				<li>
+					<h:link outcome="/admin/estadosDocuementos/search" value="Estados Docuementos"/>
+				</li>
+				<li>
+					<h:link outcome="/admin/indexaciones/search" value="Indexaciones"/>
+				</li>
+				<li>
+					<h:link outcome="/admin/medios/search" value="Medios"/>
+				</li>
+				<li>
+					<h:link outcome="/admin/instituciones/search" value="Instituciones"/>
+				</li>
+				<li>
+					<h:link outcome="/admin/responsables/search" value="Responsables"/>
+				</li>
+				<li>
+					<h:link outcome="/admin/tiposAccesos/search" value="Tipos Accesos"/>
+				</li>
+				<li>
+					<h:link outcome="/admin/tiposLmrs/search" value="Tipos Lmrs"/>
+				</li>
+
+				<li>
+					<h:link outcome="/admin/trdArchivos/search" value="Trd Archivos"/>
+				</li>
+				<li>
+					<h:link outcome="/admin/trdAreas/search" value="Trd Areas"/>
+				</li>
+
+
+
+				<h3>Lmd</h3>
+				<li>
+					<h:link outcome="/admin/lmds/search" value="Lmds"/>
+				</li>
+				<li>
+					<h:link outcome="/admin/tiposDocumentos/search" value="Tipos Documentos"/>
+				</li>
+
+
+				<h2>CONTABLE</h2>
+
+
+				<h3>Contable</h3>
+				<li>
+					<h:link outcome="/admin/movimientos/search" value="Movimientos"/>
+				</li>
+				<li>
+					<h:link outcome="/admin/terceros/search" value="Terceros"/>
+				</li>
+				<li>
+					<h:link outcome="/admin/pucs/search" value="Pucs"/>
+				</li>
+				<li>
+					<h:link outcome="/admin/saldos/search" value="Saldos"/>
+				</li>
+
+
+			</ul>
+		</div>
+
+		<div id="content">
+			<h1>
+				<ui:insert name="header" />
+			</h1>
+			<h2>
+				<ui:insert name="subheader" />
+			</h2>
+
+			<ui:insert name="main" />
+		</div>
+	</div>
+
+	<footer>
+		<div id="footer-wrapper">
+	    	<p>Powered by <a href="http://jboss.org/forge">Forge</a></p>
+	    </div>
+	</footer>
+
+</h:body>
+</html>

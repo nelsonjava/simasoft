@@ -1,0 +1,115 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="page" value='#{mailsBean.page}'/>
+		<f:event type="preRenderView" listener='#{mailsBean.paginate}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="Search Mails entities"/>
+
+	<ui:define name="header">
+		Mails
+	</ui:define>
+
+	<ui:define name="subheader">
+		Search Mails entities
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:form id="search">
+			<f:validateBean disabled="true">
+				<h:panelGroup styleClass="search">
+
+					<h:panelGrid columnClasses="label,component,required" columns="3">
+						<h:outputLabel for="mailsBeanExampleMail" value="Mail:"/>
+						<h:panelGroup>
+							<h:inputText id="mailsBeanExampleMail" value="#{mailsBean.example.mail}"/>
+							<h:message for="mailsBeanExampleMail" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="mailsBeanExampleObservacion" value="Observacion:"/>
+						<h:panelGroup>
+							<h:inputText id="mailsBeanExampleObservacion" value="#{mailsBean.example.observacion}"/>
+							<h:message for="mailsBeanExampleObservacion" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="mailsBeanExamplePersonas" value="Personas:"/>
+						<h:panelGroup>
+							<h:selectOneMenu converter="#{personasBean.converter}" id="mailsBeanExamplePersonas" value="#{mailsBean.example.personas}">
+								<f:selectItem/>
+								<f:selectItems value="#{personasBean.all}"/>
+							</h:selectOneMenu>
+							<h:message for="mailsBeanExamplePersonas" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="mailsBeanExampleEmpresas" value="Empresas:"/>
+						<h:panelGroup>
+							<h:selectOneMenu converter="#{empresasBean.converter}" id="mailsBeanExampleEmpresas" value="#{mailsBean.example.empresas}">
+								<f:selectItem/>
+								<f:selectItems value="#{empresasBean.all}"/>
+							</h:selectOneMenu>
+							<h:message for="mailsBeanExampleEmpresas" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+					</h:panelGrid>
+					<h:panelGroup styleClass="buttons">
+						<h:commandLink value="Search" action='#{mailsBean.search}' styleClass="btn btn-primary"/>
+						<h:commandLink value="Create New" action='#{mailsBean.create}' styleClass="btn btn-primary"/>
+					</h:panelGroup>
+				</h:panelGroup>
+			</f:validateBean>
+			
+			<h:dataTable id="mailsBeanPageItems" styleClass="data-table" value="#{mailsBean.pageItems}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Mail"/>
+					</f:facet>
+					<h:link outcome="/admin/mails/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemMail" value="#{_item.mail}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Observacion"/>
+					</f:facet>
+					<h:link outcome="/admin/mails/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemObservacion" value="#{_item.observacion}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Personas"/>
+					</f:facet>
+					<h:link outcome="/admin/mails/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemPersonas" value="#{_item.personas}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Empresas"/>
+					</f:facet>
+					<h:link outcome="/admin/mails/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemEmpresas" value="#{_item.empresas}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<ui:include src="/resources/scaffold/paginator.xhtml">
+				<ui:param name="paginatorBean" value='#{mailsBean}'/>
+			</ui:include>
+		</h:form>
+			
+	</ui:define>
+
+</ui:composition>

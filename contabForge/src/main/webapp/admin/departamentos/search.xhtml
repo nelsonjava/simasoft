@@ -1,0 +1,113 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:forgeview="http://jboss.org/forge/view"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="page" value='#{departamentosBean.page}'/>
+		<f:event type="preRenderView" listener='#{departamentosBean.paginate}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="Search Departamentos entities"/>
+
+	<ui:define name="header">
+		Departamentos
+	</ui:define>
+
+	<ui:define name="subheader">
+		Search Departamentos entities
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:form id="search">
+			<f:validateBean disabled="true">
+				<h:panelGroup styleClass="search">
+
+					<h:panelGrid columnClasses="label,component,required" columns="3">
+						<h:outputLabel for="departamentosBeanExampleCodigo" value="Codigo:"/>
+						<h:panelGroup>
+							<h:inputText id="departamentosBeanExampleCodigo" value="#{departamentosBean.example.codigo}"/>
+							<h:message for="departamentosBeanExampleCodigo" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="departamentosBeanExampleNombre" value="Nombre:"/>
+						<h:panelGroup>
+							<h:inputText id="departamentosBeanExampleNombre" value="#{departamentosBean.example.nombre}"/>
+							<h:message for="departamentosBeanExampleNombre" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="departamentosBeanExampleCodigoDane" value="Codigo Dane:"/>
+						<h:panelGroup>
+							<h:inputText id="departamentosBeanExampleCodigoDane" value="#{departamentosBean.example.codigoDane}"/>
+							<h:message for="departamentosBeanExampleCodigoDane" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="departamentosBeanExamplePaises" value="Paises:"/>
+						<h:panelGroup>
+							<h:selectOneMenu converter="#{paisesBean.converter}" id="departamentosBeanExamplePaises" value="#{departamentosBean.example.paises}">
+								<f:selectItem/>
+								<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{paisesBean.all}" var="_item"/>
+							</h:selectOneMenu>
+							<h:message for="departamentosBeanExamplePaises" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+					</h:panelGrid>
+					<h:panelGroup styleClass="buttons">
+						<h:commandLink value="Search" action='#{departamentosBean.search}' styleClass="btn btn-primary"/>
+						<h:commandLink value="Create New" action='#{departamentosBean.create}' styleClass="btn btn-primary"/>
+					</h:panelGroup>
+				</h:panelGroup>
+			</f:validateBean>
+			
+			<h:dataTable id="departamentosBeanPageItems" styleClass="data-table" value="#{departamentosBean.pageItems}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Codigo"/>
+					</f:facet>
+					<h:link outcome="/admin/departamentos/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemCodigo" value="#{_item.codigo}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Nombre"/>
+					</f:facet>
+					<h:link outcome="/admin/departamentos/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemNombre" value="#{_item.nombre}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Codigo Dane"/>
+					</f:facet>
+					<h:link outcome="/admin/departamentos/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemCodigoDane" value="#{_item.codigoDane}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Paises"/>
+					</f:facet>
+					<h:link outcome="/admin/departamentos/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="forgeviewdisplayitemPaises" value="#{forgeview:display(_item.paises)}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<ui:include src="/resources/scaffold/paginator.xhtml">
+				<ui:param name="paginatorBean" value='#{departamentosBean}'/>
+			</ui:include>
+		</h:form>
+			
+	</ui:define>
+
+</ui:composition>

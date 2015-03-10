@@ -1,0 +1,155 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:forgeview="http://jboss.org/forge/view"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="id" value='#{tiposRegistrosBean.id}'/>
+		<f:event type="preRenderView" listener='#{tiposRegistrosBean.retrieve}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="Create Tipos Registros"/>
+
+	<ui:define name="header">
+		Tipos Registros
+	</ui:define>
+
+	<ui:define name="subheader">
+		<c:choose>
+			<c:when test='#{!empty tiposRegistrosBean.id}'>
+				Edit existing Tipos Registros
+			</c:when>
+			<c:otherwise>
+				Create a new Tipos Registros
+			</c:otherwise>
+		</c:choose>
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:form id="create">
+			<h:messages globalOnly="true" styleClass="error"/>
+
+			<h:panelGrid columnClasses="label,component,required" columns="3">
+				<h:outputLabel for="tiposRegistrosBeanTiposRegistrosCodigo" value="Codigo:"/>
+				<h:panelGroup>
+					<h:inputText id="tiposRegistrosBeanTiposRegistrosCodigo" value="#{tiposRegistrosBean.tiposRegistros.codigo}"/>
+					<h:message for="tiposRegistrosBeanTiposRegistrosCodigo" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="tiposRegistrosBeanTiposRegistrosNombre" value="Nombre:"/>
+				<h:panelGroup>
+					<h:inputText id="tiposRegistrosBeanTiposRegistrosNombre" value="#{tiposRegistrosBean.tiposRegistros.nombre}"/>
+					<h:message for="tiposRegistrosBeanTiposRegistrosNombre" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="tiposRegistrosBeanTiposRegistrosLmrs" value="Lmrs:"/>
+				<h:panelGroup>
+					<ui:param name="_collection" value="#{tiposRegistrosBean.tiposRegistros.lmrs}"/>
+					<h:dataTable id="tiposRegistrosBeanTiposRegistrosLmrs" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Codigo"/>
+							</f:facet>
+							<h:link outcome="/admin/lmrs/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemCodigo" value="#{_item.codigo}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="lmrsBeanAddCodigo" value="#{lmrsBean.add.codigo}"/>
+								<h:message for="lmrsBeanAddCodigo" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Nombre"/>
+							</f:facet>
+							<h:link outcome="/admin/lmrs/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemNombre" value="#{_item.nombre}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="lmrsBeanAddNombre" value="#{lmrsBean.add.nombre}"/>
+								<h:message for="lmrsBeanAddNombre" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Version"/>
+							</f:facet>
+							<h:link outcome="/admin/lmrs/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemVersion" value="#{_item.version}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="lmrsBeanAddVersion" value="#{lmrsBean.add.version}"/>
+								<h:message for="lmrsBeanAddVersion" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Fecha"/>
+							</f:facet>
+							<h:link outcome="/admin/lmrs/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemFecha" value="#{_item.fecha}">
+									<f:convertDateTime/>
+								</h:outputText>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="lmrsBeanAddFecha" value="#{lmrsBean.add.fecha}">
+									<f:convertDateTime/>
+								</h:inputText>
+								<h:message for="lmrsBeanAddFecha" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Estado"/>
+							</f:facet>
+							<h:link outcome="/admin/lmrs/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemEstado" value="#{_item.estado}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="lmrsBeanAddEstado" value="#{lmrsBean.add.estado}"/>
+								<h:message for="lmrsBeanAddEstado" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column footerClass="remove-column" headerClass="remove-column">
+							<h:commandLink action="#{_collection.remove(_item)}" styleClass="remove-button"/>
+							<f:facet name="footer">
+								<h:commandLink action="#{_collection.add(lmrsBean.added)}" id="tiposRegistrosBeanTiposRegistrosLmrsAdd" styleClass="add-button">
+									<f:setPropertyActionListener target="#{lmrsBean.add.tiposRegistros}" value="#{tiposRegistrosBean.tiposRegistros}"/>
+								</h:commandLink>
+							</f:facet>
+						</h:column>
+					</h:dataTable>
+				</h:panelGroup>
+				<h:outputText/>
+			</h:panelGrid>
+
+			<div class="buttons">
+				<h:commandLink value="Save" action='#{tiposRegistrosBean.update}' styleClass="btn btn-primary"/>
+				<c:choose>
+					<c:when test='#{!empty tiposRegistrosBean.id}'>
+						<h:link value="Cancel" outcome="view" styleClass="btn btn-primary">
+							<f:param name="id" value='#{tiposRegistrosBean.id}'/>
+						</h:link>
+						<h:commandLink value="Delete" action='#{tiposRegistrosBean.delete}' styleClass="btn btn-primary"/>
+					</c:when>
+					<c:otherwise>
+						<h:link value="Cancel" outcome="search" styleClass="btn btn-primary"/>
+					</c:otherwise>
+				</c:choose>
+			</div>
+		</h:form>
+	</ui:define>
+
+</ui:composition>

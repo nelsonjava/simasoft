@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:forgeview="http://jboss.org/forge/view"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="id" value='#{empleadosBean.id}'/>
+		<f:event type="preRenderView" listener='#{empleadosBean.retrieve}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="View Empleados"/>
+
+	<ui:define name="header">
+		Empleados
+	</ui:define>
+
+	<ui:define name="subheader">
+		View existing Empleados
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:panelGrid columnClasses="label,component,required" columns="3">
+			<h:outputLabel for="empleadosBeanEmpleadosFechaIngreso" value="Fecha Ingreso:"/>
+			<h:outputText id="empleadosBeanEmpleadosFechaIngreso" value="#{empleadosBean.empleados.fechaIngreso}">
+				<f:convertDateTime/>
+			</h:outputText>
+			<h:outputText/>
+			<h:outputLabel for="empleadosBeanEmpleadosFechaRetiro" value="Fecha Retiro:"/>
+			<h:outputText id="empleadosBeanEmpleadosFechaRetiro" value="#{empleadosBean.empleados.fechaRetiro}">
+				<f:convertDateTime/>
+			</h:outputText>
+			<h:outputText/>
+			<h:outputLabel for="empleadosBeanEmpleadosDescripcion" value="Descripcion:"/>
+			<h:outputText id="empleadosBeanEmpleadosDescripcion" value="#{empleadosBean.empleados.descripcion}"/>
+			<h:outputText/>
+			<h:outputLabel for="empleadosBeanEmpleadosPersonas" value="Personas:"/>
+			<h:link id="empleadosBeanEmpleadosPersonas" outcome="/admin/personas/view" rendered="#{!empty empleadosBean.empleados.personas}" value="#{empleadosBean.empleados.personas}">
+				<f:param name="id" value="#{empleadosBean.empleados.personas.id}"/>
+			</h:link>
+			<h:outputText/>
+			<h:outputLabel for="empleadosBeanEmpleadosEmpresas" value="Empresas:"/>
+			<h:link id="empleadosBeanEmpleadosEmpresas" outcome="/admin/empresas/view" rendered="#{!empty empleadosBean.empleados.empresas}" value="#{empleadosBean.empleados.empresas}">
+				<f:param name="id" value="#{empleadosBean.empleados.empresas.id}"/>
+			</h:link>
+			<h:outputText/>
+			<h:outputLabel for="empleadosBeanEmpleadosCargos" value="Cargos:"/>
+			<h:dataTable id="empleadosBeanEmpleadosCargos" styleClass="data-table" value="#{forgeview:asList(empleadosBean.empleados.cargos)}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Nombre"/>
+					</f:facet>
+					<h:link outcome="/admin/cargos/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemNombre" value="#{_item.nombre}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Tipos Cargos"/>
+					</f:facet>
+					<h:link outcome="/admin/cargos/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="forgeviewdisplayitemTiposCargos" value="#{forgeview:display(_item.tiposCargos)}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<h:outputText/>
+		</h:panelGrid>
+
+		<div class="buttons">
+			<h:link value="View All" outcome="search" styleClass="btn btn-primary"/> 
+			<h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
+			<h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
+		</div>
+	</ui:define>
+
+</ui:composition>

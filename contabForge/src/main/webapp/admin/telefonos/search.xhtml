@@ -1,0 +1,118 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="page" value='#{telefonosBean.page}'/>
+		<f:event type="preRenderView" listener='#{telefonosBean.paginate}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="Search Telefonos entities"/>
+
+	<ui:define name="header">
+		Telefonos
+	</ui:define>
+
+	<ui:define name="subheader">
+		Search Telefonos entities
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:form id="search">
+			<f:validateBean disabled="true">
+				<h:panelGroup styleClass="search">
+
+					<h:panelGrid columnClasses="label,component,required" columns="3">
+						<h:outputLabel for="telefonosBeanExampleTelefono" value="Telefono:"/>
+						<h:panelGroup>
+							<h:inputText id="telefonosBeanExampleTelefono" value="#{telefonosBean.example.telefono}"/>
+							<h:message for="telefonosBeanExampleTelefono" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="telefonosBeanExampleDirecciones" value="Direcciones:"/>
+						<h:panelGroup>
+							<h:selectOneMenu converter="#{direccionesBean.converter}" id="telefonosBeanExampleDirecciones" value="#{telefonosBean.example.direcciones}">
+								<f:selectItem/>
+								<f:selectItems value="#{direccionesBean.all}"/>
+							</h:selectOneMenu>
+							<h:message for="telefonosBeanExampleDirecciones" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="telefonosBeanExampleEmpresas" value="Empresas:"/>
+						<h:panelGroup>
+							<h:selectOneMenu converter="#{empresasBean.converter}" id="telefonosBeanExampleEmpresas" value="#{telefonosBean.example.empresas}">
+								<f:selectItem/>
+								<f:selectItems value="#{empresasBean.all}"/>
+							</h:selectOneMenu>
+							<h:message for="telefonosBeanExampleEmpresas" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="telefonosBeanExamplePersonas" value="Personas:"/>
+						<h:panelGroup>
+							<h:selectOneMenu converter="#{personasBean.converter}" id="telefonosBeanExamplePersonas" value="#{telefonosBean.example.personas}">
+								<f:selectItem/>
+								<f:selectItems value="#{personasBean.all}"/>
+							</h:selectOneMenu>
+							<h:message for="telefonosBeanExamplePersonas" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+					</h:panelGrid>
+					<h:panelGroup styleClass="buttons">
+						<h:commandLink value="Search" action='#{telefonosBean.search}' styleClass="btn btn-primary"/>
+						<h:commandLink value="Create New" action='#{telefonosBean.create}' styleClass="btn btn-primary"/>
+					</h:panelGroup>
+				</h:panelGroup>
+			</f:validateBean>
+			
+			<h:dataTable id="telefonosBeanPageItems" styleClass="data-table" value="#{telefonosBean.pageItems}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Telefono"/>
+					</f:facet>
+					<h:link outcome="/admin/telefonos/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemTelefono" value="#{_item.telefono}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Direcciones"/>
+					</f:facet>
+					<h:link outcome="/admin/telefonos/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemDirecciones" value="#{_item.direcciones}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Empresas"/>
+					</f:facet>
+					<h:link outcome="/admin/telefonos/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemEmpresas" value="#{_item.empresas}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Personas"/>
+					</f:facet>
+					<h:link outcome="/admin/telefonos/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemPersonas" value="#{_item.personas}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<ui:include src="/resources/scaffold/paginator.xhtml">
+				<ui:param name="paginatorBean" value='#{telefonosBean}'/>
+			</ui:include>
+		</h:form>
+			
+	</ui:define>
+
+</ui:composition>

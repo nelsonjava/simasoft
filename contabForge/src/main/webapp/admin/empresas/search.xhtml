@@ -1,0 +1,124 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="page" value='#{empresasBean.page}'/>
+		<f:event type="preRenderView" listener='#{empresasBean.paginate}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="Search Empresas entities"/>
+
+	<ui:define name="header">
+		Empresas
+	</ui:define>
+
+	<ui:define name="subheader">
+		Search Empresas entities
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:form id="search">
+			<f:validateBean disabled="true">
+				<h:panelGroup styleClass="search">
+
+					<h:panelGrid columnClasses="label,component,required" columns="3">
+						<h:outputLabel for="empresasBeanExampleNombre" value="Nombre:"/>
+						<h:panelGroup>
+							<h:inputText id="empresasBeanExampleNombre" value="#{empresasBean.example.nombre}"/>
+							<h:message for="empresasBeanExampleNombre" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="empresasBeanExampleNombreSecundario" value="Nombre Secundario:"/>
+						<h:panelGroup>
+							<h:inputText id="empresasBeanExampleNombreSecundario" value="#{empresasBean.example.nombreSecundario}"/>
+							<h:message for="empresasBeanExampleNombreSecundario" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="empresasBeanExampleTitulo" value="Titulo:"/>
+						<h:panelGroup>
+							<h:inputText id="empresasBeanExampleTitulo" value="#{empresasBean.example.titulo}"/>
+							<h:message for="empresasBeanExampleTitulo" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="empresasBeanExampleEslogan" value="Eslogan:"/>
+						<h:panelGroup>
+							<h:inputText id="empresasBeanExampleEslogan" value="#{empresasBean.example.eslogan}"/>
+							<h:message for="empresasBeanExampleEslogan" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="empresasBeanExampleVision" value="Vision:"/>
+						<h:panelGroup>
+							<h:inputText id="empresasBeanExampleVision" value="#{empresasBean.example.vision}"/>
+							<h:message for="empresasBeanExampleVision" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+					</h:panelGrid>
+					<h:panelGroup styleClass="buttons">
+						<h:commandLink value="Search" action='#{empresasBean.search}' styleClass="btn btn-primary"/>
+						<h:commandLink value="Create New" action='#{empresasBean.create}' styleClass="btn btn-primary"/>
+					</h:panelGroup>
+				</h:panelGroup>
+			</f:validateBean>
+			
+			<h:dataTable id="empresasBeanPageItems" styleClass="data-table" value="#{empresasBean.pageItems}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Nombre"/>
+					</f:facet>
+					<h:link outcome="/admin/empresas/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemNombre" value="#{_item.nombre}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Nombre Secundario"/>
+					</f:facet>
+					<h:link outcome="/admin/empresas/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemNombreSecundario" value="#{_item.nombreSecundario}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Titulo"/>
+					</f:facet>
+					<h:link outcome="/admin/empresas/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemTitulo" value="#{_item.titulo}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Eslogan"/>
+					</f:facet>
+					<h:link outcome="/admin/empresas/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemEslogan" value="#{_item.eslogan}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Vision"/>
+					</f:facet>
+					<h:link outcome="/admin/empresas/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemVision" value="#{_item.vision}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<ui:include src="/resources/scaffold/paginator.xhtml">
+				<ui:param name="paginatorBean" value='#{empresasBean}'/>
+			</ui:include>
+		</h:form>
+			
+	</ui:define>
+
+</ui:composition>
