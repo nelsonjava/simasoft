@@ -7,6 +7,7 @@ import co.simasoft.utils.*;
 
 import co.simasoft.gen.asciidoc.*;
 import co.simasoft.gen.jpa.*;
+import co.simasoft.gen.bean.*;
 
 public class App extends FileTxt{
 
@@ -55,19 +56,25 @@ public class App extends FileTxt{
         for(Entidad entidad : entidades) {
 
             Entity0 entity0 = new Entity0(artifactId,groupId+".models."+modelo+"."+artifactId,entidad,imports);
-            Utils.fileMake(pathDocs+"."+modelo+"."+artifactId+".src.main.java."+groupId+".models."+modelo+"."+artifactId+".0",entidad.getName()+".java", entity0);
+            Utils.fileMake(pathDocs+"."+modelo+"."+artifactId+".src.main.java."+groupId+".models."+modelo+"."+artifactId+".jpa.0",entidad.getName()+".java", entity0);
 
             EntityMongo entityMongo = new EntityMongo(artifactId,groupId+".models."+modelo+"."+artifactId,entidad,imports);
-            Utils.fileMake(pathDocs+"."+modelo+"."+artifactId+".src.main.java."+groupId+".models."+modelo+"."+artifactId+".mongo",entidad.getName()+".java", entityMongo);
+            Utils.fileMake(pathDocs+"."+modelo+"."+artifactId+".src.main.java."+groupId+".models."+modelo+"."+artifactId+".jpa.mongo",entidad.getName()+".java", entityMongo);
 
             EntityH2 entityH2 = new EntityH2(artifactId,groupId+".models."+modelo+"."+artifactId,entidad,imports);
-            Utils.fileMake(pathDocs+"."+modelo+"."+artifactId+".src.main.java."+groupId+".models."+modelo+"."+artifactId+".h2",entidad.getName()+".java", entityH2);
+            Utils.fileMake(pathDocs+"."+modelo+"."+artifactId+".src.main.java."+groupId+".models."+modelo+"."+artifactId+".jpa.h2",entidad.getName()+".java", entityH2);
 
             EntityPruebaMongo entityPruebaMongo = new EntityPruebaMongo(artifactId,groupId+".models."+modelo+"."+artifactId,entidad,imports);
-            Utils.fileMake(pathDocs+"."+modelo+"."+artifactId+".src.main.java."+groupId+".models."+modelo+"."+artifactId+".pmongo",entidad.getName()+".java", entityPruebaMongo);
+            Utils.fileMake(pathDocs+"."+modelo+"."+artifactId+".src.main.java."+groupId+".models."+modelo+"."+artifactId+".jpa.pmongo",entidad.getName()+".java", entityPruebaMongo);
 
             EntityPruebaH2 entityPruebaH2 = new EntityPruebaH2(artifactId,groupId+".models."+modelo+"."+artifactId,entidad,imports);
-            Utils.fileMake(pathDocs+"."+modelo+"."+artifactId+".src.main.java."+groupId+".models."+modelo+"."+artifactId+".ph2",entidad.getName()+".java", entityPruebaH2);
+            Utils.fileMake(pathDocs+"."+modelo+"."+artifactId+".src.main.java."+groupId+".models."+modelo+"."+artifactId+".jpa.ph2",entidad.getName()+".java", entityPruebaH2);
+        }
+
+        for(Entidad entidad : entidades) {
+
+            BeanH2 beanH2 = new BeanH2(artifactId,groupId+".models."+modelo+"."+artifactId,entidad,imports);
+            Utils.fileMake(pathDocs+"."+modelo+"."+artifactId+".src.main.java."+groupId+".models."+modelo+"."+artifactId+".bean.h2",entidad.getName()+"Bean.java", beanH2);
         }
 
         Persistence persistence = new Persistence(artifactId,groupId+".models."+modelo,entidades);
@@ -75,6 +82,9 @@ public class App extends FileTxt{
 
         Datasource datasource = new Datasource(artifactId,groupId,entidades);
         Utils.fileMake(pathDocs+"."+modelo+"."+artifactId+".src.main.java."+groupId+".models."+modelo+"."+artifactId,artifactId+"-ds.xml", datasource);
+
+        GuiFsh guiFsh = new GuiFsh(artifactId,groupId+".models."+modelo,imports);
+        Utils.fileMake(pathDocs+"."+modelo+"."+artifactId+".src.main.java."+groupId+".models."+modelo+"."+artifactId, "gui.fsh", guiFsh);
 
     }
 
@@ -99,6 +109,7 @@ public class App extends FileTxt{
 
     public static void main( String[] args ) throws IOException {
 
+        modelos.clear();
         modelos.add(new Modelos("contable","co.simasoft","contabilidad"));
         generar(modelos);
 
@@ -120,6 +131,11 @@ public class App extends FileTxt{
         modelos.add(new Modelos("base","co.simasoft","sistemas"));
         modelos.add(new Modelos("base","co.simasoft","telefonos"));
         modelos.add(new Modelos("base","co.simasoft","usuarios"));
+        generar(modelos);
+
+        modelos.clear();
+        modelos.add(new Modelos("pruebas","co.simasoft","prueba1"));
+        modelos.add(new Modelos("pruebas","co.simasoft","prueba2"));        
         generar(modelos);
 
     } // main

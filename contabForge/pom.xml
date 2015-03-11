@@ -6,7 +6,7 @@
   <!-- mvn clean package wildfly:deploy -->
   <!-- http://localhost:8080 -->
   <!-- http://localhost:8080/contabWeb -->
-   
+  <!-- https://www.diffchecker.com/  -->
 
   <modelVersion>4.0.0</modelVersion>
   <groupId>co.simasoft.contab</groupId>
