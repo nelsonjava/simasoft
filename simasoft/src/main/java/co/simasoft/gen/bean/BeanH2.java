@@ -92,8 +92,9 @@ line("import javax.persistence.criteria.CriteriaQuery;");
 line("import javax.persistence.criteria.Predicate;");
 line("import javax.persistence.criteria.Root;\n");
 
-line("import co.simasoft.models.pruebas.prueba1.Continentes;");
-line("import co.simasoft.models.pruebas.prueba1.Paises;");
+        for(String paquete : imports) {
+line("import "+paquete+".*;");
+        }
 line("import java.util.Iterator;\n");
 
 line("@Named");
@@ -197,20 +198,50 @@ line("      try{");
 line("         "+entity.getName()+" deletableEntity = findById(getId());");
 
 line("//OJO");
-line("         Iterator<Paises> iterPaises = deletableEntity.getPaises().iterator();");
 
 for(Relation relation : relations) {
 
+   if(relation.getCardinality().equals("*..1")) {
+     if (relation.getFrom().equals(relation.getTo())){   // Relación Unitaria
+
+line("         "+relation.getTo()+" objPadre = deletableEntity.getObjPadre();");
+line("         objPadre.getObjHijos().remove(deletableEntity);");
+line("         deletableEntity.setObjPadre(null);");
+line("         this.entityManager.merge(objPadre);");
+
+     }
+     else{
+
+line("         "+relation.getTo()+" "+Utils._1raMin(relation.getTo())+" = deletableEntity.get"+relation.getTo()+"();");
+line("         "+Utils._1raMin(relation.getTo())+".get"+entity.getName()+"().remove(deletableEntity);");
+line("         deletableEntity.set"+relation.getTo()+"(null);");
+line("         this.entityManager.merge("+Utils._1raMin(relation.getTo())+");");
+
+     }
+   }
+
    if(relation.getCardinality().equals("1..*")) {
       if(relation.getFrom().equals(relation.getTo())){  // Relación Unitaria
+
+line("         Iterator<"+relation.getTo()+"> iterObjHijos = deletableEntity.getObjHijos().iterator();");
+line("         for (; iterObjHijos.hasNext();){");
+line("            Pucs nextInObjHijos = iterObjHijos.next();");
+line("            nextInObjHijos.setObjPadre(null);");
+line("            iterObjHijos.remove();");
+line("            this.entityManager.merge(nextInObjHijos);");
+line("         }");
+
       }
       else{
+
+line("         Iterator<"+relation.getTo()+"> iter"+relation.getTo()+" = deletableEntity.get"+relation.getTo()+"().iterator();");
 line("         for (; iter"+relation.getTo()+".hasNext();){");
-line("            "+relation.getTo()+" nextIn"+relation.getTo()+" = iterPaises.next();");
+line("            "+relation.getTo()+" nextIn"+relation.getTo()+" = iter"+relation.getTo()+".next();");
 line("            nextIn"+relation.getTo()+".set"+entity.getName()+"(null);");
 line("            iter"+relation.getTo()+".remove();");
 line("            this.entityManager.merge(nextIn"+relation.getTo()+");");
 line("         }");
+
       }
    }
 }
@@ -285,11 +316,14 @@ line("   private Predicate[] getSearchPredicates(Root<"+entity.getName()+"> root
 line("      CriteriaBuilder builder = this.entityManager.getCriteriaBuilder();");
 line("      List<Predicate> predicatesList = new ArrayList<Predicate>();\n");
 
+
 line("      // OJO");
+/*
 line("      String nombre = this.example.getNombre();");
 line("      if (nombre != null && !\"\".equals(nombre)){");
 line("         predicatesList.add(builder.like(builder.lower(root.<String> get(\"nombre\")), '%' + nombre.toLowerCase() + '%'));");
 line("      }\n");
+*/
 
 line("      return predicatesList.toArray(new Predicate[predicatesList.size()]);");
 line("   }\n");

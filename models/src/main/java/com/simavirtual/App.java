@@ -8,6 +8,7 @@ import co.simasoft.utils.*;
 import co.simasoft.gen.asciidoc.*;
 import co.simasoft.gen.jpa.*;
 import co.simasoft.gen.bean.*;
+import co.simasoft.gen.xhtml.*;
 
 public class App extends FileTxt{
 
@@ -76,6 +77,22 @@ public class App extends FileTxt{
             BeanH2 beanH2 = new BeanH2(artifactId,groupId+".models."+modelo+"."+artifactId,entidad,imports);
             Utils.fileMake(pathDocs+"."+modelo+"."+artifactId+".src.main.java."+groupId+".models."+modelo+"."+artifactId+".bean.h2",entidad.getName()+"Bean.java", beanH2);
         }
+        BeanUtils beanUtils = new BeanUtils(artifactId,groupId+".models."+modelo+"."+artifactId,imports);
+        Utils.fileMake(pathDocs+"."+modelo+"."+artifactId+".src.main.java."+groupId+".models."+modelo+"."+artifactId+".bean","ViewUtils.java", beanUtils);
+
+        for(Entidad entidad : entidades) {
+
+            CreateH2 createH2 = new CreateH2(artifactId,groupId+".models."+modelo+"."+artifactId,entidad,imports);
+            Utils.fileMake(pathDocs+"."+modelo+"."+artifactId+".src.main.java."+groupId+".models."+modelo+"."+artifactId+".xhtml."+entidad.getName()+".h2","create.xhtml", createH2);
+            
+            SearchH2 searchH2 = new SearchH2(artifactId,groupId+".models."+modelo+"."+artifactId,entidad,imports);
+            Utils.fileMake(pathDocs+"."+modelo+"."+artifactId+".src.main.java."+groupId+".models."+modelo+"."+artifactId+".xhtml."+entidad.getName()+".h2","search.xhtml", searchH2);
+            
+            ViewH2 viewH2 = new ViewH2(artifactId,groupId+".models."+modelo+"."+artifactId,entidad,imports);
+            Utils.fileMake(pathDocs+"."+modelo+"."+artifactId+".src.main.java."+groupId+".models."+modelo+"."+artifactId+".xhtml."+entidad.getName()+".h2","view.xhtml", viewH2);
+
+
+        }
 
         Persistence persistence = new Persistence(artifactId,groupId+".models."+modelo,entidades);
         Utils.fileMake(pathDocs+"."+modelo+"."+artifactId+".src.main.java."+groupId+".models."+modelo+"."+artifactId, "persistence.xml", persistence);
@@ -135,7 +152,7 @@ public class App extends FileTxt{
 
         modelos.clear();
         modelos.add(new Modelos("pruebas","co.simasoft","prueba1"));
-        modelos.add(new Modelos("pruebas","co.simasoft","prueba2"));        
+        modelos.add(new Modelos("pruebas","co.simasoft","prueba2"));
         generar(modelos);
 
     } // main
