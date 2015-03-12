@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:forgeview="http://jboss.org/forge/view"
+                template="/resources/scaffold/pageTemplate.xhtml">
+
+  <f:metadata>
+    <f:viewParam name="page" value='#{tercerosBean.page}'/>
+    <f:event type="preRenderView" listener='#{tercerosBean.paginate}'/>
+  </f:metadata>
+
+  <ui:param name="pageTitle" value="Search Terceros entities"/>
+
+  <ui:define name="header">
+    Terceros
+  </ui:define>
+
+  <ui:define name="subheader">
+    Search Terceros entities
+  </ui:define>
+
+  <ui:define name="footer"/>
+
+  <ui:define name="main">
+
+  </ui:define>
+
+</ui:composition>
+

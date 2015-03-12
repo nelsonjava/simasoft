@@ -29,7 +29,8 @@
     <delete dir="pruebaWar/PutObjectStoreDirHere" failonerror="no"/>
     <delete dir="kitchensink/target" failonerror="no"/>
     <delete dir="contabWeb/target" failonerror="no"/>
-    <delete dir="contabForge/target" failonerror="no"/>    
+    <delete dir="contabForge/target" failonerror="no"/>
+    <delete dir="prueba1/target" failonerror="no"/>        
 
     <!-- DabaBases -->
     <delete dir="db/contabDb/target" failonerror="no"/>
