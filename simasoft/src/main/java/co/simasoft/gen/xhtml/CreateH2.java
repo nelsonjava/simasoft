@@ -103,6 +103,45 @@ line("  </ui:define>\n");
 line("  <ui:define name=\"footer\"/>\n");
 
 line("  <ui:define name=\"main\">");
+
+line("    <h:form id=\"create\">");
+
+line("       <h:messages globalOnly=\"true\" styleClass=\"error\"/>");
+
+line("       <h:panelGrid columnClasses=\"label,component,required\" columns=\"3\">");
+
+          for(Atributos atributo : atributos) {
+            
+line(atributo.getField()+":"+atributo.getType());            
+
+             if (atributo.getType().equals("String")) {
+
+
+             }
+
+          } // for atributos
+
+
+line("       </h:panelGrid>");
+
+line("       <div class=\"buttons\">");
+line("         <h:commandLink value=\"Save\" action='#{"+Utils._1raMin(entity.getName())+"Bean.update}' styleClass=\"btn btn-primary\"/>");
+line("         <c:choose>");
+line("           <c:when test='#{!empty "+Utils._1raMin(entity.getName())+"Bean.id}'>");
+line("              <h:link value=\"Cancel\" outcome=\"view\" styleClass=\"btn btn-primary\">");
+line("                <f:param name=\"id\" value='#{"+Utils._1raMin(entity.getName())+"Bean.id}'/>");
+line("              </h:link>");
+line("              <h:commandLink value=\"Delete\" action='#{"+Utils._1raMin(entity.getName())+"Bean.delete}' styleClass=\"btn btn-primary\"/>");
+line("           </c:when>");
+line("           <c:otherwise>");
+line("             <h:link value=\"Cancel\" outcome=\"search\" styleClass=\"btn btn-primary\"/>");
+line("           </c:otherwise>");
+line("         </c:choose>");
+line("       </div>");
+
+line("    </h:form>");
+
+
 line("  </ui:define>\n");
 
 line("</ui:composition>\n");

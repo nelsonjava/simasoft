@@ -58,7 +58,7 @@ OBJETIVOS:
 *                                           IMPLEMENTACION DEL METODO                                           *
 *---------------------------------------------------------------------------------------------------------------*/
 
-public Paginator(String artifactId,String groupId,Entidad entity,ArrayList<String> imports) throws IOException {
+public Paginator(String artifactId,String groupId,ArrayList<String> imports) throws IOException {
 
 //>>INICIALIZACION DE ATRIBUTOS
       this.entity = entity;
@@ -74,30 +74,30 @@ line("<ui:composition xmlns=\"http://www.w3.org/1999/xhtml\"");
 line("                xmlns:f=\"http://java.sun.com/jsf/core\"");
 line("                xmlns:h=\"http://java.sun.com/jsf/html\"");
 line("                xmlns:fn=\"http://java.sun.com/jsp/jstl/functions\"");
-line("                xmlns:ui=\"http://java.sun.com/jsf/facelets\">");
+line("                xmlns:ui=\"http://java.sun.com/jsf/facelets\">\n");
 
-line("  <h:panelGroup styleClass=\"paginator\" rendered=\"#{paginatorBean.count gt paginatorBean.pageSize}\">");
+line("  <h:panelGroup styleClass=\"paginator\" rendered=\"#{paginatorBean.count gt paginatorBean.pageSize}\">\n");
 
-line("    <!-- Use commandLink, not outputLink, so that search criteria is not lost -->");
+line("    <!-- Use commandLink, not outputLink, so that search criteria is not lost -->\n");
 
 line("    <h:commandLink styleClass=\"btn btn-primary\" rendered=\"#{paginatorBean.page gt 0}\">");
 line("      <f:param name=\"page\" value=\"#{paginatorBean.page - 1}\"/>");
 line("      &lt; Previous");
-line("    </h:commandLink>");
+line("    </h:commandLink>\n");
 
 line("    <h:outputText styleClass=\"paginator-content\"");
 line("                  value=\"#{paginatorBean.page * paginatorBean.pageSize + 1} to");
 line("                         #{paginatorBean.page * paginatorBean.pageSize + fn:length(paginatorBean.pageItems)}");
-line("                         (of #{paginatorBean.count})\"/>");
+line("                         (of #{paginatorBean.count})\"/>\n");
 
 line("    <h:commandLink styleClass=\"btn btn-primary\" rendered=\"#{(paginatorBean.page + 1) * paginatorBean.pageSize lt paginatorBean.count}\">");
 line("      <f:param name=\"page\" value=\"#{paginatorBean.page + 1}\"/>");
 line("        Next &gt;");
-line("    </h:commandLink>");
+line("    </h:commandLink>\n");
 
-line("  </h:panelGroup>");
+line("  </h:panelGroup>\n");
 
-line("</ui:composition>");
+line("</ui:composition>\n");
 
   } // Constructor
 

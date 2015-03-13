@@ -58,7 +58,7 @@ OBJETIVOS:
 *                                           IMPLEMENTACION DEL METODO                                           *
 *---------------------------------------------------------------------------------------------------------------*/
 
-public TemplateCrud(String artifactId,String groupId,Entidad entity,ArrayList<String> imports) throws IOException {
+public TemplateCrud(String artifactId,String groupId,ArrayList<String> imports) throws IOException {
 
 //>>INICIALIZACION DE ATRIBUTOS
       this.entity = entity;
@@ -70,14 +70,14 @@ line("<!DOCTYPE html>");
 
 line("<html xmlns=\"http://www.w3.org/1999/xhtml\"");
 line("      xmlns:h=\"http://java.sun.com/jsf/html\"");
-line("      xmlns:ui=\"http://java.sun.com/jsf/facelets\">");
+line("      xmlns:ui=\"http://java.sun.com/jsf/facelets\">\n");
 
 line("<h:head>");
 line("  <title>#{empty pageTitle ? 'Page Title' : pageTitle}</title>");
 line("  <link rel=\"icon\" href='#{resource[\"favicon.ico\"]}' />");
 line("  <h:outputStylesheet name=\"bootstrap.css\" />");
 line("  <h:outputStylesheet name=\"forge-style.css\" />");
-line("</h:head>");
+line("</h:head>\n");
 
 line("<h:body>");
 line("  <ui:debug rendered=\"#{facesContext.application.projectStage == 'Development'}\" />");
@@ -96,7 +96,7 @@ line("          </ul>");
 line("        </div>");
 line("      </div>");
 line("    </div>");
-line("  </div>");
+line("  </div>\n");
 
 line("  <div class=\"container forgecontainer\">");
 line("    <div id=\"navigation\">");
@@ -109,20 +109,20 @@ line("        <li><h:link outcome=\"/admin/pucs/search\" value=\"Pucs\"/></li>")
 line("        <li><h:link outcome=\"/admin/saldos/search\" value=\"Saldos\"/></li>");
 line("        <li><h:link outcome=\"/admin/terceros/search\" value=\"Terceros\"/></li>");
 line("      </ul>");
-line("    </div>");
+line("    </div>\n");
 
 line("    <div id=\"content\">");
 line("      <h1><ui:insert name=\"header\" /></h1>");
 line("      <h2><ui:insert name=\"subheader\" /></h2>");
 line("      <ui:insert name=\"main\" />");
 line("    </div>");
-line("  </div>");
+line("  </div>\n");
 
 line("  <footer>");
 line("    <div id=\"footer-wrapper\">");
 line("      <p>Powered by <a href=\"http://jboss.org/forge\">Forge</a></p>");
 line("    </div>");
-line("  </footer>");
+line("  </footer>\n");
 
 line("</h:body>");
 line("</html>");

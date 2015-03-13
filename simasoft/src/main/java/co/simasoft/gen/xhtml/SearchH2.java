@@ -96,6 +96,130 @@ line("  <ui:define name=\"footer\"/>\n");
 
 line("  <ui:define name=\"main\">\n");
 
+line("    <h:form id=\"search\">\n");
+
+line("      <f:validateBean disabled=\"true\">\n");
+
+line("        <h:panelGroup styleClass=\"search\">\n");
+
+line("          <h:panelGrid columnClasses=\"label,component,required\" columns=\"3\">\n");
+
+          for(Atributos atributo : atributos) {
+
+             if (atributo.getType().equals("String")) {
+
+line("            <h:outputText/>\n");
+
+line("            <h:outputLabel for=\""+Utils._1raMin(entity.getName())+"BeanExample"+Utils._1raMay(atributo.getField())+"\" value=\""+Utils._1raMay(atributo.getField())+":\"/>");
+line("            <h:panelGroup>");
+line("              <h:inputText id=\""+Utils._1raMin(entity.getName())+"BeanExample"+Utils._1raMay(atributo.getField())+"\" value=\"#{"+Utils._1raMin(entity.getName())+"Bean.example."+Utils._1raMin(atributo.getField())+"}\"/>");
+line("              <h:message for=\""+Utils._1raMin(entity.getName())+"BeanExample"+Utils._1raMay(atributo.getField())+"\" styleClass=\"error\"/>");
+line("            </h:panelGroup>\n");
+
+
+
+             }
+
+          } // for atributos
+
+          for(Relation relation : relations) {
+
+              if(relation.getCardinality().equals("*..1")) {
+
+                if(relation.getFrom().equals(relation.getTo())){  // Relación Unitaria
+
+line("            <h:outputText/>\n");
+
+line("            <h:outputLabel for=\""+Utils._1raMin(relation.getTo())+"BeanExampleObjPadre\" value=\"Obj Padre:\"/>");
+line("            <h:panelGroup>");
+line("              <h:selectOneMenu converter=\"#{"+Utils._1raMin(relation.getTo())+"Bean.converter}\" id=\""+Utils._1raMin(relation.getTo())+"BeanExampleObjPadre\" value=\"#{"+Utils._1raMin(relation.getTo())+"Bean.example.objPadre}\">");
+line("                <f:selectItem/>");
+line("                <f:selectItems itemLabel=\"#{forgeview:display(_item)}\" itemValue=\"#{_item}\" value=\"#{"+Utils._1raMin(relation.getTo())+"Bean.all}\" var=\"_item\"/>");
+line("              </h:selectOneMenu>");
+line("              <h:message for=\"pucsBeanExampleObjPadre\" styleClass=\"error\"/>");
+line("            </h:panelGroup>\n");
+
+                }
+                else{
+
+line("            <h:outputText/>\n");
+
+line("            <h:outputLabel for=\""+Utils._1raMin(entity.getName())+"BeanExample"+relation.getTo()+"\" value=\""+Utils._1raMay(relation.getTo())+":\"/>");
+line("            <h:panelGroup>");
+line("              <h:selectOneMenu converter=\"#{"+Utils._1raMin(relation.getTo())+"Bean.converter}\" id=\""+Utils._1raMin(entity.getName())+"BeanExample"+relation.getTo()+"\" value=\"#{"+Utils._1raMin(entity.getName())+"Bean.example."+Utils._1raMin(relation.getTo())+"}\">");
+line("                <f:selectItem/>");
+line("                <f:selectItems itemLabel=\"#{forgeview:display(_item)}\" itemValue=\"#{_item}\" value=\"#{"+Utils._1raMin(relation.getTo())+"Bean.all}\" var=\"_item\"/>");
+line("              </h:selectOneMenu>");
+line("              <h:message for=\""+Utils._1raMin(entity.getName())+"BeanExample"+relation.getTo()+"\" styleClass=\"error\"/>");
+line("            </h:panelGroup>\n");
+
+
+                }
+
+              }
+
+          } // for relations
+
+
+
+line("          </h:panelGrid>\n");
+
+line("          <h:panelGroup styleClass=\"buttons\">");
+line("            <h:commandLink value=\"Search\" action='#{"+Utils._1raMin(entity.getName())+"Bean.search}' styleClass=\"btn btn-primary\"/>");
+line("            <h:commandLink value=\"Create New\" action='#{"+Utils._1raMin(entity.getName())+"Bean.create}' styleClass=\"btn btn-primary\"/>");
+line("          </h:panelGroup>\n");
+
+line("        </h:panelGroup>\n");
+
+line("      </f:validateBean>\n");
+
+line("      <h:dataTable id=\""+Utils._1raMin(entity.getName())+"BeanPageItems\" styleClass=\"data-table\" value=\"#{"+Utils._1raMin(entity.getName())+"Bean.pageItems}\" var=\"_item\">\n");
+
+          for(Atributos atributo : atributos) {
+
+//line("|"+atributo.getField()+"|"+atributo.getType());
+
+             if (atributo.getType().equals("String")) {
+
+line("        <h:column>");
+line("          <f:facet name=\"header\">");
+line("            <h:outputText value=\""+Utils._1raMay(atributo.getField())+"\"/>");
+line("          </f:facet>");
+line("          <h:link outcome=\"/admin/"+Utils._1raMin(entity.getName())+"/view\">");
+line("            <f:param name=\"id\" value=\"#{_item.id}\"/>");
+line("            <h:outputText id=\"item"+Utils._1raMay(atributo.getField())+"\" value=\"#{_item."+Utils._1raMin(atributo.getField())+"}\"/>");
+line("          </h:link>");
+line("        </h:column>\n");
+
+             }
+
+             if (atributo.getType().equals("boolean")) {
+
+line("        <h:column>");
+line("          <f:facet name=\"header\">");
+line("            <h:outputText value=\""+Utils._1raMay(atributo.getField())+"\"/>");
+line("          </f:facet>");
+line("          <h:link outcome=\"/admin/"+Utils._1raMin(entity.getName())+"/view\">");
+line("            <f:param name=\"id\" value=\"#{_item.id}\"/>");
+line("            <h:outputText styleClass=\"#{_item."+atributo.getField()+" ? 'boolean-true' : 'boolean-false'}\" value=\"\"/>");
+line("          </h:link>");
+line("        </h:column>\n");
+
+
+             }
+
+          } // for atributos
+
+
+
+line("      </h:dataTable>\n");
+
+line("      <ui:include src=\"/resources/scaffold/paginator.xhtml\">");
+line("        <ui:param name=\"paginatorBean\" value='#{"+Utils._1raMin(entity.getName())+"Bean}'/>");
+line("      </ui:include>\n");
+
+line("    </h:form>\n");
+
 line("  </ui:define>\n");
 
 line("</ui:composition>\n");

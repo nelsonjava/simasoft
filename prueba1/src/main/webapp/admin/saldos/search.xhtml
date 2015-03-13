@@ -28,6 +28,55 @@
 
   <ui:define name="main">
 
+    <h:form id="search">
+
+      <f:validateBean disabled="true">
+
+        <h:panelGroup styleClass="search">
+
+          <h:panelGrid columnClasses="label,component,required" columns="3">
+
+            <h:outputLabel for="saldosBeanExamplePucs" value="Pucs:"/>
+            <h:panelGroup>
+              <h:selectOneMenu converter="#{pucsBean.converter}" id="saldosBeanExamplePucs" value="#{saldosBean.example.pucs}">
+                <f:selectItem/>
+                <f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{pucsBean.all}" var="_item"/>
+              </h:selectOneMenu>
+              <h:message for="saldosBeanExamplePucs" styleClass="error"/>
+            </h:panelGroup>
+
+            <h:outputText/>
+
+            <h:outputLabel for="saldosBeanExampleTerceros" value="Terceros:"/>
+            <h:panelGroup>
+              <h:selectOneMenu converter="#{tercerosBean.converter}" id="saldosBeanExampleTerceros" value="#{saldosBean.example.terceros}">
+                <f:selectItem/>
+                <f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{tercerosBean.all}" var="_item"/>
+              </h:selectOneMenu>
+              <h:message for="saldosBeanExampleTerceros" styleClass="error"/>
+            </h:panelGroup>
+
+          </h:panelGrid>
+
+          <h:panelGroup styleClass="buttons">
+            <h:commandLink value="Search" action='#{saldosBean.search}' styleClass="btn btn-primary"/>
+            <h:commandLink value="Create New" action='#{saldosBean.create}' styleClass="btn btn-primary"/>
+          </h:panelGroup>
+
+        </h:panelGroup>
+
+      </f:validateBean>
+
+      <h:dataTable id="saldosBeanPageItems" styleClass="data-table" value="#{saldosBean.pageItems}" var="_item">
+
+      </h:dataTable>
+
+      <ui:include src="/resources/scaffold/paginator.xhtml">
+        <ui:param name="paginatorBean" value='#{saldosBean}'/>
+      </ui:include>
+
+    </h:form>
+
   </ui:define>
 
 </ui:composition>
