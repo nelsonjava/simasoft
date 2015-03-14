@@ -35,6 +35,70 @@
   <ui:define name="footer"/>
 
   <ui:define name="main">
+
+    <h:form id="create">
+
+       <h:messages globalOnly="true" styleClass="error"/>
+
+       <h:panelGrid columnClasses="label,component,required" columns="3">
+
+         <h:outputLabel for="tercerosBeanTercerosNit" value="Nit:"/>
+         <h:panelGroup>
+           <h:inputText id="tercerosBeanTercerosNit" value="#{tercerosBean.terceros.nit}"/>
+           <h:message for="movimientosBeanMovimientosValor" styleClass="error"/>
+         </h:panelGroup>
+
+         <h:outputText/>
+
+         <h:outputLabel for="tercerosBeanTercerosNombre" value="Nombre:"/>
+         <h:panelGroup>
+           <h:inputText id="tercerosBeanTercerosNombre" value="#{tercerosBean.terceros.nombre}"/>
+           <h:message for="movimientosBeanMovimientosValor" styleClass="error"/>
+         </h:panelGroup>
+
+         <h:outputText/>
+
+         <h:outputLabel for="tercerosBeanTercerosTelefono" value="Telefono:"/>
+         <h:panelGroup>
+           <h:inputText id="tercerosBeanTercerosTelefono" value="#{tercerosBean.terceros.telefono}"/>
+           <h:message for="movimientosBeanMovimientosValor" styleClass="error"/>
+         </h:panelGroup>
+
+         <h:outputText/>
+
+         <h:outputLabel for="tercerosBeanTercerosDireccion" value="Direccion:"/>
+         <h:panelGroup>
+           <h:inputText id="tercerosBeanTercerosDireccion" value="#{tercerosBean.terceros.direccion}"/>
+           <h:message for="movimientosBeanMovimientosValor" styleClass="error"/>
+         </h:panelGroup>
+
+         <h:outputText/>
+
+         <h:outputLabel for="tercerosBeanTercerosObservaciones" value="Observaciones:"/>
+         <h:panelGroup>
+           <h:inputText id="tercerosBeanTercerosObservaciones" value="#{tercerosBean.terceros.observaciones}"/>
+           <h:message for="movimientosBeanMovimientosValor" styleClass="error"/>
+         </h:panelGroup>
+
+       </h:panelGrid>
+
+       <div class="buttons">
+         <h:commandLink value="Save" action='#{tercerosBean.update}' styleClass="btn btn-primary"/>
+         <c:choose>
+           <c:when test='#{!empty tercerosBean.id}'>
+              <h:link value="Cancel" outcome="view" styleClass="btn btn-primary">
+                <f:param name="id" value='#{tercerosBean.id}'/>
+              </h:link>
+              <h:commandLink value="Delete" action='#{tercerosBean.delete}' styleClass="btn btn-primary"/>
+           </c:when>
+           <c:otherwise>
+             <h:link value="Cancel" outcome="search" styleClass="btn btn-primary"/>
+           </c:otherwise>
+         </c:choose>
+       </div>
+
+    </h:form>
+
   </ui:define>
 
 </ui:composition>

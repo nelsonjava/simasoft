@@ -35,6 +35,83 @@
   <ui:define name="footer"/>
 
   <ui:define name="main">
+
+    <h:form id="create">
+
+       <h:messages globalOnly="true" styleClass="error"/>
+
+       <h:panelGrid columnClasses="label,component,required" columns="3">
+
+         <h:outputLabel for="pucsBeanPucsNombre" value="Nombre:"/>
+         <h:panelGroup>
+           <h:inputText id="pucsBeanPucsNombre" value="#{pucsBean.pucs.nombre}"/>
+           <h:message for="movimientosBeanMovimientosValor" styleClass="error"/>
+         </h:panelGroup>
+
+         <h:outputText/>
+
+         <h:outputLabel for="pucsBeanPucsSiRegistra" value="SiRegistra:"/>
+         <h:panelGroup>
+           <h:selectBooleanCheckbox id="pucsBeanPucsSiRegistra" value="#{pucsBean.pucs.siRegistra}"/>
+           <h:message for="pucsBeanPucsSiRegistra" styleClass="error"/>
+         </h:panelGroup>
+
+         <h:outputText/>
+
+         <h:outputLabel for="pucsBeanPucsSiTercero" value="SiTercero:"/>
+         <h:panelGroup>
+           <h:selectBooleanCheckbox id="pucsBeanPucsSiTercero" value="#{pucsBean.pucs.siTercero}"/>
+           <h:message for="pucsBeanPucsSiRegistra" styleClass="error"/>
+         </h:panelGroup>
+
+         <h:outputText/>
+
+         <h:outputLabel for="pucsBeanPucsSiBase" value="SiBase:"/>
+         <h:panelGroup>
+           <h:selectBooleanCheckbox id="pucsBeanPucsSiBase" value="#{pucsBean.pucs.siBase}"/>
+           <h:message for="pucsBeanPucsSiRegistra" styleClass="error"/>
+         </h:panelGroup>
+
+         <h:outputText/>
+
+         <h:outputLabel for="pucsBeanPucsObservaciones" value="Observaciones:"/>
+         <h:panelGroup>
+           <h:inputText id="pucsBeanPucsObservaciones" value="#{pucsBean.pucs.observaciones}"/>
+           <h:message for="movimientosBeanMovimientosValor" styleClass="error"/>
+         </h:panelGroup>
+
+         <h:outputText/>
+
+         <h:outputLabel for="pucsBeanPucsObjPadre" value="Obj Padre:"/>
+         <h:panelGroup>
+           <h:selectOneMenu converter="#{PucsBean.converter}" id="pucsBeanPucsObjPadre" value="#{pucsBean.pucs.objPadre}">
+             <f:selectItem/>
+             <f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{pucsBean.all}" var="_item"/>
+           </h:selectOneMenu>
+           <h:message for="pucsBeanPucsObjPadre" styleClass="error"/>
+         </h:panelGroup>
+
+         <h:outputText/>
+
+       </h:panelGrid>
+
+       <div class="buttons">
+         <h:commandLink value="Save" action='#{pucsBean.update}' styleClass="btn btn-primary"/>
+         <c:choose>
+           <c:when test='#{!empty pucsBean.id}'>
+              <h:link value="Cancel" outcome="view" styleClass="btn btn-primary">
+                <f:param name="id" value='#{pucsBean.id}'/>
+              </h:link>
+              <h:commandLink value="Delete" action='#{pucsBean.delete}' styleClass="btn btn-primary"/>
+           </c:when>
+           <c:otherwise>
+             <h:link value="Cancel" outcome="search" styleClass="btn btn-primary"/>
+           </c:otherwise>
+         </c:choose>
+       </div>
+
+    </h:form>
+
   </ui:define>
 
 </ui:composition>

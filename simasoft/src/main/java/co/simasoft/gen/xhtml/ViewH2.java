@@ -95,6 +95,45 @@ line("  <ui:define name=\"footer\"/>\n");
 
 line("  <ui:define name=\"main\">\n");
 
+          for(int x=0;x<atributos.size();x++) {
+
+             Atributos atributo = atributos.get(x);
+
+             if (atributo.getType().equals("String")) {
+
+line("      <h:outputLabel for=\""+Utils._1raMin(entity.getName())+"Bean"+entity.getName()+Utils._1raMay(atributo.getField())+"\" value=\""+Utils._1raMay(atributo.getField())+":\"/>");
+line("        <h:outputText id=\""+Utils._1raMin(entity.getName())+"Bean"+entity.getName()+Utils._1raMay(atributo.getField())+"\" value=\"#{"+Utils._1raMin(entity.getName())+"Bean."+Utils._1raMin(entity.getName())+"."+Utils._1raMay(atributo.getField())+"}\"/>");
+line("      <h:outputText/>");
+
+
+             }
+
+             if (atributo.getType().equals("Date")) {
+
+             }
+
+             if (atributo.getType().equals("float")) {
+
+             }
+
+             if (atributo.getType().equals("boolean")) {
+
+             }
+
+          } // for atributos
+
+
+line("    <h:panelGrid columnClasses=\"label,component,required\" columns=\"3\">\n");
+
+line("    </h:panelGrid>\n");
+
+line("    <div class=\"buttons\">");
+line("      <h:link value=\"View All\" outcome=\"search\" styleClass=\"btn btn-primary\"/>");
+line("      <h:link value=\"Edit\" outcome=\"create\" includeViewParams=\"true\" styleClass=\"btn btn-primary\"/>");
+line("      <h:link value=\"Create New\" outcome=\"create\" styleClass=\"btn btn-primary\"/>");
+line("    </div>\n");
+
+
 line("  </ui:define>\n");
 
 line("</ui:composition>\n");

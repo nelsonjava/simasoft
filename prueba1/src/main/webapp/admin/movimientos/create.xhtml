@@ -35,6 +35,104 @@
   <ui:define name="footer"/>
 
   <ui:define name="main">
+
+    <h:form id="create">
+
+       <h:messages globalOnly="true" styleClass="error"/>
+
+       <h:panelGrid columnClasses="label,component,required" columns="3">
+
+         <h:outputLabel for="movimientosBeanMovimientosFecha" value="Fecha:"/>
+         <h:panelGroup>
+           <h:inputText id="movimientosBeanMovimientosFecha" value="#{movimientosBean.movimientos.fecha}">
+             <f:convertDateTime/>
+           </h:inputText>
+           <h:message for="movimientosBeanMovimientosFecha" styleClass="error"/>
+         </h:panelGroup>
+
+         <h:outputText/>
+
+         <h:outputLabel for="movimientosBeanMovimientosDocumento" value="Documento:"/>
+         <h:panelGroup>
+           <h:inputText id="movimientosBeanMovimientosDocumento" value="#{movimientosBean.movimientos.documento}"/>
+           <h:message for="movimientosBeanMovimientosValor" styleClass="error"/>
+         </h:panelGroup>
+
+         <h:outputText/>
+
+         <h:outputLabel for="movimientosBeanMovimientosValor" value="Valor:"/>
+         <h:panelGroup>
+           <h:inputText id="movimientosBeanMovimientosValor" value="#{movimientosBean.movimientos.valor}"/>
+           <h:message for="movimientosBeanMovimientosValor" styleClass="error"/>
+         </h:panelGroup>
+
+         <h:outputText/>
+
+         <h:outputLabel for="movimientosBeanMovimientosTipo" value="Tipo:"/>
+         <h:panelGroup>
+           <h:inputText id="movimientosBeanMovimientosTipo" value="#{movimientosBean.movimientos.tipo}"/>
+           <h:message for="movimientosBeanMovimientosValor" styleClass="error"/>
+         </h:panelGroup>
+
+         <h:outputText/>
+
+         <h:outputLabel for="movimientosBeanMovimientosBase" value="Base:"/>
+         <h:panelGroup>
+           <h:inputText id="movimientosBeanMovimientosBase" value="#{movimientosBean.movimientos.base}"/>
+           <h:message for="movimientosBeanMovimientosValor" styleClass="error"/>
+         </h:panelGroup>
+
+         <h:outputText/>
+
+         <h:outputLabel for="movimientosBeanMovimientosDetalle" value="Detalle:"/>
+         <h:panelGroup>
+           <h:inputText id="movimientosBeanMovimientosDetalle" value="#{movimientosBean.movimientos.detalle}"/>
+           <h:message for="movimientosBeanMovimientosValor" styleClass="error"/>
+         </h:panelGroup>
+
+         <h:outputText/>
+
+         <h:outputLabel for="movimientosBeanMovimientosPucs" value="Pucs:"/>
+         <h:panelGroup>
+           <h:selectOneMenu converter="#{pucsBean.converter}" id="movimientosBeanMovimientosPucs" value="#{movimientosBean.movimientos.pucs}">
+             <f:selectItem/>
+             <f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{pucsBean.all}" var="_item"/>
+           </h:selectOneMenu>
+           <h:message for="movimientosBeanMovimientosPucs" styleClass="error"/>
+         </h:panelGroup>
+
+         <h:outputText/>
+
+         <h:outputLabel for="movimientosBeanMovimientosTerceros" value="Terceros:"/>
+         <h:panelGroup>
+           <h:selectOneMenu converter="#{tercerosBean.converter}" id="movimientosBeanMovimientosTerceros" value="#{movimientosBean.movimientos.terceros}">
+             <f:selectItem/>
+             <f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{tercerosBean.all}" var="_item"/>
+           </h:selectOneMenu>
+           <h:message for="movimientosBeanMovimientosTerceros" styleClass="error"/>
+         </h:panelGroup>
+
+         <h:outputText/>
+
+       </h:panelGrid>
+
+       <div class="buttons">
+         <h:commandLink value="Save" action='#{movimientosBean.update}' styleClass="btn btn-primary"/>
+         <c:choose>
+           <c:when test='#{!empty movimientosBean.id}'>
+              <h:link value="Cancel" outcome="view" styleClass="btn btn-primary">
+                <f:param name="id" value='#{movimientosBean.id}'/>
+              </h:link>
+              <h:commandLink value="Delete" action='#{movimientosBean.delete}' styleClass="btn btn-primary"/>
+           </c:when>
+           <c:otherwise>
+             <h:link value="Cancel" outcome="search" styleClass="btn btn-primary"/>
+           </c:otherwise>
+         </c:choose>
+       </div>
+
+    </h:form>
+
   </ui:define>
 
 </ui:composition>

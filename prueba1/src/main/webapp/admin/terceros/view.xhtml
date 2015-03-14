@@ -27,6 +27,31 @@
 
   <ui:define name="main">
 
+      <h:outputLabel for="tercerosBeanTercerosNit" value="Nit:"/>
+        <h:outputText id="tercerosBeanTercerosNit" value="#{tercerosBean.terceros.nit}"/>
+      <h:outputText/>
+      <h:outputLabel for="tercerosBeanTercerosNombre" value="Nombre:"/>
+        <h:outputText id="tercerosBeanTercerosNombre" value="#{tercerosBean.terceros.nombre}"/>
+      <h:outputText/>
+      <h:outputLabel for="tercerosBeanTercerosTelefono" value="Telefono:"/>
+        <h:outputText id="tercerosBeanTercerosTelefono" value="#{tercerosBean.terceros.telefono}"/>
+      <h:outputText/>
+      <h:outputLabel for="tercerosBeanTercerosDireccion" value="Direccion:"/>
+        <h:outputText id="tercerosBeanTercerosDireccion" value="#{tercerosBean.terceros.direccion}"/>
+      <h:outputText/>
+      <h:outputLabel for="tercerosBeanTercerosObservaciones" value="Observaciones:"/>
+        <h:outputText id="tercerosBeanTercerosObservaciones" value="#{tercerosBean.terceros.observaciones}"/>
+      <h:outputText/>
+    <h:panelGrid columnClasses="label,component,required" columns="3">
+
+    </h:panelGrid>
+
+    <div class="buttons">
+      <h:link value="View All" outcome="search" styleClass="btn btn-primary"/>
+      <h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
+      <h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
+    </div>
+
   </ui:define>
 
 </ui:composition>

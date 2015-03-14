@@ -35,6 +35,106 @@
   <ui:define name="footer"/>
 
   <ui:define name="main">
+
+    <h:form id="create">
+
+       <h:messages globalOnly="true" styleClass="error"/>
+
+       <h:panelGrid columnClasses="label,component,required" columns="3">
+
+         <h:outputLabel for="saldosBeanSaldosYear" value="Year:"/>
+         <h:panelGroup>
+           <h:inputText id="saldosBeanSaldosYear" value="#{saldosBean.saldos.year}">
+             <f:convertDateTime/>
+           </h:inputText>
+           <h:message for="saldosBeanSaldosYear" styleClass="error"/>
+         </h:panelGroup>
+
+         <h:outputText/>
+
+         <h:outputLabel for="saldosBeanSaldosMes" value="Mes:"/>
+         <h:panelGroup>
+           <h:inputText id="saldosBeanSaldosMes" value="#{saldosBean.saldos.mes}">
+             <f:convertDateTime/>
+           </h:inputText>
+           <h:message for="saldosBeanSaldosMes" styleClass="error"/>
+         </h:panelGroup>
+
+         <h:outputText/>
+
+         <h:outputLabel for="saldosBeanSaldosDebitos" value="Debitos:"/>
+         <h:panelGroup>
+           <h:inputText id="saldosBeanSaldosDebitos" value="#{saldosBean.saldos.debitos}"/>
+           <h:message for="movimientosBeanMovimientosValor" styleClass="error"/>
+         </h:panelGroup>
+
+         <h:outputText/>
+
+         <h:outputLabel for="saldosBeanSaldosCreditos" value="Creditos:"/>
+         <h:panelGroup>
+           <h:inputText id="saldosBeanSaldosCreditos" value="#{saldosBean.saldos.creditos}"/>
+           <h:message for="movimientosBeanMovimientosValor" styleClass="error"/>
+         </h:panelGroup>
+
+         <h:outputText/>
+
+         <h:outputLabel for="saldosBeanSaldosSaldoInicial" value="SaldoInicial:"/>
+         <h:panelGroup>
+           <h:inputText id="saldosBeanSaldosSaldoInicial" value="#{saldosBean.saldos.saldoInicial}"/>
+           <h:message for="movimientosBeanMovimientosValor" styleClass="error"/>
+         </h:panelGroup>
+
+         <h:outputText/>
+
+         <h:outputLabel for="saldosBeanSaldosSaldoFinal" value="SaldoFinal:"/>
+         <h:panelGroup>
+           <h:inputText id="saldosBeanSaldosSaldoFinal" value="#{saldosBean.saldos.saldoFinal}"/>
+           <h:message for="movimientosBeanMovimientosValor" styleClass="error"/>
+         </h:panelGroup>
+
+         <h:outputText/>
+
+         <h:outputLabel for="saldosBeanSaldosPucs" value="Pucs:"/>
+         <h:panelGroup>
+           <h:selectOneMenu converter="#{pucsBean.converter}" id="saldosBeanSaldosPucs" value="#{saldosBean.saldos.pucs}">
+             <f:selectItem/>
+             <f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{pucsBean.all}" var="_item"/>
+           </h:selectOneMenu>
+           <h:message for="saldosBeanSaldosPucs" styleClass="error"/>
+         </h:panelGroup>
+
+         <h:outputText/>
+
+         <h:outputLabel for="saldosBeanSaldosTerceros" value="Terceros:"/>
+         <h:panelGroup>
+           <h:selectOneMenu converter="#{tercerosBean.converter}" id="saldosBeanSaldosTerceros" value="#{saldosBean.saldos.terceros}">
+             <f:selectItem/>
+             <f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{tercerosBean.all}" var="_item"/>
+           </h:selectOneMenu>
+           <h:message for="saldosBeanSaldosTerceros" styleClass="error"/>
+         </h:panelGroup>
+
+         <h:outputText/>
+
+       </h:panelGrid>
+
+       <div class="buttons">
+         <h:commandLink value="Save" action='#{saldosBean.update}' styleClass="btn btn-primary"/>
+         <c:choose>
+           <c:when test='#{!empty saldosBean.id}'>
+              <h:link value="Cancel" outcome="view" styleClass="btn btn-primary">
+                <f:param name="id" value='#{saldosBean.id}'/>
+              </h:link>
+              <h:commandLink value="Delete" action='#{saldosBean.delete}' styleClass="btn btn-primary"/>
+           </c:when>
+           <c:otherwise>
+             <h:link value="Cancel" outcome="search" styleClass="btn btn-primary"/>
+           </c:otherwise>
+         </c:choose>
+       </div>
+
+    </h:form>
+
   </ui:define>
 
 </ui:composition>

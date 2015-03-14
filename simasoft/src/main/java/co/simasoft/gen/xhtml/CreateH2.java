@@ -102,27 +102,137 @@ line("  </ui:define>\n");
 
 line("  <ui:define name=\"footer\"/>\n");
 
-line("  <ui:define name=\"main\">");
+line("  <ui:define name=\"main\">\n");
 
-line("    <h:form id=\"create\">");
+line("    <h:form id=\"create\">\n");
 
-line("       <h:messages globalOnly=\"true\" styleClass=\"error\"/>");
+line("       <h:messages globalOnly=\"true\" styleClass=\"error\"/>\n");
 
-line("       <h:panelGrid columnClasses=\"label,component,required\" columns=\"3\">");
+line("       <h:panelGrid columnClasses=\"label,component,required\" columns=\"3\">\n");
 
-          for(Atributos atributo : atributos) {
-            
-line(atributo.getField()+":"+atributo.getType());            
+
+          for(int x=0;x<atributos.size();x++) {
+
+             Atributos atributo = atributos.get(x);
+
+//line(atributo.getField()+":"+atributo.getType());
 
              if (atributo.getType().equals("String")) {
+
+                if(x != 0) {
+line("         <h:outputText/>\n");
+                }
+
+
+line("         <h:outputLabel for=\""+Utils._1raMin(entity.getName())+"Bean"+entity.getName()+Utils._1raMay(atributo.getField())+"\" value=\""+Utils._1raMay(atributo.getField())+":\"/>");
+line("         <h:panelGroup>");
+line("           <h:inputText id=\""+Utils._1raMin(entity.getName())+"Bean"+entity.getName()+Utils._1raMay(atributo.getField())+"\" value=\"#{"+Utils._1raMin(entity.getName())+"Bean."+Utils._1raMin(entity.getName())+"."+Utils._1raMin(atributo.getField())+"}\"/>");
+line("           <h:message for=\"movimientosBeanMovimientosValor\" styleClass=\"error\"/>");
+line("         </h:panelGroup>\n");
+
+             }
+
+             if (atributo.getType().equals("Date")) {
+
+                if(x != 0) {
+line("         <h:outputText/>\n");
+                }
+
+line("         <h:outputLabel for=\""+Utils._1raMin(entity.getName())+"Bean"+entity.getName()+Utils._1raMay(atributo.getField())+"\" value=\""+Utils._1raMay(atributo.getField())+":\"/>");
+line("         <h:panelGroup>");
+line("           <h:inputText id=\""+Utils._1raMin(entity.getName())+"Bean"+entity.getName()+Utils._1raMay(atributo.getField())+"\" value=\"#{"+Utils._1raMin(entity.getName())+"Bean."+Utils._1raMin(entity.getName())+"."+Utils._1raMin(atributo.getField())+"}\">");
+line("             <f:convertDateTime/>");
+line("           </h:inputText>");
+line("           <h:message for=\""+Utils._1raMin(entity.getName())+"Bean"+entity.getName()+Utils._1raMay(atributo.getField())+"\" styleClass=\"error\"/>");
+line("         </h:panelGroup>\n");
+
+
+             }
+
+             if (atributo.getType().equals("float")) {
+
+                if(x != 0) {
+line("         <h:outputText/>\n");
+                }
+
+line("         <h:outputLabel for=\""+Utils._1raMin(entity.getName())+"Bean"+entity.getName()+Utils._1raMay(atributo.getField())+"\" value=\""+Utils._1raMay(atributo.getField())+":\"/>");
+line("         <h:panelGroup>");
+line("           <h:inputText id=\""+Utils._1raMin(entity.getName())+"Bean"+entity.getName()+Utils._1raMay(atributo.getField())+"\" value=\"#{"+Utils._1raMin(entity.getName())+"Bean."+Utils._1raMin(entity.getName())+"."+Utils._1raMin(atributo.getField())+"}\"/>");
+line("           <h:message for=\"movimientosBeanMovimientosValor\" styleClass=\"error\"/>");
+line("         </h:panelGroup>\n");
+
+             }
+
+             if (atributo.getType().equals("boolean")) {
+
+                if(x != 0) {
+line("         <h:outputText/>\n");
+                }
+
+line("         <h:outputLabel for=\""+Utils._1raMin(entity.getName())+"Bean"+entity.getName()+Utils._1raMay(atributo.getField())+"\" value=\""+Utils._1raMay(atributo.getField())+":\"/>");
+line("         <h:panelGroup>");
+line("           <h:selectBooleanCheckbox id=\""+Utils._1raMin(entity.getName())+"Bean"+entity.getName()+Utils._1raMay(atributo.getField())+"\" value=\"#{"+Utils._1raMin(entity.getName())+"Bean."+Utils._1raMin(entity.getName())+"."+Utils._1raMin(atributo.getField())+"}\"/>");
+line("           <h:message for=\"pucsBeanPucsSiRegistra\" styleClass=\"error\"/>");
+line("         </h:panelGroup>\n");
 
 
              }
 
           } // for atributos
 
+          for(int x=0;x<relations.size();x++) {
 
-line("       </h:panelGrid>");
+             Relation relation = relations.get(x);
+
+// line(relation.getTo()+":"+relation.getCardinality());
+
+             if(relation.getCardinality().equals("*..1")) {
+
+               if(relation.getFrom().equals(relation.getTo())){  // Relación Unitaria
+
+line("         <h:outputText/>\n");
+
+line("         <h:outputLabel for=\""+Utils._1raMin(relation.getTo())+"Bean"+relation.getTo()+"ObjPadre\" value=\"Obj Padre:\"/>");
+line("         <h:panelGroup>");
+line("           <h:selectOneMenu converter=\"#{"+relation.getTo()+"Bean.converter}\" id=\""+Utils._1raMin(relation.getTo())+"Bean"+relation.getTo()+"ObjPadre\" value=\"#{"+Utils._1raMin(relation.getTo())+"Bean.pucs.objPadre}\">");
+line("             <f:selectItem/>");
+line("             <f:selectItems itemLabel=\"#{forgeview:display(_item)}\" itemValue=\"#{_item}\" value=\"#{"+Utils._1raMin(relation.getTo())+"Bean.all}\" var=\"_item\"/>");
+line("           </h:selectOneMenu>");
+line("           <h:message for=\""+Utils._1raMin(relation.getTo())+"Bean"+relation.getTo()+"ObjPadre\" styleClass=\"error\"/>");
+line("         </h:panelGroup>\n");
+
+                if(x == (relations.size() - 1)) {
+line("         <h:outputText/>\n");
+                }
+
+               }
+               else{
+
+line("         <h:outputText/>\n");
+
+line("         <h:outputLabel for=\""+Utils._1raMin(entity.getName())+"Bean"+entity.getName()+relation.getTo()+"\" value=\""+Utils._1raMay(relation.getTo())+":\"/>");
+line("         <h:panelGroup>");
+line("           <h:selectOneMenu converter=\"#{"+Utils._1raMin(relation.getTo())+"Bean.converter}\" id=\""+Utils._1raMin(entity.getName())+"Bean"+entity.getName()+relation.getTo()+"\" value=\"#{"+Utils._1raMin(entity.getName())+"Bean."+Utils._1raMin(entity.getName())+"."+Utils._1raMin(relation.getTo())+"}\">");
+line("             <f:selectItem/>");
+line("             <f:selectItems itemLabel=\"#{forgeview:display(_item)}\" itemValue=\"#{_item}\" value=\"#{"+Utils._1raMin(relation.getTo())+"Bean.all}\" var=\"_item\"/>");
+line("           </h:selectOneMenu>");
+line("           <h:message for=\""+Utils._1raMin(entity.getName())+"Bean"+entity.getName()+relation.getTo()+"\" styleClass=\"error\"/>");
+line("         </h:panelGroup>\n");
+
+                if(x == (relations.size() - 1)) {
+line("         <h:outputText/>\n");
+                }
+
+
+               } // if
+
+             } // if *..1
+
+          } // for
+
+
+
+line("       </h:panelGrid>\n");
 
 line("       <div class=\"buttons\">");
 line("         <h:commandLink value=\"Save\" action='#{"+Utils._1raMin(entity.getName())+"Bean.update}' styleClass=\"btn btn-primary\"/>");
@@ -137,10 +247,9 @@ line("           <c:otherwise>");
 line("             <h:link value=\"Cancel\" outcome=\"search\" styleClass=\"btn btn-primary\"/>");
 line("           </c:otherwise>");
 line("         </c:choose>");
-line("       </div>");
+line("       </div>\n");
 
-line("    </h:form>");
-
+line("    </h:form>\n");
 
 line("  </ui:define>\n");
 
