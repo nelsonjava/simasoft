@@ -1,0 +1,16 @@
+ El volumen de la unidad D es datos
+ El n£mero de serie del volumen es: BA09-07A5
+
+ Directorio de d:\dev\njava\simasoft\prueba1\src\main\webapp
+
+15/03/2015  09:12 p. m.    <DIR>          .
+15/03/2015  09:12 p. m.    <DIR>          ..
+15/03/2015  09:12 p. m.                 0 a.txt
+14/03/2015  08:31 a. m.    <DIR>          admin
+14/03/2015  08:31 a. m.               871 error.xhtml
+14/03/2015  08:31 a. m.               494 home.xhtml
+14/03/2015  08:31 a. m.                86 index.html
+14/03/2015  08:31 a. m.    <DIR>          resources
+14/03/2015  08:31 a. m.    <DIR>          WEB-INF
+               4 archivos          1.451 bytes
+               5 dirs  77.442.113.536 bytes libres
