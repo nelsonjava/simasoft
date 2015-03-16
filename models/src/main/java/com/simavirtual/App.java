@@ -204,12 +204,11 @@ public class App extends FileTxt{
         H2Web h2Web = new H2Web(artifactId,groupId);
         Utils.fileMake(pathDocs+"."+modelo+"."+artifactId+".war.h2.src.main.webapp.WEB-INF","web.xml", h2Web);
 
-        TemplateCrud templateCrud = new TemplateCrud(artifactId,groupId+".models."+modelo+"."+artifactId,imports);
-        Utils.fileMake(pathDocs+"."+modelo+"."+artifactId+".war.h2.src.main.webapp.resources.scaffold","pageTemplate.xhtml", templateCrud);
+        H2PageTemplate h2PageTemplate = new H2PageTemplate(artifactId,groupId+".models."+modelo,entidades);
+        Utils.fileMake(pathDocs+"."+modelo+"."+artifactId+".war.h2.src.main.webapp.resources.scaffold","pageTemplate.xhtml",h2PageTemplate);
 
         Paginator paginator = new Paginator(artifactId,groupId+".models."+modelo+"."+artifactId,imports);
         Utils.fileMake(pathDocs+"."+modelo+"."+artifactId+".war.h2.src.main.webapp.resources.scaffold","paginator.xhtml", paginator);
-
 
         Utils.fileJar("webH2/webapp/admin","index.html",pathDocs+"\\"+modelo+"\\"+artifactId+"\\war\\h2\\src\\main\\webapp\\admin\\",fileJar);
         Utils.fileJar("webH2/webapp/admin","index.xhtml",pathDocs+"\\"+modelo+"\\"+artifactId+"\\war\\h2\\src\\main\\webapp\\admin\\",fileJar);
@@ -281,7 +280,14 @@ public class App extends FileTxt{
         generar(modelos);
 
         modelos.clear();
+        modelos.add(new Modelos("pruebas","co.simasoft","prueba"));
+        generar(modelos);
+
+        modelos.clear();
         modelos.add(new Modelos("pruebas","co.simasoft","prueba1"));
+        generar(modelos);
+
+        modelos.clear();
         modelos.add(new Modelos("pruebas","co.simasoft","prueba2"));
         generar(modelos);
 

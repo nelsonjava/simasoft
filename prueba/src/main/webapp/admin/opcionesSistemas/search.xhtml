@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:forgeview="http://jboss.org/forge/view"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="page" value='#{opcionesSistemasBean.page}'/>
+		<f:event type="preRenderView" listener='#{opcionesSistemasBean.paginate}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="Search Opciones Sistemas entities"/>
+
+	<ui:define name="header">
+		Opciones Sistemas
+	</ui:define>
+
+	<ui:define name="subheader">
+		Search Opciones Sistemas entities
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:form id="search">
+			<f:validateBean disabled="true">
+				<h:panelGroup styleClass="search">
+
+					<h:panelGrid columnClasses="label,component,required" columns="3">
+						<h:outputLabel for="opcionesSistemasBeanExampleSistemas" value="Sistemas:"/>
+						<h:panelGroup>
+							<h:selectOneMenu converter="#{sistemasBean.converter}" id="opcionesSistemasBeanExampleSistemas" value="#{opcionesSistemasBean.example.sistemas}">
+								<f:selectItem/>
+								<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{sistemasBean.all}" var="_item"/>
+							</h:selectOneMenu>
+							<h:message for="opcionesSistemasBeanExampleSistemas" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="opcionesSistemasBeanExampleOpciones" value="Opciones:"/>
+						<h:panelGroup>
+							<h:selectOneMenu converter="#{opcionesBean.converter}" id="opcionesSistemasBeanExampleOpciones" value="#{opcionesSistemasBean.example.opciones}">
+								<f:selectItem/>
+								<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{opcionesBean.all}" var="_item"/>
+							</h:selectOneMenu>
+							<h:message for="opcionesSistemasBeanExampleOpciones" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+					</h:panelGrid>
+					<h:panelGroup styleClass="buttons">
+						<h:commandLink value="Search" action='#{opcionesSistemasBean.search}' styleClass="btn btn-primary"/>
+						<h:commandLink value="Create New" action='#{opcionesSistemasBean.create}' styleClass="btn btn-primary"/>
+					</h:panelGroup>
+				</h:panelGroup>
+			</f:validateBean>
+			
+			<h:dataTable id="opcionesSistemasBeanPageItems" styleClass="data-table" value="#{opcionesSistemasBean.pageItems}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Si Principal"/>
+					</f:facet>
+					<h:link outcome="/admin/opcionesSistemas/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText styleClass="#{_item.siPrincipal ? 'boolean-true' : 'boolean-false'}" value=""/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Sistemas"/>
+					</f:facet>
+					<h:link outcome="/admin/opcionesSistemas/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="forgeviewdisplayitemSistemas" value="#{forgeview:display(_item.sistemas)}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Opciones"/>
+					</f:facet>
+					<h:link outcome="/admin/opcionesSistemas/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="forgeviewdisplayitemOpciones" value="#{forgeview:display(_item.opciones)}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<ui:include src="/resources/scaffold/paginator.xhtml">
+				<ui:param name="paginatorBean" value='#{opcionesSistemasBean}'/>
+			</ui:include>
+		</h:form>
+			
+	</ui:define>
+
+</ui:composition>

@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:forgeview="http://jboss.org/forge/view"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="id" value='#{rolesSistemasBean.id}'/>
+		<f:event type="preRenderView" listener='#{rolesSistemasBean.retrieve}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="Create Roles Sistemas"/>
+
+	<ui:define name="header">
+		Roles Sistemas
+	</ui:define>
+
+	<ui:define name="subheader">
+		<c:choose>
+			<c:when test='#{!empty rolesSistemasBean.id}'>
+				Edit existing Roles Sistemas
+			</c:when>
+			<c:otherwise>
+				Create a new Roles Sistemas
+			</c:otherwise>
+		</c:choose>
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:form id="create">
+			<h:messages globalOnly="true" styleClass="error"/>
+
+			<h:panelGrid columnClasses="label,component,required" columns="3">
+				<h:outputLabel for="rolesSistemasBeanRolesSistemasPrueba" value="Prueba:"/>
+				<h:panelGroup>
+					<h:inputText id="rolesSistemasBeanRolesSistemasPrueba" value="#{rolesSistemasBean.rolesSistemas.prueba}"/>
+					<h:message for="rolesSistemasBeanRolesSistemasPrueba" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="rolesSistemasBeanRolesSistemasRoles" value="Roles:"/>
+				<h:panelGroup>
+					<h:selectOneMenu converter="#{rolesBean.converter}" id="rolesSistemasBeanRolesSistemasRoles" value="#{rolesSistemasBean.rolesSistemas.roles}">
+						<f:selectItem/>
+						<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{rolesBean.all}" var="_item"/>
+					</h:selectOneMenu>
+					<h:message for="rolesSistemasBeanRolesSistemasRoles" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="rolesSistemasBeanRolesSistemasSistemas" value="Sistemas:"/>
+				<h:panelGroup>
+					<h:selectOneMenu converter="#{sistemasBean.converter}" id="rolesSistemasBeanRolesSistemasSistemas" value="#{rolesSistemasBean.rolesSistemas.sistemas}">
+						<f:selectItem/>
+						<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{sistemasBean.all}" var="_item"/>
+					</h:selectOneMenu>
+					<h:message for="rolesSistemasBeanRolesSistemasSistemas" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+			</h:panelGrid>
+
+			<div class="buttons">
+				<h:commandLink value="Save" action='#{rolesSistemasBean.update}' styleClass="btn btn-primary"/>
+				<c:choose>
+					<c:when test='#{!empty rolesSistemasBean.id}'>
+						<h:link value="Cancel" outcome="view" styleClass="btn btn-primary">
+							<f:param name="id" value='#{rolesSistemasBean.id}'/>
+						</h:link>
+						<h:commandLink value="Delete" action='#{rolesSistemasBean.delete}' styleClass="btn btn-primary"/>
+					</c:when>
+					<c:otherwise>
+						<h:link value="Cancel" outcome="search" styleClass="btn btn-primary"/>
+					</c:otherwise>
+				</c:choose>
+			</div>
+		</h:form>
+	</ui:define>
+
+</ui:composition>

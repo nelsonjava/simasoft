@@ -1,0 +1,128 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:forgeview="http://jboss.org/forge/view"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="page" value='#{sistemasBean.page}'/>
+		<f:event type="preRenderView" listener='#{sistemasBean.paginate}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="Search Sistemas entities"/>
+
+	<ui:define name="header">
+		Sistemas
+	</ui:define>
+
+	<ui:define name="subheader">
+		Search Sistemas entities
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:form id="search">
+			<f:validateBean disabled="true">
+				<h:panelGroup styleClass="search">
+
+					<h:panelGrid columnClasses="label,component,required" columns="3">
+						<h:outputLabel for="sistemasBeanExampleCodigo" value="Codigo:"/>
+						<h:panelGroup>
+							<h:inputText id="sistemasBeanExampleCodigo" value="#{sistemasBean.example.codigo}"/>
+							<h:message for="sistemasBeanExampleCodigo" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="sistemasBeanExampleNombre" value="Nombre:"/>
+						<h:panelGroup>
+							<h:inputText id="sistemasBeanExampleNombre" value="#{sistemasBean.example.nombre}"/>
+							<h:message for="sistemasBeanExampleNombre" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="sistemasBeanExampleTitulo" value="Titulo:"/>
+						<h:panelGroup>
+							<h:inputText id="sistemasBeanExampleTitulo" value="#{sistemasBean.example.titulo}"/>
+							<h:message for="sistemasBeanExampleTitulo" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="sistemasBeanExampleDescripcion" value="Descripcion:"/>
+						<h:panelGroup>
+							<h:inputText id="sistemasBeanExampleDescripcion" value="#{sistemasBean.example.descripcion}"/>
+							<h:message for="sistemasBeanExampleDescripcion" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="sistemasBeanExampleObjPadre" value="Obj Padre:"/>
+						<h:panelGroup>
+							<h:selectOneMenu converter="#{sistemasBean.converter}" id="sistemasBeanExampleObjPadre" value="#{sistemasBean.example.objPadre}">
+								<f:selectItem/>
+								<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{sistemasBean.all}" var="_item"/>
+							</h:selectOneMenu>
+							<h:message for="sistemasBeanExampleObjPadre" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+					</h:panelGrid>
+					<h:panelGroup styleClass="buttons">
+						<h:commandLink value="Search" action='#{sistemasBean.search}' styleClass="btn btn-primary"/>
+						<h:commandLink value="Create New" action='#{sistemasBean.create}' styleClass="btn btn-primary"/>
+					</h:panelGroup>
+				</h:panelGroup>
+			</f:validateBean>
+			
+			<h:dataTable id="sistemasBeanPageItems" styleClass="data-table" value="#{sistemasBean.pageItems}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Codigo"/>
+					</f:facet>
+					<h:link outcome="/admin/sistemas/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemCodigo" value="#{_item.codigo}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Nombre"/>
+					</f:facet>
+					<h:link outcome="/admin/sistemas/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemNombre" value="#{_item.nombre}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Titulo"/>
+					</f:facet>
+					<h:link outcome="/admin/sistemas/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemTitulo" value="#{_item.titulo}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Descripcion"/>
+					</f:facet>
+					<h:link outcome="/admin/sistemas/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemDescripcion" value="#{_item.descripcion}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Obj Padre"/>
+					</f:facet>
+					<h:link outcome="/admin/sistemas/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="forgeviewdisplayitemObjPadre" value="#{forgeview:display(_item.objPadre)}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<ui:include src="/resources/scaffold/paginator.xhtml">
+				<ui:param name="paginatorBean" value='#{sistemasBean}'/>
+			</ui:include>
+		</h:form>
+			
+	</ui:define>
+
+</ui:composition>

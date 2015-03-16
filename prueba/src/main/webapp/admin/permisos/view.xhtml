@@ -1,0 +1,114 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:forgeview="http://jboss.org/forge/view"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="id" value='#{permisosBean.id}'/>
+		<f:event type="preRenderView" listener='#{permisosBean.retrieve}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="View Permisos"/>
+
+	<ui:define name="header">
+		Permisos
+	</ui:define>
+
+	<ui:define name="subheader">
+		View existing Permisos
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:panelGrid columnClasses="label,component,required" columns="3">
+			<h:outputLabel for="permisosBeanPermisosRecipient" value="Recipient:"/>
+			<h:outputText id="permisosBeanPermisosRecipient" value="#{permisosBean.permisos.recipient}"/>
+			<h:outputText/>
+			<h:outputLabel for="permisosBeanPermisosTarget" value="Target:"/>
+			<h:outputText id="permisosBeanPermisosTarget" value="#{permisosBean.permisos.target}"/>
+			<h:outputText/>
+			<h:outputLabel for="permisosBeanPermisosAction" value="Action:"/>
+			<h:outputText id="permisosBeanPermisosAction" value="#{permisosBean.permisos.action}"/>
+			<h:outputText/>
+			<h:outputLabel for="permisosBeanPermisosDiscriminator" value="Discriminator:"/>
+			<h:outputText id="permisosBeanPermisosDiscriminator" value="#{permisosBean.permisos.discriminator}"/>
+			<h:outputText/>
+			<h:outputLabel for="permisosBeanPermisosUsuarios" value="Usuarios:"/>
+			<h:link id="permisosBeanPermisosUsuarios" outcome="/admin/usuarios/view" rendered="#{!empty permisosBean.permisos.usuarios}" value="#{permisosBean.permisos.usuarios}">
+				<f:param name="id" value="#{permisosBean.permisos.usuarios.id}"/>
+			</h:link>
+			<h:outputText/>
+			<h:outputLabel for="permisosBeanPermisosRoles" value="Roles:"/>
+			<h:link id="permisosBeanPermisosRoles" outcome="/admin/roles/view" rendered="#{!empty permisosBean.permisos.roles}" value="#{permisosBean.permisos.roles}">
+				<f:param name="id" value="#{permisosBean.permisos.roles.id}"/>
+			</h:link>
+			<h:outputText/>
+			<h:outputLabel for="permisosBeanPermisosSistemas" value="Sistemas:"/>
+			<h:link id="permisosBeanPermisosSistemas" outcome="/admin/sistemas/view" rendered="#{!empty permisosBean.permisos.sistemas}" value="#{permisosBean.permisos.sistemas}">
+				<f:param name="id" value="#{permisosBean.permisos.sistemas.id}"/>
+			</h:link>
+			<h:outputText/>
+			<h:outputLabel for="permisosBeanPermisosOpciones" value="Opciones:"/>
+			<h:dataTable id="permisosBeanPermisosOpciones" styleClass="data-table" value="#{forgeview:asList(permisosBean.permisos.opciones)}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Codigo"/>
+					</f:facet>
+					<h:link outcome="/admin/opciones/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemCodigo" value="#{_item.codigo}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Nombre"/>
+					</f:facet>
+					<h:link outcome="/admin/opciones/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemNombre" value="#{_item.nombre}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Www Url"/>
+					</f:facet>
+					<h:link outcome="/admin/opciones/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemWwwUrl" value="#{_item.wwwUrl}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Descripcion"/>
+					</f:facet>
+					<h:link outcome="/admin/opciones/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemDescripcion" value="#{_item.descripcion}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Tipos Opciones"/>
+					</f:facet>
+					<h:link outcome="/admin/opciones/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="forgeviewdisplayitemTiposOpciones" value="#{forgeview:display(_item.tiposOpciones)}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<h:outputText/>
+		</h:panelGrid>
+
+		<div class="buttons">
+			<h:link value="View All" outcome="search" styleClass="btn btn-primary"/> 
+			<h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
+			<h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
+		</div>
+	</ui:define>
+
+</ui:composition>

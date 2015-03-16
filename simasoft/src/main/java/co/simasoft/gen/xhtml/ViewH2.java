@@ -101,7 +101,7 @@ line("  <ui:define name=\"main\">\n");
 
              if (atributo.getType().equals("String")) {
 
-line("      <h:outputLabel for=\""+Utils._1raMin(entity.getName())+"Bean"+entity.getName()+Utils._1raMay(atributo.getField())+"\" value=\""+Utils._1raMay(atributo.getField())+":\"/>");
+line("      <h:outputLabel for=\""+Utils._1raMin(entity.getName())+"Bean"+entity.getName()+Utils._1raMay(atributo.getField())+"\" value=\""+Utils._1raMin(atributo.getField())+":\"/>");
 line("        <h:outputText id=\""+Utils._1raMin(entity.getName())+"Bean"+entity.getName()+Utils._1raMay(atributo.getField())+"\" value=\"#{"+Utils._1raMin(entity.getName())+"Bean."+Utils._1raMin(entity.getName())+"."+Utils._1raMay(atributo.getField())+"}\"/>");
 line("      <h:outputText/>");
 

@@ -1,0 +1,130 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:forgeview="http://jboss.org/forge/view"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="page" value='#{usuariosEmpsBean.page}'/>
+		<f:event type="preRenderView" listener='#{usuariosEmpsBean.paginate}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="Search Usuarios Emps entities"/>
+
+	<ui:define name="header">
+		Usuarios Emps
+	</ui:define>
+
+	<ui:define name="subheader">
+		Search Usuarios Emps entities
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:form id="search">
+			<f:validateBean disabled="true">
+				<h:panelGroup styleClass="search">
+
+					<h:panelGrid columnClasses="label,component,required" columns="3">
+						<h:outputLabel for="usuariosEmpsBeanExampleIp" value="Ip:"/>
+						<h:panelGroup>
+							<h:inputText id="usuariosEmpsBeanExampleIp" value="#{usuariosEmpsBean.example.ip}"/>
+							<h:message for="usuariosEmpsBeanExampleIp" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="usuariosEmpsBeanExampleEmpresas" value="Empresas:"/>
+						<h:panelGroup>
+							<h:selectOneMenu converter="#{empresasBean.converter}" id="usuariosEmpsBeanExampleEmpresas" value="#{usuariosEmpsBean.example.empresas}">
+								<f:selectItem/>
+								<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{empresasBean.all}" var="_item"/>
+							</h:selectOneMenu>
+							<h:message for="usuariosEmpsBeanExampleEmpresas" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="usuariosEmpsBeanExamplePersonas" value="Personas:"/>
+						<h:panelGroup>
+							<h:selectOneMenu converter="#{personasBean.converter}" id="usuariosEmpsBeanExamplePersonas" value="#{usuariosEmpsBean.example.personas}">
+								<f:selectItem/>
+								<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{personasBean.all}" var="_item"/>
+							</h:selectOneMenu>
+							<h:message for="usuariosEmpsBeanExamplePersonas" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="usuariosEmpsBeanExampleUsuarios" value="Usuarios:"/>
+						<h:panelGroup>
+							<h:selectOneMenu converter="#{usuariosBean.converter}" id="usuariosEmpsBeanExampleUsuarios" value="#{usuariosEmpsBean.example.usuarios}">
+								<f:selectItem/>
+								<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{usuariosBean.all}" var="_item"/>
+							</h:selectOneMenu>
+							<h:message for="usuariosEmpsBeanExampleUsuarios" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+					</h:panelGrid>
+					<h:panelGroup styleClass="buttons">
+						<h:commandLink value="Search" action='#{usuariosEmpsBean.search}' styleClass="btn btn-primary"/>
+						<h:commandLink value="Create New" action='#{usuariosEmpsBean.create}' styleClass="btn btn-primary"/>
+					</h:panelGroup>
+				</h:panelGroup>
+			</f:validateBean>
+			
+			<h:dataTable id="usuariosEmpsBeanPageItems" styleClass="data-table" value="#{usuariosEmpsBean.pageItems}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Enabled"/>
+					</f:facet>
+					<h:link outcome="/admin/usuariosEmps/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText styleClass="#{_item.enabled ? 'boolean-true' : 'boolean-false'}" value=""/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Ultimo Ingreso"/>
+					</f:facet>
+					<h:link outcome="/admin/usuariosEmps/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemUltimoIngreso" value="#{_item.ultimoIngreso}">
+							<f:convertDateTime/>
+						</h:outputText>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Ip"/>
+					</f:facet>
+					<h:link outcome="/admin/usuariosEmps/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemIp" value="#{_item.ip}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Empresas"/>
+					</f:facet>
+					<h:link outcome="/admin/usuariosEmps/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="forgeviewdisplayitemEmpresas" value="#{forgeview:display(_item.empresas)}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Personas"/>
+					</f:facet>
+					<h:link outcome="/admin/usuariosEmps/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="forgeviewdisplayitemPersonas" value="#{forgeview:display(_item.personas)}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<ui:include src="/resources/scaffold/paginator.xhtml">
+				<ui:param name="paginatorBean" value='#{usuariosEmpsBean}'/>
+			</ui:include>
+		</h:form>
+			
+	</ui:define>
+
+</ui:composition>

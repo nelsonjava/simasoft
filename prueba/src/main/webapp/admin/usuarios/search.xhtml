@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="page" value='#{usuariosBean.page}'/>
+		<f:event type="preRenderView" listener='#{usuariosBean.paginate}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="Search Usuarios entities"/>
+
+	<ui:define name="header">
+		Usuarios
+	</ui:define>
+
+	<ui:define name="subheader">
+		Search Usuarios entities
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:form id="search">
+			<f:validateBean disabled="true">
+				<h:panelGroup styleClass="search">
+
+					<h:panelGrid columnClasses="label,component,required" columns="3">
+						<h:outputLabel for="usuariosBeanExampleCuenta" value="Cuenta:"/>
+						<h:panelGroup>
+							<h:inputText id="usuariosBeanExampleCuenta" value="#{usuariosBean.example.cuenta}"/>
+							<h:message for="usuariosBeanExampleCuenta" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="usuariosBeanExamplePassword" value="Password:"/>
+						<h:panelGroup>
+							<h:inputText id="usuariosBeanExamplePassword" value="#{usuariosBean.example.password}"/>
+							<h:message for="usuariosBeanExamplePassword" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+					</h:panelGrid>
+					<h:panelGroup styleClass="buttons">
+						<h:commandLink value="Search" action='#{usuariosBean.search}' styleClass="btn btn-primary"/>
+						<h:commandLink value="Create New" action='#{usuariosBean.create}' styleClass="btn btn-primary"/>
+					</h:panelGroup>
+				</h:panelGroup>
+			</f:validateBean>
+			
+			<h:dataTable id="usuariosBeanPageItems" styleClass="data-table" value="#{usuariosBean.pageItems}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Cuenta"/>
+					</f:facet>
+					<h:link outcome="/admin/usuarios/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemCuenta" value="#{_item.cuenta}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Password"/>
+					</f:facet>
+					<h:link outcome="/admin/usuarios/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemPassword" value="#{_item.password}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Enabled"/>
+					</f:facet>
+					<h:link outcome="/admin/usuarios/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText styleClass="#{_item.enabled ? 'boolean-true' : 'boolean-false'}" value=""/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<ui:include src="/resources/scaffold/paginator.xhtml">
+				<ui:param name="paginatorBean" value='#{usuariosBean}'/>
+			</ui:include>
+		</h:form>
+			
+	</ui:define>
+
+</ui:composition>

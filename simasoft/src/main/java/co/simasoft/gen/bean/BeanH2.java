@@ -225,7 +225,7 @@ line("         this.entityManager.merge("+Utils._1raMin(relation.getTo())+");");
 
 line("         Iterator<"+relation.getTo()+"> iterObjHijos = deletableEntity.getObjHijos().iterator();");
 line("         for (; iterObjHijos.hasNext();){");
-line("            Pucs nextInObjHijos = iterObjHijos.next();");
+line("            "+relation.getTo()+" nextInObjHijos = iterObjHijos.next();");
 line("            nextInObjHijos.setObjPadre(null);");
 line("            iterObjHijos.remove();");
 line("            this.entityManager.merge(nextInObjHijos);");

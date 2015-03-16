@@ -1,0 +1,157 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:forgeview="http://jboss.org/forge/view"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="id" value='#{personasBean.id}'/>
+		<f:event type="preRenderView" listener='#{personasBean.retrieve}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="View Personas"/>
+
+	<ui:define name="header">
+		Personas
+	</ui:define>
+
+	<ui:define name="subheader">
+		View existing Personas
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:panelGrid columnClasses="label,component,required" columns="3">
+			<h:outputLabel for="personasBeanPersonasPrimerNombre" value="Primer Nombre:"/>
+			<h:outputText id="personasBeanPersonasPrimerNombre" value="#{personasBean.personas.primerNombre}"/>
+			<h:outputText/>
+			<h:outputLabel for="personasBeanPersonasSegundoNombre" value="Segundo Nombre:"/>
+			<h:outputText id="personasBeanPersonasSegundoNombre" value="#{personasBean.personas.segundoNombre}"/>
+			<h:outputText/>
+			<h:outputLabel for="personasBeanPersonasPrimerApellido" value="Primer Apellido:"/>
+			<h:outputText id="personasBeanPersonasPrimerApellido" value="#{personasBean.personas.primerApellido}"/>
+			<h:outputText/>
+			<h:outputLabel for="personasBeanPersonasSegundoApellido" value="Segundo Apellido:"/>
+			<h:outputText id="personasBeanPersonasSegundoApellido" value="#{personasBean.personas.segundoApellido}"/>
+			<h:outputText/>
+			<h:outputLabel for="personasBeanPersonasNombreCompleto" value="Nombre Completo:"/>
+			<h:outputText id="personasBeanPersonasNombreCompleto" value="#{personasBean.personas.nombreCompleto}"/>
+			<h:outputText/>
+			<h:outputLabel for="personasBeanPersonasFechaNacimiento" value="Fecha Nacimiento:"/>
+			<h:outputText id="personasBeanPersonasFechaNacimiento" value="#{personasBean.personas.fechaNacimiento}">
+				<f:convertDateTime/>
+			</h:outputText>
+			<h:outputText/>
+			<h:outputLabel for="personasBeanPersonasFechadefuncion" value="Fechadefuncion:"/>
+			<h:outputText id="personasBeanPersonasFechadefuncion" value="#{personasBean.personas.fechadefuncion}">
+				<f:convertDateTime/>
+			</h:outputText>
+			<h:outputText/>
+			<h:outputLabel for="personasBeanPersonasEstrato" value="Estrato:"/>
+			<h:outputText id="personasBeanPersonasEstrato" value="#{personasBean.personas.estrato}"/>
+			<h:outputText/>
+			<h:outputLabel for="personasBeanPersonasUsuariosEmps" value="Usuarios Emps:"/>
+			<h:dataTable id="personasBeanPersonasUsuariosEmps" styleClass="data-table" value="#{forgeview:asList(personasBean.personas.usuariosEmps)}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Enabled"/>
+					</f:facet>
+					<h:link outcome="/admin/usuariosEmps/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText styleClass="#{_item.enabled ? 'boolean-true' : 'boolean-false'}" value=""/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Ultimo Ingreso"/>
+					</f:facet>
+					<h:link outcome="/admin/usuariosEmps/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemUltimoIngreso" value="#{_item.ultimoIngreso}">
+							<f:convertDateTime/>
+						</h:outputText>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Ip"/>
+					</f:facet>
+					<h:link outcome="/admin/usuariosEmps/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemIp" value="#{_item.ip}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Empresas"/>
+					</f:facet>
+					<h:link outcome="/admin/usuariosEmps/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="forgeviewdisplayitemEmpresas" value="#{forgeview:display(_item.empresas)}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Usuarios"/>
+					</f:facet>
+					<h:link outcome="/admin/usuariosEmps/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="forgeviewdisplayitemUsuarios" value="#{forgeview:display(_item.usuarios)}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<h:outputText/>
+			<h:outputLabel for="personasBeanPersonasDatos" value="Datos:"/>
+			<h:dataTable id="personasBeanPersonasDatos" styleClass="data-table" value="#{forgeview:asList(personasBean.personas.datos)}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Xyz"/>
+					</f:facet>
+					<h:link outcome="/admin/datos/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemXyz" value="#{_item.xyz}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Abc"/>
+					</f:facet>
+					<h:link outcome="/admin/datos/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemAbc" value="#{_item.abc}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Empresas"/>
+					</f:facet>
+					<h:link outcome="/admin/datos/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="forgeviewdisplayitemEmpresas" value="#{forgeview:display(_item.empresas)}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Sistemas"/>
+					</f:facet>
+					<h:link outcome="/admin/datos/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="forgeviewdisplayitemSistemas" value="#{forgeview:display(_item.sistemas)}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<h:outputText/>
+		</h:panelGrid>
+
+		<div class="buttons">
+			<h:link value="View All" outcome="search" styleClass="btn btn-primary"/> 
+			<h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
+			<h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
+		</div>
+	</ui:define>
+
+</ui:composition>
