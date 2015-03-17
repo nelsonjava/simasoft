@@ -1,0 +1,11 @@
+{
+    "realm": "simasoft",
+    "resource": "prueba",
+    "realm-public-key": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCmAqx538wipxBIATZasUo+QzHE9HM9NQgVIGK+cO0wNBPdRET92hTcz2GJlYmIMPNVkDsb3YdlMQ3BXnrDJ7QSYVZykgulEKRP0QBP5h+Z/9Fjsvdvo1b2RqJfNIU/yjVi77xK3l8byVW2l6x1GlUO6sbw0jB3v/QjowwcCPNp0QIDAQAB",
+    "auth-server-url": "/auth",
+    "ssl-required" : "external",
+    "expose-token": true,
+    "credentials": {
+        "secret": "password"
+    }
+}
