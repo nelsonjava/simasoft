@@ -5,10 +5,72 @@ import java.util.jar.JarFile;
 import java.util.jar.JarEntry;
 import java.util.Enumeration;
 
+import java.net.InetAddress;
+import java.net.NetworkInterface;
+import java.net.SocketException;
+import java.net.UnknownHostException;
+
 
 // Dic 13/2014 Hora:09:45 Sabado
 
 public class Utils {
+
+    public static String hostIp() {
+
+        InetAddress ip;
+        try {
+
+           ip = InetAddress.getLocalHost();
+           return ip.getHostAddress();
+
+	}
+        catch (UnknownHostException e) {
+
+		e.printStackTrace();
+
+	}
+
+    }
+
+    public static String hostMac() {
+
+	InetAddress ip;
+	try{
+	    ip = InetAddress.getLocalHost();
+	    NetworkInterface network = NetworkInterface.getByInetAddress(ip);
+	    byte[] mac = network.getHardwareAddress();
+	    StringBuilder sb = new StringBuilder();
+	    for (int i = 0; i < mac.length; i++) {
+	        sb.append(String.format("%02X%s", mac[i], (i < mac.length - 1) ? "-" : ""));
+	    }
+	    return sb.toString();
+
+	} catch (UnknownHostException e) {
+
+		e.printStackTrace();
+
+	} catch (SocketException e){
+
+		e.printStackTrace();
+	}
+    }
+
+    public static String hostName() {
+
+	InetAddress ip;
+	try {
+	     ip = InetAddress.getLocalHost();
+	     return ip.getHostName();
+
+	} catch (UnknownHostException e) {
+
+		e.printStackTrace();
+
+	} catch (SocketException e){
+
+		e.printStackTrace();
+	}
+    }
 
     public static String spaces(int length) {
 
