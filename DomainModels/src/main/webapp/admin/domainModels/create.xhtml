@@ -86,7 +86,7 @@
 				<h:panelGroup>
 					<h:selectOneMenu converter="#{systemsModelsBean.converter}" id="domainModelsBeanDomainModelsSystemsModels" value="#{domainModelsBean.domainModels.systemsModels}">
 						<f:selectItem/>
-						<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{systemsModelsBean.all}" var="_item"/>
+						<f:selectItems itemLabel="#{forgeview:display(_item.name)}" itemValue="#{_item}" value="#{systemsModelsBean.all}" var="_item"/>
 					</h:selectOneMenu>
 					<h:message for="domainModelsBeanDomainModelsSystemsModels" styleClass="error"/>
 				</h:panelGroup>

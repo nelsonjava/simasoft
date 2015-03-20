@@ -102,12 +102,19 @@
 
 				<h:outputLabel for="entitiesBeanEntitiesDomainModels" value="Domain Models:"/>
 				<h:panelGroup>
-					<h:selectOneMenu converter="#{domainModelsBean.converter}" id="entitiesBeanEntitiesDomainModels" value="#{entitiesBean.entities.domainModels}">
+
+				   <h:selectOneMenu converter="#{domainModelsBean.converter}"
+                                                                id="entitiesBeanEntitiesDomainModels"
+                                                             value="#{entitiesBean.entities.domainModels}">
 						<f:selectItem/>
-						<f:selectItems value="#{domainModelsBean.all}"/>
-					</h:selectOneMenu>
-					<h:message for="entitiesBeanEntitiesDomainModels" styleClass="error"/>
+                                                <f:selectItems itemLabel="#{forgeview:display(_item.name)}"
+                                                               itemValue="#{_item}" value="#{domainModelsBean.all}"
+                                                               var="_item"/>
+				   </h:selectOneMenu>
+				   <h:message for="entitiesBeanEntitiesDomainModels" styleClass="error"/>
+
 				</h:panelGroup>
+
 
 			</h:panelGrid>
 

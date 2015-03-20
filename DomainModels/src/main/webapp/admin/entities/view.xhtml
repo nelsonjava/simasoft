@@ -235,7 +235,10 @@
 			</h:dataTable>
 			<h:outputText/>
 			<h:outputLabel for="entitiesBeanEntitiesDomainModels" value="Domain Models:"/>
-			<h:link id="entitiesBeanEntitiesDomainModels" outcome="/admin/domainModels/view" rendered="#{!empty entitiesBean.entities.domainModels}" value="#{entitiesBean.entities.domainModels}">
+			<h:link id="entitiesBeanEntitiesDomainModels" 
+                                outcome="/admin/domainModels/view" 
+                                rendered="#{!empty entitiesBean.entities.domainModels}" 
+                                value="#{entitiesBean.entities.domainModels.name}">
 				<f:param name="id" value="#{entitiesBean.entities.domainModels.id}"/>
 			</h:link>
 			<h:outputText/>

@@ -188,7 +188,10 @@
 			</h:dataTable>
 			<h:outputText/>
 			<h:outputLabel for="domainModelsBeanDomainModelsSystemsModels" value="Systems Models:"/>
-			<h:link id="domainModelsBeanDomainModelsSystemsModels" outcome="/admin/systemsModels/view" rendered="#{!empty domainModelsBean.domainModels.systemsModels}" value="#{domainModelsBean.domainModels.systemsModels}">
+			<h:link       id="domainModelsBeanDomainModelsSystemsModels"
+                                 outcome="/admin/systemsModels/view" 
+                                 rendered="#{!empty domainModelsBean.domainModels.systemsModels}" 
+                                 value="#{domainModelsBean.domainModels.systemsModels.name}">
 				<f:param name="id" value="#{domainModelsBean.domainModels.systemsModels.id}"/>
 			</h:link>
 			<h:outputText/>
