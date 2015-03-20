@@ -53,7 +53,7 @@
 				<h:panelGroup>
 					<h:selectOneMenu converter="#{empresasBean.converter}" id="datosBeanDatosEmpresas" value="#{datosBean.datos.empresas}">
 						<f:selectItem/>
-						<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{empresasBean.all}" var="_item"/>
+						<f:selectItems itemLabel="#{forgeview:display(_item.nombre)}" itemValue="#{_item}" value="#{empresasBean.all}" var="_item"/>
 					</h:selectOneMenu>
 					<h:message for="datosBeanDatosEmpresas" styleClass="error"/>
 				</h:panelGroup>
@@ -62,7 +62,7 @@
 				<h:panelGroup>
 					<h:selectOneMenu converter="#{personasBean.converter}" id="datosBeanDatosPersonas" value="#{datosBean.datos.personas}">
 						<f:selectItem/>
-						<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{personasBean.all}" var="_item"/>
+						<f:selectItems itemLabel="#{forgeview:display(_item.segundoNombre )}" itemValue="#{_item}" value="#{personasBean.all}" var="_item"/>
 					</h:selectOneMenu>
 					<h:message for="datosBeanDatosPersonas" styleClass="error"/>
 				</h:panelGroup>
@@ -71,7 +71,7 @@
 				<h:panelGroup>
 					<h:selectOneMenu converter="#{sistemasBean.converter}" id="datosBeanDatosSistemas" value="#{datosBean.datos.sistemas}">
 						<f:selectItem/>
-						<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{sistemasBean.all}" var="_item"/>
+						<f:selectItems itemLabel="#{forgeview:display(_item.nombre)}" itemValue="#{_item}" value="#{sistemasBean.all}" var="_item"/>
 					</h:selectOneMenu>
 					<h:message for="datosBeanDatosSistemas" styleClass="error"/>
 				</h:panelGroup>

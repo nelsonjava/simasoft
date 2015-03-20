@@ -33,10 +33,12 @@
 	<ui:define name="footer"/>
 
 	<ui:define name="main">
+
 		<h:form id="create">
 			<h:messages globalOnly="true" styleClass="error"/>
 
 			<h:panelGrid columnClasses="label,component,required" columns="3">
+
 				<h:outputLabel for="empresasBeanEmpresasNombre" value="Nombre:"/>
 				<h:panelGroup>
 					<h:inputText id="empresasBeanEmpresasNombre" value="#{empresasBean.empresas.nombre}"/>
@@ -79,175 +81,13 @@
 					<h:message for="empresasBeanEmpresasPoliticaCalidad" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
+
 				<h:outputLabel for="empresasBeanEmpresasObjetivosCalidad" value="Objetivos Calidad:"/>
 				<h:panelGroup>
 					<h:inputText id="empresasBeanEmpresasObjetivosCalidad" value="#{empresasBean.empresas.objetivosCalidad}"/>
 					<h:message for="empresasBeanEmpresasObjetivosCalidad" styleClass="error"/>
 				</h:panelGroup>
-				<h:outputText/>
-				<h:outputLabel for="empresasBeanEmpresasUsuariosEmps" value="Usuarios Emps:"/>
-				<h:panelGroup>
-					<ui:param name="_collection" value="#{empresasBean.empresas.usuariosEmps}"/>
-					<h:dataTable id="empresasBeanEmpresasUsuariosEmps" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
-						<h:column>
-							<f:facet name="header">
-								<h:outputText value="Enabled"/>
-							</f:facet>
-							<h:link outcome="/admin/usuariosEmps/view">
-								<f:param name="id" value="#{_item.id}"/>
-								<h:outputText styleClass="#{_item.enabled ? 'boolean-true' : 'boolean-false'}" value=""/>
-							</h:link>
-							<f:facet name="footer">
-								<h:selectBooleanCheckbox id="usuariosEmpsBeanAddEnabled" value="#{usuariosEmpsBean.add.enabled}"/>
-								<h:message for="usuariosEmpsBeanAddEnabled" styleClass="error"/>
-							</f:facet>
-						</h:column>
-						<h:column>
-							<f:facet name="header">
-								<h:outputText value="Ultimo Ingreso"/>
-							</f:facet>
-							<h:link outcome="/admin/usuariosEmps/view">
-								<f:param name="id" value="#{_item.id}"/>
-								<h:outputText id="itemUltimoIngreso" value="#{_item.ultimoIngreso}">
-									<f:convertDateTime/>
-								</h:outputText>
-							</h:link>
-							<f:facet name="footer">
-								<h:inputText id="usuariosEmpsBeanAddUltimoIngreso" value="#{usuariosEmpsBean.add.ultimoIngreso}">
-									<f:convertDateTime/>
-								</h:inputText>
-								<h:message for="usuariosEmpsBeanAddUltimoIngreso" styleClass="error"/>
-							</f:facet>
-						</h:column>
-						<h:column>
-							<f:facet name="header">
-								<h:outputText value="Ip"/>
-							</f:facet>
-							<h:link outcome="/admin/usuariosEmps/view">
-								<f:param name="id" value="#{_item.id}"/>
-								<h:outputText id="itemIp" value="#{_item.ip}"/>
-							</h:link>
-							<f:facet name="footer">
-								<h:inputText id="usuariosEmpsBeanAddIp" value="#{usuariosEmpsBean.add.ip}"/>
-								<h:message for="usuariosEmpsBeanAddIp" styleClass="error"/>
-							</f:facet>
-						</h:column>
-						<h:column>
-							<f:facet name="header">
-								<h:outputText value="Personas"/>
-							</f:facet>
-							<h:link outcome="/admin/usuariosEmps/view">
-								<f:param name="id" value="#{_item.id}"/>
-								<h:outputText id="forgeviewdisplayitemPersonas" value="#{forgeview:display(_item.personas)}"/>
-							</h:link>
-							<f:facet name="footer">
-								<h:selectOneMenu converter="#{personasBean.converter}" id="usuariosEmpsBeanAddPersonas" value="#{usuariosEmpsBean.add.personas}">
-									<f:selectItem/>
-									<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{personasBean.all}" var="_item"/>
-								</h:selectOneMenu>
-								<h:message for="usuariosEmpsBeanAddPersonas" styleClass="error"/>
-							</f:facet>
-						</h:column>
-						<h:column>
-							<f:facet name="header">
-								<h:outputText value="Usuarios"/>
-							</f:facet>
-							<h:link outcome="/admin/usuariosEmps/view">
-								<f:param name="id" value="#{_item.id}"/>
-								<h:outputText id="forgeviewdisplayitemUsuarios" value="#{forgeview:display(_item.usuarios)}"/>
-							</h:link>
-							<f:facet name="footer">
-								<h:selectOneMenu converter="#{usuariosBean.converter}" id="usuariosEmpsBeanAddUsuarios" value="#{usuariosEmpsBean.add.usuarios}">
-									<f:selectItem/>
-									<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{usuariosBean.all}" var="_item"/>
-								</h:selectOneMenu>
-								<h:message for="usuariosEmpsBeanAddUsuarios" styleClass="error"/>
-							</f:facet>
-						</h:column>
-						<h:column footerClass="remove-column" headerClass="remove-column">
-							<h:commandLink action="#{_collection.remove(_item)}" styleClass="remove-button"/>
-							<f:facet name="footer">
-								<h:commandLink action="#{_collection.add(usuariosEmpsBean.added)}" id="empresasBeanEmpresasUsuariosEmpsAdd" styleClass="add-button">
-									<f:setPropertyActionListener target="#{usuariosEmpsBean.add.empresas}" value="#{empresasBean.empresas}"/>
-								</h:commandLink>
-							</f:facet>
-						</h:column>
-					</h:dataTable>
-				</h:panelGroup>
-				<h:outputText/>
-				<h:outputLabel for="empresasBeanEmpresasDatos" value="Datos:"/>
-				<h:panelGroup>
-					<ui:param name="_collection" value="#{empresasBean.empresas.datos}"/>
-					<h:dataTable id="empresasBeanEmpresasDatos" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
-						<h:column>
-							<f:facet name="header">
-								<h:outputText value="Xyz"/>
-							</f:facet>
-							<h:link outcome="/admin/datos/view">
-								<f:param name="id" value="#{_item.id}"/>
-								<h:outputText id="itemXyz" value="#{_item.xyz}"/>
-							</h:link>
-							<f:facet name="footer">
-								<h:inputText id="datosBeanAddXyz" value="#{datosBean.add.xyz}"/>
-								<h:message for="datosBeanAddXyz" styleClass="error"/>
-							</f:facet>
-						</h:column>
-						<h:column>
-							<f:facet name="header">
-								<h:outputText value="Abc"/>
-							</f:facet>
-							<h:link outcome="/admin/datos/view">
-								<f:param name="id" value="#{_item.id}"/>
-								<h:outputText id="itemAbc" value="#{_item.abc}"/>
-							</h:link>
-							<f:facet name="footer">
-								<h:inputText id="datosBeanAddAbc" value="#{datosBean.add.abc}"/>
-								<h:message for="datosBeanAddAbc" styleClass="error"/>
-							</f:facet>
-						</h:column>
-						<h:column>
-							<f:facet name="header">
-								<h:outputText value="Personas"/>
-							</f:facet>
-							<h:link outcome="/admin/datos/view">
-								<f:param name="id" value="#{_item.id}"/>
-								<h:outputText id="forgeviewdisplayitemPersonas" value="#{forgeview:display(_item.personas)}"/>
-							</h:link>
-							<f:facet name="footer">
-								<h:selectOneMenu converter="#{personasBean.converter}" id="datosBeanAddPersonas" value="#{datosBean.add.personas}">
-									<f:selectItem/>
-									<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{personasBean.all}" var="_item"/>
-								</h:selectOneMenu>
-								<h:message for="datosBeanAddPersonas" styleClass="error"/>
-							</f:facet>
-						</h:column>
-						<h:column>
-							<f:facet name="header">
-								<h:outputText value="Sistemas"/>
-							</f:facet>
-							<h:link outcome="/admin/datos/view">
-								<f:param name="id" value="#{_item.id}"/>
-								<h:outputText id="forgeviewdisplayitemSistemas" value="#{forgeview:display(_item.sistemas)}"/>
-							</h:link>
-							<f:facet name="footer">
-								<h:selectOneMenu converter="#{sistemasBean.converter}" id="datosBeanAddSistemas" value="#{datosBean.add.sistemas}">
-									<f:selectItem/>
-									<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{sistemasBean.all}" var="_item"/>
-								</h:selectOneMenu>
-								<h:message for="datosBeanAddSistemas" styleClass="error"/>
-							</f:facet>
-						</h:column>
-						<h:column footerClass="remove-column" headerClass="remove-column">
-							<h:commandLink action="#{_collection.remove(_item)}" styleClass="remove-button"/>
-							<f:facet name="footer">
-								<h:commandLink action="#{_collection.add(datosBean.added)}" id="empresasBeanEmpresasDatosAdd" styleClass="add-button">
-									<f:setPropertyActionListener target="#{datosBean.add.empresas}" value="#{empresasBean.empresas}"/>
-								</h:commandLink>
-							</f:facet>
-						</h:column>
-					</h:dataTable>
-				</h:panelGroup>
-				<h:outputText/>
+
 			</h:panelGrid>
 
 			<div class="buttons">

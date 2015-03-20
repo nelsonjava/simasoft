@@ -37,95 +37,13 @@
 			<h:messages globalOnly="true" styleClass="error"/>
 
 			<h:panelGrid columnClasses="label,component,required" columns="3">
+
 				<h:outputLabel for="tiposSistemasBeanTiposSistemasNombre" value="Nombre:"/>
 				<h:panelGroup>
 					<h:inputText id="tiposSistemasBeanTiposSistemasNombre" value="#{tiposSistemasBean.tiposSistemas.nombre}"/>
 					<h:message for="tiposSistemasBeanTiposSistemasNombre" styleClass="error"/>
 				</h:panelGroup>
-				<h:outputText/>
-				<h:outputLabel for="tiposSistemasBeanTiposSistemasSistemas" value="Sistemas:"/>
-				<h:panelGroup>
-					<ui:param name="_collection" value="#{tiposSistemasBean.tiposSistemas.sistemas}"/>
-					<h:dataTable id="tiposSistemasBeanTiposSistemasSistemas" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
-						<h:column>
-							<f:facet name="header">
-								<h:outputText value="Codigo"/>
-							</f:facet>
-							<h:link outcome="/admin/sistemas/view">
-								<f:param name="id" value="#{_item.id}"/>
-								<h:outputText id="itemCodigo" value="#{_item.codigo}"/>
-							</h:link>
-							<f:facet name="footer">
-								<h:inputText id="sistemasBeanAddCodigo" value="#{sistemasBean.add.codigo}"/>
-								<h:message for="sistemasBeanAddCodigo" styleClass="error"/>
-							</f:facet>
-						</h:column>
-						<h:column>
-							<f:facet name="header">
-								<h:outputText value="Nombre"/>
-							</f:facet>
-							<h:link outcome="/admin/sistemas/view">
-								<f:param name="id" value="#{_item.id}"/>
-								<h:outputText id="itemNombre" value="#{_item.nombre}"/>
-							</h:link>
-							<f:facet name="footer">
-								<h:inputText id="sistemasBeanAddNombre" value="#{sistemasBean.add.nombre}"/>
-								<h:message for="sistemasBeanAddNombre" styleClass="error"/>
-							</f:facet>
-						</h:column>
-						<h:column>
-							<f:facet name="header">
-								<h:outputText value="Titulo"/>
-							</f:facet>
-							<h:link outcome="/admin/sistemas/view">
-								<f:param name="id" value="#{_item.id}"/>
-								<h:outputText id="itemTitulo" value="#{_item.titulo}"/>
-							</h:link>
-							<f:facet name="footer">
-								<h:inputText id="sistemasBeanAddTitulo" value="#{sistemasBean.add.titulo}"/>
-								<h:message for="sistemasBeanAddTitulo" styleClass="error"/>
-							</f:facet>
-						</h:column>
-						<h:column>
-							<f:facet name="header">
-								<h:outputText value="Descripcion"/>
-							</f:facet>
-							<h:link outcome="/admin/sistemas/view">
-								<f:param name="id" value="#{_item.id}"/>
-								<h:outputText id="itemDescripcion" value="#{_item.descripcion}"/>
-							</h:link>
-							<f:facet name="footer">
-								<h:inputText id="sistemasBeanAddDescripcion" value="#{sistemasBean.add.descripcion}"/>
-								<h:message for="sistemasBeanAddDescripcion" styleClass="error"/>
-							</f:facet>
-						</h:column>
-						<h:column>
-							<f:facet name="header">
-								<h:outputText value="Obj Padre"/>
-							</f:facet>
-							<h:link outcome="/admin/sistemas/view">
-								<f:param name="id" value="#{_item.id}"/>
-								<h:outputText id="forgeviewdisplayitemObjPadre" value="#{forgeview:display(_item.objPadre)}"/>
-							</h:link>
-							<f:facet name="footer">
-								<h:selectOneMenu converter="#{sistemasBean.converter}" id="sistemasBeanAddObjPadre" value="#{sistemasBean.add.objPadre}">
-									<f:selectItem/>
-									<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{sistemasBean.all}" var="_item"/>
-								</h:selectOneMenu>
-								<h:message for="sistemasBeanAddObjPadre" styleClass="error"/>
-							</f:facet>
-						</h:column>
-						<h:column footerClass="remove-column" headerClass="remove-column">
-							<h:commandLink action="#{_collection.remove(_item)}" styleClass="remove-button"/>
-							<f:facet name="footer">
-								<h:commandLink action="#{_collection.add(sistemasBean.added)}" id="tiposSistemasBeanTiposSistemasSistemasAdd" styleClass="add-button">
-									<f:setPropertyActionListener target="#{sistemasBean.add.tiposSistemas}" value="#{tiposSistemasBean.tiposSistemas}"/>
-								</h:commandLink>
-							</f:facet>
-						</h:column>
-					</h:dataTable>
-				</h:panelGroup>
-				<h:outputText/>
+
 			</h:panelGrid>
 
 			<div class="buttons">
