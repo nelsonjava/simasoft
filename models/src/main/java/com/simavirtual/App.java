@@ -290,6 +290,14 @@ public class App extends FileTxt{
         modelos.clear();
         modelos.add(new Modelos("pruebas","co.simasoft","prueba2"));
         generar(modelos);
+        
+        modelos.clear();
+        modelos.add(new Modelos("naif","co.simasoft","DomainModels"));
+        generar(modelos);
+        
+        modelos.clear();
+        modelos.add(new Modelos("naif","co.simasoft","RelacionesEjb"));
+        generar(modelos);
 
     } // main
 

@@ -1,0 +1,204 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:forgeview="http://jboss.org/forge/view"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="id" value='#{domainModelsBean.id}'/>
+		<f:event type="preRenderView" listener='#{domainModelsBean.retrieve}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="View Domain Models"/>
+
+	<ui:define name="header">
+		Domain Models
+	</ui:define>
+
+	<ui:define name="subheader">
+		View existing Domain Models
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:panelGrid columnClasses="label,component,required" columns="3">
+			<h:outputLabel for="domainModelsBeanDomainModelsName" value="Name:"/>
+			<h:outputText id="domainModelsBeanDomainModelsName" value="#{domainModelsBean.domainModels.name}"/>
+			<h:outputText/>
+			<h:outputLabel for="domainModelsBeanDomainModelsPaquete" value="Paquete:"/>
+			<h:outputText id="domainModelsBeanDomainModelsPaquete" value="#{domainModelsBean.domainModels.paquete}"/>
+			<h:outputText/>
+			<h:outputLabel for="domainModelsBeanDomainModelsRelease" value="Release:"/>
+			<h:outputText id="domainModelsBeanDomainModelsRelease" value="#{domainModelsBean.domainModels.release}"/>
+			<h:outputText/>
+			<h:outputLabel for="domainModelsBeanDomainModelsCodigo" value="Codigo:"/>
+			<h:outputText id="domainModelsBeanDomainModelsCodigo" value="#{domainModelsBean.domainModels.codigo}"/>
+			<h:outputText/>
+			<h:outputLabel for="domainModelsBeanDomainModelsDate" value="Date:"/>
+			<h:outputText id="domainModelsBeanDomainModelsDate" value="#{domainModelsBean.domainModels.date}">
+				<f:convertDateTime/>
+			</h:outputText>
+			<h:outputText/>
+			<h:outputLabel for="domainModelsBeanDomainModelsDescription" value="Description:"/>
+			<h:outputText id="domainModelsBeanDomainModelsDescription" value="#{domainModelsBean.domainModels.description}"/>
+			<h:outputText/>
+			<h:outputLabel for="domainModelsBeanDomainModelsObservaciones" value="Observaciones:"/>
+			<h:outputText id="domainModelsBeanDomainModelsObservaciones" value="#{domainModelsBean.domainModels.observaciones}"/>
+			<h:outputText/>
+			<h:outputLabel for="domainModelsBeanDomainModelsLinksModels" value="Links Models:"/>
+			<h:dataTable id="domainModelsBeanDomainModelsLinksModels" styleClass="data-table" value="#{forgeview:asList(domainModelsBean.domainModels.linksModels)}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Titulo"/>
+					</f:facet>
+					<h:link outcome="/admin/linksModels/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemTitulo" value="#{_item.titulo}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Link"/>
+					</f:facet>
+					<h:link outcome="/admin/linksModels/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemLink" value="#{_item.link}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Observacion"/>
+					</f:facet>
+					<h:link outcome="/admin/linksModels/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemObservacion" value="#{_item.observacion}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Tipos Links Models"/>
+					</f:facet>
+					<h:link outcome="/admin/linksModels/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="forgeviewdisplayitemTiposLinksModels" value="#{forgeview:display(_item.tiposLinksModels)}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<h:outputText/>
+			<h:outputLabel for="domainModelsBeanDomainModelsEntities" value="Entities:"/>
+			<h:dataTable id="domainModelsBeanDomainModelsEntities" styleClass="data-table" value="#{forgeview:asList(domainModelsBean.domainModels.entities)}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Name"/>
+					</f:facet>
+					<h:link outcome="/admin/entities/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemName" value="#{_item.name}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Tabla"/>
+					</f:facet>
+					<h:link outcome="/admin/entities/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemTabla" value="#{_item.tabla}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Tabla Secuencia"/>
+					</f:facet>
+					<h:link outcome="/admin/entities/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemTablaSecuencia" value="#{_item.tablaSecuencia}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Modifier"/>
+					</f:facet>
+					<h:link outcome="/admin/entities/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemModifier" value="#{_item.modifier}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Extend"/>
+					</f:facet>
+					<h:link outcome="/admin/entities/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemExtend" value="#{_item.extend}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<h:outputText/>
+			<h:outputLabel for="domainModelsBeanDomainModelsFilesModels" value="Files Models:"/>
+			<h:dataTable id="domainModelsBeanDomainModelsFilesModels" styleClass="data-table" value="#{forgeview:asList(domainModelsBean.domainModels.filesModels)}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Codigo"/>
+					</f:facet>
+					<h:link outcome="/admin/filesModels/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemCodigo" value="#{_item.codigo}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Archivo"/>
+					</f:facet>
+					<h:link outcome="/admin/filesModels/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemArchivo" value="#{_item.archivo}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Extension"/>
+					</f:facet>
+					<h:link outcome="/admin/filesModels/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemExtension" value="#{_item.extension}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Data"/>
+					</f:facet>
+					<h:link outcome="/admin/filesModels/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemData" value="#{_item.data}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Type"/>
+					</f:facet>
+					<h:link outcome="/admin/filesModels/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemType" value="#{_item.type}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<h:outputText/>
+			<h:outputLabel for="domainModelsBeanDomainModelsSystemsModels" value="Systems Models:"/>
+			<h:link id="domainModelsBeanDomainModelsSystemsModels" outcome="/admin/systemsModels/view" rendered="#{!empty domainModelsBean.domainModels.systemsModels}" value="#{domainModelsBean.domainModels.systemsModels}">
+				<f:param name="id" value="#{domainModelsBean.domainModels.systemsModels.id}"/>
+			</h:link>
+			<h:outputText/>
+		</h:panelGrid>
+
+		<div class="buttons">
+			<h:link value="View All" outcome="search" styleClass="btn btn-primary"/> 
+			<h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
+			<h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
+		</div>
+	</ui:define>
+
+</ui:composition>
