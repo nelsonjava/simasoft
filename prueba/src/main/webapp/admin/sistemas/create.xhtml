@@ -33,6 +33,7 @@
 	<ui:define name="footer"/>
 
 	<ui:define name="main">
+
 		<h:form id="create">
 			<h:messages globalOnly="true" styleClass="error"/>
 
@@ -370,6 +371,7 @@
 								<h:message for="sistemasBeanAddDescripcion" styleClass="error"/>
 							</f:facet>
 						</h:column>
+
 						<h:column>
 							<f:facet name="header">
 								<h:outputText value="Tipos Sistemas"/>
@@ -386,6 +388,7 @@
 								<h:message for="sistemasBeanAddTiposSistemas" styleClass="error"/>
 							</f:facet>
 						</h:column>
+
 						<h:column footerClass="remove-column" headerClass="remove-column">
 							<h:commandLink action="#{_collection.remove(_item)}" styleClass="remove-button"/>
 							<f:facet name="footer">
@@ -397,11 +400,11 @@
 					</h:dataTable>
 				</h:panelGroup>
 				<h:outputText/>
-				<h:outputLabel for="sistemasBeanSistemasTiposSistemas" value="Tipos Sistemas:"/>
+				<h:outputLabel for="sistemasBeanSistemasTiposSistemas" value="Tipos Sistemas-x:"/>
 				<h:panelGroup>
 					<h:selectOneMenu converter="#{tiposSistemasBean.converter}" id="sistemasBeanSistemasTiposSistemas" value="#{sistemasBean.sistemas.tiposSistemas}">
 						<f:selectItem/>
-						<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{tiposSistemasBean.all}" var="_item"/>
+						<f:selectItems itemLabel="#{forgeview:display(_item.nombre)}" itemValue="#{_item}" value="#{tiposSistemasBean.all}" var="_item"/>
 					</h:selectOneMenu>
 					<h:message for="sistemasBeanSistemasTiposSistemas" styleClass="error"/>
 				</h:panelGroup>
