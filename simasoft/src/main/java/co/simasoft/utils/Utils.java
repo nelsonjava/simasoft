@@ -30,7 +30,10 @@ public class Utils {
 
 	}
 
+	return "";
+
     }
+
 
     public static String hostMac() {
 
@@ -53,24 +56,23 @@ public class Utils {
 
 		e.printStackTrace();
 	}
+	return "";
     }
 
     public static String hostName() {
 
-	InetAddress ip;
-	try {
-	     ip = InetAddress.getLocalHost();
-	     return ip.getHostName();
-
-	} catch (UnknownHostException e) {
-
-		e.printStackTrace();
-
-	} catch (SocketException e){
-
-		e.printStackTrace();
+        InetAddress ip;
+        try {
+           ip = InetAddress.getLocalHost();
+           return ip.getHostName();
 	}
+        catch (UnknownHostException e) {
+           e.printStackTrace();
+	}
+
+	return "";
     }
+
 
     public static String spaces(int length) {
 
