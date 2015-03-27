@@ -36,39 +36,16 @@
 				<img src='#{resource["forge-logo.png"]}' alt="Forge... get hammered" border="0" />
 			</h:link>
 			<ul>
-				<li>
-					<h:link outcome="/admin/systemsModels/search" value="Systems Models"/>
-				</li>
-				<li>
-					<h:link outcome="/admin/domainModels/search" value="Domain Models"/>
-				</li>
-				<li>
-					<h:link outcome="/admin/entities/search" value="Entities"/>
-				</li>
-				<li>
-					<h:link outcome="/admin/attributes/search" value="Attributes"/>
-				</li>
-				<li>
-					<h:link outcome="/admin/relationships/search" value="Relationships"/>
-				</li>
-				<li>
-					<h:link outcome="/admin/nameQueries/search" value="Name Queries"/>
-				</li>
-				<li>
-					<h:link outcome="/admin/propertiesAttributes/search" value="Properties Attributes"/>
-				</li>
-				<li>
-					<h:link outcome="/admin/cardinalities/search" value="Cardinalities"/>
-				</li>
-				<li>
-					<h:link outcome="/admin/tiposLinksModels/search" value="Tipos Links Models"/>
-				</li>
-				<li>
-					<h:link outcome="/admin/linksModels/search" value="Links Models"/>
-				</li>
-				<li>
-					<h:link outcome="/admin/filesModels/search" value="Files Models"/>
-				</li>
+                          <li>
+                            <h:form>
+                              <h:commandButton value="Click Me to Populate DomainModels Data!" action="#{DomainModelsSetup.data()}" />
+                            </h:form>
+                          </li>
+                          <li>
+                            <h:form>
+                              <h:commandButton value="Click Me to Populate RelacionesEjb Data!" action="#{RelacionesEjbSetup.data()}" />
+                            </h:form>
+                          </li>
 
 			</ul>
 		</div>

@@ -8,6 +8,7 @@
   <!-- mvn clean package wildfly:deploy -->
   <!-- http://localhost:8080 -->
   <!-- http://localhost:8080/DomainModels -->
+  <!-- java -cp h2*.jar org.h2.tools.Script -url "jdbc:h2:/db/DomainModels/data" -user "sa" -script "/db/backup.sql"  -->
 
   <modelVersion>4.0.0</modelVersion>
 

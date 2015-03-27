@@ -7,6 +7,7 @@ import co.simasoft.utils.*;
 
 import co.simasoft.gen.asciidoc.*;
 import co.simasoft.gen.jpa.*;
+import co.simasoft.gen.sql.*;
 import co.simasoft.gen.bean.*;
 import co.simasoft.gen.xhtml.*;
 import co.simasoft.gen.war.*;
@@ -39,7 +40,6 @@ public class App extends FileTxt{
         entidades = powerDesigner.getEntidades();
         relations = powerDesigner.getRelations();
         relationsPower = powerDesigner.getRelationsPower();
-
 
         Utils.mkDirs(pathDocs+"."+modelo+"."+artifactId+".jdocbook."+asciidocImages);
         Utils.mkDirs(pathDocs+"."+modelo+"."+artifactId+".jdocbook."+asciidocModules);
@@ -235,6 +235,27 @@ public class App extends FileTxt{
     } // war
 
 
+    public static void sql(String modelo,String groupId,String artifactId,ArrayList<String> imports) throws IOException {
+
+        // Cleanup - Reinigung
+        entidades.clear();
+        relationsPower.clear();
+        relations.clear();
+
+        filePowerDesigner = "src/resources/models/"+modelo+"/"+artifactId+"/"+artifactId+".oob";
+
+        PowerDesigner powerDesigner = new PowerDesigner(filePowerDesigner);
+        entidades = powerDesigner.getEntidades();
+        relations = powerDesigner.getRelations();
+        relationsPower = powerDesigner.getRelationsPower();
+
+        SqlH2 sqlH2  = new SqlH2(artifactId,groupId+".models."+modelo+"."+artifactId,entidades,imports);
+        Utils.fileMake(pathDocs+"."+modelo+"."+artifactId+".sql.h2",artifactId+"Setup.java", sqlH2);
+
+
+    } // sqlH2
+
+
 
 
     public static void generar(ArrayList<Modelos> modelos) throws IOException {
@@ -247,6 +268,7 @@ public class App extends FileTxt{
         for (Modelos modelo : modelos) {
             jdocbook(modelo.getModelo(),modelo.getGroupId(),modelo.getArtifactId(),imports);
             jpa(modelo.getModelo(),modelo.getGroupId(),modelo.getArtifactId(),imports);
+            sql(modelo.getModelo(),modelo.getGroupId(),modelo.getArtifactId(),imports);
             crud(modelo.getModelo(),modelo.getGroupId(),modelo.getArtifactId(),imports);
             warH2(modelo.getModelo(),modelo.getGroupId(),modelo.getArtifactId(),imports);
         }
@@ -290,11 +312,11 @@ public class App extends FileTxt{
         modelos.clear();
         modelos.add(new Modelos("pruebas","co.simasoft","prueba2"));
         generar(modelos);
-        
+
         modelos.clear();
         modelos.add(new Modelos("naif","co.simasoft","DomainModels"));
         generar(modelos);
-        
+
         modelos.clear();
         modelos.add(new Modelos("naif","co.simasoft","RelacionesEjb"));
         generar(modelos);
