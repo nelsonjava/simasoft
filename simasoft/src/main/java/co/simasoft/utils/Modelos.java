@@ -1,4 +1,4 @@
-package com.simavirtual;
+package co.simasoft.utils;
 
 public class Modelos {
 

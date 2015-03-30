@@ -1,0 +1,38 @@
+[INFO] Scanning for projects...
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building uml 1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ uml ---
+[INFO] Deleting d:\dev\njava\simasoft\models\target
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ uml ---
+[WARNING] Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] Copying 105 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.5.1:compile (default-compile) @ uml ---
+[WARNING] File encoding has not been set, using platform encoding Cp1252, i.e. build is platform dependent!
+[INFO] Compiling 5 source files to d:\dev\njava\simasoft\models\target\classes
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] d:\dev\njava\simasoft\models\src\main\java\com\simavirtual\App.java:[329,18] error: no suitable constructor found for War(ArrayList<com.simavirtual.Modelos>)
+[INFO] 1 error
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 1.047s
+[INFO] Finished at: Mon Mar 30 11:09:30 COT 2015
+[INFO] Final Memory: 9M/25M
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:2.5.1:compile (default-compile) on project uml: Compilation failure
+[ERROR] d:\dev\njava\simasoft\models\src\main\java\com\simavirtual\App.java:[329,18] error: no suitable constructor found for War(ArrayList<com.simavirtual.Modelos>)
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

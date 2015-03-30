@@ -255,6 +255,27 @@ public class App extends FileTxt{
 
     } // sqlH2
 
+    public static void warModels(String name,String groupId,String artifactId,ArrayList<String> imports) throws IOException {
+
+        // Cleanup - Reinigung
+        entidades.clear();
+        relationsPower.clear();
+        relations.clear();
+
+        filePowerDesigner = "src/resources/models/"+name+"/"+artifactId+"/"+artifactId+".oob";
+
+        PowerDesigner powerDesigner = new PowerDesigner(filePowerDesigner);
+        entidades = powerDesigner.getEntidades();
+        relations = powerDesigner.getRelations();
+        relationsPower = powerDesigner.getRelationsPower();
+
+        Models models = new Models(name,groupId,artifactId);
+        models.setImports(imports);
+        models.setEntities(entidades);
+        models.WarH2();
+
+    } // sqlH2
+
 
 
 
@@ -271,6 +292,24 @@ public class App extends FileTxt{
             sql(modelo.getModelo(),modelo.getGroupId(),modelo.getArtifactId(),imports);
             crud(modelo.getModelo(),modelo.getGroupId(),modelo.getArtifactId(),imports);
             warH2(modelo.getModelo(),modelo.getGroupId(),modelo.getArtifactId(),imports);
+        }
+
+    }
+
+    public static void Models(ArrayList<Modelos> modelos) throws IOException {
+
+        ArrayList<String> imports = new ArrayList<String>();
+        for (Modelos modelo : modelos) {
+            imports.add(modelo.getGroupId()+".models."+modelo.getModelo()+"."+modelo.getArtifactId());
+        }
+
+        for (Modelos modelo : modelos) {
+            jdocbook(modelo.getModelo(),modelo.getGroupId(),modelo.getArtifactId(),imports);
+            jpa(modelo.getModelo(),modelo.getGroupId(),modelo.getArtifactId(),imports);
+            sql(modelo.getModelo(),modelo.getGroupId(),modelo.getArtifactId(),imports);
+            crud(modelo.getModelo(),modelo.getGroupId(),modelo.getArtifactId(),imports);
+            warH2(modelo.getModelo(),modelo.getGroupId(),modelo.getArtifactId(),imports);
+            warModels(modelo.getModelo(),modelo.getGroupId(),modelo.getArtifactId(),imports);
         }
 
     }
@@ -320,6 +359,15 @@ public class App extends FileTxt{
         modelos.clear();
         modelos.add(new Modelos("naif","co.simasoft","RelacionesEjb"));
         generar(modelos);
+
+        modelos.clear();
+        modelos.add(new Modelos("naif","co.simasoft","DomainModels"));
+        War war = new War(modelos);
+
+        modelos.clear();
+        modelos.add(new Modelos("naif","co.simasoft","DomainModels"));
+        Models(modelos);
+
 
     } // main
 
