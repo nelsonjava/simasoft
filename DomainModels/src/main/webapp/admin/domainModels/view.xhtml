@@ -45,8 +45,10 @@
 			<h:outputText/>
 			<h:outputLabel for="domainModelsBeanDomainModelsDescription" value="Description:"/>
 			<h:outputText id="domainModelsBeanDomainModelsDescription" value="#{domainModelsBean.domainModels.description}"/>
+
 			<h:outputText/>
 			<h:outputLabel for="domainModelsBeanDomainModelsObservaciones" value="Observaciones:"/>
+
 			<h:outputText id="domainModelsBeanDomainModelsObservaciones" value="#{domainModelsBean.domainModels.observaciones}"/>
 			<h:outputText/>
 			<h:outputLabel for="domainModelsBeanDomainModelsLinksModels" value="Links Models:"/>
@@ -187,15 +189,24 @@
 					</h:link>
 				</h:column>
 			</h:dataTable>
+
 			<h:outputText/>
 			<h:outputLabel for="domainModelsBeanDomainModelsSystemsModels" value="Systems Models:"/>
 			<h:link       id="domainModelsBeanDomainModelsSystemsModels"
-                                 outcome="/admin/systemsModels/view" 
-                                 rendered="#{!empty domainModelsBean.domainModels.systemsModels}" 
+                                 outcome="/admin/systemsModels/view"
+                                 rendered="#{!empty domainModelsBean.domainModels.systemsModels}"
                                  value="#{domainModelsBean.domainModels.systemsModels.name}">
 				<f:param name="id" value="#{domainModelsBean.domainModels.systemsModels.id}"/>
 			</h:link>
 			<h:outputText/>
+
+			<h:outputLabel for="domainModelsBeanDomainModelsSystemsModels" value="Generar:"/>
+                            <h:form>
+                              <h:commandButton value="DomainModelsData" action="#{DomainModelsSetup.data()}" />
+                              <h:commandButton value="Generator Models" action="#{DomainModelsGen.data(domainModelsBean.domainModels)}" />
+                            </h:form>
+			<h:outputText/>
+
 		</h:panelGrid>
 
 		<div class="buttons">

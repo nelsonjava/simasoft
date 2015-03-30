@@ -22,6 +22,8 @@ public class DomainModelsSetup {
     private static final Logger log = Logger.getLogger(DomainModelsSetup.class.getName());
 
     public void data() {
+      
+        System.out.println("Hello World!");      
 
         DomainModels domainModels = new DomainModels();
         domainModels.setName("DomainModels");
