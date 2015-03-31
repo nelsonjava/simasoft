@@ -21,7 +21,7 @@ public class War {
 
     private String fileJar = "../g.jar";
     private String filePowerDesigner = "";
-    private String pathDocs = "docs";
+    private String pathDocs = "\\docs";
     private String artifactId = "";
     private String asciidocImages = "src.main.asciidoc.en-US.images";
     private String asciidocModules = "src.main.asciidoc.en-US.modules";

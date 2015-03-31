@@ -21,7 +21,7 @@ public class Models{
     private ArrayList<String> imports = new ArrayList<String>();
 
     private String fileJar = "../g.jar";
-    private String pathDocs = "docs";
+    private String pathDocs = "\\docs";
 
     public Models(String name,String groupId,String artifactId){
        this.name = name;

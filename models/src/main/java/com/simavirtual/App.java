@@ -22,7 +22,7 @@ public class App extends FileTxt{
 
     private static String fileJar = "../g.jar";
     private static String filePowerDesigner = "";
-    private static String pathDocs = "docs";
+    private static String pathDocs = "\\docs";
     private static String artifactId = "";
     private static String asciidocImages = "src.main.asciidoc.en-US.images";
     private static String asciidocModules = "src.main.asciidoc.en-US.modules";

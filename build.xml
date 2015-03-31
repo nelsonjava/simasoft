@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 
 <!-- http://ebook.online-convert.com/es/convertir-a-epub -->
-<!-- git clone https://github.com/nelsonjava/simasoft -->
+<!-- git clone https://github.com/nelsonjava/simasoft     -->
 
 <project name="naif" default="bak" basedir=".">
 
@@ -33,6 +33,7 @@
     <delete dir="prueba1/target" failonerror="no"/>
     <delete dir="prueba1/target" failonerror="no"/>
     <delete dir="DomainModels/target" failonerror="no"/>
+    <delete dir="NAIFG/target" failonerror="no"/>
 
     <!-- DabaBases -->
     <delete dir="db/contabDb/target" failonerror="no"/>
