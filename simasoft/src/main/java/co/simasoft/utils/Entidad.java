@@ -8,7 +8,7 @@ public class Entidad {
     private String name = "";
     private String ref = "";
 
-    private ArrayList<Atributos> atributos;
+    private ArrayList<Atributos> atributos = new ArrayList<Atributos>() ;
     private ArrayList<Relation> relations = new ArrayList<Relation>();
 
     public Entidad() {

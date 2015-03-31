@@ -11,6 +11,11 @@ public class Atributos{
 
      public Atributos() {
      }
+     
+     public Atributos(String field, String type) {
+         this.field = field;
+         this.type = type;
+    }
 
      public Atributos(String field,String description,String type,String length,boolean nulo,boolean unique ) {
          this.field = field;

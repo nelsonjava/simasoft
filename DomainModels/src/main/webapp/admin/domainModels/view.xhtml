@@ -202,15 +202,14 @@
 
 			<h:outputLabel for="domainModelsBeanDomainModelsSystemsModels" value="Generar:"/>
                             <h:form>
-                              <h:commandButton value="DomainModelsData" action="#{DomainModelsSetup.data()}" />
-                              <h:commandButton value="Generator Models" action="#{DomainModelsGen.data(domainModelsBean.domainModels)}" />
+                              <h:commandButton value="Generate" action="#{DomainModelsGen.data(domainModelsBean.domainModels)}" />
                             </h:form>
 			<h:outputText/>
 
 		</h:panelGrid>
 
 		<div class="buttons">
-			<h:link value="View All" outcome="search" styleClass="btn btn-primary"/> 
+			<h:link value="View All" outcome="search" styleClass="btn btn-primary"/>
 			<h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
 			<h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
 		</div>
