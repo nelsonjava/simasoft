@@ -194,13 +194,18 @@
 					</h:link>
 				</h:column>
 			</h:dataTable>
-			<h:outputText/>
 
-			<h:outputLabel for="domainModelsBeanDomainModelsSystemsModels" value="Generar:"/>
+			<h:outputText/>
+			<h:outputLabel for="domainModelsBeanDomainModelsSystemsModels" value="Generate:"/>
                             <h:form>
-                              <h:commandButton value="Generate" action="#{DomainModelsGen.data(domainModelsBean.domainModels)}" />
+                              <h:commandButton value="Free" action="#{DomainModelsGen.download(domainModelsBean.domainModels)}" />
                             </h:form>
 			<h:outputText/>
+
+			<h:outputLabel for="domainModelsBeanDomainModelsSystemsModelss" value="Generate:"/>
+                            <h:form>
+                              <h:commandButton value="Protected" action="#{DomainModelsGen.downloadProtected(domainModelsBean.domainModels)}" />
+                            </h:form>
 			<h:outputText/>
 
 		</h:panelGrid>

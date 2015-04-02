@@ -86,18 +86,45 @@
 					</h:link>
 				</h:column>
 			</h:dataTable>
+
 			<h:outputText/>
+
 			<h:outputLabel for="entitiesBeanEntitiesFrom" value="From:"/>
-			<h:dataTable id="entitiesBeanEntitiesFrom" styleClass="data-table" value="#{forgeview:asList(entitiesBean.entities.from)}" var="_item">
+			<h:dataTable id="entitiesBeanEntitiesFrom"
+                                     styleClass="data-table"
+                                     value="#{forgeview:asList(entitiesBean.entities.from)}"
+                                     var="_item">
+
 				<h:column>
 					<f:facet name="header">
-						<h:outputText value="Entity"/>
+						<h:outputText value="From"/>
 					</f:facet>
 					<h:link outcome="/admin/relationships/view">
 						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemEntity" value="#{_item.entity}"/>
+						<h:outputText id="itemAnnotationsMethod" value="#{_item.from.name}"/>
 					</h:link>
 				</h:column>
+
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value=""/>
+					</f:facet>
+					<h:link outcome="/admin/relationships/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemAnnotationsMethod" value="#{_item.cardinalities.cardinality}"/>
+					</h:link>
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="To"/>
+					</f:facet>
+					<h:link outcome="/admin/relationships/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemAnnotationsMethod" value="#{_item.to.name}"/>
+					</h:link>
+				</h:column>
+
 				<h:column>
 					<f:facet name="header">
 						<h:outputText value="Optionality"/>
@@ -107,46 +134,58 @@
 						<h:outputText styleClass="#{_item.optionality ? 'boolean-true' : 'boolean-false'}" value=""/>
 					</h:link>
 				</h:column>
+
 				<h:column>
 					<f:facet name="header">
-						<h:outputText value="Name"/>
+						<h:outputText value="Relationship"/>
 					</f:facet>
 					<h:link outcome="/admin/relationships/view">
 						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemName" value="#{_item.name}"/>
+						<h:outputText id="itemAnnotationsMethod" value="#{_item.cardinalities.name}"/>
 					</h:link>
 				</h:column>
-				<h:column>
-					<f:facet name="header">
-						<h:outputText value="Mappedby"/>
-					</f:facet>
-					<h:link outcome="/admin/relationships/view">
-						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemMappedby" value="#{_item.mappedby}"/>
-					</h:link>
-				</h:column>
-				<h:column>
-					<f:facet name="header">
-						<h:outputText value="Annotations Method"/>
-					</f:facet>
-					<h:link outcome="/admin/relationships/view">
-						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemAnnotationsMethod" value="#{_item.annotationsMethod}"/>
-					</h:link>
-				</h:column>
+
+
+
 			</h:dataTable>
+
 			<h:outputText/>
 			<h:outputLabel for="entitiesBeanEntitiesTo" value="To:"/>
-			<h:dataTable id="entitiesBeanEntitiesTo" styleClass="data-table" value="#{forgeview:asList(entitiesBean.entities.to)}" var="_item">
+			<h:dataTable id="entitiesBeanEntitiesTo"
+                                     styleClass="data-table"
+                                     value="#{forgeview:asList(entitiesBean.entities.to)}"
+                                     var="_item">
+                                     
 				<h:column>
 					<f:facet name="header">
-						<h:outputText value="Entity"/>
+						<h:outputText value="From"/>
 					</f:facet>
 					<h:link outcome="/admin/relationships/view">
 						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemEntity" value="#{_item.entity}"/>
+						<h:outputText id="itemAnnotationsMethod" value="#{_item.from.name}"/>
 					</h:link>
 				</h:column>
+
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value=""/>
+					</f:facet>
+					<h:link outcome="/admin/relationships/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemAnnotationsMethod" value="#{_item.cardinalities.cardinality}"/>
+					</h:link>
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="To"/>
+					</f:facet>
+					<h:link outcome="/admin/relationships/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemAnnotationsMethod" value="#{_item.to.name}"/>
+					</h:link>
+				</h:column>
+
 				<h:column>
 					<f:facet name="header">
 						<h:outputText value="Optionality"/>
@@ -156,33 +195,17 @@
 						<h:outputText styleClass="#{_item.optionality ? 'boolean-true' : 'boolean-false'}" value=""/>
 					</h:link>
 				</h:column>
+
 				<h:column>
 					<f:facet name="header">
-						<h:outputText value="Name"/>
+						<h:outputText value="Relationship"/>
 					</f:facet>
 					<h:link outcome="/admin/relationships/view">
 						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemName" value="#{_item.name}"/>
+						<h:outputText id="itemAnnotationsMethod" value="#{_item.cardinalities.name}"/>
 					</h:link>
 				</h:column>
-				<h:column>
-					<f:facet name="header">
-						<h:outputText value="Mappedby"/>
-					</f:facet>
-					<h:link outcome="/admin/relationships/view">
-						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemMappedby" value="#{_item.mappedby}"/>
-					</h:link>
-				</h:column>
-				<h:column>
-					<f:facet name="header">
-						<h:outputText value="Annotations Method"/>
-					</f:facet>
-					<h:link outcome="/admin/relationships/view">
-						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemAnnotationsMethod" value="#{_item.annotationsMethod}"/>
-					</h:link>
-				</h:column>
+
 			</h:dataTable>
 			<h:outputText/>
 			<h:outputLabel for="entitiesBeanEntitiesFilesModels" value="Files Models:"/>
@@ -233,14 +256,23 @@
 					</h:link>
 				</h:column>
 			</h:dataTable>
+
 			<h:outputText/>
 			<h:outputLabel for="entitiesBeanEntitiesDomainModels" value="Domain Models:"/>
-			<h:link id="entitiesBeanEntitiesDomainModels" outcome="/admin/domainModels/view" rendered="#{!empty entitiesBean.entities.domainModels}" value="#{entitiesBean.entities.domainModels}">
+			<h:link id="entitiesBeanEntitiesDomainModels"
+                                outcome="/admin/domainModels/view"
+                                rendered="#{!empty entitiesBean.entities.domainModels}"
+                                value="#{entitiesBean.entities.domainModels.name}">
 				<f:param name="id" value="#{entitiesBean.entities.domainModels.id}"/>
 			</h:link>
+
 			<h:outputText/>
 			<h:outputLabel for="entitiesBeanEntitiesAttributes" value="Attributes:"/>
-			<h:dataTable id="entitiesBeanEntitiesAttributes" styleClass="data-table" value="#{forgeview:asList(entitiesBean.entities.attributes)}" var="_item">
+			<h:dataTable id="entitiesBeanEntitiesAttributes" 
+                                     styleClass="data-table" 
+                                     value="#{forgeview:asList(entitiesBean.entities.attributes)}" 
+                                     var="_item">
+
 				<h:column>
 					<f:facet name="header">
 						<h:outputText value="Name"/>
@@ -250,6 +282,7 @@
 						<h:outputText id="itemName" value="#{_item.name}"/>
 					</h:link>
 				</h:column>
+
 				<h:column>
 					<f:facet name="header">
 						<h:outputText value="Type"/>
@@ -259,6 +292,18 @@
 						<h:outputText id="itemType" value="#{_item.type}"/>
 					</h:link>
 				</h:column>
+
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Type"/>
+					</f:facet>
+					<h:link outcome="/admin/attributes/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemType" value="#{_item.typesAttributes.name}"/>
+					</h:link>
+				</h:column>
+
+
 				<h:column>
 					<f:facet name="header">
 						<h:outputText value="Length"/>

@@ -66,7 +66,7 @@
 					</h:panelGroup>
 				</h:panelGroup>
 			</f:validateBean>
-			
+
 			<h:dataTable id="attributesBeanPageItems" styleClass="data-table" value="#{attributesBean.pageItems}" var="_item">
 				<h:column>
 					<f:facet name="header">
@@ -113,12 +113,34 @@
 						<h:outputText styleClass="#{_item.nullable ? 'boolean-true' : 'boolean-false'}" value=""/>
 					</h:link>
 				</h:column>
+				
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Entity"/>
+					</f:facet>
+					<h:link outcome="/admin/attributes/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemEntity" value="#{_item.entities.name}"/>
+					</h:link>
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Type Attribute"/>
+					</f:facet>
+					<h:link outcome="/admin/attributes/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemEntity" value="#{_item.typesAttributes.name}"/>
+					</h:link>
+				</h:column>
+
+
 			</h:dataTable>
 			<ui:include src="/resources/scaffold/paginator.xhtml">
 				<ui:param name="paginatorBean" value='#{attributesBean}'/>
 			</ui:include>
 		</h:form>
-			
+
 	</ui:define>
 
 </ui:composition>

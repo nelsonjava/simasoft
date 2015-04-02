@@ -47,12 +47,7 @@
 							<h:message for="systemsModelsBeanExampleRelease" styleClass="error"/>
 						</h:panelGroup>
 						<h:outputText/>
-						<h:outputLabel for="systemsModelsBeanExampleDescription" value="Description:"/>
-						<h:panelGroup>
-							<h:inputText id="systemsModelsBeanExampleDescription" value="#{systemsModelsBean.example.description}"/>
-							<h:message for="systemsModelsBeanExampleDescription" styleClass="error"/>
-						</h:panelGroup>
-						<h:outputText/>
+
 					</h:panelGrid>
 					<h:panelGroup styleClass="buttons">
 						<h:commandLink value="Search" action='#{systemsModelsBean.search}' styleClass="btn btn-primary"/>
@@ -60,7 +55,7 @@
 					</h:panelGroup>
 				</h:panelGroup>
 			</f:validateBean>
-			
+
 			<h:dataTable id="systemsModelsBeanPageItems" styleClass="data-table" value="#{systemsModelsBean.pageItems}" var="_item">
 				<h:column>
 					<f:facet name="header">
@@ -100,21 +95,13 @@
 						</h:outputText>
 					</h:link>
 				</h:column>
-				<h:column>
-					<f:facet name="header">
-						<h:outputText value="Description"/>
-					</f:facet>
-					<h:link outcome="/admin/systemsModels/view">
-						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemDescription" value="#{_item.description}"/>
-					</h:link>
-				</h:column>
+
 			</h:dataTable>
 			<ui:include src="/resources/scaffold/paginator.xhtml">
 				<ui:param name="paginatorBean" value='#{systemsModelsBean}'/>
 			</ui:include>
 		</h:form>
-			
+
 	</ui:define>
 
 </ui:composition>

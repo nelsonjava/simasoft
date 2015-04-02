@@ -7,16 +7,17 @@
   <!-- http://sinjava.blogspot.com/2012/10/hola-mundo-jsf.html -->
   <!-- mvn clean package wildfly:deploy -->
   <!-- http://localhost:8080 -->
-  <!-- http://localhost:8080/NAIFG -->
+  <!-- http://localhost:8080/naifg -->
   <!-- java -cp h2*.jar org.h2.tools.Script -url "jdbc:h2:/db/DomainModels/data" -user "sa" -script "/db/backup.sql"  -->
 
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>co.simasoft</groupId>
-  <artifactId>NAIFG</artifactId>
+  <artifactId>naifg</artifactId>
   <version>1.0.0-SNAPSHOT</version>
   <packaging>war</packaging>
   <name>Network App Internet Factory Generator</name>
+
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -74,6 +75,13 @@
       <groupId>co.simasoft</groupId>
       <artifactId>simasoft</artifactId>
       <version>1.0-SNAPSHOT</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.primefaces</groupId>
+      <artifactId>primefaces</artifactId>
+      <version>5.1</version>
+      <scope>import</scope>
     </dependency>
 
     <dependency>

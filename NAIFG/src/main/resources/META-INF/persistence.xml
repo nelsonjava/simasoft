@@ -23,7 +23,7 @@
     <class>co.simasoft.models.naif.DomainModels.TypesAttributes</class>
 
     <exclude-unlisted-classes>true</exclude-unlisted-classes>
-    <jta-data-source>java:jboss/datasources/NaifgDS</jta-data-source>
+    <jta-data-source>java:jboss/datasources/naifgDS</jta-data-source>
     <properties>
       <!-- <property name="javax.persistence.jdbc.url"      value="jdbc:h2:/db/DomainModels/data"/>  -->
       <!-- <property name="javax.persistence.jdbc.user"     value="sa"/>  -->

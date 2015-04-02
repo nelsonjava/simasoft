@@ -22,8 +22,8 @@
 				</h:link>
 				<div class="nav-collapse collapse">
 					<ul class="nav">
-						<li><a href="/NAIFG/home.jsf">Home</a></li>
-						<li><a href="/NAIFG/jdocbook/index.html" target="_blank">Documentation</a></li>
+						<li><a href="/naifg/home.jsf">Home</a></li>
+						<li><a href="/naifg/jdocbook/index.html" target="_blank">Documentation</a></li>
 					</ul>
 				</div>
 			</div>
@@ -36,6 +36,12 @@
 				<img src='#{resource["forge-logo.png"]}' alt="Forge... get hammered" border="0" />
 			</h:link>
 			<ul>
+			
+                          <li>
+                            <h:form>
+                              <h:commandButton value="Click Me to Populate Data Setup Init!" action="#{Setup.data()}" />
+                            </h:form>
+                          </li>
 
                           <li>
                             <h:form>

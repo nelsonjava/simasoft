@@ -100,17 +100,26 @@
 			</h:dataTable>
 			<h:outputText/>
 			<h:outputLabel for="relationshipsBeanRelationshipsFrom" value="From:"/>
-			<h:link id="relationshipsBeanRelationshipsFrom" outcome="/admin/entities/view" rendered="#{!empty relationshipsBean.relationships.from}" value="#{relationshipsBean.relationships.from}">
+			<h:link id="relationshipsBeanRelationshipsFrom" 
+                                outcome="/admin/entities/view" 
+                                rendered="#{!empty relationshipsBean.relationships.from}" 
+                                value="#{relationshipsBean.relationships.from.name}">
 				<f:param name="id" value="#{relationshipsBean.relationships.from.id}"/>
 			</h:link>
 			<h:outputText/>
 			<h:outputLabel for="relationshipsBeanRelationshipsTo" value="To:"/>
-			<h:link id="relationshipsBeanRelationshipsTo" outcome="/admin/entities/view" rendered="#{!empty relationshipsBean.relationships.to}" value="#{relationshipsBean.relationships.to}">
+			<h:link id="relationshipsBeanRelationshipsTo" 
+                                outcome="/admin/entities/view" 
+                                rendered="#{!empty relationshipsBean.relationships.to}" 
+                                value="#{relationshipsBean.relationships.to.name}">
 				<f:param name="id" value="#{relationshipsBean.relationships.to.id}"/>
 			</h:link>
 			<h:outputText/>
 			<h:outputLabel for="relationshipsBeanRelationshipsCardinalities" value="Cardinalities:"/>
-			<h:link id="relationshipsBeanRelationshipsCardinalities" outcome="/admin/cardinalities/view" rendered="#{!empty relationshipsBean.relationships.cardinalities}" value="#{relationshipsBean.relationships.cardinalities}">
+			<h:link id="relationshipsBeanRelationshipsCardinalities" 
+                                outcome="/admin/cardinalities/view" 
+                                rendered="#{!empty relationshipsBean.relationships.cardinalities}" 
+                                value="#{relationshipsBean.relationships.cardinalities.name}">
 				<f:param name="id" value="#{relationshipsBean.relationships.cardinalities.id}"/>
 			</h:link>
 			<h:outputText/>

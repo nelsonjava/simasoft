@@ -119,16 +119,22 @@
 				<h:panelGroup>
 					<h:selectOneMenu converter="#{typesAttributesBean.converter}" id="attributesBeanAttributesTypesAttributes" value="#{attributesBean.attributes.typesAttributes}">
 						<f:selectItem/>
-						<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{typesAttributesBean.all}" var="_item"/>
+						<f:selectItems itemLabel="#{forgeview:display(_item.name)}" itemValue="#{_item}" value="#{typesAttributesBean.all}" var="_item"/>
 					</h:selectOneMenu>
 					<h:message for="attributesBeanAttributesTypesAttributes" styleClass="error"/>
 				</h:panelGroup>
+
 				<h:outputText/>
 				<h:outputLabel for="attributesBeanAttributesEntities" value="Entities:"/>
 				<h:panelGroup>
-					<h:selectOneMenu converter="#{entitiesBean.converter}" id="attributesBeanAttributesEntities" value="#{attributesBean.attributes.entities}">
+					<h:selectOneMenu converter="#{entitiesBean.converter}" 
+                                                                id="attributesBeanAttributesEntities" 
+                                                             value="#{attributesBean.attributes.entities}">
 						<f:selectItem/>
-						<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{entitiesBean.all}" var="_item"/>
+						<f:selectItems itemLabel="#{forgeview:display(_item.name)}" 
+                                                               itemValue="#{_item}" 
+                                                                  value="#{entitiesBean.all}" 
+                                                                    var="_item"/>
 					</h:selectOneMenu>
 					<h:message for="attributesBeanAttributesEntities" styleClass="error"/>
 				</h:panelGroup>
