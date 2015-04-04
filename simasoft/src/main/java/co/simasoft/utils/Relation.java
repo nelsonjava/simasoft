@@ -28,6 +28,12 @@ public class Relation{
     public Relation() {
     }
 
+    public Relation(String from,String to,String cardinality) {
+       this.from = from;
+       this.to = to;
+       this.cardinality = cardinality;
+    }
+
     public String getName(){
         return name;
     }

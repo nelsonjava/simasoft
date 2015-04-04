@@ -49,6 +49,15 @@ public class DomainModelsGen {
                 entidad.addAtributo(new Atributos(attribute.getName(), attribute.getType()));
             } // end : attributes : for
 
+            for (Relationships relationships : entity.getFrom()) {
+                entidad.addRelations(new Relation(relationships.getFrom().getName(), relationships.getTo().getName(),relationships.getCardinalities().getCardinality()));
+            } // end : attributes : for
+
+            for (Relationships relationships : entity.getTo()) {
+                entidad.addRelations(new Relation(relationships.getTo().getName(), relationships.getFrom().getName(),"*..1"));
+            } // end : attributes : for
+
+
             entidades.add(entidad);
 
         } // end : entities : for
@@ -65,7 +74,7 @@ public class DomainModelsGen {
     public void download(DomainModels domainModels) throws IOException {
         // !Generate first!
         data(domainModels);
-        Download.files("\\docs",domainModels.getName()+".zip");
+        Download.files("\\docs\\"+domainModels.getName()+"\\"+domainModels.getName()+"\\war\\h2",domainModels.getName()+".zip");
     } // end : download Method
 
     public void downloadProtected(DomainModels domainModels) throws IOException {

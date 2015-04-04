@@ -33,7 +33,7 @@
     <delete dir="prueba1/target" failonerror="no"/>
     <delete dir="prueba1/target" failonerror="no"/>
     <delete dir="DomainModels/target" failonerror="no"/>
-    <delete dir="NAIFG/target" failonerror="no"/>
+    <delete dir="naifg/target" failonerror="no"/>
 
     <!-- DabaBases -->
     <delete dir="db/contabDb/target" failonerror="no"/>
