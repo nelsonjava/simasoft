@@ -203,6 +203,7 @@ line("    } // data()\n");
               line("        to"+relation.getFrom()+n+" = findEntities(\""+relation.getTo()+"\");");
 
               line("        Relationships rel"+relation.getFrom()+n+" = new Relationships();");
+//              line("        rel"+relation.getFrom()+n+".setName(Utils._1raMin(to"+relation.getFrom()+n+".getName()));");
               line("        rel"+relation.getFrom()+n+".setFrom(from"+relation.getFrom()+n+");");
               line("        rel"+relation.getFrom()+n+".setCardinalities("+relation.getFrom()+n+");");
               line("        rel"+relation.getFrom()+n+".setTo(to"+relation.getFrom()+n+");");

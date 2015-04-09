@@ -50,11 +50,16 @@ public class DomainModelsGen {
             } // end : attributes : for
 
             for (Relationships relationships : entity.getFrom()) {
-                entidad.addRelations(new Relation(relationships.getFrom().getName(), relationships.getTo().getName(),relationships.getCardinalities().getCardinality()));
+                entidad.addRelations(new Relation(relationships.getFrom().getName(),
+                                                  relationships.getTo().getName(),
+                                                  relationships.getCardinalities().getCardinality(),
+                                                  relationships.getName()));
             } // end : attributes : for
 
             for (Relationships relationships : entity.getTo()) {
-                entidad.addRelations(new Relation(relationships.getTo().getName(), relationships.getFrom().getName(),"*..1"));
+                entidad.addRelations(new Relation(relationships.getTo().getName(),
+                                                  relationships.getFrom().getName(),
+                                                  "*..1",relationships.getName()));
             } // end : attributes : for
 
 
@@ -62,9 +67,9 @@ public class DomainModelsGen {
 
         } // end : entities : for
 
-        imports.add(domainModels.getName()+".models");
+        imports.add(domainModels.getPaquete()+".models."+domainModels.getName());
 
-        Models models = new Models(domainModels.getName(),domainModels.getName(),domainModels.getName());
+        Models models = new Models(domainModels.getName(),domainModels.getPaquete(),domainModels.getName());
         models.setImports(imports);
         models.setEntities(entidades);
         models.WarH2();

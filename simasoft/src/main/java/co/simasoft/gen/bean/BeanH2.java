@@ -211,11 +211,23 @@ line("         this.entityManager.merge(objPadre);");
 
      }
      else{
+         if(relation.getName() == null){
 
 line("         "+relation.getTo()+" "+Utils._1raMin(relation.getTo())+" = deletableEntity.get"+relation.getTo()+"();");
 line("         "+Utils._1raMin(relation.getTo())+".get"+entity.getName()+"().remove(deletableEntity);");
 line("         deletableEntity.set"+relation.getTo()+"(null);");
 line("         this.entityManager.merge("+Utils._1raMin(relation.getTo())+");");
+
+         }
+
+         else{
+
+line("         "+relation.getTo()+" "+ relation.getName() +" = deletableEntity.get"+Utils._1raMay(relation.getName())+"();");
+line("         "+ relation.getName() + ".get"+ Utils._1raMay(relation.getName()) +"().remove(deletableEntity);");
+line("         deletableEntity.set"+ Utils._1raMay(relation.getName()) +"(null);");
+line("         this.entityManager.merge("+ relation.getName() +");");
+
+         }
 
      }
    }
@@ -233,7 +245,7 @@ line("         }");
 
       }
       else{
-
+         if(relation.getName() == null){
 line("         Iterator<"+relation.getTo()+"> iter"+relation.getTo()+" = deletableEntity.get"+relation.getTo()+"().iterator();");
 line("         for (; iter"+relation.getTo()+".hasNext();){");
 line("            "+relation.getTo()+" nextIn"+relation.getTo()+" = iter"+relation.getTo()+".next();");
@@ -241,7 +253,16 @@ line("            nextIn"+relation.getTo()+".set"+entity.getName()+"(null);");
 line("            iter"+relation.getTo()+".remove();");
 line("            this.entityManager.merge(nextIn"+relation.getTo()+");");
 line("         }");
-
+         }
+         else{
+line("         Iterator<" + relation.getTo() + "> iter"+ Utils._1raMay(relation.getName()) +" = deletableEntity.get"+ Utils._1raMay(relation.getName()) + "().iterator();");
+line("         for (; iter"+Utils._1raMay(relation.getName())+".hasNext();){");
+line("            "+relation.getTo()+" nextIn" + Utils._1raMay(relation.getName()) + " = iter" + Utils._1raMay(relation.getName()) + ".next();");
+line("            nextIn" + Utils._1raMay(relation.getName()) + ".set"+ Utils._1raMay(relation.getName()) +"(null);");
+line("            iter" + Utils._1raMay(relation.getName()) + ".remove();");
+line("            this.entityManager.merge(nextIn" + Utils._1raMay(relation.getName()) + ");");
+line("         }");
+         }
       }
    }
 }

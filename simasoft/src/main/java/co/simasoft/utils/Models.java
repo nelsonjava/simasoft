@@ -26,7 +26,7 @@ public class Models{
     public Models(String name,String groupId,String artifactId){
        this.name = name;
        this.groupId = groupId;
-       this.artifactId = groupId;
+       this.artifactId = artifactId;
     }
 
     public String getName() {
@@ -79,12 +79,15 @@ public class Models{
         Utils.fileMake(pathDocs+"."+name+"."+artifactId+".war.h2", "build.xml", build);
 
         for(Entidad entidad : entities) {
-            EntityH2 entityH2 = new EntityH2(artifactId,groupId+".models."+name+"."+artifactId,entidad,imports);
-            Utils.fileMake(pathDocs+"."+name+"."+artifactId+".war.h2.src.main.java."+groupId+".models."+name+"."+artifactId,entidad.getName()+".java", entityH2);
+//            EntityH2 entityH2 = new EntityH2(artifactId,groupId+".models."+name+"."+artifactId,entidad,imports);
+            EntityH2 entityH2 = new EntityH2(artifactId,groupId+".models."+name,entidad,imports);
+//            Utils.fileMake(pathDocs+"."+name+"."+artifactId+".war.h2.src.main.java."+groupId+".models."+name+"."+artifactId,entidad.getName()+".java", entityH2);
+            Utils.fileMake(pathDocs+"."+name+"."+artifactId+".war.h2.src.main.java."+groupId+".models."+name,entidad.getName()+".java", entityH2);
         }
 
         for(Entidad entidad : entities) {
-            BeanH2 beanH2 = new BeanH2(artifactId,groupId+".models."+name+"."+artifactId,entidad,imports);
+//            BeanH2 beanH2 = new BeanH2(artifactId,groupId+".models."+name+"."+artifactId,entidad,imports);
+            BeanH2 beanH2 = new BeanH2(artifactId,groupId+".models."+name,entidad,imports);
             Utils.fileMake(pathDocs+"."+name+"."+artifactId+".war.h2.src.main.java."+groupId+".view",entidad.getName()+"Bean.java", beanH2);
         }
         BeanUtils beanUtils = new BeanUtils(artifactId,groupId+".models."+name+"."+artifactId,imports);

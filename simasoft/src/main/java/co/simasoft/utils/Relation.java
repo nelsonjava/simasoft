@@ -28,10 +28,11 @@ public class Relation{
     public Relation() {
     }
 
-    public Relation(String from,String to,String cardinality) {
+    public Relation(String from,String to,String cardinality,String name) {
        this.from = from;
        this.to = to;
        this.cardinality = cardinality;
+       this.name = name;
     }
 
     public String getName(){

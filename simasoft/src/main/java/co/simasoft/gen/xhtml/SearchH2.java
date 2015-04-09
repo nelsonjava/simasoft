@@ -66,16 +66,14 @@ public SearchH2(String artifactId,String groupId,Entidad entity,ArrayList<String
       this.relations = entity.getRelations();
 //>>FIN INICIALIZACION DE ATRIBUTOS
 
-line("<?xml version='1.0' encoding='UTF-8' ?>\n");
-
-line("<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n");
-
-line("<ui:composition xmlns=\"http://www.w3.org/1999/xhtml\"");
-line("                xmlns:h=\"http://java.sun.com/jsf/html\"");
-line("                xmlns:f=\"http://java.sun.com/jsf/core\"");
-line("                xmlns:ui=\"http://java.sun.com/jsf/facelets\"");
-line("                xmlns:forgeview=\"http://jboss.org/forge/view\"");
-line("                template=\"/resources/scaffold/pageTemplate.xhtml\">\n");
+line("<?xml version='1.0' encoding='UTF-8' ?>");
+line("<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">");
+line("<ui:composition-xmlns=\"http://www.w3.org/1999/xhtml\"");
+line("        xmlns:h=\"http://java.sun.com/jsf/html\"");
+line("        xmlns:f=\"http://java.sun.com/jsf/core\"");
+line("        xmlns:ui=\"http://java.sun.com/jsf/facelets\"");
+//line("        xmlns:forgeview=\"http://jboss.org/forge/view\"");
+line("        template=\"/resources/scaffold/pageTemplate.xhtml\">\n");
 
 line("  <f:metadata>");
 line("    <f:viewParam name=\"page\" value='#{"+Utils._1raMin(entity.getName())+"Bean.page}'/>");

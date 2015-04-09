@@ -8,8 +8,7 @@ import javax.persistence.*;
 import javax.validation.constraints.*;
 
 @Entity
-public class Relationships
-{
+public class Relationships{
 
    private static final long serialVersionUID = 1L;
 

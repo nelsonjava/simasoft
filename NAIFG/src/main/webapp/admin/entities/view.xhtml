@@ -124,6 +124,17 @@
 						<h:outputText id="itemAnnotationsMethod" value="#{_item.to.name}"/>
 					</h:link>
 				</h:column>
+				
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Name"/>
+					</f:facet>
+					<h:link outcome="/admin/relationships/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemRelationsName" value="#{_item.name}"/>
+					</h:link>
+				</h:column>
+
 
 				<h:column>
 					<f:facet name="header">
@@ -155,7 +166,7 @@
                                      styleClass="data-table"
                                      value="#{forgeview:asList(entitiesBean.entities.to)}"
                                      var="_item">
-                                     
+
 				<h:column>
 					<f:facet name="header">
 						<h:outputText value="From"/>
@@ -183,6 +194,16 @@
 					<h:link outcome="/admin/relationships/view">
 						<f:param name="id" value="#{_item.id}"/>
 						<h:outputText id="itemAnnotationsMethod" value="#{_item.to.name}"/>
+					</h:link>
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Name"/>
+					</f:facet>
+					<h:link outcome="/admin/relationships/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemRelationsName" value="#{_item.name}"/>
 					</h:link>
 				</h:column>
 

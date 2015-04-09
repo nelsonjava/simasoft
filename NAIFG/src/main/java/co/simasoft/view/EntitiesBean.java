@@ -164,6 +164,7 @@ public class EntitiesBean implements Serializable
             iterNameQueries.remove();
             this.entityManager.merge(nextInNameQueries);
          }
+
          Iterator<Relationships> iterFrom = deletableEntity.getFrom().iterator();
          for (; iterFrom.hasNext();)
          {
@@ -172,6 +173,7 @@ public class EntitiesBean implements Serializable
             iterFrom.remove();
             this.entityManager.merge(nextInFrom);
          }
+
          Iterator<Relationships> iterTo = deletableEntity.getTo().iterator();
          for (; iterTo.hasNext();)
          {
@@ -180,6 +182,7 @@ public class EntitiesBean implements Serializable
             iterTo.remove();
             this.entityManager.merge(nextInTo);
          }
+
          Iterator<FilesModels> iterFilesModels = deletableEntity.getFilesModels().iterator();
          for (; iterFilesModels.hasNext();)
          {

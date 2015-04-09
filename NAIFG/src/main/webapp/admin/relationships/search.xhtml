@@ -101,6 +101,16 @@
 						<h:outputText id="itemMappedby" value="#{_item.to.name}"/>
 					</h:link>
 				</h:column>
+				
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Name"/>
+					</f:facet>
+					<h:link outcome="/admin/relationships/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemName" value="#{_item.name}"/>
+					</h:link>
+				</h:column>
 
 				<h:column>
 					<f:facet name="header">

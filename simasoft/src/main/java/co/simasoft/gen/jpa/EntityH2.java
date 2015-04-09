@@ -140,7 +140,13 @@ public EntityH2(String artifactId,String groupId,Entidad entity,ArrayList<String
               }
               else{
                  line("    @ManyToOne");
-                 line("    private "+relation.getTo()+" "+Utils._1raMin(relation.getTo())+";\n");
+                 if(relation.getName() == null){
+                   line("    private "+relation.getTo()+" "+Utils._1raMin(relation.getTo())+";\n");
+                 }
+                 else{
+                   line("    private "+ relation.getTo() +" "+ relation.getName()+";\n");
+                 }
+
               }
             }
 //********RELACION MUCHOS A UNO
@@ -152,8 +158,14 @@ public EntityH2(String artifactId,String groupId,Entidad entity,ArrayList<String
                 line("    private Set<"+relation.getTo()+"> objHijos = new HashSet<"+relation.getTo()+">();\n");
               }
               else{
-                line("    @OneToMany(mappedBy = \""+Utils._1raMin(entity.getName())+"\")");
-                line("    private Set<"+relation.getTo()+"> "+Utils._1raMin(relation.getTo())+" = new HashSet<"+relation.getTo()+">();\n");
+                if(relation.getName() == null){
+                  line("    @OneToMany(mappedBy = \""+Utils._1raMin(entity.getName())+"\")");
+                  line("    private Set<"+relation.getTo()+"> "+Utils._1raMin(relation.getTo())+" = new HashSet<"+relation.getTo()+">();\n");
+                }
+                else{
+                  line("    @OneToMany(mappedBy = \""+relation.getName()+"\")");
+                  line("    private Set<"+relation.getTo()+"> "+relation.getName()+" = new HashSet<"+relation.getTo()+">();\n");
+                }
               }
             }
 //********FIN RELACION UNO A MUCHOS
@@ -216,12 +228,22 @@ public EntityH2(String artifactId,String groupId,Entidad entity,ArrayList<String
                  line("    }\n");
               }
               else{
-                 line("    public " + relation.getTo() + " get" + Utils._1raMay(relation.getTo()) + "() {");
-                 line("        return " + Utils._1raMin(relation.getTo()) + ";");
-                 line("    }");
-                 line("    public void set" + Utils._1raMay(relation.getTo()) + "(" + Utils._1raMay(relation.getTo()) + " " + Utils._1raMin(relation.getTo()) + ") {");
-                 line("        this." + Utils._1raMin(relation.getTo()) + " = " + Utils._1raMin(relation.getTo()) + ";");
-                 line("    }\n");
+                 if(relation.getName() == null){
+                    line("    public " + relation.getTo() + " get" + Utils._1raMay(relation.getTo()) + "() {");
+                    line("        return " + Utils._1raMin(relation.getTo()) + ";");
+                    line("    }");
+                    line("    public void set" + Utils._1raMay(relation.getTo()) + "(" + Utils._1raMay(relation.getTo()) + " " + Utils._1raMin(relation.getTo()) + ") {");
+                    line("        this." + Utils._1raMin(relation.getTo()) + " = " + Utils._1raMin(relation.getTo()) + ";");
+                    line("    }\n");
+                 }
+                 else{
+                    line("    public " + relation.getTo() + " get" + Utils._1raMay(relation.getName()) + "() {");
+                    line("        return " + relation.getName() + ";");
+                    line("    }");
+                    line("    public void set" + Utils._1raMay(relation.getName()) + "(" + Utils._1raMay(relation.getTo()) + " " + relation.getName() + ") {");
+                    line("        this." + relation.getName() + " = " + relation.getName() + ";");
+                    line("    }\n");
+                 }
               }
 
             }
@@ -239,12 +261,23 @@ public EntityH2(String artifactId,String groupId,Entidad entity,ArrayList<String
                  line("    }\n");
               }
               else{
-                 line("    public Set<" + relation.getTo() + "> get" + Utils._1raMay(relation.getTo()) + "() {");
-                 line("        return " + Utils._1raMin(relation.getTo()) + ";");
-                 line("    }");
-                 line("    public void set" + Utils._1raMay(relation.getTo()) + "(Set<" + Utils._1raMay(relation.getTo()) + "> " + Utils._1raMin(relation.getTo()) + ") {");
-                 line("        this." + Utils._1raMin(relation.getTo()) + " = " + Utils._1raMin(relation.getTo()) + ";");
-                 line("    }\n");
+                 if(relation.getName() == null){
+                   line("    public Set<" + relation.getTo() + "> get" + Utils._1raMay(relation.getTo()) + "() {");
+                   line("        return " + Utils._1raMin(relation.getTo()) + ";");
+                   line("    }");
+                   line("    public void set" + Utils._1raMay(relation.getTo()) + "(Set<" + Utils._1raMay(relation.getTo()) + "> " + Utils._1raMin(relation.getTo()) + ") {");
+                   line("        this." + Utils._1raMin(relation.getTo()) + " = " + Utils._1raMin(relation.getTo()) + ";");
+                   line("    }\n");
+                 }
+                 else{
+                   line("    public Set<" + relation.getTo() + "> get" + Utils._1raMay(relation.getName()) + "() {");
+                   line("        return " + relation.getName() + ";");
+                   line("    }");
+                   line("    public void set" + Utils._1raMay(relation.getName()) + "(Set<" + Utils._1raMay(relation.getTo()) + "> " + relation.getName() + ") {");
+                   line("        this." + relation.getName() + " = " + relation.getName() + ";");
+                   line("    }\n");
+                 }
+
               }
 
             }
