@@ -143,10 +143,12 @@ public class Models{
         Utils.fileJar("webH2/webapp/resources/css","screen.css",pathDocs+"\\"+name+"\\"+artifactId+"\\war\\h2\\src\\main\\webapp\\resources\\css\\",fileJar);
         Utils.fileJar("webH2/webapp/resources/img","logo.jpg",pathDocs+"\\"+name+"\\"+artifactId+"\\war\\h2\\src\\main\\webapp\\resources\\img\\",fileJar);
         Utils.fileJar("webH2/webapp/resources/templates","default.xhtml",pathDocs+"\\"+name+"\\"+artifactId+"\\war\\h2\\src\\main\\webapp\\resources\\templates\\",fileJar);
+        Utils.fileJar("webH2/webapp/resources","forge.taglib.xml",pathDocs+"\\"+name+"\\"+artifactId+"\\war\\h2\\src\\main\\webapp\\WEB-INF\\classes\\META-INF\\",fileJar);
 
         Utils.fileJar("webH2/webapp","home.xhtml",pathDocs+"\\"+name+"\\"+artifactId+"\\war\\h2\\src\\main\\webapp\\",fileJar);
         Utils.fileJar("webH2/webapp","index.html",pathDocs+"\\"+name+"\\"+artifactId+"\\war\\h2\\src\\main\\webapp\\",fileJar);
         Utils.fileJar("webH2/webapp","error.xhtml",pathDocs+"\\"+name+"\\"+artifactId+"\\war\\h2\\src\\main\\webapp\\",fileJar);
+
 
     }
 

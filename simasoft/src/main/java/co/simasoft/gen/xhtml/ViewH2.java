@@ -58,7 +58,7 @@ OBJETIVOS:
 *                                           IMPLEMENTACION DEL METODO                                           *
 *---------------------------------------------------------------------------------------------------------------*/
 
-public ViewH2(String artifactId,String groupId,Entidad entity,ArrayList<String> imports) throws IOException {
+public ViewH2(String artifactId, String groupId, Entidad entity, ArrayList<String> imports) throws IOException {
 
 //>>INICIALIZACION DE ATRIBUTOS
       this.entity = entity;
@@ -66,80 +66,66 @@ public ViewH2(String artifactId,String groupId,Entidad entity,ArrayList<String> 
       this.relations = entity.getRelations();
 //>>FIN INICIALIZACION DE ATRIBUTOS
 
-line("<?xml version='1.0' encoding='UTF-8' ?>\n");
-
-line("<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n");
-
+line("<?xml version='1.0' encoding='UTF-8' ?>");
+line("<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">");
 line("<ui:composition xmlns=\"http://www.w3.org/1999/xhtml\"");
-line("                xmlns:h=\"http://java.sun.com/jsf/html\"");
-line("                xmlns:f=\"http://java.sun.com/jsf/core\"");
-line("                xmlns:ui=\"http://java.sun.com/jsf/facelets\"");
-line("                template=\"/resources/scaffold/pageTemplate.xhtml\">\n");
+line("    xmlns:h=\"http://java.sun.com/jsf/html\"");
+line("    xmlns:f=\"http://java.sun.com/jsf/core\"");
+line("    xmlns:ui=\"http://java.sun.com/jsf/facelets\"");
+line("    xmlns:forgeview=\"http://jboss.org/forge/view\"");
+line("    template=\"/resources/scaffold/pageTemplate.xhtml\">\n");
 
-line("  <f:metadata>");
-line("    <f:viewParam name=\"id\" value='#{"+Utils._1raMin(entity.getName())+"Bean.id}'/>");
-line("    <f:event type=\"preRenderView\" listener='#{"+Utils._1raMin(entity.getName())+"Bean.retrieve}'/>");
-line("  </f:metadata>\n");
+line("    <f:metadata>");
+line("        <f:viewParam name=\"id\" value='#{"+Utils._1raMin(entity.getName())+"Bean.id}'/>");
+line("        <f:event type=\"preRenderView\" listener='#{"+Utils._1raMin(entity.getName())+"Bean.retrieve}'/>");
+line("    </f:metadata>\n");
 
-line("  <ui:param name=\"pageTitle\" value=\"View "+entity.getName()+"\"/>\n");
+line("    <ui:param name=\"pageTitle\" value=\"View "+entity.getName()+"\"/>\n");
 
-line("  <ui:define name=\"header\">");
-line("    "+entity.getName());
-line("  </ui:define>\n");
+line("    <ui:define name=\"header\">");
+line("        "+entity.getName());
+line("    </ui:define>\n");
 
-line("  <ui:define name=\"subheader\">");
-line("    View existing "+entity.getName());
-line("  </ui:define>\n");
+line("    <ui:define name=\"subheader\">");
+line("        View existing "+entity.getName());
+line("    </ui:define>\n");
 
-line("  <ui:define name=\"footer\"/>\n");
+line("    <ui:define name=\"footer\"/>\n");
 
-line("  <ui:define name=\"main\">\n");
+line("    <ui:define name=\"main\">");
+line("        <h:panelGrid columnClasses=\"label,component,required\" columns=\"3\">");
 
-          for(int x=0;x<atributos.size();x++) {
+          for(int x = 0; x < atributos.size(); x++) {
 
-             Atributos atributo = atributos.get(x);
+              Atributos atributo = atributos.get(x);
 
-             if (atributo.getType().equals("String")) {
+              if (atributo.getType().equals("String")) {
+line("            <h:outputLabel for=\""+Utils._1raMin(entity.getName())+"Bean"+entity.getName()+Utils._1raMay(atributo.getField())+"\" value=\""+Utils._1raMin(atributo.getField())+":\"/>");
+line("            <h:outputText id=\""+Utils._1raMin(entity.getName())+"Bean"+entity.getName()+Utils._1raMay(atributo.getField())+"\" value=\"#{"+Utils._1raMin(entity.getName())+"Bean."+Utils._1raMin(entity.getName())+"."+Utils._1raMin(atributo.getField())+"}\"/>");
+line("            <h:outputText/>");
+              }
+              if (atributo.getType().equals("Date")) {
 
-line("      <h:outputLabel for=\""+Utils._1raMin(entity.getName())+"Bean"+entity.getName()+Utils._1raMay(atributo.getField())+"\" value=\""+Utils._1raMin(atributo.getField())+":\"/>");
-line("        <h:outputText id=\""+Utils._1raMin(entity.getName())+"Bean"+entity.getName()+Utils._1raMay(atributo.getField())+"\" value=\"#{"+Utils._1raMin(entity.getName())+"Bean."+Utils._1raMin(entity.getName())+"."+Utils._1raMay(atributo.getField())+"}\"/>");
-line("      <h:outputText/>");
+              }
+              if (atributo.getType().equals("float")) {
 
+              }
+              if (atributo.getType().equals("boolean")) {
 
-             }
-
-             if (atributo.getType().equals("Date")) {
-
-             }
-
-             if (atributo.getType().equals("float")) {
-
-             }
-
-             if (atributo.getType().equals("boolean")) {
-
-             }
+              }
 
           } // for atributos
 
+line("        </h:panelGrid>\n");
 
-line("    <h:panelGrid columnClasses=\"label,component,required\" columns=\"3\">\n");
+line("        <div class=\"buttons\">");
+line("            <h:link value=\"View All\" outcome=\"search\" styleClass=\"btn btn-primary\"/>");
+line("            <h:link value=\"Edit\" outcome=\"create\" includeViewParams=\"true\" styleClass=\"btn btn-primary\"/>");
+line("            <h:link value=\"Create New\" outcome=\"create\" styleClass=\"btn btn-primary\"/>");
+line("        </div>");
+line("    </ui:define>");
+line("</ui:composition>");
 
-line("    </h:panelGrid>\n");
+    } // Constructor
 
-line("    <div class=\"buttons\">");
-line("      <h:link value=\"View All\" outcome=\"search\" styleClass=\"btn btn-primary\"/>");
-line("      <h:link value=\"Edit\" outcome=\"create\" includeViewParams=\"true\" styleClass=\"btn btn-primary\"/>");
-line("      <h:link value=\"Create New\" outcome=\"create\" styleClass=\"btn btn-primary\"/>");
-line("    </div>\n");
-
-
-line("  </ui:define>\n");
-
-line("</ui:composition>\n");
-
-  } // Constructor
-
-} // class
-
-
+} // END : CLASS
