@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.naif.facturacion.customnodes.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?scenebuilder-stylesheet ../../styles/default.css?>
+<?scenebuilder-classpath-element ../../../../bin?>
+
+<VBox fx:id="root" prefWidth="540.0" prefHeight="400.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="com.naif.facturacion.control.EntryController">
+   <MenuBar fx:id="menuBar">
+      <menus>
+         <Menu text="Facturación">
+            <items>
+               <MenuItem fx:id="meniSoloUnRecibo" text="Solo un Recibo" onAction="#setSoloUnReciboView" />
+               <MenuItem fx:id="meniTodosRecibos" text="Todos los recibos" onAction="#setTodosLosRecibosView" />
+               <MenuItem fx:id="meniPorAdelantado" text="Por adelantado" onAction="#setPorAdelantadoView" />
+               <SeparatorMenuItem  />
+               <MenuItem fx:id="meniOtraFacturacion" text="Otra Facturación" onAction="#setOtraFacturacionView" />
+            </items>
+         </Menu>
+         <Menu text="Ayuda">
+            <items>
+               <MenuItem fx:id="meniAcercaDe" text="BETA 0.0.3"/>               
+            </items>
+         </Menu>         
+      </menus>
+   </MenuBar>    
+   <BorderPane prefWidth="540.0">  
+       <center>
+           <Label text="Bienvenidos a Simacart - FACTURACIÓN" />
+       </center>
+   </BorderPane>     
+</VBox>

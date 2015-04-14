@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.naif.facturacion.customnodes.*?>
+<?import com.naif.facturacion.customnodes.calendar.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?scenebuilder-stylesheet ../../styles/default.css?>
+<?scenebuilder-classpath-element ../../../../bin?>
+
+<AnchorPane prefHeight="400.0" prefWidth="540.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="com.naif.facturacion.control.TodosRecibosController">
+  <Text id="text-form-title" layoutX="127.0" layoutY="66.0" text="Todos los Recibos" />
+  <Label layoutX="26.0" layoutY="94.0" prefHeight="17.0" prefWidth="380.0" text="Para generar los recibos, por favor seleccionar la fecha:" wrapText="false" />
+  <DatePicker fx:id="dpckReceiptDate" dPrefWidth="90.0" layoutX="412.0" layoutY="92.0" />
+  <Button id="btn-login" fx:id="btnGenAllReceipts" text="Generar" layoutX="242.0" layoutY="139.0" mnemonicParsing="false" onAction="#generarAllPDFs" defaultButton="true" />
+  <LoadingProgressIndicator fx:id="prgiCreate" height="40.0" layoutX="345.0" layoutY="139.0" visible="false" width="40.0" />
+  <Text fx:id="lblValdMsj" layoutX="95.0" layoutY="220.0" text="" visible="false" wrappingWidth="340.0" />
+</AnchorPane>

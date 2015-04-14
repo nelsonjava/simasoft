@@ -1,0 +1,246 @@
+@CHARSET "ISO-8859-1";
+/***************** Java FX Nodes *****************/
+
+.label, #chk-box-remme, #hlk-fpaswd {
+  -fx-font-size: 14px;
+  -fx-font-weight: bold;
+  -fx-text-fill: #38424B;
+  -fx-font-family: "Arial";
+  -fx-effect: dropshadow(gaussian, rgba(255,255,255,0.5), 0,0,0,1);
+}
+
+.text-field {
+  -fx-background-radius: 8;
+  -fx-highlight-fill: #4A82B5;	
+  -fx-text-box-border: #435666;
+  -fx-font-family: "Helvetica";
+  -fx-background-color: #435666, -fx-text-box-border, -fx-control-inner-background;
+}
+.text-field:focused {
+  -fx-text-box-border: #6A8DAB;
+  -fx-background-color: #6A8DAB, -fx-text-box-border, -fx-control-inner-background;
+}
+
+.button:focused {  
+  -fx-focus-color: #6A8DAB;
+}
+
+.menu .label {
+  -fx-text-fill: white;
+}
+
+.menu-item .label {
+  -fx-text-fill: #38424B;
+}
+
+.context-menu {
+  -fx-skin: "com.sun.javafx.scene.control.skin.ContextMenuSkin";
+  -fx-background-color: #6A8DAB;
+  -fx-background-insets: 0, 1, 2;
+  -fx-background-radius: 0 6 6 6, 0 5 5 5, 0 4 4 4;
+  -fx-padding: 0.333333em 0.083333em 0.666667em 0.083333em; /* 4 1 8 1 */
+}
+
+
+/****************** Class Selectors *******************/
+
+.text-user-msg-ok {
+  -fx-fill: GREEN;
+  -fx-font-size: 14px;	
+  -fx-font-weight: bold;
+  -fx-font-family: "Courier";
+}
+
+.text-user-msg-nok {
+  -fx-fill: FIREBRICK;
+  -fx-font-size: 14px;	
+  -fx-font-weight: bold;
+  -fx-font-family: "Courier";
+}
+
+
+/****************** Node's IDs *******************/
+
+#rectangle-main-panel {
+  -fx-fill: linear-gradient(to top, darkgray, snow);
+}
+
+#text-form-title {
+  -fx-font-size: 32px;
+  -fx-font-family: "Verdana";
+  -fx-fill: linear-gradient(darkgray, steelblue, #38424B);	
+}
+
+#btn-login {
+  -fx-font-size: 1.1em;	
+  -fx-font-weight: bold;
+  -fx-padding: 8 15 15 15;
+  -fx-background-radius: 8;
+  -fx-background-insets: 0,0 0 5 0, 0 0 6 0, 0 0 7 0;
+  -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.75) , 4,0,0,1);
+  -fx-background-color: 
+     linear-gradient(from 0% 93% to 0% 100%, #a34313 0%, #903b12 100%),
+     #9d4024,
+     #d86e3a,
+     radial-gradient(center 50% 50%, radius 100%, #d86e3a, #c54e2c);
+}
+#btn-login Text {
+  -fx-fill: white;
+  -fx-effect: dropshadow(gaussian, #a30000, 0,0,0,2);
+}
+#btn-login:hover, #btn-login:focused {
+  -fx-text-fill: black;	
+  -fx-background-color: 
+     linear-gradient(from 0% 93% to 0% 100%, #a34313 0%, #903b12 100%),
+     #9d4024,
+     #d86e3a,
+     radial-gradient(center 50% 50%, radius 100%, #ea7f4b, #c54e2c);
+}
+#btn-login:pressed {
+  -fx-padding: 10 15 13 15;
+  -fx-background-insets: 2 0 0 0, 2 0 3 0, 2 0 4 0, 2 0 5 0;
+}
+
+#prg-ind-login {
+  -fx-progress-color: #38424B;
+}
+#prg-ind-login.percentage {
+  -fx-fill: null;
+}
+
+#chk-box-remme {
+  -fx-label-padding: 0 0 0 10;
+}
+#chk-box-remme *.box {
+  -fx-padding: 2.1;
+  -fx-border-width: 2;
+  -fx-border-radius: 5; 
+  -fx-border-insets: 0; 
+  -fx-border-color: #435666;
+  -fx-background-radius: 5;
+  -fx-background-insets: 2; 
+  -fx-background-color: white; 
+}
+#chk-box-remme:focused .box {
+  -fx-border-width: 3;	
+  -fx-border-color: #6A8DAB;
+}	
+#chk-box-remme:selected .mark {
+  -fx-mark-color: #6A8DAB;
+}
+
+#hlk-fpaswd {
+  -fx-padding: 0; 
+  -fx-underline: true;
+}
+#hlk-fpaswd:visited {
+  -fx-text-fill: #38424B;
+}
+
+/*********************** CALENDAR ***********************/
+
+.datepicker-invalid
+{
+    -fx-border-color: red;
+}
+
+.datepicker-valid
+{
+    -fx-border-color: null;
+}
+
+/* The main calendar pane */
+.calendar {
+
+}
+
+/* The calendar header, which contains the navigation elements. */
+.calendar-header
+{
+    -fx-background-color: linear-gradient(to bottom, derive(-fx-base,-70%), derive(-fx-base,-90%));
+    -fx-padding: 0.5em;
+   /* -fx-background-radius: 10;*/
+}
+
+/* The calendar footer, which contains the today button. It is only visible when the today button is shown */
+.calendar-footer
+{
+    -fx-background-color: linear-gradient(to top, derive(-fx-base,-70%), derive(-fx-base,-90%));
+    -fx-padding: 0.2em;
+}
+
+/* The 3 different panes, which show the month, the year, and the decades */
+.calendar-month-view, .calendar-year-view, .calendar-decades-view
+{
+    -fx-background-color: linear-gradient(to bottom, derive(-fx-base,80%), derive(-fx-base,40%));
+    -fx-padding: 0;
+}
+
+/* The usual button which either display the day of the current month, or the month in the year view, or the year in the decades view */
+.calendar-cell-current-month, .calendar-year-button, .calendar-month-button {
+    -fx-background-color: null;
+    -fx-background-radius: 0;
+    -fx-background-insets: 0, 0, 0, 0;
+    -fx-cursor: hand;
+    -fx-padding: 0.7em;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8;
+}
+
+/* The hover state of the buttons */
+.calendar-cell-current-month:hover, .calendar-year-button:hover, .calendar-month-button:hover {
+    -fx-background-color: -fx-cell-hover-color;
+}
+
+/* The day buttons for the previous and next month. */
+.calendar-cell-other-month {
+    -fx-background-color: null;
+    -fx-background-radius: 0;
+    -fx-background-insets: 0, 0, 0, 0;
+    -fx-opacity: 0.7;
+    -fx-cursor: hand;
+    -fx-padding: 0.7em;
+    -fx-background-radius: 8;
+}
+
+/* The hover state of this button. */
+.calendar-cell-other-month:hover {
+    -fx-background-color: -fx-cell-hover-color;
+}
+
+/* The button which shows the current day. */
+.calendar-cell-today {
+     -fx-background-color: -fx-accent;
+}
+
+/* The buttons in the header and the footer */
+.calendar-navigation-button, .calendar-navigation-title, .calendar-today-button {
+    -fx-background-color: null;
+    -fx-cursor: hand;
+    -fx-text-fill: white;
+}
+
+/* don't make the title button transparent, when it is disabled in the decades view */
+.calendar-navigation-title:disabled {
+    -fx-opacity: 1;
+}
+
+/* The arrow for navigation. SVG is used for it. */
+.calendar-navigation-arrow {
+    /*padding determines the size of the arrow; This should match the design size in the SVG */
+    -fx-padding: 4 3.5 4 3.5;
+    -fx-padding: 0.333333em 0.333333em 0.333333em 0.333333em; /* 2 3.5 2 3.5 */
+    -fx-shape: "M 100 100 L 300 100 L 200 300 z";
+    -fx-background-color: #ffffff;
+}
+
+/* The cell which contain the week day names */
+.calendar-weekdays {
+    -fx-background-color: -fx-body-color;
+    -fx-padding: 3px;
+}
+
+.calendar-week-number {
+    -fx-font-size: 0.8em;
+    -fx-padding: 4px;
+}

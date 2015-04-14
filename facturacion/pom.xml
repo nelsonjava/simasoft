@@ -1,0 +1,277 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+  <!-- mvn clean package -->
+  <!-- java -jar target/Facturacion-BETA.jar -->
+
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.naif.facturacion</groupId>
+  <artifactId>Facturacion-BETA</artifactId>
+  <packaging>jar</packaging>
+  <version>1.0</version>
+  <url>http://maven.apache.org</url>
+
+  <name>Facturacion-BETA</name>
+  <description>Facturacion de Recibos</description>
+
+  <profiles>
+
+    <profile>
+      <id>javafx2.2</id>
+      <properties>
+        <java.version>1.7</java.version>
+        <javafx.version>2.2</javafx.version>
+        <javafx.lib.path>${java.home}/lib/jfxrt.jar</javafx.lib.path>
+      </properties>
+      <activation>
+        <jdk>1.7</jdk>
+      </activation>
+    </profile>
+
+    <profile>
+      <id>javafx8.0</id>
+      <properties>
+        <java.version>1.8</java.version>
+        <javafx.version>8.0</javafx.version>
+        <javafx.lib.path>${java.home}/lib/ext/jfxrt.jar</javafx.lib.path>
+      </properties>
+      <activation>
+        <jdk>1.8</jdk>
+      </activation>
+    </profile>    
+
+  </profiles>    
+
+  <dependencies>
+
+    <dependency>
+      <groupId>net.sf.jasperreports</groupId>
+      <artifactId>jasperreports</artifactId>
+      <version>6.0.3</version>
+    </dependency>
+
+    <dependency>
+      <groupId>net.sf.barcode4j</groupId>
+      <artifactId>barcode4j</artifactId>
+      <version>2.1</version>
+    </dependency>
+
+    <dependency>
+      <groupId>com.google.zxing</groupId>
+      <artifactId>core</artifactId>
+      <version>3.2.0</version>
+    </dependency>
+
+    <dependency>
+      <groupId>com.google.zxing</groupId>
+      <artifactId>javase</artifactId>
+      <version>3.2.0</version>
+    </dependency>
+
+    <dependency>
+      <groupId>co.simasoft</groupId>
+      <artifactId>simasoft</artifactId>
+      <version>1.0-SNAPSHOT</version>
+    </dependency>   
+
+    <!-- Runtime Dependencies -->
+
+    <dependency>
+      <groupId>com.itextpdf</groupId>
+      <artifactId>itextpdf</artifactId>
+      <version>5.5.5</version>
+    </dependency>
+
+    <dependency>
+      <groupId>com.itextpdf</groupId>
+      <artifactId>itext-pdfa</artifactId>
+      <version>5.5.5</version>
+    </dependency>
+
+    <dependency>
+      <groupId>commons-beanutils</groupId>
+      <artifactId>commons-beanutils</artifactId>
+      <version>1.9.2</version>
+    </dependency>
+
+    <dependency>
+      <groupId>commons-logging</groupId>
+      <artifactId>commons-logging</artifactId>
+      <version>1.2</version>
+    </dependency>
+
+    <dependency>
+      <groupId>commons-collections</groupId>
+      <artifactId>commons-collections</artifactId>
+      <version>3.2.1</version>
+    </dependency>
+
+    <dependency>
+      <groupId>commons-digester</groupId>
+      <artifactId>commons-digester</artifactId>
+      <version>2.1</version>
+    </dependency>
+
+    <dependency> 
+      <groupId>xml-apis</groupId>
+      <artifactId>xml-apis</artifactId>
+      <version>1.4.01</version>
+    </dependency>    
+
+    <dependency>
+      <groupId>xml-apis</groupId>
+      <artifactId>xml-apis-ext</artifactId>
+      <version>1.3.04</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.xmlgraphics</groupId>
+      <artifactId>batik-bridge</artifactId>
+      <version>1.7</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.xmlgraphics</groupId>
+      <artifactId>batik-css</artifactId>
+      <version>1.7</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.xmlgraphics</groupId>
+      <artifactId>batik-dom</artifactId>
+      <version>1.7</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.xmlgraphics</groupId>
+      <artifactId>batik-svg-dom</artifactId>
+      <version>1.7</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.xmlgraphics</groupId>
+      <artifactId>batik-util</artifactId>
+      <version>1.7</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.xmlgraphics</groupId>
+      <artifactId>batik-xml</artifactId>
+      <version>1.7</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.xmlgraphics</groupId>
+      <artifactId>batik-parser</artifactId>
+      <version>1.7</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.xmlgraphics</groupId>
+      <artifactId>batik-anim</artifactId>
+      <version>1.7</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.xmlgraphics</groupId>
+      <artifactId>batik-script</artifactId>
+      <version>1.7</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.xmlgraphics</groupId>
+      <artifactId>batik-ext</artifactId>
+      <version>1.7</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.xmlgraphics</groupId>
+      <artifactId>batik-awt-util</artifactId>
+      <version>1.7</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.xmlgraphics</groupId>
+      <artifactId>batik-gvt</artifactId>
+      <version>1.7</version>
+    </dependency>  
+
+  </dependencies>
+
+  <build>
+    <plugins> 
+
+      <!-- Compile with the correct Java/JavaFX version. -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.3</version>
+        <configuration>          
+          <source>${java.version}</source>
+          <target>${java.version}</target>  
+          <compilerArguments>
+            <bootclasspath>${sun.boot.class.path}${path.separator}${javafx.lib.path}</bootclasspath>
+          </compilerArguments>                
+        </configuration>
+      </plugin>
+
+      <!-- Avoid the default jar creation. -->
+      <plugin>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>2.6</version>
+        <executions><execution><id>default-jar</id><phase>none</phase></execution></executions>        
+      </plugin>    
+
+      <!-- Copy required dependencies(.class files) -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <version>2.10</version>
+        <executions>
+          <execution>
+            <id>unpack-dependencies</id>
+            <phase>prepare-package</phase>
+            <goals><goal>unpack-dependencies</goal></goals>
+            <configuration>                            
+              <excludeTransitive>true</excludeTransitive>
+              <outputDirectory>${project.build.directory}/classes</outputDirectory>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
+      <!-- Compile maven project with 'javafxpackager', using -->
+      <!-- '-createjar' task command to generate an uber jar. -->
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+        <version>1.4.0</version>
+        <executions>
+          <execution>
+            <id>compile</id>
+            <phase>package</phase>
+            <goals><goal>exec</goal></goals>                        
+          </execution>
+        </executions>
+        <configuration>
+          <executable>${java.home}/../bin/javafxpackager</executable>          
+          <arguments>
+            <argument>-createjar</argument>
+            <argument>-nocss2bin</argument>
+            <argument>-appclass</argument>
+            <argument>com.naif.facturacion.Entry</argument>
+            <argument>-srcdir</argument>
+            <argument>${project.build.directory}/classes</argument>
+            <argument>-outdir</argument>
+            <argument>${project.build.directory}</argument>
+            <argument>-outfile</argument>
+            <argument>${project.name}.jar</argument>                
+          </arguments>
+        </configuration>
+      </plugin>  
+
+    </plugins>
+  </build>
+
+</project>

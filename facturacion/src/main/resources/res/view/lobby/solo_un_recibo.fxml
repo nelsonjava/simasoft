@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?scenebuilder-stylesheet ../../styles/default.css?>
+<?scenebuilder-classpath-element ../../../../bin?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="com.naif.facturacion.control.SoloUnReciboController">
+  <center>
+    <Label text="Solo un Recibo NO IMPLEMENTADO" />
+  </center>
+</BorderPane>
