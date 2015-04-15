@@ -135,7 +135,7 @@ line("                        </h:panelGroup>");
                   }
                   else {
 
-                      if(relation.getName() == null) {
+                      if(relation.getName() == null || relation.getName() == "" ) {
 line("                        <h:outputText/>");
 line("                        <h:outputLabel for=\""+Utils._1raMin(entity.getName())+"BeanExample"+relation.getTo()+"\" value=\""+Utils._1raMay(relation.getTo())+":\"/>");
 line("                        <h:panelGroup>");

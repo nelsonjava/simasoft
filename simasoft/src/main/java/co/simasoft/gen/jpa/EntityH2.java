@@ -228,7 +228,7 @@ public EntityH2(String artifactId,String groupId,Entidad entity,ArrayList<String
                  line("    }\n");
               }
               else{
-                 if(relation.getName() == null){
+                 if(relation.getName() == null || relation.getName() == "" ){
                     line("    public " + relation.getTo() + " get" + Utils._1raMay(relation.getTo()) + "() {");
                     line("        return " + Utils._1raMin(relation.getTo()) + ";");
                     line("    }");
@@ -261,7 +261,7 @@ public EntityH2(String artifactId,String groupId,Entidad entity,ArrayList<String
                  line("    }\n");
               }
               else{
-                 if(relation.getName() == null){
+                 if(relation.getName() == null || relation.getName() == "") {
                    line("    public Set<" + relation.getTo() + "> get" + Utils._1raMay(relation.getTo()) + "() {");
                    line("        return " + Utils._1raMin(relation.getTo()) + ";");
                    line("    }");

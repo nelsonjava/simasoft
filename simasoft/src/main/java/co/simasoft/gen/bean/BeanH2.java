@@ -211,7 +211,7 @@ line("         this.entityManager.merge(objPadre);");
 
      }
      else{
-         if(relation.getName() == null){
+         if(relation.getName() == null || relation.getName() == "" ){
 
 line("         "+relation.getTo()+" "+Utils._1raMin(relation.getTo())+" = deletableEntity.get"+relation.getTo()+"();");
 line("         "+Utils._1raMin(relation.getTo())+".get"+entity.getName()+"().remove(deletableEntity);");
@@ -245,7 +245,7 @@ line("         }");
 
       }
       else{
-         if(relation.getName() == null){
+         if(relation.getName() == null || relation.getName() == "" ){
 line("         Iterator<"+relation.getTo()+"> iter"+relation.getTo()+" = deletableEntity.get"+relation.getTo()+"().iterator();");
 line("         for (; iter"+relation.getTo()+".hasNext();){");
 line("            "+relation.getTo()+" nextIn"+relation.getTo()+" = iter"+relation.getTo()+".next();");

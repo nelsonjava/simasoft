@@ -316,7 +316,6 @@ public class App extends FileTxt{
 
     public static void main( String[] args ) throws IOException {
 
-/*
         modelos.clear();
         modelos.add(new Modelos("contable","co.simasoft","contabilidad"));
         generar(modelos);
@@ -364,7 +363,6 @@ public class App extends FileTxt{
         modelos.clear();
         modelos.add(new Modelos("naif","co.simasoft","DomainModels"));
         War war = new War(modelos);
-*/        
 
         modelos.clear();
         modelos.add(new Modelos("naif","co.simasoft","DomainModels"));
