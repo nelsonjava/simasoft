@@ -8,6 +8,7 @@ public class Atributos{
      private String length = "";
      private boolean nulo = true;
      private boolean unique = false;
+     private String annotations;
 
      public Atributos() {
      }
@@ -74,6 +75,14 @@ public class Atributos{
         this.unique = unique;
     }
 
+    public String getAnnotations() {
+        return annotations;
+    }
+
+    public void setAnnotations(String annotations) {
+        this.annotations = annotations;
+    }
+
     public String typeField(String type){
 
         String typeField = "";
@@ -88,12 +97,16 @@ public class Atributos{
                  typeField = "Date";
                  break;
 
+            case "number":
+                 typeField = "float";
+                 break;
+
             case "Text":
                  typeField = "String";
                  break;
 
-            case "number":
-                 typeField = "float";
+            case "Blog":
+                 typeField = "String";
                  break;
 
             default:

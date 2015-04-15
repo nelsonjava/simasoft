@@ -94,7 +94,7 @@ public EntityH2(String artifactId,String groupId,Entidad entity,ArrayList<String
 //>>DECLARACION DE LA CLASE
       // - La clase Hereda: Por defecto, no hereda NADA
       // - Modificador de la clase: - public - por defecto
-      line("public class "+entity.getName()+" {\n");
+      line("public class "+entity.getName()+" implements Serializable {\n");
 //>>FIN DECLARACION DE LA CLASE
 
 //>>ATTRIBUTOS POR DEFECTO
@@ -104,7 +104,10 @@ public EntityH2(String artifactId,String groupId,Entidad entity,ArrayList<String
       line("    @GeneratedValue(strategy=GenerationType.TABLE)");
       line("    private long id;\n");
 
+      line("    @Version");
       line("    private Integer optlock;\n");
+
+      line("    private long orden;\n");
 //>>FIN ATTRIBUTOS POR DEFECTO
 
 //>>ATTRIBUTOS DE LA CLASE
@@ -189,14 +192,28 @@ public EntityH2(String artifactId,String groupId,Entidad entity,ArrayList<String
       line("    }\n");
 //>>CONTRUCTOR DE LA CLASE No.2
 
-//>>GET Y SET id
+//>>GET Y SET PREDEFINIDOS
       line("    public long getId() {");
       line("        return this.id;");
-      line("    }\n");
+      line("    }");
       line("    public void setId(long id) {");
       line("        this.id = id;");
       line("    }\n");
-//>>FIN GET Y SET id
+      
+      line("    public Integer getOptlock() {");
+      line("        return this.optlock;");
+      line("    }");
+      line("    public void setOptlock(Integer optlock) {");
+      line("        this.optlock = optlock;");
+      line("    }\n");
+
+      line("    public long getOrden() {");
+      line("        return this.orden;");
+      line("    }");
+      line("    public void setOrden(long orden) {");
+      line("        this.orden = orden;");
+      line("    }\n");
+//>>FIN GET Y SET PREDEFINIDOS
 
 //>>GET Y SET DE ATRIBUTOS
       for(Atributos atributo : atributos) {
@@ -288,6 +305,40 @@ public EntityH2(String artifactId,String groupId,Entidad entity,ArrayList<String
 
       } // for relations
 //>>FIN GET Y SET RELACIONES
+
+//>>HASHCODE
+      line("   @Override");
+      line("   public int hashCode() {");
+      line("      final int prime  = 31;");
+      line("            int result =  1;\n");
+
+      line("      result = prime * result + ((id == null) ? 0 : id.hashCode());\n");
+
+      line("      return result;");
+      line("   }\n");
+//>>FIN HASHCODE
+
+//>>EQUALS
+      line("   @Override");
+      line("   public boolean equals(Object ojt) {");
+      line("      if (      this == ojt           ) return true;");
+      line("      if (       ojt == null          ) return false;");
+      line("      if (getClass() != ojt.getClass()) return false;\n");
+
+      line("      "+entity.getName()+" other = ("+entity.getName()+") ojt;");
+      line("      if (id == null) {");
+      line("         if (other.id != null) {");
+      line("            return false;");
+      line("         }");
+      line("      } else {");
+      line("         if (!id.equals(other.id)) {");
+      line("            return false;");
+      line("         }");
+      line("      }\n");
+
+      line("      return true;");
+      line("   }\n");
+//>>FIN EQUALS
 
 
 line("} // entity"+"\n");

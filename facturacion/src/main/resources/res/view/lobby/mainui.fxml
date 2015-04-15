@@ -26,14 +26,14 @@
          </Menu>
          <Menu text="Ayuda">
             <items>
-               <MenuItem fx:id="meniAcercaDe" text="BETA 0.0.3"/>               
+               <MenuItem fx:id="meniAcercaDe" text="BETA 0.0.3"/>
             </items>
-         </Menu>         
+         </Menu>
       </menus>
-   </MenuBar>    
-   <BorderPane prefWidth="540.0">  
+   </MenuBar>
+   <BorderPane prefWidth="540.0">
        <center>
            <Label text="Bienvenidos a Simacart - FACTURACIÓN" />
        </center>
-   </BorderPane>     
+   </BorderPane>
 </VBox>
