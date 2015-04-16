@@ -36,20 +36,6 @@ public class Utils {
     }
 
     public static String serialID(String entity) throws Exception {
-      
-/*
-        System.out.println("  is: " + Utils.serialID("com.naif.serialuid.Example"));
-        Class cl = Class.forName("com.naif.serialuid.Example");
-
-        ObjectStreamClass osc = ObjectStreamClass.lookup(cl);
-        String serial = "";
-        if (osc != null) {
-           long serialID = osc.getSerialVersionUID();
-           serial = Long.toString(serialID);
-        }
-
-        System.out.println("  is: " + serial );
-*/
 
         Class cl = Class.forName(entity);
 

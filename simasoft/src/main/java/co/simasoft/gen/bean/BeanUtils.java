@@ -57,7 +57,7 @@ OBJETIVOS:
 *                                           IMPLEMENTACION DEL METODO                                           *
 *---------------------------------------------------------------------------------------------------------------*/
 
-public BeanUtils(String artifactId,String groupId,ArrayList<String> imports) throws IOException {
+public BeanUtils(String artifactId,String groupId,LinkedHashSet<String> imports) throws IOException {
 
 line("package co.simasoft.view;\n");
 

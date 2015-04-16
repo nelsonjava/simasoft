@@ -18,7 +18,7 @@ public class Models{
     private String groupId;
     private String artifactId;
     private ArrayList<Entidad> entities = new ArrayList<Entidad>();
-    private ArrayList<String> imports = new ArrayList<String>();
+    private LinkedHashSet<String> imports = new LinkedHashSet<String>();
 
     private String fileJar = "../g.jar";
     private String pathDocs = "\\docs";
@@ -50,11 +50,10 @@ public class Models{
         this.artifactId = artifactId;
     }
 
-    public ArrayList<String> getImports(){
+    public LinkedHashSet<String> getImports(){
         return imports;
     }
-
-    public void setImports(ArrayList<String> imports){
+    public void setImports(LinkedHashSet<String> imports){
         this.imports = imports;
     }
 

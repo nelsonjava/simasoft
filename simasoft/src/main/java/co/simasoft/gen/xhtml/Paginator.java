@@ -58,7 +58,7 @@ OBJETIVOS:
 *                                           IMPLEMENTACION DEL METODO                                           *
 *---------------------------------------------------------------------------------------------------------------*/
 
-public Paginator(String artifactId,String groupId,ArrayList<String> imports) throws IOException {
+public Paginator(String artifactId,String groupId,LinkedHashSet<String> imports) throws IOException {
 
 //>>INICIALIZACION DE ATRIBUTOS
       this.entity = entity;

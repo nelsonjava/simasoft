@@ -25,13 +25,13 @@ public class War {
     private String artifactId = "";
     private String asciidocImages = "src.main.asciidoc.en-US.images";
     private String asciidocModules = "src.main.asciidoc.en-US.modules";
-    
+
     public War() {
     }
 
     public War(ArrayList<Modelos> modelos) throws IOException {
 
-        ArrayList<String> imports = new ArrayList<String>();
+        LinkedHashSet<String> imports = new LinkedHashSet<String>();
         for (Modelos modelo : modelos) {
             imports.add(modelo.getGroupId()+".models."+modelo.getModelo()+"."+modelo.getArtifactId());
         }
@@ -42,7 +42,7 @@ public class War {
 
     }
 
-    public void H2(String modelo,String groupId,String artifactId,ArrayList<String> imports) throws IOException {
+    public void H2(String modelo,String groupId,String artifactId,LinkedHashSet<String> imports) throws IOException {
 
         // Cleanup - Reinigung
         entidades.clear();

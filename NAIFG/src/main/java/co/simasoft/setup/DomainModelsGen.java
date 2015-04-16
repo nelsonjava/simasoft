@@ -23,7 +23,7 @@ import javax.faces.context.ExternalContext;
 @Named("DomainModelsGen")
 public class DomainModelsGen {
 
-    ArrayList<String> imports = new ArrayList<String>();
+    private LinkedHashSet<String> imports = new LinkedHashSet<String>();
     private Set<Entities> entities;
     private ArrayList<Entidad> entidades = new ArrayList<Entidad>();
 

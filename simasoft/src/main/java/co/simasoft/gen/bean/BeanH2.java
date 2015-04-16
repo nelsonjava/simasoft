@@ -58,7 +58,7 @@ OBJETIVOS:
 *                                           IMPLEMENTACION DEL METODO                                           *
 *---------------------------------------------------------------------------------------------------------------*/
 
-public BeanH2(String artifactId,String groupId,Entidad entity,ArrayList<String> imports) throws IOException {
+public BeanH2(String artifactId,String groupId,Entidad entity,LinkedHashSet<String> imports) throws IOException {
 
 //>>INICIALIZACION DE ATRIBUTOS
       this.entity = entity;

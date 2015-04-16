@@ -58,7 +58,7 @@ OBJETIVOS:
 *                                           IMPLEMENTACION DEL METODO                                           *
 *---------------------------------------------------------------------------------------------------------------*/
 
-public EntityH2(String artifactId,String groupId,Entidad entity,ArrayList<String> imports) throws IOException {
+public EntityH2(String artifactId,String groupId,Entidad entity,LinkedHashSet<String> imports) throws IOException {
 
 //>>INICIALIZACION DE ATRIBUTOS
       this.entity = entity;
@@ -71,12 +71,15 @@ public EntityH2(String artifactId,String groupId,Entidad entity,ArrayList<String
 //>>FIN PAQUETE DE LA CLASE
 
 //>>IMPORTS DE LA CLASE
-      for(int x=0;x<imports.size();x++) {
-         line("import "+imports.get(x)+".*;");
+      for (String impor : imports) {
+         line("import "+impor+".*;");
       }
+
       line("");
 
+      line("import java.io.*;");
       line("import java.util.*;\n");
+
       line("import javax.persistence.*;");
       line("import javax.validation.constraints.*;\n");
 //>>FIN IMPORTS DE LA CLASE
@@ -102,7 +105,7 @@ public EntityH2(String artifactId,String groupId,Entidad entity,ArrayList<String
 
       line("    @Id");
       line("    @GeneratedValue(strategy=GenerationType.TABLE)");
-      line("    private long id;\n");
+      line("    private Long id;\n");
 
       line("    @Version");
       line("    private Integer optlock;\n");
@@ -193,13 +196,13 @@ public EntityH2(String artifactId,String groupId,Entidad entity,ArrayList<String
 //>>CONTRUCTOR DE LA CLASE No.2
 
 //>>GET Y SET PREDEFINIDOS
-      line("    public long getId() {");
+      line("    public Long getId() {");
       line("        return this.id;");
       line("    }");
-      line("    public void setId(long id) {");
+      line("    public void setId(Long id) {");
       line("        this.id = id;");
       line("    }\n");
-      
+
       line("    public Integer getOptlock() {");
       line("        return this.optlock;");
       line("    }");

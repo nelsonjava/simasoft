@@ -42,7 +42,9 @@
 			<h:outputText/>
 			<h:outputLabel for="systemsModelsBeanSystemsModelsDescription" value="Description:"/>
 			<h:outputText id="systemsModelsBeanSystemsModelsDescription" value="#{systemsModelsBean.systemsModels.description}" escape="false" />
+
 			<h:outputText/>
+
 			<h:outputLabel for="systemsModelsBeanSystemsModelsDomainModels" value="Domain Models::"/>
 			<h:dataTable id="systemsModelsBeanSystemsModelsDomainModels" styleClass="data-table" value="#{forgeview:asList(systemsModelsBean.systemsModels.domainModels)}" var="_item">
 				<h:column>
@@ -56,6 +58,7 @@
 				</h:column>
 			</h:dataTable>
 			<h:outputText/>
+
 			<h:outputLabel for="systemsModelsBeanSystemsModelsFilesModels" value="Files Models:"/>
 			<h:dataTable id="systemsModelsBeanSystemsModelsFilesModels" styleClass="data-table" value="#{forgeview:asList(systemsModelsBean.systemsModels.filesModels)}" var="_item">
 				<h:column>
@@ -108,7 +111,7 @@
 		</h:panelGrid>
 
 		<div class="buttons">
-			<h:link value="View All" outcome="search" styleClass="btn btn-primary"/> 
+			<h:link value="View All" outcome="search" styleClass="btn btn-primary"/>
 			<h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
 			<h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
 		</div>
