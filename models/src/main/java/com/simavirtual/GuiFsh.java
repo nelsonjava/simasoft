@@ -8,7 +8,7 @@ import co.simasoft.gen.jpa.*;
 
 public class GuiFsh extends FileTxt {
 
-  public GuiFsh(String artifactId,String groupId,ArrayList<String> imports) {
+  public GuiFsh(String artifactId,String groupId,LinkedHashSet<String> imports) {
 
 line("clear;");
 line("echo \"Generating the scaffold.\";");

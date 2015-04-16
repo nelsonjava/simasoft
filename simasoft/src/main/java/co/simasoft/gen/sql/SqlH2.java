@@ -58,7 +58,7 @@ OBJETIVOS:
 *                                           IMPLEMENTACION DEL METODO                                           *
 *---------------------------------------------------------------------------------------------------------------*/
 
-public SqlH2(String artifactId,String groupId,ArrayList<Entidad> entidades,ArrayList<String> imports) throws IOException {
+public SqlH2(String artifactId,String groupId,ArrayList<Entidad> entidades,LinkedHashSet<String> imports) throws IOException {
 
 line("package co.simasoft.setup;\n");
 

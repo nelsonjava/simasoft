@@ -56,7 +56,7 @@ OBJETIVOS:
 *                                           IMPLEMENTACION DEL METODO                                           *
 *---------------------------------------------------------------------------------------------------------------*/
 
-public EntityPruebaMongo(String artifactId,String groupId,Entidad entity,ArrayList<String> imports) throws IOException {
+public EntityPruebaMongo(String artifactId,String groupId,Entidad entity,LinkedHashSet<String> imports) throws IOException {
 
 //>>INICIALIZACION DE ATRIBUTOS
       this.entity = entity;
@@ -69,8 +69,8 @@ public EntityPruebaMongo(String artifactId,String groupId,Entidad entity,ArrayLi
 //>>FIN PAQUETE DE LA CLASE
 
 //>>IMPORTS DE LA CLASE
-      for(int x=0;x<imports.size();x++) {
-         line("import "+imports.get(x)+".*;");
+      for (String impor : imports) {
+         line("import "+impor+".*;");
       }
       line("");
 

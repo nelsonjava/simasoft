@@ -27,7 +27,7 @@ public class App extends FileTxt{
     private static String asciidocImages = "src.main.asciidoc.en-US.images";
     private static String asciidocModules = "src.main.asciidoc.en-US.modules";
 
-    public static void jdocbook(String modelo,String groupId,String artifactId,ArrayList<String> imports) throws IOException {
+    public static void jdocbook(String modelo,String groupId,String artifactId,LinkedHashSet<String> imports) throws IOException {
 
         // Cleanup - Reinigung
         entidades.clear();
@@ -59,7 +59,7 @@ public class App extends FileTxt{
 
     } // jdocbook
 
-    public static void jpa(String modelo,String groupId,String artifactId,ArrayList<String> imports) throws IOException {
+    public static void jpa(String modelo,String groupId,String artifactId,LinkedHashSet<String> imports) throws IOException {
 
         // Cleanup - Reinigung
         entidades.clear();
@@ -102,7 +102,7 @@ public class App extends FileTxt{
 
     } // jpa
 
-    public static void crud(String modelo,String groupId,String artifactId,ArrayList<String> imports) throws IOException {
+    public static void crud(String modelo,String groupId,String artifactId,LinkedHashSet<String> imports) throws IOException {
 
         // Cleanup - Reinigung
         entidades.clear();
@@ -144,7 +144,7 @@ public class App extends FileTxt{
 
     } // crud
 
-    public static void warH2(String modelo,String groupId,String artifactId,ArrayList<String> imports) throws IOException {
+    public static void warH2(String modelo,String groupId,String artifactId,LinkedHashSet<String> imports) throws IOException {
 
         // Cleanup - Reinigung
         entidades.clear();
@@ -235,7 +235,7 @@ public class App extends FileTxt{
     } // war
 
 
-    public static void sql(String modelo,String groupId,String artifactId,ArrayList<String> imports) throws IOException {
+    public static void sql(String modelo,String groupId,String artifactId,LinkedHashSet<String> imports) throws IOException {
 
         // Cleanup - Reinigung
         entidades.clear();
@@ -255,7 +255,7 @@ public class App extends FileTxt{
 
     } // sqlH2
 
-    public static void warModels(String name,String groupId,String artifactId,ArrayList<String> imports) throws IOException {
+    public static void warModels(String name,String groupId,String artifactId,LinkedHashSet<String> imports) throws IOException {
 
         // Cleanup - Reinigung
         entidades.clear();
@@ -281,7 +281,7 @@ public class App extends FileTxt{
 
     public static void generar(ArrayList<Modelos> modelos) throws IOException {
 
-        ArrayList<String> imports = new ArrayList<String>();
+        LinkedHashSet<String> imports = new LinkedHashSet<String>();
         for (Modelos modelo : modelos) {
             imports.add(modelo.getGroupId()+".models."+modelo.getModelo()+"."+modelo.getArtifactId());
         }
@@ -298,7 +298,7 @@ public class App extends FileTxt{
 
     public static void Models(ArrayList<Modelos> modelos) throws IOException {
 
-        ArrayList<String> imports = new ArrayList<String>();
+        LinkedHashSet<String> imports = new LinkedHashSet<String>();
         for (Modelos modelo : modelos) {
             imports.add(modelo.getGroupId()+".models."+modelo.getModelo()+"."+modelo.getArtifactId());
         }
@@ -321,7 +321,7 @@ public class App extends FileTxt{
         generar(modelos);
 
         modelos.clear();
-        modelos.add(new Modelos("iso","co.simasoft","archivo-inactivo"));
+        modelos.add(new Modelos("iso","co.simasoft","archivoInactivo"));
         modelos.add(new Modelos("iso","co.simasoft","lmd"));
         modelos.add(new Modelos("iso","co.simasoft","lmr"));
         modelos.add(new Modelos("iso","co.simasoft","procesos"));
