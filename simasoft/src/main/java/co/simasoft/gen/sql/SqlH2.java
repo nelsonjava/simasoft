@@ -131,7 +131,10 @@ line("        em.flush();\n");
 
         for(Entidad entidad : entidades) {
 
+          if (entidad.isEntity()) {
 line("        "+entidad.getName()+"(domainModels);");
+          }
+
         }
 line("        Relations();\n");
 
@@ -143,6 +146,12 @@ line("    } // data()\n");
          this.entity = entidad;
          this.atributos = entidad.getAtributos();
          this.relations = entidad.getRelations();
+
+//=====VALIDADACION
+          if (!entidad.isEntity()) {
+              continue;
+          }
+//=====FIN VALIDADACION
 
 //=====ENTITY
          line("    public void "+entity.getName()+"(DomainModels domainModel) {\n");

@@ -25,7 +25,7 @@ public class Entidad {
     public void setRef(String ref){
         this.ref = ref;
     }
-    
+
     public String getName(){
         return name;
     }
@@ -73,6 +73,16 @@ public class Entidad {
 
     public void addRelations(Relation relations){
         this.relations.add(relations);
+    }
+
+    public boolean isEntity(){
+
+      for (Atributos attribute : atributos) {
+          if (attribute.getField().equals("entity")) {
+             return false;
+          }
+      }
+      return true;
     }
 
 } // Entidad

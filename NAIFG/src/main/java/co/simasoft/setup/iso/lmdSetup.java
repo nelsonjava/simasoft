@@ -70,7 +70,6 @@ public class lmdSetup {
         Lmds(domainModels);
         EstadosDocuementos(domainModels);
         Procesos(domainModels);
-        Relations();
 
     } // data()
 
@@ -231,11 +230,11 @@ public class lmdSetup {
 //      ---------------------- Attributes:Procesos -------------------------
 
         TypesAttributes typesentitiy = new TypesAttributes();
-        typesentitiy = findTypesAttributes("String");
+        typesentitiy = findTypesAttributes("Models");
 
         Attributes entitiy = new Attributes();
         entitiy.setName("entitiy");
-        entitiy.setType("String");
+        entitiy.setType("Models");
         entitiy.setTypesAttributes(typesentitiy);
         entitiy.setEntities(procesos);
         em.persist(entitiy);
@@ -243,58 +242,5 @@ public class lmdSetup {
 
     } // Procesos()
 
-//  ---------------------- Relationships -------------------------
-
-    public void Relations() {
-
-//  ---------------------- TiposDocumentos 1..* Lmds -------------------------
-
-        Entities fromTiposDocumentos0 = new Entities();
-        Cardinalities TiposDocumentos0 = new Cardinalities();
-        Entities   toTiposDocumentos0 = new Entities();
-        fromTiposDocumentos0 = findEntities("TiposDocumentos");
-        TiposDocumentos0 = findCardinalities("Uno a Muchos Bidirecccional No.5");
-        toTiposDocumentos0 = findEntities("Lmds");
-        Relationships relTiposDocumentos0 = new Relationships();
-        relTiposDocumentos0.setFrom(fromTiposDocumentos0);
-        relTiposDocumentos0.setCardinalities(TiposDocumentos0);
-        relTiposDocumentos0.setTo(toTiposDocumentos0);
-        relTiposDocumentos0.setOptionality(true);
-        em.persist(relTiposDocumentos0);
-        em.flush();
-
-//  ---------------------- EstadosDocuementos 1..* Lmds -------------------------
-
-        Entities fromEstadosDocuementos0 = new Entities();
-        Cardinalities EstadosDocuementos0 = new Cardinalities();
-        Entities   toEstadosDocuementos0 = new Entities();
-        fromEstadosDocuementos0 = findEntities("EstadosDocuementos");
-        EstadosDocuementos0 = findCardinalities("Uno a Muchos Bidirecccional No.5");
-        toEstadosDocuementos0 = findEntities("Lmds");
-        Relationships relEstadosDocuementos0 = new Relationships();
-        relEstadosDocuementos0.setFrom(fromEstadosDocuementos0);
-        relEstadosDocuementos0.setCardinalities(EstadosDocuementos0);
-        relEstadosDocuementos0.setTo(toEstadosDocuementos0);
-        relEstadosDocuementos0.setOptionality(true);
-        em.persist(relEstadosDocuementos0);
-        em.flush();
-
-//  ---------------------- Procesos 1..* Lmds -------------------------
-
-        Entities fromProcesos0 = new Entities();
-        Cardinalities Procesos0 = new Cardinalities();
-        Entities   toProcesos0 = new Entities();
-        fromProcesos0 = findEntities("Procesos");
-        Procesos0 = findCardinalities("Uno a Muchos Bidirecccional No.5");
-        toProcesos0 = findEntities("Lmds");
-        Relationships relProcesos0 = new Relationships();
-        relProcesos0.setFrom(fromProcesos0);
-        relProcesos0.setCardinalities(Procesos0);
-        relProcesos0.setTo(toProcesos0);
-        relProcesos0.setOptionality(true);
-        em.persist(relProcesos0);
-        em.flush();
-
-    } // Relations()
 } // DomainModelsSetup
 
