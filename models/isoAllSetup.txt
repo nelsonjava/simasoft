@@ -1,0 +1,65 @@
+EntradasArchivos
+Almacenamientos
+TiposAlmacenamientos
+TiposArchivos
+Ubicaciones
+TiposUbicaciones
+AnosDepuraciones
+ArchivosInactivos
+OtrosArchivos
+------------------------
+EntradasArchivos 1..* ArchivosInactivos
+Almacenamientos 1..* OtrosArchivos
+Almacenamientos 1..* ArchivosInactivos
+TiposAlmacenamientos 1..* Almacenamientos
+TiposArchivos 1..* EntradasArchivos
+Ubicaciones 1..* Almacenamientos
+TiposUbicaciones 1..* Ubicaciones
+AnosDepuraciones 1..* EntradasArchivos
+
+==================================================
+TiposDocumentos
+Lmds
+EstadosDocuementos
+Procesos
+------------------------
+TiposDocumentos 1..* Lmds
+EstadosDocuementos 1..* Lmds
+
+===================================
+Lmrs
+Instituciones
+TiposRegistros
+Medios
+Dependencias
+Indexaciones
+Responsables
+TiposAccesos
+TrdAreas
+DisposicionFinal
+Estados
+TiposLmrs
+TrdArchivos
+------------------------
+Lmrs 1..* EntradasArchivos
+Instituciones 1..* Lmrs
+TiposRegistros 1..* Lmrs
+Medios 1..* Lmrs
+Dependencias 1..* Lmrs
+Indexaciones 1..* Lmrs
+Responsables 1..* Lmrs
+TiposAccesos 1..* Lmrs
+TrdAreas 1..* Lmrs
+DisposicionFinal 1..* Lmrs
+Estados 1..* Lmrs
+TiposLmrs 1..* Lmrs
+TrdArchivos 1..* Lmrs
+
+====================================
+Procesos
+TiposProcesos
+------------------------
+Procesos 1..* Lmrs
+Procesos 1..* Lmds
+TiposProcesos 1..* Procesos
+

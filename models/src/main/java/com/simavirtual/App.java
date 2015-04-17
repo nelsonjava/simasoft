@@ -34,7 +34,7 @@ public class App extends FileTxt{
         relationsPower.clear();
         relations.clear();
 
-        filePowerDesigner = "src/resources/models/"+modelo+"/"+artifactId+"/"+artifactId+".oob";
+        filePowerDesigner = "src/resources/models/"+modelo+"/"+artifactId+"/"+artifactId+".oom";
 
         PowerDesigner powerDesigner = new PowerDesigner(filePowerDesigner);
         entidades = powerDesigner.getEntidades();
@@ -66,7 +66,7 @@ public class App extends FileTxt{
         relationsPower.clear();
         relations.clear();
 
-        filePowerDesigner = "src/resources/models/"+modelo+"/"+artifactId+"/"+artifactId+".oob";
+        filePowerDesigner = "src/resources/models/"+modelo+"/"+artifactId+"/"+artifactId+".oom";
 
         PowerDesigner powerDesigner = new PowerDesigner(filePowerDesigner);
         entidades = powerDesigner.getEntidades();
@@ -109,7 +109,7 @@ public class App extends FileTxt{
         relationsPower.clear();
         relations.clear();
 
-        filePowerDesigner = "src/resources/models/"+modelo+"/"+artifactId+"/"+artifactId+".oob";
+        filePowerDesigner = "src/resources/models/"+modelo+"/"+artifactId+"/"+artifactId+".oom";
 
         PowerDesigner powerDesigner = new PowerDesigner(filePowerDesigner);
         entidades = powerDesigner.getEntidades();
@@ -151,7 +151,7 @@ public class App extends FileTxt{
         relationsPower.clear();
         relations.clear();
 
-        filePowerDesigner = "src/resources/models/"+modelo+"/"+artifactId+"/"+artifactId+".oob";
+        filePowerDesigner = "src/resources/models/"+modelo+"/"+artifactId+"/"+artifactId+".oom";
 
         PowerDesigner powerDesigner = new PowerDesigner(filePowerDesigner);
         entidades = powerDesigner.getEntidades();
@@ -242,7 +242,7 @@ public class App extends FileTxt{
         relationsPower.clear();
         relations.clear();
 
-        filePowerDesigner = "src/resources/models/"+modelo+"/"+artifactId+"/"+artifactId+".oob";
+        filePowerDesigner = "src/resources/models/"+modelo+"/"+artifactId+"/"+artifactId+".oom";
 
         PowerDesigner powerDesigner = new PowerDesigner(filePowerDesigner);
         entidades = powerDesigner.getEntidades();
@@ -255,6 +255,50 @@ public class App extends FileTxt{
 
     } // sqlH2
 
+    public static void sqlAll(String name,String groupId,String artifactId,ArrayList<Modelos> modelos,LinkedHashSet<String> imports) throws IOException {
+
+        ArrayList<Entidad> entities  = new ArrayList<Entidad>();
+        ArrayList<Relation> relationships = new ArrayList<Relation>();
+
+        for (Modelos modelo : modelos) {
+
+            // Cleanup - Reinigung
+            entidades.clear();
+
+            filePowerDesigner = "src/resources/models/"+modelo.getModelo()+"/"+modelo.getArtifactId()+"/"+modelo.getArtifactId()+".oom";
+            PowerDesigner powerDesigner = new PowerDesigner(filePowerDesigner);
+            entidades = powerDesigner.getEntidades();
+
+
+            for (Entidad entidad : entidades) {
+
+                if (entidad.isEntity()) {
+
+                   entities.add(entidad);
+
+                   for (Relation relation : entidad.getRelations()) {
+                       if (relation.getCardinality().equals("1..*")) {
+
+                          if (!relation.getTo().equals("")){
+                             relationships.add(relation);
+                          }
+                          
+                       }
+                   }
+
+
+                }
+
+            }
+
+        }
+
+        SqlAllH2 sqlAllH2 = new SqlAllH2(artifactId,groupId+".models."+name+"."+artifactId,entities,relationships,imports);
+        Utils.fileMake(pathDocs+"."+name,artifactId+"AllSetup.java", sqlAllH2);
+
+
+    } // sqlAll
+
     public static void warModels(String name,String groupId,String artifactId,LinkedHashSet<String> imports) throws IOException {
 
         // Cleanup - Reinigung
@@ -262,7 +306,7 @@ public class App extends FileTxt{
         relationsPower.clear();
         relations.clear();
 
-        filePowerDesigner = "src/resources/models/"+name+"/"+artifactId+"/"+artifactId+".oob";
+        filePowerDesigner = "src/resources/models/"+name+"/"+artifactId+"/"+artifactId+".oom";
 
         PowerDesigner powerDesigner = new PowerDesigner(filePowerDesigner);
         entidades = powerDesigner.getEntidades();
@@ -279,12 +323,14 @@ public class App extends FileTxt{
 
 
 
-    public static void generar(ArrayList<Modelos> modelos) throws IOException {
+    public static void generar(String name,String groupId,String artifactId,ArrayList<Modelos> modelos) throws IOException {
 
         LinkedHashSet<String> imports = new LinkedHashSet<String>();
         for (Modelos modelo : modelos) {
             imports.add(modelo.getGroupId()+".models."+modelo.getModelo()+"."+modelo.getArtifactId());
         }
+
+        sqlAll(name,groupId,artifactId,modelos,imports);
 
         for (Modelos modelo : modelos) {
             jdocbook(modelo.getModelo(),modelo.getGroupId(),modelo.getArtifactId(),imports);
@@ -318,14 +364,14 @@ public class App extends FileTxt{
 
         modelos.clear();
         modelos.add(new Modelos("contable","co.simasoft","contabilidad"));
-        generar(modelos);
+        generar("contable","co.simasoft","contabilidad",modelos);
 
         modelos.clear();
         modelos.add(new Modelos("iso","co.simasoft","archivoInactivo"));
         modelos.add(new Modelos("iso","co.simasoft","lmd"));
         modelos.add(new Modelos("iso","co.simasoft","lmr"));
         modelos.add(new Modelos("iso","co.simasoft","procesos"));
-        generar(modelos);
+        generar("iso","co.simasoft","iso",modelos);
 
         modelos.clear();
         modelos.add(new Modelos("base","co.simasoft","direcciones"));
@@ -338,27 +384,27 @@ public class App extends FileTxt{
         modelos.add(new Modelos("base","co.simasoft","sistemas"));
         modelos.add(new Modelos("base","co.simasoft","telefonos"));
         modelos.add(new Modelos("base","co.simasoft","usuarios"));
-        generar(modelos);
+        generar("base","co.simasoft","base",modelos);
 
         modelos.clear();
         modelos.add(new Modelos("pruebas","co.simasoft","prueba"));
-        generar(modelos);
+        generar("pruebas","co.simasoft","prueba",modelos);
 
         modelos.clear();
         modelos.add(new Modelos("pruebas","co.simasoft","prueba1"));
-        generar(modelos);
+        generar("pruebas","co.simasoft","prueba1",modelos);
 
         modelos.clear();
         modelos.add(new Modelos("pruebas","co.simasoft","prueba2"));
-        generar(modelos);
+        generar("pruebas","co.simasoft","prueba2",modelos);
 
         modelos.clear();
         modelos.add(new Modelos("naif","co.simasoft","DomainModels"));
-        generar(modelos);
+        generar("naif","co.simasoft","DomainModels",modelos);
 
         modelos.clear();
         modelos.add(new Modelos("naif","co.simasoft","RelacionesEjb"));
-        generar(modelos);
+        generar("naif","co.simasoft","RelacionesEjb",modelos);
 
         modelos.clear();
         modelos.add(new Modelos("naif","co.simasoft","DomainModels"));
@@ -367,7 +413,6 @@ public class App extends FileTxt{
         modelos.clear();
         modelos.add(new Modelos("naif","co.simasoft","DomainModels"));
         Models(modelos);
-
 
     } // main
 

@@ -920,7 +920,7 @@ NameToCode=No</a:ModelOptionsText>
 <a:Code>ClassDiagram_1</a:Code>
 <a:CreationDate>1237650591</a:CreationDate>
 <a:Creator>nelson</a:Creator>
-<a:ModificationDate>1361056239</a:ModificationDate>
+<a:ModificationDate>1429303067</a:ModificationDate>
 <a:Modifier>admin</a:Modifier>
 <a:DisplayPreferences>[DisplayPreferences]
 
@@ -1427,20 +1427,6 @@ Multiplicity 0 Arial,8,N</a:FontList>
 </c:Object>
 </o:AssociationSymbol>
 <o:TextSymbol Id="o21">
-<a:Text>1</a:Text>
-<a:CreationDate>1341005596</a:CreationDate>
-<a:ModificationDate>1361056435</a:ModificationDate>
-<a:Rect>((-6451,25275), (-5475,26475))</a:Rect>
-<a:TextStyle>4130</a:TextStyle>
-<a:AutoAdjustToText>0</a:AutoAdjustToText>
-<a:LineColor>0</a:LineColor>
-<a:DashStyle>7</a:DashStyle>
-<a:FillColor>0</a:FillColor>
-<a:ShadowColor>12632256</a:ShadowColor>
-<a:FontName>Arial,8,N</a:FontName>
-<a:ManuallyResized>1</a:ManuallyResized>
-</o:TextSymbol>
-<o:TextSymbol Id="o22">
 <a:Text>4</a:Text>
 <a:CreationDate>1341005597</a:CreationDate>
 <a:ModificationDate>1361056435</a:ModificationDate>
@@ -1454,7 +1440,7 @@ Multiplicity 0 Arial,8,N</a:FontList>
 <a:FontName>Arial,8,N</a:FontName>
 <a:ManuallyResized>1</a:ManuallyResized>
 </o:TextSymbol>
-<o:TextSymbol Id="o23">
+<o:TextSymbol Id="o22">
 <a:Text>3</a:Text>
 <a:CreationDate>1341005598</a:CreationDate>
 <a:ModificationDate>1361056435</a:ModificationDate>
@@ -1468,7 +1454,7 @@ Multiplicity 0 Arial,8,N</a:FontList>
 <a:FontName>Arial,8,N</a:FontName>
 <a:ManuallyResized>1</a:ManuallyResized>
 </o:TextSymbol>
-<o:TextSymbol Id="o24">
+<o:TextSymbol Id="o23">
 <a:Text>{\rtf1\ansi\ansicpg1252\deff0\deflang9226{\fonttbl{\f0\fnil\fcharset0 Arial;}{\f1\fnil Arial;}}
 \viewkind4\uc1\pard\b\fs29 paquete: com.naif.contab\par
 \fs24 C\&#39;f3digo: entity-naif-0001 Versi\&#39;f3n: rc1-1-0-0\par
@@ -1487,7 +1473,7 @@ Multiplicity 0 Arial,8,N</a:FontList>
 <a:FontName>Arial,8,N</a:FontName>
 <a:ManuallyResized>1</a:ManuallyResized>
 </o:TextSymbol>
-<o:TextSymbol Id="o25">
+<o:TextSymbol Id="o24">
 <a:Text>{\rtf1\ansi\ansicpg1252\deff0\deflang9226{\fonttbl{\f0\fnil\fcharset0 Arial;}}
 \viewkind4\uc1\pard\b\fs41 CONTABILIDAD BASICA\par
 }
@@ -1522,7 +1508,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:GradientFillMode>65</a:GradientFillMode>
 <a:GradientEndColor>16777215</a:GradientEndColor>
 <c:Object>
-<o:Class Ref="o26"/>
+<o:Class Ref="o25"/>
 </c:Object>
 </o:ClassSymbol>
 <o:ClassSymbol Id="o12">
@@ -1543,7 +1529,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:GradientFillMode>65</a:GradientFillMode>
 <a:GradientEndColor>16777215</a:GradientEndColor>
 <c:Object>
-<o:Class Ref="o27"/>
+<o:Class Ref="o26"/>
 </c:Object>
 </o:ClassSymbol>
 <o:ClassSymbol Id="o9">
@@ -1564,7 +1550,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:GradientFillMode>65</a:GradientFillMode>
 <a:GradientEndColor>16777215</a:GradientEndColor>
 <c:Object>
-<o:Class Ref="o28"/>
+<o:Class Ref="o27"/>
 </c:Object>
 </o:ClassSymbol>
 <o:ClassSymbol Id="o15">
@@ -1585,7 +1571,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:GradientFillMode>65</a:GradientFillMode>
 <a:GradientEndColor>16777215</a:GradientEndColor>
 <c:Object>
-<o:Class Ref="o29"/>
+<o:Class Ref="o28"/>
 </c:Object>
 </o:ClassSymbol>
 </c:Symbols>
@@ -1595,7 +1581,7 @@ LABL 0 Arial,8,N</a:FontList>
 <o:ClassDiagram Ref="o5"/>
 </c:DefaultDiagram>
 <c:Classes>
-<o:Class Id="o26">
+<o:Class Id="o25">
 <a:ObjectID>79F24CB8-DD0C-4559-9930-F1529013716C</a:ObjectID>
 <a:Name>Pucs</a:Name>
 <a:Code>Pucs</a:Code>
@@ -1605,7 +1591,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Modifier>admin</a:Modifier>
 <a:UseParentNamespace>0</a:UseParentNamespace>
 <c:Attributes>
-<o:Attribute Id="o30">
+<o:Attribute Id="o29">
 <a:ObjectID>56385AAD-7320-4C63-ACAC-FBA5FDCA02BF</a:ObjectID>
 <a:Name>nombre</a:Name>
 <a:Code>nombre</a:Code>
@@ -1616,7 +1602,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:DataType>*String(250)</a:DataType>
 <a:Attribute.Visibility>*</a:Attribute.Visibility>
 </o:Attribute>
-<o:Attribute Id="o31">
+<o:Attribute Id="o30">
 <a:ObjectID>D29AAB67-A287-4838-ABDD-A9CC18514A27</a:ObjectID>
 <a:Name>siRegistra</a:Name>
 <a:Code>siRegistra</a:Code>
@@ -1627,7 +1613,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:DataType>boolean</a:DataType>
 <a:Attribute.Visibility>-</a:Attribute.Visibility>
 </o:Attribute>
-<o:Attribute Id="o32">
+<o:Attribute Id="o31">
 <a:ObjectID>36AA3ACA-DF92-47B6-A5E0-DDB0275E3F1B</a:ObjectID>
 <a:Name>siTercero</a:Name>
 <a:Code>siTercero</a:Code>
@@ -1638,7 +1624,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:DataType>boolean</a:DataType>
 <a:Attribute.Visibility>-</a:Attribute.Visibility>
 </o:Attribute>
-<o:Attribute Id="o33">
+<o:Attribute Id="o32">
 <a:ObjectID>9137F5B6-57E1-4378-B7E6-C9A51EA1E043</a:ObjectID>
 <a:Name>siBase</a:Name>
 <a:Code>siBase</a:Code>
@@ -1649,7 +1635,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:DataType>boolean</a:DataType>
 <a:Attribute.Visibility>-</a:Attribute.Visibility>
 </o:Attribute>
-<o:Attribute Id="o34">
+<o:Attribute Id="o33">
 <a:ObjectID>AA4B2D7F-112F-4BFE-A002-18E4EDF7AC94</a:ObjectID>
 <a:Name>observaciones</a:Name>
 <a:Code>observaciones</a:Code>
@@ -1662,7 +1648,7 @@ LABL 0 Arial,8,N</a:FontList>
 </o:Attribute>
 </c:Attributes>
 <c:Identifiers>
-<o:Identifier Id="o35">
+<o:Identifier Id="o34">
 <a:ObjectID>1FE88DD9-D887-4626-9FB2-D233E2305D5C</a:ObjectID>
 <a:Name>Identifier_1</a:Name>
 <a:Code>Identifier_1</a:Code>
@@ -1673,10 +1659,10 @@ LABL 0 Arial,8,N</a:FontList>
 </o:Identifier>
 </c:Identifiers>
 <c:PrimaryIdentifier>
-<o:Identifier Ref="o35"/>
+<o:Identifier Ref="o34"/>
 </c:PrimaryIdentifier>
 </o:Class>
-<o:Class Id="o27">
+<o:Class Id="o26">
 <a:ObjectID>B1EE459E-05AC-4D03-85B2-0581BDC88690</a:ObjectID>
 <a:Name>Terceros</a:Name>
 <a:Code>Terceros</a:Code>
@@ -1686,7 +1672,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Modifier>admin</a:Modifier>
 <a:UseParentNamespace>0</a:UseParentNamespace>
 <c:Attributes>
-<o:Attribute Id="o36">
+<o:Attribute Id="o35">
 <a:ObjectID>40109F0E-5120-4BBA-8A7F-D63638ACD306</a:ObjectID>
 <a:Name>nit</a:Name>
 <a:Code>nit</a:Code>
@@ -1697,7 +1683,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:DataType>*String(250)</a:DataType>
 <a:Attribute.Visibility>*</a:Attribute.Visibility>
 </o:Attribute>
-<o:Attribute Id="o37">
+<o:Attribute Id="o36">
 <a:ObjectID>8583FF7E-8112-4707-A82B-8AAEB57342F4</a:ObjectID>
 <a:Name>nombre</a:Name>
 <a:Code>nombre</a:Code>
@@ -1708,7 +1694,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:DataType>String(250)</a:DataType>
 <a:Attribute.Visibility>*</a:Attribute.Visibility>
 </o:Attribute>
-<o:Attribute Id="o38">
+<o:Attribute Id="o37">
 <a:ObjectID>7BC22C84-D91E-42A9-BDA5-B159BC5CE9B8</a:ObjectID>
 <a:Name>telefono</a:Name>
 <a:Code>telefono</a:Code>
@@ -1719,7 +1705,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:DataType>String(250)</a:DataType>
 <a:Attribute.Visibility>-</a:Attribute.Visibility>
 </o:Attribute>
-<o:Attribute Id="o39">
+<o:Attribute Id="o38">
 <a:ObjectID>727F77F6-B16E-4200-A101-30D6D9AAF6CB</a:ObjectID>
 <a:Name>direccion</a:Name>
 <a:Code>direccion</a:Code>
@@ -1730,7 +1716,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:DataType>String(250)</a:DataType>
 <a:Attribute.Visibility>-</a:Attribute.Visibility>
 </o:Attribute>
-<o:Attribute Id="o40">
+<o:Attribute Id="o39">
 <a:ObjectID>DD5C576B-6D8D-431C-B50A-A059F482F07A</a:ObjectID>
 <a:Name>observaciones</a:Name>
 <a:Code>observaciones</a:Code>
@@ -1743,7 +1729,7 @@ LABL 0 Arial,8,N</a:FontList>
 </o:Attribute>
 </c:Attributes>
 <c:Identifiers>
-<o:Identifier Id="o41">
+<o:Identifier Id="o40">
 <a:ObjectID>0C1599A8-81EA-4262-A556-5DE8EE2213B3</a:ObjectID>
 <a:Name>Identifier_1</a:Name>
 <a:Code>Identifier_1</a:Code>
@@ -1754,10 +1740,10 @@ LABL 0 Arial,8,N</a:FontList>
 </o:Identifier>
 </c:Identifiers>
 <c:PrimaryIdentifier>
-<o:Identifier Ref="o41"/>
+<o:Identifier Ref="o40"/>
 </c:PrimaryIdentifier>
 </o:Class>
-<o:Class Id="o28">
+<o:Class Id="o27">
 <a:ObjectID>7A5AB495-D92E-42AB-BCBD-F6963D503153</a:ObjectID>
 <a:Name>Movimientos</a:Name>
 <a:Code>Movimientos</a:Code>
@@ -1767,7 +1753,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Modifier>admin</a:Modifier>
 <a:UseParentNamespace>0</a:UseParentNamespace>
 <c:Attributes>
-<o:Attribute Id="o42">
+<o:Attribute Id="o41">
 <a:ObjectID>70ED1909-5826-4B0A-A5F0-0E98E168E5B3</a:ObjectID>
 <a:Name>fecha</a:Name>
 <a:Code>fecha</a:Code>
@@ -1778,7 +1764,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:DataType>Date</a:DataType>
 <a:Attribute.Visibility>*</a:Attribute.Visibility>
 </o:Attribute>
-<o:Attribute Id="o43">
+<o:Attribute Id="o42">
 <a:ObjectID>6DE51DAC-EFDE-40DA-A1D0-872484A9C746</a:ObjectID>
 <a:Name>documento</a:Name>
 <a:Code>documento</a:Code>
@@ -1789,7 +1775,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:DataType>String(250)</a:DataType>
 <a:Attribute.Visibility>*</a:Attribute.Visibility>
 </o:Attribute>
-<o:Attribute Id="o44">
+<o:Attribute Id="o43">
 <a:ObjectID>BBA4843C-8FF1-4522-AB4C-01DFFBD2A3CC</a:ObjectID>
 <a:Name>valor</a:Name>
 <a:Code>valor</a:Code>
@@ -1800,7 +1786,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:DataType>float</a:DataType>
 <a:Attribute.Visibility>-</a:Attribute.Visibility>
 </o:Attribute>
-<o:Attribute Id="o45">
+<o:Attribute Id="o44">
 <a:ObjectID>EB3A59A3-3442-4772-A240-4B68ECB8EB9D</a:ObjectID>
 <a:Name>tipo</a:Name>
 <a:Code>tipo</a:Code>
@@ -1811,7 +1797,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:DataType>String(001)</a:DataType>
 <a:Attribute.Visibility>-</a:Attribute.Visibility>
 </o:Attribute>
-<o:Attribute Id="o46">
+<o:Attribute Id="o45">
 <a:ObjectID>C69C7EB0-E5C4-46A0-B347-74772436EB4F</a:ObjectID>
 <a:Name>base</a:Name>
 <a:Code>base</a:Code>
@@ -1822,7 +1808,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:DataType>float</a:DataType>
 <a:Attribute.Visibility>-</a:Attribute.Visibility>
 </o:Attribute>
-<o:Attribute Id="o47">
+<o:Attribute Id="o46">
 <a:ObjectID>3CAC09C5-005F-4464-AF18-B2E790D6F9F1</a:ObjectID>
 <a:Name>detalle</a:Name>
 <a:Code>detalle</a:Code>
@@ -1835,7 +1821,7 @@ LABL 0 Arial,8,N</a:FontList>
 </o:Attribute>
 </c:Attributes>
 <c:Identifiers>
-<o:Identifier Id="o48">
+<o:Identifier Id="o47">
 <a:ObjectID>0BEF3594-894E-432A-BA6C-4D9D6721A27B</a:ObjectID>
 <a:Name>Identifier_1</a:Name>
 <a:Code>Identifier_1</a:Code>
@@ -1846,10 +1832,10 @@ LABL 0 Arial,8,N</a:FontList>
 </o:Identifier>
 </c:Identifiers>
 <c:PrimaryIdentifier>
-<o:Identifier Ref="o48"/>
+<o:Identifier Ref="o47"/>
 </c:PrimaryIdentifier>
 </o:Class>
-<o:Class Id="o29">
+<o:Class Id="o28">
 <a:ObjectID>F0274688-3C68-4633-B38D-DB45E5BE4C17</a:ObjectID>
 <a:Name>Saldos</a:Name>
 <a:Code>Saldos</a:Code>
@@ -1859,7 +1845,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Modifier>admin</a:Modifier>
 <a:UseParentNamespace>0</a:UseParentNamespace>
 <c:Attributes>
-<o:Attribute Id="o49">
+<o:Attribute Id="o48">
 <a:ObjectID>FEFFEC09-F486-48B1-BF9C-DA33EE78CD46</a:ObjectID>
 <a:Name>year</a:Name>
 <a:Code>year</a:Code>
@@ -1870,7 +1856,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:DataType>*Date</a:DataType>
 <a:Attribute.Visibility>-</a:Attribute.Visibility>
 </o:Attribute>
-<o:Attribute Id="o50">
+<o:Attribute Id="o49">
 <a:ObjectID>15CD35F0-A4DC-4CD3-A260-1F973C96D028</a:ObjectID>
 <a:Name>mes</a:Name>
 <a:Code>mes</a:Code>
@@ -1881,7 +1867,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:DataType>*Date</a:DataType>
 <a:Attribute.Visibility>-</a:Attribute.Visibility>
 </o:Attribute>
-<o:Attribute Id="o51">
+<o:Attribute Id="o50">
 <a:ObjectID>437A064D-B200-4876-BAB9-73C97A128DC7</a:ObjectID>
 <a:Name>debitos</a:Name>
 <a:Code>debitos</a:Code>
@@ -1892,7 +1878,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:DataType>float</a:DataType>
 <a:Attribute.Visibility>-</a:Attribute.Visibility>
 </o:Attribute>
-<o:Attribute Id="o52">
+<o:Attribute Id="o51">
 <a:ObjectID>2548988A-53FF-4FF5-A1F1-9820B01F25DA</a:ObjectID>
 <a:Name>creditos</a:Name>
 <a:Code>creditos</a:Code>
@@ -1903,7 +1889,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:DataType>float</a:DataType>
 <a:Attribute.Visibility>-</a:Attribute.Visibility>
 </o:Attribute>
-<o:Attribute Id="o53">
+<o:Attribute Id="o52">
 <a:ObjectID>C95F4B51-5D25-4159-8A2C-3048EC45FB75</a:ObjectID>
 <a:Name>saldoInicial</a:Name>
 <a:Code>saldoInicial</a:Code>
@@ -1914,7 +1900,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:DataType>float</a:DataType>
 <a:Attribute.Visibility>-</a:Attribute.Visibility>
 </o:Attribute>
-<o:Attribute Id="o54">
+<o:Attribute Id="o53">
 <a:ObjectID>DB71161D-D9D1-4797-AC37-A559BC7E3345</a:ObjectID>
 <a:Name>saldoFinal</a:Name>
 <a:Code>saldoFinal</a:Code>
@@ -1927,7 +1913,7 @@ LABL 0 Arial,8,N</a:FontList>
 </o:Attribute>
 </c:Attributes>
 <c:Identifiers>
-<o:Identifier Id="o55">
+<o:Identifier Id="o54">
 <a:ObjectID>841BCF52-A0C7-45C3-92F4-18B8E4091AFF</a:ObjectID>
 <a:Name>Identifier_1</a:Name>
 <a:Code>Identifier_1</a:Code>
@@ -1938,7 +1924,7 @@ LABL 0 Arial,8,N</a:FontList>
 </o:Identifier>
 </c:Identifiers>
 <c:PrimaryIdentifier>
-<o:Identifier Ref="o55"/>
+<o:Identifier Ref="o54"/>
 </c:PrimaryIdentifier>
 </o:Class>
 </c:Classes>
@@ -1960,10 +1946,10 @@ LABL 0 Arial,8,N</a:FontList>
 
 </a:ExtendedAttributesText>
 <c:Object1>
-<o:Class Ref="o28"/>
+<o:Class Ref="o27"/>
 </c:Object1>
 <c:Object2>
-<o:Class Ref="o26"/>
+<o:Class Ref="o25"/>
 </c:Object2>
 </o:Association>
 <o:Association Id="o13">
@@ -1983,10 +1969,10 @@ LABL 0 Arial,8,N</a:FontList>
 
 </a:ExtendedAttributesText>
 <c:Object1>
-<o:Class Ref="o28"/>
+<o:Class Ref="o27"/>
 </c:Object1>
 <c:Object2>
-<o:Class Ref="o27"/>
+<o:Class Ref="o26"/>
 </c:Object2>
 </o:Association>
 <o:Association Id="o16">
@@ -2007,10 +1993,10 @@ LABL 0 Arial,8,N</a:FontList>
 
 </a:ExtendedAttributesText>
 <c:Object1>
-<o:Class Ref="o26"/>
+<o:Class Ref="o25"/>
 </c:Object1>
 <c:Object2>
-<o:Class Ref="o29"/>
+<o:Class Ref="o28"/>
 </c:Object2>
 </o:Association>
 <o:Association Id="o18">
@@ -2030,10 +2016,10 @@ LABL 0 Arial,8,N</a:FontList>
 
 </a:ExtendedAttributesText>
 <c:Object1>
-<o:Class Ref="o29"/>
+<o:Class Ref="o28"/>
 </c:Object1>
 <c:Object2>
-<o:Class Ref="o27"/>
+<o:Class Ref="o26"/>
 </c:Object2>
 </o:Association>
 <o:Association Id="o20">
@@ -2053,15 +2039,15 @@ LABL 0 Arial,8,N</a:FontList>
 
 </a:ExtendedAttributesText>
 <c:Object1>
-<o:Class Ref="o26"/>
+<o:Class Ref="o25"/>
 </c:Object1>
 <c:Object2>
-<o:Class Ref="o26"/>
+<o:Class Ref="o25"/>
 </c:Object2>
 </o:Association>
 </c:Associations>
 <c:TargetModels>
-<o:TargetModel Id="o56">
+<o:TargetModel Id="o55">
 <a:ObjectID>5009287E-3025-450A-BEA6-90F562F6884B</a:ObjectID>
 <a:Name>Java 5.0</a:Name>
 <a:Code>Java</a:Code>
@@ -2076,7 +2062,7 @@ LABL 0 Arial,8,N</a:FontList>
 <o:Shortcut Ref="o3"/>
 </c:SessionShortcuts>
 </o:TargetModel>
-<o:TargetModel Id="o57">
+<o:TargetModel Id="o56">
 <a:ObjectID>420CE7B6-892A-41D3-83DC-16F17BFE4022</a:ObjectID>
 <a:Name>WSDL for Java</a:Name>
 <a:Code>WSDLJava</a:Code>
