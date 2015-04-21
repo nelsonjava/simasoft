@@ -1,0 +1,284 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:forgeview="http://jboss.org/forge/view"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="id" value='#{domainModelsBean.id}'/>
+		<f:event type="preRenderView" listener='#{domainModelsBean.retrieve}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="Create Domain Models"/>
+
+	<ui:define name="header">
+		Domain Models
+	</ui:define>
+
+	<ui:define name="subheader">
+		<c:choose>
+			<c:when test='#{!empty domainModelsBean.id}'>
+				Edit existing Domain Models
+			</c:when>
+			<c:otherwise>
+				Create a new Domain Models
+			</c:otherwise>
+		</c:choose>
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:form id="create">
+			<h:messages globalOnly="true" styleClass="error"/>
+
+			<h:panelGrid columnClasses="label,component,required" columns="3">
+				<h:outputLabel for="domainModelsBeanDomainModelsOrden" value="Orden:"/>
+				<h:panelGroup>
+					<h:inputText id="domainModelsBeanDomainModelsOrden" value="#{domainModelsBean.domainModels.orden}"/>
+					<h:message for="domainModelsBeanDomainModelsOrden" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="domainModelsBeanDomainModelsVersion" value="Version:"/>
+				<h:panelGroup>
+					<h:inputText id="domainModelsBeanDomainModelsVersion" value="#{domainModelsBean.domainModels.version}"/>
+					<h:message for="domainModelsBeanDomainModelsVersion" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="domainModelsBeanDomainModelsCodigo" value="Codigo:"/>
+				<h:panelGroup>
+					<h:inputText id="domainModelsBeanDomainModelsCodigo" value="#{domainModelsBean.domainModels.codigo}"/>
+					<h:message for="domainModelsBeanDomainModelsCodigo" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="domainModelsBeanDomainModelsGroupId" value="Group Id:"/>
+				<h:panelGroup>
+					<h:inputText id="domainModelsBeanDomainModelsGroupId" value="#{domainModelsBean.domainModels.groupId}"/>
+					<h:message for="domainModelsBeanDomainModelsGroupId" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="domainModelsBeanDomainModelsObservaciones" value="Observaciones:"/>
+				<h:panelGroup>
+					<h:inputText id="domainModelsBeanDomainModelsObservaciones" value="#{domainModelsBean.domainModels.observaciones}"/>
+					<h:message for="domainModelsBeanDomainModelsObservaciones" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="domainModelsBeanDomainModelsDescription" value="Description:"/>
+				<h:panelGroup>
+					<h:inputText id="domainModelsBeanDomainModelsDescription" value="#{domainModelsBean.domainModels.description}"/>
+					<h:message for="domainModelsBeanDomainModelsDescription" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="domainModelsBeanDomainModelsDate" value="Date:"/>
+				<h:panelGroup>
+					<h:inputText id="domainModelsBeanDomainModelsDate" value="#{domainModelsBean.domainModels.date}">
+						<f:convertDateTime/>
+					</h:inputText>
+					<h:message for="domainModelsBeanDomainModelsDate" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="domainModelsBeanDomainModelsArtifactId" value="Artifact Id:"/>
+				<h:panelGroup>
+					<h:inputText id="domainModelsBeanDomainModelsArtifactId" value="#{domainModelsBean.domainModels.artifactId}"/>
+					<h:message for="domainModelsBeanDomainModelsArtifactId" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="domainModelsBeanDomainModelsName" value="Name:"/>
+				<h:panelGroup>
+					<h:inputText id="domainModelsBeanDomainModelsName" value="#{domainModelsBean.domainModels.name}"/>
+					<h:message for="domainModelsBeanDomainModelsName" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="domainModelsBeanDomainModelsFilesModels" value="Files Models:"/>
+				<h:panelGroup>
+					<ui:param name="_collection" value="#{domainModelsBean.domainModels.filesModels}"/>
+					<h:dataTable id="domainModelsBeanDomainModelsFilesModels" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Orden"/>
+							</f:facet>
+							<h:link outcome="/admin/filesModels/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemOrden" value="#{_item.orden}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="filesModelsBeanAddOrden" value="#{filesModelsBean.add.orden}"/>
+								<h:message for="filesModelsBeanAddOrden" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Codigo"/>
+							</f:facet>
+							<h:link outcome="/admin/filesModels/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemCodigo" value="#{_item.codigo}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="filesModelsBeanAddCodigo" value="#{filesModelsBean.add.codigo}"/>
+								<h:message for="filesModelsBeanAddCodigo" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Archivo"/>
+							</f:facet>
+							<h:link outcome="/admin/filesModels/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemArchivo" value="#{_item.archivo}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="filesModelsBeanAddArchivo" value="#{filesModelsBean.add.archivo}"/>
+								<h:message for="filesModelsBeanAddArchivo" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Observacion"/>
+							</f:facet>
+							<h:link outcome="/admin/filesModels/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemObservacion" value="#{_item.observacion}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="filesModelsBeanAddObservacion" value="#{filesModelsBean.add.observacion}"/>
+								<h:message for="filesModelsBeanAddObservacion" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Type"/>
+							</f:facet>
+							<h:link outcome="/admin/filesModels/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemType" value="#{_item.type}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="filesModelsBeanAddType" value="#{filesModelsBean.add.type}"/>
+								<h:message for="filesModelsBeanAddType" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column footerClass="remove-column" headerClass="remove-column">
+							<h:commandLink action="#{_collection.remove(_item)}" styleClass="remove-button"/>
+							<f:facet name="footer">
+								<h:commandLink action="#{_collection.add(filesModelsBean.added)}" id="domainModelsBeanDomainModelsFilesModelsAdd" styleClass="add-button">
+									<f:setPropertyActionListener target="#{filesModelsBean.add.domainModels}" value="#{domainModelsBean.domainModels}"/>
+								</h:commandLink>
+							</f:facet>
+						</h:column>
+					</h:dataTable>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="domainModelsBeanDomainModelsPackages" value="Packages:"/>
+				<h:panelGroup>
+					<ui:param name="_collection" value="#{domainModelsBean.domainModels.packages}"/>
+					<h:dataTable id="domainModelsBeanDomainModelsPackages" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Orden"/>
+							</f:facet>
+							<h:link outcome="/admin/packages/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemOrden" value="#{_item.orden}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="packagesBeanAddOrden" value="#{packagesBean.add.orden}"/>
+								<h:message for="packagesBeanAddOrden" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Name"/>
+							</f:facet>
+							<h:link outcome="/admin/packages/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemName" value="#{_item.name}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="packagesBeanAddName" value="#{packagesBean.add.name}"/>
+								<h:message for="packagesBeanAddName" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Description"/>
+							</f:facet>
+							<h:link outcome="/admin/packages/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemDescription" value="#{_item.description}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="packagesBeanAddDescription" value="#{packagesBean.add.description}"/>
+								<h:message for="packagesBeanAddDescription" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Artifact Id"/>
+							</f:facet>
+							<h:link outcome="/admin/packages/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemArtifactId" value="#{_item.artifactId}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="packagesBeanAddArtifactId" value="#{packagesBean.add.artifactId}"/>
+								<h:message for="packagesBeanAddArtifactId" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Observaciones"/>
+							</f:facet>
+							<h:link outcome="/admin/packages/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemObservaciones" value="#{_item.observaciones}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="packagesBeanAddObservaciones" value="#{packagesBean.add.observaciones}"/>
+								<h:message for="packagesBeanAddObservaciones" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column footerClass="remove-column" headerClass="remove-column">
+							<h:commandLink action="#{_collection.remove(_item)}" styleClass="remove-button"/>
+							<f:facet name="footer">
+								<h:commandLink action="#{_collection.add(packagesBean.added)}" id="domainModelsBeanDomainModelsPackagesAdd" styleClass="add-button">
+									<f:setPropertyActionListener target="#{packagesBean.add.domainModels}" value="#{domainModelsBean.domainModels}"/>
+								</h:commandLink>
+							</f:facet>
+						</h:column>
+					</h:dataTable>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="domainModelsBeanDomainModelsSystemsModels" value="Systems Models:"/>
+				<h:panelGroup>
+					<h:selectOneMenu converter="#{systemsModelsBean.converter}" id="domainModelsBeanDomainModelsSystemsModels" value="#{domainModelsBean.domainModels.systemsModels}">
+						<f:selectItem/>
+						<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{systemsModelsBean.all}" var="_item"/>
+					</h:selectOneMenu>
+					<h:message for="domainModelsBeanDomainModelsSystemsModels" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+			</h:panelGrid>
+
+			<div class="buttons">
+				<h:commandLink value="Save" action='#{domainModelsBean.update}' styleClass="btn btn-primary"/>
+				<c:choose>
+					<c:when test='#{!empty domainModelsBean.id}'>
+						<h:link value="Cancel" outcome="view" styleClass="btn btn-primary">
+							<f:param name="id" value='#{domainModelsBean.id}'/>
+						</h:link>
+						<h:commandLink value="Delete" action='#{domainModelsBean.delete}' styleClass="btn btn-primary"/>
+					</c:when>
+					<c:otherwise>
+						<h:link value="Cancel" outcome="search" styleClass="btn btn-primary"/>
+					</c:otherwise>
+				</c:choose>
+			</div>
+		</h:form>
+	</ui:define>
+
+</ui:composition>

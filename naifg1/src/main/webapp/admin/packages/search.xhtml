@@ -1,0 +1,124 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="page" value='#{packagesBean.page}'/>
+		<f:event type="preRenderView" listener='#{packagesBean.paginate}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="Search Packages entities"/>
+
+	<ui:define name="header">
+		Packages
+	</ui:define>
+
+	<ui:define name="subheader">
+		Search Packages entities
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:form id="search">
+			<f:validateBean disabled="true">
+				<h:panelGroup styleClass="search">
+
+					<h:panelGrid columnClasses="label,component,required" columns="3">
+						<h:outputLabel for="packagesBeanExampleOrden" value="Orden:"/>
+						<h:panelGroup>
+							<h:inputText id="packagesBeanExampleOrden" value="#{packagesBean.example.orden}"/>
+							<h:message for="packagesBeanExampleOrden" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="packagesBeanExampleName" value="Name:"/>
+						<h:panelGroup>
+							<h:inputText id="packagesBeanExampleName" value="#{packagesBean.example.name}"/>
+							<h:message for="packagesBeanExampleName" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="packagesBeanExampleDescription" value="Description:"/>
+						<h:panelGroup>
+							<h:inputText id="packagesBeanExampleDescription" value="#{packagesBean.example.description}"/>
+							<h:message for="packagesBeanExampleDescription" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="packagesBeanExampleArtifactId" value="Artifact Id:"/>
+						<h:panelGroup>
+							<h:inputText id="packagesBeanExampleArtifactId" value="#{packagesBean.example.artifactId}"/>
+							<h:message for="packagesBeanExampleArtifactId" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="packagesBeanExampleObservaciones" value="Observaciones:"/>
+						<h:panelGroup>
+							<h:inputText id="packagesBeanExampleObservaciones" value="#{packagesBean.example.observaciones}"/>
+							<h:message for="packagesBeanExampleObservaciones" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+					</h:panelGrid>
+					<h:panelGroup styleClass="buttons">
+						<h:commandLink value="Search" action='#{packagesBean.search}' styleClass="btn btn-primary"/>
+						<h:commandLink value="Create New" action='#{packagesBean.create}' styleClass="btn btn-primary"/>
+					</h:panelGroup>
+				</h:panelGroup>
+			</f:validateBean>
+			
+			<h:dataTable id="packagesBeanPageItems" styleClass="data-table" value="#{packagesBean.pageItems}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Orden"/>
+					</f:facet>
+					<h:link outcome="/admin/packages/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemOrden" value="#{_item.orden}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Name"/>
+					</f:facet>
+					<h:link outcome="/admin/packages/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemName" value="#{_item.name}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Description"/>
+					</f:facet>
+					<h:link outcome="/admin/packages/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemDescription" value="#{_item.description}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Artifact Id"/>
+					</f:facet>
+					<h:link outcome="/admin/packages/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemArtifactId" value="#{_item.artifactId}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Observaciones"/>
+					</f:facet>
+					<h:link outcome="/admin/packages/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemObservaciones" value="#{_item.observaciones}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<ui:include src="/resources/scaffold/paginator.xhtml">
+				<ui:param name="paginatorBean" value='#{packagesBean}'/>
+			</ui:include>
+		</h:form>
+			
+	</ui:define>
+
+</ui:composition>

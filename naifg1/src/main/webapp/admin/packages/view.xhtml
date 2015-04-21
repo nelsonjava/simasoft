@@ -1,0 +1,219 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:forgeview="http://jboss.org/forge/view"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="id" value='#{packagesBean.id}'/>
+		<f:event type="preRenderView" listener='#{packagesBean.retrieve}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="View Packages"/>
+
+	<ui:define name="header">
+		Packages
+	</ui:define>
+
+	<ui:define name="subheader">
+		View existing Packages
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:panelGrid columnClasses="label,component,required" columns="3">
+			<h:outputLabel for="packagesBeanPackagesOrden" value="Orden:"/>
+			<h:outputText id="packagesBeanPackagesOrden" value="#{packagesBean.packages.orden}"/>
+			<h:outputText/>
+			<h:outputLabel for="packagesBeanPackagesName" value="Name:"/>
+			<h:outputText id="packagesBeanPackagesName" value="#{packagesBean.packages.name}"/>
+			<h:outputText/>
+			<h:outputLabel for="packagesBeanPackagesDescription" value="Description:"/>
+			<h:outputText id="packagesBeanPackagesDescription" value="#{packagesBean.packages.description}"/>
+			<h:outputText/>
+			<h:outputLabel for="packagesBeanPackagesArtifactId" value="Artifact Id:"/>
+			<h:outputText id="packagesBeanPackagesArtifactId" value="#{packagesBean.packages.artifactId}"/>
+			<h:outputText/>
+			<h:outputLabel for="packagesBeanPackagesObservaciones" value="Observaciones:"/>
+			<h:outputText id="packagesBeanPackagesObservaciones" value="#{packagesBean.packages.observaciones}"/>
+			<h:outputText/>
+			<h:outputLabel for="packagesBeanPackagesDate" value="Date:"/>
+			<h:outputText id="packagesBeanPackagesDate" value="#{packagesBean.packages.date}">
+				<f:convertDateTime/>
+			</h:outputText>
+			<h:outputText/>
+			<h:outputLabel for="packagesBeanPackagesCodigo" value="Codigo:"/>
+			<h:outputText id="packagesBeanPackagesCodigo" value="#{packagesBean.packages.codigo}"/>
+			<h:outputText/>
+			<h:outputLabel for="packagesBeanPackagesGroupId" value="Group Id:"/>
+			<h:outputText id="packagesBeanPackagesGroupId" value="#{packagesBean.packages.groupId}"/>
+			<h:outputText/>
+			<h:outputLabel for="packagesBeanPackagesVersion" value="Version:"/>
+			<h:outputText id="packagesBeanPackagesVersion" value="#{packagesBean.packages.version}"/>
+			<h:outputText/>
+			<h:outputLabel for="packagesBeanPackagesEntities" value="Entities:"/>
+			<h:dataTable id="packagesBeanPackagesEntities" styleClass="data-table" value="#{forgeview:asList(packagesBean.packages.entities)}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Orden"/>
+					</f:facet>
+					<h:link outcome="/admin/entities/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemOrden" value="#{_item.orden}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Tabla Secuencia"/>
+					</f:facet>
+					<h:link outcome="/admin/entities/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemTablaSecuencia" value="#{_item.tablaSecuencia}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Imports"/>
+					</f:facet>
+					<h:link outcome="/admin/entities/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemImports" value="#{_item.imports}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Serial ID"/>
+					</f:facet>
+					<h:link outcome="/admin/entities/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemSerialID" value="#{_item.serialID}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Source"/>
+					</f:facet>
+					<h:link outcome="/admin/entities/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemSource" value="#{_item.source}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<h:outputText/>
+			<h:outputLabel for="packagesBeanPackagesLinksModels" value="Links Models:"/>
+			<h:dataTable id="packagesBeanPackagesLinksModels" styleClass="data-table" value="#{forgeview:asList(packagesBean.packages.linksModels)}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Orden"/>
+					</f:facet>
+					<h:link outcome="/admin/linksModels/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemOrden" value="#{_item.orden}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Observacion"/>
+					</f:facet>
+					<h:link outcome="/admin/linksModels/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemObservacion" value="#{_item.observacion}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Titulo"/>
+					</f:facet>
+					<h:link outcome="/admin/linksModels/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemTitulo" value="#{_item.titulo}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Link"/>
+					</f:facet>
+					<h:link outcome="/admin/linksModels/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemLink" value="#{_item.link}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Tipos Links Models"/>
+					</f:facet>
+					<h:link outcome="/admin/linksModels/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="forgeviewdisplayitemTiposLinksModels" value="#{forgeview:display(_item.tiposLinksModels)}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<h:outputText/>
+			<h:outputLabel for="packagesBeanPackagesFilesModels" value="Files Models:"/>
+			<h:dataTable id="packagesBeanPackagesFilesModels" styleClass="data-table" value="#{forgeview:asList(packagesBean.packages.filesModels)}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Orden"/>
+					</f:facet>
+					<h:link outcome="/admin/filesModels/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemOrden" value="#{_item.orden}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Codigo"/>
+					</f:facet>
+					<h:link outcome="/admin/filesModels/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemCodigo" value="#{_item.codigo}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Archivo"/>
+					</f:facet>
+					<h:link outcome="/admin/filesModels/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemArchivo" value="#{_item.archivo}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Observacion"/>
+					</f:facet>
+					<h:link outcome="/admin/filesModels/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemObservacion" value="#{_item.observacion}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Type"/>
+					</f:facet>
+					<h:link outcome="/admin/filesModels/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemType" value="#{_item.type}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<h:outputText/>
+			<h:outputLabel for="packagesBeanPackagesDomainModels" value="Domain Models:"/>
+			<h:link id="packagesBeanPackagesDomainModels" outcome="/admin/domainModels/view" rendered="#{!empty packagesBean.packages.domainModels}" value="#{packagesBean.packages.domainModels}">
+				<f:param name="id" value="#{packagesBean.packages.domainModels.id}"/>
+			</h:link>
+			<h:outputText/>
+		</h:panelGrid>
+
+		<div class="buttons">
+			<h:link value="View All" outcome="search" styleClass="btn btn-primary"/> 
+			<h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
+			<h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
+		</div>
+	</ui:define>
+
+</ui:composition>
