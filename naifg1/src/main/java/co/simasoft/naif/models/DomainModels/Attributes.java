@@ -1,6 +1,6 @@
-package co.simasoft.models.naif.DomainModels;
+package co.simasoft.naif.models.DomainModels;
 
-import co.simasoft.models.naif.DomainModels.*;
+import co.simasoft.naif.models.DomainModels.*;
 
 import java.util.*;
 
@@ -26,9 +26,9 @@ public class Attributes {
 
 	private Integer precision;
 
-	private boolean nullable;
+	private Boolean nullable;
 
-	private boolean unico;
+	private Boolean unico;
 
 	private String descripcion;
 
@@ -44,20 +44,11 @@ public class Attributes {
 
 	private String observaciones;
 
-	@ManyToOne
-	private TypesAttributes typesAttributes;
-
-	@ManyToOne
-	private Entities entities;
-
-	@OneToMany(mappedBy = "attributes")
-	private Set<PropertiesAttributes> propertiesAttributes = new HashSet<PropertiesAttributes>();
-
 	public Attributes() {
 	}
 
 	public Attributes(String name, String type, Integer length,
-			Integer precision, boolean nullable, boolean unico,
+			Integer precision, Boolean nullable, Boolean unico,
 			String descripcion, String field, String access,
 			String columnDefinition, String annotationsField,
 			String annotationsMethod, String observaciones) {
@@ -87,7 +78,6 @@ public class Attributes {
 	public String getName() {
 		return name;
 	}
-
 	public void setName(String name) {
 		this.name = name;
 	}
@@ -95,7 +85,6 @@ public class Attributes {
 	public String getType() {
 		return type;
 	}
-
 	public void setType(String type) {
 		this.type = type;
 	}
@@ -103,7 +92,6 @@ public class Attributes {
 	public Integer getLength() {
 		return length;
 	}
-
 	public void setLength(Integer length) {
 		this.length = length;
 	}
@@ -111,31 +99,27 @@ public class Attributes {
 	public Integer getPrecision() {
 		return precision;
 	}
-
 	public void setPrecision(Integer precision) {
 		this.precision = precision;
 	}
 
-	public boolean getNullable() {
+	public Boolean getNullable() {
 		return nullable;
 	}
-
-	public void setNullable(boolean nullable) {
+	public void setNullable(Boolean nullable) {
 		this.nullable = nullable;
 	}
 
-	public boolean getUnico() {
+	public Boolean getUnico() {
 		return unico;
 	}
-
-	public void setUnico(boolean unico) {
+	public void setUnico(Boolean unico) {
 		this.unico = unico;
 	}
 
 	public String getDescripcion() {
 		return descripcion;
 	}
-
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
@@ -143,7 +127,6 @@ public class Attributes {
 	public String getField() {
 		return field;
 	}
-
 	public void setField(String field) {
 		this.field = field;
 	}
@@ -151,7 +134,6 @@ public class Attributes {
 	public String getAccess() {
 		return access;
 	}
-
 	public void setAccess(String access) {
 		this.access = access;
 	}
@@ -159,7 +141,6 @@ public class Attributes {
 	public String getColumnDefinition() {
 		return columnDefinition;
 	}
-
 	public void setColumnDefinition(String columnDefinition) {
 		this.columnDefinition = columnDefinition;
 	}
@@ -167,7 +148,6 @@ public class Attributes {
 	public String getAnnotationsField() {
 		return annotationsField;
 	}
-
 	public void setAnnotationsField(String annotationsField) {
 		this.annotationsField = annotationsField;
 	}
@@ -175,7 +155,6 @@ public class Attributes {
 	public String getAnnotationsMethod() {
 		return annotationsMethod;
 	}
-
 	public void setAnnotationsMethod(String annotationsMethod) {
 		this.annotationsMethod = annotationsMethod;
 	}
@@ -183,34 +162,8 @@ public class Attributes {
 	public String getObservaciones() {
 		return observaciones;
 	}
-
 	public void setObservaciones(String observaciones) {
 		this.observaciones = observaciones;
-	}
-
-	public TypesAttributes getTypesAttributes() {
-		return typesAttributes;
-	}
-
-	public void setTypesAttributes(TypesAttributes typesAttributes) {
-		this.typesAttributes = typesAttributes;
-	}
-
-	public Entities getEntities() {
-		return entities;
-	}
-
-	public void setEntities(Entities entities) {
-		this.entities = entities;
-	}
-
-	public Set<PropertiesAttributes> getPropertiesAttributes() {
-		return propertiesAttributes;
-	}
-
-	public void setPropertiesAttributes(
-			Set<PropertiesAttributes> propertiesAttributes) {
-		this.propertiesAttributes = propertiesAttributes;
 	}
 
 } // entity

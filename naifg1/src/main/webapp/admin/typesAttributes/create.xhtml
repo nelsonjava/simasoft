@@ -5,7 +5,6 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:c="http://java.sun.com/jsp/jstl/core"
-	xmlns:forgeview="http://jboss.org/forge/view"
 	template="/resources/scaffold/pageTemplate.xhtml">
 
 	<f:metadata>
@@ -65,86 +64,6 @@
 				<h:panelGroup>
 					<h:inputText id="typesAttributesBeanTypesAttributesObservaciones" value="#{typesAttributesBean.typesAttributes.observaciones}"/>
 					<h:message for="typesAttributesBeanTypesAttributesObservaciones" styleClass="error"/>
-				</h:panelGroup>
-				<h:outputText/>
-				<h:outputLabel for="typesAttributesBeanTypesAttributesAttributes" value="Attributes:"/>
-				<h:panelGroup>
-					<ui:param name="_collection" value="#{typesAttributesBean.typesAttributes.attributes}"/>
-					<h:dataTable id="typesAttributesBeanTypesAttributesAttributes" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
-						<h:column>
-							<f:facet name="header">
-								<h:outputText value="Name"/>
-							</f:facet>
-							<h:link outcome="/admin/attributes/view">
-								<f:param name="id" value="#{_item.id}"/>
-								<h:outputText id="itemName" value="#{_item.name}"/>
-							</h:link>
-							<f:facet name="footer">
-								<h:inputText id="attributesBeanAddName" value="#{attributesBean.add.name}"/>
-								<h:message for="attributesBeanAddName" styleClass="error"/>
-							</f:facet>
-						</h:column>
-						<h:column>
-							<f:facet name="header">
-								<h:outputText value="Type"/>
-							</f:facet>
-							<h:link outcome="/admin/attributes/view">
-								<f:param name="id" value="#{_item.id}"/>
-								<h:outputText id="itemType" value="#{_item.type}"/>
-							</h:link>
-							<f:facet name="footer">
-								<h:inputText id="attributesBeanAddType" value="#{attributesBean.add.type}"/>
-								<h:message for="attributesBeanAddType" styleClass="error"/>
-							</f:facet>
-						</h:column>
-						<h:column>
-							<f:facet name="header">
-								<h:outputText value="Length"/>
-							</f:facet>
-							<h:link outcome="/admin/attributes/view">
-								<f:param name="id" value="#{_item.id}"/>
-								<h:outputText id="itemLength" value="#{_item.length}"/>
-							</h:link>
-							<f:facet name="footer">
-								<h:inputText id="attributesBeanAddLength" value="#{attributesBean.add.length}"/>
-								<h:message for="attributesBeanAddLength" styleClass="error"/>
-							</f:facet>
-						</h:column>
-						<h:column>
-							<f:facet name="header">
-								<h:outputText value="Precision"/>
-							</f:facet>
-							<h:link outcome="/admin/attributes/view">
-								<f:param name="id" value="#{_item.id}"/>
-								<h:outputText id="itemPrecision" value="#{_item.precision}"/>
-							</h:link>
-							<f:facet name="footer">
-								<h:inputText id="attributesBeanAddPrecision" value="#{attributesBean.add.precision}"/>
-								<h:message for="attributesBeanAddPrecision" styleClass="error"/>
-							</f:facet>
-						</h:column>
-						<h:column>
-							<f:facet name="header">
-								<h:outputText value="Nullable"/>
-							</f:facet>
-							<h:link outcome="/admin/attributes/view">
-								<f:param name="id" value="#{_item.id}"/>
-								<h:outputText styleClass="#{_item.nullable ? 'boolean-true' : 'boolean-false'}" value=""/>
-							</h:link>
-							<f:facet name="footer">
-								<h:selectBooleanCheckbox id="attributesBeanAddNullable" value="#{attributesBean.add.nullable}"/>
-								<h:message for="attributesBeanAddNullable" styleClass="error"/>
-							</f:facet>
-						</h:column>
-						<h:column footerClass="remove-column" headerClass="remove-column">
-							<h:commandLink action="#{_collection.remove(_item)}" styleClass="remove-button"/>
-							<f:facet name="footer">
-								<h:commandLink action="#{_collection.add(attributesBean.added)}" id="typesAttributesBeanTypesAttributesAttributesAdd" styleClass="add-button">
-									<f:setPropertyActionListener target="#{attributesBean.add.typesAttributes}" value="#{typesAttributesBean.typesAttributes}"/>
-								</h:commandLink>
-							</f:facet>
-						</h:column>
-					</h:dataTable>
 				</h:panelGroup>
 				<h:outputText/>
 			</h:panelGrid>

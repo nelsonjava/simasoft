@@ -53,10 +53,14 @@
 							<h:message for="attributesBeanExamplePrecision" styleClass="error"/>
 						</h:panelGroup>
 						<h:outputText/>
-						<h:outputLabel for="attributesBeanExampleDescripcion" value="Descripcion:"/>
+						<h:outputLabel for="attributesBeanExampleNullable" value="Nullable:"/>
 						<h:panelGroup>
-							<h:inputText id="attributesBeanExampleDescripcion" value="#{attributesBean.example.descripcion}"/>
-							<h:message for="attributesBeanExampleDescripcion" styleClass="error"/>
+							<h:selectOneMenu id="attributesBeanExampleNullable" value="#{attributesBean.example.nullable}">
+								<f:selectItem/>
+								<f:selectItem itemLabel="Yes" itemValue="true"/>
+								<f:selectItem itemLabel="No" itemValue="false"/>
+							</h:selectOneMenu>
+							<h:message for="attributesBeanExampleNullable" styleClass="error"/>
 						</h:panelGroup>
 						<h:outputText/>
 					</h:panelGrid>
@@ -110,7 +114,7 @@
 					</f:facet>
 					<h:link outcome="/admin/attributes/view">
 						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText styleClass="#{_item.nullable ? 'boolean-true' : 'boolean-false'}" value=""/>
+						<h:outputText id="itemNullable" value="#{_item.nullable}"/>
 					</h:link>
 				</h:column>
 			</h:dataTable>

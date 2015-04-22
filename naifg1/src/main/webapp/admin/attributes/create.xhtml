@@ -5,7 +5,6 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:c="http://java.sun.com/jsp/jstl/core"
-	xmlns:forgeview="http://jboss.org/forge/view"
 	template="/resources/scaffold/pageTemplate.xhtml">
 
 	<f:metadata>
@@ -63,13 +62,21 @@
 				<h:outputText/>
 				<h:outputLabel for="attributesBeanAttributesNullable" value="Nullable:"/>
 				<h:panelGroup>
-					<h:selectBooleanCheckbox id="attributesBeanAttributesNullable" value="#{attributesBean.attributes.nullable}"/>
+					<h:selectOneMenu id="attributesBeanAttributesNullable" value="#{attributesBean.attributes.nullable}">
+						<f:selectItem/>
+						<f:selectItem itemLabel="Yes" itemValue="true"/>
+						<f:selectItem itemLabel="No" itemValue="false"/>
+					</h:selectOneMenu>
 					<h:message for="attributesBeanAttributesNullable" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
 				<h:outputLabel for="attributesBeanAttributesUnico" value="Unico:"/>
 				<h:panelGroup>
-					<h:selectBooleanCheckbox id="attributesBeanAttributesUnico" value="#{attributesBean.attributes.unico}"/>
+					<h:selectOneMenu id="attributesBeanAttributesUnico" value="#{attributesBean.attributes.unico}">
+						<f:selectItem/>
+						<f:selectItem itemLabel="Yes" itemValue="true"/>
+						<f:selectItem itemLabel="No" itemValue="false"/>
+					</h:selectOneMenu>
 					<h:message for="attributesBeanAttributesUnico" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
@@ -113,94 +120,6 @@
 				<h:panelGroup>
 					<h:inputText id="attributesBeanAttributesObservaciones" value="#{attributesBean.attributes.observaciones}"/>
 					<h:message for="attributesBeanAttributesObservaciones" styleClass="error"/>
-				</h:panelGroup>
-				<h:outputText/>
-				<h:outputLabel for="attributesBeanAttributesTypesAttributes" value="Types Attributes:"/>
-				<h:panelGroup>
-					<h:selectOneMenu converter="#{typesAttributesBean.converter}" id="attributesBeanAttributesTypesAttributes" value="#{attributesBean.attributes.typesAttributes}">
-						<f:selectItem/>
-						<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{typesAttributesBean.all}" var="_item"/>
-					</h:selectOneMenu>
-					<h:message for="attributesBeanAttributesTypesAttributes" styleClass="error"/>
-				</h:panelGroup>
-				<h:outputText/>
-				<h:outputLabel for="attributesBeanAttributesEntities" value="Entities:"/>
-				<h:panelGroup>
-					<h:selectOneMenu converter="#{entitiesBean.converter}" id="attributesBeanAttributesEntities" value="#{attributesBean.attributes.entities}">
-						<f:selectItem/>
-						<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{entitiesBean.all}" var="_item"/>
-					</h:selectOneMenu>
-					<h:message for="attributesBeanAttributesEntities" styleClass="error"/>
-				</h:panelGroup>
-				<h:outputText/>
-				<h:outputLabel for="attributesBeanAttributesPropertiesAttributes" value="Properties Attributes:"/>
-				<h:panelGroup>
-					<ui:param name="_collection" value="#{attributesBean.attributes.propertiesAttributes}"/>
-					<h:dataTable id="attributesBeanAttributesPropertiesAttributes" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
-						<h:column>
-							<f:facet name="header">
-								<h:outputText value="Name"/>
-							</f:facet>
-							<h:link outcome="/admin/propertiesAttributes/view">
-								<f:param name="id" value="#{_item.id}"/>
-								<h:outputText id="itemName" value="#{_item.name}"/>
-							</h:link>
-							<f:facet name="footer">
-								<h:inputText id="propertiesAttributesBeanAddName" value="#{propertiesAttributesBean.add.name}"/>
-								<h:message for="propertiesAttributesBeanAddName" styleClass="error"/>
-							</f:facet>
-						</h:column>
-						<h:column>
-							<f:facet name="header">
-								<h:outputText value="Value"/>
-							</f:facet>
-							<h:link outcome="/admin/propertiesAttributes/view">
-								<f:param name="id" value="#{_item.id}"/>
-								<h:outputText id="itemValue" value="#{_item.value}"/>
-							</h:link>
-							<f:facet name="footer">
-								<h:inputText id="propertiesAttributesBeanAddValue" value="#{propertiesAttributesBean.add.value}"/>
-								<h:message for="propertiesAttributesBeanAddValue" styleClass="error"/>
-							</f:facet>
-						</h:column>
-						<h:column>
-							<f:facet name="header">
-								<h:outputText value="Observaciones"/>
-							</f:facet>
-							<h:link outcome="/admin/propertiesAttributes/view">
-								<f:param name="id" value="#{_item.id}"/>
-								<h:outputText id="itemObservaciones" value="#{_item.observaciones}"/>
-							</h:link>
-							<f:facet name="footer">
-								<h:inputText id="propertiesAttributesBeanAddObservaciones" value="#{propertiesAttributesBean.add.observaciones}"/>
-								<h:message for="propertiesAttributesBeanAddObservaciones" styleClass="error"/>
-							</f:facet>
-						</h:column>
-						<h:column>
-							<f:facet name="header">
-								<h:outputText value="Relationships"/>
-							</f:facet>
-							<h:link outcome="/admin/propertiesAttributes/view">
-								<f:param name="id" value="#{_item.id}"/>
-								<h:outputText id="forgeviewdisplayitemRelationships" value="#{forgeview:display(_item.relationships)}"/>
-							</h:link>
-							<f:facet name="footer">
-								<h:selectOneMenu converter="#{relationshipsBean.converter}" id="propertiesAttributesBeanAddRelationships" value="#{propertiesAttributesBean.add.relationships}">
-									<f:selectItem/>
-									<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{relationshipsBean.all}" var="_item"/>
-								</h:selectOneMenu>
-								<h:message for="propertiesAttributesBeanAddRelationships" styleClass="error"/>
-							</f:facet>
-						</h:column>
-						<h:column footerClass="remove-column" headerClass="remove-column">
-							<h:commandLink action="#{_collection.remove(_item)}" styleClass="remove-button"/>
-							<f:facet name="footer">
-								<h:commandLink action="#{_collection.add(propertiesAttributesBean.added)}" id="attributesBeanAttributesPropertiesAttributesAdd" styleClass="add-button">
-									<f:setPropertyActionListener target="#{propertiesAttributesBean.add.attributes}" value="#{attributesBean.attributes}"/>
-								</h:commandLink>
-							</f:facet>
-						</h:column>
-					</h:dataTable>
 				</h:panelGroup>
 				<h:outputText/>
 			</h:panelGrid>

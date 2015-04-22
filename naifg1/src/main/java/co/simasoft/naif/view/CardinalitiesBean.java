@@ -24,9 +24,8 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
-import co.simasoft.models.naif.DomainModels.Cardinalities;
-import co.simasoft.models.naif.DomainModels.Relationships;
-import java.util.Iterator;
+import co.simasoft.naif.models.DomainModels.Cardinalities;
+import java.lang.Boolean;
 
 /**
  * Backing bean for Cardinalities entities.
@@ -133,14 +132,7 @@ public class CardinalitiesBean implements Serializable {
 
 		try {
 			Cardinalities deletableEntity = findById(getId());
-			Iterator<Relationships> iterRelationships = deletableEntity
-					.getRelationships().iterator();
-			for (; iterRelationships.hasNext();) {
-				Relationships nextInRelationships = iterRelationships.next();
-				nextInRelationships.setCardinalities(null);
-				iterRelationships.remove();
-				this.entityManager.merge(nextInRelationships);
-			}
+
 			this.entityManager.remove(deletableEntity);
 			this.entityManager.flush();
 			return "search?faces-redirect=true";
@@ -228,6 +220,11 @@ public class CardinalitiesBean implements Serializable {
 			predicatesList.add(builder.like(
 					builder.lower(root.<String> get("cardinality")),
 					'%' + cardinality.toLowerCase() + '%'));
+		}
+		Boolean unidireccional = this.example.getUnidireccional();
+		if (unidireccional != null) {
+			predicatesList.add(builder.equal(root.get("unidireccional"),
+					unidireccional));
 		}
 		String observaciones = this.example.getObservaciones();
 		if (observaciones != null && !"".equals(observaciones)) {

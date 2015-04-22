@@ -4,7 +4,6 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:forgeview="http://jboss.org/forge/view"
 	template="/resources/scaffold/pageTemplate.xhtml">
 
 	<f:metadata>
@@ -48,15 +47,6 @@
 							<h:message for="nameQueriesBeanExampleObservaciones" styleClass="error"/>
 						</h:panelGroup>
 						<h:outputText/>
-						<h:outputLabel for="nameQueriesBeanExampleEntities" value="Entities:"/>
-						<h:panelGroup>
-							<h:selectOneMenu converter="#{entitiesBean.converter}" id="nameQueriesBeanExampleEntities" value="#{nameQueriesBean.example.entities}">
-								<f:selectItem/>
-								<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{entitiesBean.all}" var="_item"/>
-							</h:selectOneMenu>
-							<h:message for="nameQueriesBeanExampleEntities" styleClass="error"/>
-						</h:panelGroup>
-						<h:outputText/>
 					</h:panelGrid>
 					<h:panelGroup styleClass="buttons">
 						<h:commandLink value="Search" action='#{nameQueriesBean.search}' styleClass="btn btn-primary"/>
@@ -91,15 +81,6 @@
 					<h:link outcome="/admin/nameQueries/view">
 						<f:param name="id" value="#{_item.id}"/>
 						<h:outputText id="itemObservaciones" value="#{_item.observaciones}"/>
-					</h:link>
-				</h:column>
-				<h:column>
-					<f:facet name="header">
-						<h:outputText value="Entities"/>
-					</f:facet>
-					<h:link outcome="/admin/nameQueries/view">
-						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="forgeviewdisplayitemEntities" value="#{forgeview:display(_item.entities)}"/>
 					</h:link>
 				</h:column>
 			</h:dataTable>

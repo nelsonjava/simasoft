@@ -1,6 +1,6 @@
-package co.simasoft.models.naif.DomainModels;
+package co.simasoft.naif.models.DomainModels;
 
-import co.simasoft.models.naif.DomainModels.*;
+import co.simasoft.naif.models.DomainModels.*;
 
 import java.util.*;
 
@@ -24,12 +24,6 @@ public class PropertiesAttributes {
 
 	private String observaciones;
 
-	@ManyToOne
-	private Relationships relationships;
-
-	@ManyToOne
-	private Attributes attributes;
-
 	public PropertiesAttributes() {
 	}
 
@@ -50,7 +44,6 @@ public class PropertiesAttributes {
 	public String getName() {
 		return name;
 	}
-
 	public void setName(String name) {
 		this.name = name;
 	}
@@ -58,7 +51,6 @@ public class PropertiesAttributes {
 	public String getValue() {
 		return value;
 	}
-
 	public void setValue(String value) {
 		this.value = value;
 	}
@@ -66,25 +58,8 @@ public class PropertiesAttributes {
 	public String getObservaciones() {
 		return observaciones;
 	}
-
 	public void setObservaciones(String observaciones) {
 		this.observaciones = observaciones;
-	}
-
-	public Relationships getRelationships() {
-		return relationships;
-	}
-
-	public void setRelationships(Relationships relationships) {
-		this.relationships = relationships;
-	}
-
-	public Attributes getAttributes() {
-		return attributes;
-	}
-
-	public void setAttributes(Attributes attributes) {
-		this.attributes = attributes;
 	}
 
 } // entity

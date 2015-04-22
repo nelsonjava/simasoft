@@ -24,7 +24,7 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
-import co.simasoft.models.naif.DomainModels.*;
+import co.simasoft.naif.models.DomainModels.LinksModels;
 
 /**
  * Backing bean for LinksModels entities.
@@ -131,11 +131,7 @@ public class LinksModelsBean implements Serializable {
 
 		try {
 			LinksModels deletableEntity = findById(getId());
-			TiposLinksModels tiposLinksModels = deletableEntity
-					.getTiposLinksModels();
-			tiposLinksModels.getLinksModels().remove(deletableEntity);
-			deletableEntity.setTiposLinksModels(null);
-			this.entityManager.merge(tiposLinksModels);
+
 			this.entityManager.remove(deletableEntity);
 			this.entityManager.flush();
 			return "search?faces-redirect=true";
@@ -228,16 +224,6 @@ public class LinksModelsBean implements Serializable {
 			predicatesList.add(builder.like(
 					builder.lower(root.<String> get("observacion")),
 					'%' + observacion.toLowerCase() + '%'));
-		}
-		TiposLinksModels tiposLinksModels = this.example.getTiposLinksModels();
-		if (tiposLinksModels != null) {
-			predicatesList.add(builder.equal(root.get("tiposLinksModels"),
-					tiposLinksModels));
-		}
-		DomainModels domainModels = this.example.getDomainModels();
-		if (domainModels != null) {
-			predicatesList.add(builder.equal(root.get("domainModels"),
-					domainModels));
 		}
 
 		return predicatesList.toArray(new Predicate[predicatesList.size()]);

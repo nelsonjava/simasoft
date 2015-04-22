@@ -4,7 +4,6 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:forgeview="http://jboss.org/forge/view"
 	template="/resources/scaffold/pageTemplate.xhtml">
 
 	<f:metadata>
@@ -48,24 +47,6 @@
 							<h:message for="linksModelsBeanExampleObservacion" styleClass="error"/>
 						</h:panelGroup>
 						<h:outputText/>
-						<h:outputLabel for="linksModelsBeanExampleTiposLinksModels" value="Tipos Links Models:"/>
-						<h:panelGroup>
-							<h:selectOneMenu converter="#{tiposLinksModelsBean.converter}" id="linksModelsBeanExampleTiposLinksModels" value="#{linksModelsBean.example.tiposLinksModels}">
-								<f:selectItem/>
-								<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{tiposLinksModelsBean.all}" var="_item"/>
-							</h:selectOneMenu>
-							<h:message for="linksModelsBeanExampleTiposLinksModels" styleClass="error"/>
-						</h:panelGroup>
-						<h:outputText/>
-						<h:outputLabel for="linksModelsBeanExampleDomainModels" value="Domain Models:"/>
-						<h:panelGroup>
-							<h:selectOneMenu converter="#{domainModelsBean.converter}" id="linksModelsBeanExampleDomainModels" value="#{linksModelsBean.example.domainModels}">
-								<f:selectItem/>
-								<f:selectItems value="#{domainModelsBean.all}"/>
-							</h:selectOneMenu>
-							<h:message for="linksModelsBeanExampleDomainModels" styleClass="error"/>
-						</h:panelGroup>
-						<h:outputText/>
 					</h:panelGrid>
 					<h:panelGroup styleClass="buttons">
 						<h:commandLink value="Search" action='#{linksModelsBean.search}' styleClass="btn btn-primary"/>
@@ -100,24 +81,6 @@
 					<h:link outcome="/admin/linksModels/view">
 						<f:param name="id" value="#{_item.id}"/>
 						<h:outputText id="itemObservacion" value="#{_item.observacion}"/>
-					</h:link>
-				</h:column>
-				<h:column>
-					<f:facet name="header">
-						<h:outputText value="Tipos Links Models"/>
-					</f:facet>
-					<h:link outcome="/admin/linksModels/view">
-						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="forgeviewdisplayitemTiposLinksModels" value="#{forgeview:display(_item.tiposLinksModels)}"/>
-					</h:link>
-				</h:column>
-				<h:column>
-					<f:facet name="header">
-						<h:outputText value="Domain Models"/>
-					</f:facet>
-					<h:link outcome="/admin/linksModels/view">
-						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemDomainModels" value="#{_item.domainModels}"/>
 					</h:link>
 				</h:column>
 			</h:dataTable>

@@ -34,29 +34,11 @@
 			<h:outputLabel for="filesModelsBeanFilesModelsExtension" value="Extension:"/>
 			<h:outputText id="filesModelsBeanFilesModelsExtension" value="#{filesModelsBean.filesModels.extension}"/>
 			<h:outputText/>
-			<h:outputLabel for="filesModelsBeanFilesModelsData" value="Data:"/>
-			<h:outputText id="filesModelsBeanFilesModelsData" value="#{filesModelsBean.filesModels.data}"/>
-			<h:outputText/>
 			<h:outputLabel for="filesModelsBeanFilesModelsType" value="Type:"/>
 			<h:outputText id="filesModelsBeanFilesModelsType" value="#{filesModelsBean.filesModels.type}"/>
 			<h:outputText/>
 			<h:outputLabel for="filesModelsBeanFilesModelsObservacion" value="Observacion:"/>
 			<h:outputText id="filesModelsBeanFilesModelsObservacion" value="#{filesModelsBean.filesModels.observacion}"/>
-			<h:outputText/>
-			<h:outputLabel for="filesModelsBeanFilesModelsEntities" value="Entities:"/>
-			<h:link id="filesModelsBeanFilesModelsEntities" outcome="/admin/entities/view" rendered="#{!empty filesModelsBean.filesModels.entities}" value="#{filesModelsBean.filesModels.entities}">
-				<f:param name="id" value="#{filesModelsBean.filesModels.entities.id}"/>
-			</h:link>
-			<h:outputText/>
-			<h:outputLabel for="filesModelsBeanFilesModelsSystemsModels" value="Systems Models:"/>
-			<h:link id="filesModelsBeanFilesModelsSystemsModels" outcome="/admin/systemsModels/view" rendered="#{!empty filesModelsBean.filesModels.systemsModels}" value="#{filesModelsBean.filesModels.systemsModels}">
-				<f:param name="id" value="#{filesModelsBean.filesModels.systemsModels.id}"/>
-			</h:link>
-			<h:outputText/>
-			<h:outputLabel for="filesModelsBeanFilesModelsDomainModels" value="Domain Models:"/>
-			<h:link id="filesModelsBeanFilesModelsDomainModels" outcome="/admin/domainModels/view" rendered="#{!empty filesModelsBean.filesModels.domainModels}" value="#{filesModelsBean.filesModels.domainModels}">
-				<f:param name="id" value="#{filesModelsBean.filesModels.domainModels.id}"/>
-			</h:link>
 			<h:outputText/>
 		</h:panelGrid>
 

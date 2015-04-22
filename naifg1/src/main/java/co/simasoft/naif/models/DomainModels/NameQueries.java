@@ -1,6 +1,6 @@
-package co.simasoft.models.naif.DomainModels;
+package co.simasoft.naif.models.DomainModels;
 
-import co.simasoft.models.naif.DomainModels.*;
+import co.simasoft.naif.models.DomainModels.*;
 
 import java.util.*;
 
@@ -24,9 +24,6 @@ public class NameQueries {
 
 	private String observaciones;
 
-	@ManyToOne
-	private Entities entities;
-
 	public NameQueries() {
 	}
 
@@ -47,7 +44,6 @@ public class NameQueries {
 	public String getName() {
 		return name;
 	}
-
 	public void setName(String name) {
 		this.name = name;
 	}
@@ -55,7 +51,6 @@ public class NameQueries {
 	public String getQuery() {
 		return query;
 	}
-
 	public void setQuery(String query) {
 		this.query = query;
 	}
@@ -63,17 +58,8 @@ public class NameQueries {
 	public String getObservaciones() {
 		return observaciones;
 	}
-
 	public void setObservaciones(String observaciones) {
 		this.observaciones = observaciones;
-	}
-
-	public Entities getEntities() {
-		return entities;
-	}
-
-	public void setEntities(Entities entities) {
-		this.entities = entities;
 	}
 
 } // entity

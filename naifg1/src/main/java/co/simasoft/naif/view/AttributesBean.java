@@ -24,11 +24,8 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
-import co.simasoft.models.naif.DomainModels.Attributes;
-import co.simasoft.models.naif.DomainModels.Entities;
-import co.simasoft.models.naif.DomainModels.PropertiesAttributes;
-import co.simasoft.models.naif.DomainModels.TypesAttributes;
-import java.util.Iterator;
+import co.simasoft.naif.models.DomainModels.Attributes;
+import java.lang.Boolean;
 
 /**
  * Backing bean for Attributes entities.
@@ -134,24 +131,7 @@ public class AttributesBean implements Serializable {
 
 		try {
 			Attributes deletableEntity = findById(getId());
-			TypesAttributes typesAttributes = deletableEntity
-					.getTypesAttributes();
-			typesAttributes.getAttributes().remove(deletableEntity);
-			deletableEntity.setTypesAttributes(null);
-			this.entityManager.merge(typesAttributes);
-			Entities entities = deletableEntity.getEntities();
-			entities.getAttributes().remove(deletableEntity);
-			deletableEntity.setEntities(null);
-			this.entityManager.merge(entities);
-			Iterator<PropertiesAttributes> iterPropertiesAttributes = deletableEntity
-					.getPropertiesAttributes().iterator();
-			for (; iterPropertiesAttributes.hasNext();) {
-				PropertiesAttributes nextInPropertiesAttributes = iterPropertiesAttributes
-						.next();
-				nextInPropertiesAttributes.setAttributes(null);
-				iterPropertiesAttributes.remove();
-				this.entityManager.merge(nextInPropertiesAttributes);
-			}
+
 			this.entityManager.remove(deletableEntity);
 			this.entityManager.flush();
 			return "search?faces-redirect=true";
@@ -247,11 +227,9 @@ public class AttributesBean implements Serializable {
 		if (precision != null && precision.intValue() != 0) {
 			predicatesList.add(builder.equal(root.get("precision"), precision));
 		}
-		String descripcion = this.example.getDescripcion();
-		if (descripcion != null && !"".equals(descripcion)) {
-			predicatesList.add(builder.like(
-					builder.lower(root.<String> get("descripcion")),
-					'%' + descripcion.toLowerCase() + '%'));
+		Boolean nullable = this.example.getNullable();
+		if (nullable != null) {
+			predicatesList.add(builder.equal(root.get("nullable"), nullable));
 		}
 
 		return predicatesList.toArray(new Predicate[predicatesList.size()]);

@@ -4,7 +4,6 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:forgeview="http://jboss.org/forge/view"
 	template="/resources/scaffold/pageTemplate.xhtml">
 
 	<f:metadata>
@@ -38,11 +37,11 @@
 			<h:outputLabel for="attributesBeanAttributesPrecision" value="Precision:"/>
 			<h:outputText id="attributesBeanAttributesPrecision" value="#{attributesBean.attributes.precision}"/>
 			<h:outputText/>
-			<h:outputLabel value="Nullable:"/>
-			<h:outputText styleClass="#{attributesBean.attributes.nullable ? 'boolean-true' : 'boolean-false'}" value=""/>
+			<h:outputLabel for="attributesBeanAttributesNullable" value="Nullable:"/>
+			<h:outputText id="attributesBeanAttributesNullable" value="#{attributesBean.attributes.nullable}"/>
 			<h:outputText/>
-			<h:outputLabel value="Unico:"/>
-			<h:outputText styleClass="#{attributesBean.attributes.unico ? 'boolean-true' : 'boolean-false'}" value=""/>
+			<h:outputLabel for="attributesBeanAttributesUnico" value="Unico:"/>
+			<h:outputText id="attributesBeanAttributesUnico" value="#{attributesBean.attributes.unico}"/>
 			<h:outputText/>
 			<h:outputLabel for="attributesBeanAttributesDescripcion" value="Descripcion:"/>
 			<h:outputText id="attributesBeanAttributesDescripcion" value="#{attributesBean.attributes.descripcion}"/>
@@ -64,56 +63,6 @@
 			<h:outputText/>
 			<h:outputLabel for="attributesBeanAttributesObservaciones" value="Observaciones:"/>
 			<h:outputText id="attributesBeanAttributesObservaciones" value="#{attributesBean.attributes.observaciones}"/>
-			<h:outputText/>
-			<h:outputLabel for="attributesBeanAttributesTypesAttributes" value="Types Attributes:"/>
-			<h:link id="attributesBeanAttributesTypesAttributes" outcome="/admin/typesAttributes/view" rendered="#{!empty attributesBean.attributes.typesAttributes}" value="#{attributesBean.attributes.typesAttributes}">
-				<f:param name="id" value="#{attributesBean.attributes.typesAttributes.id}"/>
-			</h:link>
-			<h:outputText/>
-			<h:outputLabel for="attributesBeanAttributesEntities" value="Entities:"/>
-			<h:link id="attributesBeanAttributesEntities" outcome="/admin/entities/view" rendered="#{!empty attributesBean.attributes.entities}" value="#{attributesBean.attributes.entities}">
-				<f:param name="id" value="#{attributesBean.attributes.entities.id}"/>
-			</h:link>
-			<h:outputText/>
-			<h:outputLabel for="attributesBeanAttributesPropertiesAttributes" value="Properties Attributes:"/>
-			<h:dataTable id="attributesBeanAttributesPropertiesAttributes" styleClass="data-table" value="#{forgeview:asList(attributesBean.attributes.propertiesAttributes)}" var="_item">
-				<h:column>
-					<f:facet name="header">
-						<h:outputText value="Name"/>
-					</f:facet>
-					<h:link outcome="/admin/propertiesAttributes/view">
-						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemName" value="#{_item.name}"/>
-					</h:link>
-				</h:column>
-				<h:column>
-					<f:facet name="header">
-						<h:outputText value="Value"/>
-					</f:facet>
-					<h:link outcome="/admin/propertiesAttributes/view">
-						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemValue" value="#{_item.value}"/>
-					</h:link>
-				</h:column>
-				<h:column>
-					<f:facet name="header">
-						<h:outputText value="Observaciones"/>
-					</f:facet>
-					<h:link outcome="/admin/propertiesAttributes/view">
-						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemObservaciones" value="#{_item.observaciones}"/>
-					</h:link>
-				</h:column>
-				<h:column>
-					<f:facet name="header">
-						<h:outputText value="Relationships"/>
-					</f:facet>
-					<h:link outcome="/admin/propertiesAttributes/view">
-						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="forgeviewdisplayitemRelationships" value="#{forgeview:display(_item.relationships)}"/>
-					</h:link>
-				</h:column>
-			</h:dataTable>
 			<h:outputText/>
 		</h:panelGrid>
 

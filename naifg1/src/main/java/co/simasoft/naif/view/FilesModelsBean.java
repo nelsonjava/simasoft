@@ -24,9 +24,7 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
-import co.simasoft.models.naif.DomainModels.FilesModels;
-import co.simasoft.models.naif.DomainModels.Entities;
-import co.simasoft.models.naif.DomainModels.SystemsModels;
+import co.simasoft.naif.models.DomainModels.FilesModels;
 
 /**
  * Backing bean for FilesModels entities.
@@ -133,14 +131,7 @@ public class FilesModelsBean implements Serializable {
 
 		try {
 			FilesModels deletableEntity = findById(getId());
-			Entities entities = deletableEntity.getEntities();
-			entities.getFilesModels().remove(deletableEntity);
-			deletableEntity.setEntities(null);
-			this.entityManager.merge(entities);
-			SystemsModels systemsModels = deletableEntity.getSystemsModels();
-			systemsModels.getFilesModels().remove(deletableEntity);
-			deletableEntity.setSystemsModels(null);
-			this.entityManager.merge(systemsModels);
+
 			this.entityManager.remove(deletableEntity);
 			this.entityManager.flush();
 			return "search?faces-redirect=true";
@@ -234,15 +225,17 @@ public class FilesModelsBean implements Serializable {
 					builder.lower(root.<String> get("extension")),
 					'%' + extension.toLowerCase() + '%'));
 		}
-		byte data = this.example.getData();
-		if (data != 0) {
-			predicatesList.add(builder.equal(root.get("data"), data));
-		}
 		String type = this.example.getType();
 		if (type != null && !"".equals(type)) {
 			predicatesList.add(builder.like(
 					builder.lower(root.<String> get("type")),
 					'%' + type.toLowerCase() + '%'));
+		}
+		String observacion = this.example.getObservacion();
+		if (observacion != null && !"".equals(observacion)) {
+			predicatesList.add(builder.like(
+					builder.lower(root.<String> get("observacion")),
+					'%' + observacion.toLowerCase() + '%'));
 		}
 
 		return predicatesList.toArray(new Predicate[predicatesList.size()]);

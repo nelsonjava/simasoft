@@ -35,22 +35,16 @@
 							<h:message for="systemsModelsBeanExampleName" styleClass="error"/>
 						</h:panelGroup>
 						<h:outputText/>
-						<h:outputLabel for="systemsModelsBeanExampleCodigo" value="Codigo:"/>
-						<h:panelGroup>
-							<h:inputText id="systemsModelsBeanExampleCodigo" value="#{systemsModelsBean.example.codigo}"/>
-							<h:message for="systemsModelsBeanExampleCodigo" styleClass="error"/>
-						</h:panelGroup>
-						<h:outputText/>
-						<h:outputLabel for="systemsModelsBeanExampleRelease" value="Release:"/>
-						<h:panelGroup>
-							<h:inputText id="systemsModelsBeanExampleRelease" value="#{systemsModelsBean.example.release}"/>
-							<h:message for="systemsModelsBeanExampleRelease" styleClass="error"/>
-						</h:panelGroup>
-						<h:outputText/>
 						<h:outputLabel for="systemsModelsBeanExampleDescription" value="Description:"/>
 						<h:panelGroup>
 							<h:inputText id="systemsModelsBeanExampleDescription" value="#{systemsModelsBean.example.description}"/>
 							<h:message for="systemsModelsBeanExampleDescription" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="systemsModelsBeanExampleObservaciones" value="Observaciones:"/>
+						<h:panelGroup>
+							<h:inputText id="systemsModelsBeanExampleObservaciones" value="#{systemsModelsBean.example.observaciones}"/>
+							<h:message for="systemsModelsBeanExampleObservaciones" styleClass="error"/>
 						</h:panelGroup>
 						<h:outputText/>
 					</h:panelGrid>
@@ -73,40 +67,20 @@
 				</h:column>
 				<h:column>
 					<f:facet name="header">
-						<h:outputText value="Codigo"/>
-					</f:facet>
-					<h:link outcome="/admin/systemsModels/view">
-						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemCodigo" value="#{_item.codigo}"/>
-					</h:link>
-				</h:column>
-				<h:column>
-					<f:facet name="header">
-						<h:outputText value="Release"/>
-					</f:facet>
-					<h:link outcome="/admin/systemsModels/view">
-						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemRelease" value="#{_item.release}"/>
-					</h:link>
-				</h:column>
-				<h:column>
-					<f:facet name="header">
-						<h:outputText value="Fecha"/>
-					</f:facet>
-					<h:link outcome="/admin/systemsModels/view">
-						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemFecha" value="#{_item.fecha}">
-							<f:convertDateTime/>
-						</h:outputText>
-					</h:link>
-				</h:column>
-				<h:column>
-					<f:facet name="header">
 						<h:outputText value="Description"/>
 					</f:facet>
 					<h:link outcome="/admin/systemsModels/view">
 						<f:param name="id" value="#{_item.id}"/>
 						<h:outputText id="itemDescription" value="#{_item.description}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Observaciones"/>
+					</f:facet>
+					<h:link outcome="/admin/systemsModels/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemObservaciones" value="#{_item.observaciones}"/>
 					</h:link>
 				</h:column>
 			</h:dataTable>

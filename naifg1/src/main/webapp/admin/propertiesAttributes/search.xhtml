@@ -4,7 +4,6 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:forgeview="http://jboss.org/forge/view"
 	template="/resources/scaffold/pageTemplate.xhtml">
 
 	<f:metadata>
@@ -48,24 +47,6 @@
 							<h:message for="propertiesAttributesBeanExampleObservaciones" styleClass="error"/>
 						</h:panelGroup>
 						<h:outputText/>
-						<h:outputLabel for="propertiesAttributesBeanExampleRelationships" value="Relationships:"/>
-						<h:panelGroup>
-							<h:selectOneMenu converter="#{relationshipsBean.converter}" id="propertiesAttributesBeanExampleRelationships" value="#{propertiesAttributesBean.example.relationships}">
-								<f:selectItem/>
-								<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{relationshipsBean.all}" var="_item"/>
-							</h:selectOneMenu>
-							<h:message for="propertiesAttributesBeanExampleRelationships" styleClass="error"/>
-						</h:panelGroup>
-						<h:outputText/>
-						<h:outputLabel for="propertiesAttributesBeanExampleAttributes" value="Attributes:"/>
-						<h:panelGroup>
-							<h:selectOneMenu converter="#{attributesBean.converter}" id="propertiesAttributesBeanExampleAttributes" value="#{propertiesAttributesBean.example.attributes}">
-								<f:selectItem/>
-								<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{attributesBean.all}" var="_item"/>
-							</h:selectOneMenu>
-							<h:message for="propertiesAttributesBeanExampleAttributes" styleClass="error"/>
-						</h:panelGroup>
-						<h:outputText/>
 					</h:panelGrid>
 					<h:panelGroup styleClass="buttons">
 						<h:commandLink value="Search" action='#{propertiesAttributesBean.search}' styleClass="btn btn-primary"/>
@@ -100,24 +81,6 @@
 					<h:link outcome="/admin/propertiesAttributes/view">
 						<f:param name="id" value="#{_item.id}"/>
 						<h:outputText id="itemObservaciones" value="#{_item.observaciones}"/>
-					</h:link>
-				</h:column>
-				<h:column>
-					<f:facet name="header">
-						<h:outputText value="Relationships"/>
-					</f:facet>
-					<h:link outcome="/admin/propertiesAttributes/view">
-						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="forgeviewdisplayitemRelationships" value="#{forgeview:display(_item.relationships)}"/>
-					</h:link>
-				</h:column>
-				<h:column>
-					<f:facet name="header">
-						<h:outputText value="Attributes"/>
-					</f:facet>
-					<h:link outcome="/admin/propertiesAttributes/view">
-						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="forgeviewdisplayitemAttributes" value="#{forgeview:display(_item.attributes)}"/>
 					</h:link>
 				</h:column>
 			</h:dataTable>

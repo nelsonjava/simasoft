@@ -5,7 +5,6 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:c="http://java.sun.com/jsp/jstl/core"
-	xmlns:forgeview="http://jboss.org/forge/view"
 	template="/resources/scaffold/pageTemplate.xhtml">
 
 	<f:metadata>
@@ -55,12 +54,6 @@
 					<h:message for="filesModelsBeanFilesModelsExtension" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
-				<h:outputLabel for="filesModelsBeanFilesModelsData" value="Data:"/>
-				<h:panelGroup>
-					<h:inputText id="filesModelsBeanFilesModelsData" value="#{filesModelsBean.filesModels.data}"/>
-					<h:message for="filesModelsBeanFilesModelsData" styleClass="error"/>
-				</h:panelGroup>
-				<h:outputText/>
 				<h:outputLabel for="filesModelsBeanFilesModelsType" value="Type:"/>
 				<h:panelGroup>
 					<h:inputText id="filesModelsBeanFilesModelsType" value="#{filesModelsBean.filesModels.type}"/>
@@ -71,33 +64,6 @@
 				<h:panelGroup>
 					<h:inputText id="filesModelsBeanFilesModelsObservacion" value="#{filesModelsBean.filesModels.observacion}"/>
 					<h:message for="filesModelsBeanFilesModelsObservacion" styleClass="error"/>
-				</h:panelGroup>
-				<h:outputText/>
-				<h:outputLabel for="filesModelsBeanFilesModelsEntities" value="Entities:"/>
-				<h:panelGroup>
-					<h:selectOneMenu converter="#{entitiesBean.converter}" id="filesModelsBeanFilesModelsEntities" value="#{filesModelsBean.filesModels.entities}">
-						<f:selectItem/>
-						<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{entitiesBean.all}" var="_item"/>
-					</h:selectOneMenu>
-					<h:message for="filesModelsBeanFilesModelsEntities" styleClass="error"/>
-				</h:panelGroup>
-				<h:outputText/>
-				<h:outputLabel for="filesModelsBeanFilesModelsSystemsModels" value="Systems Models:"/>
-				<h:panelGroup>
-					<h:selectOneMenu converter="#{systemsModelsBean.converter}" id="filesModelsBeanFilesModelsSystemsModels" value="#{filesModelsBean.filesModels.systemsModels}">
-						<f:selectItem/>
-						<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{systemsModelsBean.all}" var="_item"/>
-					</h:selectOneMenu>
-					<h:message for="filesModelsBeanFilesModelsSystemsModels" styleClass="error"/>
-				</h:panelGroup>
-				<h:outputText/>
-				<h:outputLabel for="filesModelsBeanFilesModelsDomainModels" value="Domain Models:"/>
-				<h:panelGroup>
-					<h:selectOneMenu converter="#{domainModelsBean.converter}" id="filesModelsBeanFilesModelsDomainModels" value="#{filesModelsBean.filesModels.domainModels}">
-						<f:selectItem/>
-						<f:selectItems value="#{domainModelsBean.all}"/>
-					</h:selectOneMenu>
-					<h:message for="filesModelsBeanFilesModelsDomainModels" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
 			</h:panelGrid>

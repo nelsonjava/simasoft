@@ -4,7 +4,6 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:forgeview="http://jboss.org/forge/view"
 	template="/resources/scaffold/pageTemplate.xhtml">
 
 	<f:metadata>
@@ -28,46 +27,6 @@
 		<h:panelGrid columnClasses="label,component,required" columns="3">
 			<h:outputLabel for="tiposLinksModelsBeanTiposLinksModelsNombre" value="Nombre:"/>
 			<h:outputText id="tiposLinksModelsBeanTiposLinksModelsNombre" value="#{tiposLinksModelsBean.tiposLinksModels.nombre}"/>
-			<h:outputText/>
-			<h:outputLabel for="tiposLinksModelsBeanTiposLinksModelsLinksModels" value="Links Models:"/>
-			<h:dataTable id="tiposLinksModelsBeanTiposLinksModelsLinksModels" styleClass="data-table" value="#{forgeview:asList(tiposLinksModelsBean.tiposLinksModels.linksModels)}" var="_item">
-				<h:column>
-					<f:facet name="header">
-						<h:outputText value="Titulo"/>
-					</f:facet>
-					<h:link outcome="/admin/linksModels/view">
-						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemTitulo" value="#{_item.titulo}"/>
-					</h:link>
-				</h:column>
-				<h:column>
-					<f:facet name="header">
-						<h:outputText value="Link"/>
-					</f:facet>
-					<h:link outcome="/admin/linksModels/view">
-						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemLink" value="#{_item.link}"/>
-					</h:link>
-				</h:column>
-				<h:column>
-					<f:facet name="header">
-						<h:outputText value="Observacion"/>
-					</f:facet>
-					<h:link outcome="/admin/linksModels/view">
-						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemObservacion" value="#{_item.observacion}"/>
-					</h:link>
-				</h:column>
-				<h:column>
-					<f:facet name="header">
-						<h:outputText value="Domain Models"/>
-					</f:facet>
-					<h:link outcome="/admin/linksModels/view">
-						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemDomainModels" value="#{_item.domainModels}"/>
-					</h:link>
-				</h:column>
-			</h:dataTable>
 			<h:outputText/>
 		</h:panelGrid>
 

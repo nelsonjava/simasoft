@@ -1,6 +1,6 @@
-package co.simasoft.models.naif.DomainModels;
+package co.simasoft.naif.models.DomainModels;
 
-import co.simasoft.models.naif.DomainModels.*;
+import co.simasoft.naif.models.DomainModels.*;
 
 import java.util.*;
 
@@ -28,9 +28,6 @@ public class TypesAttributes {
 
 	private String observaciones;
 
-	@OneToMany(mappedBy = "typesAttributes")
-	private Set<Attributes> attributes = new HashSet<Attributes>();
-
 	public TypesAttributes() {
 	}
 
@@ -54,7 +51,6 @@ public class TypesAttributes {
 	public String getName() {
 		return name;
 	}
-
 	public void setName(String name) {
 		this.name = name;
 	}
@@ -62,7 +58,6 @@ public class TypesAttributes {
 	public Integer getLength() {
 		return length;
 	}
-
 	public void setLength(Integer length) {
 		this.length = length;
 	}
@@ -70,7 +65,6 @@ public class TypesAttributes {
 	public Integer getPrecision() {
 		return precision;
 	}
-
 	public void setPrecision(Integer precision) {
 		this.precision = precision;
 	}
@@ -78,7 +72,6 @@ public class TypesAttributes {
 	public String getAnnotations() {
 		return annotations;
 	}
-
 	public void setAnnotations(String annotations) {
 		this.annotations = annotations;
 	}
@@ -86,17 +79,8 @@ public class TypesAttributes {
 	public String getObservaciones() {
 		return observaciones;
 	}
-
 	public void setObservaciones(String observaciones) {
 		this.observaciones = observaciones;
-	}
-
-	public Set<Attributes> getAttributes() {
-		return attributes;
-	}
-
-	public void setAttributes(Set<Attributes> attributes) {
-		this.attributes = attributes;
 	}
 
 } // entity

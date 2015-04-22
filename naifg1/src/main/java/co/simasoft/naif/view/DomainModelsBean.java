@@ -24,7 +24,7 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
-import co.simasoft.models.naif.DomainModels.DomainModels;
+import co.simasoft.naif.models.DomainModels.DomainModels;
 
 /**
  * Backing bean for DomainModels entities.
@@ -214,29 +214,29 @@ public class DomainModelsBean implements Serializable {
 					builder.lower(root.<String> get("name")),
 					'%' + name.toLowerCase() + '%'));
 		}
-		String paquete = this.example.getPaquete();
-		if (paquete != null && !"".equals(paquete)) {
+		String groupId = this.example.getGroupId();
+		if (groupId != null && !"".equals(groupId)) {
 			predicatesList.add(builder.like(
-					builder.lower(root.<String> get("paquete")),
-					'%' + paquete.toLowerCase() + '%'));
+					builder.lower(root.<String> get("groupId")),
+					'%' + groupId.toLowerCase() + '%'));
 		}
-		String release = this.example.getRelease();
-		if (release != null && !"".equals(release)) {
+		String artifactId = this.example.getArtifactId();
+		if (artifactId != null && !"".equals(artifactId)) {
 			predicatesList.add(builder.like(
-					builder.lower(root.<String> get("release")),
-					'%' + release.toLowerCase() + '%'));
+					builder.lower(root.<String> get("artifactId")),
+					'%' + artifactId.toLowerCase() + '%'));
+		}
+		String version = this.example.getVersion();
+		if (version != null && !"".equals(version)) {
+			predicatesList.add(builder.like(
+					builder.lower(root.<String> get("version")),
+					'%' + version.toLowerCase() + '%'));
 		}
 		String codigo = this.example.getCodigo();
 		if (codigo != null && !"".equals(codigo)) {
 			predicatesList.add(builder.like(
 					builder.lower(root.<String> get("codigo")),
 					'%' + codigo.toLowerCase() + '%'));
-		}
-		String description = this.example.getDescription();
-		if (description != null && !"".equals(description)) {
-			predicatesList.add(builder.like(
-					builder.lower(root.<String> get("description")),
-					'%' + description.toLowerCase() + '%'));
 		}
 
 		return predicatesList.toArray(new Predicate[predicatesList.size()]);

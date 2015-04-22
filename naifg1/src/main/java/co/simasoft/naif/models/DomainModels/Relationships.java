@@ -1,6 +1,6 @@
-package co.simasoft.models.naif.DomainModels;
+package co.simasoft.naif.models.DomainModels;
 
-import co.simasoft.models.naif.DomainModels.*;
+import co.simasoft.naif.models.DomainModels.*;
 
 import java.util.*;
 
@@ -20,7 +20,7 @@ public class Relationships {
 
 	private String entity;
 
-	private boolean optionality;
+	private Boolean optionality;
 
 	private String name;
 
@@ -40,22 +40,10 @@ public class Relationships {
 
 	private String observaciones;
 
-	@OneToMany(mappedBy = "relationships")
-	private Set<PropertiesAttributes> propertiesAttributes = new HashSet<PropertiesAttributes>();
-
-	@ManyToOne
-	private Entities from;
-
-	@ManyToOne
-	private Entities to;
-
-	@ManyToOne
-	private Cardinalities cardinalities;
-
 	public Relationships() {
 	}
 
-	public Relationships(String entity, boolean optionality, String name,
+	public Relationships(String entity, Boolean optionality, String name,
 			String mappedby, String annotationsMethod, String annotationsField,
 			String tabla, String idTabla1, String idTabla2, String description,
 			String observaciones) {
@@ -83,23 +71,20 @@ public class Relationships {
 	public String getEntity() {
 		return entity;
 	}
-
 	public void setEntity(String entity) {
 		this.entity = entity;
 	}
 
-	public boolean getOptionality() {
+	public Boolean getOptionality() {
 		return optionality;
 	}
-
-	public void setOptionality(boolean optionality) {
+	public void setOptionality(Boolean optionality) {
 		this.optionality = optionality;
 	}
 
 	public String getName() {
 		return name;
 	}
-
 	public void setName(String name) {
 		this.name = name;
 	}
@@ -107,7 +92,6 @@ public class Relationships {
 	public String getMappedby() {
 		return mappedby;
 	}
-
 	public void setMappedby(String mappedby) {
 		this.mappedby = mappedby;
 	}
@@ -115,7 +99,6 @@ public class Relationships {
 	public String getAnnotationsMethod() {
 		return annotationsMethod;
 	}
-
 	public void setAnnotationsMethod(String annotationsMethod) {
 		this.annotationsMethod = annotationsMethod;
 	}
@@ -123,7 +106,6 @@ public class Relationships {
 	public String getAnnotationsField() {
 		return annotationsField;
 	}
-
 	public void setAnnotationsField(String annotationsField) {
 		this.annotationsField = annotationsField;
 	}
@@ -131,7 +113,6 @@ public class Relationships {
 	public String getTabla() {
 		return tabla;
 	}
-
 	public void setTabla(String tabla) {
 		this.tabla = tabla;
 	}
@@ -139,7 +120,6 @@ public class Relationships {
 	public String getIdTabla1() {
 		return idTabla1;
 	}
-
 	public void setIdTabla1(String idTabla1) {
 		this.idTabla1 = idTabla1;
 	}
@@ -147,7 +127,6 @@ public class Relationships {
 	public String getIdTabla2() {
 		return idTabla2;
 	}
-
 	public void setIdTabla2(String idTabla2) {
 		this.idTabla2 = idTabla2;
 	}
@@ -155,7 +134,6 @@ public class Relationships {
 	public String getDescription() {
 		return description;
 	}
-
 	public void setDescription(String description) {
 		this.description = description;
 	}
@@ -163,42 +141,8 @@ public class Relationships {
 	public String getObservaciones() {
 		return observaciones;
 	}
-
 	public void setObservaciones(String observaciones) {
 		this.observaciones = observaciones;
-	}
-
-	public Set<PropertiesAttributes> getPropertiesAttributes() {
-		return propertiesAttributes;
-	}
-
-	public void setPropertiesAttributes(
-			Set<PropertiesAttributes> propertiesAttributes) {
-		this.propertiesAttributes = propertiesAttributes;
-	}
-
-	public Entities getFrom() {
-		return from;
-	}
-
-	public void setFrom(Entities from) {
-		this.from = from;
-	}
-
-	public Entities getTo() {
-		return to;
-	}
-
-	public void setTo(Entities to) {
-		this.to = to;
-	}
-
-	public Cardinalities getCardinalities() {
-		return cardinalities;
-	}
-
-	public void setCardinalities(Cardinalities cardinalities) {
-		this.cardinalities = cardinalities;
 	}
 
 } // entity

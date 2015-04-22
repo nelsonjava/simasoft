@@ -35,6 +35,12 @@
 							<h:message for="entitiesBeanExampleName" styleClass="error"/>
 						</h:panelGroup>
 						<h:outputText/>
+						<h:outputLabel for="entitiesBeanExampleSerialID" value="Serial ID:"/>
+						<h:panelGroup>
+							<h:inputText id="entitiesBeanExampleSerialID" value="#{entitiesBean.example.serialID}"/>
+							<h:message for="entitiesBeanExampleSerialID" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
 						<h:outputLabel for="entitiesBeanExampleTabla" value="Tabla:"/>
 						<h:panelGroup>
 							<h:inputText id="entitiesBeanExampleTabla" value="#{entitiesBean.example.tabla}"/>
@@ -53,12 +59,6 @@
 							<h:message for="entitiesBeanExampleModifier" styleClass="error"/>
 						</h:panelGroup>
 						<h:outputText/>
-						<h:outputLabel for="entitiesBeanExampleExtend" value="Extend:"/>
-						<h:panelGroup>
-							<h:inputText id="entitiesBeanExampleExtend" value="#{entitiesBean.example.extend}"/>
-							<h:message for="entitiesBeanExampleExtend" styleClass="error"/>
-						</h:panelGroup>
-						<h:outputText/>
 					</h:panelGrid>
 					<h:panelGroup styleClass="buttons">
 						<h:commandLink value="Search" action='#{entitiesBean.search}' styleClass="btn btn-primary"/>
@@ -75,6 +75,15 @@
 					<h:link outcome="/admin/entities/view">
 						<f:param name="id" value="#{_item.id}"/>
 						<h:outputText id="itemName" value="#{_item.name}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Serial ID"/>
+					</f:facet>
+					<h:link outcome="/admin/entities/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemSerialID" value="#{_item.serialID}"/>
 					</h:link>
 				</h:column>
 				<h:column>
@@ -102,15 +111,6 @@
 					<h:link outcome="/admin/entities/view">
 						<f:param name="id" value="#{_item.id}"/>
 						<h:outputText id="itemModifier" value="#{_item.modifier}"/>
-					</h:link>
-				</h:column>
-				<h:column>
-					<f:facet name="header">
-						<h:outputText value="Extend"/>
-					</f:facet>
-					<h:link outcome="/admin/entities/view">
-						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemExtend" value="#{_item.extend}"/>
 					</h:link>
 				</h:column>
 			</h:dataTable>

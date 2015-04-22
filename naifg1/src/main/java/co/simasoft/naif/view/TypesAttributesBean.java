@@ -24,9 +24,7 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
-import co.simasoft.models.naif.DomainModels.TypesAttributes;
-import co.simasoft.models.naif.DomainModels.Attributes;
-import java.util.Iterator;
+import co.simasoft.naif.models.DomainModels.TypesAttributes;
 
 /**
  * Backing bean for TypesAttributes entities.
@@ -133,14 +131,7 @@ public class TypesAttributesBean implements Serializable {
 
 		try {
 			TypesAttributes deletableEntity = findById(getId());
-			Iterator<Attributes> iterAttributes = deletableEntity
-					.getAttributes().iterator();
-			for (; iterAttributes.hasNext();) {
-				Attributes nextInAttributes = iterAttributes.next();
-				nextInAttributes.setTypesAttributes(null);
-				iterAttributes.remove();
-				this.entityManager.merge(nextInAttributes);
-			}
+
 			this.entityManager.remove(deletableEntity);
 			this.entityManager.flush();
 			return "search?faces-redirect=true";

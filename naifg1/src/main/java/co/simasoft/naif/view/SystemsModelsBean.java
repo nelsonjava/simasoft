@@ -24,9 +24,7 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
-import co.simasoft.models.naif.DomainModels.SystemsModels;
-import co.simasoft.models.naif.DomainModels.FilesModels;
-import java.util.Iterator;
+import co.simasoft.naif.models.DomainModels.SystemsModels;
 
 /**
  * Backing bean for SystemsModels entities.
@@ -133,14 +131,7 @@ public class SystemsModelsBean implements Serializable {
 
 		try {
 			SystemsModels deletableEntity = findById(getId());
-			Iterator<FilesModels> iterFilesModels = deletableEntity
-					.getFilesModels().iterator();
-			for (; iterFilesModels.hasNext();) {
-				FilesModels nextInFilesModels = iterFilesModels.next();
-				nextInFilesModels.setSystemsModels(null);
-				iterFilesModels.remove();
-				this.entityManager.merge(nextInFilesModels);
-			}
+
 			this.entityManager.remove(deletableEntity);
 			this.entityManager.flush();
 			return "search?faces-redirect=true";
@@ -223,23 +214,17 @@ public class SystemsModelsBean implements Serializable {
 					builder.lower(root.<String> get("name")),
 					'%' + name.toLowerCase() + '%'));
 		}
-		String codigo = this.example.getCodigo();
-		if (codigo != null && !"".equals(codigo)) {
-			predicatesList.add(builder.like(
-					builder.lower(root.<String> get("codigo")),
-					'%' + codigo.toLowerCase() + '%'));
-		}
-		String release = this.example.getRelease();
-		if (release != null && !"".equals(release)) {
-			predicatesList.add(builder.like(
-					builder.lower(root.<String> get("release")),
-					'%' + release.toLowerCase() + '%'));
-		}
 		String description = this.example.getDescription();
 		if (description != null && !"".equals(description)) {
 			predicatesList.add(builder.like(
 					builder.lower(root.<String> get("description")),
 					'%' + description.toLowerCase() + '%'));
+		}
+		String observaciones = this.example.getObservaciones();
+		if (observaciones != null && !"".equals(observaciones)) {
+			predicatesList.add(builder.like(
+					builder.lower(root.<String> get("observaciones")),
+					'%' + observaciones.toLowerCase() + '%'));
 		}
 
 		return predicatesList.toArray(new Predicate[predicatesList.size()]);

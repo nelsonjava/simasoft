@@ -1,6 +1,6 @@
-package co.simasoft.models.naif.DomainModels;
+package co.simasoft.naif.models.DomainModels;
 
-import co.simasoft.models.naif.DomainModels.*;
+import co.simasoft.naif.models.DomainModels.*;
 
 import java.util.*;
 
@@ -24,12 +24,6 @@ public class LinksModels {
 
 	private String observacion;
 
-	@ManyToOne
-	private TiposLinksModels tiposLinksModels;
-
-	@ManyToOne
-	private DomainModels domainModels;
-
 	public LinksModels() {
 	}
 
@@ -50,7 +44,6 @@ public class LinksModels {
 	public String getTitulo() {
 		return titulo;
 	}
-
 	public void setTitulo(String titulo) {
 		this.titulo = titulo;
 	}
@@ -58,7 +51,6 @@ public class LinksModels {
 	public String getLink() {
 		return link;
 	}
-
 	public void setLink(String link) {
 		this.link = link;
 	}
@@ -66,25 +58,8 @@ public class LinksModels {
 	public String getObservacion() {
 		return observacion;
 	}
-
 	public void setObservacion(String observacion) {
 		this.observacion = observacion;
-	}
-
-	public TiposLinksModels getTiposLinksModels() {
-		return tiposLinksModels;
-	}
-
-	public void setTiposLinksModels(TiposLinksModels tiposLinksModels) {
-		this.tiposLinksModels = tiposLinksModels;
-	}
-
-	public DomainModels getDomainModels() {
-		return domainModels;
-	}
-
-	public void setDomainModels(DomainModels domainModels) {
-		this.domainModels = domainModels;
 	}
 
 } // entity

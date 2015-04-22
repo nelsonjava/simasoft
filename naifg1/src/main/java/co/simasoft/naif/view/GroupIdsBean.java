@@ -24,12 +24,12 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
-import co.simasoft.naif.models.DomainModels.NameQueries;
+import co.simasoft.naif.models.DomainModels.GroupIds;
 
 /**
- * Backing bean for NameQueries entities.
+ * Backing bean for GroupIds entities.
  * <p/>
- * This class provides CRUD functionality for all NameQueries entities. It focuses
+ * This class provides CRUD functionality for all GroupIds entities. It focuses
  * purely on Java EE 6 standards (e.g. <tt>&#64;ConversationScoped</tt> for
  * state management, <tt>PersistenceContext</tt> for persistence,
  * <tt>CriteriaBuilder</tt> for searches) rather than introducing a CRUD framework or
@@ -39,12 +39,12 @@ import co.simasoft.naif.models.DomainModels.NameQueries;
 @Named
 @Stateful
 @ConversationScoped
-public class NameQueriesBean implements Serializable {
+public class GroupIdsBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
 	/*
-	 * Support creating and retrieving NameQueries entities
+	 * Support creating and retrieving GroupIds entities
 	 */
 
 	private Long id;
@@ -57,14 +57,14 @@ public class NameQueriesBean implements Serializable {
 		this.id = id;
 	}
 
-	private NameQueries nameQueries;
+	private GroupIds groupIds;
 
-	public NameQueries getNameQueries() {
-		return this.nameQueries;
+	public GroupIds getGroupIds() {
+		return this.groupIds;
 	}
 
-	public void setNameQueries(NameQueries nameQueries) {
-		this.nameQueries = nameQueries;
+	public void setGroupIds(GroupIds groupIds) {
+		this.groupIds = groupIds;
 	}
 
 	@Inject
@@ -92,19 +92,19 @@ public class NameQueriesBean implements Serializable {
 		}
 
 		if (this.id == null) {
-			this.nameQueries = this.example;
+			this.groupIds = this.example;
 		} else {
-			this.nameQueries = findById(getId());
+			this.groupIds = findById(getId());
 		}
 	}
 
-	public NameQueries findById(Long id) {
+	public GroupIds findById(Long id) {
 
-		return this.entityManager.find(NameQueries.class, id);
+		return this.entityManager.find(GroupIds.class, id);
 	}
 
 	/*
-	 * Support updating and deleting NameQueries entities
+	 * Support updating and deleting GroupIds entities
 	 */
 
 	public String update() {
@@ -112,12 +112,11 @@ public class NameQueriesBean implements Serializable {
 
 		try {
 			if (this.id == null) {
-				this.entityManager.persist(this.nameQueries);
+				this.entityManager.persist(this.groupIds);
 				return "search?faces-redirect=true";
 			} else {
-				this.entityManager.merge(this.nameQueries);
-				return "view?faces-redirect=true&id="
-						+ this.nameQueries.getId();
+				this.entityManager.merge(this.groupIds);
+				return "view?faces-redirect=true&id=" + this.groupIds.getId();
 			}
 		} catch (Exception e) {
 			FacesContext.getCurrentInstance().addMessage(null,
@@ -130,7 +129,7 @@ public class NameQueriesBean implements Serializable {
 		this.conversation.end();
 
 		try {
-			NameQueries deletableEntity = findById(getId());
+			GroupIds deletableEntity = findById(getId());
 
 			this.entityManager.remove(deletableEntity);
 			this.entityManager.flush();
@@ -143,14 +142,14 @@ public class NameQueriesBean implements Serializable {
 	}
 
 	/*
-	 * Support searching NameQueries entities with pagination
+	 * Support searching GroupIds entities with pagination
 	 */
 
 	private int page;
 	private long count;
-	private List<NameQueries> pageItems;
+	private List<GroupIds> pageItems;
 
-	private NameQueries example = new NameQueries();
+	private GroupIds example = new GroupIds();
 
 	public int getPage() {
 		return this.page;
@@ -164,11 +163,11 @@ public class NameQueriesBean implements Serializable {
 		return 10;
 	}
 
-	public NameQueries getExample() {
+	public GroupIds getExample() {
 		return this.example;
 	}
 
-	public void setExample(NameQueries example) {
+	public void setExample(GroupIds example) {
 		this.example = example;
 	}
 
@@ -184,7 +183,7 @@ public class NameQueriesBean implements Serializable {
 		// Populate this.count
 
 		CriteriaQuery<Long> countCriteria = builder.createQuery(Long.class);
-		Root<NameQueries> root = countCriteria.from(NameQueries.class);
+		Root<GroupIds> root = countCriteria.from(GroupIds.class);
 		countCriteria = countCriteria.select(builder.count(root)).where(
 				getSearchPredicates(root));
 		this.count = this.entityManager.createQuery(countCriteria)
@@ -192,17 +191,16 @@ public class NameQueriesBean implements Serializable {
 
 		// Populate this.pageItems
 
-		CriteriaQuery<NameQueries> criteria = builder
-				.createQuery(NameQueries.class);
-		root = criteria.from(NameQueries.class);
-		TypedQuery<NameQueries> query = this.entityManager.createQuery(criteria
+		CriteriaQuery<GroupIds> criteria = builder.createQuery(GroupIds.class);
+		root = criteria.from(GroupIds.class);
+		TypedQuery<GroupIds> query = this.entityManager.createQuery(criteria
 				.select(root).where(getSearchPredicates(root)));
 		query.setFirstResult(this.page * getPageSize()).setMaxResults(
 				getPageSize());
 		this.pageItems = query.getResultList();
 	}
 
-	private Predicate[] getSearchPredicates(Root<NameQueries> root) {
+	private Predicate[] getSearchPredicates(Root<GroupIds> root) {
 
 		CriteriaBuilder builder = this.entityManager.getCriteriaBuilder();
 		List<Predicate> predicatesList = new ArrayList<Predicate>();
@@ -213,23 +211,35 @@ public class NameQueriesBean implements Serializable {
 					builder.lower(root.<String> get("name")),
 					'%' + name.toLowerCase() + '%'));
 		}
-		String query = this.example.getQuery();
-		if (query != null && !"".equals(query)) {
+		String groupId = this.example.getGroupId();
+		if (groupId != null && !"".equals(groupId)) {
 			predicatesList.add(builder.like(
-					builder.lower(root.<String> get("query")),
-					'%' + query.toLowerCase() + '%'));
+					builder.lower(root.<String> get("groupId")),
+					'%' + groupId.toLowerCase() + '%'));
 		}
-		String observaciones = this.example.getObservaciones();
-		if (observaciones != null && !"".equals(observaciones)) {
+		String artifactId = this.example.getArtifactId();
+		if (artifactId != null && !"".equals(artifactId)) {
 			predicatesList.add(builder.like(
-					builder.lower(root.<String> get("observaciones")),
-					'%' + observaciones.toLowerCase() + '%'));
+					builder.lower(root.<String> get("artifactId")),
+					'%' + artifactId.toLowerCase() + '%'));
+		}
+		String version = this.example.getVersion();
+		if (version != null && !"".equals(version)) {
+			predicatesList.add(builder.like(
+					builder.lower(root.<String> get("version")),
+					'%' + version.toLowerCase() + '%'));
+		}
+		String codigo = this.example.getCodigo();
+		if (codigo != null && !"".equals(codigo)) {
+			predicatesList.add(builder.like(
+					builder.lower(root.<String> get("codigo")),
+					'%' + codigo.toLowerCase() + '%'));
 		}
 
 		return predicatesList.toArray(new Predicate[predicatesList.size()]);
 	}
 
-	public List<NameQueries> getPageItems() {
+	public List<GroupIds> getPageItems() {
 		return this.pageItems;
 	}
 
@@ -238,17 +248,16 @@ public class NameQueriesBean implements Serializable {
 	}
 
 	/*
-	 * Support listing and POSTing back NameQueries entities (e.g. from inside an
+	 * Support listing and POSTing back GroupIds entities (e.g. from inside an
 	 * HtmlSelectOneMenu)
 	 */
 
-	public List<NameQueries> getAll() {
+	public List<GroupIds> getAll() {
 
-		CriteriaQuery<NameQueries> criteria = this.entityManager
-				.getCriteriaBuilder().createQuery(NameQueries.class);
+		CriteriaQuery<GroupIds> criteria = this.entityManager
+				.getCriteriaBuilder().createQuery(GroupIds.class);
 		return this.entityManager.createQuery(
-				criteria.select(criteria.from(NameQueries.class)))
-				.getResultList();
+				criteria.select(criteria.from(GroupIds.class))).getResultList();
 	}
 
 	@Resource
@@ -256,8 +265,8 @@ public class NameQueriesBean implements Serializable {
 
 	public Converter getConverter() {
 
-		final NameQueriesBean ejbProxy = this.sessionContext
-				.getBusinessObject(NameQueriesBean.class);
+		final GroupIdsBean ejbProxy = this.sessionContext
+				.getBusinessObject(GroupIdsBean.class);
 
 		return new Converter() {
 
@@ -276,7 +285,7 @@ public class NameQueriesBean implements Serializable {
 					return "";
 				}
 
-				return String.valueOf(((NameQueries) value).getId());
+				return String.valueOf(((GroupIds) value).getId());
 			}
 		};
 	}
@@ -285,15 +294,15 @@ public class NameQueriesBean implements Serializable {
 	 * Support adding children to bidirectional, one-to-many tables
 	 */
 
-	private NameQueries add = new NameQueries();
+	private GroupIds add = new GroupIds();
 
-	public NameQueries getAdd() {
+	public GroupIds getAdd() {
 		return this.add;
 	}
 
-	public NameQueries getAdded() {
-		NameQueries added = this.add;
-		this.add = new NameQueries();
+	public GroupIds getAdded() {
+		GroupIds added = this.add;
+		this.add = new GroupIds();
 		return added;
 	}
 }

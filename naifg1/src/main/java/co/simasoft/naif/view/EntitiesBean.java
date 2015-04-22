@@ -24,12 +24,7 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
-import co.simasoft.models.naif.DomainModels.Entities;
-import co.simasoft.models.naif.DomainModels.Attributes;
-import co.simasoft.models.naif.DomainModels.FilesModels;
-import co.simasoft.models.naif.DomainModels.NameQueries;
-import co.simasoft.models.naif.DomainModels.Relationships;
-import java.util.Iterator;
+import co.simasoft.naif.models.DomainModels.Entities;
 
 /**
  * Backing bean for Entities entities.
@@ -135,45 +130,7 @@ public class EntitiesBean implements Serializable {
 
 		try {
 			Entities deletableEntity = findById(getId());
-			Iterator<NameQueries> iterNameQueries = deletableEntity
-					.getNameQueries().iterator();
-			for (; iterNameQueries.hasNext();) {
-				NameQueries nextInNameQueries = iterNameQueries.next();
-				nextInNameQueries.setEntities(null);
-				iterNameQueries.remove();
-				this.entityManager.merge(nextInNameQueries);
-			}
-			Iterator<Relationships> iterFrom = deletableEntity.getFrom()
-					.iterator();
-			for (; iterFrom.hasNext();) {
-				Relationships nextInFrom = iterFrom.next();
-				nextInFrom.setFrom(null);
-				iterFrom.remove();
-				this.entityManager.merge(nextInFrom);
-			}
-			Iterator<Relationships> iterTo = deletableEntity.getTo().iterator();
-			for (; iterTo.hasNext();) {
-				Relationships nextInTo = iterTo.next();
-				nextInTo.setTo(null);
-				iterTo.remove();
-				this.entityManager.merge(nextInTo);
-			}
-			Iterator<FilesModels> iterFilesModels = deletableEntity
-					.getFilesModels().iterator();
-			for (; iterFilesModels.hasNext();) {
-				FilesModels nextInFilesModels = iterFilesModels.next();
-				nextInFilesModels.setEntities(null);
-				iterFilesModels.remove();
-				this.entityManager.merge(nextInFilesModels);
-			}
-			Iterator<Attributes> iterAttributes = deletableEntity
-					.getAttributes().iterator();
-			for (; iterAttributes.hasNext();) {
-				Attributes nextInAttributes = iterAttributes.next();
-				nextInAttributes.setEntities(null);
-				iterAttributes.remove();
-				this.entityManager.merge(nextInAttributes);
-			}
+
 			this.entityManager.remove(deletableEntity);
 			this.entityManager.flush();
 			return "search?faces-redirect=true";
@@ -254,6 +211,12 @@ public class EntitiesBean implements Serializable {
 					builder.lower(root.<String> get("name")),
 					'%' + name.toLowerCase() + '%'));
 		}
+		String serialID = this.example.getSerialID();
+		if (serialID != null && !"".equals(serialID)) {
+			predicatesList.add(builder.like(
+					builder.lower(root.<String> get("serialID")),
+					'%' + serialID.toLowerCase() + '%'));
+		}
 		String tabla = this.example.getTabla();
 		if (tabla != null && !"".equals(tabla)) {
 			predicatesList.add(builder.like(
@@ -271,12 +234,6 @@ public class EntitiesBean implements Serializable {
 			predicatesList.add(builder.like(
 					builder.lower(root.<String> get("modifier")),
 					'%' + modifier.toLowerCase() + '%'));
-		}
-		String extend = this.example.getExtend();
-		if (extend != null && !"".equals(extend)) {
-			predicatesList.add(builder.like(
-					builder.lower(root.<String> get("extend")),
-					'%' + extend.toLowerCase() + '%'));
 		}
 
 		return predicatesList.toArray(new Predicate[predicatesList.size()]);

@@ -397,6 +397,10 @@ public class App extends FileTxt{
         modelos.clear();
         modelos.add(new Modelos("pruebas","co.simasoft","prueba2"));
         generar("pruebas","co.simasoft","prueba2",modelos);
+        
+        modelos.clear();
+        modelos.add(new Modelos("pruebas","co.simasoft","prueba3"));
+        generar("pruebas","co.simasoft","prueba3",modelos);
 
         modelos.clear();
         modelos.add(new Modelos("naif","co.simasoft","DomainModels"));

@@ -24,9 +24,7 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
-import co.simasoft.models.naif.DomainModels.PropertiesAttributes;
-import co.simasoft.models.naif.DomainModels.Attributes;
-import co.simasoft.models.naif.DomainModels.Relationships;
+import co.simasoft.naif.models.DomainModels.PropertiesAttributes;
 
 /**
  * Backing bean for PropertiesAttributes entities.
@@ -134,14 +132,7 @@ public class PropertiesAttributesBean implements Serializable {
 
 		try {
 			PropertiesAttributes deletableEntity = findById(getId());
-			Relationships relationships = deletableEntity.getRelationships();
-			relationships.getPropertiesAttributes().remove(deletableEntity);
-			deletableEntity.setRelationships(null);
-			this.entityManager.merge(relationships);
-			Attributes attributes = deletableEntity.getAttributes();
-			attributes.getPropertiesAttributes().remove(deletableEntity);
-			deletableEntity.setAttributes(null);
-			this.entityManager.merge(attributes);
+
 			this.entityManager.remove(deletableEntity);
 			this.entityManager.flush();
 			return "search?faces-redirect=true";
@@ -236,16 +227,6 @@ public class PropertiesAttributesBean implements Serializable {
 			predicatesList.add(builder.like(
 					builder.lower(root.<String> get("observaciones")),
 					'%' + observaciones.toLowerCase() + '%'));
-		}
-		Relationships relationships = this.example.getRelationships();
-		if (relationships != null) {
-			predicatesList.add(builder.equal(root.get("relationships"),
-					relationships));
-		}
-		Attributes attributes = this.example.getAttributes();
-		if (attributes != null) {
-			predicatesList
-					.add(builder.equal(root.get("attributes"), attributes));
 		}
 
 		return predicatesList.toArray(new Predicate[predicatesList.size()]);

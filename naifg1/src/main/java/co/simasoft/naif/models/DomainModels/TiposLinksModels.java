@@ -1,6 +1,6 @@
-package co.simasoft.models.naif.DomainModels;
+package co.simasoft.naif.models.DomainModels;
 
-import co.simasoft.models.naif.DomainModels.*;
+import co.simasoft.naif.models.DomainModels.*;
 
 import java.util.*;
 
@@ -20,9 +20,6 @@ public class TiposLinksModels {
 
 	private String nombre;
 
-	@OneToMany(mappedBy = "tiposLinksModels")
-	private Set<LinksModels> linksModels = new HashSet<LinksModels>();
-
 	public TiposLinksModels() {
 	}
 
@@ -41,17 +38,8 @@ public class TiposLinksModels {
 	public String getNombre() {
 		return nombre;
 	}
-
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
-	}
-
-	public Set<LinksModels> getLinksModels() {
-		return linksModels;
-	}
-
-	public void setLinksModels(Set<LinksModels> linksModels) {
-		this.linksModels = linksModels;
 	}
 
 } // entity

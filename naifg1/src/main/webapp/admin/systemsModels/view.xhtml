@@ -4,7 +4,6 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:forgeview="http://jboss.org/forge/view"
 	template="/resources/scaffold/pageTemplate.xhtml">
 
 	<f:metadata>
@@ -29,81 +28,11 @@
 			<h:outputLabel for="systemsModelsBeanSystemsModelsName" value="Name:"/>
 			<h:outputText id="systemsModelsBeanSystemsModelsName" value="#{systemsModelsBean.systemsModels.name}"/>
 			<h:outputText/>
-			<h:outputLabel for="systemsModelsBeanSystemsModelsCodigo" value="Codigo:"/>
-			<h:outputText id="systemsModelsBeanSystemsModelsCodigo" value="#{systemsModelsBean.systemsModels.codigo}"/>
-			<h:outputText/>
-			<h:outputLabel for="systemsModelsBeanSystemsModelsRelease" value="Release:"/>
-			<h:outputText id="systemsModelsBeanSystemsModelsRelease" value="#{systemsModelsBean.systemsModels.release}"/>
-			<h:outputText/>
-			<h:outputLabel for="systemsModelsBeanSystemsModelsFecha" value="Fecha:"/>
-			<h:outputText id="systemsModelsBeanSystemsModelsFecha" value="#{systemsModelsBean.systemsModels.fecha}">
-				<f:convertDateTime/>
-			</h:outputText>
-			<h:outputText/>
 			<h:outputLabel for="systemsModelsBeanSystemsModelsDescription" value="Description:"/>
 			<h:outputText id="systemsModelsBeanSystemsModelsDescription" value="#{systemsModelsBean.systemsModels.description}"/>
 			<h:outputText/>
-			<h:outputLabel for="systemsModelsBeanSystemsModelsDomainModels" value="Domain Models:"/>
-			<h:dataTable id="systemsModelsBeanSystemsModelsDomainModels" styleClass="data-table" value="#{forgeview:asList(systemsModelsBean.systemsModels.domainModels)}" var="_item">
-				<h:column>
-					<f:facet name="header">
-						<h:outputText value="Domain Models"/>
-					</f:facet>
-					<h:link outcome="/admin/domainModels/view">
-						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText value="#{_item}"/>
-					</h:link>
-				</h:column>
-			</h:dataTable>
-			<h:outputText/>
-			<h:outputLabel for="systemsModelsBeanSystemsModelsFilesModels" value="Files Models:"/>
-			<h:dataTable id="systemsModelsBeanSystemsModelsFilesModels" styleClass="data-table" value="#{forgeview:asList(systemsModelsBean.systemsModels.filesModels)}" var="_item">
-				<h:column>
-					<f:facet name="header">
-						<h:outputText value="Codigo"/>
-					</f:facet>
-					<h:link outcome="/admin/filesModels/view">
-						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemCodigo" value="#{_item.codigo}"/>
-					</h:link>
-				</h:column>
-				<h:column>
-					<f:facet name="header">
-						<h:outputText value="Archivo"/>
-					</f:facet>
-					<h:link outcome="/admin/filesModels/view">
-						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemArchivo" value="#{_item.archivo}"/>
-					</h:link>
-				</h:column>
-				<h:column>
-					<f:facet name="header">
-						<h:outputText value="Extension"/>
-					</f:facet>
-					<h:link outcome="/admin/filesModels/view">
-						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemExtension" value="#{_item.extension}"/>
-					</h:link>
-				</h:column>
-				<h:column>
-					<f:facet name="header">
-						<h:outputText value="Data"/>
-					</f:facet>
-					<h:link outcome="/admin/filesModels/view">
-						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemData" value="#{_item.data}"/>
-					</h:link>
-				</h:column>
-				<h:column>
-					<f:facet name="header">
-						<h:outputText value="Type"/>
-					</f:facet>
-					<h:link outcome="/admin/filesModels/view">
-						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemType" value="#{_item.type}"/>
-					</h:link>
-				</h:column>
-			</h:dataTable>
+			<h:outputLabel for="systemsModelsBeanSystemsModelsObservaciones" value="Observaciones:"/>
+			<h:outputText id="systemsModelsBeanSystemsModelsObservaciones" value="#{systemsModelsBean.systemsModels.observaciones}"/>
 			<h:outputText/>
 		</h:panelGrid>
 

@@ -24,9 +24,7 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
-import co.simasoft.models.naif.DomainModels.TiposLinksModels;
-import co.simasoft.models.naif.DomainModels.LinksModels;
-import java.util.Iterator;
+import co.simasoft.naif.models.DomainModels.TiposLinksModels;
 
 /**
  * Backing bean for TiposLinksModels entities.
@@ -133,14 +131,7 @@ public class TiposLinksModelsBean implements Serializable {
 
 		try {
 			TiposLinksModels deletableEntity = findById(getId());
-			Iterator<LinksModels> iterLinksModels = deletableEntity
-					.getLinksModels().iterator();
-			for (; iterLinksModels.hasNext();) {
-				LinksModels nextInLinksModels = iterLinksModels.next();
-				nextInLinksModels.setTiposLinksModels(null);
-				iterLinksModels.remove();
-				this.entityManager.merge(nextInLinksModels);
-			}
+
 			this.entityManager.remove(deletableEntity);
 			this.entityManager.flush();
 			return "search?faces-redirect=true";

@@ -34,16 +34,6 @@
 			<h:outputLabel for="linksModelsBeanLinksModelsObservacion" value="Observacion:"/>
 			<h:outputText id="linksModelsBeanLinksModelsObservacion" value="#{linksModelsBean.linksModels.observacion}"/>
 			<h:outputText/>
-			<h:outputLabel for="linksModelsBeanLinksModelsTiposLinksModels" value="Tipos Links Models:"/>
-			<h:link id="linksModelsBeanLinksModelsTiposLinksModels" outcome="/admin/tiposLinksModels/view" rendered="#{!empty linksModelsBean.linksModels.tiposLinksModels}" value="#{linksModelsBean.linksModels.tiposLinksModels}">
-				<f:param name="id" value="#{linksModelsBean.linksModels.tiposLinksModels.id}"/>
-			</h:link>
-			<h:outputText/>
-			<h:outputLabel for="linksModelsBeanLinksModelsDomainModels" value="Domain Models:"/>
-			<h:link id="linksModelsBeanLinksModelsDomainModels" outcome="/admin/domainModels/view" rendered="#{!empty linksModelsBean.linksModels.domainModels}" value="#{linksModelsBean.linksModels.domainModels}">
-				<f:param name="id" value="#{linksModelsBean.linksModels.domainModels.id}"/>
-			</h:link>
-			<h:outputText/>
 		</h:panelGrid>
 
 		<div class="buttons">

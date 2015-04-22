@@ -34,11 +34,6 @@
 			<h:outputLabel for="nameQueriesBeanNameQueriesObservaciones" value="Observaciones:"/>
 			<h:outputText id="nameQueriesBeanNameQueriesObservaciones" value="#{nameQueriesBean.nameQueries.observaciones}"/>
 			<h:outputText/>
-			<h:outputLabel for="nameQueriesBeanNameQueriesEntities" value="Entities:"/>
-			<h:link id="nameQueriesBeanNameQueriesEntities" outcome="/admin/entities/view" rendered="#{!empty nameQueriesBean.nameQueries.entities}" value="#{nameQueriesBean.nameQueries.entities}">
-				<f:param name="id" value="#{nameQueriesBean.nameQueries.entities.id}"/>
-			</h:link>
-			<h:outputText/>
 		</h:panelGrid>
 
 		<div class="buttons">
