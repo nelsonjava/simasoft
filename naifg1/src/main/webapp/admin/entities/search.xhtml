@@ -29,10 +29,16 @@
 				<h:panelGroup styleClass="search">
 
 					<h:panelGrid columnClasses="label,component,required" columns="3">
-						<h:outputLabel for="entitiesBeanExampleOrden" value="Orden:"/>
+						<h:outputLabel for="entitiesBeanExampleName" value="Name:"/>
 						<h:panelGroup>
-							<h:inputText id="entitiesBeanExampleOrden" value="#{entitiesBean.example.orden}"/>
-							<h:message for="entitiesBeanExampleOrden" styleClass="error"/>
+							<h:inputText id="entitiesBeanExampleName" value="#{entitiesBean.example.name}"/>
+							<h:message for="entitiesBeanExampleName" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="entitiesBeanExampleTabla" value="Tabla:"/>
+						<h:panelGroup>
+							<h:inputText id="entitiesBeanExampleTabla" value="#{entitiesBean.example.tabla}"/>
+							<h:message for="entitiesBeanExampleTabla" styleClass="error"/>
 						</h:panelGroup>
 						<h:outputText/>
 						<h:outputLabel for="entitiesBeanExampleTablaSecuencia" value="Tabla Secuencia:"/>
@@ -41,22 +47,16 @@
 							<h:message for="entitiesBeanExampleTablaSecuencia" styleClass="error"/>
 						</h:panelGroup>
 						<h:outputText/>
-						<h:outputLabel for="entitiesBeanExampleImports" value="Imports:"/>
+						<h:outputLabel for="entitiesBeanExampleModifier" value="Modifier:"/>
 						<h:panelGroup>
-							<h:inputText id="entitiesBeanExampleImports" value="#{entitiesBean.example.imports}"/>
-							<h:message for="entitiesBeanExampleImports" styleClass="error"/>
+							<h:inputText id="entitiesBeanExampleModifier" value="#{entitiesBean.example.modifier}"/>
+							<h:message for="entitiesBeanExampleModifier" styleClass="error"/>
 						</h:panelGroup>
 						<h:outputText/>
-						<h:outputLabel for="entitiesBeanExampleSerialID" value="Serial ID:"/>
+						<h:outputLabel for="entitiesBeanExampleExtend" value="Extend:"/>
 						<h:panelGroup>
-							<h:inputText id="entitiesBeanExampleSerialID" value="#{entitiesBean.example.serialID}"/>
-							<h:message for="entitiesBeanExampleSerialID" styleClass="error"/>
-						</h:panelGroup>
-						<h:outputText/>
-						<h:outputLabel for="entitiesBeanExampleSource" value="Source:"/>
-						<h:panelGroup>
-							<h:inputText id="entitiesBeanExampleSource" value="#{entitiesBean.example.source}"/>
-							<h:message for="entitiesBeanExampleSource" styleClass="error"/>
+							<h:inputText id="entitiesBeanExampleExtend" value="#{entitiesBean.example.extend}"/>
+							<h:message for="entitiesBeanExampleExtend" styleClass="error"/>
 						</h:panelGroup>
 						<h:outputText/>
 					</h:panelGrid>
@@ -70,11 +70,20 @@
 			<h:dataTable id="entitiesBeanPageItems" styleClass="data-table" value="#{entitiesBean.pageItems}" var="_item">
 				<h:column>
 					<f:facet name="header">
-						<h:outputText value="Orden"/>
+						<h:outputText value="Name"/>
 					</f:facet>
 					<h:link outcome="/admin/entities/view">
 						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemOrden" value="#{_item.orden}"/>
+						<h:outputText id="itemName" value="#{_item.name}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Tabla"/>
+					</f:facet>
+					<h:link outcome="/admin/entities/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemTabla" value="#{_item.tabla}"/>
 					</h:link>
 				</h:column>
 				<h:column>
@@ -88,29 +97,20 @@
 				</h:column>
 				<h:column>
 					<f:facet name="header">
-						<h:outputText value="Imports"/>
+						<h:outputText value="Modifier"/>
 					</f:facet>
 					<h:link outcome="/admin/entities/view">
 						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemImports" value="#{_item.imports}"/>
+						<h:outputText id="itemModifier" value="#{_item.modifier}"/>
 					</h:link>
 				</h:column>
 				<h:column>
 					<f:facet name="header">
-						<h:outputText value="Serial ID"/>
+						<h:outputText value="Extend"/>
 					</f:facet>
 					<h:link outcome="/admin/entities/view">
 						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemSerialID" value="#{_item.serialID}"/>
-					</h:link>
-				</h:column>
-				<h:column>
-					<f:facet name="header">
-						<h:outputText value="Source"/>
-					</f:facet>
-					<h:link outcome="/admin/entities/view">
-						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemSource" value="#{_item.source}"/>
+						<h:outputText id="itemExtend" value="#{_item.extend}"/>
 					</h:link>
 				</h:column>
 			</h:dataTable>

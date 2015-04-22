@@ -37,74 +37,10 @@
 			<h:messages globalOnly="true" styleClass="error"/>
 
 			<h:panelGrid columnClasses="label,component,required" columns="3">
-				<h:outputLabel for="attributesBeanAttributesOrden" value="Orden:"/>
-				<h:panelGroup>
-					<h:inputText id="attributesBeanAttributesOrden" value="#{attributesBean.attributes.orden}"/>
-					<h:message for="attributesBeanAttributesOrden" styleClass="error"/>
-				</h:panelGroup>
-				<h:outputText/>
-				<h:outputLabel for="attributesBeanAttributesAnnotationsField" value="Annotations Field:"/>
-				<h:panelGroup>
-					<h:inputText id="attributesBeanAttributesAnnotationsField" value="#{attributesBean.attributes.annotationsField}"/>
-					<h:message for="attributesBeanAttributesAnnotationsField" styleClass="error"/>
-				</h:panelGroup>
-				<h:outputText/>
-				<h:outputLabel for="attributesBeanAttributesObservaciones" value="Observaciones:"/>
-				<h:panelGroup>
-					<h:inputText id="attributesBeanAttributesObservaciones" value="#{attributesBean.attributes.observaciones}"/>
-					<h:message for="attributesBeanAttributesObservaciones" styleClass="error"/>
-				</h:panelGroup>
-				<h:outputText/>
-				<h:outputLabel for="attributesBeanAttributesField" value="Field:"/>
-				<h:panelGroup>
-					<h:inputText id="attributesBeanAttributesField" value="#{attributesBean.attributes.field}"/>
-					<h:message for="attributesBeanAttributesField" styleClass="error"/>
-				</h:panelGroup>
-				<h:outputText/>
-				<h:outputLabel for="attributesBeanAttributesDescripcion" value="Descripcion:"/>
-				<h:panelGroup>
-					<h:inputText id="attributesBeanAttributesDescripcion" value="#{attributesBean.attributes.descripcion}"/>
-					<h:message for="attributesBeanAttributesDescripcion" styleClass="error"/>
-				</h:panelGroup>
-				<h:outputText/>
-				<h:outputLabel for="attributesBeanAttributesColumnDefinition" value="Column Definition:"/>
-				<h:panelGroup>
-					<h:inputText id="attributesBeanAttributesColumnDefinition" value="#{attributesBean.attributes.columnDefinition}"/>
-					<h:message for="attributesBeanAttributesColumnDefinition" styleClass="error"/>
-				</h:panelGroup>
-				<h:outputText/>
 				<h:outputLabel for="attributesBeanAttributesName" value="Name:"/>
 				<h:panelGroup>
 					<h:inputText id="attributesBeanAttributesName" value="#{attributesBean.attributes.name}"/>
 					<h:message for="attributesBeanAttributesName" styleClass="error"/>
-				</h:panelGroup>
-				<h:outputText/>
-				<h:outputLabel for="attributesBeanAttributesAnnotationsMethod" value="Annotations Method:"/>
-				<h:panelGroup>
-					<h:inputText id="attributesBeanAttributesAnnotationsMethod" value="#{attributesBean.attributes.annotationsMethod}"/>
-					<h:message for="attributesBeanAttributesAnnotationsMethod" styleClass="error"/>
-				</h:panelGroup>
-				<h:outputText/>
-				<h:outputLabel for="attributesBeanAttributesLength" value="Length:"/>
-				<h:panelGroup>
-					<h:inputText id="attributesBeanAttributesLength" value="#{attributesBean.attributes.length}"/>
-					<h:message for="attributesBeanAttributesLength" styleClass="error"/>
-				</h:panelGroup>
-				<h:outputText/>
-				<h:outputLabel for="attributesBeanAttributesAccess" value="Access:"/>
-				<h:panelGroup>
-					<h:inputText id="attributesBeanAttributesAccess" value="#{attributesBean.attributes.access}"/>
-					<h:message for="attributesBeanAttributesAccess" styleClass="error"/>
-				</h:panelGroup>
-				<h:outputText/>
-				<h:outputLabel for="attributesBeanAttributesUnico" value="Unico:"/>
-				<h:panelGroup>
-					<h:selectOneMenu id="attributesBeanAttributesUnico" value="#{attributesBean.attributes.unico}">
-						<f:selectItem/>
-						<f:selectItem itemLabel="Yes" itemValue="true"/>
-						<f:selectItem itemLabel="No" itemValue="false"/>
-					</h:selectOneMenu>
-					<h:message for="attributesBeanAttributesUnico" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
 				<h:outputLabel for="attributesBeanAttributesType" value="Type:"/>
@@ -113,14 +49,10 @@
 					<h:message for="attributesBeanAttributesType" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
-				<h:outputLabel for="attributesBeanAttributesNullable" value="Nullable:"/>
+				<h:outputLabel for="attributesBeanAttributesLength" value="Length:"/>
 				<h:panelGroup>
-					<h:selectOneMenu id="attributesBeanAttributesNullable" value="#{attributesBean.attributes.nullable}">
-						<f:selectItem/>
-						<f:selectItem itemLabel="Yes" itemValue="true"/>
-						<f:selectItem itemLabel="No" itemValue="false"/>
-					</h:selectOneMenu>
-					<h:message for="attributesBeanAttributesNullable" styleClass="error"/>
+					<h:inputText id="attributesBeanAttributesLength" value="#{attributesBean.attributes.length}"/>
+					<h:message for="attributesBeanAttributesLength" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
 				<h:outputLabel for="attributesBeanAttributesPrecision" value="Precision:"/>
@@ -129,36 +61,82 @@
 					<h:message for="attributesBeanAttributesPrecision" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
+				<h:outputLabel for="attributesBeanAttributesNullable" value="Nullable:"/>
+				<h:panelGroup>
+					<h:selectBooleanCheckbox id="attributesBeanAttributesNullable" value="#{attributesBean.attributes.nullable}"/>
+					<h:message for="attributesBeanAttributesNullable" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="attributesBeanAttributesUnico" value="Unico:"/>
+				<h:panelGroup>
+					<h:selectBooleanCheckbox id="attributesBeanAttributesUnico" value="#{attributesBean.attributes.unico}"/>
+					<h:message for="attributesBeanAttributesUnico" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="attributesBeanAttributesDescripcion" value="Descripcion:"/>
+				<h:panelGroup>
+					<h:inputText id="attributesBeanAttributesDescripcion" value="#{attributesBean.attributes.descripcion}"/>
+					<h:message for="attributesBeanAttributesDescripcion" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="attributesBeanAttributesField" value="Field:"/>
+				<h:panelGroup>
+					<h:inputText id="attributesBeanAttributesField" value="#{attributesBean.attributes.field}"/>
+					<h:message for="attributesBeanAttributesField" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="attributesBeanAttributesAccess" value="Access:"/>
+				<h:panelGroup>
+					<h:inputText id="attributesBeanAttributesAccess" value="#{attributesBean.attributes.access}"/>
+					<h:message for="attributesBeanAttributesAccess" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="attributesBeanAttributesColumnDefinition" value="Column Definition:"/>
+				<h:panelGroup>
+					<h:inputText id="attributesBeanAttributesColumnDefinition" value="#{attributesBean.attributes.columnDefinition}"/>
+					<h:message for="attributesBeanAttributesColumnDefinition" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="attributesBeanAttributesAnnotationsField" value="Annotations Field:"/>
+				<h:panelGroup>
+					<h:inputText id="attributesBeanAttributesAnnotationsField" value="#{attributesBean.attributes.annotationsField}"/>
+					<h:message for="attributesBeanAttributesAnnotationsField" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="attributesBeanAttributesAnnotationsMethod" value="Annotations Method:"/>
+				<h:panelGroup>
+					<h:inputText id="attributesBeanAttributesAnnotationsMethod" value="#{attributesBean.attributes.annotationsMethod}"/>
+					<h:message for="attributesBeanAttributesAnnotationsMethod" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="attributesBeanAttributesObservaciones" value="Observaciones:"/>
+				<h:panelGroup>
+					<h:inputText id="attributesBeanAttributesObservaciones" value="#{attributesBean.attributes.observaciones}"/>
+					<h:message for="attributesBeanAttributesObservaciones" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="attributesBeanAttributesTypesAttributes" value="Types Attributes:"/>
+				<h:panelGroup>
+					<h:selectOneMenu converter="#{typesAttributesBean.converter}" id="attributesBeanAttributesTypesAttributes" value="#{attributesBean.attributes.typesAttributes}">
+						<f:selectItem/>
+						<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{typesAttributesBean.all}" var="_item"/>
+					</h:selectOneMenu>
+					<h:message for="attributesBeanAttributesTypesAttributes" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="attributesBeanAttributesEntities" value="Entities:"/>
+				<h:panelGroup>
+					<h:selectOneMenu converter="#{entitiesBean.converter}" id="attributesBeanAttributesEntities" value="#{attributesBean.attributes.entities}">
+						<f:selectItem/>
+						<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{entitiesBean.all}" var="_item"/>
+					</h:selectOneMenu>
+					<h:message for="attributesBeanAttributesEntities" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
 				<h:outputLabel for="attributesBeanAttributesPropertiesAttributes" value="Properties Attributes:"/>
 				<h:panelGroup>
 					<ui:param name="_collection" value="#{attributesBean.attributes.propertiesAttributes}"/>
 					<h:dataTable id="attributesBeanAttributesPropertiesAttributes" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
-						<h:column>
-							<f:facet name="header">
-								<h:outputText value="Orden"/>
-							</f:facet>
-							<h:link outcome="/admin/propertiesAttributes/view">
-								<f:param name="id" value="#{_item.id}"/>
-								<h:outputText id="itemOrden" value="#{_item.orden}"/>
-							</h:link>
-							<f:facet name="footer">
-								<h:inputText id="propertiesAttributesBeanAddOrden" value="#{propertiesAttributesBean.add.orden}"/>
-								<h:message for="propertiesAttributesBeanAddOrden" styleClass="error"/>
-							</f:facet>
-						</h:column>
-						<h:column>
-							<f:facet name="header">
-								<h:outputText value="Observaciones"/>
-							</f:facet>
-							<h:link outcome="/admin/propertiesAttributes/view">
-								<f:param name="id" value="#{_item.id}"/>
-								<h:outputText id="itemObservaciones" value="#{_item.observaciones}"/>
-							</h:link>
-							<f:facet name="footer">
-								<h:inputText id="propertiesAttributesBeanAddObservaciones" value="#{propertiesAttributesBean.add.observaciones}"/>
-								<h:message for="propertiesAttributesBeanAddObservaciones" styleClass="error"/>
-							</f:facet>
-						</h:column>
 						<h:column>
 							<f:facet name="header">
 								<h:outputText value="Name"/>
@@ -187,6 +165,19 @@
 						</h:column>
 						<h:column>
 							<f:facet name="header">
+								<h:outputText value="Observaciones"/>
+							</f:facet>
+							<h:link outcome="/admin/propertiesAttributes/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemObservaciones" value="#{_item.observaciones}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="propertiesAttributesBeanAddObservaciones" value="#{propertiesAttributesBean.add.observaciones}"/>
+								<h:message for="propertiesAttributesBeanAddObservaciones" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
 								<h:outputText value="Relationships"/>
 							</f:facet>
 							<h:link outcome="/admin/propertiesAttributes/view">
@@ -210,24 +201,6 @@
 							</f:facet>
 						</h:column>
 					</h:dataTable>
-				</h:panelGroup>
-				<h:outputText/>
-				<h:outputLabel for="attributesBeanAttributesEntities" value="Entities:"/>
-				<h:panelGroup>
-					<h:selectOneMenu converter="#{entitiesBean.converter}" id="attributesBeanAttributesEntities" value="#{attributesBean.attributes.entities}">
-						<f:selectItem/>
-						<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{entitiesBean.all}" var="_item"/>
-					</h:selectOneMenu>
-					<h:message for="attributesBeanAttributesEntities" styleClass="error"/>
-				</h:panelGroup>
-				<h:outputText/>
-				<h:outputLabel for="attributesBeanAttributesTypesAttributes" value="Types Attributes:"/>
-				<h:panelGroup>
-					<h:selectOneMenu converter="#{typesAttributesBean.converter}" id="attributesBeanAttributesTypesAttributes" value="#{attributesBean.attributes.typesAttributes}">
-						<f:selectItem/>
-						<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{typesAttributesBean.all}" var="_item"/>
-					</h:selectOneMenu>
-					<h:message for="attributesBeanAttributesTypesAttributes" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
 			</h:panelGrid>

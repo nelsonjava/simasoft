@@ -146,7 +146,7 @@ public EntityH2(String artifactId,String groupId,Entidad entity,LinkedHashSet<St
               }
               else{
                  line("    @ManyToOne");
-                 if(relation.getName() == null){
+                 if(relation.getName() == null  || true){
                    line("    private "+relation.getTo()+" "+Utils._1raMin(relation.getTo())+";\n");
                  }
                  else{
@@ -164,7 +164,7 @@ public EntityH2(String artifactId,String groupId,Entidad entity,LinkedHashSet<St
                 line("    private Set<"+relation.getTo()+"> objHijos = new HashSet<"+relation.getTo()+">();\n");
               }
               else{
-                if(relation.getName() == null){
+                if(relation.getName() == null || true){
                   line("    @OneToMany(mappedBy = \""+Utils._1raMin(entity.getName())+"\")");
                   line("    private Set<"+relation.getTo()+"> "+Utils._1raMin(relation.getTo())+" = new HashSet<"+relation.getTo()+">();\n");
                 }

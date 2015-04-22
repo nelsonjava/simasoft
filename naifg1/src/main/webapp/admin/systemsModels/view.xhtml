@@ -26,14 +26,19 @@
 
 	<ui:define name="main">
 		<h:panelGrid columnClasses="label,component,required" columns="3">
-			<h:outputLabel for="systemsModelsBeanSystemsModelsOrden" value="Orden:"/>
-			<h:outputText id="systemsModelsBeanSystemsModelsOrden" value="#{systemsModelsBean.systemsModels.orden}"/>
-			<h:outputText/>
-			<h:outputLabel for="systemsModelsBeanSystemsModelsObservaciones" value="Observaciones:"/>
-			<h:outputText id="systemsModelsBeanSystemsModelsObservaciones" value="#{systemsModelsBean.systemsModels.observaciones}"/>
-			<h:outputText/>
 			<h:outputLabel for="systemsModelsBeanSystemsModelsName" value="Name:"/>
 			<h:outputText id="systemsModelsBeanSystemsModelsName" value="#{systemsModelsBean.systemsModels.name}"/>
+			<h:outputText/>
+			<h:outputLabel for="systemsModelsBeanSystemsModelsCodigo" value="Codigo:"/>
+			<h:outputText id="systemsModelsBeanSystemsModelsCodigo" value="#{systemsModelsBean.systemsModels.codigo}"/>
+			<h:outputText/>
+			<h:outputLabel for="systemsModelsBeanSystemsModelsRelease" value="Release:"/>
+			<h:outputText id="systemsModelsBeanSystemsModelsRelease" value="#{systemsModelsBean.systemsModels.release}"/>
+			<h:outputText/>
+			<h:outputLabel for="systemsModelsBeanSystemsModelsFecha" value="Fecha:"/>
+			<h:outputText id="systemsModelsBeanSystemsModelsFecha" value="#{systemsModelsBean.systemsModels.fecha}">
+				<f:convertDateTime/>
+			</h:outputText>
 			<h:outputText/>
 			<h:outputLabel for="systemsModelsBeanSystemsModelsDescription" value="Description:"/>
 			<h:outputText id="systemsModelsBeanSystemsModelsDescription" value="#{systemsModelsBean.systemsModels.description}"/>
@@ -55,15 +60,6 @@
 			<h:dataTable id="systemsModelsBeanSystemsModelsFilesModels" styleClass="data-table" value="#{forgeview:asList(systemsModelsBean.systemsModels.filesModels)}" var="_item">
 				<h:column>
 					<f:facet name="header">
-						<h:outputText value="Orden"/>
-					</f:facet>
-					<h:link outcome="/admin/filesModels/view">
-						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemOrden" value="#{_item.orden}"/>
-					</h:link>
-				</h:column>
-				<h:column>
-					<f:facet name="header">
 						<h:outputText value="Codigo"/>
 					</f:facet>
 					<h:link outcome="/admin/filesModels/view">
@@ -82,11 +78,20 @@
 				</h:column>
 				<h:column>
 					<f:facet name="header">
-						<h:outputText value="Observacion"/>
+						<h:outputText value="Extension"/>
 					</f:facet>
 					<h:link outcome="/admin/filesModels/view">
 						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemObservacion" value="#{_item.observacion}"/>
+						<h:outputText id="itemExtension" value="#{_item.extension}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Data"/>
+					</f:facet>
+					<h:link outcome="/admin/filesModels/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemData" value="#{_item.data}"/>
 					</h:link>
 				</h:column>
 				<h:column>

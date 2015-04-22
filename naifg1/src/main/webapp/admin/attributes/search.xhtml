@@ -29,28 +29,28 @@
 				<h:panelGroup styleClass="search">
 
 					<h:panelGrid columnClasses="label,component,required" columns="3">
-						<h:outputLabel for="attributesBeanExampleOrden" value="Orden:"/>
+						<h:outputLabel for="attributesBeanExampleName" value="Name:"/>
 						<h:panelGroup>
-							<h:inputText id="attributesBeanExampleOrden" value="#{attributesBean.example.orden}"/>
-							<h:message for="attributesBeanExampleOrden" styleClass="error"/>
+							<h:inputText id="attributesBeanExampleName" value="#{attributesBean.example.name}"/>
+							<h:message for="attributesBeanExampleName" styleClass="error"/>
 						</h:panelGroup>
 						<h:outputText/>
-						<h:outputLabel for="attributesBeanExampleAnnotationsField" value="Annotations Field:"/>
+						<h:outputLabel for="attributesBeanExampleType" value="Type:"/>
 						<h:panelGroup>
-							<h:inputText id="attributesBeanExampleAnnotationsField" value="#{attributesBean.example.annotationsField}"/>
-							<h:message for="attributesBeanExampleAnnotationsField" styleClass="error"/>
+							<h:inputText id="attributesBeanExampleType" value="#{attributesBean.example.type}"/>
+							<h:message for="attributesBeanExampleType" styleClass="error"/>
 						</h:panelGroup>
 						<h:outputText/>
-						<h:outputLabel for="attributesBeanExampleObservaciones" value="Observaciones:"/>
+						<h:outputLabel for="attributesBeanExampleLength" value="Length:"/>
 						<h:panelGroup>
-							<h:inputText id="attributesBeanExampleObservaciones" value="#{attributesBean.example.observaciones}"/>
-							<h:message for="attributesBeanExampleObservaciones" styleClass="error"/>
+							<h:inputText id="attributesBeanExampleLength" value="#{attributesBean.example.length}"/>
+							<h:message for="attributesBeanExampleLength" styleClass="error"/>
 						</h:panelGroup>
 						<h:outputText/>
-						<h:outputLabel for="attributesBeanExampleField" value="Field:"/>
+						<h:outputLabel for="attributesBeanExamplePrecision" value="Precision:"/>
 						<h:panelGroup>
-							<h:inputText id="attributesBeanExampleField" value="#{attributesBean.example.field}"/>
-							<h:message for="attributesBeanExampleField" styleClass="error"/>
+							<h:inputText id="attributesBeanExamplePrecision" value="#{attributesBean.example.precision}"/>
+							<h:message for="attributesBeanExamplePrecision" styleClass="error"/>
 						</h:panelGroup>
 						<h:outputText/>
 						<h:outputLabel for="attributesBeanExampleDescripcion" value="Descripcion:"/>
@@ -70,47 +70,47 @@
 			<h:dataTable id="attributesBeanPageItems" styleClass="data-table" value="#{attributesBean.pageItems}" var="_item">
 				<h:column>
 					<f:facet name="header">
-						<h:outputText value="Orden"/>
+						<h:outputText value="Name"/>
 					</f:facet>
 					<h:link outcome="/admin/attributes/view">
 						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemOrden" value="#{_item.orden}"/>
+						<h:outputText id="itemName" value="#{_item.name}"/>
 					</h:link>
 				</h:column>
 				<h:column>
 					<f:facet name="header">
-						<h:outputText value="Annotations Field"/>
+						<h:outputText value="Type"/>
 					</f:facet>
 					<h:link outcome="/admin/attributes/view">
 						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemAnnotationsField" value="#{_item.annotationsField}"/>
+						<h:outputText id="itemType" value="#{_item.type}"/>
 					</h:link>
 				</h:column>
 				<h:column>
 					<f:facet name="header">
-						<h:outputText value="Observaciones"/>
+						<h:outputText value="Length"/>
 					</f:facet>
 					<h:link outcome="/admin/attributes/view">
 						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemObservaciones" value="#{_item.observaciones}"/>
+						<h:outputText id="itemLength" value="#{_item.length}"/>
 					</h:link>
 				</h:column>
 				<h:column>
 					<f:facet name="header">
-						<h:outputText value="Field"/>
+						<h:outputText value="Precision"/>
 					</f:facet>
 					<h:link outcome="/admin/attributes/view">
 						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemField" value="#{_item.field}"/>
+						<h:outputText id="itemPrecision" value="#{_item.precision}"/>
 					</h:link>
 				</h:column>
 				<h:column>
 					<f:facet name="header">
-						<h:outputText value="Descripcion"/>
+						<h:outputText value="Nullable"/>
 					</f:facet>
 					<h:link outcome="/admin/attributes/view">
 						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemDescripcion" value="#{_item.descripcion}"/>
+						<h:outputText styleClass="#{_item.nullable ? 'boolean-true' : 'boolean-false'}" value=""/>
 					</h:link>
 				</h:column>
 			</h:dataTable>

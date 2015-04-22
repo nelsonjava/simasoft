@@ -24,9 +24,9 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
-import co.simasoft.naif.models.DomainModels.PropertiesAttributes;
-import co.simasoft.naif.models.DomainModels.Attributes;
-import co.simasoft.naif.models.DomainModels.Relationships;
+import co.simasoft.models.naif.DomainModels.PropertiesAttributes;
+import co.simasoft.models.naif.DomainModels.Attributes;
+import co.simasoft.models.naif.DomainModels.Relationships;
 
 /**
  * Backing bean for PropertiesAttributes entities.
@@ -219,16 +219,6 @@ public class PropertiesAttributesBean implements Serializable {
 		CriteriaBuilder builder = this.entityManager.getCriteriaBuilder();
 		List<Predicate> predicatesList = new ArrayList<Predicate>();
 
-		long orden = this.example.getOrden();
-		if (orden != 0) {
-			predicatesList.add(builder.equal(root.get("orden"), orden));
-		}
-		String observaciones = this.example.getObservaciones();
-		if (observaciones != null && !"".equals(observaciones)) {
-			predicatesList.add(builder.like(
-					builder.lower(root.<String> get("observaciones")),
-					'%' + observaciones.toLowerCase() + '%'));
-		}
 		String name = this.example.getName();
 		if (name != null && !"".equals(name)) {
 			predicatesList.add(builder.like(
@@ -241,10 +231,21 @@ public class PropertiesAttributesBean implements Serializable {
 					builder.lower(root.<String> get("value")),
 					'%' + value.toLowerCase() + '%'));
 		}
+		String observaciones = this.example.getObservaciones();
+		if (observaciones != null && !"".equals(observaciones)) {
+			predicatesList.add(builder.like(
+					builder.lower(root.<String> get("observaciones")),
+					'%' + observaciones.toLowerCase() + '%'));
+		}
 		Relationships relationships = this.example.getRelationships();
 		if (relationships != null) {
 			predicatesList.add(builder.equal(root.get("relationships"),
 					relationships));
+		}
+		Attributes attributes = this.example.getAttributes();
+		if (attributes != null) {
+			predicatesList
+					.add(builder.equal(root.get("attributes"), attributes));
 		}
 
 		return predicatesList.toArray(new Predicate[predicatesList.size()]);

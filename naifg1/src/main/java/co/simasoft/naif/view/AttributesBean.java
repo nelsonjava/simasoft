@@ -24,10 +24,10 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
-import co.simasoft.naif.models.DomainModels.Attributes;
-import co.simasoft.naif.models.DomainModels.Entities;
-import co.simasoft.naif.models.DomainModels.PropertiesAttributes;
-import co.simasoft.naif.models.DomainModels.TypesAttributes;
+import co.simasoft.models.naif.DomainModels.Attributes;
+import co.simasoft.models.naif.DomainModels.Entities;
+import co.simasoft.models.naif.DomainModels.PropertiesAttributes;
+import co.simasoft.models.naif.DomainModels.TypesAttributes;
 import java.util.Iterator;
 
 /**
@@ -134,6 +134,15 @@ public class AttributesBean implements Serializable {
 
 		try {
 			Attributes deletableEntity = findById(getId());
+			TypesAttributes typesAttributes = deletableEntity
+					.getTypesAttributes();
+			typesAttributes.getAttributes().remove(deletableEntity);
+			deletableEntity.setTypesAttributes(null);
+			this.entityManager.merge(typesAttributes);
+			Entities entities = deletableEntity.getEntities();
+			entities.getAttributes().remove(deletableEntity);
+			deletableEntity.setEntities(null);
+			this.entityManager.merge(entities);
 			Iterator<PropertiesAttributes> iterPropertiesAttributes = deletableEntity
 					.getPropertiesAttributes().iterator();
 			for (; iterPropertiesAttributes.hasNext();) {
@@ -143,15 +152,6 @@ public class AttributesBean implements Serializable {
 				iterPropertiesAttributes.remove();
 				this.entityManager.merge(nextInPropertiesAttributes);
 			}
-			Entities entities = deletableEntity.getEntities();
-			entities.getAttributes().remove(deletableEntity);
-			deletableEntity.setEntities(null);
-			this.entityManager.merge(entities);
-			TypesAttributes typesAttributes = deletableEntity
-					.getTypesAttributes();
-			typesAttributes.getAttributes().remove(deletableEntity);
-			deletableEntity.setTypesAttributes(null);
-			this.entityManager.merge(typesAttributes);
 			this.entityManager.remove(deletableEntity);
 			this.entityManager.flush();
 			return "search?faces-redirect=true";
@@ -227,27 +227,25 @@ public class AttributesBean implements Serializable {
 		CriteriaBuilder builder = this.entityManager.getCriteriaBuilder();
 		List<Predicate> predicatesList = new ArrayList<Predicate>();
 
-		long orden = this.example.getOrden();
-		if (orden != 0) {
-			predicatesList.add(builder.equal(root.get("orden"), orden));
-		}
-		String annotationsField = this.example.getAnnotationsField();
-		if (annotationsField != null && !"".equals(annotationsField)) {
+		String name = this.example.getName();
+		if (name != null && !"".equals(name)) {
 			predicatesList.add(builder.like(
-					builder.lower(root.<String> get("annotationsField")),
-					'%' + annotationsField.toLowerCase() + '%'));
+					builder.lower(root.<String> get("name")),
+					'%' + name.toLowerCase() + '%'));
 		}
-		String observaciones = this.example.getObservaciones();
-		if (observaciones != null && !"".equals(observaciones)) {
+		String type = this.example.getType();
+		if (type != null && !"".equals(type)) {
 			predicatesList.add(builder.like(
-					builder.lower(root.<String> get("observaciones")),
-					'%' + observaciones.toLowerCase() + '%'));
+					builder.lower(root.<String> get("type")),
+					'%' + type.toLowerCase() + '%'));
 		}
-		String field = this.example.getField();
-		if (field != null && !"".equals(field)) {
-			predicatesList.add(builder.like(
-					builder.lower(root.<String> get("field")),
-					'%' + field.toLowerCase() + '%'));
+		Integer length = this.example.getLength();
+		if (length != null && length.intValue() != 0) {
+			predicatesList.add(builder.equal(root.get("length"), length));
+		}
+		Integer precision = this.example.getPrecision();
+		if (precision != null && precision.intValue() != 0) {
+			predicatesList.add(builder.equal(root.get("precision"), precision));
 		}
 		String descripcion = this.example.getDescripcion();
 		if (descripcion != null && !"".equals(descripcion)) {

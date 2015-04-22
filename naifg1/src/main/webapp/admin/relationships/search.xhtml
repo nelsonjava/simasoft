@@ -29,10 +29,16 @@
 				<h:panelGroup styleClass="search">
 
 					<h:panelGrid columnClasses="label,component,required" columns="3">
-						<h:outputLabel for="relationshipsBeanExampleOrden" value="Orden:"/>
+						<h:outputLabel for="relationshipsBeanExampleEntity" value="Entity:"/>
 						<h:panelGroup>
-							<h:inputText id="relationshipsBeanExampleOrden" value="#{relationshipsBean.example.orden}"/>
-							<h:message for="relationshipsBeanExampleOrden" styleClass="error"/>
+							<h:inputText id="relationshipsBeanExampleEntity" value="#{relationshipsBean.example.entity}"/>
+							<h:message for="relationshipsBeanExampleEntity" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="relationshipsBeanExampleName" value="Name:"/>
+						<h:panelGroup>
+							<h:inputText id="relationshipsBeanExampleName" value="#{relationshipsBean.example.name}"/>
+							<h:message for="relationshipsBeanExampleName" styleClass="error"/>
 						</h:panelGroup>
 						<h:outputText/>
 						<h:outputLabel for="relationshipsBeanExampleMappedby" value="Mappedby:"/>
@@ -41,26 +47,16 @@
 							<h:message for="relationshipsBeanExampleMappedby" styleClass="error"/>
 						</h:panelGroup>
 						<h:outputText/>
-						<h:outputLabel for="relationshipsBeanExampleIdTabla1" value="Id Tabla 1:"/>
+						<h:outputLabel for="relationshipsBeanExampleAnnotationsMethod" value="Annotations Method:"/>
 						<h:panelGroup>
-							<h:inputText id="relationshipsBeanExampleIdTabla1" value="#{relationshipsBean.example.idTabla1}"/>
-							<h:message for="relationshipsBeanExampleIdTabla1" styleClass="error"/>
+							<h:inputText id="relationshipsBeanExampleAnnotationsMethod" value="#{relationshipsBean.example.annotationsMethod}"/>
+							<h:message for="relationshipsBeanExampleAnnotationsMethod" styleClass="error"/>
 						</h:panelGroup>
 						<h:outputText/>
-						<h:outputLabel for="relationshipsBeanExampleOptionality" value="Optionality:"/>
+						<h:outputLabel for="relationshipsBeanExampleAnnotationsField" value="Annotations Field:"/>
 						<h:panelGroup>
-							<h:selectOneMenu id="relationshipsBeanExampleOptionality" value="#{relationshipsBean.example.optionality}">
-								<f:selectItem/>
-								<f:selectItem itemLabel="Yes" itemValue="true"/>
-								<f:selectItem itemLabel="No" itemValue="false"/>
-							</h:selectOneMenu>
-							<h:message for="relationshipsBeanExampleOptionality" styleClass="error"/>
-						</h:panelGroup>
-						<h:outputText/>
-						<h:outputLabel for="relationshipsBeanExampleEntity" value="Entity:"/>
-						<h:panelGroup>
-							<h:inputText id="relationshipsBeanExampleEntity" value="#{relationshipsBean.example.entity}"/>
-							<h:message for="relationshipsBeanExampleEntity" styleClass="error"/>
+							<h:inputText id="relationshipsBeanExampleAnnotationsField" value="#{relationshipsBean.example.annotationsField}"/>
+							<h:message for="relationshipsBeanExampleAnnotationsField" styleClass="error"/>
 						</h:panelGroup>
 						<h:outputText/>
 					</h:panelGrid>
@@ -74,11 +70,29 @@
 			<h:dataTable id="relationshipsBeanPageItems" styleClass="data-table" value="#{relationshipsBean.pageItems}" var="_item">
 				<h:column>
 					<f:facet name="header">
-						<h:outputText value="Orden"/>
+						<h:outputText value="Entity"/>
 					</f:facet>
 					<h:link outcome="/admin/relationships/view">
 						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemOrden" value="#{_item.orden}"/>
+						<h:outputText id="itemEntity" value="#{_item.entity}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Optionality"/>
+					</f:facet>
+					<h:link outcome="/admin/relationships/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText styleClass="#{_item.optionality ? 'boolean-true' : 'boolean-false'}" value=""/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Name"/>
+					</f:facet>
+					<h:link outcome="/admin/relationships/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemName" value="#{_item.name}"/>
 					</h:link>
 				</h:column>
 				<h:column>
@@ -92,29 +106,11 @@
 				</h:column>
 				<h:column>
 					<f:facet name="header">
-						<h:outputText value="Id Tabla 1"/>
+						<h:outputText value="Annotations Method"/>
 					</f:facet>
 					<h:link outcome="/admin/relationships/view">
 						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemIdTabla1" value="#{_item.idTabla1}"/>
-					</h:link>
-				</h:column>
-				<h:column>
-					<f:facet name="header">
-						<h:outputText value="Optionality"/>
-					</f:facet>
-					<h:link outcome="/admin/relationships/view">
-						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemOptionality" value="#{_item.optionality}"/>
-					</h:link>
-				</h:column>
-				<h:column>
-					<f:facet name="header">
-						<h:outputText value="Entity"/>
-					</f:facet>
-					<h:link outcome="/admin/relationships/view">
-						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemEntity" value="#{_item.entity}"/>
+						<h:outputText id="itemAnnotationsMethod" value="#{_item.annotationsMethod}"/>
 					</h:link>
 				</h:column>
 			</h:dataTable>

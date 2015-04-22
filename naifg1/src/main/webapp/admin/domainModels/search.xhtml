@@ -29,16 +29,22 @@
 				<h:panelGroup styleClass="search">
 
 					<h:panelGrid columnClasses="label,component,required" columns="3">
-						<h:outputLabel for="domainModelsBeanExampleOrden" value="Orden:"/>
+						<h:outputLabel for="domainModelsBeanExampleName" value="Name:"/>
 						<h:panelGroup>
-							<h:inputText id="domainModelsBeanExampleOrden" value="#{domainModelsBean.example.orden}"/>
-							<h:message for="domainModelsBeanExampleOrden" styleClass="error"/>
+							<h:inputText id="domainModelsBeanExampleName" value="#{domainModelsBean.example.name}"/>
+							<h:message for="domainModelsBeanExampleName" styleClass="error"/>
 						</h:panelGroup>
 						<h:outputText/>
-						<h:outputLabel for="domainModelsBeanExampleVersion" value="Version:"/>
+						<h:outputLabel for="domainModelsBeanExamplePaquete" value="Paquete:"/>
 						<h:panelGroup>
-							<h:inputText id="domainModelsBeanExampleVersion" value="#{domainModelsBean.example.version}"/>
-							<h:message for="domainModelsBeanExampleVersion" styleClass="error"/>
+							<h:inputText id="domainModelsBeanExamplePaquete" value="#{domainModelsBean.example.paquete}"/>
+							<h:message for="domainModelsBeanExamplePaquete" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="domainModelsBeanExampleRelease" value="Release:"/>
+						<h:panelGroup>
+							<h:inputText id="domainModelsBeanExampleRelease" value="#{domainModelsBean.example.release}"/>
+							<h:message for="domainModelsBeanExampleRelease" styleClass="error"/>
 						</h:panelGroup>
 						<h:outputText/>
 						<h:outputLabel for="domainModelsBeanExampleCodigo" value="Codigo:"/>
@@ -47,16 +53,10 @@
 							<h:message for="domainModelsBeanExampleCodigo" styleClass="error"/>
 						</h:panelGroup>
 						<h:outputText/>
-						<h:outputLabel for="domainModelsBeanExampleGroupId" value="Group Id:"/>
+						<h:outputLabel for="domainModelsBeanExampleDescription" value="Description:"/>
 						<h:panelGroup>
-							<h:inputText id="domainModelsBeanExampleGroupId" value="#{domainModelsBean.example.groupId}"/>
-							<h:message for="domainModelsBeanExampleGroupId" styleClass="error"/>
-						</h:panelGroup>
-						<h:outputText/>
-						<h:outputLabel for="domainModelsBeanExampleObservaciones" value="Observaciones:"/>
-						<h:panelGroup>
-							<h:inputText id="domainModelsBeanExampleObservaciones" value="#{domainModelsBean.example.observaciones}"/>
-							<h:message for="domainModelsBeanExampleObservaciones" styleClass="error"/>
+							<h:inputText id="domainModelsBeanExampleDescription" value="#{domainModelsBean.example.description}"/>
+							<h:message for="domainModelsBeanExampleDescription" styleClass="error"/>
 						</h:panelGroup>
 						<h:outputText/>
 					</h:panelGrid>
@@ -70,20 +70,29 @@
 			<h:dataTable id="domainModelsBeanPageItems" styleClass="data-table" value="#{domainModelsBean.pageItems}" var="_item">
 				<h:column>
 					<f:facet name="header">
-						<h:outputText value="Orden"/>
+						<h:outputText value="Name"/>
 					</f:facet>
 					<h:link outcome="/admin/domainModels/view">
 						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemOrden" value="#{_item.orden}"/>
+						<h:outputText id="itemName" value="#{_item.name}"/>
 					</h:link>
 				</h:column>
 				<h:column>
 					<f:facet name="header">
-						<h:outputText value="Version"/>
+						<h:outputText value="Paquete"/>
 					</f:facet>
 					<h:link outcome="/admin/domainModels/view">
 						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemVersion" value="#{_item.version}"/>
+						<h:outputText id="itemPaquete" value="#{_item.paquete}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Release"/>
+					</f:facet>
+					<h:link outcome="/admin/domainModels/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemRelease" value="#{_item.release}"/>
 					</h:link>
 				</h:column>
 				<h:column>
@@ -97,20 +106,13 @@
 				</h:column>
 				<h:column>
 					<f:facet name="header">
-						<h:outputText value="Group Id"/>
+						<h:outputText value="Date"/>
 					</f:facet>
 					<h:link outcome="/admin/domainModels/view">
 						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemGroupId" value="#{_item.groupId}"/>
-					</h:link>
-				</h:column>
-				<h:column>
-					<f:facet name="header">
-						<h:outputText value="Observaciones"/>
-					</f:facet>
-					<h:link outcome="/admin/domainModels/view">
-						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemObservaciones" value="#{_item.observaciones}"/>
+						<h:outputText id="itemDate" value="#{_item.date}">
+							<f:convertDateTime/>
+						</h:outputText>
 					</h:link>
 				</h:column>
 			</h:dataTable>

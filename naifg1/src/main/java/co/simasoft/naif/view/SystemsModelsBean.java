@@ -24,8 +24,8 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
-import co.simasoft.naif.models.DomainModels.SystemsModels;
-import co.simasoft.naif.models.DomainModels.FilesModels;
+import co.simasoft.models.naif.DomainModels.SystemsModels;
+import co.simasoft.models.naif.DomainModels.FilesModels;
 import java.util.Iterator;
 
 /**
@@ -217,21 +217,23 @@ public class SystemsModelsBean implements Serializable {
 		CriteriaBuilder builder = this.entityManager.getCriteriaBuilder();
 		List<Predicate> predicatesList = new ArrayList<Predicate>();
 
-		long orden = this.example.getOrden();
-		if (orden != 0) {
-			predicatesList.add(builder.equal(root.get("orden"), orden));
-		}
-		String observaciones = this.example.getObservaciones();
-		if (observaciones != null && !"".equals(observaciones)) {
-			predicatesList.add(builder.like(
-					builder.lower(root.<String> get("observaciones")),
-					'%' + observaciones.toLowerCase() + '%'));
-		}
 		String name = this.example.getName();
 		if (name != null && !"".equals(name)) {
 			predicatesList.add(builder.like(
 					builder.lower(root.<String> get("name")),
 					'%' + name.toLowerCase() + '%'));
+		}
+		String codigo = this.example.getCodigo();
+		if (codigo != null && !"".equals(codigo)) {
+			predicatesList.add(builder.like(
+					builder.lower(root.<String> get("codigo")),
+					'%' + codigo.toLowerCase() + '%'));
+		}
+		String release = this.example.getRelease();
+		if (release != null && !"".equals(release)) {
+			predicatesList.add(builder.like(
+					builder.lower(root.<String> get("release")),
+					'%' + release.toLowerCase() + '%'));
 		}
 		String description = this.example.getDescription();
 		if (description != null && !"".equals(description)) {

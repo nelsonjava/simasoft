@@ -24,8 +24,8 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
-import co.simasoft.naif.models.DomainModels.TypesAttributes;
-import co.simasoft.naif.models.DomainModels.Attributes;
+import co.simasoft.models.naif.DomainModels.TypesAttributes;
+import co.simasoft.models.naif.DomainModels.Attributes;
 import java.util.Iterator;
 
 /**
@@ -217,15 +217,11 @@ public class TypesAttributesBean implements Serializable {
 		CriteriaBuilder builder = this.entityManager.getCriteriaBuilder();
 		List<Predicate> predicatesList = new ArrayList<Predicate>();
 
-		long orden = this.example.getOrden();
-		if (orden != 0) {
-			predicatesList.add(builder.equal(root.get("orden"), orden));
-		}
-		String annotations = this.example.getAnnotations();
-		if (annotations != null && !"".equals(annotations)) {
+		String name = this.example.getName();
+		if (name != null && !"".equals(name)) {
 			predicatesList.add(builder.like(
-					builder.lower(root.<String> get("annotations")),
-					'%' + annotations.toLowerCase() + '%'));
+					builder.lower(root.<String> get("name")),
+					'%' + name.toLowerCase() + '%'));
 		}
 		Integer length = this.example.getLength();
 		if (length != null && length.intValue() != 0) {
@@ -234,6 +230,12 @@ public class TypesAttributesBean implements Serializable {
 		Integer precision = this.example.getPrecision();
 		if (precision != null && precision.intValue() != 0) {
 			predicatesList.add(builder.equal(root.get("precision"), precision));
+		}
+		String annotations = this.example.getAnnotations();
+		if (annotations != null && !"".equals(annotations)) {
+			predicatesList.add(builder.like(
+					builder.lower(root.<String> get("annotations")),
+					'%' + annotations.toLowerCase() + '%'));
 		}
 		String observaciones = this.example.getObservaciones();
 		if (observaciones != null && !"".equals(observaciones)) {

@@ -37,18 +37,6 @@
 			<h:messages globalOnly="true" styleClass="error"/>
 
 			<h:panelGrid columnClasses="label,component,required" columns="3">
-				<h:outputLabel for="linksModelsBeanLinksModelsOrden" value="Orden:"/>
-				<h:panelGroup>
-					<h:inputText id="linksModelsBeanLinksModelsOrden" value="#{linksModelsBean.linksModels.orden}"/>
-					<h:message for="linksModelsBeanLinksModelsOrden" styleClass="error"/>
-				</h:panelGroup>
-				<h:outputText/>
-				<h:outputLabel for="linksModelsBeanLinksModelsObservacion" value="Observacion:"/>
-				<h:panelGroup>
-					<h:inputText id="linksModelsBeanLinksModelsObservacion" value="#{linksModelsBean.linksModels.observacion}"/>
-					<h:message for="linksModelsBeanLinksModelsObservacion" styleClass="error"/>
-				</h:panelGroup>
-				<h:outputText/>
 				<h:outputLabel for="linksModelsBeanLinksModelsTitulo" value="Titulo:"/>
 				<h:panelGroup>
 					<h:inputText id="linksModelsBeanLinksModelsTitulo" value="#{linksModelsBean.linksModels.titulo}"/>
@@ -61,6 +49,12 @@
 					<h:message for="linksModelsBeanLinksModelsLink" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
+				<h:outputLabel for="linksModelsBeanLinksModelsObservacion" value="Observacion:"/>
+				<h:panelGroup>
+					<h:inputText id="linksModelsBeanLinksModelsObservacion" value="#{linksModelsBean.linksModels.observacion}"/>
+					<h:message for="linksModelsBeanLinksModelsObservacion" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
 				<h:outputLabel for="linksModelsBeanLinksModelsTiposLinksModels" value="Tipos Links Models:"/>
 				<h:panelGroup>
 					<h:selectOneMenu converter="#{tiposLinksModelsBean.converter}" id="linksModelsBeanLinksModelsTiposLinksModels" value="#{linksModelsBean.linksModels.tiposLinksModels}">
@@ -70,13 +64,13 @@
 					<h:message for="linksModelsBeanLinksModelsTiposLinksModels" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
-				<h:outputLabel for="linksModelsBeanLinksModelsPackages" value="Packages:"/>
+				<h:outputLabel for="linksModelsBeanLinksModelsDomainModels" value="Domain Models:"/>
 				<h:panelGroup>
-					<h:selectOneMenu converter="#{packagesBean.converter}" id="linksModelsBeanLinksModelsPackages" value="#{linksModelsBean.linksModels.packages}">
+					<h:selectOneMenu converter="#{domainModelsBean.converter}" id="linksModelsBeanLinksModelsDomainModels" value="#{linksModelsBean.linksModels.domainModels}">
 						<f:selectItem/>
-						<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{packagesBean.all}" var="_item"/>
+						<f:selectItems value="#{domainModelsBean.all}"/>
 					</h:selectOneMenu>
-					<h:message for="linksModelsBeanLinksModelsPackages" styleClass="error"/>
+					<h:message for="linksModelsBeanLinksModelsDomainModels" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
 			</h:panelGrid>

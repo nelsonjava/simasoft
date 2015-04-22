@@ -26,32 +26,11 @@
 
 	<ui:define name="main">
 		<h:panelGrid columnClasses="label,component,required" columns="3">
-			<h:outputLabel for="tiposLinksModelsBeanTiposLinksModelsOrden" value="Orden:"/>
-			<h:outputText id="tiposLinksModelsBeanTiposLinksModelsOrden" value="#{tiposLinksModelsBean.tiposLinksModels.orden}"/>
-			<h:outputText/>
 			<h:outputLabel for="tiposLinksModelsBeanTiposLinksModelsNombre" value="Nombre:"/>
 			<h:outputText id="tiposLinksModelsBeanTiposLinksModelsNombre" value="#{tiposLinksModelsBean.tiposLinksModels.nombre}"/>
 			<h:outputText/>
 			<h:outputLabel for="tiposLinksModelsBeanTiposLinksModelsLinksModels" value="Links Models:"/>
 			<h:dataTable id="tiposLinksModelsBeanTiposLinksModelsLinksModels" styleClass="data-table" value="#{forgeview:asList(tiposLinksModelsBean.tiposLinksModels.linksModels)}" var="_item">
-				<h:column>
-					<f:facet name="header">
-						<h:outputText value="Orden"/>
-					</f:facet>
-					<h:link outcome="/admin/linksModels/view">
-						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemOrden" value="#{_item.orden}"/>
-					</h:link>
-				</h:column>
-				<h:column>
-					<f:facet name="header">
-						<h:outputText value="Observacion"/>
-					</f:facet>
-					<h:link outcome="/admin/linksModels/view">
-						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemObservacion" value="#{_item.observacion}"/>
-					</h:link>
-				</h:column>
 				<h:column>
 					<f:facet name="header">
 						<h:outputText value="Titulo"/>
@@ -72,11 +51,20 @@
 				</h:column>
 				<h:column>
 					<f:facet name="header">
-						<h:outputText value="Packages"/>
+						<h:outputText value="Observacion"/>
 					</f:facet>
 					<h:link outcome="/admin/linksModels/view">
 						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="forgeviewdisplayitemPackages" value="#{forgeview:display(_item.packages)}"/>
+						<h:outputText id="itemObservacion" value="#{_item.observacion}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Domain Models"/>
+					</f:facet>
+					<h:link outcome="/admin/linksModels/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemDomainModels" value="#{_item.domainModels}"/>
 					</h:link>
 				</h:column>
 			</h:dataTable>

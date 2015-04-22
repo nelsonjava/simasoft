@@ -9,21 +9,22 @@
 
     <provider>org.hibernate.ejb.HibernatePersistence</provider>
 
-    <class>co.simasoft.naif.models.DomainModels.TypesAttributes</class>
-    <class>co.simasoft.naif.models.DomainModels.DomainModels</class>
-    <class>co.simasoft.naif.models.DomainModels.Entities</class>
-    <class>co.simasoft.naif.models.DomainModels.Relationships</class>
-    <class>co.simasoft.naif.models.DomainModels.Cardinalities</class>
-    <class>co.simasoft.naif.models.DomainModels.PropertiesAttributes</class>
-    <class>co.simasoft.naif.models.DomainModels.NameQueries</class>
-    <class>co.simasoft.naif.models.DomainModels.SystemsModels</class>
-    <class>co.simasoft.naif.models.DomainModels.FilesModels</class>
-    <class>co.simasoft.naif.models.DomainModels.TiposLinksModels</class>
-    <class>co.simasoft.naif.models.DomainModels.LinksModels</class>
-    <class>co.simasoft.naif.models.DomainModels.Attributes</class>
+    <class>co.simasoft.models.naif.DomainModels.Entities</class>
+    <class>co.simasoft.models.naif.DomainModels.Attributes</class>
+    <class>co.simasoft.models.naif.DomainModels.Cardinalities</class>
+    <class>co.simasoft.models.naif.DomainModels.GroupIds</class>
+    <class>co.simasoft.models.naif.DomainModels.PropertiesAttributes</class>
+    <class>co.simasoft.models.naif.DomainModels.FilesModels</class>
+    <class>co.simasoft.models.naif.DomainModels.LinksModels</class>
+    <class>co.simasoft.models.naif.DomainModels.TiposLinksModels</class>
+    <class>co.simasoft.models.naif.DomainModels.NameQueries</class>
+    <class>co.simasoft.models.naif.DomainModels.Relationships</class>
+    <class>co.simasoft.models.naif.DomainModels.TypesAttributes</class>
+    <class>co.simasoft.models.naif.DomainModels.DomainModels</class>
+    <class>co.simasoft.models.naif.DomainModels.SystemsModels</class>
 
     <exclude-unlisted-classes>true</exclude-unlisted-classes>
-    <jta-data-source>java:jboss/datasources/DomainModelsDS</jta-data-source>
+    <jta-data-source>java:jboss/datasources/naifg1DS</jta-data-source>
     <properties>
       <!-- <property name="javax.persistence.jdbc.url"      value="jdbc:h2:/db/DomainModels/data"/>  -->
       <!-- <property name="javax.persistence.jdbc.user"     value="sa"/>  -->

@@ -24,8 +24,8 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
-import co.simasoft.naif.models.DomainModels.NameQueries;
-import co.simasoft.naif.models.DomainModels.Entities;
+import co.simasoft.models.naif.DomainModels.NameQueries;
+import co.simasoft.models.naif.DomainModels.Entities;
 
 /**
  * Backing bean for NameQueries entities.
@@ -211,15 +211,11 @@ public class NameQueriesBean implements Serializable {
 		CriteriaBuilder builder = this.entityManager.getCriteriaBuilder();
 		List<Predicate> predicatesList = new ArrayList<Predicate>();
 
-		long orden = this.example.getOrden();
-		if (orden != 0) {
-			predicatesList.add(builder.equal(root.get("orden"), orden));
-		}
-		String observaciones = this.example.getObservaciones();
-		if (observaciones != null && !"".equals(observaciones)) {
+		String name = this.example.getName();
+		if (name != null && !"".equals(name)) {
 			predicatesList.add(builder.like(
-					builder.lower(root.<String> get("observaciones")),
-					'%' + observaciones.toLowerCase() + '%'));
+					builder.lower(root.<String> get("name")),
+					'%' + name.toLowerCase() + '%'));
 		}
 		String query = this.example.getQuery();
 		if (query != null && !"".equals(query)) {
@@ -227,11 +223,11 @@ public class NameQueriesBean implements Serializable {
 					builder.lower(root.<String> get("query")),
 					'%' + query.toLowerCase() + '%'));
 		}
-		String name = this.example.getName();
-		if (name != null && !"".equals(name)) {
+		String observaciones = this.example.getObservaciones();
+		if (observaciones != null && !"".equals(observaciones)) {
 			predicatesList.add(builder.like(
-					builder.lower(root.<String> get("name")),
-					'%' + name.toLowerCase() + '%'));
+					builder.lower(root.<String> get("observaciones")),
+					'%' + observaciones.toLowerCase() + '%'));
 		}
 		Entities entities = this.example.getEntities();
 		if (entities != null) {

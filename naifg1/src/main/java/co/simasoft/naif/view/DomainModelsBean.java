@@ -24,7 +24,7 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
-import co.simasoft.naif.models.DomainModels.DomainModels;
+import co.simasoft.models.naif.DomainModels.DomainModels;
 
 /**
  * Backing bean for DomainModels entities.
@@ -208,15 +208,23 @@ public class DomainModelsBean implements Serializable {
 		CriteriaBuilder builder = this.entityManager.getCriteriaBuilder();
 		List<Predicate> predicatesList = new ArrayList<Predicate>();
 
-		long orden = this.example.getOrden();
-		if (orden != 0) {
-			predicatesList.add(builder.equal(root.get("orden"), orden));
-		}
-		String version = this.example.getVersion();
-		if (version != null && !"".equals(version)) {
+		String name = this.example.getName();
+		if (name != null && !"".equals(name)) {
 			predicatesList.add(builder.like(
-					builder.lower(root.<String> get("version")),
-					'%' + version.toLowerCase() + '%'));
+					builder.lower(root.<String> get("name")),
+					'%' + name.toLowerCase() + '%'));
+		}
+		String paquete = this.example.getPaquete();
+		if (paquete != null && !"".equals(paquete)) {
+			predicatesList.add(builder.like(
+					builder.lower(root.<String> get("paquete")),
+					'%' + paquete.toLowerCase() + '%'));
+		}
+		String release = this.example.getRelease();
+		if (release != null && !"".equals(release)) {
+			predicatesList.add(builder.like(
+					builder.lower(root.<String> get("release")),
+					'%' + release.toLowerCase() + '%'));
 		}
 		String codigo = this.example.getCodigo();
 		if (codigo != null && !"".equals(codigo)) {
@@ -224,17 +232,11 @@ public class DomainModelsBean implements Serializable {
 					builder.lower(root.<String> get("codigo")),
 					'%' + codigo.toLowerCase() + '%'));
 		}
-		String groupId = this.example.getGroupId();
-		if (groupId != null && !"".equals(groupId)) {
+		String description = this.example.getDescription();
+		if (description != null && !"".equals(description)) {
 			predicatesList.add(builder.like(
-					builder.lower(root.<String> get("groupId")),
-					'%' + groupId.toLowerCase() + '%'));
-		}
-		String observaciones = this.example.getObservaciones();
-		if (observaciones != null && !"".equals(observaciones)) {
-			predicatesList.add(builder.like(
-					builder.lower(root.<String> get("observaciones")),
-					'%' + observaciones.toLowerCase() + '%'));
+					builder.lower(root.<String> get("description")),
+					'%' + description.toLowerCase() + '%'));
 		}
 
 		return predicatesList.toArray(new Predicate[predicatesList.size()]);

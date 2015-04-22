@@ -25,26 +25,23 @@
 
 	<ui:define name="main">
 		<h:panelGrid columnClasses="label,component,required" columns="3">
-			<h:outputLabel for="linksModelsBeanLinksModelsOrden" value="Orden:"/>
-			<h:outputText id="linksModelsBeanLinksModelsOrden" value="#{linksModelsBean.linksModels.orden}"/>
-			<h:outputText/>
-			<h:outputLabel for="linksModelsBeanLinksModelsObservacion" value="Observacion:"/>
-			<h:outputText id="linksModelsBeanLinksModelsObservacion" value="#{linksModelsBean.linksModels.observacion}"/>
-			<h:outputText/>
 			<h:outputLabel for="linksModelsBeanLinksModelsTitulo" value="Titulo:"/>
 			<h:outputText id="linksModelsBeanLinksModelsTitulo" value="#{linksModelsBean.linksModels.titulo}"/>
 			<h:outputText/>
 			<h:outputLabel for="linksModelsBeanLinksModelsLink" value="Link:"/>
 			<h:outputText id="linksModelsBeanLinksModelsLink" value="#{linksModelsBean.linksModels.link}"/>
 			<h:outputText/>
+			<h:outputLabel for="linksModelsBeanLinksModelsObservacion" value="Observacion:"/>
+			<h:outputText id="linksModelsBeanLinksModelsObservacion" value="#{linksModelsBean.linksModels.observacion}"/>
+			<h:outputText/>
 			<h:outputLabel for="linksModelsBeanLinksModelsTiposLinksModels" value="Tipos Links Models:"/>
 			<h:link id="linksModelsBeanLinksModelsTiposLinksModels" outcome="/admin/tiposLinksModels/view" rendered="#{!empty linksModelsBean.linksModels.tiposLinksModels}" value="#{linksModelsBean.linksModels.tiposLinksModels}">
 				<f:param name="id" value="#{linksModelsBean.linksModels.tiposLinksModels.id}"/>
 			</h:link>
 			<h:outputText/>
-			<h:outputLabel for="linksModelsBeanLinksModelsPackages" value="Packages:"/>
-			<h:link id="linksModelsBeanLinksModelsPackages" outcome="/admin/packages/view" rendered="#{!empty linksModelsBean.linksModels.packages}" value="#{linksModelsBean.linksModels.packages}">
-				<f:param name="id" value="#{linksModelsBean.linksModels.packages.id}"/>
+			<h:outputLabel for="linksModelsBeanLinksModelsDomainModels" value="Domain Models:"/>
+			<h:link id="linksModelsBeanLinksModelsDomainModels" outcome="/admin/domainModels/view" rendered="#{!empty linksModelsBean.linksModels.domainModels}" value="#{linksModelsBean.linksModels.domainModels}">
+				<f:param name="id" value="#{linksModelsBean.linksModels.domainModels.id}"/>
 			</h:link>
 			<h:outputText/>
 		</h:panelGrid>

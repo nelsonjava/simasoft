@@ -25,27 +25,27 @@
 
 	<ui:define name="main">
 		<h:panelGrid columnClasses="label,component,required" columns="3">
-			<h:outputLabel for="filesModelsBeanFilesModelsOrden" value="Orden:"/>
-			<h:outputText id="filesModelsBeanFilesModelsOrden" value="#{filesModelsBean.filesModels.orden}"/>
-			<h:outputText/>
 			<h:outputLabel for="filesModelsBeanFilesModelsCodigo" value="Codigo:"/>
 			<h:outputText id="filesModelsBeanFilesModelsCodigo" value="#{filesModelsBean.filesModels.codigo}"/>
 			<h:outputText/>
 			<h:outputLabel for="filesModelsBeanFilesModelsArchivo" value="Archivo:"/>
 			<h:outputText id="filesModelsBeanFilesModelsArchivo" value="#{filesModelsBean.filesModels.archivo}"/>
 			<h:outputText/>
-			<h:outputLabel for="filesModelsBeanFilesModelsObservacion" value="Observacion:"/>
-			<h:outputText id="filesModelsBeanFilesModelsObservacion" value="#{filesModelsBean.filesModels.observacion}"/>
+			<h:outputLabel for="filesModelsBeanFilesModelsExtension" value="Extension:"/>
+			<h:outputText id="filesModelsBeanFilesModelsExtension" value="#{filesModelsBean.filesModels.extension}"/>
+			<h:outputText/>
+			<h:outputLabel for="filesModelsBeanFilesModelsData" value="Data:"/>
+			<h:outputText id="filesModelsBeanFilesModelsData" value="#{filesModelsBean.filesModels.data}"/>
 			<h:outputText/>
 			<h:outputLabel for="filesModelsBeanFilesModelsType" value="Type:"/>
 			<h:outputText id="filesModelsBeanFilesModelsType" value="#{filesModelsBean.filesModels.type}"/>
 			<h:outputText/>
-			<h:outputLabel for="filesModelsBeanFilesModelsExtension" value="Extension:"/>
-			<h:outputText id="filesModelsBeanFilesModelsExtension" value="#{filesModelsBean.filesModels.extension}"/>
+			<h:outputLabel for="filesModelsBeanFilesModelsObservacion" value="Observacion:"/>
+			<h:outputText id="filesModelsBeanFilesModelsObservacion" value="#{filesModelsBean.filesModels.observacion}"/>
 			<h:outputText/>
-			<h:outputLabel for="filesModelsBeanFilesModelsDomainModels" value="Domain Models:"/>
-			<h:link id="filesModelsBeanFilesModelsDomainModels" outcome="/admin/domainModels/view" rendered="#{!empty filesModelsBean.filesModels.domainModels}" value="#{filesModelsBean.filesModels.domainModels}">
-				<f:param name="id" value="#{filesModelsBean.filesModels.domainModels.id}"/>
+			<h:outputLabel for="filesModelsBeanFilesModelsEntities" value="Entities:"/>
+			<h:link id="filesModelsBeanFilesModelsEntities" outcome="/admin/entities/view" rendered="#{!empty filesModelsBean.filesModels.entities}" value="#{filesModelsBean.filesModels.entities}">
+				<f:param name="id" value="#{filesModelsBean.filesModels.entities.id}"/>
 			</h:link>
 			<h:outputText/>
 			<h:outputLabel for="filesModelsBeanFilesModelsSystemsModels" value="Systems Models:"/>
@@ -53,14 +53,9 @@
 				<f:param name="id" value="#{filesModelsBean.filesModels.systemsModels.id}"/>
 			</h:link>
 			<h:outputText/>
-			<h:outputLabel for="filesModelsBeanFilesModelsPackages" value="Packages:"/>
-			<h:link id="filesModelsBeanFilesModelsPackages" outcome="/admin/packages/view" rendered="#{!empty filesModelsBean.filesModels.packages}" value="#{filesModelsBean.filesModels.packages}">
-				<f:param name="id" value="#{filesModelsBean.filesModels.packages.id}"/>
-			</h:link>
-			<h:outputText/>
-			<h:outputLabel for="filesModelsBeanFilesModelsEntities" value="Entities:"/>
-			<h:link id="filesModelsBeanFilesModelsEntities" outcome="/admin/entities/view" rendered="#{!empty filesModelsBean.filesModels.entities}" value="#{filesModelsBean.filesModels.entities}">
-				<f:param name="id" value="#{filesModelsBean.filesModels.entities.id}"/>
+			<h:outputLabel for="filesModelsBeanFilesModelsDomainModels" value="Domain Models:"/>
+			<h:link id="filesModelsBeanFilesModelsDomainModels" outcome="/admin/domainModels/view" rendered="#{!empty filesModelsBean.filesModels.domainModels}" value="#{filesModelsBean.filesModels.domainModels}">
+				<f:param name="id" value="#{filesModelsBean.filesModels.domainModels.id}"/>
 			</h:link>
 			<h:outputText/>
 		</h:panelGrid>

@@ -12,20 +12,13 @@ import java.util.Set;
 /****************************************************************************************************************
 * CLASE : EntityPruebaH2                                                                                              *
 *****************************************************************************************************************
-
 AUTOR: Nelson A Fernández Gómez                FECHA DE INICIO: MAR 27 ENE/2015   FECHA FINAL: MAR 27 ENE/2015
        SIMASOFT Bucaramanga / SAN / Colombia   FECHA DE LA ULTIMA MODIFICACION:   MAR 27 ENE/2015 HORA: 02:15 PM
-
 OBJETIVOS:
-
 1- Genera el archivo java correspondiente a una entidad del modelo de datos.
-
 2- El id es de tipo long
-
 3- Trabaja bien en H2.
-
 4- No genera relaciones.
-
 *---------------------------------------------------------------------------------------------------------------*
 *------------------------------------------- DECLARACION DE LA CLASE -------------------------------------------*
 *---------------------------------------------------------------------------------------------------------------*/
@@ -48,14 +41,10 @@ public class EntityPruebaH2 extends FileTxt {
 /****************************************************************************************************************
 * METODO..: Constructor de la clase                                                                             *
 *****************************************************************************************************************
-
 AUTOR: Nelson A Fernández Gómez                FECHA DE INICIO: MAR 27 ENE/2015   FECHA FINAL: MAR 27 ENE/2015
        SIMASOFT Bucaramanga / SAN / Colombia   FECHA DE LA ULTIMA MODIFICACION:   MAR 27 ENE/2015 HORA: 02:30 PM
-
 OBJETIVOS:
-
 1- Inicializa los atributos de la clase, que se van a usar para construir el archivo .java del bean de entidad.
-
 *---------------------------------------------------------------------------------------------------------------*
 *                                           IMPLEMENTACION DEL METODO                                           *
 *---------------------------------------------------------------------------------------------------------------*/
@@ -175,5 +164,3 @@ line("} // entity"+"\n");
 //>>FIN GENERACION DEL ARCHIVO
 
 } // class
-
-

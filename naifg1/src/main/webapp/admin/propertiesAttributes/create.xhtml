@@ -37,18 +37,6 @@
 			<h:messages globalOnly="true" styleClass="error"/>
 
 			<h:panelGrid columnClasses="label,component,required" columns="3">
-				<h:outputLabel for="propertiesAttributesBeanPropertiesAttributesOrden" value="Orden:"/>
-				<h:panelGroup>
-					<h:inputText id="propertiesAttributesBeanPropertiesAttributesOrden" value="#{propertiesAttributesBean.propertiesAttributes.orden}"/>
-					<h:message for="propertiesAttributesBeanPropertiesAttributesOrden" styleClass="error"/>
-				</h:panelGroup>
-				<h:outputText/>
-				<h:outputLabel for="propertiesAttributesBeanPropertiesAttributesObservaciones" value="Observaciones:"/>
-				<h:panelGroup>
-					<h:inputText id="propertiesAttributesBeanPropertiesAttributesObservaciones" value="#{propertiesAttributesBean.propertiesAttributes.observaciones}"/>
-					<h:message for="propertiesAttributesBeanPropertiesAttributesObservaciones" styleClass="error"/>
-				</h:panelGroup>
-				<h:outputText/>
 				<h:outputLabel for="propertiesAttributesBeanPropertiesAttributesName" value="Name:"/>
 				<h:panelGroup>
 					<h:inputText id="propertiesAttributesBeanPropertiesAttributesName" value="#{propertiesAttributesBean.propertiesAttributes.name}"/>
@@ -59,6 +47,12 @@
 				<h:panelGroup>
 					<h:inputText id="propertiesAttributesBeanPropertiesAttributesValue" value="#{propertiesAttributesBean.propertiesAttributes.value}"/>
 					<h:message for="propertiesAttributesBeanPropertiesAttributesValue" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="propertiesAttributesBeanPropertiesAttributesObservaciones" value="Observaciones:"/>
+				<h:panelGroup>
+					<h:inputText id="propertiesAttributesBeanPropertiesAttributesObservaciones" value="#{propertiesAttributesBean.propertiesAttributes.observaciones}"/>
+					<h:message for="propertiesAttributesBeanPropertiesAttributesObservaciones" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
 				<h:outputLabel for="propertiesAttributesBeanPropertiesAttributesRelationships" value="Relationships:"/>

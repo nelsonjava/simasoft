@@ -195,23 +195,17 @@ public class Entities
       this.nameQueries = nameQueries;
    }
 
-   public Set<Relationships> getFrom()
-   {
+   public Set<Relationships> getFrom(){
       return from;
    }
-
-   public void setFrom(Set<Relationships> from)
-   {
+   public void setFrom(Set<Relationships> from) {
       this.from = from;
    }
 
-   public Set<Relationships> getTo()
-   {
+   public Set<Relationships> getTo(){
       return to;
    }
-
-   public void setTo(Set<Relationships> to)
-   {
+   public void setTo(Set<Relationships> to){
       this.to = to;
    }
 

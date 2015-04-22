@@ -24,9 +24,8 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
-import co.simasoft.naif.models.DomainModels.Cardinalities;
-import co.simasoft.naif.models.DomainModels.Relationships;
-import java.lang.Boolean;
+import co.simasoft.models.naif.DomainModels.Cardinalities;
+import co.simasoft.models.naif.DomainModels.Relationships;
 import java.util.Iterator;
 
 /**
@@ -218,32 +217,23 @@ public class CardinalitiesBean implements Serializable {
 		CriteriaBuilder builder = this.entityManager.getCriteriaBuilder();
 		List<Predicate> predicatesList = new ArrayList<Predicate>();
 
-		long orden = this.example.getOrden();
-		if (orden != 0) {
-			predicatesList.add(builder.equal(root.get("orden"), orden));
-		}
 		String name = this.example.getName();
 		if (name != null && !"".equals(name)) {
 			predicatesList.add(builder.like(
 					builder.lower(root.<String> get("name")),
 					'%' + name.toLowerCase() + '%'));
 		}
-		String observaciones = this.example.getObservaciones();
-		if (observaciones != null && !"".equals(observaciones)) {
-			predicatesList.add(builder.like(
-					builder.lower(root.<String> get("observaciones")),
-					'%' + observaciones.toLowerCase() + '%'));
-		}
-		Boolean unidireccional = this.example.getUnidireccional();
-		if (unidireccional != null) {
-			predicatesList.add(builder.equal(root.get("unidireccional"),
-					unidireccional));
-		}
 		String cardinality = this.example.getCardinality();
 		if (cardinality != null && !"".equals(cardinality)) {
 			predicatesList.add(builder.like(
 					builder.lower(root.<String> get("cardinality")),
 					'%' + cardinality.toLowerCase() + '%'));
+		}
+		String observaciones = this.example.getObservaciones();
+		if (observaciones != null && !"".equals(observaciones)) {
+			predicatesList.add(builder.like(
+					builder.lower(root.<String> get("observaciones")),
+					'%' + observaciones.toLowerCase() + '%'));
 		}
 
 		return predicatesList.toArray(new Predicate[predicatesList.size()]);

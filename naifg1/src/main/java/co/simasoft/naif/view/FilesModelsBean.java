@@ -24,10 +24,9 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
-import co.simasoft.naif.models.DomainModels.FilesModels;
-import co.simasoft.naif.models.DomainModels.Entities;
-import co.simasoft.naif.models.DomainModels.Packages;
-import co.simasoft.naif.models.DomainModels.SystemsModels;
+import co.simasoft.models.naif.DomainModels.FilesModels;
+import co.simasoft.models.naif.DomainModels.Entities;
+import co.simasoft.models.naif.DomainModels.SystemsModels;
 
 /**
  * Backing bean for FilesModels entities.
@@ -134,18 +133,14 @@ public class FilesModelsBean implements Serializable {
 
 		try {
 			FilesModels deletableEntity = findById(getId());
-			SystemsModels systemsModels = deletableEntity.getSystemsModels();
-			systemsModels.getFilesModels().remove(deletableEntity);
-			deletableEntity.setSystemsModels(null);
-			this.entityManager.merge(systemsModels);
-			Packages packages = deletableEntity.getPackages();
-			packages.getFilesModels().remove(deletableEntity);
-			deletableEntity.setPackages(null);
-			this.entityManager.merge(packages);
 			Entities entities = deletableEntity.getEntities();
 			entities.getFilesModels().remove(deletableEntity);
 			deletableEntity.setEntities(null);
 			this.entityManager.merge(entities);
+			SystemsModels systemsModels = deletableEntity.getSystemsModels();
+			systemsModels.getFilesModels().remove(deletableEntity);
+			deletableEntity.setSystemsModels(null);
+			this.entityManager.merge(systemsModels);
 			this.entityManager.remove(deletableEntity);
 			this.entityManager.flush();
 			return "search?faces-redirect=true";
@@ -221,10 +216,6 @@ public class FilesModelsBean implements Serializable {
 		CriteriaBuilder builder = this.entityManager.getCriteriaBuilder();
 		List<Predicate> predicatesList = new ArrayList<Predicate>();
 
-		long orden = this.example.getOrden();
-		if (orden != 0) {
-			predicatesList.add(builder.equal(root.get("orden"), orden));
-		}
 		String codigo = this.example.getCodigo();
 		if (codigo != null && !"".equals(codigo)) {
 			predicatesList.add(builder.like(
@@ -237,11 +228,15 @@ public class FilesModelsBean implements Serializable {
 					builder.lower(root.<String> get("archivo")),
 					'%' + archivo.toLowerCase() + '%'));
 		}
-		String observacion = this.example.getObservacion();
-		if (observacion != null && !"".equals(observacion)) {
+		String extension = this.example.getExtension();
+		if (extension != null && !"".equals(extension)) {
 			predicatesList.add(builder.like(
-					builder.lower(root.<String> get("observacion")),
-					'%' + observacion.toLowerCase() + '%'));
+					builder.lower(root.<String> get("extension")),
+					'%' + extension.toLowerCase() + '%'));
+		}
+		byte data = this.example.getData();
+		if (data != 0) {
+			predicatesList.add(builder.equal(root.get("data"), data));
 		}
 		String type = this.example.getType();
 		if (type != null && !"".equals(type)) {

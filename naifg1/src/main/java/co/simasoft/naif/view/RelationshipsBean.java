@@ -24,11 +24,10 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
-import co.simasoft.naif.models.DomainModels.Relationships;
-import co.simasoft.naif.models.DomainModels.Cardinalities;
-import co.simasoft.naif.models.DomainModels.Entities;
-import co.simasoft.naif.models.DomainModels.PropertiesAttributes;
-import java.lang.Boolean;
+import co.simasoft.models.naif.DomainModels.Relationships;
+import co.simasoft.models.naif.DomainModels.Cardinalities;
+import co.simasoft.models.naif.DomainModels.Entities;
+import co.simasoft.models.naif.DomainModels.PropertiesAttributes;
 import java.util.Iterator;
 
 /**
@@ -145,14 +144,14 @@ public class RelationshipsBean implements Serializable {
 				iterPropertiesAttributes.remove();
 				this.entityManager.merge(nextInPropertiesAttributes);
 			}
-			Entities to = deletableEntity.getTo();
-			to.getTo().remove(deletableEntity);
-			deletableEntity.setTo(null);
-			this.entityManager.merge(to);
 			Entities from = deletableEntity.getFrom();
 			from.getFrom().remove(deletableEntity);
 			deletableEntity.setFrom(null);
 			this.entityManager.merge(from);
+			Entities to = deletableEntity.getTo();
+			to.getTo().remove(deletableEntity);
+			deletableEntity.setTo(null);
+			this.entityManager.merge(to);
 			Cardinalities cardinalities = deletableEntity.getCardinalities();
 			cardinalities.getRelationships().remove(deletableEntity);
 			deletableEntity.setCardinalities(null);
@@ -233,9 +232,17 @@ public class RelationshipsBean implements Serializable {
 		CriteriaBuilder builder = this.entityManager.getCriteriaBuilder();
 		List<Predicate> predicatesList = new ArrayList<Predicate>();
 
-		long orden = this.example.getOrden();
-		if (orden != 0) {
-			predicatesList.add(builder.equal(root.get("orden"), orden));
+		String entity = this.example.getEntity();
+		if (entity != null && !"".equals(entity)) {
+			predicatesList.add(builder.like(
+					builder.lower(root.<String> get("entity")),
+					'%' + entity.toLowerCase() + '%'));
+		}
+		String name = this.example.getName();
+		if (name != null && !"".equals(name)) {
+			predicatesList.add(builder.like(
+					builder.lower(root.<String> get("name")),
+					'%' + name.toLowerCase() + '%'));
 		}
 		String mappedby = this.example.getMappedby();
 		if (mappedby != null && !"".equals(mappedby)) {
@@ -243,22 +250,17 @@ public class RelationshipsBean implements Serializable {
 					builder.lower(root.<String> get("mappedby")),
 					'%' + mappedby.toLowerCase() + '%'));
 		}
-		String idTabla1 = this.example.getIdTabla1();
-		if (idTabla1 != null && !"".equals(idTabla1)) {
+		String annotationsMethod = this.example.getAnnotationsMethod();
+		if (annotationsMethod != null && !"".equals(annotationsMethod)) {
 			predicatesList.add(builder.like(
-					builder.lower(root.<String> get("idTabla1")),
-					'%' + idTabla1.toLowerCase() + '%'));
+					builder.lower(root.<String> get("annotationsMethod")),
+					'%' + annotationsMethod.toLowerCase() + '%'));
 		}
-		Boolean optionality = this.example.getOptionality();
-		if (optionality != null) {
-			predicatesList.add(builder.equal(root.get("optionality"),
-					optionality));
-		}
-		String entity = this.example.getEntity();
-		if (entity != null && !"".equals(entity)) {
+		String annotationsField = this.example.getAnnotationsField();
+		if (annotationsField != null && !"".equals(annotationsField)) {
 			predicatesList.add(builder.like(
-					builder.lower(root.<String> get("entity")),
-					'%' + entity.toLowerCase() + '%'));
+					builder.lower(root.<String> get("annotationsField")),
+					'%' + annotationsField.toLowerCase() + '%'));
 		}
 
 		return predicatesList.toArray(new Predicate[predicatesList.size()]);

@@ -26,11 +26,8 @@
 
 	<ui:define name="main">
 		<h:panelGrid columnClasses="label,component,required" columns="3">
-			<h:outputLabel for="typesAttributesBeanTypesAttributesOrden" value="Orden:"/>
-			<h:outputText id="typesAttributesBeanTypesAttributesOrden" value="#{typesAttributesBean.typesAttributes.orden}"/>
-			<h:outputText/>
-			<h:outputLabel for="typesAttributesBeanTypesAttributesAnnotations" value="Annotations:"/>
-			<h:outputText id="typesAttributesBeanTypesAttributesAnnotations" value="#{typesAttributesBean.typesAttributes.annotations}"/>
+			<h:outputLabel for="typesAttributesBeanTypesAttributesName" value="Name:"/>
+			<h:outputText id="typesAttributesBeanTypesAttributesName" value="#{typesAttributesBean.typesAttributes.name}"/>
 			<h:outputText/>
 			<h:outputLabel for="typesAttributesBeanTypesAttributesLength" value="Length:"/>
 			<h:outputText id="typesAttributesBeanTypesAttributesLength" value="#{typesAttributesBean.typesAttributes.length}"/>
@@ -38,57 +35,57 @@
 			<h:outputLabel for="typesAttributesBeanTypesAttributesPrecision" value="Precision:"/>
 			<h:outputText id="typesAttributesBeanTypesAttributesPrecision" value="#{typesAttributesBean.typesAttributes.precision}"/>
 			<h:outputText/>
+			<h:outputLabel for="typesAttributesBeanTypesAttributesAnnotations" value="Annotations:"/>
+			<h:outputText id="typesAttributesBeanTypesAttributesAnnotations" value="#{typesAttributesBean.typesAttributes.annotations}"/>
+			<h:outputText/>
 			<h:outputLabel for="typesAttributesBeanTypesAttributesObservaciones" value="Observaciones:"/>
 			<h:outputText id="typesAttributesBeanTypesAttributesObservaciones" value="#{typesAttributesBean.typesAttributes.observaciones}"/>
-			<h:outputText/>
-			<h:outputLabel for="typesAttributesBeanTypesAttributesName" value="Name:"/>
-			<h:outputText id="typesAttributesBeanTypesAttributesName" value="#{typesAttributesBean.typesAttributes.name}"/>
 			<h:outputText/>
 			<h:outputLabel for="typesAttributesBeanTypesAttributesAttributes" value="Attributes:"/>
 			<h:dataTable id="typesAttributesBeanTypesAttributesAttributes" styleClass="data-table" value="#{forgeview:asList(typesAttributesBean.typesAttributes.attributes)}" var="_item">
 				<h:column>
 					<f:facet name="header">
-						<h:outputText value="Orden"/>
+						<h:outputText value="Name"/>
 					</f:facet>
 					<h:link outcome="/admin/attributes/view">
 						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemOrden" value="#{_item.orden}"/>
+						<h:outputText id="itemName" value="#{_item.name}"/>
 					</h:link>
 				</h:column>
 				<h:column>
 					<f:facet name="header">
-						<h:outputText value="Annotations Field"/>
+						<h:outputText value="Type"/>
 					</f:facet>
 					<h:link outcome="/admin/attributes/view">
 						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemAnnotationsField" value="#{_item.annotationsField}"/>
+						<h:outputText id="itemType" value="#{_item.type}"/>
 					</h:link>
 				</h:column>
 				<h:column>
 					<f:facet name="header">
-						<h:outputText value="Observaciones"/>
+						<h:outputText value="Length"/>
 					</f:facet>
 					<h:link outcome="/admin/attributes/view">
 						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemObservaciones" value="#{_item.observaciones}"/>
+						<h:outputText id="itemLength" value="#{_item.length}"/>
 					</h:link>
 				</h:column>
 				<h:column>
 					<f:facet name="header">
-						<h:outputText value="Field"/>
+						<h:outputText value="Precision"/>
 					</f:facet>
 					<h:link outcome="/admin/attributes/view">
 						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemField" value="#{_item.field}"/>
+						<h:outputText id="itemPrecision" value="#{_item.precision}"/>
 					</h:link>
 				</h:column>
 				<h:column>
 					<f:facet name="header">
-						<h:outputText value="Descripcion"/>
+						<h:outputText value="Nullable"/>
 					</f:facet>
 					<h:link outcome="/admin/attributes/view">
 						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemDescripcion" value="#{_item.descripcion}"/>
+						<h:outputText styleClass="#{_item.nullable ? 'boolean-true' : 'boolean-false'}" value=""/>
 					</h:link>
 				</h:column>
 			</h:dataTable>

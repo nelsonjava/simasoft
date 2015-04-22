@@ -87,8 +87,8 @@ public class App extends FileTxt{
             EntityPruebaMongo entityPruebaMongo = new EntityPruebaMongo(artifactId,groupId+".models."+modelo+"."+artifactId,entidad,imports);
             Utils.fileMake(pathDocs+"."+modelo+"."+artifactId+".jpa.src.main.java."+groupId+".models."+modelo+"."+artifactId+".jpa.pmongo",entidad.getName()+".java", entityPruebaMongo);
 
-            EntityPruebaH2 entityPruebaH2 = new EntityPruebaH2(artifactId,groupId+".models."+modelo+"."+artifactId,entidad,imports);
-            Utils.fileMake(pathDocs+"."+modelo+"."+artifactId+".jpa.src.main.java."+groupId+".models."+modelo+"."+artifactId+".jpa.ph2",entidad.getName()+".java", entityPruebaH2);
+            EntityPruebaH2 entityPruebaH2 = new EntityPruebaH2(artifactId,groupId+"."+modelo+".models."+artifactId,entidad,imports);
+            Utils.fileMake(pathDocs+"."+modelo+"."+artifactId+".jpa.src.main.java."+groupId+"."+modelo+".models."+artifactId+".jpa.ph2",entidad.getName()+".java", entityPruebaH2);
         }
 
         Persistence persistence = new Persistence(artifactId,groupId+".models."+modelo,entidades);
@@ -327,7 +327,7 @@ public class App extends FileTxt{
 
         LinkedHashSet<String> imports = new LinkedHashSet<String>();
         for (Modelos modelo : modelos) {
-            imports.add(modelo.getGroupId()+".models."+modelo.getModelo()+"."+modelo.getArtifactId());
+            imports.add(modelo.getGroupId()+"."+modelo.getModelo()+".models."+modelo.getArtifactId());
         }
 
         sqlAll(name,groupId,artifactId,modelos,imports);
@@ -346,7 +346,7 @@ public class App extends FileTxt{
 
         LinkedHashSet<String> imports = new LinkedHashSet<String>();
         for (Modelos modelo : modelos) {
-            imports.add(modelo.getGroupId()+".models."+modelo.getModelo()+"."+modelo.getArtifactId());
+            imports.add(modelo.getGroupId()+"."+modelo.getModelo()+".models."+modelo.getArtifactId());
         }
 
         for (Modelos modelo : modelos) {

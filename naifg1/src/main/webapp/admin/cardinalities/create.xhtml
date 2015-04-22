@@ -37,32 +37,10 @@
 			<h:messages globalOnly="true" styleClass="error"/>
 
 			<h:panelGrid columnClasses="label,component,required" columns="3">
-				<h:outputLabel for="cardinalitiesBeanCardinalitiesOrden" value="Orden:"/>
-				<h:panelGroup>
-					<h:inputText id="cardinalitiesBeanCardinalitiesOrden" value="#{cardinalitiesBean.cardinalities.orden}"/>
-					<h:message for="cardinalitiesBeanCardinalitiesOrden" styleClass="error"/>
-				</h:panelGroup>
-				<h:outputText/>
 				<h:outputLabel for="cardinalitiesBeanCardinalitiesName" value="Name:"/>
 				<h:panelGroup>
 					<h:inputText id="cardinalitiesBeanCardinalitiesName" value="#{cardinalitiesBean.cardinalities.name}"/>
 					<h:message for="cardinalitiesBeanCardinalitiesName" styleClass="error"/>
-				</h:panelGroup>
-				<h:outputText/>
-				<h:outputLabel for="cardinalitiesBeanCardinalitiesObservaciones" value="Observaciones:"/>
-				<h:panelGroup>
-					<h:inputText id="cardinalitiesBeanCardinalitiesObservaciones" value="#{cardinalitiesBean.cardinalities.observaciones}"/>
-					<h:message for="cardinalitiesBeanCardinalitiesObservaciones" styleClass="error"/>
-				</h:panelGroup>
-				<h:outputText/>
-				<h:outputLabel for="cardinalitiesBeanCardinalitiesUnidireccional" value="Unidireccional:"/>
-				<h:panelGroup>
-					<h:selectOneMenu id="cardinalitiesBeanCardinalitiesUnidireccional" value="#{cardinalitiesBean.cardinalities.unidireccional}">
-						<f:selectItem/>
-						<f:selectItem itemLabel="Yes" itemValue="true"/>
-						<f:selectItem itemLabel="No" itemValue="false"/>
-					</h:selectOneMenu>
-					<h:message for="cardinalitiesBeanCardinalitiesUnidireccional" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
 				<h:outputLabel for="cardinalitiesBeanCardinalitiesCardinality" value="Cardinality:"/>
@@ -71,21 +49,59 @@
 					<h:message for="cardinalitiesBeanCardinalitiesCardinality" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
+				<h:outputLabel for="cardinalitiesBeanCardinalitiesUnidireccional" value="Unidireccional:"/>
+				<h:panelGroup>
+					<h:selectBooleanCheckbox id="cardinalitiesBeanCardinalitiesUnidireccional" value="#{cardinalitiesBean.cardinalities.unidireccional}"/>
+					<h:message for="cardinalitiesBeanCardinalitiesUnidireccional" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="cardinalitiesBeanCardinalitiesObservaciones" value="Observaciones:"/>
+				<h:panelGroup>
+					<h:inputText id="cardinalitiesBeanCardinalitiesObservaciones" value="#{cardinalitiesBean.cardinalities.observaciones}"/>
+					<h:message for="cardinalitiesBeanCardinalitiesObservaciones" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
 				<h:outputLabel for="cardinalitiesBeanCardinalitiesRelationships" value="Relationships:"/>
 				<h:panelGroup>
 					<ui:param name="_collection" value="#{cardinalitiesBean.cardinalities.relationships}"/>
 					<h:dataTable id="cardinalitiesBeanCardinalitiesRelationships" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
 						<h:column>
 							<f:facet name="header">
-								<h:outputText value="Orden"/>
+								<h:outputText value="Entity"/>
 							</f:facet>
 							<h:link outcome="/admin/relationships/view">
 								<f:param name="id" value="#{_item.id}"/>
-								<h:outputText id="itemOrden" value="#{_item.orden}"/>
+								<h:outputText id="itemEntity" value="#{_item.entity}"/>
 							</h:link>
 							<f:facet name="footer">
-								<h:inputText id="relationshipsBeanAddOrden" value="#{relationshipsBean.add.orden}"/>
-								<h:message for="relationshipsBeanAddOrden" styleClass="error"/>
+								<h:inputText id="relationshipsBeanAddEntity" value="#{relationshipsBean.add.entity}"/>
+								<h:message for="relationshipsBeanAddEntity" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Optionality"/>
+							</f:facet>
+							<h:link outcome="/admin/relationships/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText styleClass="#{_item.optionality ? 'boolean-true' : 'boolean-false'}" value=""/>
+							</h:link>
+							<f:facet name="footer">
+								<h:selectBooleanCheckbox id="relationshipsBeanAddOptionality" value="#{relationshipsBean.add.optionality}"/>
+								<h:message for="relationshipsBeanAddOptionality" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Name"/>
+							</f:facet>
+							<h:link outcome="/admin/relationships/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemName" value="#{_item.name}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="relationshipsBeanAddName" value="#{relationshipsBean.add.name}"/>
+								<h:message for="relationshipsBeanAddName" styleClass="error"/>
 							</f:facet>
 						</h:column>
 						<h:column>
@@ -103,45 +119,15 @@
 						</h:column>
 						<h:column>
 							<f:facet name="header">
-								<h:outputText value="Id Tabla 1"/>
+								<h:outputText value="Annotations Method"/>
 							</f:facet>
 							<h:link outcome="/admin/relationships/view">
 								<f:param name="id" value="#{_item.id}"/>
-								<h:outputText id="itemIdTabla1" value="#{_item.idTabla1}"/>
+								<h:outputText id="itemAnnotationsMethod" value="#{_item.annotationsMethod}"/>
 							</h:link>
 							<f:facet name="footer">
-								<h:inputText id="relationshipsBeanAddIdTabla1" value="#{relationshipsBean.add.idTabla1}"/>
-								<h:message for="relationshipsBeanAddIdTabla1" styleClass="error"/>
-							</f:facet>
-						</h:column>
-						<h:column>
-							<f:facet name="header">
-								<h:outputText value="Optionality"/>
-							</f:facet>
-							<h:link outcome="/admin/relationships/view">
-								<f:param name="id" value="#{_item.id}"/>
-								<h:outputText id="itemOptionality" value="#{_item.optionality}"/>
-							</h:link>
-							<f:facet name="footer">
-								<h:selectOneMenu id="relationshipsBeanAddOptionality" value="#{relationshipsBean.add.optionality}">
-									<f:selectItem/>
-									<f:selectItem itemLabel="Yes" itemValue="true"/>
-									<f:selectItem itemLabel="No" itemValue="false"/>
-								</h:selectOneMenu>
-								<h:message for="relationshipsBeanAddOptionality" styleClass="error"/>
-							</f:facet>
-						</h:column>
-						<h:column>
-							<f:facet name="header">
-								<h:outputText value="Entity"/>
-							</f:facet>
-							<h:link outcome="/admin/relationships/view">
-								<f:param name="id" value="#{_item.id}"/>
-								<h:outputText id="itemEntity" value="#{_item.entity}"/>
-							</h:link>
-							<f:facet name="footer">
-								<h:inputText id="relationshipsBeanAddEntity" value="#{relationshipsBean.add.entity}"/>
-								<h:message for="relationshipsBeanAddEntity" styleClass="error"/>
+								<h:inputText id="relationshipsBeanAddAnnotationsMethod" value="#{relationshipsBean.add.annotationsMethod}"/>
+								<h:message for="relationshipsBeanAddAnnotationsMethod" styleClass="error"/>
 							</f:facet>
 						</h:column>
 						<h:column footerClass="remove-column" headerClass="remove-column">

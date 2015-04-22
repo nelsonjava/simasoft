@@ -30,18 +30,6 @@
 				<h:panelGroup styleClass="search">
 
 					<h:panelGrid columnClasses="label,component,required" columns="3">
-						<h:outputLabel for="linksModelsBeanExampleOrden" value="Orden:"/>
-						<h:panelGroup>
-							<h:inputText id="linksModelsBeanExampleOrden" value="#{linksModelsBean.example.orden}"/>
-							<h:message for="linksModelsBeanExampleOrden" styleClass="error"/>
-						</h:panelGroup>
-						<h:outputText/>
-						<h:outputLabel for="linksModelsBeanExampleObservacion" value="Observacion:"/>
-						<h:panelGroup>
-							<h:inputText id="linksModelsBeanExampleObservacion" value="#{linksModelsBean.example.observacion}"/>
-							<h:message for="linksModelsBeanExampleObservacion" styleClass="error"/>
-						</h:panelGroup>
-						<h:outputText/>
 						<h:outputLabel for="linksModelsBeanExampleTitulo" value="Titulo:"/>
 						<h:panelGroup>
 							<h:inputText id="linksModelsBeanExampleTitulo" value="#{linksModelsBean.example.titulo}"/>
@@ -54,6 +42,12 @@
 							<h:message for="linksModelsBeanExampleLink" styleClass="error"/>
 						</h:panelGroup>
 						<h:outputText/>
+						<h:outputLabel for="linksModelsBeanExampleObservacion" value="Observacion:"/>
+						<h:panelGroup>
+							<h:inputText id="linksModelsBeanExampleObservacion" value="#{linksModelsBean.example.observacion}"/>
+							<h:message for="linksModelsBeanExampleObservacion" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
 						<h:outputLabel for="linksModelsBeanExampleTiposLinksModels" value="Tipos Links Models:"/>
 						<h:panelGroup>
 							<h:selectOneMenu converter="#{tiposLinksModelsBean.converter}" id="linksModelsBeanExampleTiposLinksModels" value="#{linksModelsBean.example.tiposLinksModels}">
@@ -61,6 +55,15 @@
 								<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{tiposLinksModelsBean.all}" var="_item"/>
 							</h:selectOneMenu>
 							<h:message for="linksModelsBeanExampleTiposLinksModels" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="linksModelsBeanExampleDomainModels" value="Domain Models:"/>
+						<h:panelGroup>
+							<h:selectOneMenu converter="#{domainModelsBean.converter}" id="linksModelsBeanExampleDomainModels" value="#{linksModelsBean.example.domainModels}">
+								<f:selectItem/>
+								<f:selectItems value="#{domainModelsBean.all}"/>
+							</h:selectOneMenu>
+							<h:message for="linksModelsBeanExampleDomainModels" styleClass="error"/>
 						</h:panelGroup>
 						<h:outputText/>
 					</h:panelGrid>
@@ -72,24 +75,6 @@
 			</f:validateBean>
 			
 			<h:dataTable id="linksModelsBeanPageItems" styleClass="data-table" value="#{linksModelsBean.pageItems}" var="_item">
-				<h:column>
-					<f:facet name="header">
-						<h:outputText value="Orden"/>
-					</f:facet>
-					<h:link outcome="/admin/linksModels/view">
-						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemOrden" value="#{_item.orden}"/>
-					</h:link>
-				</h:column>
-				<h:column>
-					<f:facet name="header">
-						<h:outputText value="Observacion"/>
-					</f:facet>
-					<h:link outcome="/admin/linksModels/view">
-						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemObservacion" value="#{_item.observacion}"/>
-					</h:link>
-				</h:column>
 				<h:column>
 					<f:facet name="header">
 						<h:outputText value="Titulo"/>
@@ -110,11 +95,29 @@
 				</h:column>
 				<h:column>
 					<f:facet name="header">
+						<h:outputText value="Observacion"/>
+					</f:facet>
+					<h:link outcome="/admin/linksModels/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemObservacion" value="#{_item.observacion}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
 						<h:outputText value="Tipos Links Models"/>
 					</f:facet>
 					<h:link outcome="/admin/linksModels/view">
 						<f:param name="id" value="#{_item.id}"/>
 						<h:outputText id="forgeviewdisplayitemTiposLinksModels" value="#{forgeview:display(_item.tiposLinksModels)}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Domain Models"/>
+					</f:facet>
+					<h:link outcome="/admin/linksModels/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemDomainModels" value="#{_item.domainModels}"/>
 					</h:link>
 				</h:column>
 			</h:dataTable>

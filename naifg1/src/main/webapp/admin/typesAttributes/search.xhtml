@@ -29,16 +29,10 @@
 				<h:panelGroup styleClass="search">
 
 					<h:panelGrid columnClasses="label,component,required" columns="3">
-						<h:outputLabel for="typesAttributesBeanExampleOrden" value="Orden:"/>
+						<h:outputLabel for="typesAttributesBeanExampleName" value="Name:"/>
 						<h:panelGroup>
-							<h:inputText id="typesAttributesBeanExampleOrden" value="#{typesAttributesBean.example.orden}"/>
-							<h:message for="typesAttributesBeanExampleOrden" styleClass="error"/>
-						</h:panelGroup>
-						<h:outputText/>
-						<h:outputLabel for="typesAttributesBeanExampleAnnotations" value="Annotations:"/>
-						<h:panelGroup>
-							<h:inputText id="typesAttributesBeanExampleAnnotations" value="#{typesAttributesBean.example.annotations}"/>
-							<h:message for="typesAttributesBeanExampleAnnotations" styleClass="error"/>
+							<h:inputText id="typesAttributesBeanExampleName" value="#{typesAttributesBean.example.name}"/>
+							<h:message for="typesAttributesBeanExampleName" styleClass="error"/>
 						</h:panelGroup>
 						<h:outputText/>
 						<h:outputLabel for="typesAttributesBeanExampleLength" value="Length:"/>
@@ -51,6 +45,12 @@
 						<h:panelGroup>
 							<h:inputText id="typesAttributesBeanExamplePrecision" value="#{typesAttributesBean.example.precision}"/>
 							<h:message for="typesAttributesBeanExamplePrecision" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="typesAttributesBeanExampleAnnotations" value="Annotations:"/>
+						<h:panelGroup>
+							<h:inputText id="typesAttributesBeanExampleAnnotations" value="#{typesAttributesBean.example.annotations}"/>
+							<h:message for="typesAttributesBeanExampleAnnotations" styleClass="error"/>
 						</h:panelGroup>
 						<h:outputText/>
 						<h:outputLabel for="typesAttributesBeanExampleObservaciones" value="Observaciones:"/>
@@ -70,20 +70,11 @@
 			<h:dataTable id="typesAttributesBeanPageItems" styleClass="data-table" value="#{typesAttributesBean.pageItems}" var="_item">
 				<h:column>
 					<f:facet name="header">
-						<h:outputText value="Orden"/>
+						<h:outputText value="Name"/>
 					</f:facet>
 					<h:link outcome="/admin/typesAttributes/view">
 						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemOrden" value="#{_item.orden}"/>
-					</h:link>
-				</h:column>
-				<h:column>
-					<f:facet name="header">
-						<h:outputText value="Annotations"/>
-					</f:facet>
-					<h:link outcome="/admin/typesAttributes/view">
-						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemAnnotations" value="#{_item.annotations}"/>
+						<h:outputText id="itemName" value="#{_item.name}"/>
 					</h:link>
 				</h:column>
 				<h:column>
@@ -102,6 +93,15 @@
 					<h:link outcome="/admin/typesAttributes/view">
 						<f:param name="id" value="#{_item.id}"/>
 						<h:outputText id="itemPrecision" value="#{_item.precision}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Annotations"/>
+					</f:facet>
+					<h:link outcome="/admin/typesAttributes/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemAnnotations" value="#{_item.annotations}"/>
 					</h:link>
 				</h:column>
 				<h:column>

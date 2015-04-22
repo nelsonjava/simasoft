@@ -24,8 +24,8 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
-import co.simasoft.naif.models.DomainModels.TiposLinksModels;
-import co.simasoft.naif.models.DomainModels.LinksModels;
+import co.simasoft.models.naif.DomainModels.TiposLinksModels;
+import co.simasoft.models.naif.DomainModels.LinksModels;
 import java.util.Iterator;
 
 /**
@@ -218,10 +218,6 @@ public class TiposLinksModelsBean implements Serializable {
 		CriteriaBuilder builder = this.entityManager.getCriteriaBuilder();
 		List<Predicate> predicatesList = new ArrayList<Predicate>();
 
-		long orden = this.example.getOrden();
-		if (orden != 0) {
-			predicatesList.add(builder.equal(root.get("orden"), orden));
-		}
 		String nombre = this.example.getNombre();
 		if (nombre != null && !"".equals(nombre)) {
 			predicatesList.add(builder.like(

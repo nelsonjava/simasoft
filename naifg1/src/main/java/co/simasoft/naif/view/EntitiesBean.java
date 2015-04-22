@@ -24,11 +24,11 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
-import co.simasoft.naif.models.DomainModels.Entities;
-import co.simasoft.naif.models.DomainModels.Attributes;
-import co.simasoft.naif.models.DomainModels.FilesModels;
-import co.simasoft.naif.models.DomainModels.NameQueries;
-import co.simasoft.naif.models.DomainModels.Relationships;
+import co.simasoft.models.naif.DomainModels.Entities;
+import co.simasoft.models.naif.DomainModels.Attributes;
+import co.simasoft.models.naif.DomainModels.FilesModels;
+import co.simasoft.models.naif.DomainModels.NameQueries;
+import co.simasoft.models.naif.DomainModels.Relationships;
 import java.util.Iterator;
 
 /**
@@ -135,12 +135,13 @@ public class EntitiesBean implements Serializable {
 
 		try {
 			Entities deletableEntity = findById(getId());
-			Iterator<Relationships> iterTo = deletableEntity.getTo().iterator();
-			for (; iterTo.hasNext();) {
-				Relationships nextInTo = iterTo.next();
-				nextInTo.setTo(null);
-				iterTo.remove();
-				this.entityManager.merge(nextInTo);
+			Iterator<NameQueries> iterNameQueries = deletableEntity
+					.getNameQueries().iterator();
+			for (; iterNameQueries.hasNext();) {
+				NameQueries nextInNameQueries = iterNameQueries.next();
+				nextInNameQueries.setEntities(null);
+				iterNameQueries.remove();
+				this.entityManager.merge(nextInNameQueries);
 			}
 			Iterator<Relationships> iterFrom = deletableEntity.getFrom()
 					.iterator();
@@ -150,21 +151,12 @@ public class EntitiesBean implements Serializable {
 				iterFrom.remove();
 				this.entityManager.merge(nextInFrom);
 			}
-			Iterator<Attributes> iterAttributes = deletableEntity
-					.getAttributes().iterator();
-			for (; iterAttributes.hasNext();) {
-				Attributes nextInAttributes = iterAttributes.next();
-				nextInAttributes.setEntities(null);
-				iterAttributes.remove();
-				this.entityManager.merge(nextInAttributes);
-			}
-			Iterator<NameQueries> iterNameQueries = deletableEntity
-					.getNameQueries().iterator();
-			for (; iterNameQueries.hasNext();) {
-				NameQueries nextInNameQueries = iterNameQueries.next();
-				nextInNameQueries.setEntities(null);
-				iterNameQueries.remove();
-				this.entityManager.merge(nextInNameQueries);
+			Iterator<Relationships> iterTo = deletableEntity.getTo().iterator();
+			for (; iterTo.hasNext();) {
+				Relationships nextInTo = iterTo.next();
+				nextInTo.setTo(null);
+				iterTo.remove();
+				this.entityManager.merge(nextInTo);
 			}
 			Iterator<FilesModels> iterFilesModels = deletableEntity
 					.getFilesModels().iterator();
@@ -173,6 +165,14 @@ public class EntitiesBean implements Serializable {
 				nextInFilesModels.setEntities(null);
 				iterFilesModels.remove();
 				this.entityManager.merge(nextInFilesModels);
+			}
+			Iterator<Attributes> iterAttributes = deletableEntity
+					.getAttributes().iterator();
+			for (; iterAttributes.hasNext();) {
+				Attributes nextInAttributes = iterAttributes.next();
+				nextInAttributes.setEntities(null);
+				iterAttributes.remove();
+				this.entityManager.merge(nextInAttributes);
 			}
 			this.entityManager.remove(deletableEntity);
 			this.entityManager.flush();
@@ -248,9 +248,17 @@ public class EntitiesBean implements Serializable {
 		CriteriaBuilder builder = this.entityManager.getCriteriaBuilder();
 		List<Predicate> predicatesList = new ArrayList<Predicate>();
 
-		long orden = this.example.getOrden();
-		if (orden != 0) {
-			predicatesList.add(builder.equal(root.get("orden"), orden));
+		String name = this.example.getName();
+		if (name != null && !"".equals(name)) {
+			predicatesList.add(builder.like(
+					builder.lower(root.<String> get("name")),
+					'%' + name.toLowerCase() + '%'));
+		}
+		String tabla = this.example.getTabla();
+		if (tabla != null && !"".equals(tabla)) {
+			predicatesList.add(builder.like(
+					builder.lower(root.<String> get("tabla")),
+					'%' + tabla.toLowerCase() + '%'));
 		}
 		String tablaSecuencia = this.example.getTablaSecuencia();
 		if (tablaSecuencia != null && !"".equals(tablaSecuencia)) {
@@ -258,23 +266,17 @@ public class EntitiesBean implements Serializable {
 					builder.lower(root.<String> get("tablaSecuencia")),
 					'%' + tablaSecuencia.toLowerCase() + '%'));
 		}
-		String imports = this.example.getImports();
-		if (imports != null && !"".equals(imports)) {
+		String modifier = this.example.getModifier();
+		if (modifier != null && !"".equals(modifier)) {
 			predicatesList.add(builder.like(
-					builder.lower(root.<String> get("imports")),
-					'%' + imports.toLowerCase() + '%'));
+					builder.lower(root.<String> get("modifier")),
+					'%' + modifier.toLowerCase() + '%'));
 		}
-		String serialID = this.example.getSerialID();
-		if (serialID != null && !"".equals(serialID)) {
+		String extend = this.example.getExtend();
+		if (extend != null && !"".equals(extend)) {
 			predicatesList.add(builder.like(
-					builder.lower(root.<String> get("serialID")),
-					'%' + serialID.toLowerCase() + '%'));
-		}
-		String source = this.example.getSource();
-		if (source != null && !"".equals(source)) {
-			predicatesList.add(builder.like(
-					builder.lower(root.<String> get("source")),
-					'%' + source.toLowerCase() + '%'));
+					builder.lower(root.<String> get("extend")),
+					'%' + extend.toLowerCase() + '%'));
 		}
 
 		return predicatesList.toArray(new Predicate[predicatesList.size()]);

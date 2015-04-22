@@ -37,12 +37,6 @@
 			<h:messages globalOnly="true" styleClass="error"/>
 
 			<h:panelGrid columnClasses="label,component,required" columns="3">
-				<h:outputLabel for="filesModelsBeanFilesModelsOrden" value="Orden:"/>
-				<h:panelGroup>
-					<h:inputText id="filesModelsBeanFilesModelsOrden" value="#{filesModelsBean.filesModels.orden}"/>
-					<h:message for="filesModelsBeanFilesModelsOrden" styleClass="error"/>
-				</h:panelGroup>
-				<h:outputText/>
 				<h:outputLabel for="filesModelsBeanFilesModelsCodigo" value="Codigo:"/>
 				<h:panelGroup>
 					<h:inputText id="filesModelsBeanFilesModelsCodigo" value="#{filesModelsBean.filesModels.codigo}"/>
@@ -55,10 +49,16 @@
 					<h:message for="filesModelsBeanFilesModelsArchivo" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
-				<h:outputLabel for="filesModelsBeanFilesModelsObservacion" value="Observacion:"/>
+				<h:outputLabel for="filesModelsBeanFilesModelsExtension" value="Extension:"/>
 				<h:panelGroup>
-					<h:inputText id="filesModelsBeanFilesModelsObservacion" value="#{filesModelsBean.filesModels.observacion}"/>
-					<h:message for="filesModelsBeanFilesModelsObservacion" styleClass="error"/>
+					<h:inputText id="filesModelsBeanFilesModelsExtension" value="#{filesModelsBean.filesModels.extension}"/>
+					<h:message for="filesModelsBeanFilesModelsExtension" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="filesModelsBeanFilesModelsData" value="Data:"/>
+				<h:panelGroup>
+					<h:inputText id="filesModelsBeanFilesModelsData" value="#{filesModelsBean.filesModels.data}"/>
+					<h:message for="filesModelsBeanFilesModelsData" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
 				<h:outputLabel for="filesModelsBeanFilesModelsType" value="Type:"/>
@@ -67,19 +67,19 @@
 					<h:message for="filesModelsBeanFilesModelsType" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
-				<h:outputLabel for="filesModelsBeanFilesModelsExtension" value="Extension:"/>
+				<h:outputLabel for="filesModelsBeanFilesModelsObservacion" value="Observacion:"/>
 				<h:panelGroup>
-					<h:inputText id="filesModelsBeanFilesModelsExtension" value="#{filesModelsBean.filesModels.extension}"/>
-					<h:message for="filesModelsBeanFilesModelsExtension" styleClass="error"/>
+					<h:inputText id="filesModelsBeanFilesModelsObservacion" value="#{filesModelsBean.filesModels.observacion}"/>
+					<h:message for="filesModelsBeanFilesModelsObservacion" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
-				<h:outputLabel for="filesModelsBeanFilesModelsDomainModels" value="Domain Models:"/>
+				<h:outputLabel for="filesModelsBeanFilesModelsEntities" value="Entities:"/>
 				<h:panelGroup>
-					<h:selectOneMenu converter="#{domainModelsBean.converter}" id="filesModelsBeanFilesModelsDomainModels" value="#{filesModelsBean.filesModels.domainModels}">
+					<h:selectOneMenu converter="#{entitiesBean.converter}" id="filesModelsBeanFilesModelsEntities" value="#{filesModelsBean.filesModels.entities}">
 						<f:selectItem/>
-						<f:selectItems value="#{domainModelsBean.all}"/>
+						<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{entitiesBean.all}" var="_item"/>
 					</h:selectOneMenu>
-					<h:message for="filesModelsBeanFilesModelsDomainModels" styleClass="error"/>
+					<h:message for="filesModelsBeanFilesModelsEntities" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
 				<h:outputLabel for="filesModelsBeanFilesModelsSystemsModels" value="Systems Models:"/>
@@ -91,22 +91,13 @@
 					<h:message for="filesModelsBeanFilesModelsSystemsModels" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
-				<h:outputLabel for="filesModelsBeanFilesModelsPackages" value="Packages:"/>
+				<h:outputLabel for="filesModelsBeanFilesModelsDomainModels" value="Domain Models:"/>
 				<h:panelGroup>
-					<h:selectOneMenu converter="#{packagesBean.converter}" id="filesModelsBeanFilesModelsPackages" value="#{filesModelsBean.filesModels.packages}">
+					<h:selectOneMenu converter="#{domainModelsBean.converter}" id="filesModelsBeanFilesModelsDomainModels" value="#{filesModelsBean.filesModels.domainModels}">
 						<f:selectItem/>
-						<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{packagesBean.all}" var="_item"/>
+						<f:selectItems value="#{domainModelsBean.all}"/>
 					</h:selectOneMenu>
-					<h:message for="filesModelsBeanFilesModelsPackages" styleClass="error"/>
-				</h:panelGroup>
-				<h:outputText/>
-				<h:outputLabel for="filesModelsBeanFilesModelsEntities" value="Entities:"/>
-				<h:panelGroup>
-					<h:selectOneMenu converter="#{entitiesBean.converter}" id="filesModelsBeanFilesModelsEntities" value="#{filesModelsBean.filesModels.entities}">
-						<f:selectItem/>
-						<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{entitiesBean.all}" var="_item"/>
-					</h:selectOneMenu>
-					<h:message for="filesModelsBeanFilesModelsEntities" styleClass="error"/>
+					<h:message for="filesModelsBeanFilesModelsDomainModels" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
 			</h:panelGrid>

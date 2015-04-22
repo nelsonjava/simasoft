@@ -37,22 +37,30 @@
 			<h:messages globalOnly="true" styleClass="error"/>
 
 			<h:panelGrid columnClasses="label,component,required" columns="3">
-				<h:outputLabel for="systemsModelsBeanSystemsModelsOrden" value="Orden:"/>
-				<h:panelGroup>
-					<h:inputText id="systemsModelsBeanSystemsModelsOrden" value="#{systemsModelsBean.systemsModels.orden}"/>
-					<h:message for="systemsModelsBeanSystemsModelsOrden" styleClass="error"/>
-				</h:panelGroup>
-				<h:outputText/>
-				<h:outputLabel for="systemsModelsBeanSystemsModelsObservaciones" value="Observaciones:"/>
-				<h:panelGroup>
-					<h:inputText id="systemsModelsBeanSystemsModelsObservaciones" value="#{systemsModelsBean.systemsModels.observaciones}"/>
-					<h:message for="systemsModelsBeanSystemsModelsObservaciones" styleClass="error"/>
-				</h:panelGroup>
-				<h:outputText/>
 				<h:outputLabel for="systemsModelsBeanSystemsModelsName" value="Name:"/>
 				<h:panelGroup>
 					<h:inputText id="systemsModelsBeanSystemsModelsName" value="#{systemsModelsBean.systemsModels.name}"/>
 					<h:message for="systemsModelsBeanSystemsModelsName" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="systemsModelsBeanSystemsModelsCodigo" value="Codigo:"/>
+				<h:panelGroup>
+					<h:inputText id="systemsModelsBeanSystemsModelsCodigo" value="#{systemsModelsBean.systemsModels.codigo}"/>
+					<h:message for="systemsModelsBeanSystemsModelsCodigo" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="systemsModelsBeanSystemsModelsRelease" value="Release:"/>
+				<h:panelGroup>
+					<h:inputText id="systemsModelsBeanSystemsModelsRelease" value="#{systemsModelsBean.systemsModels.release}"/>
+					<h:message for="systemsModelsBeanSystemsModelsRelease" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="systemsModelsBeanSystemsModelsFecha" value="Fecha:"/>
+				<h:panelGroup>
+					<h:inputText id="systemsModelsBeanSystemsModelsFecha" value="#{systemsModelsBean.systemsModels.fecha}">
+						<f:convertDateTime/>
+					</h:inputText>
+					<h:message for="systemsModelsBeanSystemsModelsFecha" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
 				<h:outputLabel for="systemsModelsBeanSystemsModelsDescription" value="Description:"/>
@@ -83,19 +91,6 @@
 					<h:dataTable id="systemsModelsBeanSystemsModelsFilesModels" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
 						<h:column>
 							<f:facet name="header">
-								<h:outputText value="Orden"/>
-							</f:facet>
-							<h:link outcome="/admin/filesModels/view">
-								<f:param name="id" value="#{_item.id}"/>
-								<h:outputText id="itemOrden" value="#{_item.orden}"/>
-							</h:link>
-							<f:facet name="footer">
-								<h:inputText id="filesModelsBeanAddOrden" value="#{filesModelsBean.add.orden}"/>
-								<h:message for="filesModelsBeanAddOrden" styleClass="error"/>
-							</f:facet>
-						</h:column>
-						<h:column>
-							<f:facet name="header">
 								<h:outputText value="Codigo"/>
 							</f:facet>
 							<h:link outcome="/admin/filesModels/view">
@@ -122,15 +117,28 @@
 						</h:column>
 						<h:column>
 							<f:facet name="header">
-								<h:outputText value="Observacion"/>
+								<h:outputText value="Extension"/>
 							</f:facet>
 							<h:link outcome="/admin/filesModels/view">
 								<f:param name="id" value="#{_item.id}"/>
-								<h:outputText id="itemObservacion" value="#{_item.observacion}"/>
+								<h:outputText id="itemExtension" value="#{_item.extension}"/>
 							</h:link>
 							<f:facet name="footer">
-								<h:inputText id="filesModelsBeanAddObservacion" value="#{filesModelsBean.add.observacion}"/>
-								<h:message for="filesModelsBeanAddObservacion" styleClass="error"/>
+								<h:inputText id="filesModelsBeanAddExtension" value="#{filesModelsBean.add.extension}"/>
+								<h:message for="filesModelsBeanAddExtension" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Data"/>
+							</f:facet>
+							<h:link outcome="/admin/filesModels/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemData" value="#{_item.data}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="filesModelsBeanAddData" value="#{filesModelsBean.add.data}"/>
+								<h:message for="filesModelsBeanAddData" styleClass="error"/>
 							</f:facet>
 						</h:column>
 						<h:column>
