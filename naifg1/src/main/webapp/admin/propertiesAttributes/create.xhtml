@@ -5,6 +5,7 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:forgeview="http://jboss.org/forge/view"
 	template="/resources/scaffold/pageTemplate.xhtml">
 
 	<f:metadata>
@@ -36,6 +37,12 @@
 			<h:messages globalOnly="true" styleClass="error"/>
 
 			<h:panelGrid columnClasses="label,component,required" columns="3">
+				<h:outputLabel for="propertiesAttributesBeanPropertiesAttributesOrden" value="Orden:"/>
+				<h:panelGroup>
+					<h:inputText id="propertiesAttributesBeanPropertiesAttributesOrden" value="#{propertiesAttributesBean.propertiesAttributes.orden}"/>
+					<h:message for="propertiesAttributesBeanPropertiesAttributesOrden" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
 				<h:outputLabel for="propertiesAttributesBeanPropertiesAttributesName" value="Name:"/>
 				<h:panelGroup>
 					<h:inputText id="propertiesAttributesBeanPropertiesAttributesName" value="#{propertiesAttributesBean.propertiesAttributes.name}"/>
@@ -52,6 +59,24 @@
 				<h:panelGroup>
 					<h:inputText id="propertiesAttributesBeanPropertiesAttributesObservaciones" value="#{propertiesAttributesBean.propertiesAttributes.observaciones}"/>
 					<h:message for="propertiesAttributesBeanPropertiesAttributesObservaciones" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="propertiesAttributesBeanPropertiesAttributesRelationships" value="Relationships:"/>
+				<h:panelGroup>
+					<h:selectOneMenu converter="#{relationshipsBean.converter}" id="propertiesAttributesBeanPropertiesAttributesRelationships" value="#{propertiesAttributesBean.propertiesAttributes.relationships}">
+						<f:selectItem/>
+						<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{relationshipsBean.all}" var="_item"/>
+					</h:selectOneMenu>
+					<h:message for="propertiesAttributesBeanPropertiesAttributesRelationships" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="propertiesAttributesBeanPropertiesAttributesAttributes" value="Attributes:"/>
+				<h:panelGroup>
+					<h:selectOneMenu converter="#{attributesBean.converter}" id="propertiesAttributesBeanPropertiesAttributesAttributes" value="#{propertiesAttributesBean.propertiesAttributes.attributes}">
+						<f:selectItem/>
+						<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{attributesBean.all}" var="_item"/>
+					</h:selectOneMenu>
+					<h:message for="propertiesAttributesBeanPropertiesAttributesAttributes" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
 			</h:panelGrid>

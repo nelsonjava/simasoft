@@ -5,6 +5,7 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:forgeview="http://jboss.org/forge/view"
 	template="/resources/scaffold/pageTemplate.xhtml">
 
 	<f:metadata>
@@ -36,10 +37,99 @@
 			<h:messages globalOnly="true" styleClass="error"/>
 
 			<h:panelGrid columnClasses="label,component,required" columns="3">
+				<h:outputLabel for="tiposLinksModelsBeanTiposLinksModelsOrden" value="Orden:"/>
+				<h:panelGroup>
+					<h:inputText id="tiposLinksModelsBeanTiposLinksModelsOrden" value="#{tiposLinksModelsBean.tiposLinksModels.orden}"/>
+					<h:message for="tiposLinksModelsBeanTiposLinksModelsOrden" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
 				<h:outputLabel for="tiposLinksModelsBeanTiposLinksModelsNombre" value="Nombre:"/>
 				<h:panelGroup>
 					<h:inputText id="tiposLinksModelsBeanTiposLinksModelsNombre" value="#{tiposLinksModelsBean.tiposLinksModels.nombre}"/>
 					<h:message for="tiposLinksModelsBeanTiposLinksModelsNombre" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="tiposLinksModelsBeanTiposLinksModelsLinksModels" value="Links Models:"/>
+				<h:panelGroup>
+					<ui:param name="_collection" value="#{tiposLinksModelsBean.tiposLinksModels.linksModels}"/>
+					<h:dataTable id="tiposLinksModelsBeanTiposLinksModelsLinksModels" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Orden"/>
+							</f:facet>
+							<h:link outcome="/admin/linksModels/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemOrden" value="#{_item.orden}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="linksModelsBeanAddOrden" value="#{linksModelsBean.add.orden}"/>
+								<h:message for="linksModelsBeanAddOrden" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Titulo"/>
+							</f:facet>
+							<h:link outcome="/admin/linksModels/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemTitulo" value="#{_item.titulo}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="linksModelsBeanAddTitulo" value="#{linksModelsBean.add.titulo}"/>
+								<h:message for="linksModelsBeanAddTitulo" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Link"/>
+							</f:facet>
+							<h:link outcome="/admin/linksModels/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemLink" value="#{_item.link}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="linksModelsBeanAddLink" value="#{linksModelsBean.add.link}"/>
+								<h:message for="linksModelsBeanAddLink" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Observacion"/>
+							</f:facet>
+							<h:link outcome="/admin/linksModels/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemObservacion" value="#{_item.observacion}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="linksModelsBeanAddObservacion" value="#{linksModelsBean.add.observacion}"/>
+								<h:message for="linksModelsBeanAddObservacion" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Group Ids"/>
+							</f:facet>
+							<h:link outcome="/admin/linksModels/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="forgeviewdisplayitemGroupIds" value="#{forgeview:display(_item.groupIds)}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:selectOneMenu converter="#{groupIdsBean.converter}" id="linksModelsBeanAddGroupIds" value="#{linksModelsBean.add.groupIds}">
+									<f:selectItem/>
+									<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{groupIdsBean.all}" var="_item"/>
+								</h:selectOneMenu>
+								<h:message for="linksModelsBeanAddGroupIds" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column footerClass="remove-column" headerClass="remove-column">
+							<h:commandLink action="#{_collection.remove(_item)}" styleClass="remove-button"/>
+							<f:facet name="footer">
+								<h:commandLink action="#{_collection.add(linksModelsBean.added)}" id="tiposLinksModelsBeanTiposLinksModelsLinksModelsAdd" styleClass="add-button">
+									<f:setPropertyActionListener target="#{linksModelsBean.add.tiposLinksModels}" value="#{tiposLinksModelsBean.tiposLinksModels}"/>
+								</h:commandLink>
+							</f:facet>
+						</h:column>
+					</h:dataTable>
 				</h:panelGroup>
 				<h:outputText/>
 			</h:panelGrid>

@@ -5,6 +5,7 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:forgeview="http://jboss.org/forge/view"
 	template="/resources/scaffold/pageTemplate.xhtml">
 
 	<f:metadata>
@@ -36,6 +37,12 @@
 			<h:messages globalOnly="true" styleClass="error"/>
 
 			<h:panelGrid columnClasses="label,component,required" columns="3">
+				<h:outputLabel for="typesAttributesBeanTypesAttributesOrden" value="Orden:"/>
+				<h:panelGroup>
+					<h:inputText id="typesAttributesBeanTypesAttributesOrden" value="#{typesAttributesBean.typesAttributes.orden}"/>
+					<h:message for="typesAttributesBeanTypesAttributesOrden" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
 				<h:outputLabel for="typesAttributesBeanTypesAttributesName" value="Name:"/>
 				<h:panelGroup>
 					<h:inputText id="typesAttributesBeanTypesAttributesName" value="#{typesAttributesBean.typesAttributes.name}"/>
@@ -64,6 +71,86 @@
 				<h:panelGroup>
 					<h:inputText id="typesAttributesBeanTypesAttributesObservaciones" value="#{typesAttributesBean.typesAttributes.observaciones}"/>
 					<h:message for="typesAttributesBeanTypesAttributesObservaciones" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="typesAttributesBeanTypesAttributesAttributes" value="Attributes:"/>
+				<h:panelGroup>
+					<ui:param name="_collection" value="#{typesAttributesBean.typesAttributes.attributes}"/>
+					<h:dataTable id="typesAttributesBeanTypesAttributesAttributes" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Orden"/>
+							</f:facet>
+							<h:link outcome="/admin/attributes/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemOrden" value="#{_item.orden}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="attributesBeanAddOrden" value="#{attributesBean.add.orden}"/>
+								<h:message for="attributesBeanAddOrden" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Name"/>
+							</f:facet>
+							<h:link outcome="/admin/attributes/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemName" value="#{_item.name}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="attributesBeanAddName" value="#{attributesBean.add.name}"/>
+								<h:message for="attributesBeanAddName" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Type"/>
+							</f:facet>
+							<h:link outcome="/admin/attributes/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemType" value="#{_item.type}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="attributesBeanAddType" value="#{attributesBean.add.type}"/>
+								<h:message for="attributesBeanAddType" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Length"/>
+							</f:facet>
+							<h:link outcome="/admin/attributes/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemLength" value="#{_item.length}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="attributesBeanAddLength" value="#{attributesBean.add.length}"/>
+								<h:message for="attributesBeanAddLength" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Precision"/>
+							</f:facet>
+							<h:link outcome="/admin/attributes/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemPrecision" value="#{_item.precision}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="attributesBeanAddPrecision" value="#{attributesBean.add.precision}"/>
+								<h:message for="attributesBeanAddPrecision" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column footerClass="remove-column" headerClass="remove-column">
+							<h:commandLink action="#{_collection.remove(_item)}" styleClass="remove-button"/>
+							<f:facet name="footer">
+								<h:commandLink action="#{_collection.add(attributesBean.added)}" id="typesAttributesBeanTypesAttributesAttributesAdd" styleClass="add-button">
+									<f:setPropertyActionListener target="#{attributesBean.add.typesAttributes}" value="#{typesAttributesBean.typesAttributes}"/>
+								</h:commandLink>
+							</f:facet>
+						</h:column>
+					</h:dataTable>
 				</h:panelGroup>
 				<h:outputText/>
 			</h:panelGrid>

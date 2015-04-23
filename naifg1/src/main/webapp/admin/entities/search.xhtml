@@ -29,6 +29,12 @@
 				<h:panelGroup styleClass="search">
 
 					<h:panelGrid columnClasses="label,component,required" columns="3">
+						<h:outputLabel for="entitiesBeanExampleOrden" value="Orden:"/>
+						<h:panelGroup>
+							<h:inputText id="entitiesBeanExampleOrden" value="#{entitiesBean.example.orden}"/>
+							<h:message for="entitiesBeanExampleOrden" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
 						<h:outputLabel for="entitiesBeanExampleName" value="Name:"/>
 						<h:panelGroup>
 							<h:inputText id="entitiesBeanExampleName" value="#{entitiesBean.example.name}"/>
@@ -53,12 +59,6 @@
 							<h:message for="entitiesBeanExampleTablaSecuencia" styleClass="error"/>
 						</h:panelGroup>
 						<h:outputText/>
-						<h:outputLabel for="entitiesBeanExampleModifier" value="Modifier:"/>
-						<h:panelGroup>
-							<h:inputText id="entitiesBeanExampleModifier" value="#{entitiesBean.example.modifier}"/>
-							<h:message for="entitiesBeanExampleModifier" styleClass="error"/>
-						</h:panelGroup>
-						<h:outputText/>
 					</h:panelGrid>
 					<h:panelGroup styleClass="buttons">
 						<h:commandLink value="Search" action='#{entitiesBean.search}' styleClass="btn btn-primary"/>
@@ -68,6 +68,15 @@
 			</f:validateBean>
 			
 			<h:dataTable id="entitiesBeanPageItems" styleClass="data-table" value="#{entitiesBean.pageItems}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Orden"/>
+					</f:facet>
+					<h:link outcome="/admin/entities/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemOrden" value="#{_item.orden}"/>
+					</h:link>
+				</h:column>
 				<h:column>
 					<f:facet name="header">
 						<h:outputText value="Name"/>
@@ -102,15 +111,6 @@
 					<h:link outcome="/admin/entities/view">
 						<f:param name="id" value="#{_item.id}"/>
 						<h:outputText id="itemTablaSecuencia" value="#{_item.tablaSecuencia}"/>
-					</h:link>
-				</h:column>
-				<h:column>
-					<f:facet name="header">
-						<h:outputText value="Modifier"/>
-					</f:facet>
-					<h:link outcome="/admin/entities/view">
-						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemModifier" value="#{_item.modifier}"/>
 					</h:link>
 				</h:column>
 			</h:dataTable>

@@ -4,6 +4,7 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:forgeview="http://jboss.org/forge/view"
 	template="/resources/scaffold/pageTemplate.xhtml">
 
 	<f:metadata>
@@ -25,6 +26,9 @@
 
 	<ui:define name="main">
 		<h:panelGrid columnClasses="label,component,required" columns="3">
+			<h:outputLabel for="relationshipsBeanRelationshipsOrden" value="Orden:"/>
+			<h:outputText id="relationshipsBeanRelationshipsOrden" value="#{relationshipsBean.relationships.orden}"/>
+			<h:outputText/>
 			<h:outputLabel for="relationshipsBeanRelationshipsEntity" value="Entity:"/>
 			<h:outputText id="relationshipsBeanRelationshipsEntity" value="#{relationshipsBean.relationships.entity}"/>
 			<h:outputText/>
@@ -57,6 +61,70 @@
 			<h:outputText/>
 			<h:outputLabel for="relationshipsBeanRelationshipsObservaciones" value="Observaciones:"/>
 			<h:outputText id="relationshipsBeanRelationshipsObservaciones" value="#{relationshipsBean.relationships.observaciones}"/>
+			<h:outputText/>
+			<h:outputLabel for="relationshipsBeanRelationshipsPropertiesAttributes" value="Properties Attributes:"/>
+			<h:dataTable id="relationshipsBeanRelationshipsPropertiesAttributes" styleClass="data-table" value="#{forgeview:asList(relationshipsBean.relationships.propertiesAttributes)}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Orden"/>
+					</f:facet>
+					<h:link outcome="/admin/propertiesAttributes/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemOrden" value="#{_item.orden}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Name"/>
+					</f:facet>
+					<h:link outcome="/admin/propertiesAttributes/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemName" value="#{_item.name}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Value"/>
+					</f:facet>
+					<h:link outcome="/admin/propertiesAttributes/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemValue" value="#{_item.value}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Observaciones"/>
+					</f:facet>
+					<h:link outcome="/admin/propertiesAttributes/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemObservaciones" value="#{_item.observaciones}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Attributes"/>
+					</f:facet>
+					<h:link outcome="/admin/propertiesAttributes/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="forgeviewdisplayitemAttributes" value="#{forgeview:display(_item.attributes)}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<h:outputText/>
+			<h:outputLabel for="relationshipsBeanRelationshipsCardinalities" value="Cardinalities:"/>
+			<h:link id="relationshipsBeanRelationshipsCardinalities" outcome="/admin/cardinalities/view" rendered="#{!empty relationshipsBean.relationships.cardinalities}" value="#{relationshipsBean.relationships.cardinalities}">
+				<f:param name="id" value="#{relationshipsBean.relationships.cardinalities.id}"/>
+			</h:link>
+			<h:outputText/>
+			<h:outputLabel for="relationshipsBeanRelationshipsFrom" value="From:"/>
+			<h:link id="relationshipsBeanRelationshipsFrom" outcome="/admin/entities/view" rendered="#{!empty relationshipsBean.relationships.from}" value="#{relationshipsBean.relationships.from}">
+				<f:param name="id" value="#{relationshipsBean.relationships.from.id}"/>
+			</h:link>
+			<h:outputText/>
+			<h:outputLabel for="relationshipsBeanRelationshipsTo" value="To:"/>
+			<h:link id="relationshipsBeanRelationshipsTo" outcome="/admin/entities/view" rendered="#{!empty relationshipsBean.relationships.to}" value="#{relationshipsBean.relationships.to}">
+				<f:param name="id" value="#{relationshipsBean.relationships.to.id}"/>
+			</h:link>
 			<h:outputText/>
 		</h:panelGrid>
 

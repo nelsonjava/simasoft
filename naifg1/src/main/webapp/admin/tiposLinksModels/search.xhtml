@@ -29,6 +29,12 @@
 				<h:panelGroup styleClass="search">
 
 					<h:panelGrid columnClasses="label,component,required" columns="3">
+						<h:outputLabel for="tiposLinksModelsBeanExampleOrden" value="Orden:"/>
+						<h:panelGroup>
+							<h:inputText id="tiposLinksModelsBeanExampleOrden" value="#{tiposLinksModelsBean.example.orden}"/>
+							<h:message for="tiposLinksModelsBeanExampleOrden" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
 						<h:outputLabel for="tiposLinksModelsBeanExampleNombre" value="Nombre:"/>
 						<h:panelGroup>
 							<h:inputText id="tiposLinksModelsBeanExampleNombre" value="#{tiposLinksModelsBean.example.nombre}"/>
@@ -44,6 +50,15 @@
 			</f:validateBean>
 			
 			<h:dataTable id="tiposLinksModelsBeanPageItems" styleClass="data-table" value="#{tiposLinksModelsBean.pageItems}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Orden"/>
+					</f:facet>
+					<h:link outcome="/admin/tiposLinksModels/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemOrden" value="#{_item.orden}"/>
+					</h:link>
+				</h:column>
 				<h:column>
 					<f:facet name="header">
 						<h:outputText value="Nombre"/>

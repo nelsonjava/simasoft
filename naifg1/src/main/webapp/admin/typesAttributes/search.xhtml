@@ -29,6 +29,12 @@
 				<h:panelGroup styleClass="search">
 
 					<h:panelGrid columnClasses="label,component,required" columns="3">
+						<h:outputLabel for="typesAttributesBeanExampleOrden" value="Orden:"/>
+						<h:panelGroup>
+							<h:inputText id="typesAttributesBeanExampleOrden" value="#{typesAttributesBean.example.orden}"/>
+							<h:message for="typesAttributesBeanExampleOrden" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
 						<h:outputLabel for="typesAttributesBeanExampleName" value="Name:"/>
 						<h:panelGroup>
 							<h:inputText id="typesAttributesBeanExampleName" value="#{typesAttributesBean.example.name}"/>
@@ -53,12 +59,6 @@
 							<h:message for="typesAttributesBeanExampleAnnotations" styleClass="error"/>
 						</h:panelGroup>
 						<h:outputText/>
-						<h:outputLabel for="typesAttributesBeanExampleObservaciones" value="Observaciones:"/>
-						<h:panelGroup>
-							<h:inputText id="typesAttributesBeanExampleObservaciones" value="#{typesAttributesBean.example.observaciones}"/>
-							<h:message for="typesAttributesBeanExampleObservaciones" styleClass="error"/>
-						</h:panelGroup>
-						<h:outputText/>
 					</h:panelGrid>
 					<h:panelGroup styleClass="buttons">
 						<h:commandLink value="Search" action='#{typesAttributesBean.search}' styleClass="btn btn-primary"/>
@@ -68,6 +68,15 @@
 			</f:validateBean>
 			
 			<h:dataTable id="typesAttributesBeanPageItems" styleClass="data-table" value="#{typesAttributesBean.pageItems}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Orden"/>
+					</f:facet>
+					<h:link outcome="/admin/typesAttributes/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemOrden" value="#{_item.orden}"/>
+					</h:link>
+				</h:column>
 				<h:column>
 					<f:facet name="header">
 						<h:outputText value="Name"/>
@@ -102,15 +111,6 @@
 					<h:link outcome="/admin/typesAttributes/view">
 						<f:param name="id" value="#{_item.id}"/>
 						<h:outputText id="itemAnnotations" value="#{_item.annotations}"/>
-					</h:link>
-				</h:column>
-				<h:column>
-					<f:facet name="header">
-						<h:outputText value="Observaciones"/>
-					</f:facet>
-					<h:link outcome="/admin/typesAttributes/view">
-						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemObservaciones" value="#{_item.observaciones}"/>
 					</h:link>
 				</h:column>
 			</h:dataTable>

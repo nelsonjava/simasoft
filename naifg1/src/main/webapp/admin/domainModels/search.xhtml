@@ -29,6 +29,12 @@
 				<h:panelGroup styleClass="search">
 
 					<h:panelGrid columnClasses="label,component,required" columns="3">
+						<h:outputLabel for="domainModelsBeanExampleOrden" value="Orden:"/>
+						<h:panelGroup>
+							<h:inputText id="domainModelsBeanExampleOrden" value="#{domainModelsBean.example.orden}"/>
+							<h:message for="domainModelsBeanExampleOrden" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
 						<h:outputLabel for="domainModelsBeanExampleName" value="Name:"/>
 						<h:panelGroup>
 							<h:inputText id="domainModelsBeanExampleName" value="#{domainModelsBean.example.name}"/>
@@ -53,12 +59,6 @@
 							<h:message for="domainModelsBeanExampleVersion" styleClass="error"/>
 						</h:panelGroup>
 						<h:outputText/>
-						<h:outputLabel for="domainModelsBeanExampleCodigo" value="Codigo:"/>
-						<h:panelGroup>
-							<h:inputText id="domainModelsBeanExampleCodigo" value="#{domainModelsBean.example.codigo}"/>
-							<h:message for="domainModelsBeanExampleCodigo" styleClass="error"/>
-						</h:panelGroup>
-						<h:outputText/>
 					</h:panelGrid>
 					<h:panelGroup styleClass="buttons">
 						<h:commandLink value="Search" action='#{domainModelsBean.search}' styleClass="btn btn-primary"/>
@@ -68,6 +68,15 @@
 			</f:validateBean>
 			
 			<h:dataTable id="domainModelsBeanPageItems" styleClass="data-table" value="#{domainModelsBean.pageItems}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Orden"/>
+					</f:facet>
+					<h:link outcome="/admin/domainModels/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemOrden" value="#{_item.orden}"/>
+					</h:link>
+				</h:column>
 				<h:column>
 					<f:facet name="header">
 						<h:outputText value="Name"/>
@@ -102,15 +111,6 @@
 					<h:link outcome="/admin/domainModels/view">
 						<f:param name="id" value="#{_item.id}"/>
 						<h:outputText id="itemVersion" value="#{_item.version}"/>
-					</h:link>
-				</h:column>
-				<h:column>
-					<f:facet name="header">
-						<h:outputText value="Codigo"/>
-					</f:facet>
-					<h:link outcome="/admin/domainModels/view">
-						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemCodigo" value="#{_item.codigo}"/>
 					</h:link>
 				</h:column>
 			</h:dataTable>

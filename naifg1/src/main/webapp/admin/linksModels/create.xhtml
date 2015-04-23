@@ -5,6 +5,7 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:forgeview="http://jboss.org/forge/view"
 	template="/resources/scaffold/pageTemplate.xhtml">
 
 	<f:metadata>
@@ -36,6 +37,12 @@
 			<h:messages globalOnly="true" styleClass="error"/>
 
 			<h:panelGrid columnClasses="label,component,required" columns="3">
+				<h:outputLabel for="linksModelsBeanLinksModelsOrden" value="Orden:"/>
+				<h:panelGroup>
+					<h:inputText id="linksModelsBeanLinksModelsOrden" value="#{linksModelsBean.linksModels.orden}"/>
+					<h:message for="linksModelsBeanLinksModelsOrden" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
 				<h:outputLabel for="linksModelsBeanLinksModelsTitulo" value="Titulo:"/>
 				<h:panelGroup>
 					<h:inputText id="linksModelsBeanLinksModelsTitulo" value="#{linksModelsBean.linksModels.titulo}"/>
@@ -52,6 +59,24 @@
 				<h:panelGroup>
 					<h:inputText id="linksModelsBeanLinksModelsObservacion" value="#{linksModelsBean.linksModels.observacion}"/>
 					<h:message for="linksModelsBeanLinksModelsObservacion" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="linksModelsBeanLinksModelsGroupIds" value="Group Ids:"/>
+				<h:panelGroup>
+					<h:selectOneMenu converter="#{groupIdsBean.converter}" id="linksModelsBeanLinksModelsGroupIds" value="#{linksModelsBean.linksModels.groupIds}">
+						<f:selectItem/>
+						<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{groupIdsBean.all}" var="_item"/>
+					</h:selectOneMenu>
+					<h:message for="linksModelsBeanLinksModelsGroupIds" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="linksModelsBeanLinksModelsTiposLinksModels" value="Tipos Links Models:"/>
+				<h:panelGroup>
+					<h:selectOneMenu converter="#{tiposLinksModelsBean.converter}" id="linksModelsBeanLinksModelsTiposLinksModels" value="#{linksModelsBean.linksModels.tiposLinksModels}">
+						<f:selectItem/>
+						<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{tiposLinksModelsBean.all}" var="_item"/>
+					</h:selectOneMenu>
+					<h:message for="linksModelsBeanLinksModelsTiposLinksModels" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
 			</h:panelGrid>

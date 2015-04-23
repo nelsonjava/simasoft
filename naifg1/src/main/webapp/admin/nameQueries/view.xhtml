@@ -25,6 +25,9 @@
 
 	<ui:define name="main">
 		<h:panelGrid columnClasses="label,component,required" columns="3">
+			<h:outputLabel for="nameQueriesBeanNameQueriesOrden" value="Orden:"/>
+			<h:outputText id="nameQueriesBeanNameQueriesOrden" value="#{nameQueriesBean.nameQueries.orden}"/>
+			<h:outputText/>
 			<h:outputLabel for="nameQueriesBeanNameQueriesName" value="Name:"/>
 			<h:outputText id="nameQueriesBeanNameQueriesName" value="#{nameQueriesBean.nameQueries.name}"/>
 			<h:outputText/>
@@ -33,6 +36,11 @@
 			<h:outputText/>
 			<h:outputLabel for="nameQueriesBeanNameQueriesObservaciones" value="Observaciones:"/>
 			<h:outputText id="nameQueriesBeanNameQueriesObservaciones" value="#{nameQueriesBean.nameQueries.observaciones}"/>
+			<h:outputText/>
+			<h:outputLabel for="nameQueriesBeanNameQueriesEntities" value="Entities:"/>
+			<h:link id="nameQueriesBeanNameQueriesEntities" outcome="/admin/entities/view" rendered="#{!empty nameQueriesBean.nameQueries.entities}" value="#{nameQueriesBean.nameQueries.entities}">
+				<f:param name="id" value="#{nameQueriesBean.nameQueries.entities.id}"/>
+			</h:link>
 			<h:outputText/>
 		</h:panelGrid>
 

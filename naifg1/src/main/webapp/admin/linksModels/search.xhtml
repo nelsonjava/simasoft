@@ -4,6 +4,7 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:forgeview="http://jboss.org/forge/view"
 	template="/resources/scaffold/pageTemplate.xhtml">
 
 	<f:metadata>
@@ -29,6 +30,12 @@
 				<h:panelGroup styleClass="search">
 
 					<h:panelGrid columnClasses="label,component,required" columns="3">
+						<h:outputLabel for="linksModelsBeanExampleOrden" value="Orden:"/>
+						<h:panelGroup>
+							<h:inputText id="linksModelsBeanExampleOrden" value="#{linksModelsBean.example.orden}"/>
+							<h:message for="linksModelsBeanExampleOrden" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
 						<h:outputLabel for="linksModelsBeanExampleTitulo" value="Titulo:"/>
 						<h:panelGroup>
 							<h:inputText id="linksModelsBeanExampleTitulo" value="#{linksModelsBean.example.titulo}"/>
@@ -47,6 +54,15 @@
 							<h:message for="linksModelsBeanExampleObservacion" styleClass="error"/>
 						</h:panelGroup>
 						<h:outputText/>
+						<h:outputLabel for="linksModelsBeanExampleGroupIds" value="Group Ids:"/>
+						<h:panelGroup>
+							<h:selectOneMenu converter="#{groupIdsBean.converter}" id="linksModelsBeanExampleGroupIds" value="#{linksModelsBean.example.groupIds}">
+								<f:selectItem/>
+								<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{groupIdsBean.all}" var="_item"/>
+							</h:selectOneMenu>
+							<h:message for="linksModelsBeanExampleGroupIds" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
 					</h:panelGrid>
 					<h:panelGroup styleClass="buttons">
 						<h:commandLink value="Search" action='#{linksModelsBean.search}' styleClass="btn btn-primary"/>
@@ -56,6 +72,15 @@
 			</f:validateBean>
 			
 			<h:dataTable id="linksModelsBeanPageItems" styleClass="data-table" value="#{linksModelsBean.pageItems}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Orden"/>
+					</f:facet>
+					<h:link outcome="/admin/linksModels/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemOrden" value="#{_item.orden}"/>
+					</h:link>
+				</h:column>
 				<h:column>
 					<f:facet name="header">
 						<h:outputText value="Titulo"/>
@@ -81,6 +106,15 @@
 					<h:link outcome="/admin/linksModels/view">
 						<f:param name="id" value="#{_item.id}"/>
 						<h:outputText id="itemObservacion" value="#{_item.observacion}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Group Ids"/>
+					</f:facet>
+					<h:link outcome="/admin/linksModels/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="forgeviewdisplayitemGroupIds" value="#{forgeview:display(_item.groupIds)}"/>
 					</h:link>
 				</h:column>
 			</h:dataTable>

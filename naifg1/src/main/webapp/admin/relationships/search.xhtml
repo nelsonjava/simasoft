@@ -29,6 +29,12 @@
 				<h:panelGroup styleClass="search">
 
 					<h:panelGrid columnClasses="label,component,required" columns="3">
+						<h:outputLabel for="relationshipsBeanExampleOrden" value="Orden:"/>
+						<h:panelGroup>
+							<h:inputText id="relationshipsBeanExampleOrden" value="#{relationshipsBean.example.orden}"/>
+							<h:message for="relationshipsBeanExampleOrden" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
 						<h:outputLabel for="relationshipsBeanExampleEntity" value="Entity:"/>
 						<h:panelGroup>
 							<h:inputText id="relationshipsBeanExampleEntity" value="#{relationshipsBean.example.entity}"/>
@@ -57,12 +63,6 @@
 							<h:message for="relationshipsBeanExampleMappedby" styleClass="error"/>
 						</h:panelGroup>
 						<h:outputText/>
-						<h:outputLabel for="relationshipsBeanExampleAnnotationsMethod" value="Annotations Method:"/>
-						<h:panelGroup>
-							<h:inputText id="relationshipsBeanExampleAnnotationsMethod" value="#{relationshipsBean.example.annotationsMethod}"/>
-							<h:message for="relationshipsBeanExampleAnnotationsMethod" styleClass="error"/>
-						</h:panelGroup>
-						<h:outputText/>
 					</h:panelGrid>
 					<h:panelGroup styleClass="buttons">
 						<h:commandLink value="Search" action='#{relationshipsBean.search}' styleClass="btn btn-primary"/>
@@ -72,6 +72,15 @@
 			</f:validateBean>
 			
 			<h:dataTable id="relationshipsBeanPageItems" styleClass="data-table" value="#{relationshipsBean.pageItems}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Orden"/>
+					</f:facet>
+					<h:link outcome="/admin/relationships/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemOrden" value="#{_item.orden}"/>
+					</h:link>
+				</h:column>
 				<h:column>
 					<f:facet name="header">
 						<h:outputText value="Entity"/>
@@ -106,15 +115,6 @@
 					<h:link outcome="/admin/relationships/view">
 						<f:param name="id" value="#{_item.id}"/>
 						<h:outputText id="itemMappedby" value="#{_item.mappedby}"/>
-					</h:link>
-				</h:column>
-				<h:column>
-					<f:facet name="header">
-						<h:outputText value="Annotations Method"/>
-					</f:facet>
-					<h:link outcome="/admin/relationships/view">
-						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemAnnotationsMethod" value="#{_item.annotationsMethod}"/>
 					</h:link>
 				</h:column>
 			</h:dataTable>

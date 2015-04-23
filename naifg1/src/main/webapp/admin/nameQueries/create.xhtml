@@ -5,6 +5,7 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:forgeview="http://jboss.org/forge/view"
 	template="/resources/scaffold/pageTemplate.xhtml">
 
 	<f:metadata>
@@ -36,6 +37,12 @@
 			<h:messages globalOnly="true" styleClass="error"/>
 
 			<h:panelGrid columnClasses="label,component,required" columns="3">
+				<h:outputLabel for="nameQueriesBeanNameQueriesOrden" value="Orden:"/>
+				<h:panelGroup>
+					<h:inputText id="nameQueriesBeanNameQueriesOrden" value="#{nameQueriesBean.nameQueries.orden}"/>
+					<h:message for="nameQueriesBeanNameQueriesOrden" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
 				<h:outputLabel for="nameQueriesBeanNameQueriesName" value="Name:"/>
 				<h:panelGroup>
 					<h:inputText id="nameQueriesBeanNameQueriesName" value="#{nameQueriesBean.nameQueries.name}"/>
@@ -52,6 +59,15 @@
 				<h:panelGroup>
 					<h:inputText id="nameQueriesBeanNameQueriesObservaciones" value="#{nameQueriesBean.nameQueries.observaciones}"/>
 					<h:message for="nameQueriesBeanNameQueriesObservaciones" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="nameQueriesBeanNameQueriesEntities" value="Entities:"/>
+				<h:panelGroup>
+					<h:selectOneMenu converter="#{entitiesBean.converter}" id="nameQueriesBeanNameQueriesEntities" value="#{nameQueriesBean.nameQueries.entities}">
+						<f:selectItem/>
+						<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{entitiesBean.all}" var="_item"/>
+					</h:selectOneMenu>
+					<h:message for="nameQueriesBeanNameQueriesEntities" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
 			</h:panelGrid>

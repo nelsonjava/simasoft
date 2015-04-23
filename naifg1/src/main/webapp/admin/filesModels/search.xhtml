@@ -29,6 +29,12 @@
 				<h:panelGroup styleClass="search">
 
 					<h:panelGrid columnClasses="label,component,required" columns="3">
+						<h:outputLabel for="filesModelsBeanExampleOrden" value="Orden:"/>
+						<h:panelGroup>
+							<h:inputText id="filesModelsBeanExampleOrden" value="#{filesModelsBean.example.orden}"/>
+							<h:message for="filesModelsBeanExampleOrden" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
 						<h:outputLabel for="filesModelsBeanExampleCodigo" value="Codigo:"/>
 						<h:panelGroup>
 							<h:inputText id="filesModelsBeanExampleCodigo" value="#{filesModelsBean.example.codigo}"/>
@@ -53,12 +59,6 @@
 							<h:message for="filesModelsBeanExampleType" styleClass="error"/>
 						</h:panelGroup>
 						<h:outputText/>
-						<h:outputLabel for="filesModelsBeanExampleObservacion" value="Observacion:"/>
-						<h:panelGroup>
-							<h:inputText id="filesModelsBeanExampleObservacion" value="#{filesModelsBean.example.observacion}"/>
-							<h:message for="filesModelsBeanExampleObservacion" styleClass="error"/>
-						</h:panelGroup>
-						<h:outputText/>
 					</h:panelGrid>
 					<h:panelGroup styleClass="buttons">
 						<h:commandLink value="Search" action='#{filesModelsBean.search}' styleClass="btn btn-primary"/>
@@ -68,6 +68,15 @@
 			</f:validateBean>
 			
 			<h:dataTable id="filesModelsBeanPageItems" styleClass="data-table" value="#{filesModelsBean.pageItems}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Orden"/>
+					</f:facet>
+					<h:link outcome="/admin/filesModels/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemOrden" value="#{_item.orden}"/>
+					</h:link>
+				</h:column>
 				<h:column>
 					<f:facet name="header">
 						<h:outputText value="Codigo"/>
@@ -102,15 +111,6 @@
 					<h:link outcome="/admin/filesModels/view">
 						<f:param name="id" value="#{_item.id}"/>
 						<h:outputText id="itemType" value="#{_item.type}"/>
-					</h:link>
-				</h:column>
-				<h:column>
-					<f:facet name="header">
-						<h:outputText value="Observacion"/>
-					</f:facet>
-					<h:link outcome="/admin/filesModels/view">
-						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemObservacion" value="#{_item.observacion}"/>
 					</h:link>
 				</h:column>
 			</h:dataTable>

@@ -29,6 +29,12 @@
 				<h:panelGroup styleClass="search">
 
 					<h:panelGrid columnClasses="label,component,required" columns="3">
+						<h:outputLabel for="cardinalitiesBeanExampleOrden" value="Orden:"/>
+						<h:panelGroup>
+							<h:inputText id="cardinalitiesBeanExampleOrden" value="#{cardinalitiesBean.example.orden}"/>
+							<h:message for="cardinalitiesBeanExampleOrden" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
 						<h:outputLabel for="cardinalitiesBeanExampleName" value="Name:"/>
 						<h:panelGroup>
 							<h:inputText id="cardinalitiesBeanExampleName" value="#{cardinalitiesBean.example.name}"/>
@@ -66,6 +72,15 @@
 			</f:validateBean>
 			
 			<h:dataTable id="cardinalitiesBeanPageItems" styleClass="data-table" value="#{cardinalitiesBean.pageItems}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Orden"/>
+					</f:facet>
+					<h:link outcome="/admin/cardinalities/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemOrden" value="#{_item.orden}"/>
+					</h:link>
+				</h:column>
 				<h:column>
 					<f:facet name="header">
 						<h:outputText value="Name"/>

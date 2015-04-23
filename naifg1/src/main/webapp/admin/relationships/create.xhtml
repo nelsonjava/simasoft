@@ -5,6 +5,7 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:forgeview="http://jboss.org/forge/view"
 	template="/resources/scaffold/pageTemplate.xhtml">
 
 	<f:metadata>
@@ -36,6 +37,12 @@
 			<h:messages globalOnly="true" styleClass="error"/>
 
 			<h:panelGrid columnClasses="label,component,required" columns="3">
+				<h:outputLabel for="relationshipsBeanRelationshipsOrden" value="Orden:"/>
+				<h:panelGroup>
+					<h:inputText id="relationshipsBeanRelationshipsOrden" value="#{relationshipsBean.relationships.orden}"/>
+					<h:message for="relationshipsBeanRelationshipsOrden" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
 				<h:outputLabel for="relationshipsBeanRelationshipsEntity" value="Entity:"/>
 				<h:panelGroup>
 					<h:inputText id="relationshipsBeanRelationshipsEntity" value="#{relationshipsBean.relationships.entity}"/>
@@ -104,6 +111,116 @@
 				<h:panelGroup>
 					<h:inputText id="relationshipsBeanRelationshipsObservaciones" value="#{relationshipsBean.relationships.observaciones}"/>
 					<h:message for="relationshipsBeanRelationshipsObservaciones" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="relationshipsBeanRelationshipsPropertiesAttributes" value="Properties Attributes:"/>
+				<h:panelGroup>
+					<ui:param name="_collection" value="#{relationshipsBean.relationships.propertiesAttributes}"/>
+					<h:dataTable id="relationshipsBeanRelationshipsPropertiesAttributes" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Orden"/>
+							</f:facet>
+							<h:link outcome="/admin/propertiesAttributes/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemOrden" value="#{_item.orden}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="propertiesAttributesBeanAddOrden" value="#{propertiesAttributesBean.add.orden}"/>
+								<h:message for="propertiesAttributesBeanAddOrden" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Name"/>
+							</f:facet>
+							<h:link outcome="/admin/propertiesAttributes/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemName" value="#{_item.name}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="propertiesAttributesBeanAddName" value="#{propertiesAttributesBean.add.name}"/>
+								<h:message for="propertiesAttributesBeanAddName" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Value"/>
+							</f:facet>
+							<h:link outcome="/admin/propertiesAttributes/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemValue" value="#{_item.value}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="propertiesAttributesBeanAddValue" value="#{propertiesAttributesBean.add.value}"/>
+								<h:message for="propertiesAttributesBeanAddValue" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Observaciones"/>
+							</f:facet>
+							<h:link outcome="/admin/propertiesAttributes/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemObservaciones" value="#{_item.observaciones}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="propertiesAttributesBeanAddObservaciones" value="#{propertiesAttributesBean.add.observaciones}"/>
+								<h:message for="propertiesAttributesBeanAddObservaciones" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Attributes"/>
+							</f:facet>
+							<h:link outcome="/admin/propertiesAttributes/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="forgeviewdisplayitemAttributes" value="#{forgeview:display(_item.attributes)}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:selectOneMenu converter="#{attributesBean.converter}" id="propertiesAttributesBeanAddAttributes" value="#{propertiesAttributesBean.add.attributes}">
+									<f:selectItem/>
+									<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{attributesBean.all}" var="_item"/>
+								</h:selectOneMenu>
+								<h:message for="propertiesAttributesBeanAddAttributes" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column footerClass="remove-column" headerClass="remove-column">
+							<h:commandLink action="#{_collection.remove(_item)}" styleClass="remove-button"/>
+							<f:facet name="footer">
+								<h:commandLink action="#{_collection.add(propertiesAttributesBean.added)}" id="relationshipsBeanRelationshipsPropertiesAttributesAdd" styleClass="add-button">
+									<f:setPropertyActionListener target="#{propertiesAttributesBean.add.relationships}" value="#{relationshipsBean.relationships}"/>
+								</h:commandLink>
+							</f:facet>
+						</h:column>
+					</h:dataTable>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="relationshipsBeanRelationshipsCardinalities" value="Cardinalities:"/>
+				<h:panelGroup>
+					<h:selectOneMenu converter="#{cardinalitiesBean.converter}" id="relationshipsBeanRelationshipsCardinalities" value="#{relationshipsBean.relationships.cardinalities}">
+						<f:selectItem/>
+						<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{cardinalitiesBean.all}" var="_item"/>
+					</h:selectOneMenu>
+					<h:message for="relationshipsBeanRelationshipsCardinalities" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="relationshipsBeanRelationshipsFrom" value="From:"/>
+				<h:panelGroup>
+					<h:selectOneMenu converter="#{entitiesBean.converter}" id="relationshipsBeanRelationshipsFrom" value="#{relationshipsBean.relationships.from}">
+						<f:selectItem/>
+						<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{entitiesBean.all}" var="_item"/>
+					</h:selectOneMenu>
+					<h:message for="relationshipsBeanRelationshipsFrom" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="relationshipsBeanRelationshipsTo" value="To:"/>
+				<h:panelGroup>
+					<h:selectOneMenu converter="#{entitiesBean.converter}" id="relationshipsBeanRelationshipsTo" value="#{relationshipsBean.relationships.to}">
+						<f:selectItem/>
+						<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{entitiesBean.all}" var="_item"/>
+					</h:selectOneMenu>
+					<h:message for="relationshipsBeanRelationshipsTo" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
 			</h:panelGrid>

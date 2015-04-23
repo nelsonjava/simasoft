@@ -25,6 +25,9 @@
 
 	<ui:define name="main">
 		<h:panelGrid columnClasses="label,component,required" columns="3">
+			<h:outputLabel for="linksModelsBeanLinksModelsOrden" value="Orden:"/>
+			<h:outputText id="linksModelsBeanLinksModelsOrden" value="#{linksModelsBean.linksModels.orden}"/>
+			<h:outputText/>
 			<h:outputLabel for="linksModelsBeanLinksModelsTitulo" value="Titulo:"/>
 			<h:outputText id="linksModelsBeanLinksModelsTitulo" value="#{linksModelsBean.linksModels.titulo}"/>
 			<h:outputText/>
@@ -33,6 +36,16 @@
 			<h:outputText/>
 			<h:outputLabel for="linksModelsBeanLinksModelsObservacion" value="Observacion:"/>
 			<h:outputText id="linksModelsBeanLinksModelsObservacion" value="#{linksModelsBean.linksModels.observacion}"/>
+			<h:outputText/>
+			<h:outputLabel for="linksModelsBeanLinksModelsGroupIds" value="Group Ids:"/>
+			<h:link id="linksModelsBeanLinksModelsGroupIds" outcome="/admin/groupIds/view" rendered="#{!empty linksModelsBean.linksModels.groupIds}" value="#{linksModelsBean.linksModels.groupIds}">
+				<f:param name="id" value="#{linksModelsBean.linksModels.groupIds.id}"/>
+			</h:link>
+			<h:outputText/>
+			<h:outputLabel for="linksModelsBeanLinksModelsTiposLinksModels" value="Tipos Links Models:"/>
+			<h:link id="linksModelsBeanLinksModelsTiposLinksModels" outcome="/admin/tiposLinksModels/view" rendered="#{!empty linksModelsBean.linksModels.tiposLinksModels}" value="#{linksModelsBean.linksModels.tiposLinksModels}">
+				<f:param name="id" value="#{linksModelsBean.linksModels.tiposLinksModels.id}"/>
+			</h:link>
 			<h:outputText/>
 		</h:panelGrid>
 

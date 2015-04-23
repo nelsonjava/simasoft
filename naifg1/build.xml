@@ -2,8 +2,8 @@
 <project name="naif" default="bak" basedir=".">
 
   <tstamp/>
-  <property name="bak"          value="/dev/backups/co/simasoft/naif"/>
-  <property name="project.name" value="DomainModels"/>
+  <property name="bak"          value="/dev/backups/co/simasoft"/>
+  <property name="project.name" value="naifg1"/>
   <!--
   <property name="wildfly"      value="d:/javasrv/wildfly-8.2.0.Final"/>
   -->

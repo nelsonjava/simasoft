@@ -4,6 +4,7 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:forgeview="http://jboss.org/forge/view"
 	template="/resources/scaffold/pageTemplate.xhtml">
 
 	<f:metadata>
@@ -25,6 +26,9 @@
 
 	<ui:define name="main">
 		<h:panelGrid columnClasses="label,component,required" columns="3">
+			<h:outputLabel for="domainModelsBeanDomainModelsOrden" value="Orden:"/>
+			<h:outputText id="domainModelsBeanDomainModelsOrden" value="#{domainModelsBean.domainModels.orden}"/>
+			<h:outputText/>
 			<h:outputLabel for="domainModelsBeanDomainModelsName" value="Name:"/>
 			<h:outputText id="domainModelsBeanDomainModelsName" value="#{domainModelsBean.domainModels.name}"/>
 			<h:outputText/>
@@ -50,6 +54,109 @@
 			<h:outputText/>
 			<h:outputLabel for="domainModelsBeanDomainModelsObservaciones" value="Observaciones:"/>
 			<h:outputText id="domainModelsBeanDomainModelsObservaciones" value="#{domainModelsBean.domainModels.observaciones}"/>
+			<h:outputText/>
+			<h:outputLabel for="domainModelsBeanDomainModelsSystemsModels" value="Systems Models:"/>
+			<h:link id="domainModelsBeanDomainModelsSystemsModels" outcome="/admin/systemsModels/view" rendered="#{!empty domainModelsBean.domainModels.systemsModels}" value="#{domainModelsBean.domainModels.systemsModels}">
+				<f:param name="id" value="#{domainModelsBean.domainModels.systemsModels.id}"/>
+			</h:link>
+			<h:outputText/>
+			<h:outputLabel for="domainModelsBeanDomainModelsFilesModels" value="Files Models:"/>
+			<h:dataTable id="domainModelsBeanDomainModelsFilesModels" styleClass="data-table" value="#{forgeview:asList(domainModelsBean.domainModels.filesModels)}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Orden"/>
+					</f:facet>
+					<h:link outcome="/admin/filesModels/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemOrden" value="#{_item.orden}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Codigo"/>
+					</f:facet>
+					<h:link outcome="/admin/filesModels/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemCodigo" value="#{_item.codigo}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Archivo"/>
+					</f:facet>
+					<h:link outcome="/admin/filesModels/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemArchivo" value="#{_item.archivo}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Extension"/>
+					</f:facet>
+					<h:link outcome="/admin/filesModels/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemExtension" value="#{_item.extension}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Type"/>
+					</f:facet>
+					<h:link outcome="/admin/filesModels/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemType" value="#{_item.type}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<h:outputText/>
+			<h:outputLabel for="domainModelsBeanDomainModelsGroupIds" value="Group Ids:"/>
+			<h:dataTable id="domainModelsBeanDomainModelsGroupIds" styleClass="data-table" value="#{forgeview:asList(domainModelsBean.domainModels.groupIds)}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Orden"/>
+					</f:facet>
+					<h:link outcome="/admin/groupIds/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemOrden" value="#{_item.orden}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Name"/>
+					</f:facet>
+					<h:link outcome="/admin/groupIds/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemName" value="#{_item.name}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Group Id"/>
+					</f:facet>
+					<h:link outcome="/admin/groupIds/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemGroupId" value="#{_item.groupId}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Artifact Id"/>
+					</f:facet>
+					<h:link outcome="/admin/groupIds/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemArtifactId" value="#{_item.artifactId}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Version"/>
+					</f:facet>
+					<h:link outcome="/admin/groupIds/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemVersion" value="#{_item.version}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
 			<h:outputText/>
 		</h:panelGrid>
 

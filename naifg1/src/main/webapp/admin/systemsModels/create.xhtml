@@ -5,6 +5,7 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:forgeview="http://jboss.org/forge/view"
 	template="/resources/scaffold/pageTemplate.xhtml">
 
 	<f:metadata>
@@ -36,6 +37,12 @@
 			<h:messages globalOnly="true" styleClass="error"/>
 
 			<h:panelGrid columnClasses="label,component,required" columns="3">
+				<h:outputLabel for="systemsModelsBeanSystemsModelsOrden" value="Orden:"/>
+				<h:panelGroup>
+					<h:inputText id="systemsModelsBeanSystemsModelsOrden" value="#{systemsModelsBean.systemsModels.orden}"/>
+					<h:message for="systemsModelsBeanSystemsModelsOrden" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
 				<h:outputLabel for="systemsModelsBeanSystemsModelsName" value="Name:"/>
 				<h:panelGroup>
 					<h:inputText id="systemsModelsBeanSystemsModelsName" value="#{systemsModelsBean.systemsModels.name}"/>
@@ -52,6 +59,102 @@
 				<h:panelGroup>
 					<h:inputText id="systemsModelsBeanSystemsModelsObservaciones" value="#{systemsModelsBean.systemsModels.observaciones}"/>
 					<h:message for="systemsModelsBeanSystemsModelsObservaciones" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="systemsModelsBeanSystemsModelsFilesModels" value="Files Models:"/>
+				<h:panelGroup>
+					<ui:param name="_collection" value="#{systemsModelsBean.systemsModels.filesModels}"/>
+					<h:dataTable id="systemsModelsBeanSystemsModelsFilesModels" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Orden"/>
+							</f:facet>
+							<h:link outcome="/admin/filesModels/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemOrden" value="#{_item.orden}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="filesModelsBeanAddOrden" value="#{filesModelsBean.add.orden}"/>
+								<h:message for="filesModelsBeanAddOrden" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Codigo"/>
+							</f:facet>
+							<h:link outcome="/admin/filesModels/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemCodigo" value="#{_item.codigo}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="filesModelsBeanAddCodigo" value="#{filesModelsBean.add.codigo}"/>
+								<h:message for="filesModelsBeanAddCodigo" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Archivo"/>
+							</f:facet>
+							<h:link outcome="/admin/filesModels/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemArchivo" value="#{_item.archivo}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="filesModelsBeanAddArchivo" value="#{filesModelsBean.add.archivo}"/>
+								<h:message for="filesModelsBeanAddArchivo" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Extension"/>
+							</f:facet>
+							<h:link outcome="/admin/filesModels/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemExtension" value="#{_item.extension}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="filesModelsBeanAddExtension" value="#{filesModelsBean.add.extension}"/>
+								<h:message for="filesModelsBeanAddExtension" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Type"/>
+							</f:facet>
+							<h:link outcome="/admin/filesModels/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemType" value="#{_item.type}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="filesModelsBeanAddType" value="#{filesModelsBean.add.type}"/>
+								<h:message for="filesModelsBeanAddType" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column footerClass="remove-column" headerClass="remove-column">
+							<h:commandLink action="#{_collection.remove(_item)}" styleClass="remove-button"/>
+							<f:facet name="footer">
+								<h:commandLink action="#{_collection.add(filesModelsBean.added)}" id="systemsModelsBeanSystemsModelsFilesModelsAdd" styleClass="add-button">
+									<f:setPropertyActionListener target="#{filesModelsBean.add.systemsModels}" value="#{systemsModelsBean.systemsModels}"/>
+								</h:commandLink>
+							</f:facet>
+						</h:column>
+					</h:dataTable>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="systemsModelsBeanSystemsModelsDomainModels" value="Domain Models:"/>
+				<h:panelGroup>
+					<ui:param name="_collection" value="#{systemsModelsBean.systemsModels.domainModels}"/>
+					<h:dataTable id="systemsModelsBeanSystemsModelsDomainModels" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Domain Models"/>
+							</f:facet>
+							<h:link outcome="/admin/domainModels/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText value="#{_item}"/>
+							</h:link>
+						</h:column>
+					</h:dataTable>
 				</h:panelGroup>
 				<h:outputText/>
 			</h:panelGrid>

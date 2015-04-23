@@ -29,6 +29,12 @@
 				<h:panelGroup styleClass="search">
 
 					<h:panelGrid columnClasses="label,component,required" columns="3">
+						<h:outputLabel for="systemsModelsBeanExampleOrden" value="Orden:"/>
+						<h:panelGroup>
+							<h:inputText id="systemsModelsBeanExampleOrden" value="#{systemsModelsBean.example.orden}"/>
+							<h:message for="systemsModelsBeanExampleOrden" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
 						<h:outputLabel for="systemsModelsBeanExampleName" value="Name:"/>
 						<h:panelGroup>
 							<h:inputText id="systemsModelsBeanExampleName" value="#{systemsModelsBean.example.name}"/>
@@ -56,6 +62,15 @@
 			</f:validateBean>
 			
 			<h:dataTable id="systemsModelsBeanPageItems" styleClass="data-table" value="#{systemsModelsBean.pageItems}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Orden"/>
+					</f:facet>
+					<h:link outcome="/admin/systemsModels/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemOrden" value="#{_item.orden}"/>
+					</h:link>
+				</h:column>
 				<h:column>
 					<f:facet name="header">
 						<h:outputText value="Name"/>

@@ -5,6 +5,7 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:forgeview="http://jboss.org/forge/view"
 	template="/resources/scaffold/pageTemplate.xhtml">
 
 	<f:metadata>
@@ -36,6 +37,12 @@
 			<h:messages globalOnly="true" styleClass="error"/>
 
 			<h:panelGrid columnClasses="label,component,required" columns="3">
+				<h:outputLabel for="filesModelsBeanFilesModelsOrden" value="Orden:"/>
+				<h:panelGroup>
+					<h:inputText id="filesModelsBeanFilesModelsOrden" value="#{filesModelsBean.filesModels.orden}"/>
+					<h:message for="filesModelsBeanFilesModelsOrden" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
 				<h:outputLabel for="filesModelsBeanFilesModelsCodigo" value="Codigo:"/>
 				<h:panelGroup>
 					<h:inputText id="filesModelsBeanFilesModelsCodigo" value="#{filesModelsBean.filesModels.codigo}"/>
@@ -64,6 +71,42 @@
 				<h:panelGroup>
 					<h:inputText id="filesModelsBeanFilesModelsObservacion" value="#{filesModelsBean.filesModels.observacion}"/>
 					<h:message for="filesModelsBeanFilesModelsObservacion" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="filesModelsBeanFilesModelsGroupIds" value="Group Ids:"/>
+				<h:panelGroup>
+					<h:selectOneMenu converter="#{groupIdsBean.converter}" id="filesModelsBeanFilesModelsGroupIds" value="#{filesModelsBean.filesModels.groupIds}">
+						<f:selectItem/>
+						<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{groupIdsBean.all}" var="_item"/>
+					</h:selectOneMenu>
+					<h:message for="filesModelsBeanFilesModelsGroupIds" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="filesModelsBeanFilesModelsDomainModels" value="Domain Models:"/>
+				<h:panelGroup>
+					<h:selectOneMenu converter="#{domainModelsBean.converter}" id="filesModelsBeanFilesModelsDomainModels" value="#{filesModelsBean.filesModels.domainModels}">
+						<f:selectItem/>
+						<f:selectItems value="#{domainModelsBean.all}"/>
+					</h:selectOneMenu>
+					<h:message for="filesModelsBeanFilesModelsDomainModels" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="filesModelsBeanFilesModelsSystemsModels" value="Systems Models:"/>
+				<h:panelGroup>
+					<h:selectOneMenu converter="#{systemsModelsBean.converter}" id="filesModelsBeanFilesModelsSystemsModels" value="#{filesModelsBean.filesModels.systemsModels}">
+						<f:selectItem/>
+						<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{systemsModelsBean.all}" var="_item"/>
+					</h:selectOneMenu>
+					<h:message for="filesModelsBeanFilesModelsSystemsModels" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="filesModelsBeanFilesModelsEntities" value="Entities:"/>
+				<h:panelGroup>
+					<h:selectOneMenu converter="#{entitiesBean.converter}" id="filesModelsBeanFilesModelsEntities" value="#{filesModelsBean.filesModels.entities}">
+						<f:selectItem/>
+						<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{entitiesBean.all}" var="_item"/>
+					</h:selectOneMenu>
+					<h:message for="filesModelsBeanFilesModelsEntities" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
 			</h:panelGrid>

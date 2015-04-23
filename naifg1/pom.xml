@@ -11,7 +11,7 @@
 
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>co.simasoft.naif</groupId>
+  <groupId>co.simasoft</groupId>
   <artifactId>naifg1</artifactId>
   <version>1.0.0-SNAPSHOT</version>
   <packaging>war</packaging>
@@ -73,7 +73,7 @@
       <artifactId>simasoft</artifactId>
       <version>1.0-SNAPSHOT</version>
     </dependency>
-    
+
     <dependency>
       <groupId>org.primefaces</groupId>
       <artifactId>primefaces</artifactId>
@@ -222,4 +222,5 @@
     </plugins>
 
   </build>
+
 </project>

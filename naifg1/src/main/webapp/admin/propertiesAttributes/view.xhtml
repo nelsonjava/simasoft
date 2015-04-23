@@ -25,6 +25,9 @@
 
 	<ui:define name="main">
 		<h:panelGrid columnClasses="label,component,required" columns="3">
+			<h:outputLabel for="propertiesAttributesBeanPropertiesAttributesOrden" value="Orden:"/>
+			<h:outputText id="propertiesAttributesBeanPropertiesAttributesOrden" value="#{propertiesAttributesBean.propertiesAttributes.orden}"/>
+			<h:outputText/>
 			<h:outputLabel for="propertiesAttributesBeanPropertiesAttributesName" value="Name:"/>
 			<h:outputText id="propertiesAttributesBeanPropertiesAttributesName" value="#{propertiesAttributesBean.propertiesAttributes.name}"/>
 			<h:outputText/>
@@ -33,6 +36,16 @@
 			<h:outputText/>
 			<h:outputLabel for="propertiesAttributesBeanPropertiesAttributesObservaciones" value="Observaciones:"/>
 			<h:outputText id="propertiesAttributesBeanPropertiesAttributesObservaciones" value="#{propertiesAttributesBean.propertiesAttributes.observaciones}"/>
+			<h:outputText/>
+			<h:outputLabel for="propertiesAttributesBeanPropertiesAttributesRelationships" value="Relationships:"/>
+			<h:link id="propertiesAttributesBeanPropertiesAttributesRelationships" outcome="/admin/relationships/view" rendered="#{!empty propertiesAttributesBean.propertiesAttributes.relationships}" value="#{propertiesAttributesBean.propertiesAttributes.relationships}">
+				<f:param name="id" value="#{propertiesAttributesBean.propertiesAttributes.relationships.id}"/>
+			</h:link>
+			<h:outputText/>
+			<h:outputLabel for="propertiesAttributesBeanPropertiesAttributesAttributes" value="Attributes:"/>
+			<h:link id="propertiesAttributesBeanPropertiesAttributesAttributes" outcome="/admin/attributes/view" rendered="#{!empty propertiesAttributesBean.propertiesAttributes.attributes}" value="#{propertiesAttributesBean.propertiesAttributes.attributes}">
+				<f:param name="id" value="#{propertiesAttributesBean.propertiesAttributes.attributes.id}"/>
+			</h:link>
 			<h:outputText/>
 		</h:panelGrid>
 
