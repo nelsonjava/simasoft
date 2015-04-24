@@ -72,82 +72,78 @@ public class Models{
     public void WarH2() throws IOException {
 
         H2Pom filePom = new H2Pom(artifactId,groupId);
-        Utils.fileMake(pathDocs+"."+name+"."+artifactId+".war.h2", "pom.xml", filePom);
+        Utils.fileMake(pathDocs+"."+name+".h2.war", "pom.xml", filePom);
 
         Build build = new Build(artifactId,groupId);
-        Utils.fileMake(pathDocs+"."+name+"."+artifactId+".war.h2", "build.xml", build);
+        Utils.fileMake(pathDocs+"."+name+".h2.war", "build.xml", build);
 
         for(Entidad entidad : entities) {
-//            EntityH2 entityH2 = new EntityH2(artifactId,groupId+".models."+name+"."+artifactId,entidad,imports);
-            EntityH2 entityH2 = new EntityH2(artifactId,groupId+".models."+name,entidad,imports);
-//            Utils.fileMake(pathDocs+"."+name+"."+artifactId+".war.h2.src.main.java."+groupId+".models."+name+"."+artifactId,entidad.getName()+".java", entityH2);
-            Utils.fileMake(pathDocs+"."+name+"."+artifactId+".war.h2.src.main.java."+groupId+".models."+name,entidad.getName()+".java", entityH2);
+            EntityH2 entityH2 = new EntityH2(artifactId,groupId,entidad,imports);
+            Utils.fileMake(pathDocs+"."+name+".h2.war.src.main.java."+groupId,entidad.getName()+".java", entityH2);
         }
 
         for(Entidad entidad : entities) {
-//            BeanH2 beanH2 = new BeanH2(artifactId,groupId+".models."+name+"."+artifactId,entidad,imports);
             BeanH2 beanH2 = new BeanH2(artifactId,groupId+".models."+name,entidad,imports);
-            Utils.fileMake(pathDocs+"."+name+"."+artifactId+".war.h2.src.main.java."+groupId+".view",entidad.getName()+"Bean.java", beanH2);
+            Utils.fileMake(pathDocs+"."+name+".h2.war.src.main.java."+groupId+".view",entidad.getName()+"Bean.java", beanH2);
         }
         BeanUtils beanUtils = new BeanUtils(artifactId,groupId+".models."+name+"."+artifactId,imports);
-        Utils.fileMake(pathDocs+"."+name+"."+artifactId+".war.h2.src.main.java."+groupId+".view","ViewUtils.java", beanUtils);
+        Utils.fileMake(pathDocs+"."+name+".h2.war.src.main.java."+groupId+".view","ViewUtils.java", beanUtils);
 
         for(Entidad entidad : entities) {
 
             CreateH2 createH2 = new CreateH2(artifactId,groupId+".models."+name+"."+artifactId,entidad,imports);
-            Utils.fileMake(pathDocs+"."+name+"."+artifactId+".war.h2.src.main.webapp.admin."+Utils._1raMin(entidad.getName()),"create.xhtml", createH2);
+            Utils.fileMake(pathDocs+"."+name+".h2.war.src.main.webapp.admin."+Utils._1raMin(entidad.getName()),"create.xhtml", createH2);
 
             SearchH2 searchH2 = new SearchH2(artifactId,groupId+".models."+name+"."+artifactId,entidad,imports);
-            Utils.fileMake(pathDocs+"."+name+"."+artifactId+".war.h2.src.main.webapp.admin."+Utils._1raMin(entidad.getName()),"search.xhtml", searchH2);
+            Utils.fileMake(pathDocs+"."+name+".h2.war.src.main.webapp.admin."+Utils._1raMin(entidad.getName()),"search.xhtml", searchH2);
 
             ViewH2 viewH2 = new ViewH2(artifactId,groupId+".models."+name+"."+artifactId,entidad,imports);
-            Utils.fileMake(pathDocs+"."+name+"."+artifactId+".war.h2.src.main.webapp.admin."+Utils._1raMin(entidad.getName()),"view.xhtml", viewH2);
+            Utils.fileMake(pathDocs+"."+name+".h2.war.src.main.webapp.admin."+Utils._1raMin(entidad.getName()),"view.xhtml", viewH2);
         }
 
         H2Persistence h2Persistence = new H2Persistence(artifactId,groupId+".models."+name,entities);
-        Utils.fileMake(pathDocs+"."+name+"."+artifactId+".war.h2.src.main.resources.META-INF", "persistence.xml", h2Persistence);
+        Utils.fileMake(pathDocs+"."+name+".h2.war.src.main.resources.META-INF", "persistence.xml", h2Persistence);
 
         H2Datasource h2datasource = new H2Datasource(artifactId,groupId,entities);
-        Utils.fileMake(pathDocs+"."+name+"."+artifactId+".war.h2.src.main.webapp.WEB-INF",artifactId+"-ds.xml", h2datasource);
+        Utils.fileMake(pathDocs+"."+name+".h2.war.src.main.webapp.WEB-INF",artifactId+"-ds.xml", h2datasource);
 
         H2Beans h2Beans = new H2Beans(artifactId,groupId);
-        Utils.fileMake(pathDocs+"."+name+"."+artifactId+".war.h2.src.main.webapp.WEB-INF","beans.xml", h2Beans);
+        Utils.fileMake(pathDocs+"."+name+".h2.war.src.main.webapp.WEB-INF","beans.xml", h2Beans);
 
         H2FacesConfig h2FacesConfig = new H2FacesConfig(artifactId,groupId);
-        Utils.fileMake(pathDocs+"."+name+"."+artifactId+".war.h2.src.main.webapp.WEB-INF","faces-config.xml", h2FacesConfig);
+        Utils.fileMake(pathDocs+"."+name+".h2.war.src.main.webapp.WEB-INF","faces-config.xml", h2FacesConfig);
 
         H2Web h2Web = new H2Web(artifactId,groupId);
-        Utils.fileMake(pathDocs+"."+name+"."+artifactId+".war.h2.src.main.webapp.WEB-INF","web.xml", h2Web);
+        Utils.fileMake(pathDocs+"."+name+".h2.war.src.main.webapp.WEB-INF","web.xml", h2Web);
 
         H2PageTemplate h2PageTemplate = new H2PageTemplate(artifactId,groupId+".models."+name,entities);
-        Utils.fileMake(pathDocs+"."+name+"."+artifactId+".war.h2.src.main.webapp.resources.scaffold","pageTemplate.xhtml",h2PageTemplate);
+        Utils.fileMake(pathDocs+"."+name+".h2.war.src.main.webapp.resources.scaffold","pageTemplate.xhtml",h2PageTemplate);
 
         Paginator paginator = new Paginator(artifactId,groupId+".models."+name+"."+artifactId,imports);
-        Utils.fileMake(pathDocs+"."+name+"."+artifactId+".war.h2.src.main.webapp.resources.scaffold","paginator.xhtml", paginator);
+        Utils.fileMake(pathDocs+"."+name+".h2.war.src.main.webapp.resources.scaffold","paginator.xhtml", paginator);
 
-        Utils.fileJar("webH2/webapp/admin","index.html",pathDocs+"\\"+name+"\\"+artifactId+"\\war\\h2\\src\\main\\webapp\\admin\\",fileJar);
-        Utils.fileJar("webH2/webapp/admin","index.xhtml",pathDocs+"\\"+name+"\\"+artifactId+"\\war\\h2\\src\\main\\webapp\\admin\\",fileJar);
+        Utils.fileJar("webH2/webapp/admin","index.html",pathDocs+"\\"+name+"\\h2\\war\\src\\main\\webapp\\admin\\",fileJar);
+        Utils.fileJar("webH2/webapp/admin","index.xhtml",pathDocs+"\\"+name+"\\h2\\war\\src\\main\\webapp\\admin\\",fileJar);
 
-        Utils.fileJar("webH2/webapp/resources","add.png",pathDocs+"\\"+name+"\\"+artifactId+"\\war\\h2\\src\\main\\webapp\\resources\\",fileJar);
-        Utils.fileJar("webH2/webapp/resources","bootstrap.css",pathDocs+"\\"+name+"\\"+artifactId+"\\war\\h2\\src\\main\\webapp\\resources\\",fileJar);
-        Utils.fileJar("webH2/webapp/resources","false.png",pathDocs+"\\"+name+"\\"+artifactId+"\\war\\h2\\src\\main\\webapp\\resources\\",fileJar);
-        Utils.fileJar("webH2/webapp/resources","favicon.ico",pathDocs+"\\"+name+"\\"+artifactId+"\\war\\h2\\src\\main\\webapp\\resources\\",fileJar);
-        Utils.fileJar("webH2/webapp/resources","forge-logo.png",pathDocs+"\\"+name+"\\"+artifactId+"\\war\\h2\\src\\main\\webapp\\resources\\",fileJar);
-        Utils.fileJar("webH2/webapp/resources","forge-style.css",pathDocs+"\\"+name+"\\"+artifactId+"\\war\\h2\\src\\main\\webapp\\resources\\",fileJar);
-        Utils.fileJar("webH2/webapp/resources","jboss-community.png",pathDocs+"\\"+name+"\\"+artifactId+"\\war\\h2\\src\\main\\webapp\\resources\\",fileJar);
-        Utils.fileJar("webH2/webapp/resources","remove.png",pathDocs+"\\"+name+"\\"+artifactId+"\\war\\h2\\src\\main\\webapp\\resources\\",fileJar);
-        Utils.fileJar("webH2/webapp/resources","search.png",pathDocs+"\\"+name+"\\"+artifactId+"\\war\\h2\\src\\main\\webapp\\resources\\",fileJar);
-        Utils.fileJar("webH2/webapp/resources","true.png",pathDocs+"\\"+name+"\\"+artifactId+"\\war\\h2\\src\\main\\webapp\\resources\\",fileJar);
+        Utils.fileJar("webH2/webapp/resources","add.png",pathDocs+"\\"+name+"\\h2\\war\\src\\main\\webapp\\resources\\",fileJar);
+        Utils.fileJar("webH2/webapp/resources","bootstrap.css",pathDocs+"\\"+name+"\\h2\\war\\src\\main\\webapp\\resources\\",fileJar);
+        Utils.fileJar("webH2/webapp/resources","false.png",pathDocs+"\\"+name+"\\h2\\war\\src\\main\\webapp\\resources\\",fileJar);
+        Utils.fileJar("webH2/webapp/resources","favicon.ico",pathDocs+"\\"+name+"\\h2\\war\\src\\main\\webapp\\resources\\",fileJar);
+        Utils.fileJar("webH2/webapp/resources","forge-logo.png",pathDocs+"\\"+name+"\\h2\\war\\src\\main\\webapp\\resources\\",fileJar);
+        Utils.fileJar("webH2/webapp/resources","forge-style.css",pathDocs+"\\"+name+"\\h2\\war\\src\\main\\webapp\\resources\\",fileJar);
+        Utils.fileJar("webH2/webapp/resources","jboss-community.png",pathDocs+"\\"+name+"\\h2\\war\\src\\main\\webapp\\resources\\",fileJar);
+        Utils.fileJar("webH2/webapp/resources","remove.png",pathDocs+"\\"+name+"\\h2\\war\\src\\main\\webapp\\resources\\",fileJar);
+        Utils.fileJar("webH2/webapp/resources","search.png",pathDocs+"\\"+name+"\\h2\\war\\src\\main\\webapp\\resources\\",fileJar);
+        Utils.fileJar("webH2/webapp/resources","true.png",pathDocs+"\\"+name+"\\h2\\war\\src\\main\\webapp\\resources\\",fileJar);
 
-        Utils.fileJar("webH2/webapp/resources/css","screen.css",pathDocs+"\\"+name+"\\"+artifactId+"\\war\\h2\\src\\main\\webapp\\resources\\css\\",fileJar);
-        Utils.fileJar("webH2/webapp/resources/img","logo.jpg",pathDocs+"\\"+name+"\\"+artifactId+"\\war\\h2\\src\\main\\webapp\\resources\\img\\",fileJar);
-        Utils.fileJar("webH2/webapp/resources/templates","default.xhtml",pathDocs+"\\"+name+"\\"+artifactId+"\\war\\h2\\src\\main\\webapp\\resources\\templates\\",fileJar);
-        Utils.fileJar("webH2/webapp/resources","forge.taglib.xml",pathDocs+"\\"+name+"\\"+artifactId+"\\war\\h2\\src\\main\\webapp\\WEB-INF\\classes\\META-INF\\",fileJar);
+        Utils.fileJar("webH2/webapp/resources/css","screen.css",pathDocs+"\\"+name+"\\h2\\war\\src\\main\\webapp\\resources\\css\\",fileJar);
+        Utils.fileJar("webH2/webapp/resources/img","logo.jpg",pathDocs+"\\"+name+"\\h2\\war\\src\\main\\webapp\\resources\\img\\",fileJar);
+        Utils.fileJar("webH2/webapp/resources/templates","default.xhtml",pathDocs+"\\"+name+"\\h2\\war\\src\\main\\webapp\\resources\\templates\\",fileJar);
+        Utils.fileJar("webH2/webapp/resources","forge.taglib.xml",pathDocs+"\\"+name+"\\h2\\war\\src\\main\\webapp\\WEB-INF\\classes\\META-INF\\",fileJar);
 
-        Utils.fileJar("webH2/webapp","home.xhtml",pathDocs+"\\"+name+"\\"+artifactId+"\\war\\h2\\src\\main\\webapp\\",fileJar);
-        Utils.fileJar("webH2/webapp","index.html",pathDocs+"\\"+name+"\\"+artifactId+"\\war\\h2\\src\\main\\webapp\\",fileJar);
-        Utils.fileJar("webH2/webapp","error.xhtml",pathDocs+"\\"+name+"\\"+artifactId+"\\war\\h2\\src\\main\\webapp\\",fileJar);
-
+        Utils.fileJar("webH2/webapp","home.xhtml",pathDocs+"\\"+name+"\\h2\\war\\src\\main\\webapp\\",fileJar);
+        Utils.fileJar("webH2/webapp","index.html",pathDocs+"\\"+name+"\\h2\\war\\src\\main\\webapp\\",fileJar);
+        Utils.fileJar("webH2/webapp","error.xhtml",pathDocs+"\\"+name+"\\h2\\war\\src\\main\\webapp\\",fileJar);
 
     }
 

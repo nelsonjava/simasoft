@@ -33,6 +33,40 @@ public class DomainModelsGen {
 
         System.out.println("Hello World!-1" + domainModels.getName());
 
+        for (GroupIds groupIds : domainModels.getGroupIds()){
+
+            imports.add(groupIds.getGroupId());
+
+            for (Entities entity : groupIds.getEntities()){
+                Entidad entidad = new Entidad(entity.getName());
+
+                for (Attributes attribute : entity.getAttributes()) {
+                     entidad.addAtributo(new Atributos(attribute.getName(), attribute.getType()));
+                } // for: entity.getAttributes()
+
+                for (Relationships relationships : entity.getFrom()) {
+                     entidad.addRelations(new Relation(relationships.getFrom().getName(),
+                                                       relationships.getTo().getName(),
+                                                       relationships.getCardinalities().getCardinality(),
+                                                       relationships.getName()));
+                } // for: entity.getFrom()
+
+                for (Relationships relationships : entity.getTo()) {
+                    entidad.addRelations(new Relation(relationships.getTo().getName(),
+                                                      relationships.getFrom().getName(),
+                                                      "*..1",relationships.getName()));
+                } // for: entity.getTo()
+
+                entidades.add(entidad);
+
+            } // for: groupIds.getEntities()
+            
+            Models models = new Models(domainModels.getName(),groupIds.getGroupId(),domainModels.getName());
+            models.setImports(imports);
+            models.setEntities(entidades);
+            models.WarH2();
+
+        } // for: domainModels.getGroupIds()
 
     } // data()
 

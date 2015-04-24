@@ -353,8 +353,10 @@
 
 			</h:dataTable>
 			<h:outputText/>
-			<h:outputLabel for="entitiesBeanEntitiesGroupIds" value="Group Ids:"/>
-			<h:link id="entitiesBeanEntitiesGroupIds" outcome="/admin/groupIds/view" rendered="#{!empty entitiesBean.entities.groupIds}" value="#{entitiesBean.entities.groupIds}">
+			<h:outputLabel for="entitiesBeanEntitiesGroupIds" value="Package:"/>
+			<h:link id="entitiesBeanEntitiesGroupIds" outcome="/admin/groupIds/view" 
+                                                                  rendered="#{!empty entitiesBean.entities.groupIds}" 
+                                                                  value="#{entitiesBean.entities.groupIds.groupId}">
 				<f:param name="id" value="#{entitiesBean.entities.groupIds.id}"/>
 			</h:link>
 			<h:outputText/>
