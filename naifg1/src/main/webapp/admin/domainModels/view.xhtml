@@ -56,7 +56,9 @@
 			<h:outputText id="domainModelsBeanDomainModelsObservaciones" value="#{domainModelsBean.domainModels.observaciones}"/>
 			<h:outputText/>
 			<h:outputLabel for="domainModelsBeanDomainModelsSystemsModels" value="Systems Models:"/>
-			<h:link id="domainModelsBeanDomainModelsSystemsModels" outcome="/admin/systemsModels/view" rendered="#{!empty domainModelsBean.domainModels.systemsModels}" value="#{domainModelsBean.domainModels.systemsModels}">
+			<h:link id="domainModelsBeanDomainModelsSystemsModels" outcome="/admin/systemsModels/view" 
+                                rendered="#{!empty domainModelsBean.domainModels.systemsModels}" 
+                                value="#{domainModelsBean.domainModels.systemsModels.name}">
 				<f:param name="id" value="#{domainModelsBean.domainModels.systemsModels.id}"/>
 			</h:link>
 			<h:outputText/>
@@ -109,7 +111,7 @@
 				</h:column>
 			</h:dataTable>
 			<h:outputText/>
-			<h:outputLabel for="domainModelsBeanDomainModelsGroupIds" value="Group Ids:"/>
+			<h:outputLabel for="domainModelsBeanDomainModelsGroupIds" value="Packages:"/>
 			<h:dataTable id="domainModelsBeanDomainModelsGroupIds" styleClass="data-table" value="#{forgeview:asList(domainModelsBean.domainModels.groupIds)}" var="_item">
 				<h:column>
 					<f:facet name="header">

@@ -33,6 +33,7 @@ public class DomainModelsGen {
 
         System.out.println("Hello World!-1" + domainModels.getName());
 
+
     } // data()
 
     public void download(DomainModels domainModels) throws IOException {

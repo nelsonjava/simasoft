@@ -4,6 +4,7 @@ import java.io.*;
 import java.util.jar.JarFile;
 import java.util.jar.JarEntry;
 import java.util.Enumeration;
+import java.util.Random;
 
 import java.net.InetAddress;
 import java.net.NetworkInterface;
@@ -15,6 +16,14 @@ import java.io.ObjectStreamClass;
 // Dic 13/2014 Hora:09:45 Sabado
 
 public class Utils {
+
+    public static String nameRandom() {
+        Random rnd = new Random();
+        Double d = rnd.nextDouble();
+        String t = Double.toString(d);
+        String t2 = t.substring(2,t.length());
+        return t2;
+    }
 
     public static String hostIp() {
 

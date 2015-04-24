@@ -2,6 +2,7 @@ package co.simasoft.setup;
 
 import co.simasoft.models.naif.DomainModels.*;
 
+import java.util.*;
 import java.util.Calendar;
 import java.util.Random;
 import javax.ejb.LocalBean;

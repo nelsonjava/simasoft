@@ -56,7 +56,10 @@
 			<h:outputText id="groupIdsBeanGroupIdsObservaciones" value="#{groupIdsBean.groupIds.observaciones}"/>
 			<h:outputText/>
 			<h:outputLabel for="groupIdsBeanGroupIdsDomainModels" value="Domain Models:"/>
-			<h:link id="groupIdsBeanGroupIdsDomainModels" outcome="/admin/domainModels/view" rendered="#{!empty groupIdsBean.groupIds.domainModels}" value="#{groupIdsBean.groupIds.domainModels}">
+			<h:link id="groupIdsBeanGroupIdsDomainModels" 
+                                outcome="/admin/domainModels/view" 
+                                rendered="#{!empty groupIdsBean.groupIds.domainModels}" 
+                                value="#{groupIdsBean.groupIds.domainModels.name}">
 				<f:param name="id" value="#{groupIdsBean.groupIds.domainModels.id}"/>
 			</h:link>
 			<h:outputText/>

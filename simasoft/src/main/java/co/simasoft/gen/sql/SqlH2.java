@@ -64,6 +64,8 @@ line("package co.simasoft.setup;\n");
 
 line("import co.simasoft.models.naif.DomainModels.*;\n");
 
+line("import co.simasoft.utils.*;\n");
+
 line("import java.util.*;");
 line("import java.util.Calendar;");
 line("import java.util.Random;");
@@ -124,15 +126,21 @@ line("    }\n");
 line("    public void data() {\n");
 
 line("        DomainModels domainModels = new DomainModels();");
-line("        domainModels.setName(\""+artifactId+"\");");
+line("        domainModels.setName(Utils.nameRandom());");
 line("        em.persist(domainModels);");
+line("        em.flush();\n");
+
+line("        GroupIds groupIds = new GroupIds();");
+line("        groupIds.setGroupId(Utils.nameRandom());");
+line("        groupIds.setDomainModels(domainModels);");
+line("        em.persist(groupIds);");
 line("        em.flush();\n");
 
 
         for(Entidad entidad : entidades) {
 
           if (entidad.isEntity()) {
-line("        "+entidad.getName()+"(domainModels);");
+line("        "+entidad.getName()+"(groupIds);");
           }
 
         }
@@ -154,11 +162,11 @@ line("    } // data()\n");
 //=====FIN VALIDADACION
 
 //=====ENTITY
-         line("    public void "+entity.getName()+"(DomainModels domainModel) {\n");
+         line("    public void "+entity.getName()+"(GroupIds groupIds) {\n");
 
          line("        Entities "+Utils._1raMin(entity.getName())+" = new Entities();");
          line("        "+Utils._1raMin(entity.getName())+".setName(\""+entity.getName()+"\");");
-         line("        "+Utils._1raMin(entity.getName())+".setDomainModels(domainModel);");
+         line("        "+Utils._1raMin(entity.getName())+".setGroupIds(groupIds);");
          line("        em.persist("+Utils._1raMin(entity.getName())+");");
          line("        em.flush();\n");
 //=====ENTITY
