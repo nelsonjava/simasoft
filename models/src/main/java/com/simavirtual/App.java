@@ -15,10 +15,11 @@ import co.simasoft.gen.war.h2.*;
 
 public class App extends FileTxt{
 
+    private static ArrayList<Packages> groupIds       = new ArrayList<Packages>();
     private static ArrayList<Entidad> entidades       = new ArrayList<Entidad>();
-    private static ArrayList<Relation> relationsPower = new ArrayList<Relation>();
     private static Set<Relation> relations            = new HashSet<Relation>(0);
     private static ArrayList<Modelos> modelos         = new ArrayList<Modelos>();
+    private static ArrayList<Relation> relationsPower = new ArrayList<Relation>();
 
     private static String fileJar = "../g.jar";
     private static String filePowerDesigner = "";
@@ -257,10 +258,12 @@ public class App extends FileTxt{
 
     public static void sqlAll(String name,String groupId,String artifactId,ArrayList<Modelos> modelos,LinkedHashSet<String> imports) throws IOException {
 
-        ArrayList<Entidad> entities  = new ArrayList<Entidad>();
         ArrayList<Relation> relationships = new ArrayList<Relation>();
 
+        groupIds.clear();
         for (Modelos modelo : modelos) {
+
+            ArrayList<Entidad> entities = new ArrayList<Entidad>();
 
             // Cleanup - Reinigung
             entidades.clear();
@@ -269,7 +272,7 @@ public class App extends FileTxt{
             PowerDesigner powerDesigner = new PowerDesigner(filePowerDesigner);
             entidades = powerDesigner.getEntidades();
 
-
+            Packages packages = new Packages(modelo.getGroupId(),modelo.getGroupId());
             for (Entidad entidad : entidades) {
 
                 if (entidad.isEntity()) {
@@ -282,18 +285,20 @@ public class App extends FileTxt{
                           if (!relation.getTo().equals("")){
                              relationships.add(relation);
                           }
-                          
+
                        }
-                   }
+                   } // entidad.getRelations()
 
+                } // entidad.isEntity()
 
-                }
+            } // for entidades
 
-            }
+            packages.setEntities(entities);
+            groupIds.add(packages);
 
-        }
+        } // modelos
 
-        SqlAllH2 sqlAllH2 = new SqlAllH2(artifactId,groupId+".models."+name+"."+artifactId,entities,relationships,imports);
+        SqlAllH2 sqlAllH2 = new SqlAllH2(artifactId,groupIds,relationships,imports);
         Utils.fileMake(pathDocs+"."+name,artifactId+"AllSetup.java", sqlAllH2);
 
 
@@ -319,9 +324,6 @@ public class App extends FileTxt{
         models.WarH2();
 
     } // sqlH2
-
-
-
 
     public static void generar(String name,String groupId,String artifactId,ArrayList<Modelos> modelos) throws IOException {
 
@@ -363,51 +365,52 @@ public class App extends FileTxt{
     public static void main( String[] args ) throws IOException {
 
         modelos.clear();
-        modelos.add(new Modelos("contable","co.simasoft","contabilidad"));
+        modelos.add(new Modelos("contable","co.simasoft.models.naif.contabilidad","contabilidad"));
         generar("contable","co.simasoft","contabilidad",modelos);
 
         modelos.clear();
-        modelos.add(new Modelos("iso","co.simasoft","archivoInactivo"));
-        modelos.add(new Modelos("iso","co.simasoft","lmd"));
-        modelos.add(new Modelos("iso","co.simasoft","lmr"));
-        modelos.add(new Modelos("iso","co.simasoft","procesos"));
+        modelos.add(new Modelos("iso","co.simasoft.models.naif.iso.procesos","procesos"));
+        modelos.add(new Modelos("iso","co.simasoft.models.naif.iso.lmd","lmd"));
+        modelos.add(new Modelos("iso","co.simasoft.models.naif.iso.lmr","lmr"));
+        modelos.add(new Modelos("iso","co.simasoft.models.naif.iso.archivoInactivo","archivoInactivo"));
         generar("iso","co.simasoft","iso",modelos);
 
+
         modelos.clear();
-        modelos.add(new Modelos("base","co.simasoft","direcciones"));
-        modelos.add(new Modelos("base","co.simasoft","paises"));
-        modelos.add(new Modelos("base","co.simasoft","empresas"));
-        modelos.add(new Modelos("base","co.simasoft","mails"));
-        modelos.add(new Modelos("base","co.simasoft","nits"));
-        modelos.add(new Modelos("base","co.simasoft","permisos"));
-        modelos.add(new Modelos("base","co.simasoft","personas"));
-        modelos.add(new Modelos("base","co.simasoft","sistemas"));
-        modelos.add(new Modelos("base","co.simasoft","telefonos"));
-        modelos.add(new Modelos("base","co.simasoft","usuarios"));
+        modelos.add(new Modelos("base","co.simasoft.models.naif.base.direcciones","direcciones"));
+        modelos.add(new Modelos("base","co.simasoft.models.naif.base.paises","paises"));
+        modelos.add(new Modelos("base","co.simasoft.models.naif.base.empresas","empresas"));
+        modelos.add(new Modelos("base","co.simasoft.models.naif.base.mails","mails"));
+        modelos.add(new Modelos("base","co.simasoft.models.naif.base.nits","nits"));
+        modelos.add(new Modelos("base","co.simasoft.models.naif.base.permisos","permisos"));
+        modelos.add(new Modelos("base","co.simasoft.models.naif.base.personas","personas"));
+        modelos.add(new Modelos("base","co.simasoft.models.naif.base.sistemas","sistemas"));
+        modelos.add(new Modelos("base","co.simasoft.models.naif.base.telefonos","telefonos"));
+        modelos.add(new Modelos("base","co.simasoft.models.naif.base.usuarios","usuarios"));
         generar("base","co.simasoft","base",modelos);
 
         modelos.clear();
-        modelos.add(new Modelos("pruebas","co.simasoft","prueba"));
+        modelos.add(new Modelos("pruebas","co.simasoft.models.naif.pruebas","prueba"));
         generar("pruebas","co.simasoft","prueba",modelos);
 
         modelos.clear();
-        modelos.add(new Modelos("pruebas","co.simasoft","prueba1"));
+        modelos.add(new Modelos("pruebas","co.simasoft.models.naif.prueba1","prueba1"));
         generar("pruebas","co.simasoft","prueba1",modelos);
 
         modelos.clear();
-        modelos.add(new Modelos("pruebas","co.simasoft","prueba2"));
+        modelos.add(new Modelos("pruebas","co.simasoft.models.naif.prueba2","prueba2"));
         generar("pruebas","co.simasoft","prueba2",modelos);
-        
+
         modelos.clear();
-        modelos.add(new Modelos("pruebas","co.simasoft","prueba3"));
+        modelos.add(new Modelos("pruebas","co.simasoft.models.naif.prueba3","prueba3"));
         generar("pruebas","co.simasoft","prueba3",modelos);
 
         modelos.clear();
-        modelos.add(new Modelos("naif","co.simasoft","DomainModels"));
+        modelos.add(new Modelos("naif","co.simasoft.models.naif.domainModels","DomainModels"));
         generar("naif","co.simasoft","DomainModels",modelos);
 
         modelos.clear();
-        modelos.add(new Modelos("naif","co.simasoft","RelacionesEjb"));
+        modelos.add(new Modelos("naif","co.simasoft.models.naif.relacionesEjb","RelacionesEjb"));
         generar("naif","co.simasoft","RelacionesEjb",modelos);
 
         modelos.clear();

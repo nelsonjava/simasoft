@@ -24,18 +24,20 @@ import javax.faces.context.ExternalContext;
 public class DomainModelsGen {
 
     private LinkedHashSet<String> imports = new LinkedHashSet<String>();
-    private Set<Entities> entities;
-    private ArrayList<Entidad> entidades = new ArrayList<Entidad>();
 
     private static final Logger log = Logger.getLogger(DomainModelsGen.class.getName());
 
     public void data(DomainModels domainModels) throws IOException {
 
-        System.out.println("Hello World!-1" + domainModels.getName());
+        System.out.println("Hello World!" + domainModels.getName());
+        
+        for (GroupIds groupIds : domainModels.getGroupIds()){
+            imports.add(groupIds.getGroupId());
+        }
 
         for (GroupIds groupIds : domainModels.getGroupIds()){
 
-            imports.add(groupIds.getGroupId());
+            ArrayList<Entidad> entidades = new ArrayList<Entidad>();
 
             for (Entities entity : groupIds.getEntities()){
                 Entidad entidad = new Entidad(entity.getName());
@@ -60,8 +62,8 @@ public class DomainModelsGen {
                 entidades.add(entidad);
 
             } // for: groupIds.getEntities()
-            
-            Models models = new Models(domainModels.getName(),groupIds.getGroupId(),domainModels.getName());
+
+            Models models = new Models(domainModels.getName(),domainModels.getGroupId(),domainModels.getName());
             models.setImports(imports);
             models.setEntities(entidades);
             models.WarH2();

@@ -31,6 +31,8 @@ OBJETIVOS:
 public class SqlAllH2 extends FileTxt {
 
 //>>DECLARACION DE INSTANCIAS
+      private ArrayList<Entidad> entities = new ArrayList<Entidad>();
+      private ArrayList<Entidad> entidades = new ArrayList<Entidad>();
       private Entidad entity = new Entidad();                                // Entidad
       private ArrayList<Atributos> atributos = new ArrayList<Atributos>();   // Atributos de la Entidad
       private ArrayList<Relation> relations = new ArrayList<Relation>();     // Relaciones de la Entidad
@@ -58,11 +60,13 @@ OBJETIVOS:
 *                                           IMPLEMENTACION DEL METODO                                           *
 *---------------------------------------------------------------------------------------------------------------*/
 
-public SqlAllH2(String artifactId,String groupId,ArrayList<Entidad> entidades,ArrayList<Relation> relations,LinkedHashSet<String> imports) throws IOException {
+public SqlAllH2(String artifactId,ArrayList<Packages> groupIds,ArrayList<Relation> relations,LinkedHashSet<String> imports) throws IOException {
 
 line("package co.simasoft.setup;\n");
 
 line("import co.simasoft.models.naif.DomainModels.*;\n");
+
+line("import co.simasoft.utils.*;\n");
 
 line("import java.util.*;");
 line("import java.util.Calendar;");
@@ -76,8 +80,8 @@ line("import org.jboss.logging.Logger;\n");
 
 line("@Singleton");
 line("@LocalBean");
-line("@Named(\""+artifactId+"Setup\")");
-line("public class "+artifactId+"Setup {\n");
+line("@Named(\""+artifactId+"AllSetup\")");
+line("public class "+artifactId+"AllSetup {\n");
 
 line("    private static final String QUERYA = \"SELECT c FROM TypesAttributes c WHERE c.name LIKE :custName\";");
 line("    private static final String QUERYB = \"SELECT c FROM Entities c WHERE c.name LIKE :custName\";");
@@ -86,7 +90,7 @@ line("    private static final String QUERYC = \"SELECT c FROM Cardinalities c W
 line("    @PersistenceContext(unitName = \"DomainModelsPU-JTA\")");
 line("    private EntityManager em;\n");
 
-line("    private static final Logger log = Logger.getLogger("+artifactId+"Setup.class.getName());\n");
+line("    private static final Logger log = Logger.getLogger("+artifactId+"AllSetup.class.getName());\n");
 
 line("    public TypesAttributes findTypesAttributes(String name) {\n");
 
@@ -124,27 +128,44 @@ line("    }\n");
 line("    public void data() {\n");
 
 line("        DomainModels domainModels = new DomainModels();");
-line("        domainModels.setName(\""+artifactId+"\");");
+line("        domainModels.setName(Utils.nameRandom());");
 line("        em.persist(domainModels);");
 line("        em.flush();\n");
 
+              for(int i=0;i<groupIds.size();i++) {
 
-        for(Entidad entidad : entidades) {
+                  String n = String.valueOf(i);
+                  Packages groupId = groupIds.get(i);
 
-          if (entidad.isEntity()) {
-line("        "+entidad.getName()+"(domainModels);");
-          }
+line("        GroupIds groupId"+n+" = new GroupIds();");
+line("        groupId"+n+".setGroupId(\""+groupId.getGroupId()+"\");");
+line("        groupId"+n+".setDomainModels(domainModels);");
+line("        em.persist(groupId"+n+");");
+line("        em.flush();\n");
 
-        }
+                  entidades = groupId.getEntities();
+                  for(Entidad entidad : entidades) {
+
+                     if (entidad.isEntity()) {
+                        line("        "+entidad.getName()+"(groupId"+n+");");
+                        entities.add(entidad);
+                     }
+
+                  } // for entidades
+
+                  line("");
+
+              } // groupIds
+
 line("        Relations();\n");
 
 line("    } // data()\n");
 
 //>>ENTITIES
-      for(Entidad entidad : entidades) {
+      for(Entidad entidad : entities) {
 
          this.entity = entidad;
-         this.atributos = entidad.getAtributos();
+          this.atributos = entidad.getAtributos();
          this.relations = entidad.getRelations();
 
 //=====VALIDADACION
@@ -154,11 +175,11 @@ line("    } // data()\n");
 //=====FIN VALIDADACION
 
 //=====ENTITY
-         line("    public void "+entity.getName()+"(DomainModels domainModel) {\n");
+         line("    public void "+entity.getName()+"(GroupIds groupIds) {\n");
 
          line("        Entities "+Utils._1raMin(entity.getName())+" = new Entities();");
          line("        "+Utils._1raMin(entity.getName())+".setName(\""+entity.getName()+"\");");
-         line("        "+Utils._1raMin(entity.getName())+".setDomainModels(domainModel);");
+         line("        "+Utils._1raMin(entity.getName())+".setGroupIds(groupIds);");
          line("        em.persist("+Utils._1raMin(entity.getName())+");");
          line("        em.flush();\n");
 //=====ENTITY
