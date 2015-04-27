@@ -5,6 +5,7 @@ import java.util.*;
 
 public class Entidad {
 
+    private String groupId = "";
     private String name = "";
     private String ref = "";
 
@@ -29,9 +30,15 @@ public class Entidad {
     public String getName(){
         return name;
     }
-
     public void setName(String name){
         this.name = name;
+    }
+    
+    public String getGroupId() {
+        return groupId;
+    }
+    public void setGroupId(String groupId) {
+        this.groupId = groupId;
     }
 
     public ArrayList<Atributos> getAtributos(){

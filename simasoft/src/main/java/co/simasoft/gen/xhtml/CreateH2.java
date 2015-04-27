@@ -58,7 +58,7 @@ OBJETIVOS:
 *                                           IMPLEMENTACION DEL METODO                                           *
 *---------------------------------------------------------------------------------------------------------------*/
 
-public CreateH2(String artifactId,String groupId,Entidad entity,LinkedHashSet<String> imports) throws IOException {
+public CreateH2(Entidad entity) throws IOException {
 
 //>>INICIALIZACION DE ATRIBUTOS
       this.entity = entity;
@@ -106,9 +106,9 @@ line("            <h:messages globalOnly=\"true\" styleClass=\"error\"/>\n");
 
 line("            <h:panelGrid columnClasses=\"label,component,required\" columns=\"3\">");
 
-          // There are atributo(co.simasoft.utils.Atributos class) 
+          // There are atributo(co.simasoft.utils.Atributos class)
           // types don't supported yet:
-          // For example: long, boolean(no present explicitly) 
+          // For example: long, boolean(no present explicitly)
           //              and default.
           //
           // It is not possible to depend of 'x' to put <h:outputText>
@@ -121,7 +121,7 @@ line("            <h:panelGrid columnClasses=\"label,component,required\" column
 
               if (atributo.getType().equals("String")) {
 
-                  if (isFirstTime) {isFirstTime = false;}                   
+                  if (isFirstTime) {isFirstTime = false;}
                   else { //if (x != 0) {
 line("                <h:outputText/>");
                   }

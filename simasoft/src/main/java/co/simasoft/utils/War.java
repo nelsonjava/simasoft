@@ -76,6 +76,7 @@ public class War {
 
         for(Entidad entidad : entidades) {
 
+/*
             CreateH2 createH2 = new CreateH2(artifactId,groupId+".models."+modelo+"."+artifactId,entidad,imports);
             Utils.fileMake(pathDocs+"."+modelo+"."+artifactId+".war.h2.src.main.webapp.admin."+Utils._1raMin(entidad.getName()),"create.xhtml", createH2);
 
@@ -84,9 +85,11 @@ public class War {
 
             ViewH2 viewH2 = new ViewH2(artifactId,groupId+".models."+modelo+"."+artifactId,entidad,imports);
             Utils.fileMake(pathDocs+"."+modelo+"."+artifactId+".war.h2.src.main.webapp.admin."+Utils._1raMin(entidad.getName()),"view.xhtml", viewH2);
+*/
         }
 
 
+/*
         H2Persistence h2Persistence = new H2Persistence(artifactId,groupId+".models."+modelo,entidades);
         Utils.fileMake(pathDocs+"."+modelo+"."+artifactId+".war.h2.src.main.resources.META-INF", "persistence.xml", h2Persistence);
 
@@ -101,12 +104,15 @@ public class War {
 
         H2Web h2Web = new H2Web(artifactId,groupId);
         Utils.fileMake(pathDocs+"."+modelo+"."+artifactId+".war.h2.src.main.webapp.WEB-INF","web.xml", h2Web);
+*/
 
+/*
         H2PageTemplate h2PageTemplate = new H2PageTemplate(artifactId,groupId+".models."+modelo,entidades);
         Utils.fileMake(pathDocs+"."+modelo+"."+artifactId+".war.h2.src.main.webapp.resources.scaffold","pageTemplate.xhtml",h2PageTemplate);
 
         Paginator paginator = new Paginator(artifactId,groupId+".models."+modelo+"."+artifactId,imports);
         Utils.fileMake(pathDocs+"."+modelo+"."+artifactId+".war.h2.src.main.webapp.resources.scaffold","paginator.xhtml", paginator);
+*/        
 
         Utils.fileJar("webH2/webapp/admin","index.html",pathDocs+"\\"+modelo+"\\"+artifactId+"\\war\\h2\\src\\main\\webapp\\admin\\",fileJar);
         Utils.fileJar("webH2/webapp/admin","index.xhtml",pathDocs+"\\"+modelo+"\\"+artifactId+"\\war\\h2\\src\\main\\webapp\\admin\\",fileJar);

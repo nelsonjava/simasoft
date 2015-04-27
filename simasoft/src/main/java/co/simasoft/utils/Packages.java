@@ -13,6 +13,12 @@ public class Packages{
        this.artifactId = artifactId;
     }
 
+    public Packages(String groupId,String artifactId,ArrayList<Entidad> entities){
+       this.groupId = groupId;
+       this.artifactId = artifactId;
+       this.entities = entities;
+    }
+
     public String getGroupId() {
         return groupId;
     }

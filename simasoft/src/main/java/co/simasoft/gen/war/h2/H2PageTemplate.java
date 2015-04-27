@@ -8,7 +8,7 @@ import co.simasoft.gen.jpa.*;
 
 public class H2PageTemplate extends FileTxt {
 
-  public H2PageTemplate(String artifactId,String groupId,ArrayList<Entidad> entidades) {
+  public H2PageTemplate(String artifactId,ArrayList<Entidad> entidades) {
 
 line("<!DOCTYPE html>\n");
 

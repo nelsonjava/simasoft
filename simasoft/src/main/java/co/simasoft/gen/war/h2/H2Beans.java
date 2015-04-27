@@ -4,8 +4,8 @@ import co.simasoft.utils.*;
 
 public class H2Beans extends FileTxt {
 
-  public H2Beans(String artifactId,String groupId) {
-    
+  public H2Beans(String artifactId) {
+
 line("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
 
 line("<!-- Marker file indicating CDI should be enabled -->");

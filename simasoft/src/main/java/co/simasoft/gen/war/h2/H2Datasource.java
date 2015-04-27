@@ -8,7 +8,7 @@ import co.simasoft.gen.jpa.*;
 
 public class H2Datasource extends FileTxt {
 
-  public H2Datasource(String artifactId,String groupId,ArrayList<Entidad> entidades) {
+  public H2Datasource(String artifactId) {
 
 line("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
 

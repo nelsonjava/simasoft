@@ -66,7 +66,7 @@ public BeanH2(String artifactId,String groupId,Entidad entity,LinkedHashSet<Stri
       this.relations = entity.getRelations();
 //>>FIN INICIALIZACION DE ATRIBUTOS
 
-line("package co.simasoft.view;\n");
+line("package "+groupId+".view;\n");
 
 line("import java.io.Serializable;");
 line("import java.util.ArrayList;");

@@ -59,7 +59,7 @@ OBJETIVOS:
 
 public BeanUtils(String artifactId,String groupId,LinkedHashSet<String> imports) throws IOException {
 
-line("package co.simasoft.view;\n");
+line("package "+groupId+".view;\n");
 
 line("import java.beans.PropertyDescriptor;");
 line("import java.lang.reflect.Field;");

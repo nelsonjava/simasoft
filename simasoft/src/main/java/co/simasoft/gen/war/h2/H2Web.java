@@ -4,7 +4,7 @@ import co.simasoft.utils.*;
 
 public class H2Web extends FileTxt {
 
-  public H2Web(String artifactId,String groupId) {
+  public H2Web(String artifactId) {
 
 line("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>");
 

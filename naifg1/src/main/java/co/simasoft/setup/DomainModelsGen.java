@@ -23,6 +23,7 @@ import javax.faces.context.ExternalContext;
 @Named("DomainModelsGen")
 public class DomainModelsGen {
 
+    private ArrayList<Packages> packages = new ArrayList<Packages>();
     private LinkedHashSet<String> imports = new LinkedHashSet<String>();
 
     private static final Logger log = Logger.getLogger(DomainModelsGen.class.getName());
@@ -30,7 +31,7 @@ public class DomainModelsGen {
     public void data(DomainModels domainModels) throws IOException {
 
         System.out.println("Hello World!" + domainModels.getName());
-        
+
         for (GroupIds groupIds : domainModels.getGroupIds()){
             imports.add(groupIds.getGroupId());
         }
@@ -59,16 +60,19 @@ public class DomainModelsGen {
                                                       "*..1",relationships.getName()));
                 } // for: entity.getTo()
 
+                entidad.setGroupId(groupIds.getGroupId());
                 entidades.add(entidad);
 
             } // for: groupIds.getEntities()
 
-            Models models = new Models(domainModels.getName(),domainModels.getGroupId(),domainModels.getName());
-            models.setImports(imports);
-            models.setEntities(entidades);
-            models.WarH2();
+            packages.add(new Packages(groupIds.getGroupId(),domainModels.getArtifactId(),entidades));
 
         } // for: domainModels.getGroupIds()
+
+        Models models = new Models(domainModels.getGroupId(),domainModels.getArtifactId());
+        models.setImports(imports);
+        models.setPackages(packages);
+        models.WarH2();
 
     } // data()
 
