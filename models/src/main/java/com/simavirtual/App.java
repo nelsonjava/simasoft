@@ -90,6 +90,10 @@ public class App extends FileTxt{
 
             EntityPruebaH2 entityPruebaH2 = new EntityPruebaH2(artifactId,groupId+"."+modelo+".models."+artifactId,entidad,imports);
             Utils.fileMake(pathDocs+"."+modelo+"."+artifactId+".jpa.src.main.java."+groupId+"."+modelo+".models."+artifactId+".jpa.ph2",entidad.getName()+".java", entityPruebaH2);
+            
+            EntityPrueba entityPrueba = new EntityPrueba(artifactId,groupId,entidad,imports);
+            Utils.fileMake(pathDocs+"."+modelo+"."+artifactId+".jpa.src.main.java."+groupId+".jpa.pruebas",entidad.getName()+".java", entityPrueba);
+
         }
 
         Persistence persistence = new Persistence(artifactId,groupId+".models."+modelo,entidades);
@@ -127,20 +131,20 @@ public class App extends FileTxt{
 
         for(Entidad entidad : entidades) {
 
-            CreateH2 createH2 = new CreateH2(artifactId,groupId+".models."+modelo+"."+artifactId,entidad,imports);
+            CreateH2 createH2 = new CreateH2(entidad);
             Utils.fileMake(pathDocs+"."+modelo+"."+artifactId+".crud.src.main.java."+groupId+".models."+modelo+"."+artifactId+".xhtml."+entidad.getName()+".h2","create.xhtml", createH2);
 
-            SearchH2 searchH2 = new SearchH2(artifactId,groupId+".models."+modelo+"."+artifactId,entidad,imports);
+            SearchH2 searchH2 = new SearchH2(entidad);
             Utils.fileMake(pathDocs+"."+modelo+"."+artifactId+".crud.src.main.java."+groupId+".models."+modelo+"."+artifactId+".xhtml."+entidad.getName()+".h2","search.xhtml", searchH2);
 
-            ViewH2 viewH2 = new ViewH2(artifactId,groupId+".models."+modelo+"."+artifactId,entidad,imports);
+            ViewH2 viewH2 = new ViewH2(entidad);
             Utils.fileMake(pathDocs+"."+modelo+"."+artifactId+".crud.src.main.java."+groupId+".models."+modelo+"."+artifactId+".xhtml."+entidad.getName()+".h2","view.xhtml", viewH2);
         }
 
         TemplateCrud templateCrud = new TemplateCrud(artifactId,groupId+".models."+modelo+"."+artifactId,imports);
         Utils.fileMake(pathDocs+"."+modelo+"."+artifactId+".crud.src.main.java."+groupId+".models."+modelo+"."+artifactId+".xhtml","pageTemplate.xhtml", templateCrud);
 
-        Paginator paginator = new Paginator(artifactId,groupId+".models."+modelo+"."+artifactId,imports);
+        Paginator paginator = new Paginator();
         Utils.fileMake(pathDocs+"."+modelo+"."+artifactId+".crud.src.main.java."+groupId+".models."+modelo+"."+artifactId+".xhtml","paginator.xhtml", paginator);
 
     } // crud
@@ -179,36 +183,37 @@ public class App extends FileTxt{
 
         for(Entidad entidad : entidades) {
 
-            CreateH2 createH2 = new CreateH2(artifactId,groupId+".models."+modelo+"."+artifactId,entidad,imports);
+            CreateH2 createH2 = new CreateH2(entidad);
             Utils.fileMake(pathDocs+"."+modelo+"."+artifactId+".war.h2.src.main.webapp.admin."+Utils._1raMin(entidad.getName()),"create.xhtml", createH2);
 
-            SearchH2 searchH2 = new SearchH2(artifactId,groupId+".models."+modelo+"."+artifactId,entidad,imports);
+            SearchH2 searchH2 = new SearchH2(entidad);
             Utils.fileMake(pathDocs+"."+modelo+"."+artifactId+".war.h2.src.main.webapp.admin."+Utils._1raMin(entidad.getName()),"search.xhtml", searchH2);
 
-            ViewH2 viewH2 = new ViewH2(artifactId,groupId+".models."+modelo+"."+artifactId,entidad,imports);
+            ViewH2 viewH2 = new ViewH2(entidad);
             Utils.fileMake(pathDocs+"."+modelo+"."+artifactId+".war.h2.src.main.webapp.admin."+Utils._1raMin(entidad.getName()),"view.xhtml", viewH2);
         }
 
-
-        H2Persistence h2Persistence = new H2Persistence(artifactId,groupId+".models."+modelo,entidades);
+/*
+        H2Persistence h2Persistence = new H2Persistence(artifactId,packages);
         Utils.fileMake(pathDocs+"."+modelo+"."+artifactId+".war.h2.src.main.resources.META-INF", "persistence.xml", h2Persistence);
+*/
 
-        H2Datasource h2datasource = new H2Datasource(artifactId,groupId,entidades);
+        H2Datasource h2datasource = new H2Datasource(artifactId);
         Utils.fileMake(pathDocs+"."+modelo+"."+artifactId+".war.h2.src.main.webapp.WEB-INF",artifactId+"-ds.xml", h2datasource);
 
-        H2Beans h2Beans = new H2Beans(artifactId,groupId);
+        H2Beans h2Beans = new H2Beans(artifactId);
         Utils.fileMake(pathDocs+"."+modelo+"."+artifactId+".war.h2.src.main.webapp.WEB-INF","beans.xml", h2Beans);
 
-        H2FacesConfig h2FacesConfig = new H2FacesConfig(artifactId,groupId);
+        H2FacesConfig h2FacesConfig = new H2FacesConfig(artifactId);
         Utils.fileMake(pathDocs+"."+modelo+"."+artifactId+".war.h2.src.main.webapp.WEB-INF","faces-config.xml", h2FacesConfig);
 
-        H2Web h2Web = new H2Web(artifactId,groupId);
+        H2Web h2Web = new H2Web(artifactId);
         Utils.fileMake(pathDocs+"."+modelo+"."+artifactId+".war.h2.src.main.webapp.WEB-INF","web.xml", h2Web);
 
-        H2PageTemplate h2PageTemplate = new H2PageTemplate(artifactId,groupId+".models."+modelo,entidades);
+        H2PageTemplate h2PageTemplate = new H2PageTemplate(artifactId,entidades);
         Utils.fileMake(pathDocs+"."+modelo+"."+artifactId+".war.h2.src.main.webapp.resources.scaffold","pageTemplate.xhtml",h2PageTemplate);
 
-        Paginator paginator = new Paginator(artifactId,groupId+".models."+modelo+"."+artifactId,imports);
+        Paginator paginator = new Paginator();
         Utils.fileMake(pathDocs+"."+modelo+"."+artifactId+".war.h2.src.main.webapp.resources.scaffold","paginator.xhtml", paginator);
 
         Utils.fileJar("webH2/webapp/admin","index.html",pathDocs+"\\"+modelo+"\\"+artifactId+"\\war\\h2\\src\\main\\webapp\\admin\\",fileJar);
@@ -317,8 +322,8 @@ public class App extends FileTxt{
         entidades = powerDesigner.getEntidades();
         relations = powerDesigner.getRelations();
         relationsPower = powerDesigner.getRelationsPower();
-
-        Models models = new Models(name,groupId,artifactId);
+        
+        Models models = new Models(groupId,artifactId);
         models.setImports(imports);
         models.setEntities(entidades);
         models.WarH2();
@@ -329,7 +334,7 @@ public class App extends FileTxt{
 
         LinkedHashSet<String> imports = new LinkedHashSet<String>();
         for (Modelos modelo : modelos) {
-            imports.add(modelo.getGroupId()+"."+modelo.getModelo()+".models."+modelo.getArtifactId());
+            imports.add(modelo.getGroupId());
         }
 
         sqlAll(name,groupId,artifactId,modelos,imports);
@@ -372,9 +377,8 @@ public class App extends FileTxt{
         modelos.add(new Modelos("iso","co.simasoft.models.naif.iso.procesos","procesos"));
         modelos.add(new Modelos("iso","co.simasoft.models.naif.iso.lmd","lmd"));
         modelos.add(new Modelos("iso","co.simasoft.models.naif.iso.lmr","lmr"));
-        modelos.add(new Modelos("iso","co.simasoft.models.naif.iso.archivoInactivo","archivoInactivo"));
+        modelos.add(new Modelos("iso","co.simasoft.models.naif.iso.archivoInactivo","archivoinactivo"));
         generar("iso","co.simasoft","iso",modelos);
-
 
         modelos.clear();
         modelos.add(new Modelos("base","co.simasoft.models.naif.base.direcciones","direcciones"));
@@ -420,6 +424,7 @@ public class App extends FileTxt{
         modelos.clear();
         modelos.add(new Modelos("naif","co.simasoft","DomainModels"));
         Models(modelos);
+
 
     } // main
 
