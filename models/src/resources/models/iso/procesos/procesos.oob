@@ -1535,11 +1535,11 @@ LABL 0 Arial,8,N</a:FontList>
 </o:Class>
 <o:Class Id="o18">
 <a:ObjectID>973AA7E2-69BF-4B36-ADEB-6F7AB8564320</a:ObjectID>
-<a:Name>Lmrs</a:Name>
-<a:Code>Lmrs</a:Code>
+<a:Name>Formatos</a:Name>
+<a:Code>Formatos</a:Code>
 <a:CreationDate>1429304224</a:CreationDate>
 <a:Creator>admin</a:Creator>
-<a:ModificationDate>1429304547</a:ModificationDate>
+<a:ModificationDate>1430343708</a:ModificationDate>
 <a:Modifier>admin</a:Modifier>
 <a:UseParentNamespace>0</a:UseParentNamespace>
 <c:Attributes>
