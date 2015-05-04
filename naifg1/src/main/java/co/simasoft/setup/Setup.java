@@ -152,6 +152,20 @@ public class Setup {
         em.persist(varUrl);
         em.flush();
 
+        TypesAttributes varByte = new TypesAttributes();
+        varByte.setOrden(11L);
+        varByte.setName("byte");
+        varByte.setObservaciones("A uniform resource locator of a web resource");
+        em.persist(varByte);
+        em.flush();
+
+        TypesAttributes varDouble = new TypesAttributes();
+        varDouble.setOrden(12L);
+        varDouble.setName("double");
+        varDouble.setObservaciones("A uniform resource locator of a web resource");
+        em.persist(varDouble);
+        em.flush();
+
     } // data()
 
 } // DomainModelsSetup

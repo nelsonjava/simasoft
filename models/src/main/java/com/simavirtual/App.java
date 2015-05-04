@@ -82,7 +82,7 @@ public class App extends FileTxt{
             EntityMongo entityMongo = new EntityMongo(artifactId,groupId+".models."+modelo+"."+artifactId,entidad,imports);
             Utils.fileMake(pathDocs+"."+modelo+"."+artifactId+".jpa.src.main.java."+groupId+".models."+modelo+"."+artifactId+".jpa.mongo",entidad.getName()+".java", entityMongo);
 
-            EntityH2 entityH2 = new EntityH2(artifactId,groupId+".models."+modelo+"."+artifactId,entidad,imports);
+            EntityH2 entityH2 = new EntityH2(artifactId,groupId,entidad,imports);
             Utils.fileMake(pathDocs+"."+modelo+"."+artifactId+".jpa.src.main.java."+groupId+".models."+modelo+"."+artifactId+".jpa.h2",entidad.getName()+".java", entityH2);
 
             EntityPruebaMongo entityPruebaMongo = new EntityPruebaMongo(artifactId,groupId+".models."+modelo+"."+artifactId,entidad,imports);
@@ -90,7 +90,7 @@ public class App extends FileTxt{
 
             EntityPruebaH2 entityPruebaH2 = new EntityPruebaH2(artifactId,groupId+"."+modelo+".models."+artifactId,entidad,imports);
             Utils.fileMake(pathDocs+"."+modelo+"."+artifactId+".jpa.src.main.java."+groupId+"."+modelo+".models."+artifactId+".jpa.ph2",entidad.getName()+".java", entityPruebaH2);
-            
+
             EntityPrueba entityPrueba = new EntityPrueba(artifactId,groupId,entidad,imports);
             Utils.fileMake(pathDocs+"."+modelo+"."+artifactId+".jpa.src.main.java."+groupId+".jpa.pruebas",entidad.getName()+".java", entityPrueba);
 
@@ -322,7 +322,7 @@ public class App extends FileTxt{
         entidades = powerDesigner.getEntidades();
         relations = powerDesigner.getRelations();
         relationsPower = powerDesigner.getRelationsPower();
-        
+
         Models models = new Models(groupId,artifactId);
         models.setImports(imports);
         models.setEntities(entidades);
@@ -414,7 +414,7 @@ public class App extends FileTxt{
         generar("naif","co.simasoft","DomainModels",modelos);
 
         modelos.clear();
-        modelos.add(new Modelos("naif","co.simasoft.models.naif.relacionesEjb","RelacionesEjb"));
+        modelos.add(new Modelos("naif","co.simasoft.models.naif.relacionesejb","RelacionesEjb"));
         generar("naif","co.simasoft","RelacionesEjb",modelos);
 
         modelos.clear();

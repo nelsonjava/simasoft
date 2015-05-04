@@ -177,6 +177,23 @@ public EntityH2(String artifactId,String groupId,Entidad entity,LinkedHashSet<St
 //********FIN RELACION UNO A MUCHOS
 
 //********RELACION MUCHOS A MUCHOS
+            if(relation.getCardinality().equals("*..*")) {
+              if(relation.getFrom().equals(relation.getTo())){  // Relación Unitaria
+                line("    @ManyToMany(mappedBy = \"objPadre\")");
+                line("    private Set<"+relation.getTo()+"> objHijos = new HashSet<"+relation.getTo()+">();\n");
+              }
+              else{
+                if(relation.getName() == null || relation.getName() == ""){
+                  line("    @ManyToMany(mappedBy = \""+Utils._1raMin(entity.getName())+"\")");
+                  line("    private Set<"+relation.getTo()+"> "+Utils._1raMin(relation.getTo())+" = new HashSet<"+relation.getTo()+">();\n");
+                }
+                else{
+                  line("    @ManyToMany(mappedBy = \""+relation.getName()+"\")");
+                  line("    private Set<"+relation.getTo()+"> "+relation.getName()+" = new HashSet<"+relation.getTo()+">();\n");
+                }
+              }
+            }
+
 //********FIN RELACION MUCHOS A MUCHOS
 
       } // for relations
@@ -304,6 +321,37 @@ public EntityH2(String artifactId,String groupId,Entidad entity,LinkedHashSet<St
 //********FIN RELACION UNO A MUCHOS
 
 //********RELACION MUCHOS A MUCHOS
+            if(relation.getCardinality().equals("*..*")) {
+
+              if(relation.getFrom().equals(relation.getTo())){  // Relación Unitaria
+                 line("    public Set<" + relation.getTo() + "> getObjHijos() {");
+                 line("        return this.objHijos;");
+                 line("    }");
+                 line("    public void setObjHijos(Set<" + Utils._1raMay(relation.getTo()) + "> objHijos) {");
+                 line("        this.objHijos = objHijos;");
+                 line("    }\n");
+              }
+              else{
+                 if(relation.getName() == null || relation.getName() == "") {
+                   line("    public Set<" + relation.getTo() + "> get" + Utils._1raMay(relation.getTo()) + "() {");
+                   line("        return " + Utils._1raMin(relation.getTo()) + ";");
+                   line("    }");
+                   line("    public void set" + Utils._1raMay(relation.getTo()) + "(Set<" + Utils._1raMay(relation.getTo()) + "> " + Utils._1raMin(relation.getTo()) + ") {");
+                   line("        this." + Utils._1raMin(relation.getTo()) + " = " + Utils._1raMin(relation.getTo()) + ";");
+                   line("    }\n");
+                 }
+                 else{
+                   line("    public Set<" + relation.getTo() + "> get" + Utils._1raMay(relation.getName()) + "() {");
+                   line("        return " + relation.getName() + ";");
+                   line("    }");
+                   line("    public void set" + Utils._1raMay(relation.getName()) + "(Set<" + Utils._1raMay(relation.getTo()) + "> " + relation.getName() + ") {");
+                   line("        this." + relation.getName() + " = " + relation.getName() + ";");
+                   line("    }\n");
+                 }
+
+              }
+
+            }
 //********FIN RELACION MUCHOS A MUCHOS
 
       } // for relations

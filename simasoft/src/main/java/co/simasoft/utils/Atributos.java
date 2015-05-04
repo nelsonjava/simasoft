@@ -89,16 +89,28 @@ public class Atributos{
 
         switch (type) {
 
-            case "Long":
-                 typeField = "long";
+            case "long":
+                 typeField = "Long";
                  break;
 
             case "date":
                  typeField = "Date";
                  break;
 
+            case "Datetime":
+                 typeField = "Date";
+                 break;
+
             case "number":
-                 typeField = "float";
+                 typeField = "Float";
+                 break;
+
+            case "float":
+                 typeField = "Float";
+                 break;
+
+            case "boolean":
+                 typeField = "Boolean";
                  break;
 
             case "Text":
