@@ -1,0 +1,96 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:forgeview="http://jboss.org/forge/view"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="id" value='#{rutasBean.id}'/>
+		<f:event type="preRenderView" listener='#{rutasBean.retrieve}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="View Rutas"/>
+
+	<ui:define name="header">
+		Rutas
+	</ui:define>
+
+	<ui:define name="subheader">
+		View existing Rutas
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:panelGrid columnClasses="label,component,required" columns="3">
+			<h:outputLabel for="rutasBeanRutasOrden" value="Orden:"/>
+			<h:outputText id="rutasBeanRutasOrden" value="#{rutasBean.rutas.orden}"/>
+			<h:outputText/>
+			<h:outputLabel for="rutasBeanRutasOrigen" value="Origen:"/>
+			<h:outputText id="rutasBeanRutasOrigen" value="#{rutasBean.rutas.origen}"/>
+			<h:outputText/>
+			<h:outputLabel for="rutasBeanRutasDestino" value="Destino:"/>
+			<h:outputText id="rutasBeanRutasDestino" value="#{rutasBean.rutas.destino}"/>
+			<h:outputText/>
+			<h:outputLabel for="rutasBeanRutasFechaSalida" value="Fecha Salida:"/>
+			<h:outputText id="rutasBeanRutasFechaSalida" value="#{rutasBean.rutas.fechaSalida}">
+				<f:convertDateTime/>
+			</h:outputText>
+			<h:outputText/>
+			<h:outputLabel for="rutasBeanRutasFechaLLegada" value="Fecha L Legada:"/>
+			<h:outputText id="rutasBeanRutasFechaLLegada" value="#{rutasBean.rutas.fechaLLegada}">
+				<f:convertDateTime/>
+			</h:outputText>
+			<h:outputText/>
+			<h:outputLabel for="rutasBeanRutasObservaciones" value="Observaciones:"/>
+			<h:outputText id="rutasBeanRutasObservaciones" value="#{rutasBean.rutas.observaciones}"/>
+			<h:outputText/>
+			<h:outputLabel for="rutasBeanRutasBuses" value="Buses:"/>
+			<h:link id="rutasBeanRutasBuses" outcome="/admin/buses/view" rendered="#{!empty rutasBean.rutas.buses}" value="#{rutasBean.rutas.buses}">
+				<f:param name="id" value="#{rutasBean.rutas.buses.id}"/>
+			</h:link>
+			<h:outputText/>
+			<h:outputLabel for="rutasBeanRutasPasajes" value="Pasajes:"/>
+			<h:dataTable id="rutasBeanRutasPasajes" styleClass="data-table" value="#{forgeview:asList(rutasBean.rutas.pasajes)}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Orden"/>
+					</f:facet>
+					<h:link outcome="/admin/pasajes/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemOrden" value="#{_item.orden}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Numero"/>
+					</f:facet>
+					<h:link outcome="/admin/pasajes/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemNumero" value="#{_item.numero}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Valor"/>
+					</f:facet>
+					<h:link outcome="/admin/pasajes/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemValor" value="#{_item.valor}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<h:outputText/>
+		</h:panelGrid>
+
+		<div class="buttons">
+			<h:link value="View All" outcome="search" styleClass="btn btn-primary"/> 
+			<h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
+			<h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
+		</div>
+	</ui:define>
+
+</ui:composition>

@@ -1,0 +1,112 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="page" value='#{direccionesBean.page}'/>
+		<f:event type="preRenderView" listener='#{direccionesBean.paginate}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="Search Direcciones entities"/>
+
+	<ui:define name="header">
+		Direcciones
+	</ui:define>
+
+	<ui:define name="subheader">
+		Search Direcciones entities
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:form id="search">
+			<f:validateBean disabled="true">
+				<h:panelGroup styleClass="search">
+
+					<h:panelGrid columnClasses="label,component,required" columns="3">
+						<h:outputLabel for="direccionesBeanExampleOrden" value="Orden:"/>
+						<h:panelGroup>
+							<h:inputText id="direccionesBeanExampleOrden" value="#{direccionesBean.example.orden}"/>
+							<h:message for="direccionesBeanExampleOrden" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="direccionesBeanExampleDireccion" value="Direccion:"/>
+						<h:panelGroup>
+							<h:inputText id="direccionesBeanExampleDireccion" value="#{direccionesBean.example.direccion}"/>
+							<h:message for="direccionesBeanExampleDireccion" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="direccionesBeanExampleBarrio" value="Barrio:"/>
+						<h:panelGroup>
+							<h:inputText id="direccionesBeanExampleBarrio" value="#{direccionesBean.example.barrio}"/>
+							<h:message for="direccionesBeanExampleBarrio" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+					</h:panelGrid>
+					<h:panelGroup styleClass="buttons">
+						<h:commandLink value="Search" action='#{direccionesBean.search}' styleClass="btn btn-primary"/>
+						<h:commandLink value="Create New" action='#{direccionesBean.create}' styleClass="btn btn-primary"/>
+					</h:panelGroup>
+				</h:panelGroup>
+			</f:validateBean>
+			
+			<h:dataTable id="direccionesBeanPageItems" styleClass="data-table" value="#{direccionesBean.pageItems}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Orden"/>
+					</f:facet>
+					<h:link outcome="/admin/direcciones/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemOrden" value="#{_item.orden}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Direccion"/>
+					</f:facet>
+					<h:link outcome="/admin/direcciones/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemDireccion" value="#{_item.direccion}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Barrio"/>
+					</f:facet>
+					<h:link outcome="/admin/direcciones/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemBarrio" value="#{_item.barrio}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Latitud"/>
+					</f:facet>
+					<h:link outcome="/admin/direcciones/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemLatitud" value="#{_item.latitud}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Longitud"/>
+					</f:facet>
+					<h:link outcome="/admin/direcciones/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemLongitud" value="#{_item.longitud}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<ui:include src="/resources/scaffold/paginator.xhtml">
+				<ui:param name="paginatorBean" value='#{direccionesBean}'/>
+			</ui:include>
+		</h:form>
+			
+	</ui:define>
+
+</ui:composition>

@@ -1,0 +1,107 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:forgeview="http://jboss.org/forge/view"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="page" value='#{pasajesBean.page}'/>
+		<f:event type="preRenderView" listener='#{pasajesBean.paginate}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="Search Pasajes entities"/>
+
+	<ui:define name="header">
+		Pasajes
+	</ui:define>
+
+	<ui:define name="subheader">
+		Search Pasajes entities
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:form id="search">
+			<f:validateBean disabled="true">
+				<h:panelGroup styleClass="search">
+
+					<h:panelGrid columnClasses="label,component,required" columns="3">
+						<h:outputLabel for="pasajesBeanExampleOrden" value="Orden:"/>
+						<h:panelGroup>
+							<h:inputText id="pasajesBeanExampleOrden" value="#{pasajesBean.example.orden}"/>
+							<h:message for="pasajesBeanExampleOrden" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="pasajesBeanExampleNumero" value="Numero:"/>
+						<h:panelGroup>
+							<h:inputText id="pasajesBeanExampleNumero" value="#{pasajesBean.example.numero}"/>
+							<h:message for="pasajesBeanExampleNumero" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="pasajesBeanExampleRutas" value="Rutas:"/>
+						<h:panelGroup>
+							<h:selectOneMenu converter="#{rutasBean.converter}" id="pasajesBeanExampleRutas" value="#{pasajesBean.example.rutas}">
+								<f:selectItem/>
+								<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{rutasBean.all}" var="_item"/>
+							</h:selectOneMenu>
+							<h:message for="pasajesBeanExampleRutas" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+					</h:panelGrid>
+					<h:panelGroup styleClass="buttons">
+						<h:commandLink value="Search" action='#{pasajesBean.search}' styleClass="btn btn-primary"/>
+						<h:commandLink value="Create New" action='#{pasajesBean.create}' styleClass="btn btn-primary"/>
+					</h:panelGroup>
+				</h:panelGroup>
+			</f:validateBean>
+			
+			<h:dataTable id="pasajesBeanPageItems" styleClass="data-table" value="#{pasajesBean.pageItems}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Orden"/>
+					</f:facet>
+					<h:link outcome="/admin/pasajes/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemOrden" value="#{_item.orden}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Numero"/>
+					</f:facet>
+					<h:link outcome="/admin/pasajes/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemNumero" value="#{_item.numero}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Valor"/>
+					</f:facet>
+					<h:link outcome="/admin/pasajes/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemValor" value="#{_item.valor}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Rutas"/>
+					</f:facet>
+					<h:link outcome="/admin/pasajes/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="forgeviewdisplayitemRutas" value="#{forgeview:display(_item.rutas)}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<ui:include src="/resources/scaffold/paginator.xhtml">
+				<ui:param name="paginatorBean" value='#{pasajesBean}'/>
+			</ui:include>
+		</h:form>
+			
+	</ui:define>
+
+</ui:composition>

@@ -1,0 +1,162 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:forgeview="http://jboss.org/forge/view"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="id" value='#{rutasBean.id}'/>
+		<f:event type="preRenderView" listener='#{rutasBean.retrieve}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="Create Rutas"/>
+
+	<ui:define name="header">
+		Rutas
+	</ui:define>
+
+	<ui:define name="subheader">
+		<c:choose>
+			<c:when test='#{!empty rutasBean.id}'>
+				Edit existing Rutas
+			</c:when>
+			<c:otherwise>
+				Create a new Rutas
+			</c:otherwise>
+		</c:choose>
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:form id="create">
+			<h:messages globalOnly="true" styleClass="error"/>
+
+			<h:panelGrid columnClasses="label,component,required" columns="3">
+				<h:outputLabel for="rutasBeanRutasOrden" value="Orden:"/>
+				<h:panelGroup>
+					<h:inputText id="rutasBeanRutasOrden" value="#{rutasBean.rutas.orden}"/>
+					<h:message for="rutasBeanRutasOrden" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="rutasBeanRutasOrigen" value="Origen:"/>
+				<h:panelGroup>
+					<h:inputText id="rutasBeanRutasOrigen" value="#{rutasBean.rutas.origen}"/>
+					<h:message for="rutasBeanRutasOrigen" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="rutasBeanRutasDestino" value="Destino:"/>
+				<h:panelGroup>
+					<h:inputText id="rutasBeanRutasDestino" value="#{rutasBean.rutas.destino}"/>
+					<h:message for="rutasBeanRutasDestino" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="rutasBeanRutasFechaSalida" value="Fecha Salida:"/>
+				<h:panelGroup>
+					<h:inputText id="rutasBeanRutasFechaSalida" value="#{rutasBean.rutas.fechaSalida}">
+						<f:convertDateTime/>
+					</h:inputText>
+					<h:message for="rutasBeanRutasFechaSalida" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="rutasBeanRutasFechaLLegada" value="Fecha L Legada:"/>
+				<h:panelGroup>
+					<h:inputText id="rutasBeanRutasFechaLLegada" value="#{rutasBean.rutas.fechaLLegada}">
+						<f:convertDateTime/>
+					</h:inputText>
+					<h:message for="rutasBeanRutasFechaLLegada" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="rutasBeanRutasObservaciones" value="Observaciones:"/>
+				<h:panelGroup>
+					<h:inputText id="rutasBeanRutasObservaciones" value="#{rutasBean.rutas.observaciones}"/>
+					<h:message for="rutasBeanRutasObservaciones" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="rutasBeanRutasBuses" value="Buses:"/>
+				<h:panelGroup>
+					<h:selectOneMenu converter="#{busesBean.converter}" id="rutasBeanRutasBuses" value="#{rutasBean.rutas.buses}">
+						<f:selectItem/>
+						<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{busesBean.all}" var="_item"/>
+					</h:selectOneMenu>
+					<h:message for="rutasBeanRutasBuses" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="rutasBeanRutasPasajes" value="Pasajes:"/>
+				<h:panelGroup>
+					<ui:param name="_collection" value="#{rutasBean.rutas.pasajes}"/>
+					<h:dataTable id="rutasBeanRutasPasajes" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Orden"/>
+							</f:facet>
+							<h:link outcome="/admin/pasajes/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemOrden" value="#{_item.orden}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="pasajesBeanAddOrden" value="#{pasajesBean.add.orden}"/>
+								<h:message for="pasajesBeanAddOrden" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Numero"/>
+							</f:facet>
+							<h:link outcome="/admin/pasajes/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemNumero" value="#{_item.numero}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="pasajesBeanAddNumero" value="#{pasajesBean.add.numero}"/>
+								<h:message for="pasajesBeanAddNumero" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Valor"/>
+							</f:facet>
+							<h:link outcome="/admin/pasajes/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemValor" value="#{_item.valor}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="pasajesBeanAddValor" value="#{pasajesBean.add.valor}"/>
+								<h:message for="pasajesBeanAddValor" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column footerClass="remove-column" headerClass="remove-column">
+							<h:commandLink action="#{_collection.remove(_item)}" styleClass="remove-button"/>
+							<f:facet name="footer">
+								<h:commandLink action="#{_collection.add(pasajesBean.added)}" id="rutasBeanRutasPasajesAdd" styleClass="add-button">
+									<f:setPropertyActionListener target="#{pasajesBean.add.rutas}" value="#{rutasBean.rutas}"/>
+								</h:commandLink>
+							</f:facet>
+						</h:column>
+					</h:dataTable>
+				</h:panelGroup>
+				<h:outputText/>
+			</h:panelGrid>
+
+			<div class="buttons">
+				<h:commandLink value="Save" action='#{rutasBean.update}' styleClass="btn btn-primary"/>
+				<c:choose>
+					<c:when test='#{!empty rutasBean.id}'>
+						<h:link value="Cancel" outcome="view" styleClass="btn btn-primary">
+							<f:param name="id" value='#{rutasBean.id}'/>
+						</h:link>
+						<h:commandLink value="Delete" action='#{rutasBean.delete}' styleClass="btn btn-primary"/>
+					</c:when>
+					<c:otherwise>
+						<h:link value="Cancel" outcome="search" styleClass="btn btn-primary"/>
+					</c:otherwise>
+				</c:choose>
+			</div>
+		</h:form>
+	</ui:define>
+
+</ui:composition>

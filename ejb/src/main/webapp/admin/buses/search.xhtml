@@ -1,0 +1,94 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="page" value='#{busesBean.page}'/>
+		<f:event type="preRenderView" listener='#{busesBean.paginate}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="Search Buses entities"/>
+
+	<ui:define name="header">
+		Buses
+	</ui:define>
+
+	<ui:define name="subheader">
+		Search Buses entities
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:form id="search">
+			<f:validateBean disabled="true">
+				<h:panelGroup styleClass="search">
+
+					<h:panelGrid columnClasses="label,component,required" columns="3">
+						<h:outputLabel for="busesBeanExampleOrden" value="Orden:"/>
+						<h:panelGroup>
+							<h:inputText id="busesBeanExampleOrden" value="#{busesBean.example.orden}"/>
+							<h:message for="busesBeanExampleOrden" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="busesBeanExampleNumero" value="Numero:"/>
+						<h:panelGroup>
+							<h:inputText id="busesBeanExampleNumero" value="#{busesBean.example.numero}"/>
+							<h:message for="busesBeanExampleNumero" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="busesBeanExampleClase" value="Clase:"/>
+						<h:panelGroup>
+							<h:inputText id="busesBeanExampleClase" value="#{busesBean.example.clase}"/>
+							<h:message for="busesBeanExampleClase" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+					</h:panelGrid>
+					<h:panelGroup styleClass="buttons">
+						<h:commandLink value="Search" action='#{busesBean.search}' styleClass="btn btn-primary"/>
+						<h:commandLink value="Create New" action='#{busesBean.create}' styleClass="btn btn-primary"/>
+					</h:panelGroup>
+				</h:panelGroup>
+			</f:validateBean>
+			
+			<h:dataTable id="busesBeanPageItems" styleClass="data-table" value="#{busesBean.pageItems}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Orden"/>
+					</f:facet>
+					<h:link outcome="/admin/buses/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemOrden" value="#{_item.orden}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Numero"/>
+					</f:facet>
+					<h:link outcome="/admin/buses/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemNumero" value="#{_item.numero}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Clase"/>
+					</f:facet>
+					<h:link outcome="/admin/buses/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemClase" value="#{_item.clase}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<ui:include src="/resources/scaffold/paginator.xhtml">
+				<ui:param name="paginatorBean" value='#{busesBean}'/>
+			</ui:include>
+		</h:form>
+			
+	</ui:define>
+
+</ui:composition>
