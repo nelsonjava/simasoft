@@ -77,33 +77,33 @@ public class App extends FileTxt{
         for(Entidad entidad : entidades) {
 
             Entity0 entity0 = new Entity0(artifactId,groupId+".models."+modelo+"."+artifactId,entidad,imports);
-            Utils.fileMake(pathDocs+"."+modelo+"."+artifactId+".jpa.src.main.java."+groupId+".models."+modelo+"."+artifactId+".jpa.0",entidad.getName()+".java", entity0);
+            Utils.fileMake(pathDocs+"."+modelo+"."+artifactId+".jpa.0",entidad.getName()+".java", entity0);
 
             EntityMongo entityMongo = new EntityMongo(artifactId,groupId+".models."+modelo+"."+artifactId,entidad,imports);
-            Utils.fileMake(pathDocs+"."+modelo+"."+artifactId+".jpa.src.main.java."+groupId+".models."+modelo+"."+artifactId+".jpa.mongo",entidad.getName()+".java", entityMongo);
+            Utils.fileMake(pathDocs+"."+modelo+"."+artifactId+".jpa.mongo",entidad.getName()+".java", entityMongo);
 
             EntityH2 entityH2 = new EntityH2(artifactId,groupId,entidad,imports);
-            Utils.fileMake(pathDocs+"."+modelo+"."+artifactId+".jpa.src.main.java."+groupId+".models."+modelo+"."+artifactId+".jpa.h2",entidad.getName()+".java", entityH2);
+            Utils.fileMake(pathDocs+"."+modelo+"."+artifactId+".jpa.h2",entidad.getName()+".java", entityH2);
 
             EntityPruebaMongo entityPruebaMongo = new EntityPruebaMongo(artifactId,groupId+".models."+modelo+"."+artifactId,entidad,imports);
-            Utils.fileMake(pathDocs+"."+modelo+"."+artifactId+".jpa.src.main.java."+groupId+".models."+modelo+"."+artifactId+".jpa.pmongo",entidad.getName()+".java", entityPruebaMongo);
+            Utils.fileMake(pathDocs+"."+modelo+"."+artifactId+".jpa.pmongo",entidad.getName()+".java", entityPruebaMongo);
 
             EntityPruebaH2 entityPruebaH2 = new EntityPruebaH2(artifactId,groupId+"."+modelo+".models."+artifactId,entidad,imports);
-            Utils.fileMake(pathDocs+"."+modelo+"."+artifactId+".jpa.src.main.java."+groupId+"."+modelo+".models."+artifactId+".jpa.ph2",entidad.getName()+".java", entityPruebaH2);
+            Utils.fileMake(pathDocs+"."+modelo+"."+artifactId+".jpa.ph2",entidad.getName()+".java", entityPruebaH2);
 
             EntityPrueba entityPrueba = new EntityPrueba(artifactId,groupId,entidad,imports);
-            Utils.fileMake(pathDocs+"."+modelo+"."+artifactId+".jpa.src.main.java."+groupId+".jpa.pruebas",entidad.getName()+".java", entityPrueba);
+            Utils.fileMake(pathDocs+"."+modelo+"."+artifactId+".jpa.pruebas",entidad.getName()+".java", entityPrueba);
 
         }
 
         Persistence persistence = new Persistence(artifactId,groupId+".models."+modelo,entidades);
-        Utils.fileMake(pathDocs+"."+modelo+"."+artifactId+".jpa.src.main.java."+groupId+".models."+modelo+"."+artifactId, "persistence.xml", persistence);
+        Utils.fileMake(pathDocs+"."+modelo+"."+artifactId+".jpa", "persistence.xml", persistence);
 
         Datasource datasource = new Datasource(artifactId,groupId,entidades);
-        Utils.fileMake(pathDocs+"."+modelo+"."+artifactId+".jpa.src.main.java."+groupId+".models."+modelo+"."+artifactId,artifactId+"-ds.xml", datasource);
+        Utils.fileMake(pathDocs+"."+modelo+"."+artifactId+".jpa",artifactId+"-ds.xml", datasource);
 
         GuiFsh guiFsh = new GuiFsh(artifactId,groupId+".models."+modelo,imports);
-        Utils.fileMake(pathDocs+"."+modelo+"."+artifactId+".jpa.src.main.java."+groupId+".models."+modelo+"."+artifactId, "gui.fsh", guiFsh);
+        Utils.fileMake(pathDocs+"."+modelo+"."+artifactId+".jpa", "gui.fsh", guiFsh);
 
     } // jpa
 
@@ -169,10 +169,15 @@ public class App extends FileTxt{
         Build build = new Build(artifactId,groupId);
         Utils.fileMake(pathDocs+"."+modelo+"."+artifactId+".war.h2", "build.xml", build);
 
+        GuiFsh guiFsh = new GuiFsh(artifactId,groupId+".models."+modelo,imports);
+        Utils.fileMake(pathDocs+"."+modelo+"."+artifactId+".war.h2", "gui.fsh", guiFsh);
+
         for(Entidad entidad : entidades) {
-            EntityH2 entityH2 = new EntityH2(artifactId,groupId+".models."+modelo+"."+artifactId,entidad,imports);
-            Utils.fileMake(pathDocs+"."+modelo+"."+artifactId+".war.h2.src.main.java."+groupId+".models."+modelo+"."+artifactId,entidad.getName()+".java", entityH2);
+            EntityH2 entityH2 = new EntityH2(artifactId,groupId,entidad,imports);
+            Utils.fileMake(pathDocs+"."+modelo+"."+artifactId+".war.h2.src.main.java."+groupId,entidad.getName()+".java", entityH2);
         }
+
+/*
 
         for(Entidad entidad : entidades) {
             BeanH2 beanH2 = new BeanH2(artifactId,groupId+".models."+modelo+"."+artifactId,entidad,imports);
@@ -192,6 +197,11 @@ public class App extends FileTxt{
             ViewH2 viewH2 = new ViewH2(entidad);
             Utils.fileMake(pathDocs+"."+modelo+"."+artifactId+".war.h2.src.main.webapp.admin."+Utils._1raMin(entidad.getName()),"view.xhtml", viewH2);
         }
+*/
+
+        Persistence persistence = new Persistence(artifactId,groupId,entidades);
+        Utils.fileMake(pathDocs+"."+modelo+"."+artifactId+".war.h2.src.main.resources.META-INF", "persistence.xml", persistence);
+
 
 /*
         H2Persistence h2Persistence = new H2Persistence(artifactId,packages);
@@ -216,8 +226,11 @@ public class App extends FileTxt{
         Paginator paginator = new Paginator();
         Utils.fileMake(pathDocs+"."+modelo+"."+artifactId+".war.h2.src.main.webapp.resources.scaffold","paginator.xhtml", paginator);
 
+
+/*
         Utils.fileJar("webH2/webapp/admin","index.html",pathDocs+"\\"+modelo+"\\"+artifactId+"\\war\\h2\\src\\main\\webapp\\admin\\",fileJar);
         Utils.fileJar("webH2/webapp/admin","index.xhtml",pathDocs+"\\"+modelo+"\\"+artifactId+"\\war\\h2\\src\\main\\webapp\\admin\\",fileJar);
+*/
 
         Utils.fileJar("webH2/webapp/resources","add.png",pathDocs+"\\"+modelo+"\\"+artifactId+"\\war\\h2\\src\\main\\webapp\\resources\\",fileJar);
         Utils.fileJar("webH2/webapp/resources","bootstrap.css",pathDocs+"\\"+modelo+"\\"+artifactId+"\\war\\h2\\src\\main\\webapp\\resources\\",fileJar);
@@ -369,6 +382,7 @@ public class App extends FileTxt{
 
     public static void main( String[] args ) throws IOException {
 
+/*
         modelos.clear();
         modelos.add(new Modelos("contable","co.simasoft.models.naif.contabilidad","contabilidad"));
         generar("contable","co.simasoft","contabilidad",modelos);
@@ -400,11 +414,13 @@ public class App extends FileTxt{
         modelos.clear();
         modelos.add(new Modelos("pruebas","co.simasoft.models.naif.prueba1","prueba1"));
         generar("pruebas","co.simasoft","prueba1",modelos);
+*/
 
         modelos.clear();
         modelos.add(new Modelos("pruebas","co.simasoft.models.naif.prueba2","prueba2"));
         generar("pruebas","co.simasoft","prueba2",modelos);
 
+/*
         modelos.clear();
         modelos.add(new Modelos("pruebas","co.simasoft.models.naif.prueba3","prueba3"));
         generar("pruebas","co.simasoft","prueba3",modelos);
@@ -424,6 +440,7 @@ public class App extends FileTxt{
         modelos.clear();
         modelos.add(new Modelos("naif","co.simasoft","DomainModels"));
         Models(modelos);
+*/        
 
 
     } // main

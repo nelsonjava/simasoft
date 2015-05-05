@@ -22,7 +22,7 @@ line("  <persistence-unit name=\""+artifactId+"PU"+"\" transaction-type=\"RESOUR
 line("    <provider>org.hibernate.ejb.HibernatePersistence</provider>\n");
 
         for(Entidad entidad : entidades) {
-line("    <class>"+groupId+"."+artifactId+"."+entidad.getName()+"</class>");
+line("    <class>"+groupId+"."+entidad.getName()+"</class>");
         }
 
 line("");
@@ -49,7 +49,7 @@ line("  <persistence-unit name=\""+artifactId+"PU-JTA"+"\" transaction-type=\"JT
 line("    <provider>org.hibernate.ogm.jpa.HibernateOgmPersistence</provider>\n");
 
         for(Entidad entidad : entidades) {
-line("    <class>"+groupId+"."+artifactId+"."+entidad.getName()+"</class>");
+line("    <class>"+groupId+"."+entidad.getName()+"</class>");
         }
 
 line("");
@@ -70,7 +70,7 @@ line("  <persistence-unit name=\""+artifactId+"PU-JTA"+"\" transaction-type=\"JT
 line("    <provider>org.hibernate.ejb.HibernatePersistence</provider>\n");
 
         for(Entidad entidad : entidades) {
-line("    <class>"+groupId+"."+artifactId+"."+entidad.getName()+"</class>");
+line("    <class>"+groupId+"."+entidad.getName()+"</class>");
         }
 
 line("");
