@@ -118,6 +118,22 @@ public EntityPrueba(String artifactId,String groupId,Entidad entity,LinkedHashSe
       for(Relation relation : relations) {
 
 //********RELACION UNO A UNO
+            if(relation.getCardinality().equals("1..1")) {
+              if (relation.getFrom().equals(relation.getTo())){   // Relación Unitaria
+                 line("    @OneToOne");
+                 line("    private "+relation.getTo()+" objPadre;\n");
+              }
+              else{
+                 line("    @OneToOne");
+                 if(relation.getName() == null || relation.getName() == ""){
+                   line("    private "+relation.getTo()+" "+Utils._1raMin(relation.getTo())+";\n");
+                 }
+                 else{
+                   line("    private "+ relation.getTo() +" "+ relation.getName()+";\n");
+                 }
+
+              }
+            }
 //********FIN RELACION UNO A UNO
 
 //********RELACION MUCHOS A UNO
@@ -219,6 +235,36 @@ public EntityPrueba(String artifactId,String groupId,Entidad entity,LinkedHashSe
       for(Relation relation : relations) {
 
 //********RELACION UNO A UNO
+            if(relation.getCardinality().equals("1..1")) {
+
+              if(relation.getFrom().equals(relation.getTo())){  // Relación Unitaria
+                 line("    public " + relation.getTo() + " getObjPadre() {");
+                 line("        return this.objPadre;");
+                 line("    }");
+                 line("    public void setObjPadre(" + Utils._1raMay(relation.getTo()) + " objPadre) {");
+                 line("        this.objPadre = objPadre;");
+                 line("    }\n");
+              }
+              else{
+                 if(relation.getName() == null || relation.getName() == "" ){
+                    line("    public " + relation.getTo() + " get" + Utils._1raMay(relation.getTo()) + "() {");
+                    line("        return " + Utils._1raMin(relation.getTo()) + ";");
+                    line("    }");
+                    line("    public void set" + Utils._1raMay(relation.getTo()) + "(" + Utils._1raMay(relation.getTo()) + " " + Utils._1raMin(relation.getTo()) + ") {");
+                    line("        this." + Utils._1raMin(relation.getTo()) + " = " + Utils._1raMin(relation.getTo()) + ";");
+                    line("    }\n");
+                 }
+                 else{
+                    line("    public " + relation.getTo() + " get" + Utils._1raMay(relation.getName()) + "() {");
+                    line("        return " + relation.getName() + ";");
+                    line("    }");
+                    line("    public void set" + Utils._1raMay(relation.getName()) + "(" + Utils._1raMay(relation.getTo()) + " " + relation.getName() + ") {");
+                    line("        this." + relation.getName() + " = " + relation.getName() + ";");
+                    line("    }\n");
+                 }
+              }
+
+            }
 //********FIN RELACION UNO A UNO
 
 //********RELACION MUCHOS A UNO

@@ -253,6 +253,77 @@ public class App extends FileTxt{
 
     } // war
 
+    public static void warPH2(String modelo,String groupId,String artifactId,LinkedHashSet<String> imports) throws IOException {
+
+        // Cleanup - Reinigung
+        entidades.clear();
+        relationsPower.clear();
+        relations.clear();
+
+        filePowerDesigner = "src/resources/models/"+modelo+"/"+artifactId+"/"+artifactId+".oom";
+
+        PowerDesigner powerDesigner = new PowerDesigner(filePowerDesigner);
+        entidades = powerDesigner.getEntidades();
+        relations = powerDesigner.getRelations();
+        relationsPower = powerDesigner.getRelationsPower();
+
+        H2Pom filePom = new H2Pom(artifactId,groupId);
+        Utils.fileMake(pathDocs+"."+modelo+"."+artifactId+".war.ph2", "pom.xml", filePom);
+
+        Build build = new Build(artifactId,groupId);
+        Utils.fileMake(pathDocs+"."+modelo+"."+artifactId+".war.ph2", "build.xml", build);
+
+        GuiFsh guiFsh = new GuiFsh(artifactId,groupId+".models."+modelo,imports);
+        Utils.fileMake(pathDocs+"."+modelo+"."+artifactId+".war.ph2", "gui.fsh", guiFsh);
+
+        for(Entidad entidad : entidades) {
+            EntityPrueba entityPrueba = new EntityPrueba(artifactId,groupId,entidad,imports);
+            Utils.fileMake(pathDocs+"."+modelo+"."+artifactId+".war.ph2.src.main.java."+groupId,entidad.getName()+".java", entityPrueba);
+        }
+
+
+        Persistence persistence = new Persistence(artifactId,groupId,entidades);
+        Utils.fileMake(pathDocs+"."+modelo+"."+artifactId+".war.ph2.src.main.resources.META-INF", "persistence.xml", persistence);
+
+        H2Datasource h2datasource = new H2Datasource(artifactId);
+        Utils.fileMake(pathDocs+"."+modelo+"."+artifactId+".war.ph2.src.main.webapp.WEB-INF",artifactId+"-ds.xml", h2datasource);
+
+        H2Beans h2Beans = new H2Beans(artifactId);
+        Utils.fileMake(pathDocs+"."+modelo+"."+artifactId+".war.ph2.src.main.webapp.WEB-INF","beans.xml", h2Beans);
+
+        H2FacesConfig h2FacesConfig = new H2FacesConfig(artifactId);
+        Utils.fileMake(pathDocs+"."+modelo+"."+artifactId+".war.ph2.src.main.webapp.WEB-INF","faces-config.xml", h2FacesConfig);
+
+        H2Web h2Web = new H2Web(artifactId);
+        Utils.fileMake(pathDocs+"."+modelo+"."+artifactId+".war.ph2.src.main.webapp.WEB-INF","web.xml", h2Web);
+
+        H2PageTemplate h2PageTemplate = new H2PageTemplate(artifactId,entidades);
+        Utils.fileMake(pathDocs+"."+modelo+"."+artifactId+".war.ph2.src.main.webapp.resources.scaffold","pageTemplate.xhtml",h2PageTemplate);
+
+        Paginator paginator = new Paginator();
+        Utils.fileMake(pathDocs+"."+modelo+"."+artifactId+".war.ph2.src.main.webapp.resources.scaffold","paginator.xhtml", paginator);
+
+        Utils.fileJar("webH2/webapp/resources","add.png",pathDocs+"\\"+modelo+"\\"+artifactId+"\\war\\ph2\\src\\main\\webapp\\resources\\",fileJar);
+        Utils.fileJar("webH2/webapp/resources","bootstrap.css",pathDocs+"\\"+modelo+"\\"+artifactId+"\\war\\ph2\\src\\main\\webapp\\resources\\",fileJar);
+        Utils.fileJar("webH2/webapp/resources","false.png",pathDocs+"\\"+modelo+"\\"+artifactId+"\\war\\ph2\\src\\main\\webapp\\resources\\",fileJar);
+        Utils.fileJar("webH2/webapp/resources","favicon.ico",pathDocs+"\\"+modelo+"\\"+artifactId+"\\war\\ph2\\src\\main\\webapp\\resources\\",fileJar);
+        Utils.fileJar("webH2/webapp/resources","forge-logo.png",pathDocs+"\\"+modelo+"\\"+artifactId+"\\war\\ph2\\src\\main\\webapp\\resources\\",fileJar);
+        Utils.fileJar("webH2/webapp/resources","forge-style.css",pathDocs+"\\"+modelo+"\\"+artifactId+"\\war\\ph2\\src\\main\\webapp\\resources\\",fileJar);
+        Utils.fileJar("webH2/webapp/resources","jboss-community.png",pathDocs+"\\"+modelo+"\\"+artifactId+"\\war\\ph2\\src\\main\\webapp\\resources\\",fileJar);
+        Utils.fileJar("webH2/webapp/resources","remove.png",pathDocs+"\\"+modelo+"\\"+artifactId+"\\war\\ph2\\src\\main\\webapp\\resources\\",fileJar);
+        Utils.fileJar("webH2/webapp/resources","search.png",pathDocs+"\\"+modelo+"\\"+artifactId+"\\war\\ph2\\src\\main\\webapp\\resources\\",fileJar);
+        Utils.fileJar("webH2/webapp/resources","true.png",pathDocs+"\\"+modelo+"\\"+artifactId+"\\war\\ph2\\src\\main\\webapp\\resources\\",fileJar);
+
+        Utils.fileJar("webH2/webapp/resources/css","screen.css",pathDocs+"\\"+modelo+"\\"+artifactId+"\\war\\ph2\\src\\main\\webapp\\resources\\css\\",fileJar);
+        Utils.fileJar("webH2/webapp/resources/img","logo.jpg",pathDocs+"\\"+modelo+"\\"+artifactId+"\\war\\ph2\\src\\main\\webapp\\resources\\img\\",fileJar);
+        Utils.fileJar("webH2/webapp/resources/templates","default.xhtml",pathDocs+"\\"+modelo+"\\"+artifactId+"\\war\\ph2\\src\\main\\webapp\\resources\\templates\\",fileJar);
+
+        Utils.fileJar("webH2/webapp","home.xhtml",pathDocs+"\\"+modelo+"\\"+artifactId+"\\war\\ph2\\src\\main\\webapp\\",fileJar);
+        Utils.fileJar("webH2/webapp","index.html",pathDocs+"\\"+modelo+"\\"+artifactId+"\\war\\ph2\\src\\main\\webapp\\",fileJar);
+        Utils.fileJar("webH2/webapp","error.xhtml",pathDocs+"\\"+modelo+"\\"+artifactId+"\\war\\ph2\\src\\main\\webapp\\",fileJar);
+
+    } // war
+
 
     public static void sql(String modelo,String groupId,String artifactId,LinkedHashSet<String> imports) throws IOException {
 
@@ -358,6 +429,7 @@ public class App extends FileTxt{
             sql(modelo.getModelo(),modelo.getGroupId(),modelo.getArtifactId(),imports);
             crud(modelo.getModelo(),modelo.getGroupId(),modelo.getArtifactId(),imports);
             warH2(modelo.getModelo(),modelo.getGroupId(),modelo.getArtifactId(),imports);
+            warPH2(modelo.getModelo(),modelo.getGroupId(),modelo.getArtifactId(),imports);
         }
 
     }
