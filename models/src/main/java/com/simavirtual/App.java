@@ -496,11 +496,13 @@ public class App extends FileTxt{
         modelos.clear();
         modelos.add(new Modelos("pruebas","co.simasoft.models.naif.prueba3","prueba3"));
         generar("pruebas","co.simasoft","prueba3",modelos);
+*/
 
         modelos.clear();
-        modelos.add(new Modelos("naif","co.simasoft.models.naif.domainModels","DomainModels"));
+        modelos.add(new Modelos("naif","co.simasoft.models.naif.domainmodels","DomainModels"));
         generar("naif","co.simasoft","DomainModels",modelos);
 
+/*
         modelos.clear();
         modelos.add(new Modelos("naif","co.simasoft.models.naif.relacionesejb","RelacionesEjb"));
         generar("naif","co.simasoft","RelacionesEjb",modelos);
@@ -512,7 +514,7 @@ public class App extends FileTxt{
         modelos.clear();
         modelos.add(new Modelos("naif","co.simasoft","DomainModels"));
         Models(modelos);
-*/        
+*/
 
 
     } // main

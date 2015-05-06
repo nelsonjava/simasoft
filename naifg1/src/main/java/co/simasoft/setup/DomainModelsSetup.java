@@ -74,23 +74,23 @@ public class DomainModelsSetup {
         em.persist(groupIds);
         em.flush();
 
-        SystemsModels(groupIds);
-        DomainModels(groupIds);
-        GroupIds(groupIds);
+        Relationships(groupIds);
         Entities(groupIds);
         Attributes(groupIds);
-        Relationships(groupIds);
-        NameQueries(groupIds);
+        Cardinalities(groupIds);
+        GroupIds(groupIds);
         PropertiesAttributes(groupIds);
         FilesModels(groupIds);
-        Cardinalities(groupIds);
-        TiposLinksModels(groupIds);
         LinksModels(groupIds);
+        TiposLinksModels(groupIds);
+        NameQueries(groupIds);
         TypesAttributes(groupIds);
+        DomainModels(groupIds);
+        SystemsModels(groupIds);
         Relations();
 
     } // data()
-
+    
     public void Relationships(GroupIds groupIds) {
 
         Entities relationships = new Entities();
@@ -223,7 +223,6 @@ public class DomainModelsSetup {
         em.flush();
 
     } // Relationships()
-
 
     public void Entities(GroupIds groupIds) {
 
@@ -377,17 +376,6 @@ public class DomainModelsSetup {
         name.setTypesAttributes(typesname);
         name.setEntities(attributes);
         em.persist(name);
-        em.flush();
-
-        TypesAttributes typestype = new TypesAttributes();
-        typestype = findTypesAttributes("String");
-
-        Attributes type = new Attributes();
-        type.setName("type");
-        type.setType("String");
-        type.setTypesAttributes(typestype);
-        type.setEntities(attributes);
-        em.persist(type);
         em.flush();
 
         TypesAttributes typeslength = new TypesAttributes();
@@ -554,6 +542,17 @@ public class DomainModelsSetup {
         unidireccional.setTypesAttributes(typesunidireccional);
         unidireccional.setEntities(cardinalities);
         em.persist(unidireccional);
+        em.flush();
+
+        TypesAttributes typesannotations = new TypesAttributes();
+        typesannotations = findTypesAttributes("String");
+
+        Attributes annotations = new Attributes();
+        annotations.setName("annotations");
+        annotations.setType("String");
+        annotations.setTypesAttributes(typesannotations);
+        annotations.setEntities(cardinalities);
+        em.persist(annotations);
         em.flush();
 
         TypesAttributes typesobservaciones = new TypesAttributes();
@@ -724,17 +723,6 @@ public class DomainModelsSetup {
 
 //      ---------------------- Attributes:FilesModels -------------------------
 
-        TypesAttributes typescodigo = new TypesAttributes();
-        typescodigo = findTypesAttributes("String");
-
-        Attributes codigo = new Attributes();
-        codigo.setName("codigo");
-        codigo.setType("String");
-        codigo.setTypesAttributes(typescodigo);
-        codigo.setEntities(filesModels);
-        em.persist(codigo);
-        em.flush();
-
         TypesAttributes typesarchivo = new TypesAttributes();
         typesarchivo = findTypesAttributes("String");
 
@@ -768,26 +756,15 @@ public class DomainModelsSetup {
         em.persist(data);
         em.flush();
 
-        TypesAttributes typestype = new TypesAttributes();
-        typestype = findTypesAttributes("String");
+        TypesAttributes typesobservaciones = new TypesAttributes();
+        typesobservaciones = findTypesAttributes("String");
 
-        Attributes type = new Attributes();
-        type.setName("type");
-        type.setType("String");
-        type.setTypesAttributes(typestype);
-        type.setEntities(filesModels);
-        em.persist(type);
-        em.flush();
-
-        TypesAttributes typesobservacion = new TypesAttributes();
-        typesobservacion = findTypesAttributes("String");
-
-        Attributes observacion = new Attributes();
-        observacion.setName("observacion");
-        observacion.setType("String");
-        observacion.setTypesAttributes(typesobservacion);
-        observacion.setEntities(filesModels);
-        em.persist(observacion);
+        Attributes observaciones = new Attributes();
+        observaciones.setName("observaciones");
+        observaciones.setType("String");
+        observaciones.setTypesAttributes(typesobservaciones);
+        observaciones.setEntities(filesModels);
+        em.persist(observaciones);
         em.flush();
 
     } // FilesModels()
@@ -824,15 +801,15 @@ public class DomainModelsSetup {
         em.persist(link);
         em.flush();
 
-        TypesAttributes typesobservacion = new TypesAttributes();
-        typesobservacion = findTypesAttributes("String");
+        TypesAttributes typesobservaciones = new TypesAttributes();
+        typesobservaciones = findTypesAttributes("String");
 
-        Attributes observacion = new Attributes();
-        observacion.setName("observacion");
-        observacion.setType("String");
-        observacion.setTypesAttributes(typesobservacion);
-        observacion.setEntities(linksModels);
-        em.persist(observacion);
+        Attributes observaciones = new Attributes();
+        observaciones.setName("observaciones");
+        observaciones.setType("String");
+        observaciones.setTypesAttributes(typesobservaciones);
+        observaciones.setEntities(linksModels);
+        em.persist(observaciones);
         em.flush();
 
     } // LinksModels()
@@ -915,15 +892,15 @@ public class DomainModelsSetup {
 
 //      ---------------------- Attributes:TypesAttributes -------------------------
 
-        TypesAttributes typesname = new TypesAttributes();
-        typesname = findTypesAttributes("String");
+        TypesAttributes typestype = new TypesAttributes();
+        typestype = findTypesAttributes("String");
 
-        Attributes name = new Attributes();
-        name.setName("name");
-        name.setType("String");
-        name.setTypesAttributes(typesname);
-        name.setEntities(typesAttributes);
-        em.persist(name);
+        Attributes type = new Attributes();
+        type.setName("type");
+        type.setType("String");
+        type.setTypesAttributes(typestype);
+        type.setEntities(typesAttributes);
+        em.persist(type);
         em.flush();
 
         TypesAttributes typeslength = new TypesAttributes();
@@ -1121,14 +1098,30 @@ public class DomainModelsSetup {
 
     public void Relations() {
 
-//  ---------------------- Entities 1..* FilesModels -------------------------
+//  ---------------------- Entities 1..* NameQueries -------------------------
+
+        Entities fromEntities0 = new Entities();
+        Cardinalities Entities0 = new Cardinalities();
+        Entities   toEntities0 = new Entities();
+        fromEntities0 = findEntities("Entities");
+        Entities0 = findCardinalities("Uno a Muchos Bidirecccional No.5");
+        toEntities0 = findEntities("NameQueries");
+        Relationships relEntities0 = new Relationships();
+        relEntities0.setFrom(fromEntities0);
+        relEntities0.setCardinalities(Entities0);
+        relEntities0.setTo(toEntities0);
+        relEntities0.setOptionality(true);
+        em.persist(relEntities0);
+        em.flush();
+
+//  ---------------------- Entities 1..* Relationships -------------------------
 
         Entities fromEntities1 = new Entities();
         Cardinalities Entities1 = new Cardinalities();
         Entities   toEntities1 = new Entities();
         fromEntities1 = findEntities("Entities");
         Entities1 = findCardinalities("Uno a Muchos Bidirecccional No.5");
-        toEntities1 = findEntities("FilesModels");
+        toEntities1 = findEntities("Relationships");
         Relationships relEntities1 = new Relationships();
         relEntities1.setFrom(fromEntities1);
         relEntities1.setCardinalities(Entities1);
@@ -1137,14 +1130,14 @@ public class DomainModelsSetup {
         em.persist(relEntities1);
         em.flush();
 
-//  ---------------------- Entities 1..* NameQueries -------------------------
+//  ---------------------- Entities 1..* FilesModels -------------------------
 
         Entities fromEntities2 = new Entities();
         Cardinalities Entities2 = new Cardinalities();
         Entities   toEntities2 = new Entities();
         fromEntities2 = findEntities("Entities");
         Entities2 = findCardinalities("Uno a Muchos Bidirecccional No.5");
-        toEntities2 = findEntities("NameQueries");
+        toEntities2 = findEntities("FilesModels");
         Relationships relEntities2 = new Relationships();
         relEntities2.setFrom(fromEntities2);
         relEntities2.setCardinalities(Entities2);
@@ -1171,22 +1164,6 @@ public class DomainModelsSetup {
 
 //  ---------------------- Entities 1..* Relationships -------------------------
 
-        Entities fromEntities4 = new Entities();
-        Cardinalities Entities4 = new Cardinalities();
-        Entities   toEntities4 = new Entities();
-        fromEntities4 = findEntities("Entities");
-        Entities4 = findCardinalities("Uno a Muchos Bidirecccional No.5");
-        toEntities4 = findEntities("Relationships");
-        Relationships relEntities4 = new Relationships();
-        relEntities4.setFrom(fromEntities4);
-        relEntities4.setCardinalities(Entities4);
-        relEntities4.setTo(toEntities4);
-        relEntities4.setOptionality(true);
-        em.persist(relEntities4);
-        em.flush();
-
-//  ---------------------- Entities 1..* Relationships -------------------------
-
         Entities fromEntities5 = new Entities();
         Cardinalities Entities5 = new Cardinalities();
         Entities   toEntities5 = new Entities();
@@ -1203,18 +1180,18 @@ public class DomainModelsSetup {
 
 //  ---------------------- Attributes 1..* PropertiesAttributes -------------------------
 
-        Entities fromAttributes2 = new Entities();
-        Cardinalities Attributes2 = new Cardinalities();
-        Entities   toAttributes2 = new Entities();
-        fromAttributes2 = findEntities("Attributes");
-        Attributes2 = findCardinalities("Uno a Muchos Bidirecccional No.5");
-        toAttributes2 = findEntities("PropertiesAttributes");
-        Relationships relAttributes2 = new Relationships();
-        relAttributes2.setFrom(fromAttributes2);
-        relAttributes2.setCardinalities(Attributes2);
-        relAttributes2.setTo(toAttributes2);
-        relAttributes2.setOptionality(true);
-        em.persist(relAttributes2);
+        Entities fromAttributes1 = new Entities();
+        Cardinalities Attributes1 = new Cardinalities();
+        Entities   toAttributes1 = new Entities();
+        fromAttributes1 = findEntities("Attributes");
+        Attributes1 = findCardinalities("Uno a Muchos Bidirecccional No.5");
+        toAttributes1 = findEntities("PropertiesAttributes");
+        Relationships relAttributes1 = new Relationships();
+        relAttributes1.setFrom(fromAttributes1);
+        relAttributes1.setCardinalities(Attributes1);
+        relAttributes1.setTo(toAttributes1);
+        relAttributes1.setOptionality(true);
+        em.persist(relAttributes1);
         em.flush();
 
 //  ---------------------- Cardinalities 1..* Relationships -------------------------
@@ -1233,14 +1210,14 @@ public class DomainModelsSetup {
         em.persist(relCardinalities0);
         em.flush();
 
-//  ---------------------- GroupIds 1..* Entities -------------------------
+//  ---------------------- GroupIds 1..* FilesModels -------------------------
 
         Entities fromGroupIds0 = new Entities();
         Cardinalities GroupIds0 = new Cardinalities();
         Entities   toGroupIds0 = new Entities();
         fromGroupIds0 = findEntities("GroupIds");
         GroupIds0 = findCardinalities("Uno a Muchos Bidirecccional No.5");
-        toGroupIds0 = findEntities("Entities");
+        toGroupIds0 = findEntities("FilesModels");
         Relationships relGroupIds0 = new Relationships();
         relGroupIds0.setFrom(fromGroupIds0);
         relGroupIds0.setCardinalities(GroupIds0);
@@ -1249,14 +1226,14 @@ public class DomainModelsSetup {
         em.persist(relGroupIds0);
         em.flush();
 
-//  ---------------------- GroupIds 1..* FilesModels -------------------------
+//  ---------------------- GroupIds 1..* LinksModels -------------------------
 
         Entities fromGroupIds1 = new Entities();
         Cardinalities GroupIds1 = new Cardinalities();
         Entities   toGroupIds1 = new Entities();
         fromGroupIds1 = findEntities("GroupIds");
         GroupIds1 = findCardinalities("Uno a Muchos Bidirecccional No.5");
-        toGroupIds1 = findEntities("FilesModels");
+        toGroupIds1 = findEntities("LinksModels");
         Relationships relGroupIds1 = new Relationships();
         relGroupIds1.setFrom(fromGroupIds1);
         relGroupIds1.setCardinalities(GroupIds1);
@@ -1265,20 +1242,20 @@ public class DomainModelsSetup {
         em.persist(relGroupIds1);
         em.flush();
 
-//  ---------------------- GroupIds 1..* LinksModels -------------------------
+//  ---------------------- GroupIds 1..* Entities -------------------------
 
-        Entities fromGroupIds2 = new Entities();
-        Cardinalities GroupIds2 = new Cardinalities();
-        Entities   toGroupIds2 = new Entities();
-        fromGroupIds2 = findEntities("GroupIds");
-        GroupIds2 = findCardinalities("Uno a Muchos Bidirecccional No.5");
-        toGroupIds2 = findEntities("LinksModels");
-        Relationships relGroupIds2 = new Relationships();
-        relGroupIds2.setFrom(fromGroupIds2);
-        relGroupIds2.setCardinalities(GroupIds2);
-        relGroupIds2.setTo(toGroupIds2);
-        relGroupIds2.setOptionality(true);
-        em.persist(relGroupIds2);
+        Entities fromGroupIds3 = new Entities();
+        Cardinalities GroupIds3 = new Cardinalities();
+        Entities   toGroupIds3 = new Entities();
+        fromGroupIds3 = findEntities("GroupIds");
+        GroupIds3 = findCardinalities("Uno a Muchos Bidirecccional No.5");
+        toGroupIds3 = findEntities("Entities");
+        Relationships relGroupIds3 = new Relationships();
+        relGroupIds3.setFrom(fromGroupIds3);
+        relGroupIds3.setCardinalities(GroupIds3);
+        relGroupIds3.setTo(toGroupIds3);
+        relGroupIds3.setOptionality(true);
+        em.persist(relGroupIds3);
         em.flush();
 
 //  ---------------------- TiposLinksModels 1..* LinksModels -------------------------
@@ -1299,18 +1276,18 @@ public class DomainModelsSetup {
 
 //  ---------------------- Relationships 1..* PropertiesAttributes -------------------------
 
-        Entities fromRelationships0 = new Entities();
-        Cardinalities Relationships0 = new Cardinalities();
-        Entities   toRelationships0 = new Entities();
-        fromRelationships0 = findEntities("Relationships");
-        Relationships0 = findCardinalities("Uno a Muchos Bidirecccional No.5");
-        toRelationships0 = findEntities("PropertiesAttributes");
-        Relationships relRelationships0 = new Relationships();
-        relRelationships0.setFrom(fromRelationships0);
-        relRelationships0.setCardinalities(Relationships0);
-        relRelationships0.setTo(toRelationships0);
-        relRelationships0.setOptionality(true);
-        em.persist(relRelationships0);
+        Entities fromRelationships3 = new Entities();
+        Cardinalities Relationships3 = new Cardinalities();
+        Entities   toRelationships3 = new Entities();
+        fromRelationships3 = findEntities("Relationships");
+        Relationships3 = findCardinalities("Uno a Muchos Bidirecccional No.5");
+        toRelationships3 = findEntities("PropertiesAttributes");
+        Relationships relRelationships3 = new Relationships();
+        relRelationships3.setFrom(fromRelationships3);
+        relRelationships3.setCardinalities(Relationships3);
+        relRelationships3.setTo(toRelationships3);
+        relRelationships3.setOptionality(true);
+        em.persist(relRelationships3);
         em.flush();
 
 //  ---------------------- TypesAttributes 1..* Attributes -------------------------
@@ -1392,6 +1369,7 @@ public class DomainModelsSetup {
         relSystemsModels1.setOptionality(true);
         em.persist(relSystemsModels1);
         em.flush();
+
 
     } // Relations()
 } // DomainModelsSetup
