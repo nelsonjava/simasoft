@@ -23,7 +23,6 @@ import javax.faces.context.ExternalContext;
 @Named("DomainModelsGen")
 public class DomainModelsGen {
 
-    private ArrayList<Packages> packages = new ArrayList<Packages>();
     private LinkedHashSet<String> imports = new LinkedHashSet<String>();
 
     private static final Logger log = Logger.getLogger(DomainModelsGen.class.getName());
@@ -36,6 +35,7 @@ public class DomainModelsGen {
             imports.add(groupIds.getGroupId());
         }
 
+        ArrayList<Packages> packages = new ArrayList<Packages>();
         for (GroupIds groupIds : domainModels.getGroupIds()){
 
             ArrayList<Entidad> entidades = new ArrayList<Entidad>();

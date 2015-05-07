@@ -1,0 +1,128 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:forgeview="http://jboss.org/forge/view"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="page" value='#{linksModelsBean.page}'/>
+		<f:event type="preRenderView" listener='#{linksModelsBean.paginate}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="Search Links Models entities"/>
+
+	<ui:define name="header">
+		Links Models
+	</ui:define>
+
+	<ui:define name="subheader">
+		Search Links Models entities
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:form id="search">
+			<f:validateBean disabled="true">
+				<h:panelGroup styleClass="search">
+
+					<h:panelGrid columnClasses="label,component,required" columns="3">
+						<h:outputLabel for="linksModelsBeanExampleOrden" value="Orden:"/>
+						<h:panelGroup>
+							<h:inputText id="linksModelsBeanExampleOrden" value="#{linksModelsBean.example.orden}"/>
+							<h:message for="linksModelsBeanExampleOrden" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="linksModelsBeanExampleObservaciones" value="Observaciones:"/>
+						<h:panelGroup>
+							<h:inputText id="linksModelsBeanExampleObservaciones" value="#{linksModelsBean.example.observaciones}"/>
+							<h:message for="linksModelsBeanExampleObservaciones" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="linksModelsBeanExampleLink" value="Link:"/>
+						<h:panelGroup>
+							<h:inputText id="linksModelsBeanExampleLink" value="#{linksModelsBean.example.link}"/>
+							<h:message for="linksModelsBeanExampleLink" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="linksModelsBeanExampleTitulo" value="Titulo:"/>
+						<h:panelGroup>
+							<h:inputText id="linksModelsBeanExampleTitulo" value="#{linksModelsBean.example.titulo}"/>
+							<h:message for="linksModelsBeanExampleTitulo" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="linksModelsBeanExampleGroupIds" value="Group Ids:"/>
+						<h:panelGroup>
+							<h:selectOneMenu converter="#{groupIdsBean.converter}" id="linksModelsBeanExampleGroupIds" value="#{linksModelsBean.example.groupIds}">
+								<f:selectItem/>
+								<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{groupIdsBean.all}" var="_item"/>
+							</h:selectOneMenu>
+							<h:message for="linksModelsBeanExampleGroupIds" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+					</h:panelGrid>
+					<h:panelGroup styleClass="buttons">
+						<h:commandLink value="Search" action='#{linksModelsBean.search}' styleClass="btn btn-primary"/>
+						<h:commandLink value="Create New" action='#{linksModelsBean.create}' styleClass="btn btn-primary"/>
+					</h:panelGroup>
+				</h:panelGroup>
+			</f:validateBean>
+			
+			<h:dataTable id="linksModelsBeanPageItems" styleClass="data-table" value="#{linksModelsBean.pageItems}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Orden"/>
+					</f:facet>
+					<h:link outcome="/admin/linksModels/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemOrden" value="#{_item.orden}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Observaciones"/>
+					</f:facet>
+					<h:link outcome="/admin/linksModels/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemObservaciones" value="#{_item.observaciones}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Link"/>
+					</f:facet>
+					<h:link outcome="/admin/linksModels/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemLink" value="#{_item.link}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Titulo"/>
+					</f:facet>
+					<h:link outcome="/admin/linksModels/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemTitulo" value="#{_item.titulo}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Group Ids"/>
+					</f:facet>
+					<h:link outcome="/admin/linksModels/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="forgeviewdisplayitemGroupIds" value="#{forgeview:display(_item.groupIds)}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<ui:include src="/resources/scaffold/paginator.xhtml">
+				<ui:param name="paginatorBean" value='#{linksModelsBean}'/>
+			</ui:include>
+		</h:form>
+			
+	</ui:define>
+
+</ui:composition>

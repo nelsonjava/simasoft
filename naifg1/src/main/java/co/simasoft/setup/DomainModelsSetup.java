@@ -90,7 +90,7 @@ public class DomainModelsSetup {
         Relations();
 
     } // data()
-    
+
     public void Relationships(GroupIds groupIds) {
 
         Entities relationships = new Entities();
@@ -891,6 +891,17 @@ public class DomainModelsSetup {
         em.flush();
 
 //      ---------------------- Attributes:TypesAttributes -------------------------
+
+        TypesAttributes typesname = new TypesAttributes();
+        typesname = findTypesAttributes("String");
+
+        Attributes name = new Attributes();
+        name.setName("name");
+        name.setType("String");
+        name.setTypesAttributes(typesname);
+        name.setEntities(typesAttributes);
+        em.persist(name);
+        em.flush();
 
         TypesAttributes typestype = new TypesAttributes();
         typestype = findTypesAttributes("String");

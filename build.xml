@@ -35,6 +35,7 @@
     <delete dir="DomainModels/target" failonerror="no"/>
     <delete dir="naifg/target" failonerror="no"/>
     <delete dir="naifg1/target" failonerror="no"/>
+    <delete dir="naifg2/target" failonerror="no"/>    
     <delete dir="facturacion/target" failonerror="no"/>
     <delete dir="ejb/target" failonerror="no"/>    
 

@@ -92,6 +92,7 @@ public class Models{
                EntityH2 entityH2 = new EntityH2(groupIds.getArtifactId(),groupIds.getGroupId(),entidad,imports);
                Utils.fileMake(pathDocs+"."+artifactId+".h2.war.src.main.java."+groupIds.getGroupId(),entidad.getName()+".java", entityH2);
 
+/*
                BeanH2 beanH2 = new BeanH2(artifactId,groupId,entidad,imports);
                Utils.fileMake(pathDocs+"."+artifactId+".h2.war.src.main.java."+groupId+".view",entidad.getName()+"Bean.java", beanH2);
 
@@ -103,13 +104,16 @@ public class Models{
 
                ViewH2 viewH2 = new ViewH2(entidad);
                Utils.fileMake(pathDocs+"."+artifactId+".h2.war.src.main.webapp.admin."+Utils._1raMin(entidad.getName()),"view.xhtml", viewH2);
+*/
 
             } // for package.getEntities()
 
         } // for packages
 
+/*
         BeanUtils beanUtils = new BeanUtils(artifactId,groupId,imports);
         Utils.fileMake(pathDocs+"."+artifactId+".h2.war.src.main.java."+groupId+".view","ViewUtils.java", beanUtils);
+*/
 
         H2Persistence h2Persistence = new H2Persistence(artifactId,packages);
         Utils.fileMake(pathDocs+"."+artifactId+".h2.war.src.main.resources.META-INF", "persistence.xml", h2Persistence);
@@ -126,6 +130,7 @@ public class Models{
         H2Web h2Web = new H2Web(artifactId);
         Utils.fileMake(pathDocs+"."+artifactId+".h2.war.src.main.webapp.WEB-INF","web.xml", h2Web);
 
+/*
         H2PageTemplate h2PageTemplate = new H2PageTemplate(artifactId,entities);
         Utils.fileMake(pathDocs+"."+artifactId+".h2.war.src.main.webapp.resources.scaffold","pageTemplate.xhtml",h2PageTemplate);
 
@@ -134,6 +139,7 @@ public class Models{
 
         Utils.fileJar("webH2/webapp/admin","index.html",pathDocs+"\\"+artifactId+"\\h2\\war\\src\\main\\webapp\\admin\\",fileJar);
         Utils.fileJar("webH2/webapp/admin","index.xhtml",pathDocs+"\\"+artifactId+"\\h2\\war\\src\\main\\webapp\\admin\\",fileJar);
+*/        
 
         Utils.fileJar("webH2/webapp/resources","add.png",pathDocs+"\\"+artifactId+"\\h2\\war\\src\\main\\webapp\\resources\\",fileJar);
         Utils.fileJar("webH2/webapp/resources","bootstrap.css",pathDocs+"\\"+artifactId+"\\h2\\war\\src\\main\\webapp\\resources\\",fileJar);
