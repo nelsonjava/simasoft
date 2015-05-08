@@ -115,12 +115,18 @@
 			</h:dataTable>
 			<h:outputText/>
 			<h:outputLabel for="attributesBeanAttributesTypesAttributes" value="Types Attributes:"/>
-			<h:link id="attributesBeanAttributesTypesAttributes" outcome="/admin/typesAttributes/view" rendered="#{!empty attributesBean.attributes.typesAttributes}" value="#{attributesBean.attributes.typesAttributes}">
+			<h:link id="attributesBeanAttributesTypesAttributes" 
+                                outcome="/admin/typesAttributes/view" 
+                                rendered="#{!empty attributesBean.attributes.typesAttributes}" 
+                                value="#{attributesBean.attributes.typesAttributes.name}">
 				<f:param name="id" value="#{attributesBean.attributes.typesAttributes.id}"/>
 			</h:link>
 			<h:outputText/>
 			<h:outputLabel for="attributesBeanAttributesEntities" value="Entities:"/>
-			<h:link id="attributesBeanAttributesEntities" outcome="/admin/entities/view" rendered="#{!empty attributesBean.attributes.entities}" value="#{attributesBean.attributes.entities}">
+			<h:link id="attributesBeanAttributesEntities" 
+                                outcome="/admin/entities/view" 
+                                rendered="#{!empty attributesBean.attributes.entities}" 
+                                value="#{attributesBean.attributes.entities.name}">
 				<f:param name="id" value="#{attributesBean.attributes.entities.id}"/>
 			</h:link>
 			<h:outputText/>

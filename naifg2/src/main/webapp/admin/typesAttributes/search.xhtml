@@ -66,8 +66,9 @@
 					</h:panelGroup>
 				</h:panelGroup>
 			</f:validateBean>
-			
+
 			<h:dataTable id="typesAttributesBeanPageItems" styleClass="data-table" value="#{typesAttributesBean.pageItems}" var="_item">
+
 				<h:column>
 					<f:facet name="header">
 						<h:outputText value="Orden"/>
@@ -77,33 +78,17 @@
 						<h:outputText id="itemOrden" value="#{_item.orden}"/>
 					</h:link>
 				</h:column>
+				
 				<h:column>
 					<f:facet name="header">
-						<h:outputText value="Annotations"/>
+						<h:outputText value="Name"/>
 					</f:facet>
 					<h:link outcome="/admin/typesAttributes/view">
 						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemAnnotations" value="#{_item.annotations}"/>
+						<h:outputText id="itemName" value="#{_item.name}"/>
 					</h:link>
 				</h:column>
-				<h:column>
-					<f:facet name="header">
-						<h:outputText value="Length"/>
-					</f:facet>
-					<h:link outcome="/admin/typesAttributes/view">
-						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemLength" value="#{_item.length}"/>
-					</h:link>
-				</h:column>
-				<h:column>
-					<f:facet name="header">
-						<h:outputText value="Precision"/>
-					</f:facet>
-					<h:link outcome="/admin/typesAttributes/view">
-						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemPrecision" value="#{_item.precision}"/>
-					</h:link>
-				</h:column>
+
 				<h:column>
 					<f:facet name="header">
 						<h:outputText value="Type"/>
@@ -113,12 +98,13 @@
 						<h:outputText id="itemType" value="#{_item.type}"/>
 					</h:link>
 				</h:column>
+
 			</h:dataTable>
 			<ui:include src="/resources/scaffold/paginator.xhtml">
 				<ui:param name="paginatorBean" value='#{typesAttributesBean}'/>
 			</ui:include>
 		</h:form>
-			
+
 	</ui:define>
 
 </ui:composition>

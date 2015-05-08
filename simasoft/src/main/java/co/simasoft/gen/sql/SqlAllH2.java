@@ -64,7 +64,7 @@ public SqlAllH2(String artifactId,ArrayList<Packages> groupIds,ArrayList<Relatio
 
 line("package co.simasoft.setup;\n");
 
-line("import co.simasoft.models.naif.DomainModels.*;\n");
+line("import co.simasoft.models.naif.domainmodels.*;\n");
 
 line("import co.simasoft.utils.*;\n");
 
@@ -193,7 +193,6 @@ line("    } // data()\n");
 
             line("        Attributes "+attribute.getField()+" = new Attributes();");
             line("        "+attribute.getField()+".setName(\""+attribute.getField()+"\");");
-            line("        "+attribute.getField()+".setType(\""+attribute.getType()+"\");");
             line("        "+attribute.getField()+".setTypesAttributes(types"+attribute.getField()+");");
             line("        "+attribute.getField()+".setEntities("+Utils._1raMin(entity.getName())+");");
             line("        em.persist("+attribute.getField()+");");

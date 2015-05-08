@@ -1,0 +1,45 @@
+[INFO] Scanning for projects...
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building naifg2 1.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ naifg2 ---
+[INFO] Deleting d:\dev\njava\simasoft\naifg2\target
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ naifg2 ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ naifg2 ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 29 source files to d:\dev\njava\simasoft\naifg2\target\classes
+[WARNING] /d:/dev/njava/simasoft/naifg2/src/main/java/co/simasoft/setup/DomainModelsSetup.java: d:\dev\njava\simasoft\naifg2\src\main\java\co\simasoft\setup\DomainModelsSetup.java uses unchecked or unsafe operations.
+[WARNING] /d:/dev/njava/simasoft/naifg2/src/main/java/co/simasoft/setup/DomainModelsSetup.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ naifg2 ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory d:\dev\njava\simasoft\naifg2\src\test\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ naifg2 ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ naifg2 ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] --- maven-war-plugin:2.1.1:war (default-war) @ naifg2 ---
+[INFO] Packaging webapp
+[INFO] Assembling webapp [naifg2] in [d:\dev\njava\simasoft\naifg2\target\naifg2]
+[INFO] Processing war project
+[INFO] Copying webapp resources [d:\dev\njava\simasoft\naifg2\src\main\webapp]
+[INFO] Webapp assembled in [4121 msecs]
+[INFO] Building war: d:\dev\njava\simasoft\naifg2\target\naifg2.war
+[WARNING] Warning: selected war files include a WEB-INF/web.xml which will be ignored 
+(webxml attribute is missing from war task, or ignoreWebxml attribute is specified as 'true')
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 9.358s
+[INFO] Finished at: Fri May 08 14:43:10 COT 2015
+[INFO] Final Memory: 17M/44M
+[INFO] ------------------------------------------------------------------------

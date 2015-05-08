@@ -62,7 +62,7 @@ public SqlH2(String artifactId,String groupId,ArrayList<Entidad> entidades,Linke
 
 line("package co.simasoft.setup;\n");
 
-line("import co.simasoft.models.naif.DomainModels.*;\n");
+line("import co.simasoft.models.naif.domainmodels.*;\n");
 
 line("import co.simasoft.utils.*;\n");
 
@@ -163,12 +163,23 @@ line("    } // data()\n");
 
 //=====ENTITY
          line("    public void "+entity.getName()+"(GroupIds groupIds) {\n");
+         switch (entity.getName()) {
+             case "GroupIds":
+                  line("        Entities groupId = new Entities();");
+                  line("        groupId.setName(\"GroupIds\");");
+                  line("        groupId.setGroupIds(groupIds);");
+                  line("        em.persist(groupId);");
+                  line("        em.flush();");
+                  break;
+             default:
+                  line("        Entities "+Utils._1raMin(entity.getName())+" = new Entities();");
+                  line("        "+Utils._1raMin(entity.getName())+".setName(\""+entity.getName()+"\");");
+                  line("        "+Utils._1raMin(entity.getName())+".setGroupIds(groupIds);");
+                  line("        em.persist("+Utils._1raMin(entity.getName())+");");
+                  line("        em.flush();\n");
 
-         line("        Entities "+Utils._1raMin(entity.getName())+" = new Entities();");
-         line("        "+Utils._1raMin(entity.getName())+".setName(\""+entity.getName()+"\");");
-         line("        "+Utils._1raMin(entity.getName())+".setGroupIds(groupIds);");
-         line("        em.persist("+Utils._1raMin(entity.getName())+");");
-         line("        em.flush();\n");
+                 break;
+         } // switch
 //=====ENTITY
 
 //=====ATTRIBUTOS
@@ -178,13 +189,36 @@ line("    } // data()\n");
             line("        TypesAttributes types"+attribute.getField()+" = new TypesAttributes();");
             line("        types"+attribute.getField()+" = findTypesAttributes(\""+attribute.getType()+"\");\n");
 
-            line("        Attributes "+attribute.getField()+" = new Attributes();");
-            line("        "+attribute.getField()+".setName(\""+attribute.getField()+"\");");
-            line("        "+attribute.getField()+".setType(\""+attribute.getType()+"\");");
-            line("        "+attribute.getField()+".setTypesAttributes(types"+attribute.getField()+");");
-            line("        "+attribute.getField()+".setEntities("+Utils._1raMin(entity.getName())+");");
-            line("        em.persist("+attribute.getField()+");");
-            line("        em.flush();\n");
+
+            switch (entity.getName()) {
+                case "GroupIds":
+                     if(attribute.getField().equals("groupId")){
+                       line("        Attributes attributes = new Attributes();");
+                       line("        attributes.setName(\"groupId\");");
+                       line("        attributes.setTypesAttributes(typesgroupId);");
+                       line("        attributes.setEntities(groupId);");
+                       line("        em.persist(attributes);");
+                       line("        em.flush();");
+                     }
+                     else{
+                         line("        Attributes "+attribute.getField()+" = new Attributes();");
+                         line("        "+attribute.getField()+".setName(\""+attribute.getField()+"\");");
+                         line("        "+attribute.getField()+".setTypesAttributes(types"+attribute.getField()+");");
+                         line("        "+attribute.getField()+".setEntities(groupId);");
+                         line("        em.persist("+attribute.getField()+");");
+                         line("        em.flush();\n");
+                     }
+
+                     break;
+                default:
+                     line("        Attributes "+attribute.getField()+" = new Attributes();");
+                     line("        "+attribute.getField()+".setName(\""+attribute.getField()+"\");");
+                     line("        "+attribute.getField()+".setTypesAttributes(types"+attribute.getField()+");");
+                     line("        "+attribute.getField()+".setEntities("+Utils._1raMin(entity.getName())+");");
+                     line("        em.persist("+attribute.getField()+");");
+                     line("        em.flush();\n");
+                     break;
+            } // switch
          } // for atributos
 //=====FIN ATTRIBUTOS
 
@@ -220,7 +254,27 @@ line("    } // data()\n");
               line("        to"+relation.getFrom()+n+" = findEntities(\""+relation.getTo()+"\");");
 
               line("        Relationships rel"+relation.getFrom()+n+" = new Relationships();");
-//              line("        rel"+relation.getFrom()+n+".setName(Utils._1raMin(to"+relation.getFrom()+n+".getName()));");
+              line("        rel"+relation.getFrom()+n+".setFrom(from"+relation.getFrom()+n+");");
+              line("        rel"+relation.getFrom()+n+".setCardinalities("+relation.getFrom()+n+");");
+              line("        rel"+relation.getFrom()+n+".setTo(to"+relation.getFrom()+n+");");
+              line("        rel"+relation.getFrom()+n+".setOptionality(true);");
+              line("        em.persist(rel"+relation.getFrom()+n+");");
+              line("        em.flush();\n");
+            }
+            
+            if(relation.getCardinality().equals("*..*")) {
+
+              line("//  ---------------------- "+relation.getFrom()+" "+relation.getCardinality()+" "+relation.getTo()+" -------------------------\n");
+
+              line("        Entities from"+relation.getFrom()+n+" = new Entities();");
+              line("        Cardinalities "+relation.getFrom()+n+" = new Cardinalities();");
+              line("        Entities   to"+relation.getFrom()+n+" = new Entities();");
+
+              line("        from"+relation.getFrom()+n+" = findEntities(\""+relation.getFrom()+"\");");
+              line("        "+relation.getFrom()+n+" = findCardinalities(\"Muchos a Muchos Unidireccional No.6\");");
+              line("        to"+relation.getFrom()+n+" = findEntities(\""+relation.getTo()+"\");");
+
+              line("        Relationships rel"+relation.getFrom()+n+" = new Relationships();");
               line("        rel"+relation.getFrom()+n+".setFrom(from"+relation.getFrom()+n+");");
               line("        rel"+relation.getFrom()+n+".setCardinalities("+relation.getFrom()+n+");");
               line("        rel"+relation.getFrom()+n+".setTo(to"+relation.getFrom()+n+");");
