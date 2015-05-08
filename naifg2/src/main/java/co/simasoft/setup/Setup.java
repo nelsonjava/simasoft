@@ -85,6 +85,7 @@ public class Setup {
         TypesAttributes varString = new TypesAttributes();
         varString.setOrden(1L);
         varString.setName("String");
+        varString.setType();
         varString.setObservaciones("A \"short\" sequence of characters");
         em.persist(varString);
         em.flush();
@@ -92,6 +93,7 @@ public class Setup {
         TypesAttributes varText = new TypesAttributes();
         varText.setOrden(2L);
         varText.setName("Text");
+        varString.setType();
         varText.setObservaciones("A \"long\" sequence of characters");
         em.persist(varText);
         em.flush();
@@ -99,6 +101,7 @@ public class Setup {
         TypesAttributes varInteger = new TypesAttributes();
         varInteger.setOrden(3L);
         varInteger.setName("Integer");
+        varString.setType();
         varInteger.setObservaciones("An integer numerical type");
         em.persist(varInteger);
         em.flush();
@@ -106,6 +109,7 @@ public class Setup {
         TypesAttributes varFloat = new TypesAttributes();
         varFloat.setOrden(4L);
         varFloat.setName("Float");
+        varString.setType();
         varFloat.setObservaciones("A floating point numerical type");
         em.persist(varFloat);
         em.flush();
@@ -113,6 +117,7 @@ public class Setup {
         TypesAttributes varDate = new TypesAttributes();
         varDate.setOrden(5L);
         varDate.setName("Date");
+        varString.setType();
         varDate.setObservaciones("A calendar date");
         em.persist(varDate);
         em.flush();
@@ -120,6 +125,7 @@ public class Setup {
         TypesAttributes varTime = new TypesAttributes();
         varTime.setOrden(6L);
         varTime.setName("Time");
+        varString.setType();
         varTime.setObservaciones("A temporal instant of time");
         em.persist(varTime);
         em.flush();
@@ -127,6 +133,7 @@ public class Setup {
         TypesAttributes varBoolean = new TypesAttributes();
         varBoolean.setOrden(7L);
         varBoolean.setName("Boolean");
+        varString.setType();
         varBoolean.setObservaciones("A true or false value");
         em.persist(varBoolean);
         em.flush();
@@ -134,6 +141,7 @@ public class Setup {
         TypesAttributes varEnumeration = new TypesAttributes();
         varEnumeration.setOrden(8L);
         varEnumeration.setName("Enumeration");
+        varString.setType();
         varEnumeration.setObservaciones("A sequence of user-defined values");
         em.persist(varEnumeration);
         em.flush();
@@ -141,6 +149,7 @@ public class Setup {
         TypesAttributes varBlob = new TypesAttributes();
         varBlob.setOrden(9L);
         varBlob.setName("Blob");
+        varString.setType();
         varBlob.setObservaciones("A binanry large object, for example an image or a video, which must be handled in a special way because of its size. Blob type can be further refined by expressing their MIME type for example image/gif");
         em.persist(varBlob);
         em.flush();
@@ -148,6 +157,7 @@ public class Setup {
         TypesAttributes varUrl = new TypesAttributes();
         varUrl.setOrden(10L);
         varUrl.setName("Url");
+        varString.setType();
         varUrl.setObservaciones("A uniform resource locator of a web resource");
         em.persist(varUrl);
         em.flush();
@@ -155,6 +165,7 @@ public class Setup {
         TypesAttributes varByte = new TypesAttributes();
         varByte.setOrden(11L);
         varByte.setName("byte");
+        varString.setType();
         varByte.setObservaciones("A uniform resource locator of a web resource");
         em.persist(varByte);
         em.flush();
@@ -162,8 +173,17 @@ public class Setup {
         TypesAttributes varDouble = new TypesAttributes();
         varDouble.setOrden(12L);
         varDouble.setName("double");
+        varString.setType();
         varDouble.setObservaciones("A uniform resource locator of a web resource");
         em.persist(varDouble);
+        em.flush();
+        
+        TypesAttributes varEmail = new TypesAttributes();
+        varEmail.setOrden(13L);
+        varEmail.setName("double");
+        varEmail.setType();
+        varEmail.setObservaciones("A uniform resource locator of a web resource");
+        em.persist(varEmail);
         em.flush();
 
     } // data()
