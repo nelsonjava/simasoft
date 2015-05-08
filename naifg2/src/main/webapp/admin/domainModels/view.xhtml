@@ -55,8 +55,9 @@
 			<h:outputLabel for="domainModelsBeanDomainModelsArtifactId" value="Artifact Id:"/>
 			<h:outputText id="domainModelsBeanDomainModelsArtifactId" value="#{domainModelsBean.domainModels.artifactId}"/>
 			<h:outputText/>
-			<h:outputLabel for="domainModelsBeanDomainModelsGroupIds" value="Group Ids:"/>
+			<h:outputLabel for="domainModelsBeanDomainModelsGroupIds" value="Packages:"/>
 			<h:dataTable id="domainModelsBeanDomainModelsGroupIds" styleClass="data-table" value="#{forgeview:asList(domainModelsBean.domainModels.groupIds)}" var="_item">
+
 				<h:column>
 					<f:facet name="header">
 						<h:outputText value="Orden"/>
@@ -68,22 +69,29 @@
 				</h:column>
 				<h:column>
 					<f:facet name="header">
-						<h:outputText value="Date"/>
+						<h:outputText value="Name"/>
 					</f:facet>
 					<h:link outcome="/admin/groupIds/view">
 						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemDate" value="#{_item.date}">
-							<f:convertDateTime/>
-						</h:outputText>
+						<h:outputText id="itemName" value="#{_item.name}"/>
 					</h:link>
 				</h:column>
 				<h:column>
 					<f:facet name="header">
-						<h:outputText value="Description"/>
+						<h:outputText value="Group Id"/>
 					</f:facet>
 					<h:link outcome="/admin/groupIds/view">
 						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemDescription" value="#{_item.description}"/>
+						<h:outputText id="itemGroupId" value="#{_item.groupId}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Artifact Id"/>
+					</f:facet>
+					<h:link outcome="/admin/groupIds/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemArtifactId" value="#{_item.artifactId}"/>
 					</h:link>
 				</h:column>
 				<h:column>
@@ -95,15 +103,8 @@
 						<h:outputText id="itemVersion" value="#{_item.version}"/>
 					</h:link>
 				</h:column>
-				<h:column>
-					<f:facet name="header">
-						<h:outputText value="Codigo"/>
-					</f:facet>
-					<h:link outcome="/admin/groupIds/view">
-						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemCodigo" value="#{_item.codigo}"/>
-					</h:link>
-				</h:column>
+
+
 			</h:dataTable>
 			<h:outputText/>
 			<h:outputLabel for="domainModelsBeanDomainModelsFilesModels" value="Files Models:"/>
