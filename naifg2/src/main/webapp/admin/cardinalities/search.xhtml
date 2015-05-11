@@ -70,8 +70,9 @@
 					</h:panelGroup>
 				</h:panelGroup>
 			</f:validateBean>
-			
+
 			<h:dataTable id="cardinalitiesBeanPageItems" styleClass="data-table" value="#{cardinalitiesBean.pageItems}" var="_item">
+
 				<h:column>
 					<f:facet name="header">
 						<h:outputText value="Orden"/>
@@ -81,15 +82,7 @@
 						<h:outputText id="itemOrden" value="#{_item.orden}"/>
 					</h:link>
 				</h:column>
-				<h:column>
-					<f:facet name="header">
-						<h:outputText value="Unidireccional"/>
-					</f:facet>
-					<h:link outcome="/admin/cardinalities/view">
-						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemUnidireccional" value="#{_item.unidireccional}"/>
-					</h:link>
-				</h:column>
+
 				<h:column>
 					<f:facet name="header">
 						<h:outputText value="Cardinality"/>
@@ -99,24 +92,27 @@
 						<h:outputText id="itemCardinality" value="#{_item.cardinality}"/>
 					</h:link>
 				</h:column>
+
 				<h:column>
 					<f:facet name="header">
-						<h:outputText value="Observaciones"/>
+						<h:outputText value="Name"/>
 					</f:facet>
 					<h:link outcome="/admin/cardinalities/view">
 						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemObservaciones" value="#{_item.observaciones}"/>
+						<h:outputText id="itemName" value="#{_item.name}"/>
 					</h:link>
 				</h:column>
+				
 				<h:column>
 					<f:facet name="header">
-						<h:outputText value="Annotations"/>
+						<h:outputText value="Unidireccional"/>
 					</f:facet>
 					<h:link outcome="/admin/cardinalities/view">
 						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemAnnotations" value="#{_item.annotations}"/>
+						<h:outputText id="itemUnidireccional" value="#{_item.unidireccional}"/>
 					</h:link>
 				</h:column>
+
 			</h:dataTable>
 			<ui:include src="/resources/scaffold/paginator.xhtml">
 				<ui:param name="paginatorBean" value='#{cardinalitiesBean}'/>

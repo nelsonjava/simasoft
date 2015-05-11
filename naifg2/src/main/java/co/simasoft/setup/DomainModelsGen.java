@@ -23,12 +23,12 @@ import javax.faces.context.ExternalContext;
 @Named("DomainModelsGen")
 public class DomainModelsGen {
 
-    private LinkedHashSet<String> imports = new LinkedHashSet<String>();
-
     private static final Logger log = Logger.getLogger(DomainModelsGen.class.getName());
 
     public void data(DomainModels domainModels) throws IOException {
 
+        LinkedHashSet<String> imports = new LinkedHashSet<String>();
+        
         System.out.println("Hello World!" + domainModels.getName());
 
         for (GroupIds groupIds : domainModels.getGroupIds()){
@@ -48,16 +48,102 @@ public class DomainModelsGen {
                 } // for: entity.getAttributes()
 
                 for (Relationships relationships : entity.getFrom()) {
-                     entidad.addRelations(new Relation(relationships.getFrom().getName(),
-                                                       relationships.getTo().getName(),
-                                                       relationships.getCardinalities().getCardinality(),
-                                                       relationships.getName()));
+
+                    switch (relationships.getCardinalities().getName()) {
+
+                        case "Uno a Uno Unidireccional No.1":
+                             // Pendiente
+                             break;
+
+                        case "Uno a Uno Bidirecccional No.2":
+                             // Pendiente
+                             break;
+
+                        case "Muchos a Uno Unidireccional No.3":
+                             entidad.addRelations(new Relation(relationships.getFrom().getName(),
+                                                               relationships.getTo().getName(),
+                                                               relationships.getCardinalities().getCardinality(),
+                                                               relationships.getName(),true));
+                             break;
+
+                        case "Uno a Muchos Unidireccional No.4":
+                             entidad.addRelations(new Relation(relationships.getFrom().getName(),
+                                                               relationships.getTo().getName(),
+                                                               relationships.getCardinalities().getCardinality(),
+                                                               relationships.getName(),true));
+
+
+                             break;
+
+
+                        case "Uno a Muchos Bidirecccional No.5":
+                             entidad.addRelations(new Relation(relationships.getFrom().getName(),
+                                                               relationships.getTo().getName(),
+                                                               relationships.getCardinalities().getCardinality(),
+                                                               relationships.getName(),true));
+
+                             break;
+
+                        case "Muchos a Muchos Unidireccional No.6":
+                             entidad.addRelations(new Relation(relationships.getFrom().getName(),
+                                                               relationships.getTo().getName(),
+                                                               relationships.getCardinalities().getCardinality(),
+                                                               relationships.getName(),true));
+
+                             break;
+
+                        case "Muchos a Muchos Bidirecccional No.7":
+                             entidad.addRelations(new Relation(relationships.getFrom().getName(),
+                                                               relationships.getTo().getName(),
+                                                               relationships.getCardinalities().getCardinality(),
+                                                               relationships.getName(),true));
+
+                             break;
+                    } // switch
+
+
                 } // for: entity.getFrom()
 
                 for (Relationships relationships : entity.getTo()) {
-                    entidad.addRelations(new Relation(relationships.getTo().getName(),
-                                                      relationships.getFrom().getName(),
-                                                      "*..1",relationships.getName()));
+
+                    switch (relationships.getCardinalities().getName()) {
+
+                        case "Uno a Uno Unidireccional No.1":
+                             // Pendiente
+                             break;
+
+                        case "Uno a Uno Bidirecccional No.2":
+                             // Pendiente
+                             break;
+
+                        case "Muchos a Uno Unidireccional No.3":
+                             // Pasa por ser Unidireccional
+                             break;
+
+                        case "Uno a Muchos Unidireccional No.4":
+                             // Pasa por ser Unidireccional
+                             break;
+
+                        case "Uno a Muchos Bidirecccional No.5":
+                             entidad.addRelations(new Relation(relationships.getTo().getName(),
+                                                               relationships.getFrom().getName(),
+                                                               "*..1",
+                                                               relationships.getName(),false));
+
+                             break;
+
+                        case "Muchos a Muchos Unidireccional No.6":
+                             // Pasa por ser Unidireccional
+                             break;
+
+                        case "Muchos a Muchos Bidirecccional No.7":
+                             entidad.addRelations(new Relation(relationships.getTo().getName(),
+                                                               relationships.getFrom().getName(),
+                                                               relationships.getCardinalities().getCardinality(),
+                                                               relationships.getName(),false));
+                             break;
+                    } // switch
+
                 } // for: entity.getTo()
 
                 entidad.setGroupId(groupIds.getGroupId());

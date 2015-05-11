@@ -1404,7 +1404,7 @@ Multiplicity 0 Arial,8,N</a:FontList>
 <a:ModificationDate>1431092363</a:ModificationDate>
 <a:SourceTextOffset>(38, 613)</a:SourceTextOffset>
 <a:DestinationTextOffset>(-113, 662)</a:DestinationTextOffset>
-<a:Rect>((5929,-26830), (14138,-25580))</a:Rect>
+<a:Rect>((5929,-26830), (14138,-25579))</a:Rect>
 <a:ListOfPoints>((14138,-26830),(5929,-26830))</a:ListOfPoints>
 <a:ArrowStyle>0</a:ArrowStyle>
 <a:LineColor>16744448</a:LineColor>
@@ -1426,7 +1426,7 @@ Multiplicity 0 Arial,8,N</a:FontList>
 <a:ModificationDate>1429278702</a:ModificationDate>
 <a:SourceTextOffset>(38, 613)</a:SourceTextOffset>
 <a:DestinationTextOffset>(-188, 587)</a:DestinationTextOffset>
-<a:Rect>((4988,30637), (11888,31837))</a:Rect>
+<a:Rect>((4988,30637), (11888,30737))</a:Rect>
 <a:ListOfPoints>((11888,30637),(4988,30637))</a:ListOfPoints>
 <a:ArrowStyle>0</a:ArrowStyle>
 <a:LineColor>16744448</a:LineColor>
@@ -2761,9 +2761,9 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Code>data</a:Code>
 <a:CreationDate>1300880587</a:CreationDate>
 <a:Creator>admin</a:Creator>
-<a:ModificationDate>1428101570</a:ModificationDate>
+<a:ModificationDate>1431191774</a:ModificationDate>
 <a:Modifier>admin</a:Modifier>
-<a:DataType>Blob</a:DataType>
+<a:DataType>byte</a:DataType>
 <a:Attribute.Visibility>-</a:Attribute.Visibility>
 <a:Multiplicity>*</a:Multiplicity>
 </o:Attribute>
@@ -3356,11 +3356,11 @@ LABL 0 Arial,8,N</a:FontList>
 </o:Attribute>
 <o:Attribute Id="o172">
 <a:ObjectID>B2FF0EA0-88CB-4B15-8CC7-E07C2E100441</a:ObjectID>
-<a:Name>Observaciones</a:Name>
+<a:Name>observaciones</a:Name>
 <a:Code>observaciones</a:Code>
 <a:CreationDate>1431096720</a:CreationDate>
 <a:Creator>admin</a:Creator>
-<a:ModificationDate>1431096720</a:ModificationDate>
+<a:ModificationDate>1431188173</a:ModificationDate>
 <a:Modifier>admin</a:Modifier>
 <a:DataType>Text</a:DataType>
 <a:Attribute.Visibility>-</a:Attribute.Visibility>
@@ -3445,11 +3445,11 @@ LABL 0 Arial,8,N</a:FontList>
 </o:Attribute>
 <o:Attribute Id="o179">
 <a:ObjectID>37FC644F-6628-4D41-9477-149679B444E3</a:ObjectID>
-<a:Name>Observaciones</a:Name>
+<a:Name>observaciones</a:Name>
 <a:Code>observaciones</a:Code>
 <a:CreationDate>1431097293</a:CreationDate>
 <a:Creator>admin</a:Creator>
-<a:ModificationDate>1431097293</a:ModificationDate>
+<a:ModificationDate>1431188336</a:ModificationDate>
 <a:Modifier>admin</a:Modifier>
 <a:DataType>Text</a:DataType>
 <a:Attribute.Visibility>-</a:Attribute.Visibility>

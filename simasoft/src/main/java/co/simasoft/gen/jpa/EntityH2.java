@@ -184,11 +184,21 @@ public EntityH2(String artifactId,String groupId,Entidad entity,LinkedHashSet<St
               }
               else{
                 if(relation.getName() == null || relation.getName() == ""){
-                  line("    @ManyToMany(mappedBy = \""+Utils._1raMin(entity.getName())+"\")");
+                   if(relation.getUnidireccional()){
+                     line("    @ManyToMany()");
+                   }
+                   else{
+                     line("    @ManyToMany(mappedBy = \""+Utils._1raMin(entity.getName())+"\")");
+                   }
                   line("    private Set<"+relation.getTo()+"> "+Utils._1raMin(relation.getTo())+" = new HashSet<"+relation.getTo()+">();\n");
                 }
                 else{
-                  line("    @ManyToMany(mappedBy = \""+relation.getName()+"\")");
+                   if(relation.getUnidireccional()){
+                     line("    @ManyToMany()");
+                   }
+                   else{
+                     line("    @ManyToMany(mappedBy = \""+Utils._1raMin(entity.getName())+"\")");
+                   }
                   line("    private Set<"+relation.getTo()+"> "+relation.getName()+" = new HashSet<"+relation.getTo()+">();\n");
                 }
               }

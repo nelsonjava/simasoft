@@ -271,7 +271,7 @@ line("    } // data()\n");
               line("        Entities   to"+relation.getFrom()+n+" = new Entities();");
 
               line("        from"+relation.getFrom()+n+" = findEntities(\""+relation.getFrom()+"\");");
-              line("        "+relation.getFrom()+n+" = findCardinalities(\"Muchos a Muchos Unidireccional No.6\");");
+              line("        "+relation.getFrom()+n+" = findCardinalities(\"Muchos a Muchos Bidirecccional No.7\");");
               line("        to"+relation.getFrom()+n+" = findEntities(\""+relation.getTo()+"\");");
 
               line("        Relationships rel"+relation.getFrom()+n+" = new Relationships();");

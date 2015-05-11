@@ -482,17 +482,18 @@ public class App extends FileTxt{
         modelos.clear();
         modelos.add(new Modelos("pruebas","co.simasoft.models.naif.pruebas","prueba"));
         generar("pruebas","co.simasoft","prueba",modelos);
+*/
 
         modelos.clear();
         modelos.add(new Modelos("pruebas","co.simasoft.models.naif.prueba1","prueba1"));
         generar("pruebas","co.simasoft","prueba1",modelos);
-*/
 
+/*
         modelos.clear();
         modelos.add(new Modelos("pruebas","co.simasoft.models.naif.prueba2","prueba2"));
         generar("pruebas","co.simasoft","prueba2",modelos);
 
-/*
+
         modelos.clear();
         modelos.add(new Modelos("pruebas","co.simasoft.models.naif.prueba3","prueba3"));
         generar("pruebas","co.simasoft","prueba3",modelos);

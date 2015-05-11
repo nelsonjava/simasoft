@@ -25,6 +25,8 @@ public class Relation{
     private boolean navigabilityA = false;
     private boolean navigabilityB = false;
 
+    private boolean unidireccional;
+
     public Relation() {
     }
 
@@ -33,6 +35,14 @@ public class Relation{
        this.to = to;
        this.cardinality = cardinality;
        this.name = name;
+    }
+
+    public Relation(String from,String to,String cardinality,String name,boolean unidireccional) {
+       this.from = from;
+       this.to = to;
+       this.cardinality = cardinality;
+       this.name = name;
+       this.unidireccional = unidireccional;
     }
 
     public String getName(){
@@ -162,6 +172,13 @@ public class Relation{
 
     public void setNavigabilityB(boolean navigability ){
         this.navigabilityB = navigability;
+    }
+
+    public boolean getUnidireccional() {
+        return unidireccional;
+    }
+    public void setUnidireccional(boolean unidireccional) {
+        this.unidireccional = unidireccional;
     }
 
     public void setNavigabilityFrom(){
