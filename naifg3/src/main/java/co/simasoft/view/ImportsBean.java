@@ -175,7 +175,7 @@ public class ImportsBean implements Serializable {
 	}
 
 	public int getPageSize() {
-		return 10;
+		return 50;
 	}
 
 	public Imports getExample() {

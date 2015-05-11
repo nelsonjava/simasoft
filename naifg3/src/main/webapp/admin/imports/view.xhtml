@@ -37,33 +37,7 @@
 			<h:outputText/>
 			<h:outputLabel for="importsBeanImportsPropertiesAttributes" value="Properties Attributes:"/>
 			<h:dataTable id="importsBeanImportsPropertiesAttributes" styleClass="data-table" value="#{forgeview:asList(importsBean.imports.propertiesAttributes)}" var="_item">
-				<h:column>
-					<f:facet name="header">
-						<h:outputText value="Orden"/>
-					</f:facet>
-					<h:link outcome="/admin/propertiesAttributes/view">
-						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemOrden" value="#{_item.orden}"/>
-					</h:link>
-				</h:column>
-				<h:column>
-					<f:facet name="header">
-						<h:outputText value="Value"/>
-					</f:facet>
-					<h:link outcome="/admin/propertiesAttributes/view">
-						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemValue" value="#{_item.value}"/>
-					</h:link>
-				</h:column>
-				<h:column>
-					<f:facet name="header">
-						<h:outputText value="Observaciones"/>
-					</f:facet>
-					<h:link outcome="/admin/propertiesAttributes/view">
-						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemObservaciones" value="#{_item.observaciones}"/>
-					</h:link>
-				</h:column>
+
 				<h:column>
 					<f:facet name="header">
 						<h:outputText value="Name"/>
@@ -73,15 +47,17 @@
 						<h:outputText id="itemName" value="#{_item.name}"/>
 					</h:link>
 				</h:column>
+				
 				<h:column>
 					<f:facet name="header">
-						<h:outputText value="Relationships"/>
+						<h:outputText value="Value"/>
 					</f:facet>
 					<h:link outcome="/admin/propertiesAttributes/view">
 						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="forgeviewdisplayitemRelationships" value="#{forgeview:display(_item.relationships)}"/>
+						<h:outputText id="itemValue" value="#{_item.value}"/>
 					</h:link>
 				</h:column>
+
 			</h:dataTable>
 			<h:outputText/>
 			<h:outputLabel for="importsBeanImportsDependency" value="Dependency:"/>

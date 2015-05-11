@@ -49,33 +49,7 @@
 			<h:outputText/>
 			<h:outputLabel for="typesAttributesBeanTypesAttributesPropertiesAttributes" value="Properties Attributes:"/>
 			<h:dataTable id="typesAttributesBeanTypesAttributesPropertiesAttributes" styleClass="data-table" value="#{forgeview:asList(typesAttributesBean.typesAttributes.propertiesAttributes)}" var="_item">
-				<h:column>
-					<f:facet name="header">
-						<h:outputText value="Orden"/>
-					</f:facet>
-					<h:link outcome="/admin/propertiesAttributes/view">
-						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemOrden" value="#{_item.orden}"/>
-					</h:link>
-				</h:column>
-				<h:column>
-					<f:facet name="header">
-						<h:outputText value="Value"/>
-					</f:facet>
-					<h:link outcome="/admin/propertiesAttributes/view">
-						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemValue" value="#{_item.value}"/>
-					</h:link>
-				</h:column>
-				<h:column>
-					<f:facet name="header">
-						<h:outputText value="Observaciones"/>
-					</f:facet>
-					<h:link outcome="/admin/propertiesAttributes/view">
-						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemObservaciones" value="#{_item.observaciones}"/>
-					</h:link>
-				</h:column>
+			
 				<h:column>
 					<f:facet name="header">
 						<h:outputText value="Name"/>
@@ -85,70 +59,48 @@
 						<h:outputText id="itemName" value="#{_item.name}"/>
 					</h:link>
 				</h:column>
+
 				<h:column>
 					<f:facet name="header">
-						<h:outputText value="Relationships"/>
+						<h:outputText value="Value"/>
 					</f:facet>
 					<h:link outcome="/admin/propertiesAttributes/view">
 						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="forgeviewdisplayitemRelationships" value="#{forgeview:display(_item.relationships)}"/>
+						<h:outputText id="itemValue" value="#{_item.value}"/>
 					</h:link>
 				</h:column>
+
 			</h:dataTable>
 			<h:outputText/>
 			<h:outputLabel for="typesAttributesBeanTypesAttributesAttributes" value="Attributes:"/>
 			<h:dataTable id="typesAttributesBeanTypesAttributesAttributes" styleClass="data-table" value="#{forgeview:asList(typesAttributesBean.typesAttributes.attributes)}" var="_item">
+
 				<h:column>
 					<f:facet name="header">
-						<h:outputText value="Orden"/>
+						<h:outputText value="Name"/>
 					</f:facet>
 					<h:link outcome="/admin/attributes/view">
 						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemOrden" value="#{_item.orden}"/>
+						<h:outputText id="itemField" value="#{_item.name}"/>
 					</h:link>
 				</h:column>
+
 				<h:column>
 					<f:facet name="header">
-						<h:outputText value="Field"/>
+						<h:outputText value="Entity"/>
 					</f:facet>
 					<h:link outcome="/admin/attributes/view">
 						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemField" value="#{_item.field}"/>
+						<h:outputText id="itemDescripcion" value="#{_item.getEntities().name}"/>
 					</h:link>
 				</h:column>
-				<h:column>
-					<f:facet name="header">
-						<h:outputText value="Descripcion"/>
-					</f:facet>
-					<h:link outcome="/admin/attributes/view">
-						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemDescripcion" value="#{_item.descripcion}"/>
-					</h:link>
-				</h:column>
-				<h:column>
-					<f:facet name="header">
-						<h:outputText value="Column Definition"/>
-					</f:facet>
-					<h:link outcome="/admin/attributes/view">
-						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemColumnDefinition" value="#{_item.columnDefinition}"/>
-					</h:link>
-				</h:column>
-				<h:column>
-					<f:facet name="header">
-						<h:outputText value="Access"/>
-					</f:facet>
-					<h:link outcome="/admin/attributes/view">
-						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemAccess" value="#{_item.access}"/>
-					</h:link>
-				</h:column>
+
 			</h:dataTable>
 			<h:outputText/>
 		</h:panelGrid>
 
 		<div class="buttons">
-			<h:link value="View All" outcome="search" styleClass="btn btn-primary"/> 
+			<h:link value="View All" outcome="search" styleClass="btn btn-primary"/>
 			<h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
 			<h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
 		</div>

@@ -114,11 +114,13 @@ public class Atributos{
                  break;
 
             case "Text":
-                 typeField = "String";
+//                 typeField = "String";
+                 typeField = "Text";
                  break;
 
             case "Blog":
-                 typeField = "String";
+//                 typeField = "String";
+                 typeField = "Blog";
                  break;
 
             default:

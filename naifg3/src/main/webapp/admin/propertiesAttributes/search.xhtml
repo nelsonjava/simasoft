@@ -70,8 +70,9 @@
 					</h:panelGroup>
 				</h:panelGroup>
 			</f:validateBean>
-			
+
 			<h:dataTable id="propertiesAttributesBeanPageItems" styleClass="data-table" value="#{propertiesAttributesBean.pageItems}" var="_item">
+
 				<h:column>
 					<f:facet name="header">
 						<h:outputText value="Orden"/>
@@ -81,24 +82,7 @@
 						<h:outputText id="itemOrden" value="#{_item.orden}"/>
 					</h:link>
 				</h:column>
-				<h:column>
-					<f:facet name="header">
-						<h:outputText value="Value"/>
-					</f:facet>
-					<h:link outcome="/admin/propertiesAttributes/view">
-						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemValue" value="#{_item.value}"/>
-					</h:link>
-				</h:column>
-				<h:column>
-					<f:facet name="header">
-						<h:outputText value="Observaciones"/>
-					</f:facet>
-					<h:link outcome="/admin/propertiesAttributes/view">
-						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemObservaciones" value="#{_item.observaciones}"/>
-					</h:link>
-				</h:column>
+				
 				<h:column>
 					<f:facet name="header">
 						<h:outputText value="Name"/>
@@ -108,15 +92,17 @@
 						<h:outputText id="itemName" value="#{_item.name}"/>
 					</h:link>
 				</h:column>
+
 				<h:column>
 					<f:facet name="header">
-						<h:outputText value="Relationships"/>
+						<h:outputText value="Value"/>
 					</f:facet>
 					<h:link outcome="/admin/propertiesAttributes/view">
 						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="forgeviewdisplayitemRelationships" value="#{forgeview:display(_item.relationships)}"/>
+						<h:outputText id="itemValue" value="#{_item.value}"/>
 					</h:link>
 				</h:column>
+
 			</h:dataTable>
 			<ui:include src="/resources/scaffold/paginator.xhtml">
 				<ui:param name="paginatorBean" value='#{propertiesAttributesBean}'/>

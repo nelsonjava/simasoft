@@ -37,53 +37,62 @@
 			<h:messages globalOnly="true" styleClass="error"/>
 
 			<h:panelGrid columnClasses="label,component,required" columns="3">
+
 				<h:outputLabel for="dependencyBeanDependencyOrden" value="Orden:"/>
 				<h:panelGroup>
 					<h:inputText id="dependencyBeanDependencyOrden" value="#{dependencyBean.dependency.orden}"/>
 					<h:message for="dependencyBeanDependencyOrden" styleClass="error"/>
 				</h:panelGroup>
+
 				<h:outputText/>
 				<h:outputLabel for="dependencyBeanDependencyType" value="Type:"/>
 				<h:panelGroup>
 					<h:inputText id="dependencyBeanDependencyType" value="#{dependencyBean.dependency.type}"/>
 					<h:message for="dependencyBeanDependencyType" styleClass="error"/>
 				</h:panelGroup>
+
 				<h:outputText/>
 				<h:outputLabel for="dependencyBeanDependencyScope" value="Scope:"/>
 				<h:panelGroup>
 					<h:inputText id="dependencyBeanDependencyScope" value="#{dependencyBean.dependency.scope}"/>
 					<h:message for="dependencyBeanDependencyScope" styleClass="error"/>
 				</h:panelGroup>
+
 				<h:outputText/>
 				<h:outputLabel for="dependencyBeanDependencyUrlRepository" value="Url Repository:"/>
 				<h:panelGroup>
 					<h:inputText id="dependencyBeanDependencyUrlRepository" value="#{dependencyBean.dependency.urlRepository}"/>
 					<h:message for="dependencyBeanDependencyUrlRepository" styleClass="error"/>
 				</h:panelGroup>
+
 				<h:outputText/>
 				<h:outputLabel for="dependencyBeanDependencyObservaciones" value="Observaciones:"/>
 				<h:panelGroup>
 					<h:inputText id="dependencyBeanDependencyObservaciones" value="#{dependencyBean.dependency.observaciones}"/>
 					<h:message for="dependencyBeanDependencyObservaciones" styleClass="error"/>
 				</h:panelGroup>
+
 				<h:outputText/>
 				<h:outputLabel for="dependencyBeanDependencyGroupId" value="Group Id:"/>
 				<h:panelGroup>
 					<h:inputText id="dependencyBeanDependencyGroupId" value="#{dependencyBean.dependency.groupId}"/>
 					<h:message for="dependencyBeanDependencyGroupId" styleClass="error"/>
 				</h:panelGroup>
+
 				<h:outputText/>
 				<h:outputLabel for="dependencyBeanDependencyArtifactId" value="Artifact Id:"/>
 				<h:panelGroup>
 					<h:inputText id="dependencyBeanDependencyArtifactId" value="#{dependencyBean.dependency.artifactId}"/>
 					<h:message for="dependencyBeanDependencyArtifactId" styleClass="error"/>
 				</h:panelGroup>
+
 				<h:outputText/>
 				<h:outputLabel for="dependencyBeanDependencyVersion" value="Version:"/>
 				<h:panelGroup>
 					<h:inputText id="dependencyBeanDependencyVersion" value="#{dependencyBean.dependency.version}"/>
 					<h:message for="dependencyBeanDependencyVersion" styleClass="error"/>
 				</h:panelGroup>
+
 				<h:outputText/>
 				<h:outputLabel for="dependencyBeanDependencyImports" value="Imports:"/>
 				<h:panelGroup>
@@ -139,6 +148,7 @@
 					</h:dataTable>
 				</h:panelGroup>
 				<h:outputText/>
+
 			</h:panelGrid>
 
 			<div class="buttons">
