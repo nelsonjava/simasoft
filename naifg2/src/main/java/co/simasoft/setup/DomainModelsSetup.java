@@ -1119,6 +1119,16 @@ public class DomainModelsSetup {
         em.persist(scope);
         em.flush();
 
+        TypesAttributes typesmaven = new TypesAttributes();
+        typesmaven = findTypesAttributes("Text");
+
+        Attributes maven = new Attributes();
+        maven.setName("maven");
+        maven.setTypesAttributes(typesmaven);
+        maven.setEntities(dependency);
+        em.persist(maven);
+        em.flush();
+
         TypesAttributes typesurlRepository = new TypesAttributes();
         typesurlRepository = findTypesAttributes("String");
 
@@ -1130,7 +1140,7 @@ public class DomainModelsSetup {
         em.flush();
 
         TypesAttributes typesobservaciones = new TypesAttributes();
-        typesobservaciones = findTypesAttributes("String");
+        typesobservaciones = findTypesAttributes("Text");
 
         Attributes observaciones = new Attributes();
         observaciones.setName("observaciones");

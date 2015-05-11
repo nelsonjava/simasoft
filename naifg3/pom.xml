@@ -8,6 +8,18 @@
   <!-- mvn clean package wildfly:deploy -->
   <!-- http://localhost:8080 -->
   <!-- http://localhost:8080/naifg3 -->
+  
+<!--
+1 - import javax.persistence.Column;
+2 - import javax.persistence.Basic;
+3 - import javax.validation.constraints.NotNull;
+4 - import javax.validation.constraints.Size;
+5 - import javax.validation.constraints.Pattern;
+6 - import javax.validation.constraints.Digits;
+7 - import org.hibernate.validator.Length;
+8 - import org.hibernate.validator.constraints.NotEmpty;
+9 - import org.hibernate.validator.constraints.Email;
+-->  
 
   <modelVersion>4.0.0</modelVersion>
 

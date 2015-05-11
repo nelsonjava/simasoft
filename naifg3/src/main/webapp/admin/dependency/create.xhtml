@@ -45,10 +45,24 @@
 				</h:panelGroup>
 
 				<h:outputText/>
-				<h:outputLabel for="dependencyBeanDependencyType" value="Type:"/>
+				<h:outputLabel for="dependencyBeanDependencyGroupId" value="Group Id:"/>
 				<h:panelGroup>
-					<h:inputText id="dependencyBeanDependencyType" value="#{dependencyBean.dependency.type}"/>
-					<h:message for="dependencyBeanDependencyType" styleClass="error"/>
+					<h:inputText id="dependencyBeanDependencyGroupId" value="#{dependencyBean.dependency.groupId}"/>
+					<h:message for="dependencyBeanDependencyGroupId" styleClass="error"/>
+				</h:panelGroup>
+
+				<h:outputText/>
+				<h:outputLabel for="dependencyBeanDependencyArtifactId" value="Artifact Id:"/>
+				<h:panelGroup>
+					<h:inputText id="dependencyBeanDependencyArtifactId" value="#{dependencyBean.dependency.artifactId}"/>
+					<h:message for="dependencyBeanDependencyArtifactId" styleClass="error"/>
+				</h:panelGroup>
+				
+				<h:outputText/>
+				<h:outputLabel for="dependencyBeanDependencyVersion" value="Version:"/>
+				<h:panelGroup>
+					<h:inputText id="dependencyBeanDependencyVersion" value="#{dependencyBean.dependency.version}"/>
+					<h:message for="dependencyBeanDependencyVersion" styleClass="error"/>
 				</h:panelGroup>
 
 				<h:outputText/>
@@ -56,6 +70,13 @@
 				<h:panelGroup>
 					<h:inputText id="dependencyBeanDependencyScope" value="#{dependencyBean.dependency.scope}"/>
 					<h:message for="dependencyBeanDependencyScope" styleClass="error"/>
+				</h:panelGroup>
+
+				<h:outputText/>
+				<h:outputLabel for="dependencyBeanDependencyType" value="Type:"/>
+				<h:panelGroup>
+					<h:inputText id="dependencyBeanDependencyType" value="#{dependencyBean.dependency.type}"/>
+					<h:message for="dependencyBeanDependencyType" styleClass="error"/>
 				</h:panelGroup>
 
 				<h:outputText/>
@@ -70,27 +91,6 @@
 				<h:panelGroup>
 					<h:inputText id="dependencyBeanDependencyObservaciones" value="#{dependencyBean.dependency.observaciones}"/>
 					<h:message for="dependencyBeanDependencyObservaciones" styleClass="error"/>
-				</h:panelGroup>
-
-				<h:outputText/>
-				<h:outputLabel for="dependencyBeanDependencyGroupId" value="Group Id:"/>
-				<h:panelGroup>
-					<h:inputText id="dependencyBeanDependencyGroupId" value="#{dependencyBean.dependency.groupId}"/>
-					<h:message for="dependencyBeanDependencyGroupId" styleClass="error"/>
-				</h:panelGroup>
-
-				<h:outputText/>
-				<h:outputLabel for="dependencyBeanDependencyArtifactId" value="Artifact Id:"/>
-				<h:panelGroup>
-					<h:inputText id="dependencyBeanDependencyArtifactId" value="#{dependencyBean.dependency.artifactId}"/>
-					<h:message for="dependencyBeanDependencyArtifactId" styleClass="error"/>
-				</h:panelGroup>
-
-				<h:outputText/>
-				<h:outputLabel for="dependencyBeanDependencyVersion" value="Version:"/>
-				<h:panelGroup>
-					<h:inputText id="dependencyBeanDependencyVersion" value="#{dependencyBean.dependency.version}"/>
-					<h:message for="dependencyBeanDependencyVersion" styleClass="error"/>
 				</h:panelGroup>
 
 				<h:outputText/>

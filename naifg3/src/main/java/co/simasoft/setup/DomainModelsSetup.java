@@ -214,7 +214,7 @@ public class DomainModelsSetup {
         em.flush();
 
     } // Relationships()
-    
+
 
     public void Entities(GroupIds groupIds) {
 
@@ -1118,6 +1118,16 @@ public class DomainModelsSetup {
         scope.setTypesAttributes(typesscope);
         scope.setEntities(dependency);
         em.persist(scope);
+        em.flush();
+
+        TypesAttributes typesmaven = new TypesAttributes();
+        typesmaven = findTypesAttributes("Text");
+
+        Attributes maven = new Attributes();
+        maven.setName("maven");
+        maven.setTypesAttributes(typesmaven);
+        maven.setEntities(dependency);
+        em.persist(maven);
         em.flush();
 
         TypesAttributes typesurlRepository = new TypesAttributes();
