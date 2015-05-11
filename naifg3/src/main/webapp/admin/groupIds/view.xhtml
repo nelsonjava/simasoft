@@ -57,6 +57,7 @@
 			<h:outputText/>
 			<h:outputLabel for="groupIdsBeanGroupIdsEntities" value="Entities:"/>
 			<h:dataTable id="groupIdsBeanGroupIdsEntities" styleClass="data-table" value="#{forgeview:asList(groupIdsBean.groupIds.entities)}" var="_item">
+
 				<h:column>
 					<f:facet name="header">
 						<h:outputText value="Orden"/>
@@ -64,6 +65,15 @@
 					<h:link outcome="/admin/entities/view">
 						<f:param name="id" value="#{_item.id}"/>
 						<h:outputText id="itemOrden" value="#{_item.orden}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Name"/>
+					</f:facet>
+					<h:link outcome="/admin/entities/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemName" value="#{_item.name}"/>
 					</h:link>
 				</h:column>
 				<h:column>
@@ -93,15 +103,7 @@
 						<h:outputText id="itemTablaSecuencia" value="#{_item.tablaSecuencia}"/>
 					</h:link>
 				</h:column>
-				<h:column>
-					<f:facet name="header">
-						<h:outputText value="Modifier"/>
-					</f:facet>
-					<h:link outcome="/admin/entities/view">
-						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemModifier" value="#{_item.modifier}"/>
-					</h:link>
-				</h:column>
+
 			</h:dataTable>
 			<h:outputText/>
 			<h:outputLabel for="groupIdsBeanGroupIdsLinksModels" value="Links Models:"/>
