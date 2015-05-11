@@ -24,7 +24,7 @@ public class Setup {
 
     public void data() {
 
-        System.out.println("Cardinalities!");
+//      ---------------------- Cardinalities -------------------------
 
         Cardinalities oto = new Cardinalities();
         oto.setOrden(1L);
@@ -81,6 +81,8 @@ public class Setup {
         mmb.setUnidireccional(false);
         em.persist(mmb);
         em.flush();
+
+//      ---------------------- TypesAttributes -------------------------
 
         TypesAttributes varString = new TypesAttributes();
         varString.setOrden(1L);
@@ -185,6 +187,8 @@ public class Setup {
         varEmail.setObservaciones("A uniform resource locator of a web resource");
         em.persist(varEmail);
         em.flush();
+
+//      ---------------------- Pendiente -------------------------
 
     } // data()
 
