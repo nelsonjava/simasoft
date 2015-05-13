@@ -167,7 +167,7 @@ public class Setup {
         TypesAttributes varByte = new TypesAttributes();
         varByte.setOrden(11L);
         varByte.setName("byte");
-        varByte.setType("byte");
+        varByte.setType("byte[]");
         varByte.setObservaciones("A uniform resource locator of a web resource");
         em.persist(varByte);
         em.flush();

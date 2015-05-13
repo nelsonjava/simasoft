@@ -6,6 +6,7 @@ import java.io.*;
 import java.util.*;
 
 import javax.persistence.*;
+import javax.persistence.Lob;
 import javax.validation.constraints.*;
 
 @Entity
@@ -45,12 +46,10 @@ public class FilesModels implements Serializable {
 	public FilesModels() {
 	}
 
-	public FilesModels(String extension, String archivo, String observaciones,
-			byte data) {
+	public FilesModels(String extension, String archivo, String observaciones) {
 		this.extension = extension;
 		this.archivo = archivo;
 		this.observaciones = observaciones;
-		this.data = data;
 	}
 
 	public Long getId() {
