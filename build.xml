@@ -37,6 +37,7 @@
     <delete dir="naifg1/target" failonerror="no"/>
     <delete dir="naifg2/target" failonerror="no"/>
     <delete dir="naifg3/target" failonerror="no"/>
+    <delete dir="naifg4/target" failonerror="no"/>    
     <delete dir="facturacion/target" failonerror="no"/>
     <delete dir="ejb/target" failonerror="no"/>    
 

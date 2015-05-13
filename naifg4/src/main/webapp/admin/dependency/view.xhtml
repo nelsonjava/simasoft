@@ -1,0 +1,106 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:forgeview="http://jboss.org/forge/view"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="id" value='#{dependencyBean.id}'/>
+		<f:event type="preRenderView" listener='#{dependencyBean.retrieve}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="View Dependency"/>
+
+	<ui:define name="header">
+		Dependency
+	</ui:define>
+
+	<ui:define name="subheader">
+		View existing Dependency
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:panelGrid columnClasses="label,component,required" columns="3">
+
+			<h:outputLabel for="dependencyBeanDependencyOrden" value="Orden:"/>
+			<h:outputText id="dependencyBeanDependencyOrden" value="#{dependencyBean.dependency.orden}"/>
+
+			<h:outputText/>
+			<h:outputLabel for="dependencyBeanDependencyArtifactId" value="Artifact Id:"/>
+			<h:outputText id="dependencyBeanDependencyArtifactId" value="#{dependencyBean.dependency.artifactId}"/>
+
+			<h:outputText/>
+			<h:outputLabel for="dependencyBeanDependencyGroupId" value="Group Id:"/>
+			<h:outputText id="dependencyBeanDependencyGroupId" value="#{dependencyBean.dependency.groupId}"/>
+
+			<h:outputText/>
+			<h:outputLabel for="dependencyBeanDependencyScope" value="Scope:"/>
+			<h:outputText id="dependencyBeanDependencyScope" value="#{dependencyBean.dependency.scope}"/>
+
+			<h:outputText/>
+			<h:outputLabel for="dependencyBeanDependencyVersion" value="Version:"/>
+			<h:outputText id="dependencyBeanDependencyVersion" value="#{dependencyBean.dependency.version}"/>
+
+			<h:outputText/>
+			<h:outputLabel for="dependencyBeanDependencyType" value="Type:"/>
+			<h:outputText id="dependencyBeanDependencyType" value="#{dependencyBean.dependency.type}"/>
+
+			<h:outputText/>
+			<h:outputLabel for="dependencyBeanDependencyMaven" value="Maven:"/>
+			<h:outputText id="dependencyBeanDependencyMaven" value="#{dependencyBean.dependency.maven}" escape="false"/>
+
+			<h:outputText/>
+			<h:outputLabel for="dependencyBeanDependencyUrlRepository" value="Url Repository:"/>
+			<h:outputText id="dependencyBeanDependencyUrlRepository" value="#{dependencyBean.dependency.urlRepository}" escape="false"/>
+
+			<h:outputText/>
+			<h:outputLabel for="dependencyBeanDependencyObservaciones" value="Observaciones:"/>
+			<h:outputText id="dependencyBeanDependencyObservaciones" value="#{dependencyBean.dependency.observaciones}"/>
+			<h:outputText/>
+
+			<h:outputLabel for="dependencyBeanDependencyImports" value="Imports:"/>
+			<h:dataTable id="dependencyBeanDependencyImports" styleClass="data-table" value="#{forgeview:asList(dependencyBean.dependency.imports)}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Orden"/>
+					</f:facet>
+					<h:link outcome="/admin/imports/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemOrden" value="#{_item.orden}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Name"/>
+					</f:facet>
+					<h:link outcome="/admin/imports/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemName" value="#{_item.name}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Observaciones"/>
+					</f:facet>
+					<h:link outcome="/admin/imports/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemObservaciones" value="#{_item.observaciones}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<h:outputText/>
+		</h:panelGrid>
+
+		<div class="buttons">
+			<h:link value="View All" outcome="search" styleClass="btn btn-primary"/> 
+			<h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
+			<h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
+		</div>
+	</ui:define>
+
+</ui:composition>
