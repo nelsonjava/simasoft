@@ -245,50 +245,57 @@ public class Setup {
         em.persist(imports2);
         em.flush();
 
+        Imports imports22 = new Imports();
+        imports22.setOrden(3L);
+        imports22.setName("import javax.persistence.Lob;");
+        imports22.setDependency(persistence_api);
+        em.persist(imports22);
+        em.flush();
+
         Imports imports3 = new Imports();
-        imports3.setOrden(3L);
+        imports3.setOrden(4L);
         imports3.setName("import javax.validation.constraints.NotNull;");
         imports3.setDependency(validation_api);
         em.persist(imports3);
         em.flush();
 
         Imports imports4 = new Imports();
-        imports4.setOrden(4L);
+        imports4.setOrden(5L);
         imports4.setName("import javax.validation.constraints.Size;");
         imports4.setDependency(validation_api);
         em.persist(imports4);
         em.flush();
 
         Imports imports5 = new Imports();
-        imports5.setOrden(5L);
+        imports5.setOrden(6L);
         imports5.setName("import javax.validation.constraints.Pattern;");
         imports5.setDependency(validation_api);
         em.persist(imports5);
         em.flush();
 
         Imports imports6 = new Imports();
-        imports6.setOrden(6L);
+        imports6.setOrden(7L);
         imports6.setName("import javax.validation.constraints.Digits;");
         imports6.setDependency(validation_api);
         em.persist(imports6);
         em.flush();
 
         Imports imports7 = new Imports();
-        imports7.setOrden(7L);
+        imports7.setOrden(8L);
         imports7.setName("import org.hibernate.validator.Length;");
         imports7.setDependency(hibernate_validator);
         em.persist(imports7);
         em.flush();
 
         Imports imports8 = new Imports();
-        imports8.setOrden(8L);
+        imports8.setOrden(9L);
         imports8.setName("import org.hibernate.validator.constraints.NotEmpty;");
         imports8.setDependency(hibernate_validator);
         em.persist(imports8);
         em.flush();
 
         Imports imports9 = new Imports();
-        imports9.setOrden(9L);
+        imports9.setOrden(10L);
         imports9.setName("import org.hibernate.validator.constraints.Email;");
         imports9.setDependency(hibernate_validator);
         em.persist(imports9);
