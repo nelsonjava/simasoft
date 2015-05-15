@@ -9,16 +9,13 @@
   <!-- http://localhost:8080 -->
   <!-- http://localhost:8080/naifg4 -->
 
+
 <!--
-persistence_api - import javax.persistence.Column;
-persistence_api - import javax.persistence.Basic;
-validation_api - import javax.validation.constraints.NotNull;
-validation_api - import javax.validation.constraints.Size;
-validation_api - import javax.validation.constraints.Pattern;
-validation_api - import javax.validation.constraints.Digits;
-hibernate_validator - import org.hibernate.validator.Length;
-hibernate_validator - import org.hibernate.validator.constraints.NotEmpty;
-hibernate_validator - import org.hibernate.validator.constraints.Email;
+http://www.java2s.com/Code/JavaAPI/javax.persistence/javaxpersistenceLob.htm
+http://www.java2s.com/
+http://www.coderanch.com/t/520293/ORM/databases/add-JPA-ManyToMany-records
+Google:
+How to add JPA ManyToMany records?
 -->
 
   <modelVersion>4.0.0</modelVersion>

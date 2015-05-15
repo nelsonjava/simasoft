@@ -82,112 +82,6 @@ public class Setup {
         em.persist(mmb);
         em.flush();
 
-//      ---------------------- TypesAttributes -------------------------
-
-        TypesAttributes varString = new TypesAttributes();
-        varString.setOrden(1L);
-        varString.setName("String");
-        varString.setType("String");
-        varString.setObservaciones("A \"short\" sequence of characters");
-        em.persist(varString);
-        em.flush();
-
-        TypesAttributes varText = new TypesAttributes();
-        varText.setOrden(2L);
-        varText.setName("Text");
-        varText.setType("String");
-        varText.setObservaciones("A \"long\" sequence of characters");
-        em.persist(varText);
-        em.flush();
-
-        TypesAttributes varInteger = new TypesAttributes();
-        varInteger.setOrden(3L);
-        varInteger.setName("Integer");
-        varInteger.setType("Integer");
-        varInteger.setObservaciones("An integer numerical type");
-        em.persist(varInteger);
-        em.flush();
-
-        TypesAttributes varFloat = new TypesAttributes();
-        varFloat.setOrden(4L);
-        varFloat.setName("Float");
-        varFloat.setType("Float");
-        varFloat.setObservaciones("A floating point numerical type");
-        em.persist(varFloat);
-        em.flush();
-
-        TypesAttributes varDate = new TypesAttributes();
-        varDate.setOrden(5L);
-        varDate.setName("Date");
-        varDate.setType("Date");
-        varDate.setObservaciones("A calendar date");
-        em.persist(varDate);
-        em.flush();
-
-        TypesAttributes varTime = new TypesAttributes();
-        varTime.setOrden(6L);
-        varTime.setName("Time");
-        varTime.setType("Date");
-        varTime.setObservaciones("A temporal instant of time");
-        em.persist(varTime);
-        em.flush();
-
-        TypesAttributes varBoolean = new TypesAttributes();
-        varBoolean.setOrden(7L);
-        varBoolean.setName("Boolean");
-        varBoolean.setType("Boolean");
-        varBoolean.setObservaciones("A true or false value");
-        em.persist(varBoolean);
-        em.flush();
-
-        TypesAttributes varEnumeration = new TypesAttributes();
-        varEnumeration.setOrden(8L);
-        varEnumeration.setName("Enumeration");
-        varEnumeration.setType("Enumeration");
-        varEnumeration.setObservaciones("A sequence of user-defined values");
-        em.persist(varEnumeration);
-        em.flush();
-
-        TypesAttributes varBlob = new TypesAttributes();
-        varBlob.setOrden(9L);
-        varBlob.setName("Blob");
-        varBlob.setType("Blob");
-        varBlob.setObservaciones("A binanry large object, for example an image or a video, which must be handled in a special way because of its size. Blob type can be further refined by expressing their MIME type for example image/gif");
-        em.persist(varBlob);
-        em.flush();
-
-        TypesAttributes varUrl = new TypesAttributes();
-        varUrl.setOrden(10L);
-        varUrl.setName("Url");
-        varUrl.setType("Url");
-        varUrl.setObservaciones("A uniform resource locator of a web resource");
-        em.persist(varUrl);
-        em.flush();
-
-        TypesAttributes varByte = new TypesAttributes();
-        varByte.setOrden(11L);
-        varByte.setName("byte");
-        varByte.setType("byte[]");
-        varByte.setObservaciones("A uniform resource locator of a web resource");
-        em.persist(varByte);
-        em.flush();
-
-        TypesAttributes varDouble = new TypesAttributes();
-        varDouble.setOrden(12L);
-        varDouble.setName("double");
-        varDouble.setType("double");
-        varDouble.setObservaciones("A uniform resource locator of a web resource");
-        em.persist(varDouble);
-        em.flush();
-
-        TypesAttributes varEmails = new TypesAttributes();
-        varEmails.setOrden(13L);
-        varEmails.setName("Email");
-        varEmails.setType("Email");
-        varEmails.setObservaciones("A uniform resource locator of a web resource");
-        em.persist(varEmails);
-        em.flush();
-
 //      ---------------------- Dependency ------------------------
 
         Dependency persistence_api = new Dependency();
@@ -430,6 +324,118 @@ public class Setup {
         varBasic.setValue("@Basic");
         varBasic.setImports(imports2);
         em.persist(varBasic);
+        em.flush();
+
+//      ---------------------- TypesAttributes -------------------------
+
+        TypesAttributes varString = new TypesAttributes();
+        varString.setOrden(1L);
+        varString.setName("String");
+        varString.setType("String");
+        varString.setObservaciones("A \"short\" sequence of characters");
+        em.persist(varString);
+        em.flush();
+
+        TypesAttributes varText = new TypesAttributes();
+        varText.setOrden(2L);
+        varText.setName("Text");
+        varText.setType("String");
+        varText.setObservaciones("A \"long\" sequence of characters");
+        em.persist(varText);
+        em.flush();
+
+        TypesAttributes varInteger = new TypesAttributes();
+        varInteger.setOrden(3L);
+        varInteger.setName("Integer");
+        varInteger.setType("Integer");
+        varInteger.setObservaciones("An integer numerical type");
+        em.persist(varInteger);
+        em.flush();
+
+        TypesAttributes varFloat = new TypesAttributes();
+        varFloat.setOrden(4L);
+        varFloat.setName("Float");
+        varFloat.setType("Float");
+        varFloat.setObservaciones("A floating point numerical type");
+        em.persist(varFloat);
+        em.flush();
+
+        TypesAttributes varDate = new TypesAttributes();
+        varDate.setOrden(5L);
+        varDate.setName("Date");
+        varDate.setType("Date");
+        varDate.setObservaciones("A calendar date");
+        em.persist(varDate);
+        em.flush();
+
+        TypesAttributes varTime = new TypesAttributes();
+        varTime.setOrden(6L);
+        varTime.setName("Time");
+        varTime.setType("Date");
+        varTime.setObservaciones("A temporal instant of time");
+        em.persist(varTime);
+        em.flush();
+
+        TypesAttributes varBoolean = new TypesAttributes();
+        varBoolean.setOrden(7L);
+        varBoolean.setName("Boolean");
+        varBoolean.setType("Boolean");
+        varBoolean.setObservaciones("A true or false value");
+        em.persist(varBoolean);
+        em.flush();
+
+        TypesAttributes varEnumeration = new TypesAttributes();
+        varEnumeration.setOrden(8L);
+        varEnumeration.setName("Enumeration");
+        varEnumeration.setType("Enumeration");
+        varEnumeration.setObservaciones("A sequence of user-defined values");
+        em.persist(varEnumeration);
+        em.flush();
+
+        TypesAttributes varBlob = new TypesAttributes();
+        varBlob.setOrden(9L);
+        varBlob.setName("Blob");
+        varBlob.setType("Blob");
+        varBlob.setObservaciones("A binanry large object, for example an image or a video, which must be handled in a special way because of its size. Blob type can be further refined by expressing their MIME type for example image/gif");
+        em.persist(varBlob);
+        em.flush();
+
+        TypesAttributes varUrl = new TypesAttributes();
+        varUrl.setOrden(10L);
+        varUrl.setName("Url");
+        varUrl.setType("Url");
+        varUrl.setObservaciones("A uniform resource locator of a web resource");
+        em.persist(varUrl);
+        em.flush();
+
+        TypesAttributes varByte = new TypesAttributes();
+        varByte.setOrden(11L);
+        varByte.setName("byte");
+        varByte.setType("byte[]");
+        varByte.setObservaciones("A uniform resource locator of a web resource");
+        
+        Set<PropertiesAttributes> propertiesByte = new HashSet<PropertiesAttributes>();
+        propertiesByte.add(varNotNull);
+        propertiesByte.add(varNullUnique4);
+
+        varByte.setPropertiesAttributes(propertiesByte);
+        em.persist(varByte);
+        em.flush();
+
+        TypesAttributes varDouble = new TypesAttributes();
+        varDouble.setOrden(12L);
+        varDouble.setName("double");
+        varDouble.setType("double");
+        varDouble.setObservaciones("A uniform resource locator of a web resource");
+        em.persist(varDouble);
+        em.flush();
+
+        TypesAttributes varEmails = new TypesAttributes();
+        varEmails.setOrden(13L);
+        varEmails.setName("Email");
+        varEmails.setType("Email");
+        varEmails.setObservaciones("A uniform resource locator of a web resource");
+        em.persist(varEmails);
         em.flush();
 
     } // data()

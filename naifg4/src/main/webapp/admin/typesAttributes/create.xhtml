@@ -126,7 +126,10 @@
                                                                        var="_item"/>
 						</h:selectOneMenu>
 
-						<h:commandLink action="#{_collection.add(requestScope['typesAttributesBeanTypesAttributesPropertiesAttributesSelect'])}" id="typesAttributesBeanTypesAttributesPropertiesAttributesAdd" onclick="if (document.getElementById(document.forms[0].id+':typesAttributesBeanTypesAttributesPropertiesAttributesSelect').selectedIndex &lt; 1) { alert('Must select a Properties Attributes'); return false; }" styleClass="add-button"/>
+						<h:commandLink action="#{_collection.add(requestScope['typesAttributesBeanTypesAttributesPropertiesAttributesSelect'])}" 
+                                                                   id="typesAttributesBeanTypesAttributesPropertiesAttributesAdd"
+                                                                   onclick="if (document.getElementById(document.forms[0].id+':typesAttributesBeanTypesAttributesPropertiesAttributesSelect').selectedIndex &lt; 1) { alert('Must select a Properties Attributes'); return false; }"
+                                                                   styleClass="add-button"/>
 					</h:panelGrid>
 
 				</h:panelGroup>

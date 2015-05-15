@@ -126,8 +126,7 @@ public class TypesAttributes implements Serializable {
 	public Set<PropertiesAttributes> getPropertiesAttributes() {
 		return propertiesAttributes;
 	}
-	public void setPropertiesAttributes(
-			Set<PropertiesAttributes> propertiesAttributes) {
+	public void setPropertiesAttributes(Set<PropertiesAttributes> propertiesAttributes) {
 		this.propertiesAttributes = propertiesAttributes;
 	}
 
