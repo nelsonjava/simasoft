@@ -286,8 +286,16 @@ public class Setup {
         em.persist(varColumn);
         em.flush();
 
+        PropertiesAttributes varColumn1 = new PropertiesAttributes();
+        varColumn1.setOrden(12L);
+        varColumn1.setName("@Column1");
+        varColumn1.setValue("@Column(name=\"file\")");
+        varColumn1.setImports(imports1);
+        em.persist(varColumn1);
+        em.flush();
+
         PropertiesAttributes varNullUnique1 = new PropertiesAttributes();
-        varNullUnique1.setOrden(12L);
+        varNullUnique1.setOrden(13L);
         varNullUnique1.setName("NullUnique1");
         varNullUnique1.setValue("@Column(nullable = true, unique = true)");
         varNullUnique1.setImports(imports1);
@@ -295,7 +303,7 @@ public class Setup {
         em.flush();
 
         PropertiesAttributes varNullUnique2 = new PropertiesAttributes();
-        varNullUnique2.setOrden(13L);
+        varNullUnique2.setOrden(14L);
         varNullUnique2.setName("NullUnique2");
         varNullUnique2.setValue("@Column(nullable = true, unique = false)");
         varNullUnique2.setImports(imports1);
@@ -303,7 +311,7 @@ public class Setup {
         em.flush();
 
         PropertiesAttributes varNullUnique3 = new PropertiesAttributes();
-        varNullUnique3.setOrden(14L);
+        varNullUnique3.setOrden(15L);
         varNullUnique3.setName("NullUnique3");
         varNullUnique3.setValue("@Column(nullable = false, unique = true)");
         varNullUnique3.setImports(imports1);
@@ -311,7 +319,7 @@ public class Setup {
         em.flush();
 
         PropertiesAttributes varNullUnique4 = new PropertiesAttributes();
-        varNullUnique4.setOrden(15L);
+        varNullUnique4.setOrden(16L);
         varNullUnique4.setName("NullUnique4");
         varNullUnique4.setValue("@Column(nullable = false, unique = false)");
         varNullUnique4.setImports(imports1);
@@ -319,12 +327,29 @@ public class Setup {
         em.flush();
 
         PropertiesAttributes varBasic = new PropertiesAttributes();
-        varBasic.setOrden(16L);
+        varBasic.setOrden(17L);
         varBasic.setName("@Basic");
         varBasic.setValue("@Basic");
         varBasic.setImports(imports2);
         em.persist(varBasic);
         em.flush();
+
+        PropertiesAttributes varBasic1 = new PropertiesAttributes();
+        varBasic1.setOrden(18L);
+        varBasic1.setName("@Basic1");
+        varBasic1.setValue("@Basic(fetch=LAZY)");
+        varBasic1.setImports(imports2);
+        em.persist(varBasic1);
+        em.flush();
+
+        PropertiesAttributes varLob = new PropertiesAttributes();
+        varLob.setOrden(19L);
+        varLob.setName("@Lob");
+        varLob.setValue("@Lob");
+        varLob.setImports(imports22);
+        em.persist(varLob);
+        em.flush();
+
 
 //      ---------------------- TypesAttributes -------------------------
 
@@ -413,11 +438,10 @@ public class Setup {
         varByte.setName("byte");
         varByte.setType("byte[]");
         varByte.setObservaciones("A uniform resource locator of a web resource");
-        
         Set<PropertiesAttributes> propertiesByte = new HashSet<PropertiesAttributes>();
-        propertiesByte.add(varNotNull);
-        propertiesByte.add(varNullUnique4);
-
+        propertiesByte.add(varBasic1);
+        propertiesByte.add(varLob);
+        propertiesByte.add(varColumn1);
         varByte.setPropertiesAttributes(propertiesByte);
         em.persist(varByte);
         em.flush();
