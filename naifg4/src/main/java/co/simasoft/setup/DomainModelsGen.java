@@ -17,6 +17,12 @@ import org.jboss.logging.Logger;
 import javax.faces.context.FacesContext;
 import javax.faces.context.ExternalContext;
 
+/*
+  Pruebas a archivo texto
+  fileTxt.line("Prueba");
+  Utils.fileMake("\\docs","leame.txt",fileTxt );
+*/
+
 
 @Singleton
 @LocalBean
@@ -27,12 +33,14 @@ public class DomainModelsGen {
 
     public void data(DomainModels domainModels) throws IOException {
 
+        FileTxt fileTxt = new FileTxt();
+
         LinkedHashSet<String> imports = new LinkedHashSet<String>();
-        
+
         System.out.println("Hello World!" + domainModels.getName());
 
         for (GroupIds groupIds : domainModels.getGroupIds()){
-            imports.add(groupIds.getGroupId());
+            imports.add("import "+groupIds.getGroupId()+".*;");
         }
 
         ArrayList<Packages> packages = new ArrayList<Packages>();
@@ -44,7 +52,26 @@ public class DomainModelsGen {
                 Entidad entidad = new Entidad(entity.getName());
 
                 for (Attributes attribute : entity.getAttributes()) {
-                     entidad.addAtributo(new Atributos(attribute.getName(), attribute.getTypesAttributes().getType()));
+
+                    Atributos atributos = new Atributos(attribute.getName(), attribute.getTypesAttributes().getType());
+
+                    Set<PropertiesAttributes> propertiesAttributes = attribute.getTypesAttributes().getPropertiesAttributes();
+
+                    String annotations = "";
+                    int i=0;
+                    for (PropertiesAttributes propertiesAttribute : propertiesAttributes ){
+                         annotations += "    "+propertiesAttribute.getValue();
+                         if (++i < propertiesAttributes.size()){
+                            annotations += "\n";
+                         }
+                         imports.add(propertiesAttribute.getImports().getName());
+                    }
+                    atributos.setAnnotations(annotations);
+
+                    entidad.addAtributo(atributos);
+
+
+
                 } // for: entity.getAttributes()
 
                 for (Relationships relationships : entity.getFrom()) {

@@ -39,8 +39,9 @@ public class EntityH2 extends FileTxt {
       String name = "";                                                      // Nombre del Atributo
       String type = "";                                                      // Tipo del Atributo
       String field = "";                                                     // Nombre del Campo
-      Integer len;                                                           // Longitud del Campo
-      Integer prec;                                                          // Decimales del Campo
+      Integer len = 0;                                                           // Longitud del Campo
+      Integer prec = 0;                                                          // Decimales del Campo
+      String annotations = "";
 //>>DECLARACION DE INSTANCIAS
 
 /****************************************************************************************************************
@@ -72,7 +73,7 @@ public EntityH2(String artifactId,String groupId,Entidad entity,LinkedHashSet<St
 
 //>>IMPORTS DE LA CLASE
       for (String impor : imports) {
-         line("import "+impor+".*;");
+         line(impor);
       }
 
       line("");
@@ -125,7 +126,11 @@ public EntityH2(String artifactId,String groupId,Entidad entity,LinkedHashSet<St
 //********DECLARACION DEL ATTRIBUTO
             name  = attribute.getField();
             type  = attribute.getType();
+            annotations = attribute.getAnnotations();
 
+            if (!annotations.equals("")) {
+               line(annotations);
+            }
             line("    private "+type+" "+name+";\n");
 //********DECLARACION DEL ATTRIBUTO
 

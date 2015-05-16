@@ -8,7 +8,7 @@ public class Atributos{
      private String length = "";
      private boolean nulo = true;
      private boolean unique = false;
-     private String annotations;
+     private String annotations = "";
 
      public Atributos() {
      }

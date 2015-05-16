@@ -438,11 +438,13 @@ public class Setup {
         varByte.setName("byte");
         varByte.setType("byte[]");
         varByte.setObservaciones("A uniform resource locator of a web resource");
+
         Set<PropertiesAttributes> propertiesByte = new HashSet<PropertiesAttributes>();
         propertiesByte.add(varBasic1);
         propertiesByte.add(varLob);
         propertiesByte.add(varColumn1);
         varByte.setPropertiesAttributes(propertiesByte);
+
         em.persist(varByte);
         em.flush();
 
