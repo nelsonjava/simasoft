@@ -145,51 +145,65 @@ public class Setup {
         imports22.setDependency(persistence_api);
         em.persist(imports22);
         em.flush();
+        
+        Imports imports24 = new Imports();
+        imports24.setOrden(4L);
+        imports24.setName("import javax.persistence.FetchType;");
+        imports24.setDependency(persistence_api);
+        em.persist(imports24);
+        em.flush();
+
+        Imports imports23 = new Imports();
+        imports23.setOrden(5L);
+        imports23.setName("import javax.persistence.CascadeType;");
+        imports23.setDependency(persistence_api);
+        em.persist(imports23);
+        em.flush();
 
         Imports imports3 = new Imports();
-        imports3.setOrden(4L);
+        imports3.setOrden(6L);
         imports3.setName("import javax.validation.constraints.NotNull;");
         imports3.setDependency(validation_api);
         em.persist(imports3);
         em.flush();
 
         Imports imports4 = new Imports();
-        imports4.setOrden(5L);
+        imports4.setOrden(7L);
         imports4.setName("import javax.validation.constraints.Size;");
         imports4.setDependency(validation_api);
         em.persist(imports4);
         em.flush();
 
         Imports imports5 = new Imports();
-        imports5.setOrden(6L);
+        imports5.setOrden(8L);
         imports5.setName("import javax.validation.constraints.Pattern;");
         imports5.setDependency(validation_api);
         em.persist(imports5);
         em.flush();
 
         Imports imports6 = new Imports();
-        imports6.setOrden(7L);
+        imports6.setOrden(9L);
         imports6.setName("import javax.validation.constraints.Digits;");
         imports6.setDependency(validation_api);
         em.persist(imports6);
         em.flush();
 
         Imports imports7 = new Imports();
-        imports7.setOrden(8L);
+        imports7.setOrden(10L);
         imports7.setName("import org.hibernate.validator.Length;");
         imports7.setDependency(hibernate_validator);
         em.persist(imports7);
         em.flush();
 
         Imports imports8 = new Imports();
-        imports8.setOrden(9L);
+        imports8.setOrden(11L);
         imports8.setName("import org.hibernate.validator.constraints.NotEmpty;");
         imports8.setDependency(hibernate_validator);
         em.persist(imports8);
         em.flush();
 
         Imports imports9 = new Imports();
-        imports9.setOrden(10L);
+        imports9.setOrden(12L);
         imports9.setName("import org.hibernate.validator.constraints.Email;");
         imports9.setDependency(hibernate_validator);
         em.persist(imports9);
@@ -337,7 +351,7 @@ public class Setup {
         PropertiesAttributes varBasic1 = new PropertiesAttributes();
         varBasic1.setOrden(18L);
         varBasic1.setName("@Basic1");
-        varBasic1.setValue("@Basic(fetch=LAZY)");
+        varBasic1.setValue("@Basic(fetch=FetchType.LAZY)");
         varBasic1.setImports(imports2);
         em.persist(varBasic1);
         em.flush();

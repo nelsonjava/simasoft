@@ -190,7 +190,7 @@ public EntityH2(String artifactId,String groupId,Entidad entity,LinkedHashSet<St
               else{
                 if(relation.getName() == null || relation.getName() == ""){
                    if(relation.getUnidireccional()){
-                     line("    @ManyToMany()");
+                     line("    @ManyToMany");
                    }
                    else{
                      line("    @ManyToMany(mappedBy = \""+Utils._1raMin(entity.getName())+"\")");
