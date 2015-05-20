@@ -67,6 +67,7 @@ public class Setup {
 
 //      ---------------------- Imports() -------------------------
 
+/*
         Imports imports1 = new Imports();
         imports1.setOrden(1L);
         imports1.setName("import javax.persistence.Entity;");
@@ -136,6 +137,7 @@ public class Setup {
         imports10.setDependency(persistence_api);
         em.persist(imports10);
         em.flush();
+*/        
 
         Imports imports11 = new Imports();
         imports11.setOrden(11L);
