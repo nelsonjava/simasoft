@@ -19,6 +19,7 @@ import javax.faces.context.ExternalContext;
 
 /*
   Pruebas a archivo texto
+  FileTxt fileTxt = new FileTxt();  
   fileTxt.line("Prueba");
   Utils.fileMake("\\docs","leame.txt",fileTxt );
 */
@@ -64,7 +65,9 @@ public class DomainModelsGen {
                          if (++i < propertiesAttributes.size()){
                             annotations += "\n";
                          }
-//                         imports.add(propertiesAttribute.getImports().getName());  OJO PENDIENTE
+                         for (Imports importss : propertiesAttribute.getImports() ){
+                              imports.add(importss.getName());
+                         }
                     }
                     atributos.setAnnotations(annotations);
 
@@ -98,8 +101,6 @@ public class DomainModelsGen {
                                                                relationships.getTo().getName(),
                                                                relationships.getCardinalities().getCardinality(),
                                                                relationships.getName(),true));
-
-
                              break;
 
 
@@ -108,7 +109,6 @@ public class DomainModelsGen {
                                                                relationships.getTo().getName(),
                                                                relationships.getCardinalities().getCardinality(),
                                                                relationships.getName(),true));
-
                              break;
 
                         case "Muchos a Muchos Unidireccional No.6":
@@ -116,7 +116,6 @@ public class DomainModelsGen {
                                                                relationships.getTo().getName(),
                                                                relationships.getCardinalities().getCardinality(),
                                                                relationships.getName(),true));
-
                              break;
 
                         case "Muchos a Muchos Bidirecccional No.7":
@@ -124,7 +123,6 @@ public class DomainModelsGen {
                                                                relationships.getTo().getName(),
                                                                relationships.getCardinalities().getCardinality(),
                                                                relationships.getName(),true));
-
                              break;
                     } // switch
 
@@ -156,7 +154,6 @@ public class DomainModelsGen {
                                                                relationships.getFrom().getName(),
                                                                "*..1",
                                                                relationships.getName(),false));
-
                              break;
 
                         case "Muchos a Muchos Unidireccional No.6":

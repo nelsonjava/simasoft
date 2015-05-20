@@ -133,10 +133,18 @@
 						</h:column>
 					</h:dataTable>
 					<h:panelGrid columnClasses=",remove-column" columns="2" styleClass="data-table-footer">
-						<h:selectOneMenu converter="#{propertiesAttributesBean.converter}" id="typesAttributesBeanTypesAttributesPropertiesAttributesSelect" value="#{requestScope['typesAttributesBeanTypesAttributesPropertiesAttributesSelect']}">
+					
+						<h:selectOneMenu converter="#{propertiesAttributesBean.converter}"
+                                                                 id="typesAttributesBeanTypesAttributesPropertiesAttributesSelect"
+                                                                 value="#{requestScope['typesAttributesBeanTypesAttributesPropertiesAttributesSelect']}">
+
 							<f:selectItem/>
-							<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{propertiesAttributesBean.all}" var="_item"/>
+							<f:selectItems itemLabel="#{forgeview:display(_item.value)}"
+                                                                       itemValue="#{_item}"
+                                                                       value="#{propertiesAttributesBean.all}"
+                                                                       var="_item"/>
 						</h:selectOneMenu>
+
 						<h:commandLink action="#{_collection.add(requestScope['typesAttributesBeanTypesAttributesPropertiesAttributesSelect'])}" id="typesAttributesBeanTypesAttributesPropertiesAttributesAdd" onclick="if (document.getElementById(document.forms[0].id+':typesAttributesBeanTypesAttributesPropertiesAttributesSelect').selectedIndex &lt; 1) { alert('Must select a Properties Attributes'); return false; }" styleClass="add-button"/>
 					</h:panelGrid>
 				</h:panelGroup>

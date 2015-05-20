@@ -89,6 +89,35 @@ public class Models{
 
             for(Entidad entidad : groupIds.getEntities()) {
 
+               LinkedHashSet<String> cardinalityImports = new LinkedHashSet<String>();
+
+               for(Relation relation : entidad.getRelations()) {
+
+                   switch (relation.getCardinality()) {
+                       case "1..1":
+                            cardinalityImports.add("import javax.persistence.OneToOne;");
+                            break;
+
+                       case "*..1":
+                            cardinalityImports.add("import javax.persistence.ManyToOne;");
+                            break;
+
+                       case "1..*":
+                            cardinalityImports.add("import javax.persistence.OneToMany;");
+                            break;
+
+                       case "*..*":
+                            cardinalityImports.add("import javax.persistence.ManyToMany;");
+                            break;
+
+                   } // switch
+
+               }
+
+               for (String impor : cardinalityImports) {
+                   imports.add(impor);
+               }
+
                EntityH2 entityH2 = new EntityH2(groupIds.getArtifactId(),groupIds.getGroupId(),entidad,imports);
                Utils.fileMake(pathDocs+"."+artifactId+".h2.war.src.main.java."+groupIds.getGroupId(),entidad.getName()+".java", entityH2);
 
@@ -139,7 +168,7 @@ public class Models{
 
         Utils.fileJar("webH2/webapp/admin","index.html",pathDocs+"\\"+artifactId+"\\h2\\war\\src\\main\\webapp\\admin\\",fileJar);
         Utils.fileJar("webH2/webapp/admin","index.xhtml",pathDocs+"\\"+artifactId+"\\h2\\war\\src\\main\\webapp\\admin\\",fileJar);
-*/        
+*/
 
         Utils.fileJar("webH2/webapp/resources","add.png",pathDocs+"\\"+artifactId+"\\h2\\war\\src\\main\\webapp\\resources\\",fileJar);
         Utils.fileJar("webH2/webapp/resources","bootstrap.css",pathDocs+"\\"+artifactId+"\\h2\\war\\src\\main\\webapp\\resources\\",fileJar);

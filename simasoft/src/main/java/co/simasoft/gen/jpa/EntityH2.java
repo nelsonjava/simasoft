@@ -72,18 +72,23 @@ public EntityH2(String artifactId,String groupId,Entidad entity,LinkedHashSet<St
 //>>FIN PAQUETE DE LA CLASE
 
 //>>IMPORTS DE LA CLASE
+      line("import java.io.Serializable;");
+      line("import java.util.Set;");
+      line("import java.util.HashSet;\n");
+
+      line("import javax.persistence.Entity;");
+      line("import javax.persistence.Id;");
+      line("import javax.persistence.Version;");
+      line("import javax.persistence.GenerationType;");
+      line("import javax.persistence.GeneratedValue;");
+      line("import javax.persistence.FetchType;\n");
+
       for (String impor : imports) {
          line(impor);
       }
-
       line("");
-
-      line("import java.io.*;");
-      line("import java.util.*;\n");
-
-      line("import javax.persistence.*;");
-      line("import javax.validation.constraints.*;\n");
 //>>FIN IMPORTS DE LA CLASE
+
 
 //>>DOCUMENTACION DE LA CLASE
 //>>FIN DOCUMENTACION DE LA CLASE

@@ -24,64 +24,6 @@ public class Setup {
 
     public void data() {
 
-//      ---------------------- Cardinalities -------------------------
-
-        Cardinalities oto = new Cardinalities();
-        oto.setOrden(1L);
-        oto.setCardinality("1..1");
-        oto.setName("Uno a Uno Unidireccional No.1");
-        oto.setUnidireccional(true);
-        em.persist(oto);
-        em.flush();
-
-        Cardinalities oob = new Cardinalities();
-        oob.setOrden(2L);
-        oob.setCardinality("1..1");
-        oob.setName("Uno a Uno Bidirecccional No.2");
-        oob.setUnidireccional(false);
-        em.persist(oob);
-        em.flush();
-
-        Cardinalities mto = new Cardinalities();
-        mto.setOrden(3L);
-        mto.setCardinality("*..1");
-        mto.setName("Muchos a Uno Unidireccional No.3");
-        mto.setUnidireccional(true);
-        em.persist(mto);
-        em.flush();
-
-        Cardinalities otm = new Cardinalities();
-        otm.setOrden(4L);
-        otm.setCardinality("1..*");
-        otm.setName("Uno a Muchos Unidireccional No.4");
-        otm.setUnidireccional(true);
-        em.persist(otm);
-        em.flush();
-
-        Cardinalities omb = new Cardinalities();
-        omb.setOrden(5L);
-        omb.setCardinality("1..*");
-        omb.setName("Uno a Muchos Bidirecccional No.5");
-        omb.setUnidireccional(false);
-        em.persist(omb);
-        em.flush();
-
-        Cardinalities mtm = new Cardinalities();
-        mtm.setOrden(6L);
-        mtm.setCardinality("*..*");
-        mtm.setName("Muchos a Muchos Unidireccional No.6");
-        mtm.setUnidireccional(true);
-        em.persist(mtm);
-        em.flush();
-
-        Cardinalities mmb = new Cardinalities();
-        mmb.setOrden(7L);
-        mmb.setCardinality("*..*");
-        mmb.setName("Muchos a Muchos Bidirecccional No.7");
-        mmb.setUnidireccional(false);
-        em.persist(mmb);
-        em.flush();
-
 //      ---------------------- Dependency ------------------------
 
         Dependency persistence_api = new Dependency();
@@ -127,86 +69,236 @@ public class Setup {
 
         Imports imports1 = new Imports();
         imports1.setOrden(1L);
-        imports1.setName("import javax.persistence.Column;");
+        imports1.setName("import javax.persistence.Entity;");
         imports1.setDependency(persistence_api);
         em.persist(imports1);
         em.flush();
 
         Imports imports2 = new Imports();
         imports2.setOrden(2L);
-        imports2.setName("import javax.persistence.Basic;");
+        imports2.setName("import javax.persistence.Id;");
         imports2.setDependency(persistence_api);
         em.persist(imports2);
         em.flush();
 
-        Imports imports22 = new Imports();
-        imports22.setOrden(3L);
-        imports22.setName("import javax.persistence.Lob;");
-        imports22.setDependency(persistence_api);
-        em.persist(imports22);
-        em.flush();
-
-        Imports imports24 = new Imports();
-        imports24.setOrden(4L);
-        imports24.setName("import javax.persistence.FetchType;");
-        imports24.setDependency(persistence_api);
-        em.persist(imports24);
-        em.flush();
-
-        Imports imports23 = new Imports();
-        imports23.setOrden(5L);
-        imports23.setName("import javax.persistence.CascadeType;");
-        imports23.setDependency(persistence_api);
-        em.persist(imports23);
-        em.flush();
-
         Imports imports3 = new Imports();
-        imports3.setOrden(6L);
-        imports3.setName("import javax.validation.constraints.NotNull;");
-        imports3.setDependency(validation_api);
+        imports3.setOrden(3L);
+        imports3.setName("import javax.persistence.Version;");
+        imports3.setDependency(persistence_api);
         em.persist(imports3);
         em.flush();
 
         Imports imports4 = new Imports();
-        imports4.setOrden(7L);
-        imports4.setName("import javax.validation.constraints.Size;");
-        imports4.setDependency(validation_api);
+        imports4.setOrden(4L);
+        imports4.setName("import javax.persistence.GenerationType;");
+        imports4.setDependency(persistence_api);
         em.persist(imports4);
         em.flush();
 
         Imports imports5 = new Imports();
-        imports5.setOrden(8L);
-        imports5.setName("import javax.validation.constraints.Pattern;");
-        imports5.setDependency(validation_api);
+        imports5.setOrden(5L);
+        imports5.setName("import javax.persistence.GeneratedValue;");
+        imports5.setDependency(persistence_api);
         em.persist(imports5);
         em.flush();
 
         Imports imports6 = new Imports();
-        imports6.setOrden(9L);
-        imports6.setName("import javax.validation.constraints.Digits;");
-        imports6.setDependency(validation_api);
+        imports6.setOrden(6L);
+        imports6.setName("import javax.persistence.FetchType;");
+        imports6.setDependency(persistence_api);
         em.persist(imports6);
         em.flush();
 
         Imports imports7 = new Imports();
-        imports7.setOrden(10L);
-        imports7.setName("import org.hibernate.validator.Length;");
-        imports7.setDependency(hibernate_validator);
+        imports7.setOrden(7L);
+        imports7.setName("import javax.persistence.OneToOne;");
+        imports7.setDependency(persistence_api);
         em.persist(imports7);
         em.flush();
 
         Imports imports8 = new Imports();
-        imports8.setOrden(11L);
-        imports8.setName("import org.hibernate.validator.constraints.NotEmpty;");
-        imports8.setDependency(hibernate_validator);
+        imports8.setOrden(8L);
+        imports8.setName("import javax.persistence.ManyToOne;");
+        imports8.setDependency(persistence_api);
         em.persist(imports8);
         em.flush();
 
         Imports imports9 = new Imports();
-        imports9.setOrden(12L);
-        imports9.setName("import org.hibernate.validator.constraints.Email;");
-        imports9.setDependency(hibernate_validator);
+        imports9.setOrden(9L);
+        imports9.setName("import javax.persistence.OneToMany;");
+        imports9.setDependency(persistence_api);
         em.persist(imports9);
+        em.flush();
+
+        Imports imports10 = new Imports();
+        imports10.setOrden(10L);
+        imports10.setName("import javax.persistence.ManyToMany;");
+        imports10.setDependency(persistence_api);
+        em.persist(imports10);
+        em.flush();
+
+        Imports imports11 = new Imports();
+        imports11.setOrden(11L);
+        imports11.setName("import javax.persistence.Column;");
+        imports11.setDependency(persistence_api);
+        em.persist(imports11); //1
+        em.flush();
+
+        Imports imports12 = new Imports();
+        imports12.setOrden(12L);
+        imports12.setName("import javax.persistence.Basic;");
+        imports12.setDependency(persistence_api);
+        em.persist(imports12); //2
+        em.flush();
+
+        Imports imports13 = new Imports();
+        imports13.setOrden(13L);
+        imports13.setName("import javax.persistence.Lob;");
+        imports13.setDependency(persistence_api);
+        em.persist(imports13); //22
+        em.flush();
+
+        Imports imports14 = new Imports();
+        imports14.setOrden(14L);
+        imports14.setName("import javax.persistence.FetchType;");
+        imports14.setDependency(persistence_api);
+        em.persist(imports14); //24
+        em.flush();
+
+        Imports imports15 = new Imports();
+        imports15.setOrden(15L);
+        imports15.setName("import javax.persistence.CascadeType;");
+        imports15.setDependency(persistence_api);
+        em.persist(imports15); //23
+        em.flush();
+
+        Imports imports16 = new Imports();
+        imports16.setOrden(16L);
+        imports16.setName("import javax.validation.constraints.NotNull;");
+        imports16.setDependency(validation_api);
+        em.persist(imports16); //3
+        em.flush();
+
+        Imports imports17 = new Imports();
+        imports17.setOrden(17L);
+        imports17.setName("import javax.validation.constraints.Size;");
+        imports17.setDependency(validation_api);
+        em.persist(imports17); //4
+        em.flush();
+
+        Imports imports18 = new Imports();
+        imports18.setOrden(18L);
+        imports18.setName("import javax.validation.constraints.Pattern;");
+        imports18.setDependency(validation_api);
+        em.persist(imports18); //5
+        em.flush();
+
+        Imports imports19 = new Imports();
+        imports19.setOrden(19L);
+        imports19.setName("import javax.validation.constraints.Digits;");
+        imports19.setDependency(validation_api);
+        em.persist(imports19); //6
+        em.flush();
+
+        Imports imports20 = new Imports();
+        imports20.setOrden(20L);
+        imports20.setName("import org.hibernate.validator.Length;");
+        imports20.setDependency(hibernate_validator);
+        em.persist(imports20); //7
+        em.flush();
+
+        Imports imports21 = new Imports();
+        imports21.setOrden(21L);
+        imports21.setName("import org.hibernate.validator.constraints.NotEmpty;");
+        imports21.setDependency(hibernate_validator);
+        em.persist(imports21); //8
+        em.flush();
+
+        Imports imports22 = new Imports();
+        imports22.setOrden(22L);
+        imports22.setName("import org.hibernate.validator.constraints.Email;");
+        imports22.setDependency(hibernate_validator);
+        em.persist(imports22); //9
+        em.flush();
+
+
+//      ---------------------- Cardinalities -------------------------
+
+        Cardinalities oto = new Cardinalities();
+        oto.setOrden(1L);
+        oto.setCardinality("1..1");
+        oto.setName("Uno a Uno Unidireccional No.1");
+        oto.setUnidireccional(true);
+        Set<Imports> importsOto = new HashSet<Imports>();
+        importsOto.add(imports7);
+        oto.setImports(importsOto);
+        em.persist(oto);
+        em.flush();
+
+        Cardinalities oob = new Cardinalities();
+        oob.setOrden(2L);
+        oob.setCardinality("1..1");
+        oob.setName("Uno a Uno Bidirecccional No.2");
+        oob.setUnidireccional(false);
+        Set<Imports> importsOob = new HashSet<Imports>();
+        importsOob.add(imports7);
+        oob.setImports(importsOob);
+        em.persist(oob);
+        em.flush();
+
+        Cardinalities mto = new Cardinalities();
+        mto.setOrden(3L);
+        mto.setCardinality("*..1");
+        mto.setName("Muchos a Uno Unidireccional No.3");
+        mto.setUnidireccional(true);
+        Set<Imports> importsMto = new HashSet<Imports>();
+        importsMto.add(imports8);
+        mto.setImports(importsMto);
+        em.persist(mto);
+        em.flush();
+
+        Cardinalities otm = new Cardinalities();
+        otm.setOrden(4L);
+        otm.setCardinality("1..*");
+        otm.setName("Uno a Muchos Unidireccional No.4");
+        otm.setUnidireccional(true);
+        Set<Imports> importsOtm = new HashSet<Imports>();
+        importsOtm.add(imports9);
+        otm.setImports(importsOtm);
+        em.persist(otm);
+        em.flush();
+
+        Cardinalities omb = new Cardinalities();
+        omb.setOrden(5L);
+        omb.setCardinality("1..*");
+        omb.setName("Uno a Muchos Bidirecccional No.5");
+        omb.setUnidireccional(false);
+        Set<Imports> importsOmb = new HashSet<Imports>();
+        importsOmb.add(imports9);
+        omb.setImports(importsOmb);
+        em.persist(omb);
+        em.flush();
+
+        Cardinalities mtm = new Cardinalities();
+        mtm.setOrden(6L);
+        mtm.setCardinality("*..*");
+        mtm.setName("Muchos a Muchos Unidireccional No.6");
+        mtm.setUnidireccional(true);
+        Set<Imports> importsMtm = new HashSet<Imports>();
+        importsMtm.add(imports10);
+        mtm.setImports(importsMtm);
+        em.persist(mtm);
+        em.flush();
+
+        Cardinalities mmb = new Cardinalities();
+        mmb.setOrden(7L);
+        mmb.setCardinality("*..*");
+        mmb.setName("Muchos a Muchos Bidirecccional No.7");
+        mmb.setUnidireccional(false);
+        Set<Imports> importsMmb = new HashSet<Imports>();
+        importsMmb.add(imports10);
+        mmb.setImports(importsMmb);
+        em.persist(mmb);
         em.flush();
 
 //      ---------------------- PropertiesAttributes -------------------------
@@ -216,7 +308,7 @@ public class Setup {
         varNotNull.setName("@NotNull");
         varNotNull.setValue("@NotNull");
         Set<Imports> importsNotNull = new HashSet<Imports>();
-        importsNotNull.add(imports3);
+        importsNotNull.add(imports16);
         varNotNull.setImports(importsNotNull);
         em.persist(varNotNull);
         em.flush();
@@ -226,7 +318,7 @@ public class Setup {
         varSize0125.setName("@Size0125");
         varSize0125.setValue("@Size(min = 1, max = 25)");
         Set<Imports> importsSize0125 = new HashSet<Imports>();
-        importsSize0125.add(imports4);
+        importsSize0125.add(imports17);
         varSize0125.setImports(importsSize0125);
         em.persist(varSize0125);
         em.flush();
@@ -236,7 +328,7 @@ public class Setup {
         varSize0912.setName("@Size0912");
         varSize0912.setValue("@Size(min = 9, max = 12)");
         Set<Imports> importsSize0912 = new HashSet<Imports>();
-        importsSize0912.add(imports4);
+        importsSize0912.add(imports17);
         varSize0912.setImports(importsSize0912);
         em.persist(varSize0912);
         em.flush();
@@ -246,7 +338,7 @@ public class Setup {
         varLength0125.setName("@Length0125");
         varLength0125.setValue("@Length(min = 1, max = 25, message = \"Size must be between 1 and 25 digits\")");
         Set<Imports> importsLength0125 = new HashSet<Imports>();
-        importsLength0125.add(imports7);
+        importsLength0125.add(imports20);
         varLength0125.setImports(importsLength0125);
         em.persist(varLength0125);
         em.flush();
@@ -256,7 +348,7 @@ public class Setup {
         varLength0912.setName("@Length0912");
         varLength0912.setValue("@Length(min = 9, max = 12, message = \"Size must be between 9 and 12 digits\")");
         Set<Imports> importsLength0912 = new HashSet<Imports>();
-        importsLength0912.add(imports7);
+        importsLength0912.add(imports20);
         varLength0912.setImports(importsLength0912);
         em.persist(varLength0912);
         em.flush();
@@ -266,7 +358,7 @@ public class Setup {
         varPattern1.setName("@Pattern1");
         varPattern1.setValue("@Pattern(regexp = \"[A-Za-z ]*\", message = \"must contain only letters and spaces\")");
         Set<Imports> importsPattern1 = new HashSet<Imports>();
-        importsPattern1.add(imports5);
+        importsPattern1.add(imports18);
         varPattern1.setImports(importsPattern1);
         em.persist(varPattern1);
         em.flush();
@@ -276,7 +368,7 @@ public class Setup {
         varPattern2.setName("@Pattern2");
         varPattern2.setValue("@Pattern(regexp = \"[^0-9]*\", message = \"Must not contain numbers\")");
         Set<Imports> importsPattern2 = new HashSet<Imports>();
-        importsPattern2.add(imports5);
+        importsPattern2.add(imports18);
         varPattern2.setImports(importsPattern2);
         em.persist(varPattern2);
         em.flush();
@@ -286,7 +378,7 @@ public class Setup {
         varNotEmpty.setName("@NotEmpty");
         varNotEmpty.setValue("@NotEmpty");
         Set<Imports> importsNotEmpty = new HashSet<Imports>();
-        importsNotEmpty.add(imports8);
+        importsNotEmpty.add(imports21);
         varNotEmpty.setImports(importsNotEmpty);
         em.persist(varNotEmpty);
         em.flush();
@@ -296,7 +388,7 @@ public class Setup {
         varEmail.setName("@Email");
         varEmail.setValue("@Email(message = \"Invalid format\")");
         Set<Imports> importsEmail = new HashSet<Imports>();
-        importsEmail.add(imports9);
+        importsEmail.add(imports22);
         varEmail.setImports(importsEmail);
         em.persist(varEmail);
         em.flush();
@@ -306,7 +398,7 @@ public class Setup {
         varDigits0012.setName("@Digits0012");
         varDigits0012.setValue("@Digits(fractionalDigits = 0, integerDigits = 12, message = \"Not allowed digit!\")");
         Set<Imports> importsDigits0012 = new HashSet<Imports>();
-        importsDigits0012.add(imports6);
+        importsDigits0012.add(imports19);
         varDigits0012.setImports(importsDigits0012);
         em.persist(varDigits0012);
         em.flush();
@@ -316,7 +408,7 @@ public class Setup {
         varColumn.setName("@Column");
         varColumn.setValue("@Column");
         Set<Imports> importsColumn = new HashSet<Imports>();
-        importsColumn.add(imports1);
+        importsColumn.add(imports11);
         varColumn.setImports(importsColumn);
         em.persist(varColumn);
         em.flush();
@@ -326,7 +418,7 @@ public class Setup {
         varColumn1.setName("@Column1");
         varColumn1.setValue("@Column(name=\"file\")");
         Set<Imports> importsColumn1 = new HashSet<Imports>();
-        importsColumn1.add(imports1);
+        importsColumn1.add(imports11);
         varColumn1.setImports(importsColumn1);
         em.persist(varColumn1);
         em.flush();
@@ -336,7 +428,7 @@ public class Setup {
         varNullUnique1.setName("NullUnique1");
         varNullUnique1.setValue("@Column(nullable = true, unique = true)");
         Set<Imports> importsNullUnique1 = new HashSet<Imports>();
-        importsNullUnique1.add(imports1);
+        importsNullUnique1.add(imports11);
         varNullUnique1.setImports(importsNullUnique1);
         em.persist(varNullUnique1);
         em.flush();
@@ -346,7 +438,7 @@ public class Setup {
         varNullUnique2.setName("NullUnique2");
         varNullUnique2.setValue("@Column(nullable = true, unique = false)");
         Set<Imports> importsNullUnique2 = new HashSet<Imports>();
-        importsNullUnique2.add(imports1);
+        importsNullUnique2.add(imports11);
         varNullUnique2.setImports(importsNullUnique2);
         em.persist(varNullUnique2);
         em.flush();
@@ -356,7 +448,7 @@ public class Setup {
         varNullUnique3.setName("NullUnique3");
         varNullUnique3.setValue("@Column(nullable = false, unique = true)");
         Set<Imports> importsNullUnique3 = new HashSet<Imports>();
-        importsNullUnique3.add(imports1);
+        importsNullUnique3.add(imports11);
         varNullUnique3.setImports(importsNullUnique3);
         em.persist(varNullUnique3);
         em.flush();
@@ -366,7 +458,7 @@ public class Setup {
         varNullUnique4.setName("NullUnique4");
         varNullUnique4.setValue("@Column(nullable = false, unique = false)");
         Set<Imports> importsNullUnique4 = new HashSet<Imports>();
-        importsNullUnique4.add(imports1);
+        importsNullUnique4.add(imports11);
         varNullUnique4.setImports(importsNullUnique4);
         em.persist(varNullUnique4);
         em.flush();
@@ -376,7 +468,7 @@ public class Setup {
         varBasic.setName("@Basic");
         varBasic.setValue("@Basic");
         Set<Imports> importsBasic = new HashSet<Imports>();
-        importsBasic.add(imports2);
+        importsBasic.add(imports12);
         varBasic.setImports(importsBasic);
         em.persist(varBasic);
         em.flush();
@@ -386,7 +478,7 @@ public class Setup {
         varBasic1.setName("@Basic1");
         varBasic1.setValue("@Basic(fetch=FetchType.LAZY)");
         Set<Imports> importsBasic1 = new HashSet<Imports>();
-        importsBasic1.add(imports2);
+        importsBasic1.add(imports12);
         varBasic1.setImports(importsBasic1);
         em.persist(varBasic1);
         em.flush();
@@ -396,7 +488,7 @@ public class Setup {
         varLob.setName("@Lob");
         varLob.setValue("@Lob");
         Set<Imports> importsLob = new HashSet<Imports>();
-        importsLob.add(imports22);
+        importsLob.add(imports13);
         varLob.setImports(importsLob);
         em.persist(varLob);
         em.flush();
