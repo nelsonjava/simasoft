@@ -91,7 +91,7 @@ public class PowerDesigner {
                                       field = campo.getTextContent();
                                       atri.setField(Utils.typeField(field));
                                       atri.setDescription("Pendiente");
-                                      atri.setUnique(Utils.isFieldNull(field));
+                                      atri.setNulo(!Utils.isFieldNull(field));
 
                                    } // if (campo.getNodeName().equals("a:Name"))
 
@@ -102,8 +102,7 @@ public class PowerDesigner {
                                       else {
                                            atri.setType(Utils.typeField(type));
                                            atri.setLength(Utils.lenField(type));
-                                           atri.setNulo(Utils.isFieldNull(type));
-
+                                           atri.setUnique(Utils.isFieldNull(type));
                                            atr.add(atri);
                                       } // else
                                    } // if (campo.getNodeName().equals("a:DataType"))
