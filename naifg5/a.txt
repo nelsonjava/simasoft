@@ -22,182 +22,33 @@
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ naifg5 ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 33 source files to d:\dev\njava\simasoft\naifg5\target\classes
-[INFO] -------------------------------------------------------------
-[ERROR] COMPILATION ERROR : 
-[INFO] -------------------------------------------------------------
-[ERROR] /d:/dev/njava/simasoft/naifg5/src/main/java/co/simasoft/setup/Setup.java:[219,19] method setImports in class co.simasoft.models.naif.domainmodels.PropertiesAttributes cannot be applied to given types;
-  required: java.util.Set<co.simasoft.models.naif.domainmodels.Imports>
-  found: co.simasoft.models.naif.domainmodels.Imports
-  reason: actual argument co.simasoft.models.naif.domainmodels.Imports cannot be converted to java.util.Set<co.simasoft.models.naif.domainmodels.Imports> by method invocation conversion
-[ERROR] /d:/dev/njava/simasoft/naifg5/src/main/java/co/simasoft/setup/Setup.java:[227,20] method setImports in class co.simasoft.models.naif.domainmodels.PropertiesAttributes cannot be applied to given types;
-  required: java.util.Set<co.simasoft.models.naif.domainmodels.Imports>
-  found: co.simasoft.models.naif.domainmodels.Imports
-  reason: actual argument co.simasoft.models.naif.domainmodels.Imports cannot be converted to java.util.Set<co.simasoft.models.naif.domainmodels.Imports> by method invocation conversion
-[ERROR] /d:/dev/njava/simasoft/naifg5/src/main/java/co/simasoft/setup/Setup.java:[235,20] method setImports in class co.simasoft.models.naif.domainmodels.PropertiesAttributes cannot be applied to given types;
-  required: java.util.Set<co.simasoft.models.naif.domainmodels.Imports>
-  found: co.simasoft.models.naif.domainmodels.Imports
-  reason: actual argument co.simasoft.models.naif.domainmodels.Imports cannot be converted to java.util.Set<co.simasoft.models.naif.domainmodels.Imports> by method invocation conversion
-[ERROR] /d:/dev/njava/simasoft/naifg5/src/main/java/co/simasoft/setup/Setup.java:[243,22] method setImports in class co.simasoft.models.naif.domainmodels.PropertiesAttributes cannot be applied to given types;
-  required: java.util.Set<co.simasoft.models.naif.domainmodels.Imports>
-  found: co.simasoft.models.naif.domainmodels.Imports
-  reason: actual argument co.simasoft.models.naif.domainmodels.Imports cannot be converted to java.util.Set<co.simasoft.models.naif.domainmodels.Imports> by method invocation conversion
-[ERROR] /d:/dev/njava/simasoft/naifg5/src/main/java/co/simasoft/setup/Setup.java:[251,22] method setImports in class co.simasoft.models.naif.domainmodels.PropertiesAttributes cannot be applied to given types;
-  required: java.util.Set<co.simasoft.models.naif.domainmodels.Imports>
-  found: co.simasoft.models.naif.domainmodels.Imports
-  reason: actual argument co.simasoft.models.naif.domainmodels.Imports cannot be converted to java.util.Set<co.simasoft.models.naif.domainmodels.Imports> by method invocation conversion
-[ERROR] /d:/dev/njava/simasoft/naifg5/src/main/java/co/simasoft/setup/Setup.java:[259,20] method setImports in class co.simasoft.models.naif.domainmodels.PropertiesAttributes cannot be applied to given types;
-  required: java.util.Set<co.simasoft.models.naif.domainmodels.Imports>
-  found: co.simasoft.models.naif.domainmodels.Imports
-  reason: actual argument co.simasoft.models.naif.domainmodels.Imports cannot be converted to java.util.Set<co.simasoft.models.naif.domainmodels.Imports> by method invocation conversion
-[ERROR] /d:/dev/njava/simasoft/naifg5/src/main/java/co/simasoft/setup/Setup.java:[267,20] method setImports in class co.simasoft.models.naif.domainmodels.PropertiesAttributes cannot be applied to given types;
-  required: java.util.Set<co.simasoft.models.naif.domainmodels.Imports>
-  found: co.simasoft.models.naif.domainmodels.Imports
-  reason: actual argument co.simasoft.models.naif.domainmodels.Imports cannot be converted to java.util.Set<co.simasoft.models.naif.domainmodels.Imports> by method invocation conversion
-[ERROR] /d:/dev/njava/simasoft/naifg5/src/main/java/co/simasoft/setup/Setup.java:[275,20] method setImports in class co.simasoft.models.naif.domainmodels.PropertiesAttributes cannot be applied to given types;
-  required: java.util.Set<co.simasoft.models.naif.domainmodels.Imports>
-  found: co.simasoft.models.naif.domainmodels.Imports
-  reason: actual argument co.simasoft.models.naif.domainmodels.Imports cannot be converted to java.util.Set<co.simasoft.models.naif.domainmodels.Imports> by method invocation conversion
-[ERROR] /d:/dev/njava/simasoft/naifg5/src/main/java/co/simasoft/setup/Setup.java:[283,17] method setImports in class co.simasoft.models.naif.domainmodels.PropertiesAttributes cannot be applied to given types;
-  required: java.util.Set<co.simasoft.models.naif.domainmodels.Imports>
-  found: co.simasoft.models.naif.domainmodels.Imports
-  reason: actual argument co.simasoft.models.naif.domainmodels.Imports cannot be converted to java.util.Set<co.simasoft.models.naif.domainmodels.Imports> by method invocation conversion
-[ERROR] /d:/dev/njava/simasoft/naifg5/src/main/java/co/simasoft/setup/Setup.java:[291,22] method setImports in class co.simasoft.models.naif.domainmodels.PropertiesAttributes cannot be applied to given types;
-  required: java.util.Set<co.simasoft.models.naif.domainmodels.Imports>
-  found: co.simasoft.models.naif.domainmodels.Imports
-  reason: actual argument co.simasoft.models.naif.domainmodels.Imports cannot be converted to java.util.Set<co.simasoft.models.naif.domainmodels.Imports> by method invocation conversion
-[ERROR] /d:/dev/njava/simasoft/naifg5/src/main/java/co/simasoft/setup/Setup.java:[299,18] method setImports in class co.simasoft.models.naif.domainmodels.PropertiesAttributes cannot be applied to given types;
-  required: java.util.Set<co.simasoft.models.naif.domainmodels.Imports>
-  found: co.simasoft.models.naif.domainmodels.Imports
-  reason: actual argument co.simasoft.models.naif.domainmodels.Imports cannot be converted to java.util.Set<co.simasoft.models.naif.domainmodels.Imports> by method invocation conversion
-[ERROR] /d:/dev/njava/simasoft/naifg5/src/main/java/co/simasoft/setup/Setup.java:[307,19] method setImports in class co.simasoft.models.naif.domainmodels.PropertiesAttributes cannot be applied to given types;
-  required: java.util.Set<co.simasoft.models.naif.domainmodels.Imports>
-  found: co.simasoft.models.naif.domainmodels.Imports
-  reason: actual argument co.simasoft.models.naif.domainmodels.Imports cannot be converted to java.util.Set<co.simasoft.models.naif.domainmodels.Imports> by method invocation conversion
-[ERROR] /d:/dev/njava/simasoft/naifg5/src/main/java/co/simasoft/setup/Setup.java:[315,23] method setImports in class co.simasoft.models.naif.domainmodels.PropertiesAttributes cannot be applied to given types;
-  required: java.util.Set<co.simasoft.models.naif.domainmodels.Imports>
-  found: co.simasoft.models.naif.domainmodels.Imports
-  reason: actual argument co.simasoft.models.naif.domainmodels.Imports cannot be converted to java.util.Set<co.simasoft.models.naif.domainmodels.Imports> by method invocation conversion
-[ERROR] /d:/dev/njava/simasoft/naifg5/src/main/java/co/simasoft/setup/Setup.java:[323,23] method setImports in class co.simasoft.models.naif.domainmodels.PropertiesAttributes cannot be applied to given types;
-  required: java.util.Set<co.simasoft.models.naif.domainmodels.Imports>
-  found: co.simasoft.models.naif.domainmodels.Imports
-  reason: actual argument co.simasoft.models.naif.domainmodels.Imports cannot be converted to java.util.Set<co.simasoft.models.naif.domainmodels.Imports> by method invocation conversion
-[ERROR] /d:/dev/njava/simasoft/naifg5/src/main/java/co/simasoft/setup/Setup.java:[331,23] method setImports in class co.simasoft.models.naif.domainmodels.PropertiesAttributes cannot be applied to given types;
-  required: java.util.Set<co.simasoft.models.naif.domainmodels.Imports>
-  found: co.simasoft.models.naif.domainmodels.Imports
-  reason: actual argument co.simasoft.models.naif.domainmodels.Imports cannot be converted to java.util.Set<co.simasoft.models.naif.domainmodels.Imports> by method invocation conversion
-[ERROR] /d:/dev/njava/simasoft/naifg5/src/main/java/co/simasoft/setup/Setup.java:[339,23] method setImports in class co.simasoft.models.naif.domainmodels.PropertiesAttributes cannot be applied to given types;
-  required: java.util.Set<co.simasoft.models.naif.domainmodels.Imports>
-  found: co.simasoft.models.naif.domainmodels.Imports
-  reason: actual argument co.simasoft.models.naif.domainmodels.Imports cannot be converted to java.util.Set<co.simasoft.models.naif.domainmodels.Imports> by method invocation conversion
-[ERROR] /d:/dev/njava/simasoft/naifg5/src/main/java/co/simasoft/setup/Setup.java:[347,17] method setImports in class co.simasoft.models.naif.domainmodels.PropertiesAttributes cannot be applied to given types;
-  required: java.util.Set<co.simasoft.models.naif.domainmodels.Imports>
-  found: co.simasoft.models.naif.domainmodels.Imports
-  reason: actual argument co.simasoft.models.naif.domainmodels.Imports cannot be converted to java.util.Set<co.simasoft.models.naif.domainmodels.Imports> by method invocation conversion
-[ERROR] /d:/dev/njava/simasoft/naifg5/src/main/java/co/simasoft/setup/Setup.java:[355,18] method setImports in class co.simasoft.models.naif.domainmodels.PropertiesAttributes cannot be applied to given types;
-  required: java.util.Set<co.simasoft.models.naif.domainmodels.Imports>
-  found: co.simasoft.models.naif.domainmodels.Imports
-  reason: actual argument co.simasoft.models.naif.domainmodels.Imports cannot be converted to java.util.Set<co.simasoft.models.naif.domainmodels.Imports> by method invocation conversion
-[ERROR] /d:/dev/njava/simasoft/naifg5/src/main/java/co/simasoft/setup/Setup.java:[363,15] method setImports in class co.simasoft.models.naif.domainmodels.PropertiesAttributes cannot be applied to given types;
-  required: java.util.Set<co.simasoft.models.naif.domainmodels.Imports>
-  found: co.simasoft.models.naif.domainmodels.Imports
-  reason: actual argument co.simasoft.models.naif.domainmodels.Imports cannot be converted to java.util.Set<co.simasoft.models.naif.domainmodels.Imports> by method invocation conversion
-[ERROR] /d:/dev/njava/simasoft/naifg5/src/main/java/co/simasoft/setup/DomainModelsGen.java:[67,70] cannot find symbol
-  symbol:   method getName()
-  location: interface java.util.Set<co.simasoft.models.naif.domainmodels.Imports>
-[INFO] 20 errors 
-[INFO] -------------------------------------------------------------
+[INFO] Compiling 34 source files to d:\dev\njava\simasoft\naifg5\target\classes
+[WARNING] /d:/dev/njava/simasoft/naifg5/src/main/java/co/simasoft/setup/DomainModelsSetup.java: d:\dev\njava\simasoft\naifg5\src\main\java\co\simasoft\setup\DomainModelsSetup.java uses unchecked or unsafe operations.
+[WARNING] /d:/dev/njava/simasoft/naifg5/src/main/java/co/simasoft/setup/DomainModelsSetup.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ naifg5 ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory d:\dev\njava\simasoft\naifg5\src\test\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ naifg5 ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ naifg5 ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] --- maven-war-plugin:2.1.1:war (default-war) @ naifg5 ---
+[INFO] Packaging webapp
+[INFO] Assembling webapp [naifg5] in [d:\dev\njava\simasoft\naifg5\target\naifg5]
+[INFO] Processing war project
+[INFO] Copying webapp resources [d:\dev\njava\simasoft\naifg5\src\main\webapp]
+[INFO] Webapp assembled in [2835 msecs]
+[INFO] Building war: d:\dev\njava\simasoft\naifg5\target\naifg5.war
+[WARNING] Warning: selected war files include a WEB-INF/web.xml which will be ignored 
+(webxml attribute is missing from war task, or ignoreWebxml attribute is specified as 'true')
 [INFO] ------------------------------------------------------------------------
-[INFO] BUILD FAILURE
+[INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 2.338s
-[INFO] Finished at: Tue May 19 15:07:07 COT 2015
-[INFO] Final Memory: 16M/48M
+[INFO] Total time: 7.938s
+[INFO] Finished at: Fri May 22 10:58:22 COT 2015
+[INFO] Final Memory: 17M/50M
 [INFO] ------------------------------------------------------------------------
-[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.1:compile (default-compile) on project naifg5: Compilation failure: Compilation failure:
-[ERROR] /d:/dev/njava/simasoft/naifg5/src/main/java/co/simasoft/setup/Setup.java:[219,19] method setImports in class co.simasoft.models.naif.domainmodels.PropertiesAttributes cannot be applied to given types;
-[ERROR] required: java.util.Set<co.simasoft.models.naif.domainmodels.Imports>
-[ERROR] found: co.simasoft.models.naif.domainmodels.Imports
-[ERROR] reason: actual argument co.simasoft.models.naif.domainmodels.Imports cannot be converted to java.util.Set<co.simasoft.models.naif.domainmodels.Imports> by method invocation conversion
-[ERROR] /d:/dev/njava/simasoft/naifg5/src/main/java/co/simasoft/setup/Setup.java:[227,20] method setImports in class co.simasoft.models.naif.domainmodels.PropertiesAttributes cannot be applied to given types;
-[ERROR] required: java.util.Set<co.simasoft.models.naif.domainmodels.Imports>
-[ERROR] found: co.simasoft.models.naif.domainmodels.Imports
-[ERROR] reason: actual argument co.simasoft.models.naif.domainmodels.Imports cannot be converted to java.util.Set<co.simasoft.models.naif.domainmodels.Imports> by method invocation conversion
-[ERROR] /d:/dev/njava/simasoft/naifg5/src/main/java/co/simasoft/setup/Setup.java:[235,20] method setImports in class co.simasoft.models.naif.domainmodels.PropertiesAttributes cannot be applied to given types;
-[ERROR] required: java.util.Set<co.simasoft.models.naif.domainmodels.Imports>
-[ERROR] found: co.simasoft.models.naif.domainmodels.Imports
-[ERROR] reason: actual argument co.simasoft.models.naif.domainmodels.Imports cannot be converted to java.util.Set<co.simasoft.models.naif.domainmodels.Imports> by method invocation conversion
-[ERROR] /d:/dev/njava/simasoft/naifg5/src/main/java/co/simasoft/setup/Setup.java:[243,22] method setImports in class co.simasoft.models.naif.domainmodels.PropertiesAttributes cannot be applied to given types;
-[ERROR] required: java.util.Set<co.simasoft.models.naif.domainmodels.Imports>
-[ERROR] found: co.simasoft.models.naif.domainmodels.Imports
-[ERROR] reason: actual argument co.simasoft.models.naif.domainmodels.Imports cannot be converted to java.util.Set<co.simasoft.models.naif.domainmodels.Imports> by method invocation conversion
-[ERROR] /d:/dev/njava/simasoft/naifg5/src/main/java/co/simasoft/setup/Setup.java:[251,22] method setImports in class co.simasoft.models.naif.domainmodels.PropertiesAttributes cannot be applied to given types;
-[ERROR] required: java.util.Set<co.simasoft.models.naif.domainmodels.Imports>
-[ERROR] found: co.simasoft.models.naif.domainmodels.Imports
-[ERROR] reason: actual argument co.simasoft.models.naif.domainmodels.Imports cannot be converted to java.util.Set<co.simasoft.models.naif.domainmodels.Imports> by method invocation conversion
-[ERROR] /d:/dev/njava/simasoft/naifg5/src/main/java/co/simasoft/setup/Setup.java:[259,20] method setImports in class co.simasoft.models.naif.domainmodels.PropertiesAttributes cannot be applied to given types;
-[ERROR] required: java.util.Set<co.simasoft.models.naif.domainmodels.Imports>
-[ERROR] found: co.simasoft.models.naif.domainmodels.Imports
-[ERROR] reason: actual argument co.simasoft.models.naif.domainmodels.Imports cannot be converted to java.util.Set<co.simasoft.models.naif.domainmodels.Imports> by method invocation conversion
-[ERROR] /d:/dev/njava/simasoft/naifg5/src/main/java/co/simasoft/setup/Setup.java:[267,20] method setImports in class co.simasoft.models.naif.domainmodels.PropertiesAttributes cannot be applied to given types;
-[ERROR] required: java.util.Set<co.simasoft.models.naif.domainmodels.Imports>
-[ERROR] found: co.simasoft.models.naif.domainmodels.Imports
-[ERROR] reason: actual argument co.simasoft.models.naif.domainmodels.Imports cannot be converted to java.util.Set<co.simasoft.models.naif.domainmodels.Imports> by method invocation conversion
-[ERROR] /d:/dev/njava/simasoft/naifg5/src/main/java/co/simasoft/setup/Setup.java:[275,20] method setImports in class co.simasoft.models.naif.domainmodels.PropertiesAttributes cannot be applied to given types;
-[ERROR] required: java.util.Set<co.simasoft.models.naif.domainmodels.Imports>
-[ERROR] found: co.simasoft.models.naif.domainmodels.Imports
-[ERROR] reason: actual argument co.simasoft.models.naif.domainmodels.Imports cannot be converted to java.util.Set<co.simasoft.models.naif.domainmodels.Imports> by method invocation conversion
-[ERROR] /d:/dev/njava/simasoft/naifg5/src/main/java/co/simasoft/setup/Setup.java:[283,17] method setImports in class co.simasoft.models.naif.domainmodels.PropertiesAttributes cannot be applied to given types;
-[ERROR] required: java.util.Set<co.simasoft.models.naif.domainmodels.Imports>
-[ERROR] found: co.simasoft.models.naif.domainmodels.Imports
-[ERROR] reason: actual argument co.simasoft.models.naif.domainmodels.Imports cannot be converted to java.util.Set<co.simasoft.models.naif.domainmodels.Imports> by method invocation conversion
-[ERROR] /d:/dev/njava/simasoft/naifg5/src/main/java/co/simasoft/setup/Setup.java:[291,22] method setImports in class co.simasoft.models.naif.domainmodels.PropertiesAttributes cannot be applied to given types;
-[ERROR] required: java.util.Set<co.simasoft.models.naif.domainmodels.Imports>
-[ERROR] found: co.simasoft.models.naif.domainmodels.Imports
-[ERROR] reason: actual argument co.simasoft.models.naif.domainmodels.Imports cannot be converted to java.util.Set<co.simasoft.models.naif.domainmodels.Imports> by method invocation conversion
-[ERROR] /d:/dev/njava/simasoft/naifg5/src/main/java/co/simasoft/setup/Setup.java:[299,18] method setImports in class co.simasoft.models.naif.domainmodels.PropertiesAttributes cannot be applied to given types;
-[ERROR] required: java.util.Set<co.simasoft.models.naif.domainmodels.Imports>
-[ERROR] found: co.simasoft.models.naif.domainmodels.Imports
-[ERROR] reason: actual argument co.simasoft.models.naif.domainmodels.Imports cannot be converted to java.util.Set<co.simasoft.models.naif.domainmodels.Imports> by method invocation conversion
-[ERROR] /d:/dev/njava/simasoft/naifg5/src/main/java/co/simasoft/setup/Setup.java:[307,19] method setImports in class co.simasoft.models.naif.domainmodels.PropertiesAttributes cannot be applied to given types;
-[ERROR] required: java.util.Set<co.simasoft.models.naif.domainmodels.Imports>
-[ERROR] found: co.simasoft.models.naif.domainmodels.Imports
-[ERROR] reason: actual argument co.simasoft.models.naif.domainmodels.Imports cannot be converted to java.util.Set<co.simasoft.models.naif.domainmodels.Imports> by method invocation conversion
-[ERROR] /d:/dev/njava/simasoft/naifg5/src/main/java/co/simasoft/setup/Setup.java:[315,23] method setImports in class co.simasoft.models.naif.domainmodels.PropertiesAttributes cannot be applied to given types;
-[ERROR] required: java.util.Set<co.simasoft.models.naif.domainmodels.Imports>
-[ERROR] found: co.simasoft.models.naif.domainmodels.Imports
-[ERROR] reason: actual argument co.simasoft.models.naif.domainmodels.Imports cannot be converted to java.util.Set<co.simasoft.models.naif.domainmodels.Imports> by method invocation conversion
-[ERROR] /d:/dev/njava/simasoft/naifg5/src/main/java/co/simasoft/setup/Setup.java:[323,23] method setImports in class co.simasoft.models.naif.domainmodels.PropertiesAttributes cannot be applied to given types;
-[ERROR] required: java.util.Set<co.simasoft.models.naif.domainmodels.Imports>
-[ERROR] found: co.simasoft.models.naif.domainmodels.Imports
-[ERROR] reason: actual argument co.simasoft.models.naif.domainmodels.Imports cannot be converted to java.util.Set<co.simasoft.models.naif.domainmodels.Imports> by method invocation conversion
-[ERROR] /d:/dev/njava/simasoft/naifg5/src/main/java/co/simasoft/setup/Setup.java:[331,23] method setImports in class co.simasoft.models.naif.domainmodels.PropertiesAttributes cannot be applied to given types;
-[ERROR] required: java.util.Set<co.simasoft.models.naif.domainmodels.Imports>
-[ERROR] found: co.simasoft.models.naif.domainmodels.Imports
-[ERROR] reason: actual argument co.simasoft.models.naif.domainmodels.Imports cannot be converted to java.util.Set<co.simasoft.models.naif.domainmodels.Imports> by method invocation conversion
-[ERROR] /d:/dev/njava/simasoft/naifg5/src/main/java/co/simasoft/setup/Setup.java:[339,23] method setImports in class co.simasoft.models.naif.domainmodels.PropertiesAttributes cannot be applied to given types;
-[ERROR] required: java.util.Set<co.simasoft.models.naif.domainmodels.Imports>
-[ERROR] found: co.simasoft.models.naif.domainmodels.Imports
-[ERROR] reason: actual argument co.simasoft.models.naif.domainmodels.Imports cannot be converted to java.util.Set<co.simasoft.models.naif.domainmodels.Imports> by method invocation conversion
-[ERROR] /d:/dev/njava/simasoft/naifg5/src/main/java/co/simasoft/setup/Setup.java:[347,17] method setImports in class co.simasoft.models.naif.domainmodels.PropertiesAttributes cannot be applied to given types;
-[ERROR] required: java.util.Set<co.simasoft.models.naif.domainmodels.Imports>
-[ERROR] found: co.simasoft.models.naif.domainmodels.Imports
-[ERROR] reason: actual argument co.simasoft.models.naif.domainmodels.Imports cannot be converted to java.util.Set<co.simasoft.models.naif.domainmodels.Imports> by method invocation conversion
-[ERROR] /d:/dev/njava/simasoft/naifg5/src/main/java/co/simasoft/setup/Setup.java:[355,18] method setImports in class co.simasoft.models.naif.domainmodels.PropertiesAttributes cannot be applied to given types;
-[ERROR] required: java.util.Set<co.simasoft.models.naif.domainmodels.Imports>
-[ERROR] found: co.simasoft.models.naif.domainmodels.Imports
-[ERROR] reason: actual argument co.simasoft.models.naif.domainmodels.Imports cannot be converted to java.util.Set<co.simasoft.models.naif.domainmodels.Imports> by method invocation conversion
-[ERROR] /d:/dev/njava/simasoft/naifg5/src/main/java/co/simasoft/setup/Setup.java:[363,15] method setImports in class co.simasoft.models.naif.domainmodels.PropertiesAttributes cannot be applied to given types;
-[ERROR] required: java.util.Set<co.simasoft.models.naif.domainmodels.Imports>
-[ERROR] found: co.simasoft.models.naif.domainmodels.Imports
-[ERROR] reason: actual argument co.simasoft.models.naif.domainmodels.Imports cannot be converted to java.util.Set<co.simasoft.models.naif.domainmodels.Imports> by method invocation conversion
-[ERROR] /d:/dev/njava/simasoft/naifg5/src/main/java/co/simasoft/setup/DomainModelsGen.java:[67,70] cannot find symbol
-[ERROR] symbol:   method getName()
-[ERROR] location: interface java.util.Set<co.simasoft.models.naif.domainmodels.Imports>
-[ERROR] -> [Help 1]
-[ERROR] 
-[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
-[ERROR] Re-run Maven using the -X switch to enable full debug logging.
-[ERROR] 
-[ERROR] For more information about the errors and possible solutions, please read the following articles:
-[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

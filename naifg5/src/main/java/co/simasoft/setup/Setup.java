@@ -232,7 +232,7 @@ public class Setup {
         oto.setName("Uno a Uno Unidireccional No.1");
         oto.setUnidireccional(true);
         Set<Imports> importsOto = new HashSet<Imports>();
-        importsOto.add(imports7);
+//        importsOto.add(imports7);
         oto.setImports(importsOto);
         em.persist(oto);
         em.flush();
@@ -242,9 +242,11 @@ public class Setup {
         oob.setCardinality("1..1");
         oob.setName("Uno a Uno Bidirecccional No.2");
         oob.setUnidireccional(false);
+/*
         Set<Imports> importsOob = new HashSet<Imports>();
         importsOob.add(imports7);
         oob.setImports(importsOob);
+*/
         em.persist(oob);
         em.flush();
 
@@ -253,9 +255,11 @@ public class Setup {
         mto.setCardinality("*..1");
         mto.setName("Muchos a Uno Unidireccional No.3");
         mto.setUnidireccional(true);
+/*
         Set<Imports> importsMto = new HashSet<Imports>();
         importsMto.add(imports8);
         mto.setImports(importsMto);
+*/
         em.persist(mto);
         em.flush();
 
@@ -264,9 +268,11 @@ public class Setup {
         otm.setCardinality("1..*");
         otm.setName("Uno a Muchos Unidireccional No.4");
         otm.setUnidireccional(true);
+/*
         Set<Imports> importsOtm = new HashSet<Imports>();
         importsOtm.add(imports9);
         otm.setImports(importsOtm);
+*/
         em.persist(otm);
         em.flush();
 
@@ -275,9 +281,11 @@ public class Setup {
         omb.setCardinality("1..*");
         omb.setName("Uno a Muchos Bidirecccional No.5");
         omb.setUnidireccional(false);
+/*
         Set<Imports> importsOmb = new HashSet<Imports>();
         importsOmb.add(imports9);
         omb.setImports(importsOmb);
+*/
         em.persist(omb);
         em.flush();
 
@@ -286,9 +294,11 @@ public class Setup {
         mtm.setCardinality("*..*");
         mtm.setName("Muchos a Muchos Unidireccional No.6");
         mtm.setUnidireccional(true);
+/*
         Set<Imports> importsMtm = new HashSet<Imports>();
         importsMtm.add(imports10);
         mtm.setImports(importsMtm);
+*/
         em.persist(mtm);
         em.flush();
 
@@ -297,9 +307,11 @@ public class Setup {
         mmb.setCardinality("*..*");
         mmb.setName("Muchos a Muchos Bidirecccional No.7");
         mmb.setUnidireccional(false);
+/*
         Set<Imports> importsMmb = new HashSet<Imports>();
         importsMmb.add(imports10);
         mmb.setImports(importsMmb);
+*/
         em.persist(mmb);
         em.flush();
 

@@ -189,12 +189,13 @@ line("    } // data()\n");
             line("        TypesAttributes types"+attribute.getField()+" = new TypesAttributes();");
             line("        types"+attribute.getField()+" = findTypesAttributes(\""+attribute.getType()+"\");\n");
 
-
             switch (entity.getName()) {
                 case "GroupIds":
                      if(attribute.getField().equals("groupId")){
                        line("        Attributes attributes = new Attributes();");
                        line("        attributes.setName(\"groupId\");");
+                       line("        attributes.setNullable("+attribute.getNulo()+");");
+                       line("        attributes.setUnico("+attribute.getUnique()+");");
                        line("        attributes.setTypesAttributes(typesgroupId);");
                        line("        attributes.setEntities(groupId);");
                        line("        em.persist(attributes);");
@@ -203,6 +204,8 @@ line("    } // data()\n");
                      else{
                          line("        Attributes "+attribute.getField()+" = new Attributes();");
                          line("        "+attribute.getField()+".setName(\""+attribute.getField()+"\");");
+                         line("        "+attribute.getField()+".setNullable("+attribute.getNulo()+");");
+                         line("        "+attribute.getField()+".setUnico("+attribute.getUnique()+");");
                          line("        "+attribute.getField()+".setTypesAttributes(types"+attribute.getField()+");");
                          line("        "+attribute.getField()+".setEntities(groupId);");
                          line("        em.persist("+attribute.getField()+");");
@@ -213,6 +216,8 @@ line("    } // data()\n");
                 default:
                      line("        Attributes "+attribute.getField()+" = new Attributes();");
                      line("        "+attribute.getField()+".setName(\""+attribute.getField()+"\");");
+                     line("        "+attribute.getField()+".setNullable("+attribute.getNulo()+");");
+                     line("        "+attribute.getField()+".setUnico("+attribute.getUnique()+");");
                      line("        "+attribute.getField()+".setTypesAttributes(types"+attribute.getField()+");");
                      line("        "+attribute.getField()+".setEntities("+Utils._1raMin(entity.getName())+");");
                      line("        em.persist("+attribute.getField()+");");

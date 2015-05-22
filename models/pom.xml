@@ -5,13 +5,19 @@
   <!-- java -jar target/uml-1.0-SNAPSHOT.jar -->
   <!-- java -jar target/uml-1.0-SNAPSHOT-jar-with-dependencies.jar  -->
   <!-- mvn clean compile assembly:single -->
+
   <!-- serialver -classpath "./" mypackage.MyClass -->
+  <!-- https://highlyscalable.wordpress.com/2012/03/01/nosql-data-modeling-techniques/  -->
+  <!-- http://docs.mongodb.org/master/MongoDB-data-models-guide.pdf   -->
+  <!-- http://www.sitepoint.com/modeling-data-relationships-in-mongodb/    -->
+  <!-- http://www.amazon.com/dp/B00KUYAYTI/ref=rdr_kindle_ext_tmb -->
 
   <!-- 1. Maven add classpath to manifest -->
   <!-- 2. Copy dependencies to target folder -->
   <!-- 3. Add third-party libraries -->
   <!-- 4. maven add dependencies to jar -->
   <!-- http://stackoverflow.com/questions/574594/how-can-i-create-an-executable-jar-with-dependencies-using-maven  -->
+  <!-- Data Modeling for MongoDB: Building Well-Designed and Supportable MongoDB Databases   -->
 
   <modelVersion>4.0.0</modelVersion>
   
