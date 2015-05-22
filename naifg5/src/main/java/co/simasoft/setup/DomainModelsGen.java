@@ -19,7 +19,7 @@ import javax.faces.context.ExternalContext;
 
 /*
   Pruebas a archivo texto
-  FileTxt fileTxt = new FileTxt();  
+  FileTxt fileTxt = new FileTxt();
   fileTxt.line("Prueba");
   Utils.fileMake("\\docs","leame.txt",fileTxt );
 */
@@ -31,6 +31,13 @@ import javax.faces.context.ExternalContext;
 public class DomainModelsGen {
 
     private static final Logger log = Logger.getLogger(DomainModelsGen.class.getName());
+
+    private static final String QUERYA = "SELECT c FROM PropertiesAttributes c WHERE c.name LIKE :custName";
+
+
+
+    @PersistenceContext(unitName = "DomainModelsPU-JTA")
+    private EntityManager em;
 
     public void data(DomainModels domainModels) throws IOException {
 
@@ -56,9 +63,31 @@ public class DomainModelsGen {
 
                     Atributos atributos = new Atributos(attribute.getName(), attribute.getTypesAttributes().getType());
 
-                    Set<PropertiesAttributes> propertiesAttributes = attribute.getTypesAttributes().getPropertiesAttributes();
-
                     String annotations = "";
+
+                    PropertiesAttributes properties = new PropertiesAttributes();
+                    if (attribute.getNullable() & attribute.getUnico()){
+                       properties = findPropertiesAttributes("NullUnique1");
+                       annotations += "    "+properties.getValue();
+                    }
+                    if (attribute.getNullable() & !attribute.getUnico()){
+                       properties = findPropertiesAttributes("NullUnique2");
+                       annotations += "    "+properties.getValue();
+                    }
+                    if (!attribute.getNullable() & attribute.getUnico()){
+                       properties = findPropertiesAttributes("NullUnique3");
+                       annotations += "    "+properties.getValue();
+                    }
+                    if (!attribute.getNullable() & !attribute.getUnico()){
+                       properties = findPropertiesAttributes("NullUnique4");
+                       annotations += "    "+properties.getValue();
+                    }
+
+                    Set<PropertiesAttributes> propertiesAttributes = attribute.getTypesAttributes().getPropertiesAttributes();
+                    if(propertiesAttributes.size() > 0){
+                      annotations += "\n";
+                    }
+
                     int i=0;
                     for (PropertiesAttributes propertiesAttribute : propertiesAttributes ){
                          annotations += "    "+propertiesAttribute.getValue();
@@ -185,6 +214,17 @@ public class DomainModelsGen {
         models.WarH2();
 
     } // data()
+
+    public PropertiesAttributes findPropertiesAttributes(String name) {
+
+        PropertiesAttributes propertiesAttributes = new PropertiesAttributes();
+        List<PropertiesAttributes> results = em.createQuery(QUERYA).setParameter("custName", name).getResultList();
+
+        if (!results.isEmpty()) {
+           propertiesAttributes = results.get(0);
+        }
+        return propertiesAttributes;
+    }
 
     public void download(DomainModels domainModels) throws IOException {
         // !Generate first!

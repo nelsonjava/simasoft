@@ -92,7 +92,7 @@ public class DomainModelsSetup {
         Relations();
 
     } // data()
-    
+
     public void Relationships(GroupIds groupIds) {
 
         Entities relationships = new Entities();
@@ -108,6 +108,8 @@ public class DomainModelsSetup {
 
         Attributes entity = new Attributes();
         entity.setName("entity");
+        entity.setNullable(true);
+        entity.setUnico(false);
         entity.setTypesAttributes(typesentity);
         entity.setEntities(relationships);
         em.persist(entity);
@@ -118,6 +120,8 @@ public class DomainModelsSetup {
 
         Attributes optionality = new Attributes();
         optionality.setName("optionality");
+        optionality.setNullable(true);
+        optionality.setUnico(false);
         optionality.setTypesAttributes(typesoptionality);
         optionality.setEntities(relationships);
         em.persist(optionality);
@@ -128,6 +132,8 @@ public class DomainModelsSetup {
 
         Attributes name = new Attributes();
         name.setName("name");
+        name.setNullable(true);
+        name.setUnico(false);
         name.setTypesAttributes(typesname);
         name.setEntities(relationships);
         em.persist(name);
@@ -138,6 +144,8 @@ public class DomainModelsSetup {
 
         Attributes mappedby = new Attributes();
         mappedby.setName("mappedby");
+        mappedby.setNullable(true);
+        mappedby.setUnico(false);
         mappedby.setTypesAttributes(typesmappedby);
         mappedby.setEntities(relationships);
         em.persist(mappedby);
@@ -148,6 +156,8 @@ public class DomainModelsSetup {
 
         Attributes annotationsMethod = new Attributes();
         annotationsMethod.setName("annotationsMethod");
+        annotationsMethod.setNullable(true);
+        annotationsMethod.setUnico(false);
         annotationsMethod.setTypesAttributes(typesannotationsMethod);
         annotationsMethod.setEntities(relationships);
         em.persist(annotationsMethod);
@@ -158,6 +168,8 @@ public class DomainModelsSetup {
 
         Attributes annotationsField = new Attributes();
         annotationsField.setName("annotationsField");
+        annotationsField.setNullable(true);
+        annotationsField.setUnico(false);
         annotationsField.setTypesAttributes(typesannotationsField);
         annotationsField.setEntities(relationships);
         em.persist(annotationsField);
@@ -168,6 +180,8 @@ public class DomainModelsSetup {
 
         Attributes tabla = new Attributes();
         tabla.setName("tabla");
+        tabla.setNullable(true);
+        tabla.setUnico(false);
         tabla.setTypesAttributes(typestabla);
         tabla.setEntities(relationships);
         em.persist(tabla);
@@ -178,6 +192,8 @@ public class DomainModelsSetup {
 
         Attributes idTabla1 = new Attributes();
         idTabla1.setName("idTabla1");
+        idTabla1.setNullable(true);
+        idTabla1.setUnico(false);
         idTabla1.setTypesAttributes(typesidTabla1);
         idTabla1.setEntities(relationships);
         em.persist(idTabla1);
@@ -188,6 +204,8 @@ public class DomainModelsSetup {
 
         Attributes idTabla2 = new Attributes();
         idTabla2.setName("idTabla2");
+        idTabla2.setNullable(true);
+        idTabla2.setUnico(false);
         idTabla2.setTypesAttributes(typesidTabla2);
         idTabla2.setEntities(relationships);
         em.persist(idTabla2);
@@ -198,6 +216,8 @@ public class DomainModelsSetup {
 
         Attributes description = new Attributes();
         description.setName("description");
+        description.setNullable(true);
+        description.setUnico(false);
         description.setTypesAttributes(typesdescription);
         description.setEntities(relationships);
         em.persist(description);
@@ -208,12 +228,14 @@ public class DomainModelsSetup {
 
         Attributes observaciones = new Attributes();
         observaciones.setName("observaciones");
+        observaciones.setNullable(true);
+        observaciones.setUnico(false);
         observaciones.setTypesAttributes(typesobservaciones);
         observaciones.setEntities(relationships);
         em.persist(observaciones);
         em.flush();
 
-    } // Relationships()    
+    } // Relationships()
 
     public void Entities(GroupIds groupIds) {
 
