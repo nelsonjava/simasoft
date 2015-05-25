@@ -12,6 +12,11 @@ import javax.persistence.*;
 import javax.validation.constraints.*;
 import org.hibernate.annotations.GenericGenerator;
 
+@NamedNativeQuery(
+   name = "AttributesTypes.findByName",
+   query = "{ name : 'String'} ",
+   resultClass = TypesAttributes.class
+)
 @Entity
 public class TypesAttributes implements Serializable {
 

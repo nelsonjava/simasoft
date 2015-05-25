@@ -28,16 +28,24 @@ public class DomainModelsSetup {
 
     private static final Logger log = Logger.getLogger(DomainModelsSetup.class.getName());
 
+
     public TypesAttributes findTypesAttributes(String name) {
 
         TypesAttributes typesAttributes = new TypesAttributes();
-        List<TypesAttributes> results = em.createQuery(QUERYA).setParameter("custName", name).getResultList();
+//        List<TypesAttributes> results = em.createQuery(QUERYA).setParameter("custName", name).getResultList();
+/*
+        List<TypesAttributes> results = em.createNamedQuery("AttributesTypes.findByName",
+                                                            TypesAttributes.class).setParameter("custName", name).getResultList();
+*/
+        List<TypesAttributes> results = em.createNamedQuery("AttributesTypes.findByName",
+                                                            TypesAttributes.class).getResultList();
 
         if (!results.isEmpty()) {
            typesAttributes = results.get(0);
         }
         return typesAttributes;
     }
+
 
     public Entities findEntities(String name) {
 
@@ -102,19 +110,18 @@ public class DomainModelsSetup {
         relationships.setGroupIds(groupIds);
         em.persist(relationships);
         em.flush();
-        
+
 //      ---------------------- Attributes:Relationships -------------------------
 
-/*
+
         TypesAttributes typesentity = new TypesAttributes();
         typesentity = findTypesAttributes("String");
-*/        
 
         Attributes entity = new Attributes();
         entity.setName("entity");
         entity.setNullable(true);
         entity.setUnico(false);
-//        entity.setTypesAttributes(typesentity);
+        entity.setTypesAttributes(typesentity);
         entity.setEntities(relationships);
         em.persist(entity);
         em.flush();

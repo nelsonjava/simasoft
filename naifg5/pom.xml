@@ -6,6 +6,7 @@
 
   <!-- http://sinjava.blogspot.com/2012/10/hola-mundo-jsf.html -->
   <!-- mvn clean package wildfly:deploy -->
+  <!-- mvn clean install jboss-as:deploy -->
   <!-- http://localhost:8080 -->
   <!-- http://localhost:8080/naifg5 -->
 
@@ -42,7 +43,7 @@
       <dependency>
         <groupId>org.hibernate.ogm</groupId>
         <artifactId>hibernate-ogm-bom</artifactId>
-        <version>4.1.1.Final</version>
+        <version>4.2.0.CR1</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
@@ -207,6 +208,12 @@
         <groupId>org.wildfly.plugins</groupId>
         <artifactId>wildfly-maven-plugin</artifactId>
         <version>1.0.2.Final</version>
+      </plugin>
+      
+      <plugin>
+        <groupId>org.jboss.as.plugins</groupId>
+        <artifactId>jboss-as-maven-plugin</artifactId>
+        <version>7.7.Final</version>
       </plugin>
 
       <plugin>

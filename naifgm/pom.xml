@@ -29,6 +29,11 @@
   <!-- db.Imports.find().pretty() -->
   <!-- db.Dependency.find().pretty() -->
 
+  <!-- hibernate ogm: www.jboss.org : naif - smvrtl64 https://access.redhat.com/ - nelsonjava@gmail.com -->
+  <!-- http://www.jboss.org/video/youtube/8JpAtQuiEFE/ -->
+  <!-- http://blog.eisele.net/2015/01/nosql-with-hibernate-ogm-part-one.html -->
+  <!-- http://blog.eisele.net/2015/01/nosql-with-hibernate-ogm-part-one.html -->
+
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>co.simasoft</groupId>
