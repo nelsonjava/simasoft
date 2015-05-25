@@ -13,23 +13,30 @@ import org.hibernate.search.annotations.Store;
  */
 @Embeddable
 public class Addresses implements Serializable {
-  
+
     @Field(index = Index.YES, analyze = Analyze.NO, store = Store.NO)
-    private String city;    
+    private String city;
+
     @Field(index = Index.YES, analyze = Analyze.NO, store = Store.NO)
-    private String state;  
+    private String state;
+
     @Field(index = Index.YES, analyze = Analyze.NO, store = Store.NO)
-    private String street;   
+    private String street;
+
     @Field(index = Index.YES, analyze = Analyze.NO, store = Store.NO)
     private String number;
+
     @Field(index = Index.YES, analyze = Analyze.NO, store = Store.NO)
-    private String zip;   
+    private String zip;
+
     @Field(index = Index.YES, analyze = Analyze.NO, store = Store.NO)
-    private String country;   
+    private String country;
+
     @Field(index = Index.YES, analyze = Analyze.NO, store = Store.NO)
-    private String phone;   
+    private String phone;
+
     @Field(index = Index.YES, analyze = Analyze.NO, store = Store.NO)
-    private String fax;        
+    private String fax;
 
     public String getCity() {
         return city;

@@ -29,35 +29,43 @@ import org.hibernate.search.annotations.Store;
 public class Customers implements Serializable {
 
     private static final long serialVersionUID = 1L;
+
     @DocumentId
     @Id
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name = "uuid", strategy = "uuid2")
     private String id;
+
     @Column(name = "customer_email")
     @Field(index = Index.YES, analyze = Analyze.NO, store = Store.NO)
     private String email;
+
     @Column(name = "customer_password")
     @Field(index = Index.YES, analyze = Analyze.NO, store = Store.NO)
     private String password;
+
     @Column(name = "customer_name")
     @Field(index = Index.YES, analyze = Analyze.NO, store = Store.NO)
     private String name;
+
     @Column(name = "customer_surname")
     @Field(index = Index.YES, analyze = Analyze.NO, store = Store.NO)
     private String surname;
+
     @DateBridge(resolution = Resolution.DAY)
     @Temporal(javax.persistence.TemporalType.DATE)
     @Column(name = "customer_registration")
     private Date registration;
+
     @Embedded
     @IndexedEmbedded
     @Basic(fetch = FetchType.LAZY)
     private Addresses customer_address_1;
+
     @Embedded
     @IndexedEmbedded
     @Basic(fetch = FetchType.LAZY)
-    private Addresses customer_address_2;   
+    private Addresses customer_address_2;
 
     public String getId() {
         return id;

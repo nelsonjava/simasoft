@@ -18,14 +18,19 @@ import javax.persistence.Version;
 public class Inventory implements Serializable {
 
     private static final long serialVersionUID = 1L;
+
     @Id
     private String sku;
+
     @Id
     private String sku_color;
+
     @Id
     private String sku_size;
+
     @Version
     private Long version;
+
     @Column(name = "inventory")
     private int inventory;
 

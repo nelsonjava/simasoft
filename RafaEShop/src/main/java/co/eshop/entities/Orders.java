@@ -37,25 +37,31 @@ import org.hibernate.search.annotations.Store;
 public class Orders implements Serializable {
 
     private static final long serialVersionUID = 1L;
+
     @DocumentId
     @Id
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name = "uuid", strategy = "uuid2")
     private String id;
+
     @Column(name = "order_status")
     @Field(index = Index.YES, analyze = Analyze.NO, store = Store.NO)
     private String status;
+
     @Column(name = "order_subtotal")
     @NumericField
     @Field(index = Index.YES, analyze = Analyze.NO, store = Store.NO)
     private double subtotal;
+
     @DateBridge(resolution = Resolution.HOUR)
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date orderdate;
+
     @Embedded
     @IndexedEmbedded
     @Basic(fetch = FetchType.EAGER)
     private Addresses shipping_address;
+
     @IndexedEmbedded
     @ElementCollection(targetClass = eshop.embedded.CartProducts.class,
     fetch = FetchType.EAGER)
@@ -82,6 +88,7 @@ public class Orders implements Serializable {
         column =
         @Column(name = "unique_identification_number")),})
     private List<CartProducts> cart = new ArrayList<CartProducts>(0);
+
     @IndexedEmbedded
     @ManyToOne(fetch = FetchType.LAZY)
     private Customers customer;

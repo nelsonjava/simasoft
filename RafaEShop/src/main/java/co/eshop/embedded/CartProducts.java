@@ -17,18 +17,24 @@ public class CartProducts implements Serializable {
 
     @Field(index = Index.YES, analyze = Analyze.NO, store = Store.NO)
     private String sku;
+
     @Field(index = Index.YES, analyze = Analyze.NO, store = Store.NO)
     private String name;
+
     @NumericField
     @Field(index = Index.YES, analyze = Analyze.NO, store = Store.NO)
     private double price;
+
     @Field(index = Index.YES, analyze = Analyze.NO, store = Store.NO)
     private String color;
+
     @Field(index = Index.YES, analyze = Analyze.NO, store = Store.NO)
     private String size;
+
     @Field(index = Index.YES, analyze = Analyze.NO, store = Store.NO)
     private String quantity;
-    @Field(index = Index.YES, analyze = Analyze.NO, store = Store.NO)    
+
+    @Field(index = Index.YES, analyze = Analyze.NO, store = Store.NO)
     private String uin;
 
     public String getSku() {

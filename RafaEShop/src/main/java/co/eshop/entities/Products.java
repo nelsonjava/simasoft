@@ -36,34 +36,43 @@ public class Products implements Serializable {
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name = "uuid", strategy = "uuid2")
     private String id;
+
     @Column(name = "product_sku")
     @Field(index = Index.YES, analyze = Analyze.NO, store = Store.NO)
     private String sku;
+
     @Column(name = "product_name")
     @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
     private String product;
+
     @Column(name = "product_price")
     @NumericField
     @Field(index = Index.YES, analyze = Analyze.NO, store = Store.NO)
     private double  price;
+
     @Column(name = "product_old_price")
     @NumericField
     @Field(index = Index.YES, analyze = Analyze.NO, store = Store.NO)
-    private double old_price;    
+    private double old_price;
+
     @Column(name = "product_description")
     @Field(index = Index.YES, analyze = Analyze.NO, store = Store.NO)
     private String description;
+
     @IndexedEmbedded
-    @ManyToOne(fetch = FetchType.LAZY)    
+    @ManyToOne(fetch = FetchType.LAZY)
     private Categories category;
+
     @IndexedEmbedded
     @ElementCollection(targetClass = java.lang.String.class, fetch = FetchType.EAGER)
     @Column(name = "product_gallery")
     private List<String> gallery = new ArrayList<String>();
-    @IndexedEmbedded    
+
+    @IndexedEmbedded
     @ElementCollection(targetClass = java.lang.String.class, fetch = FetchType.EAGER)
     @Column(name = "product_colors")
     private List<String> colors = new ArrayList<String>();
+
     @IndexedEmbedded
     @ElementCollection(targetClass = java.lang.String.class, fetch = FetchType.EAGER)
     @Column(name = "product_sizes")

@@ -7,10 +7,10 @@ import java.io.Serializable;
  * @author Apress
  */
 public class InventoryPK implements Serializable{
-    
+
     private String sku;
     private String sku_color;
-    private String sku_size;    
+    private String sku_size;
     
     public InventoryPK(){        
     }
