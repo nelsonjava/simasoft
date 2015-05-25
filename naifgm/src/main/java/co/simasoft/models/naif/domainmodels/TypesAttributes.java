@@ -12,17 +12,27 @@ import javax.persistence.*;
 import javax.validation.constraints.*;
 import org.hibernate.annotations.GenericGenerator;
 
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.search.annotations.Analyze;
+import org.hibernate.search.annotations.DocumentId;
+import org.hibernate.search.annotations.Field;
+import org.hibernate.search.annotations.Index;
+import org.hibernate.search.annotations.Indexed;
+import org.hibernate.search.annotations.Store;
+
 @NamedNativeQuery(
    name = "AttributesTypes.findByName",
    query = "{ name : 'String'} ",
    resultClass = TypesAttributes.class
 )
+@Indexed
 @Entity
 public class TypesAttributes implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
     @Id
+    @DocumentId    
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name = "uuid", strategy = "uuid2")
     private String id;
@@ -38,6 +48,7 @@ public class TypesAttributes implements Serializable {
 
 	private String type;
 
+        @Field(index = Index.YES, analyze = Analyze.NO, store = Store.YES)
 	private String name;
 
 	private String observaciones;

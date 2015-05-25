@@ -44,12 +44,16 @@
   <!-- db.TypesAttributes.drop() -->
   <!-- db.Imports.find().drop() -->
   <!-- db.Dependency.drop() -->
+  <!-- consultas/cartera actual/f9 informe de los morosos nombre completo  -->
 
   <!-- hibernate ogm: www.jboss.org : naif - smvrtl64 https://access.redhat.com/ - nelsonjava@gmail.com -->
   <!-- http://www.jboss.org/video/youtube/8JpAtQuiEFE/ -->
   <!-- http://blog.eisele.net/2015/01/nosql-with-hibernate-ogm-part-one.html -->
   <!-- http://blog.eisele.net/2015/01/nosql-with-hibernate-ogm-part-one.html -->
   <!-- Chapter 3. Class Loading and Modules - https://access.redhat.com/documentation/en-US/JBoss_Enterprise_Application_Platform/6/html/Development_Guide/chap-Class_Loading_and_Modules.html  -->
+  
+  <!-- Hibernate Search -->
+  <!-- http://www.adictosaltrabajo.com/tutoriales/tutoriales.php?pagina=hibernateSearch  -->
 
   <modelVersion>4.0.0</modelVersion>
 
@@ -109,13 +113,13 @@
   </dependencyManagement>
 
   <dependencies>
-  
+
     <dependency>
       <groupId>co.simasoft</groupId>
       <artifactId>simasoft</artifactId>
       <version>1.0-SNAPSHOT</version>
     </dependency>
-    
+
     <dependency>
       <groupId>org.primefaces</groupId>
       <artifactId>primefaces</artifactId>

@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.search.annotations.Analyze;
 import org.hibernate.search.annotations.DocumentId;
@@ -24,15 +25,17 @@ import org.hibernate.search.annotations.Store;
 public class Categories implements Serializable {
 
     private static final long serialVersionUID = 1L;
+
     @DocumentId
-    @Id    
+    @Id
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name = "uuid", strategy = "uuid2")
     private String id;
+
     @Column(name = "category_name")
     @Field(index = Index.YES, analyze = Analyze.NO, store = Store.YES)
-    private String category;   
-    
+    private String category;
+
     public String getId() {
         return id;
     }

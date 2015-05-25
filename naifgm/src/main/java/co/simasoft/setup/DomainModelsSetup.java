@@ -3,7 +3,7 @@
   FileTxt fileTxt = new FileTxt();
   fileTxt.line("Prueba");
   Utils.fileMake("\\docs","leame.txt",fileTxt );
-  
+
   System.out.println("host name..........:" + Utils.hostName());
 */
 
@@ -23,6 +23,15 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import org.jboss.logging.Logger;
 
+import org.apache.lucene.search.NumericRangeQuery;
+import org.apache.lucene.search.Sort;
+import org.apache.lucene.search.SortField;
+import org.hibernate.search.jpa.FullTextEntityManager;
+import org.hibernate.search.jpa.FullTextQuery;
+import org.hibernate.search.query.DatabaseRetrievalMethod;
+import org.hibernate.search.query.ObjectLookupMethod;
+import org.hibernate.search.query.dsl.QueryBuilder;
+
 @Singleton
 @LocalBean
 @Named("DomainModelsSetup")
@@ -39,20 +48,6 @@ public class DomainModelsSetup {
 
 
 /*
-//    @Override
-    public TypesAttributes findTypesAttributes(String name) {
-        TypesAttributes typesAttributes = new TypesAttributes();
-        typesAttributes = em.find( TypesAttributes.class, name );
-
-System.out.println("host name..........:" + Utils.hostName());
-System.out.println("name..........:" + name );
-System.out.println(typesAttributes.getName() );
-
-        return typesAttributes;
-    }
-*/
-
-
     public TypesAttributes findTypesAttributes(String name) {
 
         TypesAttributes typesAttributes = new TypesAttributes();
@@ -65,6 +60,31 @@ System.out.println(typesAttributes.getName() );
            typesAttributes = results.get(0);
         }
         return typesAttributes;
+    }
+*/
+
+    public TypesAttributes findTypesAttributes(String search) {
+
+        FullTextEntityManager fullTextEntityManager = org.hibernate.search.jpa.Search.getFullTextEntityManager(em);
+
+        QueryBuilder queryBuilder = fullTextEntityManager.getSearchFactory().buildQueryBuilder().forEntity(TypesAttributes.class).get();
+        org.apache.lucene.search.Query query = queryBuilder.keyword().onField("name").matching(search).createQuery();
+
+        FullTextQuery fullTextQuery = fullTextEntityManager.createFullTextQuery(query, TypesAttributes.class);
+
+        fullTextQuery.initializeObjectsWith(ObjectLookupMethod.SKIP, DatabaseRetrievalMethod.FIND_BY_ID);
+
+        List results = fullTextQuery.getResultList();
+
+        if (results.isEmpty()) {
+           return null;
+        }
+
+        TypesAttributes typesAttributes = new TypesAttributes();
+        typesAttributes = (TypesAttributes) results.get(0);
+
+        return typesAttributes ;
+
     }
 
 
