@@ -17,14 +17,6 @@ import org.jboss.logging.Logger;
 import javax.faces.context.FacesContext;
 import javax.faces.context.ExternalContext;
 
-/*
-  Pruebas a archivo texto
-  FileTxt fileTxt = new FileTxt();
-  fileTxt.line("Prueba");
-  Utils.fileMake("\\docs","leame.txt",fileTxt );
-*/
-
-
 @Singleton
 @LocalBean
 @Named("DomainModelsGen")
@@ -33,8 +25,6 @@ public class DomainModelsGen {
     private static final Logger log = Logger.getLogger(DomainModelsGen.class.getName());
 
     private static final String QUERYA = "SELECT c FROM PropertiesAttributes c WHERE c.name LIKE :custName";
-
-
 
     @PersistenceContext(unitName = "DomainModelsPU-JTA")
     private EntityManager em;

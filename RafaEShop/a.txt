@@ -1,0 +1,43 @@
+[INFO] Scanning for projects...
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building rafa 1.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ rafa ---
+[INFO] Deleting d:\dev\njava\simasoft\RafaEShop\target
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ rafa ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ rafa ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 11 source files to d:\dev\njava\simasoft\RafaEShop\target\classes
+[WARNING] /d:/dev/njava/simasoft/RafaEShop/src/main/java/co/eshop/beans/EShopBean.java: d:\dev\njava\simasoft\RafaEShop\src\main\java\co\eshop\beans\EShopBean.java uses unchecked or unsafe operations.
+[WARNING] /d:/dev/njava/simasoft/RafaEShop/src/main/java/co/eshop/beans/EShopBean.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ rafa ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory d:\dev\njava\simasoft\RafaEShop\src\test\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ rafa ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ rafa ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] --- maven-war-plugin:2.1.1:war (default-war) @ rafa ---
+[INFO] Packaging webapp
+[INFO] Assembling webapp [rafa] in [d:\dev\njava\simasoft\RafaEShop\target\rafa]
+[INFO] Processing war project
+[INFO] Copying webapp resources [d:\dev\njava\simasoft\RafaEShop\src\main\webapp]
+[INFO] Webapp assembled in [219 msecs]
+[INFO] Building war: d:\dev\njava\simasoft\RafaEShop\target\rafa.war
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 3.797s
+[INFO] Finished at: Mon May 25 11:04:33 COT 2015
+[INFO] Final Memory: 17M/41M
+[INFO] ------------------------------------------------------------------------

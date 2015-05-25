@@ -29,10 +29,27 @@
   <!-- db.Imports.find().pretty() -->
   <!-- db.Dependency.find().pretty() -->
 
+  <!-- db.SystemsModels.drop() -->
+  <!-- db.DomainModels.drop() -->
+  <!-- db.GroupIds.drop() -->
+  <!-- db.Entities.drop() -->
+  <!-- db.Attributes.drop() -->
+  <!-- db.NameQueries.drop() -->
+  <!-- db.Relationships.drop() -->
+  <!-- db.TiposLinksModels.drop() -->
+  <!-- db.LinksModels.drop() -->
+  <!-- db.FilesModels.drop() -->
+  <!-- db.PropertiesAttributes.drop() -->
+  <!-- db.Cardinalities.drop() -->
+  <!-- db.TypesAttributes.drop() -->
+  <!-- db.Imports.find().drop() -->
+  <!-- db.Dependency.drop() -->
+
   <!-- hibernate ogm: www.jboss.org : naif - smvrtl64 https://access.redhat.com/ - nelsonjava@gmail.com -->
   <!-- http://www.jboss.org/video/youtube/8JpAtQuiEFE/ -->
   <!-- http://blog.eisele.net/2015/01/nosql-with-hibernate-ogm-part-one.html -->
   <!-- http://blog.eisele.net/2015/01/nosql-with-hibernate-ogm-part-one.html -->
+  <!-- Chapter 3. Class Loading and Modules - https://access.redhat.com/documentation/en-US/JBoss_Enterprise_Application_Platform/6/html/Development_Guide/chap-Class_Loading_and_Modules.html  -->
 
   <modelVersion>4.0.0</modelVersion>
 

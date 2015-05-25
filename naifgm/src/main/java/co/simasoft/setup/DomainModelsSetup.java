@@ -1,3 +1,12 @@
+/*
+  Pruebas a archivo texto
+  FileTxt fileTxt = new FileTxt();
+  fileTxt.line("Prueba");
+  Utils.fileMake("\\docs","leame.txt",fileTxt );
+  
+  System.out.println("host name..........:" + Utils.hostName());
+*/
+
 package co.simasoft.setup;
 
 import co.simasoft.models.naif.domainmodels.*;
@@ -29,14 +38,26 @@ public class DomainModelsSetup {
     private static final Logger log = Logger.getLogger(DomainModelsSetup.class.getName());
 
 
+/*
+//    @Override
+    public TypesAttributes findTypesAttributes(String name) {
+        TypesAttributes typesAttributes = new TypesAttributes();
+        typesAttributes = em.find( TypesAttributes.class, name );
+
+System.out.println("host name..........:" + Utils.hostName());
+System.out.println("name..........:" + name );
+System.out.println(typesAttributes.getName() );
+
+        return typesAttributes;
+    }
+*/
+
+
     public TypesAttributes findTypesAttributes(String name) {
 
         TypesAttributes typesAttributes = new TypesAttributes();
-//        List<TypesAttributes> results = em.createQuery(QUERYA).setParameter("custName", name).getResultList();
-/*
-        List<TypesAttributes> results = em.createNamedQuery("AttributesTypes.findByName",
-                                                            TypesAttributes.class).setParameter("custName", name).getResultList();
-*/
+//        List<TypesAttributes> results = em.createNamedQuery("AttributesTypes.findByName",
+//                                                            TypesAttributes.class).setParameter("custName", name).getResultList();
         List<TypesAttributes> results = em.createNamedQuery("AttributesTypes.findByName",
                                                             TypesAttributes.class).getResultList();
 
@@ -126,6 +147,17 @@ public class DomainModelsSetup {
         em.persist(entity);
         em.flush();
 
+        TypesAttributes typesoptionality = new TypesAttributes();
+        typesoptionality = findTypesAttributes("Boolean");
+
+        Attributes optionality = new Attributes();
+        optionality.setName("optionality");
+        optionality.setNullable(true);
+        optionality.setUnico(false);
+        optionality.setTypesAttributes(typesoptionality);
+        optionality.setEntities(relationships);
+        em.persist(optionality);
+        em.flush();
 
     } // Relationships()
 
