@@ -7,7 +7,7 @@
   <!-- http://sinjava.blogspot.com/2012/10/hola-mundo-jsf.html -->
   <!-- mvn clean package wildfly:deploy -->
   <!-- http://localhost:8080 -->
-  <!-- http://localhost:8080/rafa -->
+  <!-- http://localhost:8080/RafaEShop -->
 
   <!-- Mongo Comands -->
   <!-- show databases -->
