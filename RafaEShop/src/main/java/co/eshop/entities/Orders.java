@@ -2,6 +2,7 @@ package eshop.entities;
 
 import eshop.embedded.Addresses;
 import eshop.embedded.CartProducts;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;

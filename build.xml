@@ -41,6 +41,7 @@
     <delete dir="naifg4/target" failonerror="no"/>
     <delete dir="naifg5/target" failonerror="no"/>
     <delete dir="naifg6/target" failonerror="no"/>
+    <delete dir="naifg7/target" failonerror="no"/>    
     <delete dir="RafaEShop/target" failonerror="no"/>
     <delete dir="facturacion/target" failonerror="no"/>
     <delete dir="ejb/target" failonerror="no"/>
