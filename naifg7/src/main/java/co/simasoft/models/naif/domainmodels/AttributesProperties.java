@@ -22,155 +22,158 @@ import javax.persistence.ManyToOne;
 @Entity
 public class AttributesProperties implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
-    @Id
-    @GeneratedValue(strategy=GenerationType.TABLE)
-    private Long id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.TABLE)
+	private Long id;
 
-    @Version
-    private Integer optlock;
+	@Version
+	private Integer optlock;
 
-    private long orden;
+	private long orden;
 
-    @Column(nullable = false, unique = true)
-    private String name;
+	@Column(nullable = false, unique = true)
+	private String name;
 
-    @Column(nullable = true, unique = false)
-    private String observations;
-    
-    private String link;
+	@Column(nullable = true, unique = false)
+	private String observations;
 
-    @Column(nullable = false, unique = true)
-    private String value;
+	private String link;
 
-    @ManyToMany
-    private Set<Imports> imports = new HashSet<Imports>();
+	@Column(nullable = false, unique = true)
+	private String value;
 
-    @ManyToOne
-    private Relationships relationships;
+	@ManyToMany
+	private Set<Imports> imports = new HashSet<Imports>();
 
-    @ManyToMany(mappedBy = "attributesProperties")
-    private Set<Attributes> attributes = new HashSet<Attributes>();
+	@ManyToOne
+	private Relationships relationships;
 
-    @ManyToMany(mappedBy = "attributesProperties")
-    private Set<AttributesTypes> attributesTypes = new HashSet<AttributesTypes>();
+	@ManyToMany(mappedBy = "attributesProperties")
+	private Set<Attributes> attributes = new HashSet<Attributes>();
 
-    public AttributesProperties() {
-    }
+	@ManyToMany(mappedBy = "attributesProperties")
+	private Set<AttributesTypes> attributesTypes = new HashSet<AttributesTypes>();
 
-    public AttributesProperties(String name,String observations,String value) {
-        this.name = name;
-        this.observations = observations;
-        this.value = value;
-    }
+	public AttributesProperties() {
+	}
 
-    public Long getId() {
-        return this.id;
-    }
-    public void setId(Long id) {
-        this.id = id;
-    }
+	public AttributesProperties(String name, String observations, String value) {
+		this.name = name;
+		this.observations = observations;
+		this.value = value;
+	}
 
-    public Integer getOptlock() {
-        return this.optlock;
-    }
-    public void setOptlock(Integer optlock) {
-        this.optlock = optlock;
-    }
+	public Long getId() {
+		return this.id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-    public long getOrden() {
-        return this.orden;
-    }
-    public void setOrden(long orden) {
-        this.orden = orden;
-    }
+	public Integer getOptlock() {
+		return this.optlock;
+	}
+	public void setOptlock(Integer optlock) {
+		this.optlock = optlock;
+	}
 
-    public String getName() {
-        return name;
-    }
-    public void setName(String name) {
-        this.name = name;
-    }
-    
-    public String getLink() {
-        return link;
-    }
-    public void setLink(String link) {
-        this.link = link;
-    }
+	public long getOrden() {
+		return this.orden;
+	}
+	public void setOrden(long orden) {
+		this.orden = orden;
+	}
 
-    public String getObservations() {
-        return observations;
-    }
-    public void setObservations(String observations) {
-        this.observations = observations;
-    }
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
 
-    public String getValue() {
-        return value;
-    }
-    public void setValue(String value) {
-        this.value = value;
-    }
+	public String getLink() {
+		return link;
+	}
+	public void setLink(String link) {
+		this.link = link;
+	}
 
-    public Set<Imports> getImports() {
-        return imports;
-    }
-    public void setImports(Set<Imports> imports) {
-        this.imports = imports;
-    }
+	public String getObservations() {
+		return observations;
+	}
+	public void setObservations(String observations) {
+		this.observations = observations;
+	}
 
-    public Relationships getRelationships() {
-        return relationships;
-    }
-    public void setRelationships(Relationships relationships) {
-        this.relationships = relationships;
-    }
+	public String getValue() {
+		return value;
+	}
+	public void setValue(String value) {
+		this.value = value;
+	}
 
-    public Set<Attributes> getAttributes() {
-        return attributes;
-    }
-    public void setAttributes(Set<Attributes> attributes) {
-        this.attributes = attributes;
-    }
+	public Set<Imports> getImports() {
+		return imports;
+	}
+	public void setImports(Set<Imports> imports) {
+		this.imports = imports;
+	}
 
-    public Set<AttributesTypes> getAttributesTypes() {
-        return attributesTypes;
-    }
-    public void setAttributesTypes(Set<AttributesTypes> attributesTypes) {
-        this.attributesTypes = attributesTypes;
-    }
+	public Relationships getRelationships() {
+		return relationships;
+	}
+	public void setRelationships(Relationships relationships) {
+		this.relationships = relationships;
+	}
 
-   @Override
-   public int hashCode() {
-      final int prime  = 31;
-            int result =  1;
+	public Set<Attributes> getAttributes() {
+		return attributes;
+	}
+	public void setAttributes(Set<Attributes> attributes) {
+		this.attributes = attributes;
+	}
 
-      result = prime * result + ((id == null) ? 0 : id.hashCode());
+	public Set<AttributesTypes> getAttributesTypes() {
+		return attributesTypes;
+	}
+	public void setAttributesTypes(Set<AttributesTypes> attributesTypes) {
+		this.attributesTypes = attributesTypes;
+	}
 
-      return result;
-   }
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
 
-   @Override
-   public boolean equals(Object ojt) {
-      if (      this == ojt           ) return true;
-      if (       ojt == null          ) return false;
-      if (getClass() != ojt.getClass()) return false;
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
 
-      AttributesProperties other = (AttributesProperties) ojt;
-      if (id == null) {
-         if (other.id != null) {
-            return false;
-         }
-      } else {
-         if (!id.equals(other.id)) {
-            return false;
-         }
-      }
+		return result;
+	}
 
-      return true;
-   }
+	@Override
+	public boolean equals(Object ojt) {
+		if (this == ojt)
+			return true;
+		if (ojt == null)
+			return false;
+		if (getClass() != ojt.getClass())
+			return false;
+
+		AttributesProperties other = (AttributesProperties) ojt;
+		if (id == null) {
+			if (other.id != null) {
+				return false;
+			}
+		} else {
+			if (!id.equals(other.id)) {
+				return false;
+			}
+		}
+
+		return true;
+	}
 
 } // entity
 
