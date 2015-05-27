@@ -8,8 +8,6 @@
 [WARNING] 
 [WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
 [WARNING] 
-[INFO] 
-[INFO] Using the builder org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder with a thread count of 1
 [INFO]                                                                         
 [INFO] ------------------------------------------------------------------------
 [INFO] Building naifg6 1.0.0-SNAPSHOT
@@ -24,9 +22,9 @@
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ naifg6 ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 33 source files to d:\dev\njava\simasoft\naifg6\target\classes
-[WARNING] /d:/dev/njava/simasoft/naifg6/src/main/java/co/simasoft/setup/DomainModelsSetup.java: d:\dev\njava\simasoft\naifg6\src\main\java\co\simasoft\setup\DomainModelsSetup.java uses unchecked or unsafe operations.
-[WARNING] /d:/dev/njava/simasoft/naifg6/src/main/java/co/simasoft/setup/DomainModelsSetup.java: Recompile with -Xlint:unchecked for details.
+[INFO] Compiling 34 source files to d:\dev\njava\simasoft\naifg6\target\classes
+[WARNING] /d:/dev/njava/simasoft/naifg6/src/main/java/co/simasoft/setup/DomainModelsGen.java: Some input files use unchecked or unsafe operations.
+[WARNING] /d:/dev/njava/simasoft/naifg6/src/main/java/co/simasoft/setup/DomainModelsGen.java: Recompile with -Xlint:unchecked for details.
 [INFO] 
 [INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ naifg6 ---
 [INFO] Using 'UTF-8' encoding to copy filtered resources.
@@ -43,14 +41,14 @@
 [INFO] Assembling webapp [naifg6] in [d:\dev\njava\simasoft\naifg6\target\naifg6]
 [INFO] Processing war project
 [INFO] Copying webapp resources [d:\dev\njava\simasoft\naifg6\src\main\webapp]
-[INFO] Webapp assembled in [4439 msecs]
+[INFO] Webapp assembled in [579 msecs]
 [INFO] Building war: d:\dev\njava\simasoft\naifg6\target\naifg6.war
 [WARNING] Warning: selected war files include a WEB-INF/web.xml which will be ignored 
 (webxml attribute is missing from war task, or ignoreWebxml attribute is specified as 'true')
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 17.035 s
-[INFO] Finished at: 2015-05-25T22:53:55-05:00
-[INFO] Final Memory: 17M/49M
+[INFO] Total time: 5.000s
+[INFO] Finished at: Wed May 27 10:48:56 COT 2015
+[INFO] Final Memory: 17M/48M
 [INFO] ------------------------------------------------------------------------

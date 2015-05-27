@@ -40,7 +40,7 @@ public class Attributes implements Serializable {
 	private String descripcion;
 
 	@Column(nullable = true, unique = false)
-	private Boolean unique;
+	private Boolean single;
 
 	@Column(nullable = true, unique = false)
 	private Boolean nullable;
@@ -81,13 +81,13 @@ public class Attributes implements Serializable {
 	public Attributes() {
 	}
 
-	public Attributes(String field, String descripcion, Boolean unique,
+	public Attributes(String field, String descripcion, Boolean single,
 			Boolean nullable, Integer precision, Integer length, String name,
 			String observations, String annotationsMethod,
 			String annotationsField, String columnDefinition, String access) {
 		this.field = field;
 		this.descripcion = descripcion;
-		this.unique = unique;
+		this.single = single;
 		this.nullable = nullable;
 		this.precision = precision;
 		this.length = length;
@@ -134,11 +134,11 @@ public class Attributes implements Serializable {
 		this.descripcion = descripcion;
 	}
 
-	public Boolean getUnique() {
-		return unique;
+	public Boolean getSingle() {
+		return single;
 	}
-	public void setUnique(Boolean unique) {
-		this.unique = unique;
+	public void setSingle(Boolean single) {
+		this.single = single;
 	}
 
 	public Boolean getNullable() {

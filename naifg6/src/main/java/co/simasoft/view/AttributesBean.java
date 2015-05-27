@@ -245,9 +245,9 @@ public class AttributesBean implements Serializable {
 					builder.lower(root.<String> get("descripcion")),
 					'%' + descripcion.toLowerCase() + '%'));
 		}
-		Boolean unique = this.example.getUnique();
-		if (unique != null) {
-			predicatesList.add(builder.equal(root.get("unique"), unique));
+		Boolean single = this.example.getSingle();
+		if (single != null) {
+			predicatesList.add(builder.equal(root.get("single"), single));
 		}
 		Boolean nullable = this.example.getNullable();
 		if (nullable != null) {

@@ -72,7 +72,7 @@ public EntityPrueba(String artifactId,String groupId,Entidad entity,LinkedHashSe
 
 //>>IMPORTS DE LA CLASE
       for (String impor : imports) {
-         line("import "+impor+".*;");
+          line(impor);
       }
 
       line("");

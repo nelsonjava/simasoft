@@ -88,7 +88,7 @@ public class App extends FileTxt{
             EntityPruebaMongo entityPruebaMongo = new EntityPruebaMongo(artifactId,groupId+".models."+modelo+"."+artifactId,entidad,imports);
             Utils.fileMake(pathDocs+"."+modelo+"."+artifactId+".jpa.pmongo",entidad.getName()+".java", entityPruebaMongo);
 
-            EntityPruebaH2 entityPruebaH2 = new EntityPruebaH2(artifactId,groupId+"."+modelo+".models."+artifactId,entidad,imports);
+            EntityPruebaH2 entityPruebaH2 = new EntityPruebaH2(artifactId,groupId,entidad,imports);
             Utils.fileMake(pathDocs+"."+modelo+"."+artifactId+".jpa.ph2",entidad.getName()+".java", entityPruebaH2);
 
             EntityPrueba entityPrueba = new EntityPrueba(artifactId,groupId,entidad,imports);

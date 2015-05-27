@@ -263,10 +263,11 @@ line("    } // data()\n");
               line("        rel"+relation.getFrom()+n+".setCardinalities("+relation.getFrom()+n+");");
               line("        rel"+relation.getFrom()+n+".setTo(to"+relation.getFrom()+n+");");
               line("        rel"+relation.getFrom()+n+".setOptionality(true);");
+              line("        rel"+relation.getFrom()+n+".setIsEmbedded(false);");
               line("        em.persist(rel"+relation.getFrom()+n+");");
               line("        em.flush();\n");
             }
-            
+
             if(relation.getCardinality().equals("*..*")) {
 
               line("//  ---------------------- "+relation.getFrom()+" "+relation.getCardinality()+" "+relation.getTo()+" -------------------------\n");
@@ -284,6 +285,7 @@ line("    } // data()\n");
               line("        rel"+relation.getFrom()+n+".setCardinalities("+relation.getFrom()+n+");");
               line("        rel"+relation.getFrom()+n+".setTo(to"+relation.getFrom()+n+");");
               line("        rel"+relation.getFrom()+n+".setOptionality(true);");
+              line("        rel"+relation.getFrom()+n+".setIsEmbedded(false);");
               line("        em.persist(rel"+relation.getFrom()+n+");");
               line("        em.flush();\n");
             }
