@@ -181,7 +181,7 @@ public class AttributesTypesBean implements Serializable {
 	}
 
 	public int getPageSize() {
-		return 10;
+		return 50;
 	}
 
 	public AttributesTypes getExample() {
