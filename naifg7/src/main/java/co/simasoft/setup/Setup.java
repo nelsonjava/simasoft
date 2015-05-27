@@ -30,7 +30,7 @@ public class Setup {
         persistence_api.setOrden(1L);
         persistence_api.setGroupId("javax.persistence");
         persistence_api.setArtifactId("persistence-api");
-        persistence_api.setLink("http://mvnrepository.com/artifact/javax.persistence/persistence-api");
+        persistence_api.setLink("http://docs.oracle.com/javaee/6/api/javax/persistence/package-summary.html");
         persistence_api.setMaven("&lt;dependency&gt;<br/>"+
                              "&nbsp;&nbsp;&#09;&lt;groupId&gt;javax.persistence&lt;/groupId&gt;<br/>"+
                              "&nbsp;&nbsp;&#09;&lt;artifactId&gt;persistence-api&lt;/artifactId&gt;<br/>"+
@@ -71,6 +71,7 @@ public class Setup {
         Imports imports1 = new Imports();
         imports1.setOrden(1L);
         imports1.setName("import javax.persistence.Entity;");
+        imports1.setLink("");
         imports1.setDependency(persistence_api);
         em.persist(imports1);
         em.flush();
@@ -78,6 +79,7 @@ public class Setup {
         Imports imports2 = new Imports();
         imports2.setOrden(2L);
         imports2.setName("import javax.persistence.Id;");
+        imports2.setLink("");
         imports2.setDependency(persistence_api);
         em.persist(imports2);
         em.flush();
@@ -85,6 +87,7 @@ public class Setup {
         Imports imports3 = new Imports();
         imports3.setOrden(3L);
         imports3.setName("import javax.persistence.Version;");
+        imports3.setLink("");
         imports3.setDependency(persistence_api);
         em.persist(imports3);
         em.flush();
@@ -92,6 +95,7 @@ public class Setup {
         Imports imports4 = new Imports();
         imports4.setOrden(4L);
         imports4.setName("import javax.persistence.GenerationType;");
+        imports4.setLink("");
         imports4.setDependency(persistence_api);
         em.persist(imports4);
         em.flush();
@@ -99,6 +103,7 @@ public class Setup {
         Imports imports5 = new Imports();
         imports5.setOrden(5L);
         imports5.setName("import javax.persistence.GeneratedValue;");
+        imports5.setLink("");
         imports5.setDependency(persistence_api);
         em.persist(imports5);
         em.flush();
@@ -106,6 +111,7 @@ public class Setup {
         Imports imports6 = new Imports();
         imports6.setOrden(6L);
         imports6.setName("import javax.persistence.FetchType;");
+        imports6.setLink("");
         imports6.setDependency(persistence_api);
         em.persist(imports6);
         em.flush();
@@ -113,6 +119,7 @@ public class Setup {
         Imports imports7 = new Imports();
         imports7.setOrden(7L);
         imports7.setName("import javax.persistence.OneToOne;");
+        imports7.setLink("");
         imports7.setDependency(persistence_api);
         em.persist(imports7);
         em.flush();
@@ -120,6 +127,7 @@ public class Setup {
         Imports imports8 = new Imports();
         imports8.setOrden(8L);
         imports8.setName("import javax.persistence.ManyToOne;");
+        imports8.setLink("");
         imports8.setDependency(persistence_api);
         em.persist(imports8);
         em.flush();
@@ -127,6 +135,7 @@ public class Setup {
         Imports imports9 = new Imports();
         imports9.setOrden(9L);
         imports9.setName("import javax.persistence.OneToMany;");
+        imports9.setLink("");
         imports9.setDependency(persistence_api);
         em.persist(imports9);
         em.flush();
@@ -134,14 +143,16 @@ public class Setup {
         Imports imports10 = new Imports();
         imports10.setOrden(10L);
         imports10.setName("import javax.persistence.ManyToMany;");
+        imports10.setLink("");
         imports10.setDependency(persistence_api);
         em.persist(imports10);
         em.flush();
-*/        
+*/
 
         Imports imports11 = new Imports();
         imports11.setOrden(11L);
         imports11.setName("import javax.persistence.Column;");
+        imports11.setLink("");
         imports11.setDependency(persistence_api);
         em.persist(imports11); //1
         em.flush();
@@ -149,6 +160,7 @@ public class Setup {
         Imports imports12 = new Imports();
         imports12.setOrden(12L);
         imports12.setName("import javax.persistence.Basic;");
+        imports12.setLink("");
         imports12.setDependency(persistence_api);
         em.persist(imports12); //2
         em.flush();
@@ -156,6 +168,7 @@ public class Setup {
         Imports imports13 = new Imports();
         imports13.setOrden(13L);
         imports13.setName("import javax.persistence.Lob;");
+        imports13.setLink("");
         imports13.setDependency(persistence_api);
         em.persist(imports13); //22
         em.flush();
@@ -163,6 +176,7 @@ public class Setup {
         Imports imports14 = new Imports();
         imports14.setOrden(14L);
         imports14.setName("import javax.persistence.FetchType;");
+        imports14.setLink("");
         imports14.setDependency(persistence_api);
         em.persist(imports14); //24
         em.flush();
@@ -170,6 +184,7 @@ public class Setup {
         Imports imports15 = new Imports();
         imports15.setOrden(15L);
         imports15.setName("import javax.persistence.CascadeType;");
+        imports15.setLink("");
         imports15.setDependency(persistence_api);
         em.persist(imports15); //23
         em.flush();
@@ -177,6 +192,7 @@ public class Setup {
         Imports imports16 = new Imports();
         imports16.setOrden(16L);
         imports16.setName("import javax.validation.constraints.NotNull;");
+        imports16.setLink("");
         imports16.setDependency(validation_api);
         em.persist(imports16); //3
         em.flush();
@@ -184,6 +200,7 @@ public class Setup {
         Imports imports17 = new Imports();
         imports17.setOrden(17L);
         imports17.setName("import javax.validation.constraints.Size;");
+        imports17.setLink("");
         imports17.setDependency(validation_api);
         em.persist(imports17); //4
         em.flush();
@@ -191,6 +208,7 @@ public class Setup {
         Imports imports18 = new Imports();
         imports18.setOrden(18L);
         imports18.setName("import javax.validation.constraints.Pattern;");
+        imports18.setLink("");
         imports18.setDependency(validation_api);
         em.persist(imports18); //5
         em.flush();
@@ -198,6 +216,7 @@ public class Setup {
         Imports imports19 = new Imports();
         imports19.setOrden(19L);
         imports19.setName("import javax.validation.constraints.Digits;");
+        imports19.setLink("");
         imports19.setDependency(validation_api);
         em.persist(imports19); //6
         em.flush();
@@ -205,6 +224,7 @@ public class Setup {
         Imports imports20 = new Imports();
         imports20.setOrden(20L);
         imports20.setName("import org.hibernate.validator.Length;");
+        imports20.setLink("");
         imports20.setDependency(hibernate_validator);
         em.persist(imports20); //7
         em.flush();
@@ -212,6 +232,7 @@ public class Setup {
         Imports imports21 = new Imports();
         imports21.setOrden(21L);
         imports21.setName("import org.hibernate.validator.constraints.NotEmpty;");
+        imports21.setLink("");
         imports21.setDependency(hibernate_validator);
         em.persist(imports21); //8
         em.flush();
@@ -219,6 +240,7 @@ public class Setup {
         Imports imports22 = new Imports();
         imports22.setOrden(22L);
         imports22.setName("import org.hibernate.validator.constraints.Email;");
+        imports22.setLink("");
         imports22.setDependency(hibernate_validator);
         em.persist(imports22); //9
         em.flush();
@@ -321,6 +343,7 @@ public class Setup {
         varNotNull.setOrden(1L);
         varNotNull.setName("@NotNull");
         varNotNull.setValue("@NotNull");
+        varNotNull.setLink("");
         Set<Imports> importsNotNull = new HashSet<Imports>();
         importsNotNull.add(imports16);
         varNotNull.setImports(importsNotNull);
@@ -331,6 +354,7 @@ public class Setup {
         varSize0125.setOrden(2L);
         varSize0125.setName("@Size0125");
         varSize0125.setValue("@Size(min = 1, max = 25)");
+        varSize0125.setLink("");
         Set<Imports> importsSize0125 = new HashSet<Imports>();
         importsSize0125.add(imports17);
         varSize0125.setImports(importsSize0125);
@@ -341,6 +365,7 @@ public class Setup {
         varSize0912.setOrden(3L);
         varSize0912.setName("@Size0912");
         varSize0912.setValue("@Size(min = 9, max = 12)");
+        varSize0912.setLink("");
         Set<Imports> importsSize0912 = new HashSet<Imports>();
         importsSize0912.add(imports17);
         varSize0912.setImports(importsSize0912);
@@ -351,6 +376,7 @@ public class Setup {
         varLength0125.setOrden(4L);
         varLength0125.setName("@Length0125");
         varLength0125.setValue("@Length(min = 1, max = 25, message = \"Size must be between 1 and 25 digits\")");
+        varLength0125.setLink("");
         Set<Imports> importsLength0125 = new HashSet<Imports>();
         importsLength0125.add(imports20);
         varLength0125.setImports(importsLength0125);
@@ -361,6 +387,7 @@ public class Setup {
         varLength0912.setOrden(5L);
         varLength0912.setName("@Length0912");
         varLength0912.setValue("@Length(min = 9, max = 12, message = \"Size must be between 9 and 12 digits\")");
+        varLength0912.setLink("");
         Set<Imports> importsLength0912 = new HashSet<Imports>();
         importsLength0912.add(imports20);
         varLength0912.setImports(importsLength0912);
@@ -371,6 +398,7 @@ public class Setup {
         varPattern1.setOrden(6L);
         varPattern1.setName("@Pattern1");
         varPattern1.setValue("@Pattern(regexp = \"[A-Za-z ]*\", message = \"must contain only letters and spaces\")");
+        varPattern1.setLink("");
         Set<Imports> importsPattern1 = new HashSet<Imports>();
         importsPattern1.add(imports18);
         varPattern1.setImports(importsPattern1);
@@ -381,6 +409,7 @@ public class Setup {
         varPattern2.setOrden(7L);
         varPattern2.setName("@Pattern2");
         varPattern2.setValue("@Pattern(regexp = \"[^0-9]*\", message = \"Must not contain numbers\")");
+        varPattern2.setLink("");
         Set<Imports> importsPattern2 = new HashSet<Imports>();
         importsPattern2.add(imports18);
         varPattern2.setImports(importsPattern2);
@@ -391,6 +420,7 @@ public class Setup {
         varNotEmpty.setOrden(8L);
         varNotEmpty.setName("@NotEmpty");
         varNotEmpty.setValue("@NotEmpty");
+        varNotEmpty.setLink("");
         Set<Imports> importsNotEmpty = new HashSet<Imports>();
         importsNotEmpty.add(imports21);
         varNotEmpty.setImports(importsNotEmpty);
@@ -401,6 +431,7 @@ public class Setup {
         varEmail.setOrden(9L);
         varEmail.setName("@Email");
         varEmail.setValue("@Email(message = \"Invalid format\")");
+        varEmail.setLink("");
         Set<Imports> importsEmail = new HashSet<Imports>();
         importsEmail.add(imports22);
         varEmail.setImports(importsEmail);
@@ -411,6 +442,7 @@ public class Setup {
         varDigits0012.setOrden(10L);
         varDigits0012.setName("@Digits0012");
         varDigits0012.setValue("@Digits(fractionalDigits = 0, integerDigits = 12, message = \"Not allowed digit!\")");
+        varDigits0012.setLink("");
         Set<Imports> importsDigits0012 = new HashSet<Imports>();
         importsDigits0012.add(imports19);
         varDigits0012.setImports(importsDigits0012);
@@ -421,6 +453,7 @@ public class Setup {
         varColumn.setOrden(11L);
         varColumn.setName("@Column");
         varColumn.setValue("@Column");
+        varColumn.setLink("http://docs.oracle.com/javaee/6/api/javax/persistence/Column.html");
         Set<Imports> importsColumn = new HashSet<Imports>();
         importsColumn.add(imports11);
         varColumn.setImports(importsColumn);
@@ -431,6 +464,7 @@ public class Setup {
         varColumn1.setOrden(12L);
         varColumn1.setName("@Column1");
         varColumn1.setValue("@Column(name=\"file\")");
+        varColumn1.setLink("http://docs.oracle.com/javaee/6/api/javax/persistence/Column.html");
         Set<Imports> importsColumn1 = new HashSet<Imports>();
         importsColumn1.add(imports11);
         varColumn1.setImports(importsColumn1);
@@ -441,6 +475,7 @@ public class Setup {
         varNullUnique1.setOrden(13L);
         varNullUnique1.setName("NullUnique1");
         varNullUnique1.setValue("@Column(nullable = true, unique = true)");
+        varNullUnique1.setLink("http://docs.oracle.com/javaee/6/api/javax/persistence/Column.html");
         Set<Imports> importsNullUnique1 = new HashSet<Imports>();
         importsNullUnique1.add(imports11);
         varNullUnique1.setImports(importsNullUnique1);
@@ -451,6 +486,7 @@ public class Setup {
         varNullUnique2.setOrden(14L);
         varNullUnique2.setName("NullUnique2");
         varNullUnique2.setValue("@Column(nullable = true, unique = false)");
+        varNullUnique2.setLink("http://docs.oracle.com/javaee/6/api/javax/persistence/Column.html");
         Set<Imports> importsNullUnique2 = new HashSet<Imports>();
         importsNullUnique2.add(imports11);
         varNullUnique2.setImports(importsNullUnique2);
@@ -461,6 +497,7 @@ public class Setup {
         varNullUnique3.setOrden(15L);
         varNullUnique3.setName("NullUnique3");
         varNullUnique3.setValue("@Column(nullable = false, unique = true)");
+        varNullUnique3.setLink("http://docs.oracle.com/javaee/6/api/javax/persistence/Column.html");
         Set<Imports> importsNullUnique3 = new HashSet<Imports>();
         importsNullUnique3.add(imports11);
         varNullUnique3.setImports(importsNullUnique3);
@@ -471,6 +508,7 @@ public class Setup {
         varNullUnique4.setOrden(16L);
         varNullUnique4.setName("NullUnique4");
         varNullUnique4.setValue("@Column(nullable = false, unique = false)");
+        varNullUnique4.setLink("http://docs.oracle.com/javaee/6/api/javax/persistence/Column.html");
         Set<Imports> importsNullUnique4 = new HashSet<Imports>();
         importsNullUnique4.add(imports11);
         varNullUnique4.setImports(importsNullUnique4);
@@ -481,6 +519,7 @@ public class Setup {
         varBasic.setOrden(17L);
         varBasic.setName("@Basic");
         varBasic.setValue("@Basic");
+        varBasic.setLink("");
         Set<Imports> importsBasic = new HashSet<Imports>();
         importsBasic.add(imports12);
         varBasic.setImports(importsBasic);
@@ -491,6 +530,7 @@ public class Setup {
         varBasic1.setOrden(18L);
         varBasic1.setName("@Basic1");
         varBasic1.setValue("@Basic(fetch=FetchType.LAZY)");
+        varBasic1.setLink("");
         Set<Imports> importsBasic1 = new HashSet<Imports>();
         importsBasic1.add(imports12);
         varBasic1.setImports(importsBasic1);
@@ -501,6 +541,7 @@ public class Setup {
         varLob.setOrden(19L);
         varLob.setName("@Lob");
         varLob.setValue("@Lob");
+        varLob.setLink("");
         Set<Imports> importsLob = new HashSet<Imports>();
         importsLob.add(imports13);
         varLob.setImports(importsLob);

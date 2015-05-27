@@ -39,10 +39,10 @@
 			<h:outputText id="dependencyBeanDependencyGroupId" value="#{dependencyBean.dependency.groupId}"/>
 			<h:outputText/>
 			<h:outputLabel for="dependencyBeanDependencyMaven" value="Maven:"/>
-			<h:outputText id="dependencyBeanDependencyMaven" value="#{dependencyBean.dependency.maven}"/>
+			<h:outputText id="dependencyBeanDependencyMaven" value="#{dependencyBean.dependency.maven}"  escape="false" />
 			<h:outputText/>
 			<h:outputLabel for="dependencyBeanDependencyLink" value="Link:"/>
-			<h:outputText id="dependencyBeanDependencyLink" value="#{dependencyBean.dependency.link}"/>
+			<h:outputText id="dependencyBeanDependencyLink" value="#{dependencyBean.dependency.link}"  escape="false" />
 			<h:outputText/>
 			<h:outputLabel for="dependencyBeanDependencyType" value="Type:"/>
 			<h:outputText id="dependencyBeanDependencyType" value="#{dependencyBean.dependency.type}"/>
