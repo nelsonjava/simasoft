@@ -244,6 +244,14 @@ public class Setup {
         imports22.setDependency(hibernate_validator);
         em.persist(imports22); //9
         em.flush();
+        
+        Imports imports23 = new Imports();
+        imports23.setOrden(22L);
+        imports23.setName("import java.util.Date;");
+        imports23.setLink("");
+//        imports23.setDependency(hibernate_validator);
+        em.persist(imports23); //9
+        em.flush();
 
 
 //      ---------------------- Cardinalities -------------------------
@@ -648,6 +656,8 @@ public class Setup {
         varEmails.setObservations("A uniform resource locator of a web resource");
         em.persist(varEmails);
         em.flush();
+        
+
 
     } // data()
 

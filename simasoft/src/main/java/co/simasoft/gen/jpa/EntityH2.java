@@ -75,6 +75,7 @@ public EntityH2(String artifactId,String groupId,Entidad entity,LinkedHashSet<St
       line("import java.io.Serializable;");
       line("import java.util.Set;");
       line("import java.util.HashSet;\n");
+      line("import java.util.Date;\n");
 
       line("import javax.persistence.Entity;");
       line("import javax.persistence.Id;");

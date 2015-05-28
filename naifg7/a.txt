@@ -1,0 +1,44 @@
+[INFO] Scanning for projects...
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building naifg7 1.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ naifg7 ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ naifg7 ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ naifg7 ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 33 source files to d:\dev\njava\simasoft\naifg7\target\classes
+[INFO] -------------------------------------------------------------
+[WARNING] COMPILATION WARNING : 
+[INFO] -------------------------------------------------------------
+[WARNING] /d:/dev/njava/simasoft/naifg7/src/main/java/co/simasoft/setup/DomainModelsSetup.java: d:\dev\njava\simasoft\naifg7\src\main\java\co\simasoft\setup\DomainModelsSetup.java uses unchecked or unsafe operations.
+[WARNING] /d:/dev/njava/simasoft/naifg7/src/main/java/co/simasoft/setup/DomainModelsSetup.java: Recompile with -Xlint:unchecked for details.
+[INFO] 2 warnings 
+[INFO] -------------------------------------------------------------
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /d:/dev/njava/simasoft/naifg7/src/main/java/co/simasoft/setup/DomainModelsSetup.java:[5,1] package co.simasoft.utils does not exist
+[INFO] 1 error
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 1.720s
+[INFO] Finished at: Thu May 28 09:06:41 COT 2015
+[INFO] Final Memory: 15M/49M
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.1:compile (default-compile) on project naifg7: Compilation failure
+[ERROR] /d:/dev/njava/simasoft/naifg7/src/main/java/co/simasoft/setup/DomainModelsSetup.java:[5,1] package co.simasoft.utils does not exist
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
