@@ -74,7 +74,7 @@ public EntityH2(String artifactId,String groupId,Entidad entity,LinkedHashSet<St
 //>>IMPORTS DE LA CLASE
       line("import java.io.Serializable;");
       line("import java.util.Set;");
-      line("import java.util.HashSet;\n");
+      line("import java.util.HashSet;");
       line("import java.util.Date;\n");
 
       line("import javax.persistence.Entity;");
@@ -83,6 +83,9 @@ public EntityH2(String artifactId,String groupId,Entidad entity,LinkedHashSet<St
       line("import javax.persistence.GenerationType;");
       line("import javax.persistence.GeneratedValue;");
       line("import javax.persistence.FetchType;\n");
+
+      line("import javax.persistence.Column;\n");
+
 
       for (String impor : imports) {
          line(impor);
