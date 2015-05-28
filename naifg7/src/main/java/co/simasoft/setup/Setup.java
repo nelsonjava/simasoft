@@ -460,19 +460,8 @@ public class Setup {
         em.persist(varColumn);
         em.flush();
 
-        AttributesProperties varColumn1 = new AttributesProperties();
-        varColumn1.setOrden(12L);
-        varColumn1.setName("@Column1");
-        varColumn1.setValue("@Column(name=\"file\")");
-        varColumn1.setLink("http://docs.oracle.com/javaee/6/api/javax/persistence/Column.html");
-        Set<Imports> importsColumn1 = new HashSet<Imports>();
-        importsColumn1.add(imports11);
-        varColumn1.setImports(importsColumn1);
-        em.persist(varColumn1);
-        em.flush();
-
         AttributesProperties varNullUnique1 = new AttributesProperties();
-        varNullUnique1.setOrden(13L);
+        varNullUnique1.setOrden(12L);
         varNullUnique1.setName("NullUnique1");
         varNullUnique1.setValue("@Column(nullable = true, unique = true)");
         varNullUnique1.setLink("http://docs.oracle.com/javaee/6/api/javax/persistence/Column.html");
@@ -483,7 +472,7 @@ public class Setup {
         em.flush();
 
         AttributesProperties varNullUnique2 = new AttributesProperties();
-        varNullUnique2.setOrden(14L);
+        varNullUnique2.setOrden(13L);
         varNullUnique2.setName("NullUnique2");
         varNullUnique2.setValue("@Column(nullable = true, unique = false)");
         varNullUnique2.setLink("http://docs.oracle.com/javaee/6/api/javax/persistence/Column.html");
@@ -494,7 +483,7 @@ public class Setup {
         em.flush();
 
         AttributesProperties varNullUnique3 = new AttributesProperties();
-        varNullUnique3.setOrden(15L);
+        varNullUnique3.setOrden(14L);
         varNullUnique3.setName("NullUnique3");
         varNullUnique3.setValue("@Column(nullable = false, unique = true)");
         varNullUnique3.setLink("http://docs.oracle.com/javaee/6/api/javax/persistence/Column.html");
@@ -505,7 +494,7 @@ public class Setup {
         em.flush();
 
         AttributesProperties varNullUnique4 = new AttributesProperties();
-        varNullUnique4.setOrden(16L);
+        varNullUnique4.setOrden(15L);
         varNullUnique4.setName("NullUnique4");
         varNullUnique4.setValue("@Column(nullable = false, unique = false)");
         varNullUnique4.setLink("http://docs.oracle.com/javaee/6/api/javax/persistence/Column.html");
@@ -516,7 +505,7 @@ public class Setup {
         em.flush();
 
         AttributesProperties varBasic = new AttributesProperties();
-        varBasic.setOrden(17L);
+        varBasic.setOrden(16L);
         varBasic.setName("@Basic");
         varBasic.setValue("@Basic");
         varBasic.setLink("");
@@ -527,7 +516,7 @@ public class Setup {
         em.flush();
 
         AttributesProperties varBasic1 = new AttributesProperties();
-        varBasic1.setOrden(18L);
+        varBasic1.setOrden(17L);
         varBasic1.setName("@Basic1");
         varBasic1.setValue("@Basic(fetch=FetchType.LAZY)");
         varBasic1.setLink("");
@@ -538,7 +527,7 @@ public class Setup {
         em.flush();
 
         AttributesProperties varLob = new AttributesProperties();
-        varLob.setOrden(19L);
+        varLob.setOrden(18L);
         varLob.setName("@Lob");
         varLob.setValue("@Lob");
         varLob.setLink("");
@@ -639,7 +628,6 @@ public class Setup {
         Set<AttributesProperties> propertiesByte = new HashSet<AttributesProperties>();
         propertiesByte.add(varBasic1);
         propertiesByte.add(varLob);
-        propertiesByte.add(varColumn1);
         varByte.setAttributesProperties(propertiesByte);
 
         em.persist(varByte);

@@ -66,8 +66,19 @@
 					</h:panelGroup>
 				</h:panelGroup>
 			</f:validateBean>
-			
+
 			<h:dataTable id="attributesPropertiesBeanPageItems" styleClass="data-table" value="#{attributesPropertiesBean.pageItems}" var="_item">
+
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Orden"/>
+					</f:facet>
+					<h:link outcome="/admin/attributesProperties/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemOrden" value="#{_item.orden}"/>
+					</h:link>
+				</h:column>
+
 				<h:column>
 					<f:facet name="header">
 						<h:outputText value="Name"/>
@@ -77,6 +88,7 @@
 						<h:outputText id="itemName" value="#{_item.name}"/>
 					</h:link>
 				</h:column>
+
 				<h:column>
 					<f:facet name="header">
 						<h:outputText value="Value"/>
@@ -86,6 +98,7 @@
 						<h:outputText id="itemValue" value="#{_item.value}"/>
 					</h:link>
 				</h:column>
+
 			</h:dataTable>
 			<ui:include src="/resources/scaffold/paginator.xhtml">
 				<ui:param name="paginatorBean" value='#{attributesPropertiesBean}'/>
