@@ -661,5 +661,5 @@ public class Setup {
 
     } // data()
 
-} // DomainModelsSetup
+} // Setup
 

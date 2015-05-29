@@ -39,8 +39,6 @@ public class DomainModelsGen {
 
     public void data(DomainModels domainModels) throws IOException {
 
-        FileTxt fileTxt = new FileTxt();
-
         LinkedHashSet<String> imports = new LinkedHashSet<String>();
 
         System.out.println("Hello World!" + domainModels.getName());
@@ -264,10 +262,45 @@ public class DomainModelsGen {
         fc.responseComplete();
 
     } // end : download Method
-    
+
     public void setup(DomainModels domainModels) throws IOException {
-      
-        System.out.println("Hello World Setup!" + domainModels.getName());      
+
+        FileTxt fileTxt = new FileTxt();
+
+        System.out.println("Hello World Setup!" + domainModels.getName());
+
+fileTxt.line("package co.simasoft.setup;\n");
+
+fileTxt.line("import co.simasoft.models.naif.domainmodels.*;\n");
+
+fileTxt.line("import java.util.*;");
+fileTxt.line("import java.util.Calendar;");
+fileTxt.line("import java.util.Random;");
+fileTxt.line("import javax.ejb.LocalBean;");
+fileTxt.line("import javax.ejb.Singleton;");
+fileTxt.line("import javax.inject.Named;");
+fileTxt.line("import javax.persistence.EntityManager;");
+fileTxt.line("import javax.persistence.PersistenceContext;");
+fileTxt.line("import org.jboss.logging.Logger;\n");
+
+fileTxt.line("@Singleton");
+fileTxt.line("@LocalBean");
+fileTxt.line("@Named(\"Setup\")");
+fileTxt.line("public class Setup {\n");
+
+fileTxt.line("    @PersistenceContext(unitName = \"\")");
+fileTxt.line("    private EntityManager em;\n");
+
+fileTxt.line("    private static final Logger log = Logger.getLogger(Setup.class.getName());\n");
+
+fileTxt.line("    public void data() {\n");
+
+fileTxt.line("    } // data\n");
+
+fileTxt.line("} // Setup");
+
+
+        Utils.fileMake("\\docs","Setup.java",fileTxt );
 
     }
 
