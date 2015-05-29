@@ -19,12 +19,22 @@ import javax.persistence.OneToMany;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.search.annotations.Analyze;
+import org.hibernate.search.annotations.DocumentId;
+import org.hibernate.search.annotations.Field;
+import org.hibernate.search.annotations.Index;
+import org.hibernate.search.annotations.Indexed;
+import org.hibernate.search.annotations.Store;
+
+@Indexed
 @Entity
 public class Dependency implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
 	@Id
+        @DocumentId
 	@GeneratedValue(strategy = GenerationType.TABLE)
 	private Long id;
 
@@ -33,6 +43,7 @@ public class Dependency implements Serializable {
 
 	private long orden;
 
+        @Field(index = Index.YES, analyze = Analyze.NO, store = Store.YES)
 	@Column(nullable = false, unique = false)
 	private String artifactId;
 

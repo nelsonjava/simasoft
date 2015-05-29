@@ -22,7 +22,7 @@
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ naifg7 ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 34 source files to d:\dev\njava\simasoft\naifg7\target\classes
+[INFO] Compiling 35 source files to d:\dev\njava\simasoft\naifg7\target\classes
 [WARNING] /d:/dev/njava/simasoft/naifg7/src/main/java/co/simasoft/setup/DomainModelsSetup.java: Some input files use unchecked or unsafe operations.
 [WARNING] /d:/dev/njava/simasoft/naifg7/src/main/java/co/simasoft/setup/DomainModelsSetup.java: Recompile with -Xlint:unchecked for details.
 [INFO] 
@@ -41,14 +41,14 @@
 [INFO] Assembling webapp [naifg7] in [d:\dev\njava\simasoft\naifg7\target\naifg7]
 [INFO] Processing war project
 [INFO] Copying webapp resources [d:\dev\njava\simasoft\naifg7\src\main\webapp]
-[INFO] Webapp assembled in [719 msecs]
+[INFO] Webapp assembled in [516 msecs]
 [INFO] Building war: d:\dev\njava\simasoft\naifg7\target\naifg7.war
 [WARNING] Warning: selected war files include a WEB-INF/web.xml which will be ignored 
 (webxml attribute is missing from war task, or ignoreWebxml attribute is specified as 'true')
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 6.336s
-[INFO] Finished at: Fri May 29 07:51:42 COT 2015
-[INFO] Final Memory: 17M/51M
+[INFO] Total time: 6.249s
+[INFO] Finished at: Fri May 29 08:30:31 COT 2015
+[INFO] Final Memory: 17M/47M
 [INFO] ------------------------------------------------------------------------

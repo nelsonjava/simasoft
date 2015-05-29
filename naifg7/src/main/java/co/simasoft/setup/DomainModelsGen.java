@@ -2,6 +2,7 @@ package co.simasoft.setup;
 
 import co.simasoft.utils.*;
 import co.simasoft.models.naif.domainmodels.*;
+import co.simasoft.beans.*;
 
 import java.io.*;
 import java.util.*;
@@ -266,6 +267,8 @@ public class DomainModelsGen {
     public void setup(DomainModels domainModels) throws IOException {
 
         FileTxt fileTxt = new FileTxt();
+        NaifgBean naifgBean = new NaifgBean();
+        AttributesTypes attributesTypes = new AttributesTypes();
 
         System.out.println("Hello World Setup!" + domainModels.getName());
 
@@ -299,6 +302,9 @@ fileTxt.line("    } // data\n");
 
 fileTxt.line("} // Setup");
 
+         attributesTypes = naifgBean.findAttributesTypes("String");
+
+fileTxt.line(attributesTypes.getType());
 
         Utils.fileMake("\\docs","Setup.java",fileTxt );
 
