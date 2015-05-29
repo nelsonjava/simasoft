@@ -135,8 +135,13 @@
                         <h:form>
                           <h:commandButton value="Protected" action="#{DomainModelsGen.downloadProtected(domainModelsBean.domainModels)}" />
                         </h:form>
-                        
+
 			<h:outputText/>
+
+			<h:outputLabel for="domainModelsBeanDomainModelsSystemsModelss" value="Generate:"/>
+                        <h:form>
+                          <h:commandButton value="Setup" action="#{DomainModelsGen.setup(domainModelsBean.domainModels)}" />
+                        </h:form>
 
 		</h:panelGrid>
 

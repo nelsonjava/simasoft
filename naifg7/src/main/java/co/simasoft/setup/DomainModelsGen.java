@@ -264,6 +264,12 @@ public class DomainModelsGen {
         fc.responseComplete();
 
     } // end : download Method
+    
+    public void setup(DomainModels domainModels) throws IOException {
+      
+        System.out.println("Hello World Setup!" + domainModels.getName());      
+
+    }
 
 } // DomainModelsSetup
 
