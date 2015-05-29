@@ -18,15 +18,6 @@ import org.jboss.logging.Logger;
 import javax.faces.context.FacesContext;
 import javax.faces.context.ExternalContext;
 
-import org.apache.lucene.search.NumericRangeQuery;
-import org.apache.lucene.search.Sort;
-import org.apache.lucene.search.SortField;
-import org.hibernate.search.jpa.FullTextEntityManager;
-import org.hibernate.search.jpa.FullTextQuery;
-import org.hibernate.search.query.DatabaseRetrievalMethod;
-import org.hibernate.search.query.ObjectLookupMethod;
-import org.hibernate.search.query.dsl.QueryBuilder;
-
 /*
   Pruebas a archivo texto
   FileTxt fileTxt = new FileTxt();
@@ -277,15 +268,9 @@ public class DomainModelsGen {
 
         FileTxt fileTxt = new FileTxt();
         NaifgBean naifgBean = new NaifgBean();
-        Dependency dependency = new Dependency();
-        List<Dependency> listDependencies;
+        AttributesTypes attributesTypes = new AttributesTypes();
 
         System.out.println("Hello World Setup!" + domainModels.getName());
-
-        dependency = findDependency("persistence-api");
-//        listDependencies = (Dependency)findAllDependency();
-
-
 
 fileTxt.line("package co.simasoft.setup;\n");
 
@@ -313,87 +298,29 @@ fileTxt.line("    private static final Logger log = Logger.getLogger(Setup.class
 
 fileTxt.line("    public void data() {\n");
 
-fileTxt.line("//      ---------------------- Dependency ------------------------");
-
-fileTxt.line(dependency.getArtifactId());
-
----
-
-        dependency.getOrden()
-        dependency.getGroupId()
-        dependency.getArtifactId()
-        dependency.getLink()
-        dependency.getMaven()
-
-
----
-
-        "Dependency "+dependency.getArtifactId()+" = new Dependency();"
-        dependency.getArtifactId()+.setOrden();
-        dependency.getArtifactId()+.setGroupId(\"\");
-        dependency.getArtifactId()+.setArtifactId(\"\");
-        dependency.getArtifactId()+.setLink(\"\");
-        dependency.getArtifactId()+.setMaven(\"\");
-        "em.persist("+dependency.getArtifactId()+");"
-        "em.flush();"
-
-
-
-
 fileTxt.line("    } // data\n");
 
 fileTxt.line("} // Setup");
 
+//         attributesTypes = naifgBean.findAttributesTypes("String");
+         attributesTypes = find("String");
+
+fileTxt.line(attributesTypes.getType());
 
         Utils.fileMake("\\docs","Setup.java",fileTxt );
 
     } // Setup
 
-    public List<Dependency> findAllDependency() {
+    public AttributesTypes find(String name) {
 
-        FullTextEntityManager fullTextEntityManager = org.hibernate.search.jpa.Search.getFullTextEntityManager(em);
+        AttributesTypes attributesTypes = new AttributesTypes();
+        List<AttributesTypes> results = em.createQuery(QUERYA).setParameter("custName", name).getResultList();
 
-        QueryBuilder queryBuilder = fullTextEntityManager.getSearchFactory().buildQueryBuilder().forEntity(Dependency.class).get();
-        org.apache.lucene.search.Query query = queryBuilder.all().createQuery();
-
-        FullTextQuery fullTextQuery = fullTextEntityManager.createFullTextQuery(query, Dependency.class);
-        fullTextQuery.setProjection(FullTextQuery.ID, "orden");
-        Sort sort = new Sort(new SortField("orden", SortField.LONG));
-        fullTextQuery.setSort(sort);
-
-        fullTextQuery.initializeObjectsWith(ObjectLookupMethod.SKIP, DatabaseRetrievalMethod.FIND_BY_ID);
-
-        List<Dependency> results = fullTextQuery.getResultList();
-
-        return results;
-
-    }
-
-
-    public Dependency findDependency(String search) {
-
-        FullTextEntityManager fullTextEntityManager = org.hibernate.search.jpa.Search.getFullTextEntityManager(em);
-
-        QueryBuilder queryBuilder = fullTextEntityManager.getSearchFactory().buildQueryBuilder().forEntity(Dependency.class).get();
-        org.apache.lucene.search.Query query = queryBuilder.keyword().onField("artifactId").matching(search).createQuery();
-
-        FullTextQuery fullTextQuery = fullTextEntityManager.createFullTextQuery(query, Dependency.class);
-
-        fullTextQuery.initializeObjectsWith(ObjectLookupMethod.SKIP, DatabaseRetrievalMethod.FIND_BY_ID);
-
-        List results = fullTextQuery.getResultList();
-
-        if (results.isEmpty()) {
-           return null;
+        if (!results.isEmpty()) {
+           attributesTypes = results.get(0);
         }
-
-        Dependency dependency = new Dependency();
-        dependency = (Dependency) results.get(0);
-
-        return dependency;
-
+        return attributesTypes;
     }
-
 
 } // DomainModelsSetup
 
