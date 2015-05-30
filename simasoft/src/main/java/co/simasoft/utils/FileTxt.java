@@ -1,5 +1,8 @@
 package co.simasoft.utils;
 
+import java.io.*;
+import co.simasoft.utils.*;
+
 public class FileTxt {
 
     protected String source = "";
@@ -7,6 +10,10 @@ public class FileTxt {
 
     public FileTxt() {
         this.stringBuilder = new StringBuilder();
+    }
+
+    public void clearFileTxt() {
+           stringBuilder.setLength(0);
     }
 
     public String getSource() {
@@ -36,5 +43,29 @@ public class FileTxt {
     public StringBuilder getStringBuilder() {
         return this.stringBuilder;
     }
+
+    public void saveFile(String path, String fileName)  throws Exception  {
+
+        String source = "";
+        String dir = "";
+        File file;
+        File archivo;
+        BufferedWriter bw;
+
+        dir = Utils.mkDirs(path);
+
+        file = new File(dir);
+        source = getSource();
+        archivo = new File(file, fileName);
+
+        try { // Escribir la info del source al archivo
+
+            bw = new BufferedWriter(new FileWriter(archivo));
+            bw.write(source);
+            bw.close();
+
+        } catch (IOException e) {}
+
+    } // fileMake
 
 } // Fin de la Clase

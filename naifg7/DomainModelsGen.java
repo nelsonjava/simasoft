@@ -18,6 +18,15 @@ import org.jboss.logging.Logger;
 import javax.faces.context.FacesContext;
 import javax.faces.context.ExternalContext;
 
+import org.apache.lucene.search.NumericRangeQuery;
+import org.apache.lucene.search.Sort;
+import org.apache.lucene.search.SortField;
+import org.hibernate.search.jpa.FullTextEntityManager;
+import org.hibernate.search.jpa.FullTextQuery;
+import org.hibernate.search.query.DatabaseRetrievalMethod;
+import org.hibernate.search.query.ObjectLookupMethod;
+import org.hibernate.search.query.dsl.QueryBuilder;
+
 /*
   Pruebas a archivo texto
   FileTxt fileTxt = new FileTxt();
@@ -268,9 +277,15 @@ public class DomainModelsGen {
 
         FileTxt fileTxt = new FileTxt();
         NaifgBean naifgBean = new NaifgBean();
-        AttributesTypes attributesTypes = new AttributesTypes();
+        Dependency dependency = new Dependency();
+        List<Dependency> listDependencies;
 
         System.out.println("Hello World Setup!" + domainModels.getName());
+
+        dependency = findDependency("persistence-api");
+//        listDependencies = (Dependency)findAllDependency();
+
+
 
 fileTxt.line("package co.simasoft.setup;\n");
 
@@ -298,29 +313,116 @@ fileTxt.line("    private static final Logger log = Logger.getLogger(Setup.class
 
 fileTxt.line("    public void data() {\n");
 
+fileTxt.line("//      ---------------------- Dependency ------------------------\n");
+
+fileTxt.line("        Dependency "+dependency.getArtifactId()+" = new Dependency();");
+fileTxt.line("        "+dependency.getArtifactId()+".setOrden("+dependency.getOrden()+"L);");
+fileTxt.line("        "+dependency.getArtifactId()+".setGroupId(\""+dependency.getGroupId()+"+\");");
+fileTxt.line("        "+dependency.getArtifactId()+".setArtifactId(\""+dependency.getArtifactId()+"\"");
+fileTxt.line("        "+dependency.getArtifactId()+".setLink(\""+dependency.getLink()+"\");");
+fileTxt.line("        "+dependency.getArtifactId()+".setMaven(\""+dependency.getMaven()+"\");");
+fileTxt.line("        em.persist("+dependency.getArtifactId()+");");
+fileTxt.line("        em.flush();\n");
+
+                int i=0;
+                for (Imports imports : dependency.getImports()) {
+
+fileTxt.line("        Imports "+dependency.getArtifactId()+String.valueOf(++i)+" = new Imports();");
+fileTxt.line("        "+dependency.getArtifactId()+String.valueOf(i)+".setOrden("+imports.getOrden()+"L);");
+fileTxt.line("        "+dependency.getArtifactId()+String.valueOf(i)+".setName(\""+imports.getName()+"\");");
+fileTxt.line("        "+dependency.getArtifactId()+String.valueOf(i)+".setLink(\""+imports.getLink()+"\");");
+fileTxt.line("        "+dependency.getArtifactId()+String.valueOf(i)+".setDependency(\""+dependency.getArtifactId()+"\");");
+fileTxt.line("        em.persist("+dependency.getArtifactId()+String.valueOf(i)+");");
+fileTxt.line("        em.flush();\n");
+
+                    int j=0;
+                    for (AttributesProperties attributesProperties : imports.getAttributesProperties()) {
+
+fileTxt.line("        AttributesProperties attributesProperties"+String.valueOf(++j)+" = new AttributesProperties();");
+fileTxt.line("        attributesProperties"+String.valueOf(j)+".setOrden("+attributesProperties.getOrden()+"L);");
+fileTxt.line("        attributesProperties"+String.valueOf(j)+".setName(\""+attributesProperties.getName()+"\");");
+fileTxt.line("        attributesProperties"+String.valueOf(j)+".setValue(\""+attributesProperties.getValue()+"\");");
+fileTxt.line("        attributesProperties"+String.valueOf(j)+".setLink(\""+attributesProperties.getLink()+"\");");
+
+fileTxt.line("        Set<Imports> imports"+String.valueOf(j)+" = new HashSet<Imports>();");
+fileTxt.line("        imports"+String.valueOf(j)+".add("+dependency.getArtifactId()+String.valueOf(++i)+");");
+
+fileTxt.line("        attributesProperties"+String.valueOf(j)+".setImports(imports"+String.valueOf(j)+");");
+fileTxt.line("        em.persist(attributesProperties"+String.valueOf(j)+");");
+fileTxt.line("        em.flush();\n");
+
+/*
+fileTxt.line("        AttributesProperties var"+attributesProperties.getName()+String.valueOf(j)+" = new AttributesProperties();");
+fileTxt.line("        var"+attributesProperties.getName()+String.valueOf(j)+".setOrden();");
+fileTxt.line("        var"+attributesProperties.getName()+String.valueOf(j)+".setName();");
+fileTxt.line("        var"+attributesProperties.getName()+String.valueOf(j)+".setValue();");
+fileTxt.line("        var"+attributesProperties.getName()+String.valueOf(j)+".setLink();");
+
+fileTxt.line("        Set<Imports> imports"+attributesProperties.getName()+String.valueOf(j)+" = new HashSet<Imports>();");
+fileTxt.line("        imports"+attributesProperties.getName()+String.valueOf(j)+".add("+dependency.getArtifactId()+String.valueOf(++i)+");");
+
+fileTxt.line("        var"+attributesProperties.getName()+String.valueOf(j)+".setImports(imports"+attributesProperties.getName()+String.valueOf(j)+");");
+fileTxt.line("        em.persist(var"+attributesProperties.getName()+String.valueOf(j)+");");
+fileTxt.line("        em.flush();\n");
+*/
+
+                    }
+                }
+
 fileTxt.line("    } // data\n");
 
 fileTxt.line("} // Setup");
 
-//         attributesTypes = naifgBean.findAttributesTypes("String");
-         attributesTypes = find("String");
-
-fileTxt.line(attributesTypes.getType());
 
         Utils.fileMake("\\docs","Setup.java",fileTxt );
 
     } // Setup
 
-    public AttributesTypes find(String name) {
+    public List<Dependency> findAllDependency() {
 
-        AttributesTypes attributesTypes = new AttributesTypes();
-        List<AttributesTypes> results = em.createQuery(QUERYA).setParameter("custName", name).getResultList();
+        FullTextEntityManager fullTextEntityManager = org.hibernate.search.jpa.Search.getFullTextEntityManager(em);
 
-        if (!results.isEmpty()) {
-           attributesTypes = results.get(0);
-        }
-        return attributesTypes;
+        QueryBuilder queryBuilder = fullTextEntityManager.getSearchFactory().buildQueryBuilder().forEntity(Dependency.class).get();
+        org.apache.lucene.search.Query query = queryBuilder.all().createQuery();
+
+        FullTextQuery fullTextQuery = fullTextEntityManager.createFullTextQuery(query, Dependency.class);
+        fullTextQuery.setProjection(FullTextQuery.ID, "orden");
+        Sort sort = new Sort(new SortField("orden", SortField.LONG));
+        fullTextQuery.setSort(sort);
+
+        fullTextQuery.initializeObjectsWith(ObjectLookupMethod.SKIP, DatabaseRetrievalMethod.FIND_BY_ID);
+
+        List<Dependency> results = fullTextQuery.getResultList();
+
+        return results;
+
     }
+
+
+    public Dependency findDependency(String search) {
+
+        FullTextEntityManager fullTextEntityManager = org.hibernate.search.jpa.Search.getFullTextEntityManager(em);
+
+        QueryBuilder queryBuilder = fullTextEntityManager.getSearchFactory().buildQueryBuilder().forEntity(Dependency.class).get();
+        org.apache.lucene.search.Query query = queryBuilder.keyword().onField("artifactId").matching(search).createQuery();
+
+        FullTextQuery fullTextQuery = fullTextEntityManager.createFullTextQuery(query, Dependency.class);
+
+        fullTextQuery.initializeObjectsWith(ObjectLookupMethod.SKIP, DatabaseRetrievalMethod.FIND_BY_ID);
+
+        List results = fullTextQuery.getResultList();
+
+        if (results.isEmpty()) {
+           return null;
+        }
+
+        Dependency dependency = new Dependency();
+        dependency = (Dependency) results.get(0);
+
+        return dependency;
+
+    }
+
 
 } // DomainModelsSetup
 

@@ -38,7 +38,7 @@ import org.hibernate.search.query.dsl.QueryBuilder;
 @Singleton
 @LocalBean
 @Named("DomainModelsGen")
-public class DomainModelsGen {
+public class DomainModelsGen extends FileTxt {
 
     private static final Logger log = Logger.getLogger(DomainModelsGen.class.getName());
 
@@ -273,108 +273,89 @@ public class DomainModelsGen {
 
     } // end : download Method
 
-    public void setup(DomainModels domainModels) throws IOException {
+    public void setup(DomainModels domainModels)  {
+    try {
 
-        FileTxt fileTxt = new FileTxt();
+        clearFileTxt();
         NaifgBean naifgBean = new NaifgBean();
-        Dependency dependency = new Dependency();
+//        Dependency dependency = new Dependency();
         List<Dependency> listDependencies;
 
         System.out.println("Hello World Setup!" + domainModels.getName());
 
-        dependency = findDependency("persistence-api");
-//        listDependencies = (Dependency)findAllDependency();
+//        dependency = findDependency("persistence-api");
+        listDependencies = findAllDependency();
+
+line("package co.simasoft.setup;\n");
+
+line("import co.simasoft.models.naif.domainmodels.*;\n");
+
+line("import java.util.*;");
+line("import java.util.Calendar;");
+line("import java.util.Random;");
+line("import javax.ejb.LocalBean;");
+line("import javax.ejb.Singleton;");
+line("import javax.inject.Named;");
+line("import javax.persistence.EntityManager;");
+line("import javax.persistence.PersistenceContext;");
+line("import org.jboss.logging.Logger;\n");
+
+line("@Singleton");
+line("@LocalBean");
+line("@Named(\"Setup\")");
+line("public class Setup {\n");
+
+line("    @PersistenceContext(unitName = \"\")");
+line("    private EntityManager em;\n");
+
+line("    private static final Logger log = Logger.getLogger(Setup.class.getName());\n");
+
+line("    public void data() {\n");
+
+        for (Dependency dependency : listDependencies) {
+
+line("//      ---------------------- Dependency:"+dependency.getArtifactId()+"------------------------\n");
+
+line("        Dependency "+dependency.getArtifactId()+" = new Dependency();");
+line("        "+dependency.getArtifactId()+".setOrden("+dependency.getOrden()+"L);");
+line("        "+dependency.getArtifactId()+".setGroupId(\""+dependency.getGroupId()+"+\");");
+line("        "+dependency.getArtifactId()+".setArtifactId(\""+dependency.getArtifactId()+"\"");
+line("        "+dependency.getArtifactId()+".setLink(\""+dependency.getLink()+"\");");
+line("        "+dependency.getArtifactId()+".setMaven(\""+dependency.getMaven()+"\");");
+line("        em.persist("+dependency.getArtifactId()+");");
+line("        em.flush();\n");
+
+            int i=0;
+            for (Imports imports : dependency.getImports()) {
+
+line("//      ---------------------- Imports:"+imports.getName()+"------------------------\n");
+
+line("        Imports "+dependency.getArtifactId()+String.valueOf(++i)+" = new Imports();");
+line("        "+dependency.getArtifactId()+String.valueOf(i)+".setOrden("+imports.getOrden()+"L);");
+line("        "+dependency.getArtifactId()+String.valueOf(i)+".setName(\""+imports.getName()+"\");");
+line("        "+dependency.getArtifactId()+String.valueOf(i)+".setLink(\""+imports.getLink()+"\");");
+line("        "+dependency.getArtifactId()+String.valueOf(i)+".setDependency(\""+dependency.getArtifactId()+"\");");
+line("        em.persist("+dependency.getArtifactId()+String.valueOf(i)+");");
+line("        em.flush();\n");
+
+            }
 
 
 
-fileTxt.line("package co.simasoft.setup;\n");
-
-fileTxt.line("import co.simasoft.models.naif.domainmodels.*;\n");
-
-fileTxt.line("import java.util.*;");
-fileTxt.line("import java.util.Calendar;");
-fileTxt.line("import java.util.Random;");
-fileTxt.line("import javax.ejb.LocalBean;");
-fileTxt.line("import javax.ejb.Singleton;");
-fileTxt.line("import javax.inject.Named;");
-fileTxt.line("import javax.persistence.EntityManager;");
-fileTxt.line("import javax.persistence.PersistenceContext;");
-fileTxt.line("import org.jboss.logging.Logger;\n");
-
-fileTxt.line("@Singleton");
-fileTxt.line("@LocalBean");
-fileTxt.line("@Named(\"Setup\")");
-fileTxt.line("public class Setup {\n");
-
-fileTxt.line("    @PersistenceContext(unitName = \"\")");
-fileTxt.line("    private EntityManager em;\n");
-
-fileTxt.line("    private static final Logger log = Logger.getLogger(Setup.class.getName());\n");
-
-fileTxt.line("    public void data() {\n");
-
-fileTxt.line("//      ---------------------- Dependency ------------------------\n");
-
-fileTxt.line("        Dependency "+dependency.getArtifactId()+" = new Dependency();");
-fileTxt.line("        "+dependency.getArtifactId()+".setOrden("+dependency.getOrden()+"L);");
-fileTxt.line("        "+dependency.getArtifactId()+".setGroupId(\""+dependency.getGroupId()+"+\");");
-fileTxt.line("        "+dependency.getArtifactId()+".setArtifactId(\""+dependency.getArtifactId()+"\"");
-fileTxt.line("        "+dependency.getArtifactId()+".setLink(\""+dependency.getLink()+"\");");
-fileTxt.line("        "+dependency.getArtifactId()+".setMaven(\""+dependency.getMaven()+"\");");
-fileTxt.line("        em.persist("+dependency.getArtifactId()+");");
-fileTxt.line("        em.flush();\n");
-
-                int i=0;
-                for (Imports imports : dependency.getImports()) {
-
-fileTxt.line("        Imports "+dependency.getArtifactId()+String.valueOf(++i)+" = new Imports();");
-fileTxt.line("        "+dependency.getArtifactId()+String.valueOf(i)+".setOrden("+imports.getOrden()+"L);");
-fileTxt.line("        "+dependency.getArtifactId()+String.valueOf(i)+".setName(\""+imports.getName()+"\");");
-fileTxt.line("        "+dependency.getArtifactId()+String.valueOf(i)+".setLink(\""+imports.getLink()+"\");");
-fileTxt.line("        "+dependency.getArtifactId()+String.valueOf(i)+".setDependency(\""+dependency.getArtifactId()+"\");");
-fileTxt.line("        em.persist("+dependency.getArtifactId()+String.valueOf(i)+");");
-fileTxt.line("        em.flush();\n");
-
-                    int j=0;
-                    for (AttributesProperties attributesProperties : imports.getAttributesProperties()) {
-
-fileTxt.line("        AttributesProperties attributesProperties"+String.valueOf(++j)+" = new AttributesProperties();");
-fileTxt.line("        attributesProperties"+String.valueOf(j)+".setOrden("+attributesProperties.getOrden()+"L);");
-fileTxt.line("        attributesProperties"+String.valueOf(j)+".setName(\""+attributesProperties.getName()+"\");");
-fileTxt.line("        attributesProperties"+String.valueOf(j)+".setValue(\""+attributesProperties.getValue()+"\");");
-fileTxt.line("        attributesProperties"+String.valueOf(j)+".setLink(\""+attributesProperties.getLink()+"\");");
-
-fileTxt.line("        Set<Imports> imports"+String.valueOf(j)+" = new HashSet<Imports>();");
-fileTxt.line("        imports"+String.valueOf(j)+".add("+dependency.getArtifactId()+String.valueOf(++i)+");");
-
-fileTxt.line("        attributesProperties"+String.valueOf(j)+".setImports(imports"+String.valueOf(j)+");");
-fileTxt.line("        em.persist(attributesProperties"+String.valueOf(j)+");");
-fileTxt.line("        em.flush();\n");
-
-/*
-fileTxt.line("        AttributesProperties var"+attributesProperties.getName()+String.valueOf(j)+" = new AttributesProperties();");
-fileTxt.line("        var"+attributesProperties.getName()+String.valueOf(j)+".setOrden();");
-fileTxt.line("        var"+attributesProperties.getName()+String.valueOf(j)+".setName();");
-fileTxt.line("        var"+attributesProperties.getName()+String.valueOf(j)+".setValue();");
-fileTxt.line("        var"+attributesProperties.getName()+String.valueOf(j)+".setLink();");
-
-fileTxt.line("        Set<Imports> imports"+attributesProperties.getName()+String.valueOf(j)+" = new HashSet<Imports>();");
-fileTxt.line("        imports"+attributesProperties.getName()+String.valueOf(j)+".add("+dependency.getArtifactId()+String.valueOf(++i)+");");
-
-fileTxt.line("        var"+attributesProperties.getName()+String.valueOf(j)+".setImports(imports"+attributesProperties.getName()+String.valueOf(j)+");");
-fileTxt.line("        em.persist(var"+attributesProperties.getName()+String.valueOf(j)+");");
-fileTxt.line("        em.flush();\n");
-*/
-
-                    }
-                }
-
-fileTxt.line("    } // data\n");
-
-fileTxt.line("} // Setup");
+        } // Dependency
 
 
-        Utils.fileMake("\\docs","Setup.java",fileTxt );
+
+line("    } // data\n");
+
+line("} // Setup");
+
+        saveFile("\\docs", "Setup.java");
+
+    }
+    catch(Exception ioe) {
+      ioe.printStackTrace();
+    }
 
     } // Setup
 
@@ -386,7 +367,7 @@ fileTxt.line("} // Setup");
         org.apache.lucene.search.Query query = queryBuilder.all().createQuery();
 
         FullTextQuery fullTextQuery = fullTextEntityManager.createFullTextQuery(query, Dependency.class);
-        fullTextQuery.setProjection(FullTextQuery.ID, "orden");
+        //fullTextQuery.setProjection(FullTextQuery.ID, "orden");
         Sort sort = new Sort(new SortField("orden", SortField.LONG));
         fullTextQuery.setSort(sort);
 
@@ -396,6 +377,9 @@ fileTxt.line("} // Setup");
 
         return results;
 
+        //List<Dependency> results = fullTextQuery.getResultList();
+
+        //return new ArrayList<Dependency>(results);
     }
 
 
