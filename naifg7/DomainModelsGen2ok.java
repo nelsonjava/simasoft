@@ -276,29 +276,79 @@ public class DomainModelsGen extends FileTxt {
     public void setup(DomainModels domainModels)  {
     try {
 
-        System.out.println("Hello World Setup!" + domainModels.getName());
-
         clearFileTxt();
         NaifgBean naifgBean = new NaifgBean();
+//        Dependency dependency = new Dependency();
+        List<Dependency> listDependencies;
 
-        int i=0;
-        List<Cardinalities> cardinalities;
-//        cardinalities = naifgBean.findAllCardinalities(em);
-cardinalities = findAllCardinality();
-line("//      ---------------------- Cardinalities:"+cardinalities.size()+"---------------------------------\n");
-        for (Cardinalities cardinality : cardinalities) {
-line("        Cardinalities cardinality"+String.valueOf(++i)+" = new Cardinalities();");
-        } // Cardinalities
+        System.out.println("Hello World Setup!" + domainModels.getName());
+
+//        dependency = findDependency("persistence-api");
+        listDependencies = findAllDependency();
+
+line("package co.simasoft.setup;\n");
+
+line("import co.simasoft.models.naif.domainmodels.*;\n");
+
+line("import java.util.*;");
+line("import java.util.Calendar;");
+line("import java.util.Random;");
+line("import javax.ejb.LocalBean;");
+line("import javax.ejb.Singleton;");
+line("import javax.inject.Named;");
+line("import javax.persistence.EntityManager;");
+line("import javax.persistence.PersistenceContext;");
+line("import org.jboss.logging.Logger;\n");
+
+line("@Singleton");
+line("@LocalBean");
+line("@Named(\"Setup\")");
+line("public class Setup {\n");
+
+line("    @PersistenceContext(unitName = \"\")");
+line("    private EntityManager em;\n");
+
+line("    private static final Logger log = Logger.getLogger(Setup.class.getName());\n");
+
+line("    public void data() {\n");
+
+        for (Dependency dependency : listDependencies) {
+
+line("//      ---------------------- Dependency:"+dependency.getArtifactId()+"------------------------\n");
+
+line("        Dependency "+dependency.getArtifactId()+" = new Dependency();");
+line("        "+dependency.getArtifactId()+".setOrden("+dependency.getOrden()+"L);");
+line("        "+dependency.getArtifactId()+".setGroupId(\""+dependency.getGroupId()+"+\");");
+line("        "+dependency.getArtifactId()+".setArtifactId(\""+dependency.getArtifactId()+"\"");
+line("        "+dependency.getArtifactId()+".setLink(\""+dependency.getLink()+"\");");
+line("        "+dependency.getArtifactId()+".setMaven(\""+dependency.getMaven()+"\");");
+line("        em.persist("+dependency.getArtifactId()+");");
+line("        em.flush();\n");
+
+            int i=0;
+            for (Imports imports : dependency.getImports()) {
+
+line("//      ---------------------- Imports:"+imports.getName()+"------------------------\n");
+
+line("        Imports "+dependency.getArtifactId()+String.valueOf(++i)+" = new Imports();");
+line("        "+dependency.getArtifactId()+String.valueOf(i)+".setOrden("+imports.getOrden()+"L);");
+line("        "+dependency.getArtifactId()+String.valueOf(i)+".setName(\""+imports.getName()+"\");");
+line("        "+dependency.getArtifactId()+String.valueOf(i)+".setLink(\""+imports.getLink()+"\");");
+line("        "+dependency.getArtifactId()+String.valueOf(i)+".setDependency(\""+dependency.getArtifactId()+"\");");
+line("        em.persist("+dependency.getArtifactId()+String.valueOf(i)+");");
+line("        em.flush();\n");
+
+            }
 
 
-        i=0;
-        List<Dependency> dependencies;
-        dependencies = naifgBean.findAllDependency(em);
-line("//      ---------------------- Dependency:"+dependencies.size()+"---------------------------------\n");
-        for (Dependency dependency : dependencies) {
-line("        Dependency dependency"+String.valueOf(++i)+" = new Dependency();");
+
         } // Dependency
 
+
+
+line("    } // data\n");
+
+line("} // Setup");
 
         saveFile("\\docs", "Setup.java");
 
@@ -309,24 +359,54 @@ line("        Dependency dependency"+String.valueOf(++i)+" = new Dependency();")
 
     } // Setup
 
-    public List<Cardinalities> findAllCardinality() {
+    public List<Dependency> findAllDependency() {
 
         FullTextEntityManager fullTextEntityManager = org.hibernate.search.jpa.Search.getFullTextEntityManager(em);
 
-        QueryBuilder queryBuilder = fullTextEntityManager.getSearchFactory().buildQueryBuilder().forEntity(Cardinalities.class).get();
+        QueryBuilder queryBuilder = fullTextEntityManager.getSearchFactory().buildQueryBuilder().forEntity(Dependency.class).get();
         org.apache.lucene.search.Query query = queryBuilder.all().createQuery();
 
-        FullTextQuery fullTextQuery = fullTextEntityManager.createFullTextQuery(query, Cardinalities.class);
+        FullTextQuery fullTextQuery = fullTextEntityManager.createFullTextQuery(query, Dependency.class);
+        //fullTextQuery.setProjection(FullTextQuery.ID, "orden");
         Sort sort = new Sort(new SortField("orden", SortField.LONG));
         fullTextQuery.setSort(sort);
 
         fullTextQuery.initializeObjectsWith(ObjectLookupMethod.SKIP, DatabaseRetrievalMethod.FIND_BY_ID);
 
-        List<Cardinalities> results = fullTextQuery.getResultList();
+        List<Dependency> results = fullTextQuery.getResultList();
 
         return results;
 
+        //List<Dependency> results = fullTextQuery.getResultList();
+
+        //return new ArrayList<Dependency>(results);
     }
+
+
+    public Dependency findDependency(String search) {
+
+        FullTextEntityManager fullTextEntityManager = org.hibernate.search.jpa.Search.getFullTextEntityManager(em);
+
+        QueryBuilder queryBuilder = fullTextEntityManager.getSearchFactory().buildQueryBuilder().forEntity(Dependency.class).get();
+        org.apache.lucene.search.Query query = queryBuilder.keyword().onField("artifactId").matching(search).createQuery();
+
+        FullTextQuery fullTextQuery = fullTextEntityManager.createFullTextQuery(query, Dependency.class);
+
+        fullTextQuery.initializeObjectsWith(ObjectLookupMethod.SKIP, DatabaseRetrievalMethod.FIND_BY_ID);
+
+        List results = fullTextQuery.getResultList();
+
+        if (results.isEmpty()) {
+           return null;
+        }
+
+        Dependency dependency = new Dependency();
+        dependency = (Dependency) results.get(0);
+
+        return dependency;
+
+    }
+
 
 } // DomainModelsSetup
 

@@ -281,23 +281,74 @@ public class DomainModelsGen extends FileTxt {
         clearFileTxt();
         NaifgBean naifgBean = new NaifgBean();
 
-        int i=0;
-        List<Cardinalities> cardinalities;
-//        cardinalities = naifgBean.findAllCardinalities(em);
-cardinalities = findAllCardinality();
-line("//      ---------------------- Cardinalities:"+cardinalities.size()+"---------------------------------\n");
-        for (Cardinalities cardinality : cardinalities) {
-line("        Cardinalities cardinality"+String.valueOf(++i)+" = new Cardinalities();");
-        } // Cardinalities
+line("package co.simasoft.setup;\n");
 
+line("import co.simasoft.models.naif.domainmodels.*;\n");
 
-        i=0;
+line("import java.util.*;");
+line("import java.util.Calendar;");
+line("import java.util.Random;");
+line("import javax.ejb.LocalBean;");
+line("import javax.ejb.Singleton;");
+line("import javax.inject.Named;");
+line("import javax.persistence.EntityManager;");
+line("import javax.persistence.PersistenceContext;");
+line("import org.jboss.logging.Logger;\n");
+
+line("@Singleton");
+line("@LocalBean");
+line("@Named(\"Setup\")");
+line("public class Setup {\n");
+
+line("    @PersistenceContext(unitName = \"\")");
+line("    private EntityManager em;\n");
+
+line("    private static final Logger log = Logger.getLogger(Setup.class.getName());\n");
+
+line("    public void data() {\n");
+
         List<Dependency> dependencies;
         dependencies = naifgBean.findAllDependency(em);
-line("//      ---------------------- Dependency:"+dependencies.size()+"---------------------------------\n");
+
+line("//      ---------------------- Dependency:---------------------------------\n");
+
         for (Dependency dependency : dependencies) {
-line("        Dependency dependency"+String.valueOf(++i)+" = new Dependency();");
-        } // Dependency
+
+line("        Dependency "+dependency.getArtifactId()+" = new Dependency();");
+line("        "+dependency.getArtifactId()+".setOrden("+dependency.getOrden()+"L);");
+line("        "+dependency.getArtifactId()+".setGroupId(\""+dependency.getGroupId()+"\");");
+line("        "+dependency.getArtifactId()+".setArtifactId(\""+dependency.getArtifactId()+"\"");
+line("        "+dependency.getArtifactId()+".setLink(\""+dependency.getLink()+"\");");
+line("        "+dependency.getArtifactId()+".setMaven(\""+dependency.getMaven()+"\");");
+line("        em.persist("+dependency.getArtifactId()+");");
+line("        em.flush();\n");
+
+/*
+        List<Cardinalities> cardinalities;
+        cardinalities = naifgBean.findAllDependency(em);
+
+line("//      ---------------------- Dependency:---------------------------------\n");
+
+        int i=0;
+        for (Cardinalities cardinality : cardinalities) {
+
+line("        Cardinalities cardinality"+String.valueOf(++i)+" = new Cardinalities();");
+line("        cardinality"+String.valueOf(++i)+".setOrden("+cardinality.getOrden()+"L);");
+line("        cardinality"+String.valueOf(++i)+".setName(\""+cardinality.getName()+"\");");
+line("        cardinality"+String.valueOf(++i)+".setCardinality(\""+cardinality.getCardinality()+"\"");
+line("        cardinality"+String.valueOf(++i)+".setUnidirectional(\""+cardinality.getUnidirectional()+"\");");
+line("        cardinality"+String.valueOf(++i)+".setAnnotations(\""+cardinality.getAnnotations()+"\");");
+line("        em.persist("+cardinality+String.valueOf(++i)");");
+line("        em.flush();\n");
+
+
+        } // Cardinalities
+        
+*/        
+
+line("    } // data\n");
+
+line("} // Setup");
 
 
         saveFile("\\docs", "Setup.java");
@@ -308,25 +359,6 @@ line("        Dependency dependency"+String.valueOf(++i)+" = new Dependency();")
     }
 
     } // Setup
-
-    public List<Cardinalities> findAllCardinality() {
-
-        FullTextEntityManager fullTextEntityManager = org.hibernate.search.jpa.Search.getFullTextEntityManager(em);
-
-        QueryBuilder queryBuilder = fullTextEntityManager.getSearchFactory().buildQueryBuilder().forEntity(Cardinalities.class).get();
-        org.apache.lucene.search.Query query = queryBuilder.all().createQuery();
-
-        FullTextQuery fullTextQuery = fullTextEntityManager.createFullTextQuery(query, Cardinalities.class);
-        Sort sort = new Sort(new SortField("orden", SortField.LONG));
-        fullTextQuery.setSort(sort);
-
-        fullTextQuery.initializeObjectsWith(ObjectLookupMethod.SKIP, DatabaseRetrievalMethod.FIND_BY_ID);
-
-        List<Cardinalities> results = fullTextQuery.getResultList();
-
-        return results;
-
-    }
 
 } // DomainModelsSetup
 
