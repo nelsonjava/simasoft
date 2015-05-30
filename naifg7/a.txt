@@ -8,6 +8,8 @@
 [WARNING] 
 [WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
 [WARNING] 
+[INFO] 
+[INFO] Using the builder org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder with a thread count of 1
 [INFO]                                                                         
 [INFO] ------------------------------------------------------------------------
 [INFO] Building naifg7 1.0.0-SNAPSHOT
@@ -41,14 +43,14 @@
 [INFO] Assembling webapp [naifg7] in [d:\dev\njava\simasoft\naifg7\target\naifg7]
 [INFO] Processing war project
 [INFO] Copying webapp resources [d:\dev\njava\simasoft\naifg7\src\main\webapp]
-[INFO] Webapp assembled in [516 msecs]
+[INFO] Webapp assembled in [1969 msecs]
 [INFO] Building war: d:\dev\njava\simasoft\naifg7\target\naifg7.war
 [WARNING] Warning: selected war files include a WEB-INF/web.xml which will be ignored 
 (webxml attribute is missing from war task, or ignoreWebxml attribute is specified as 'true')
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 6.249s
-[INFO] Finished at: Fri May 29 08:30:31 COT 2015
-[INFO] Final Memory: 17M/47M
+[INFO] Total time: 7.610 s
+[INFO] Finished at: 2015-05-29T21:02:21-05:00
+[INFO] Final Memory: 17M/48M
 [INFO] ------------------------------------------------------------------------

@@ -313,32 +313,61 @@ fileTxt.line("    private static final Logger log = Logger.getLogger(Setup.class
 
 fileTxt.line("    public void data() {\n");
 
-fileTxt.line("//      ---------------------- Dependency ------------------------");
+fileTxt.line("//      ---------------------- Dependency ------------------------\n");
 
-fileTxt.line(dependency.getArtifactId());
+fileTxt.line("        Dependency "+dependency.getArtifactId()+" = new Dependency();");
+fileTxt.line("        "+dependency.getArtifactId()+".setOrden("+dependency.getOrden()+"L);");
+fileTxt.line("        "+dependency.getArtifactId()+".setGroupId(\""+dependency.getGroupId()+"+\");");
+fileTxt.line("        "+dependency.getArtifactId()+".setArtifactId(\""+dependency.getArtifactId()+"\"");
+fileTxt.line("        "+dependency.getArtifactId()+".setLink(\""+dependency.getLink()+"\");");
+fileTxt.line("        "+dependency.getArtifactId()+".setMaven(\""+dependency.getMaven()+"\");");
+fileTxt.line("        em.persist("+dependency.getArtifactId()+");");
+fileTxt.line("        em.flush();\n");
 
----
+                int i=0;
+                for (Imports imports : dependency.getImports()) {
 
-        dependency.getOrden()
-        dependency.getGroupId()
-        dependency.getArtifactId()
-        dependency.getLink()
-        dependency.getMaven()
+fileTxt.line("        Imports "+dependency.getArtifactId()+String.valueOf(++i)+" = new Imports();");
+fileTxt.line("        "+dependency.getArtifactId()+String.valueOf(i)+".setOrden("+imports.getOrden()+"L);");
+fileTxt.line("        "+dependency.getArtifactId()+String.valueOf(i)+".setName(\""+imports.getName()+"\");");
+fileTxt.line("        "+dependency.getArtifactId()+String.valueOf(i)+".setLink(\""+imports.getLink()+"\");");
+fileTxt.line("        "+dependency.getArtifactId()+String.valueOf(i)+".setDependency(\""+dependency.getArtifactId()+"\");");
+fileTxt.line("        em.persist("+dependency.getArtifactId()+String.valueOf(i)+");");
+fileTxt.line("        em.flush();\n");
 
+                    int j=0;
+                    for (AttributesProperties attributesProperties : imports.getAttributesProperties()) {
 
----
+fileTxt.line("        AttributesProperties attributesProperties"+String.valueOf(++j)+" = new AttributesProperties();");
+fileTxt.line("        attributesProperties"+String.valueOf(j)+".setOrden("+attributesProperties.getOrden()+"L);");
+fileTxt.line("        attributesProperties"+String.valueOf(j)+".setName(\""+attributesProperties.getName()+"\");");
+fileTxt.line("        attributesProperties"+String.valueOf(j)+".setValue(\""+attributesProperties.getValue()+"\");");
+fileTxt.line("        attributesProperties"+String.valueOf(j)+".setLink(\""+attributesProperties.getLink()+"\");");
 
-        "Dependency "+dependency.getArtifactId()+" = new Dependency();"
-        dependency.getArtifactId()+.setOrden();
-        dependency.getArtifactId()+.setGroupId(\"\");
-        dependency.getArtifactId()+.setArtifactId(\"\");
-        dependency.getArtifactId()+.setLink(\"\");
-        dependency.getArtifactId()+.setMaven(\"\");
-        "em.persist("+dependency.getArtifactId()+");"
-        "em.flush();"
+fileTxt.line("        Set<Imports> imports"+String.valueOf(j)+" = new HashSet<Imports>();");
+fileTxt.line("        imports"+String.valueOf(j)+".add("+dependency.getArtifactId()+String.valueOf(++i)+");");
 
+fileTxt.line("        attributesProperties"+String.valueOf(j)+".setImports(imports"+String.valueOf(j)+");");
+fileTxt.line("        em.persist(attributesProperties"+String.valueOf(j)+");");
+fileTxt.line("        em.flush();\n");
 
+/*
+fileTxt.line("        AttributesProperties var"+attributesProperties.getName()+String.valueOf(j)+" = new AttributesProperties();");
+fileTxt.line("        var"+attributesProperties.getName()+String.valueOf(j)+".setOrden();");
+fileTxt.line("        var"+attributesProperties.getName()+String.valueOf(j)+".setName();");
+fileTxt.line("        var"+attributesProperties.getName()+String.valueOf(j)+".setValue();");
+fileTxt.line("        var"+attributesProperties.getName()+String.valueOf(j)+".setLink();");
 
+fileTxt.line("        Set<Imports> imports"+attributesProperties.getName()+String.valueOf(j)+" = new HashSet<Imports>();");
+fileTxt.line("        imports"+attributesProperties.getName()+String.valueOf(j)+".add("+dependency.getArtifactId()+String.valueOf(++i)+");");
+
+fileTxt.line("        var"+attributesProperties.getName()+String.valueOf(j)+".setImports(imports"+attributesProperties.getName()+String.valueOf(j)+");");
+fileTxt.line("        em.persist(var"+attributesProperties.getName()+String.valueOf(j)+");");
+fileTxt.line("        em.flush();\n");
+*/
+
+                    }
+                }
 
 fileTxt.line("    } // data\n");
 
