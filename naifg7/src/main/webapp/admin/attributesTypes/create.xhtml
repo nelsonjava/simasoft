@@ -78,6 +78,7 @@
 					<h:inputText id="attributesTypesBeanAttributesTypesLength" value="#{attributesTypesBean.attributesTypes.length}"/>
 					<h:message for="attributesTypesBeanAttributesTypesLength" styleClass="error"/>
 				</h:panelGroup>
+
 				<h:outputText/>
 				<h:outputLabel for="attributesTypesBeanAttributesTypesAttributesProperties" value="Attributes Properties:"/>
 				<h:panelGroup>
@@ -108,7 +109,9 @@
 					<h:panelGrid columnClasses=",remove-column" columns="2" styleClass="data-table-footer">
 						<h:selectOneMenu converter="#{attributesPropertiesBean.converter}" id="attributesTypesBeanAttributesTypesAttributesPropertiesSelect" value="#{requestScope['attributesTypesBeanAttributesTypesAttributesPropertiesSelect']}">
 							<f:selectItem/>
-							<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{attributesPropertiesBean.all}" var="_item"/>
+							<f:selectItems itemLabel="#{forgeview:display(_item.name)}" 
+                                                                       itemValue="#{_item}"
+                                                                       value="#{attributesPropertiesBean.all}" var="_item"/>
 						</h:selectOneMenu>
 						<h:commandLink action="#{_collection.add(requestScope['attributesTypesBeanAttributesTypesAttributesPropertiesSelect'])}" id="attributesTypesBeanAttributesTypesAttributesPropertiesAdd" onclick="if (document.getElementById(document.forms[0].id+':attributesTypesBeanAttributesTypesAttributesPropertiesSelect').selectedIndex &lt; 1) { alert('Must select a Attributes Properties'); return false; }" styleClass="add-button"/>
 					</h:panelGrid>

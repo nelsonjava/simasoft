@@ -66,17 +66,30 @@
 					</h:panelGroup>
 				</h:panelGroup>
 			</f:validateBean>
-			
+
 			<h:dataTable id="dependencyBeanPageItems" styleClass="data-table" value="#{dependencyBean.pageItems}" var="_item">
+			
 				<h:column>
 					<f:facet name="header">
-						<h:outputText value="Artifact Id"/>
+						<h:outputText value="Orden"/>
+					</f:facet>
+					<h:link outcome="/admin/dependency/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemOrden" value="#{_item.orden}"/>
+					</h:link>
+				</h:column>
+
+
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Artifact"/>
 					</f:facet>
 					<h:link outcome="/admin/dependency/view">
 						<f:param name="id" value="#{_item.id}"/>
 						<h:outputText id="itemArtifactId" value="#{_item.artifactId}"/>
 					</h:link>
 				</h:column>
+
 				<h:column>
 					<f:facet name="header">
 						<h:outputText value="Group Id"/>
@@ -86,24 +99,7 @@
 						<h:outputText id="itemGroupId" value="#{_item.groupId}"/>
 					</h:link>
 				</h:column>
-				<h:column>
-					<f:facet name="header">
-						<h:outputText value="Maven"/>
-					</f:facet>
-					<h:link outcome="/admin/dependency/view">
-						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemMaven" value="#{_item.maven}"/>
-					</h:link>
-				</h:column>
-				<h:column>
-					<f:facet name="header">
-						<h:outputText value="Link"/>
-					</f:facet>
-					<h:link outcome="/admin/dependency/view">
-						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemLink" value="#{_item.link}"/>
-					</h:link>
-				</h:column>
+
 			</h:dataTable>
 			<ui:include src="/resources/scaffold/paginator.xhtml">
 				<ui:param name="paginatorBean" value='#{dependencyBean}'/>

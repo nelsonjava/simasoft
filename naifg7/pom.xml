@@ -98,6 +98,7 @@
       <artifactId>hibernate-search-orm</artifactId>
     </dependency>
 
+    <!-- http://docs.jboss.org/hibernate/search/5.2/api/ -->
     <dependency>
       <groupId>org.hibernate</groupId>
       <artifactId>hibernate-search</artifactId>

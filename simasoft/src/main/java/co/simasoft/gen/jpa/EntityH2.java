@@ -120,7 +120,7 @@ public EntityH2(String artifactId,String groupId,Entidad entity,LinkedHashSet<St
       line("    @Version");
       line("    private Integer optlock;\n");
 
-      line("    private long orden;\n");
+      line("    private double orden;\n");
 //>>FIN ATTRIBUTOS POR DEFECTO
 
 //>>ATTRIBUTOS DE LA CLASE
@@ -251,10 +251,10 @@ public EntityH2(String artifactId,String groupId,Entidad entity,LinkedHashSet<St
       line("        this.optlock = optlock;");
       line("    }\n");
 
-      line("    public long getOrden() {");
+      line("    public double getOrden() {");
       line("        return this.orden;");
       line("    }");
-      line("    public void setOrden(long orden) {");
+      line("    public void setOrden(double orden) {");
       line("        this.orden = orden;");
       line("    }\n");
 //>>FIN GET Y SET PREDEFINIDOS

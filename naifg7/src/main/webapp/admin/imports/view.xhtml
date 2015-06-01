@@ -33,7 +33,10 @@
 			<h:outputText id="importsBeanImportsName" value="#{importsBean.imports.name}"/>
 			<h:outputText/>
 			<h:outputLabel for="importsBeanImportsLink" value="Link:"/>
-			<h:outputText id="importsBeanImportsLink" value="#{importsBean.imports.link}"/>
+
+<!--			<h:outputText id="importsBeanImportsLink" value="#{importsBean.imports.link}"/> -->
+                        <A HREF="#{importsBean.imports.link}" title="#{importsBean.imports.link}"  target="_blank">#{importsBean.imports.link}</A>
+
 			<h:outputText/>
 			<h:outputLabel for="importsBeanImportsObservations" value="Observations:"/>
 			<h:outputText id="importsBeanImportsObservations" value="#{importsBean.imports.observations}"/>
