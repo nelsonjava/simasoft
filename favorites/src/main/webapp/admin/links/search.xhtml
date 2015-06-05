@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:forgeview="http://jboss.org/forge/view"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="page" value='#{linksBean.page}'/>
+		<f:event type="preRenderView" listener='#{linksBean.paginate}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="Search Links entities"/>
+
+	<ui:define name="header">
+		Links
+	</ui:define>
+
+	<ui:define name="subheader">
+		Search Links entities
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:form id="search">
+			<f:validateBean disabled="true">
+				<h:panelGroup styleClass="search">
+
+					<h:panelGrid columnClasses="label,component,required" columns="3">
+						<h:outputLabel for="linksBeanExampleLink" value="Link:"/>
+						<h:panelGroup>
+							<h:inputText id="linksBeanExampleLink" value="#{linksBean.example.link}"/>
+							<h:message for="linksBeanExampleLink" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="linksBeanExampleObservations" value="Observations:"/>
+						<h:panelGroup>
+							<h:inputText id="linksBeanExampleObservations" value="#{linksBean.example.observations}"/>
+							<h:message for="linksBeanExampleObservations" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="linksBeanExampleTitle" value="Title:"/>
+						<h:panelGroup>
+							<h:inputText id="linksBeanExampleTitle" value="#{linksBean.example.title}"/>
+							<h:message for="linksBeanExampleTitle" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="linksBeanExampleObjPadre" value="Obj Padre:"/>
+						<h:panelGroup>
+							<h:selectOneMenu converter="#{linksBean.converter}" id="linksBeanExampleObjPadre" value="#{linksBean.example.objPadre}">
+								<f:selectItem/>
+								<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{linksBean.all}" var="_item"/>
+							</h:selectOneMenu>
+							<h:message for="linksBeanExampleObjPadre" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+					</h:panelGrid>
+					<h:panelGroup styleClass="buttons">
+						<h:commandLink value="Search" action='#{linksBean.search}' styleClass="btn btn-primary"/>
+						<h:commandLink value="Create New" action='#{linksBean.create}' styleClass="btn btn-primary"/>
+					</h:panelGroup>
+				</h:panelGroup>
+			</f:validateBean>
+
+			<h:dataTable id="linksBeanPageItems" styleClass="data-table" value="#{linksBean.pageItems}" var="_item">
+
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Title"/>
+					</f:facet>
+					<h:link outcome="/admin/links/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemTitle" value="#{_item.title}"/>
+					</h:link>
+				</h:column>
+
+			</h:dataTable>
+			<ui:include src="/resources/scaffold/paginator.xhtml">
+				<ui:param name="paginatorBean" value='#{linksBean}'/>
+			</ui:include>
+		</h:form>
+			
+	</ui:define>
+
+</ui:composition>

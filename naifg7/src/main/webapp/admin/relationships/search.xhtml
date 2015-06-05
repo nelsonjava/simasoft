@@ -68,53 +68,59 @@
 			</f:validateBean>
 
 			<h:dataTable id="relationshipsBeanPageItems" styleClass="data-table" value="#{relationshipsBean.pageItems}" var="_item">
-
+			
 				<h:column>
 					<f:facet name="header">
-						<h:outputText value="Orden"/>
+						<h:outputText value="From:"/>
 					</f:facet>
 					<h:link outcome="/admin/relationships/view">
 						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemOrden" value="#{_item.orden}"/>
+						<h:outputText id="itemEntity" value="#{_item.from.name}"/>
 					</h:link>
 				</h:column>
 
 				<h:column>
 					<f:facet name="header">
-						<h:outputText value="Observations"/>
+						<h:outputText value=""/>
 					</f:facet>
 					<h:link outcome="/admin/relationships/view">
 						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemObservations" value="#{_item.observations}"/>
+						<h:outputText id="itemName" value="#{_item.cardinalities.cardinality}"/>
 					</h:link>
 				</h:column>
+
 				<h:column>
 					<f:facet name="header">
-						<h:outputText value="Id Table 2"/>
+						<h:outputText value="To"/>
 					</f:facet>
 					<h:link outcome="/admin/relationships/view">
 						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemIdTable2" value="#{_item.idTable2}"/>
+						<h:outputText id="itemMappedby" value="#{_item.to.name}"/>
 					</h:link>
 				</h:column>
+				
 				<h:column>
 					<f:facet name="header">
-						<h:outputText value="Description"/>
+						<h:outputText value="Optionality"/>
 					</f:facet>
 					<h:link outcome="/admin/relationships/view">
 						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemDescription" value="#{_item.description}"/>
+						<h:outputText styleClass="#{_item.optionality ? 'boolean-true' : 'boolean-false'}" value=""/>
 					</h:link>
 				</h:column>
+				
 				<h:column>
 					<f:facet name="header">
-						<h:outputText value="Table"/>
+						<h:outputText value="Embedded"/>
 					</f:facet>
 					<h:link outcome="/admin/relationships/view">
 						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemTable" value="#{_item.table}"/>
+						<h:outputText styleClass="#{_item.isEmbedded ? 'boolean-true' : 'boolean-false'}" value=""/>
 					</h:link>
 				</h:column>
+
+
+
 			</h:dataTable>
 			<ui:include src="/resources/scaffold/paginator.xhtml">
 				<ui:param name="paginatorBean" value='#{relationshipsBean}'/>
