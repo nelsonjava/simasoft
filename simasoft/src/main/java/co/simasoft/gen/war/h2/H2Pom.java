@@ -79,6 +79,19 @@ line("  </dependencyManagement>\n");
 line("  <dependencies>\n");
 
 line("    <dependency>");
+line("      <groupId>co.simasoft</groupId>");
+line("      <artifactId>simasoft</artifactId>");
+line("      <version>1.0-SNAPSHOT</version>");
+line("    </dependency>\n");
+
+line("    <dependency>");
+line("      <groupId>org.primefaces</groupId>");
+line("      <artifactId>primefaces</artifactId>");
+line("      <version>5.1</version>");
+line("      <scope>import</scope>");
+line("    </dependency>\n");
+
+line("    <dependency>");
 line("      <groupId>org.hibernate.ogm</groupId>");
 line("      <artifactId>hibernate-ogm-mongodb</artifactId>");
 line("    </dependency>\n");
