@@ -33,31 +33,22 @@ public class Setup extends FileTxt {
         System.out.println("Hello World Setup!");
 
         clearFileTxt();
-
-        line("PASO1");
-
-
-
-        NaifgBean naifgBean = new NaifgBean();
-        List<Cardinalities> cardinalities;
-        cardinalities = naifgBean.findAllCardinalities(em);
-        for (Cardinalities car : cardinalities) {
-            line(car.getName());
-        } // Cardinalities
-
-/*
         Naifg8Bean naifg8Bean = new Naifg8Bean();
-        List<Cardinalities> cardinalities;
-        cardinalities = naifg8Bean.selectAllCardinalities();
-        for (Cardinalities car : cardinalities) {
-            line(car.getName());
-        } // Cardinalities
-*/
 
-        line("PASO2");
+        int i=0;
+        List<Cardinalities> cardinalities;
+
+        cardinalities = naifg8Bean.selectAllCardinalities();
+
+        for (Cardinalities cardinality : cardinalities) {
+line("        Cardinalities cardinality"+String.valueOf(++i)+" = new Cardinalities();");
+        } // Cardinalities
+
+
+line("        PASO");
         Cardinalities cardinality = new Cardinalities();
         cardinality = findCardinalities("Uno a Muchos Bidirecccional No.5");
-        line(cardinality.getName());
+line(cardinality.getName());
 
         saveFile("\\docs", "Setup.java");
 

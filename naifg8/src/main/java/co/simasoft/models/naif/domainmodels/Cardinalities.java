@@ -43,6 +43,7 @@ public class Cardinalities implements Serializable {
     @Version
     private Integer optlock;
 
+    @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
     private double orden;
 
     @Column(nullable = true, unique = false)

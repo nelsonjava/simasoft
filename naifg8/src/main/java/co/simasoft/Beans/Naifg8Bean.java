@@ -88,5 +88,16 @@ public class Naifg8Bean {
     } // end : execute Method
 
     // QUERIES //
+    
+    public List<Cardinalities> selectAllCardinalities() {
+        prepare(Cardinalities.class);
+
+        Query query = qb.all().createQuery();
+
+        List<Cardinalities> results = execute(query,
+                                              new Class[]{Cardinalities.class}, null,
+                                              new SortField("orden", SortField.DOUBLE));
+        return results;
+    }
 
 } // Fin de clase
