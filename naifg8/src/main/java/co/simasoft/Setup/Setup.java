@@ -20,12 +20,8 @@ import org.jboss.logging.Logger;
 @Named("Setup")
 public class Setup extends FileTxt {
 
-    private static final String QUERYC = "SELECT c FROM Cardinalities c WHERE c.name LIKE :custName";
-
     @PersistenceContext(unitName = "naifg8PU-JTA")
     private EntityManager em;
-
-    private static final Logger log = Logger.getLogger(Setup.class.getName());
 
     public void data() {
     try {
@@ -36,28 +32,21 @@ public class Setup extends FileTxt {
 
         line("PASO1");
 
-
-
-        NaifgBean naifgBean = new NaifgBean();
-        List<Cardinalities> cardinalities;
-        cardinalities = naifgBean.findAllCardinalities(em);
-        for (Cardinalities car : cardinalities) {
-            line(car.getName());
-        } // Cardinalities
-
 /*
         Naifg8Bean naifg8Bean = new Naifg8Bean();
-        List<Cardinalities> cardinalities;
-        cardinalities = naifg8Bean.selectAllCardinalities();
-        for (Cardinalities car : cardinalities) {
+        List<Cardinalities> cars = naifg8Bean.selectAllCardinalities(em);
+        for (Cardinalities car : cars) {
             line(car.getName());
+        line("PASOX");
         } // Cardinalities
 */
 
-        line("PASO2");
-        Cardinalities cardinality = new Cardinalities();
-        cardinality = findCardinalities("Uno a Muchos Bidirecccional No.5");
-        line(cardinality.getName());
+        NaifgBean naifgBean = new NaifgBean();
+        List<Cardinalities> cars = naifgBean.findAllCardinality(em);
+        for (Cardinalities car : cars) {
+            line(car.getName());
+        } // Cardinalities
+
 
         saveFile("\\docs", "Setup.java");
 
@@ -68,15 +57,6 @@ public class Setup extends FileTxt {
 
     } // data
 
-    public Cardinalities findCardinalities(String name) {
 
-        Cardinalities cardinalities = new Cardinalities();
-        List<Cardinalities> results = em.createQuery(QUERYC).setParameter("custName", name).getResultList();
-
-        if (!results.isEmpty()) {
-           cardinalities = results.get(0);
-        }
-        return cardinalities;
-    }
 
 } // Setup

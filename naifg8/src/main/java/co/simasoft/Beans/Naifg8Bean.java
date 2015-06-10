@@ -32,9 +32,6 @@ import org.hibernate.search.query.dsl.QueryBuilder;
 @LocalBean
 public class Naifg8Bean {
 
-    @PersistenceContext(unitName = "naifg8PU-JTA")
-    private EntityManager em;
-
     private QueryBuilder qb;
     private FullTextEntityManager fTEM;
 
@@ -43,7 +40,7 @@ public class Naifg8Bean {
      *
      * @param entityClass Entity type used for data retrieval during query creation.
      */
-    private void prepare(Class<?> entityClass) {
+    private void prepare(Class<?> entityClass,EntityManager em) {
         if (entityClass == null) {
             throw new NullPointerException("Entity class(.class type) is null.");
         }
@@ -67,6 +64,9 @@ public class Naifg8Bean {
                          Class<?>[] entityClasses,
                          String[] projectionWith,
                          SortField sortByThisField) {
+
+    try {
+
         if (query == null) {
             throw new NullPointerException("Lucene query object is null.");
         }
@@ -74,6 +74,7 @@ public class Naifg8Bean {
             throw new NullPointerException("There must be at least one entity class(.class type).");
         }
 
+        fTEM.createIndexer().startAndWait();
         FullTextQuery fTQ = fTEM.createFullTextQuery(query, entityClasses);
 
         if (projectionWith != null) {
@@ -85,12 +86,20 @@ public class Naifg8Bean {
 
         fTQ.initializeObjectsWith(ObjectLookupMethod.SKIP, DatabaseRetrievalMethod.FIND_BY_ID);
         return fTQ.getResultList();
+
+    } // try
+    catch(Exception ioe) {
+      ioe.printStackTrace();
+    } // catch
+
+    return null; // Revisar
+
     } // end : execute Method
 
     // QUERIES //
-    
-    public List<Cardinalities> selectAllCardinalities() {
-        prepare(Cardinalities.class);
+
+    public List<Cardinalities> selectAllCardinalities(EntityManager em) {
+        prepare(Cardinalities.class,em);
 
         Query query = qb.all().createQuery();
 

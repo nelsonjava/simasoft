@@ -2,6 +2,8 @@ package co.simasoft.beans;
 
 import co.simasoft.models.naif.domainmodels.*;
 
+import java.util.*;
+
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
@@ -10,6 +12,7 @@ import java.util.Random;
 import java.util.StringTokenizer;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
+import javax.ejb.Singleton;
 import javax.persistence.EntityManager;
 import javax.persistence.LockModeType;
 import javax.persistence.OptimisticLockException;
@@ -28,9 +31,11 @@ public class NaifgBean {
     @PersistenceContext(unitName = "naifg8PU-JTA")
     private EntityManager em;
 
-    public List<Cardinalities> findAllCardinalities() {
+    public List<Cardinalities> findAllCardinalities(EntityManager em) {
+    try {
 
         FullTextEntityManager fullTextEntityManager = org.hibernate.search.jpa.Search.getFullTextEntityManager(em);
+        fullTextEntityManager.createIndexer().startAndWait();
 
         QueryBuilder queryBuilder = fullTextEntityManager.getSearchFactory().buildQueryBuilder().forEntity(Cardinalities.class).get();
         org.apache.lucene.search.Query query = queryBuilder.all().createQuery();
@@ -42,10 +47,30 @@ public class NaifgBean {
         fullTextQuery.initializeObjectsWith(ObjectLookupMethod.SKIP, DatabaseRetrievalMethod.FIND_BY_ID);
 
         List<Cardinalities> results = fullTextQuery.getResultList();
-
+        
         return results;
 
+    } // try
+    catch(Exception ioe) {
+      ioe.printStackTrace();
+    } // catch
+
+    return new ArrayList<Cardinalities>();
+
+    } // findAllCardinalities
+
+
+    public List<Cardinalities> findAllCardinality(EntityManager em) {
+
+        Cardinalities cardinalities = new Cardinalities();
+        List<Cardinalities> results = em.createQuery("SELECT c FROM Cardinalities c").getResultList();
+
+        if (results.isEmpty()) {
+            return new ArrayList<Cardinalities>();
+        }
+
+        return results;
     }
 
+
 } // NaifgBean
- 
