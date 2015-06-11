@@ -115,10 +115,35 @@
 				<f:param name="id" value="#{domainModelsBean.domainModels.systemsModels.id}"/>
 			</h:link>
 			<h:outputText/>
+
+			<h:outputLabel for="domainModelsBeanDomainModelsSystemsModels" value="Generate:"/>
+                        <h:form>
+                          <h:commandButton value="Code" action="#{DomainModelsGen.data(domainModelsBean.domainModels)}" />
+                        </h:form>
+			<h:outputText/>
+
+			<h:outputLabel for="domainModelsBeanDomainModelsSystemsModels" value="Generate:"/>
+                        <h:form>
+                          <h:commandButton value="Free" action="#{DomainModelsGen.download(domainModelsBean.domainModels)}" />
+                        </h:form>
+			<h:outputText/>
+
+			<h:outputLabel for="domainModelsBeanDomainModelsSystemsModelss" value="Generate:"/>
+                        <h:form>
+                          <h:commandButton value="Protected" action="#{DomainModelsGen.downloadProtected(domainModelsBean.domainModels)}" />
+                        </h:form>
+			<h:outputText/>
+
+			<h:outputLabel for="domainModelsBeanDomainModelsSystemsModelss" value="Generate:"/>
+                        <h:form>
+                          <h:commandButton value="Setup" action="#{DomainModelsGen.setup(domainModelsBean.domainModels)}" />
+                        </h:form>
+			<h:outputText/>
+
 		</h:panelGrid>
 
 		<div class="buttons">
-			<h:link value="View All" outcome="search" styleClass="btn btn-primary"/> 
+			<h:link value="View All" outcome="search" styleClass="btn btn-primary"/>
 			<h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
 			<h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
 		</div>

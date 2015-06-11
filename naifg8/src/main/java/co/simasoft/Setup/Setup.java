@@ -1,8 +1,4 @@
 package co.simasoft.setup;
-
-import co.simasoft.utils.*;
-import co.simasoft.beans.*;
-
 import co.simasoft.models.naif.domainmodels.*;
 
 import java.util.*;
@@ -18,45 +14,17 @@ import org.jboss.logging.Logger;
 @Singleton
 @LocalBean
 @Named("Setup")
-public class Setup extends FileTxt {
+public class Setup {
 
     @PersistenceContext(unitName = "naifg8PU-JTA")
     private EntityManager em;
 
+    private static final Logger log = Logger.getLogger(Setup.class.getName());
+
     public void data() {
-    try {
 
-        System.out.println("Hello World Setup!");
+    } // data()
 
-        clearFileTxt();
-
-        line("PASO1");
-
-/*
-        Naifg8Bean naifg8Bean = new Naifg8Bean();
-        List<Cardinalities> cars = naifg8Bean.selectAllCardinalities(em);
-        for (Cardinalities car : cars) {
-            line(car.getName());
-        line("PASOX");
-        } // Cardinalities
-*/
-
-        NaifgBean naifgBean = new NaifgBean();
-        List<Cardinalities> cars = naifgBean.findAllCardinality(em);
-        for (Cardinalities car : cars) {
-            line(car.getName());
-        } // Cardinalities
-
-
-        saveFile("\\docs", "Setup.java");
-
-    } // try
-    catch(Exception ioe) {
-      ioe.printStackTrace();
-    }
-
-    } // data
-
-
+//      ---------------------- Dependency ------------------------
 
 } // Setup

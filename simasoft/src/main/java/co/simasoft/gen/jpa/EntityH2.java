@@ -101,6 +101,7 @@ public EntityH2(String artifactId,String groupId,Entidad entity,LinkedHashSet<St
 //>>FIN NAMEDQUERIES DE LA CLASE
 
 //>>ANNOTATIONS DE LA CLASE
+      line("@Indexed");
       line("@Entity");
 //>>FIN ANNOTATIONS DE LA CLASE
 
@@ -114,6 +115,7 @@ public EntityH2(String artifactId,String groupId,Entidad entity,LinkedHashSet<St
       line("    private static final long serialVersionUID = 1L;\n");
 
       line("    @Id");
+      line("    @DocumentId");
       line("    @GeneratedValue(strategy=GenerationType.TABLE)");
       line("    private Long id;\n");
 

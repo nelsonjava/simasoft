@@ -11,7 +11,7 @@ import java.util.Set;
 
 public class H2Search extends FileTxt {
 
-  public H2Search(String artifactId,String groupId) {
+  public H2Search(String artifactId,String groupId,ArrayList<Entidad> entities) {
 
 line("package co.simasoft.beans;\n");
 
@@ -45,7 +45,7 @@ line("import org.hibernate.search.query.dsl.QueryBuilder;\n");
 
 line("@Stateless");
 line("@LocalBean");
-line("public class "+Utils._1raMay(artifactId)+"Bean {\n");
+line("public class SearchBean {\n");
 
 line("    @PersistenceContext(unitName = \""+artifactId+"PU-JTA\")");
 line("    private EntityManager em;\n");
@@ -58,7 +58,7 @@ line("     * Initializes the objects required for an Hibernate Search/Apache Luc
 line("     *");
 line("     * @param entityClass Entity type used for data retrieval during query creation.");
 line("     */");
-line("    private void prepare(Class<?> entityClass) {");
+line("    private void prepare(Class<?> entityClass, EntityManager em) {");
 line("        if (entityClass == null) {");
 line("            throw new NullPointerException(\"Entity class(.class type) is null.\");");
 line("        }\n");
@@ -104,6 +104,23 @@ line("    } // end : execute Method\n");
 
 
 line("    // QUERIES //\n");
+
+
+            for(Entidad entidad : entities) {
+
+line("    public List<"+entidad.getName()+"> selectAll"+entidad.getName()+"(EntityManager em) {");
+line("        prepare("+entidad.getName()+".class,em);\n");
+
+line("        Query query = qb.all().createQuery();\n");
+
+line("        List<"+entidad.getName()+"> results = execute(query,");
+line("                                              new Class[]{"+entidad.getName()+".class}, null,");
+line("                                              new SortField(\"orden\", SortField.DOUBLE));");
+line("        return results;");
+line("    }\n");
+
+            } // for entities
+
 
 line("} // Fin de clase");
 
