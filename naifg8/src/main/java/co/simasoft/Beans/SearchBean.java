@@ -253,5 +253,21 @@ public class SearchBean {
                                               new SortField("orden", SortField.DOUBLE));
         return results;
     }
+    
+// ------------------------------------------------------------------------------------------ //
+
+    public Dependency artifactIdDependency(String dependencyToSearch,EntityManager em) {
+        prepare(Dependency.class,em);
+
+        Query query = qb.keyword().onField("artifactId").matching(dependencyToSearch).createQuery();
+
+        List<Dependency> results = execute(query,
+                                           new Class[]{Dependency.class},
+                                           null, null);
+        if (!results.isEmpty()) {
+           return (Dependency) results.get(0);
+        }
+        return null;
+    }
 
 } // Fin de clase

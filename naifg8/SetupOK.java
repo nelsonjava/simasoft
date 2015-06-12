@@ -1,7 +1,4 @@
 package co.simasoft.setup;
-
-
-import co.simasoft.beans.*;
 import co.simasoft.models.naif.domainmodels.*;
 
 import java.util.*;
@@ -23,8 +20,6 @@ public class Setup {
     private EntityManager em;
 
     private static final Logger log = Logger.getLogger(Setup.class.getName());
-
-    SearchBean searchBean = new SearchBean();
 
     public void data() {
 
@@ -66,9 +61,7 @@ public class Setup {
 
         Imports imports1 = new Imports();
         imports1.setName("import javax.persistence.Column;");
-        Dependency varDependency = new Dependency();
-        varDependency = searchBean.artifactIdDependency("persistence-api",em);
-        imports1.setDependency(varDependency);
+        imports1.setDependency(dependency1);
         em.persist(imports1);
         em.flush();
 

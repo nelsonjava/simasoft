@@ -58,8 +58,6 @@ line("    private static final Logger log = Logger.getLogger(Setup.class.getName
 
 line("    public void data() {\n");
 
-line("    } // data()\n");
-
 line("//      ---------------------- Dependency ------------------------\n");
 
         int i=0;
@@ -83,6 +81,11 @@ line("//      ---------------------- Imports ------------------------\n");
 
 line("        Imports imports"+String.valueOf(++i)+" = new Imports();");
 line("        imports"+String.valueOf(i)+".setName(\""+imports.getName()+"\");");
+              if (imports.getDependency() != null){
+line("        Dependency dependencyImports"+String.valueOf(i)+" = new Dependency();");
+line("        dependencyImports"+String.valueOf(i)+" = searchBean.artifactIdDependency(\""+imports.getDependency().getArtifactId()+"\",em);");
+line("        imports"+String.valueOf(i)+".setDependency(dependencyImports"+String.valueOf(i)+"\");");
+              }
 line("        em.persist(imports"+String.valueOf(i)+");");
 line("        em.flush();\n");
 
@@ -102,7 +105,7 @@ line("        em.persist(attributesTypes"+String.valueOf(i)+");");
 line("        em.flush();\n");
 
         } // AttributesTypes
-        
+
 line("//      ---------------------- Cardinalities ------------------------\n");
 
         i=0;
@@ -118,31 +121,9 @@ line("        em.flush();\n");
 
         } // AttributesTypes
 
+line("    } // data()\n");
+
 line("} // Setup");
-
-
-
-
-
-
-
-
-/*
-        Naifg8Bean naifg8Bean = new Naifg8Bean();
-        List<Cardinalities> cars = naifg8Bean.selectAllCardinalities(em);
-        for (Cardinalities car : cars) {
-            line(car.getName());
-        line("PASOX");
-        } // Cardinalities
-
-        NaifgBean naifgBean = new NaifgBean();
-        List<Cardinalities> cars = naifgBean.findAllCardinality(em);
-        for (Cardinalities car : cars) {
-            line(car.getName());
-        } // Cardinalities
-
-*/
-
 
         saveFile("\\docs", "Setup.java");
 
