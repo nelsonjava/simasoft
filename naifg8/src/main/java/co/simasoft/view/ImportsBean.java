@@ -193,7 +193,7 @@ public class ImportsBean implements Serializable {
 	}
 
 	public int getPageSize() {
-		return 10;
+		return 100;
 	}
 
 	public Imports getExample() {

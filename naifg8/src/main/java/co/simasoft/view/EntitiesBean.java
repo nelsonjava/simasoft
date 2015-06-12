@@ -217,7 +217,7 @@ public class EntitiesBean implements Serializable {
 	}
 
 	public int getPageSize() {
-		return 10;
+		return 100;
 	}
 
 	public Entities getExample() {

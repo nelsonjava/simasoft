@@ -81,31 +81,42 @@ line("//      ---------------------- Imports ------------------------\n");
         List<Imports> importss = searchBean.selectAllImports(em);
         for (Imports imports : importss) {
 
-line("        Imports imports"+String.valueOf(++i)+" = new Dependency();");
+line("        Imports imports"+String.valueOf(++i)+" = new Imports();");
 line("        imports"+String.valueOf(i)+".setName(\""+imports.getName()+"\");");
 line("        em.persist(imports"+String.valueOf(i)+");");
 line("        em.flush();\n");
 
         } // Imports
-        
-line("//      ---------------------- Imports ------------------------\n");
+
+line("//      ---------------------- AttributesTypes ------------------------\n");
 
         i=0;
-        List<Imports> importss = searchBean.selectAllImports(em);
-        for (Imports imports : importss) {
+        List<AttributesTypes> attributesTypes = searchBean.selectAllAttributesTypes(em);
+        for (AttributesTypes attributeType : attributesTypes) {
 
-line("        Imports imports"+String.valueOf(++i)+" = new Dependency();");
-line("        imports"+String.valueOf(i)+".setName(\""+imports.getName()+"\");");
-line("        em.persist(imports"+String.valueOf(i)+");");
+line("        AttributesTypes attributesTypes"+String.valueOf(++i)+" = new AttributesTypes();");
+line("        attributesTypes"+String.valueOf(i)+".setName(\""+attributeType.getName()+"\");");
+line("        attributesTypes"+String.valueOf(i)+".setType(\""+attributeType.getType()+"\");");
+line("        attributesTypes"+String.valueOf(i)+".setObservations(\""+attributeType.getObservations()+"\");");
+line("        em.persist(attributesTypes"+String.valueOf(i)+");");
 line("        em.flush();\n");
 
-        } // Imports
+        } // AttributesTypes
+        
+line("//      ---------------------- Cardinalities ------------------------\n");
 
+        i=0;
+        List<Cardinalities> cardinalities = searchBean.selectAllCardinalities(em);
+        for (Cardinalities cardinality : cardinalities) {
 
+line("        Cardinalities cardinalities"+String.valueOf(++i)+" = new AttributesTypes();");
+line("        cardinalities"+String.valueOf(i)+".setName(\""+cardinality.getName()+"\");");
+line("        cardinalities"+String.valueOf(i)+".setCardinality(\""+cardinality.getCardinality()+"\");");
+line("        cardinalities"+String.valueOf(i)+".setUnidirectional(\""+cardinality.getUnidirectional()+"\");");
+line("        em.persist(cardinalities"+String.valueOf(i)+");");
+line("        em.flush();\n");
 
-
-
-
+        } // AttributesTypes
 
 line("} // Setup");
 

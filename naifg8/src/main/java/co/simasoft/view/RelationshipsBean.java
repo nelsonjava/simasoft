@@ -185,7 +185,7 @@ public class RelationshipsBean implements Serializable {
 	}
 
 	public int getPageSize() {
-		return 10;
+		return 100;
 	}
 
 	public Relationships getExample() {

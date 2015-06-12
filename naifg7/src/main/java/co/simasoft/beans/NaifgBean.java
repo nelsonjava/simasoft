@@ -2,6 +2,8 @@ package co.simasoft.beans;
 
 import co.simasoft.models.naif.domainmodels.*;
 
+import java.util.*;
+
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
@@ -46,6 +48,34 @@ Dependency
 
 
 public class NaifgBean {
+
+    public List<AttributesProperties> findAllAttributesProperties(EntityManager em) {
+
+    try {
+        FullTextEntityManager fullTextEntityManager = org.hibernate.search.jpa.Search.getFullTextEntityManager(em);
+        fullTextEntityManager.createIndexer().startAndWait();
+
+        QueryBuilder queryBuilder = fullTextEntityManager.getSearchFactory().buildQueryBuilder().forEntity(AttributesProperties.class).get();
+        org.apache.lucene.search.Query query = queryBuilder.all().createQuery();
+
+        FullTextQuery fullTextQuery = fullTextEntityManager.createFullTextQuery(query, AttributesProperties.class);
+        Sort sort = new Sort(new SortField("orden", SortField.LONG));
+        fullTextQuery.setSort(sort);
+
+        fullTextQuery.initializeObjectsWith(ObjectLookupMethod.SKIP, DatabaseRetrievalMethod.FIND_BY_ID);
+
+        List<AttributesProperties> results = fullTextQuery.getResultList();
+
+        return results;
+
+    } // try
+    catch(Exception ioe) {
+      ioe.printStackTrace();
+    } // catch
+
+    return new ArrayList<AttributesProperties>();
+
+    } // findAllAttributesProperties
 
     public List<Cardinalities> findAllCardinalities(EntityManager em) {
 
@@ -111,4 +141,3 @@ public class NaifgBean {
     }
 
 } // NaifgBean
- 

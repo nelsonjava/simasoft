@@ -191,7 +191,7 @@ public class GroupIdsBean implements Serializable {
 	}
 
 	public int getPageSize() {
-		return 10;
+		return 100;
 	}
 
 	public GroupIds getExample() {

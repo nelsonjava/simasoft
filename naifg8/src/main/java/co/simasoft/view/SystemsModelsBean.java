@@ -179,7 +179,7 @@ public class SystemsModelsBean implements Serializable {
 	}
 
 	public int getPageSize() {
-		return 10;
+		return 100;
 	}
 
 	public SystemsModels getExample() {

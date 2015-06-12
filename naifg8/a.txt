@@ -22,33 +22,37 @@
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ naifg8 ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 36 source files to d:\dev\njava\simasoft\naifg8\target\classes
+[INFO] Compiling 37 source files to d:\dev\njava\simasoft\naifg8\target\classes
+[INFO] -------------------------------------------------------------
+[WARNING] COMPILATION WARNING : 
+[INFO] -------------------------------------------------------------
 [WARNING] /d:/dev/njava/simasoft/naifg8/src/main/java/co/simasoft/Beans/Naifg8Bean.java: Some input files use unchecked or unsafe operations.
 [WARNING] /d:/dev/njava/simasoft/naifg8/src/main/java/co/simasoft/Beans/Naifg8Bean.java: Recompile with -Xlint:unchecked for details.
-[INFO] 
-[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ naifg8 ---
-[INFO] Using 'UTF-8' encoding to copy filtered resources.
-[INFO] skip non existing resourceDirectory d:\dev\njava\simasoft\naifg8\src\test\resources
-[INFO] 
-[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ naifg8 ---
-[INFO] No sources to compile
-[INFO] 
-[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ naifg8 ---
-[INFO] No tests to run.
-[INFO] 
-[INFO] --- maven-war-plugin:2.1.1:war (default-war) @ naifg8 ---
-[INFO] Packaging webapp
-[INFO] Assembling webapp [naifg8] in [d:\dev\njava\simasoft\naifg8\target\naifg8]
-[INFO] Processing war project
-[INFO] Copying webapp resources [d:\dev\njava\simasoft\naifg8\src\main\webapp]
-[INFO] Webapp assembled in [3047 msecs]
-[INFO] Building war: d:\dev\njava\simasoft\naifg8\target\naifg8.war
-[WARNING] Warning: selected war files include a WEB-INF/web.xml which will be ignored 
-(webxml attribute is missing from war task, or ignoreWebxml attribute is specified as 'true')
+[INFO] 2 warnings 
+[INFO] -------------------------------------------------------------
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /d:/dev/njava/simasoft/naifg8/src/main/java/co/simasoft/Setup/Setup.java:[615,26] cannot find symbol
+  symbol:   method setAttributesProperties(java.util.Set<co.simasoft.models.naif.domainmodels.PropertiesAttributes>)
+  location: variable attributesTypes12 of type co.simasoft.models.naif.domainmodels.AttributesTypes
+[INFO] 1 error
+[INFO] -------------------------------------------------------------
 [INFO] ------------------------------------------------------------------------
-[INFO] BUILD SUCCESS
+[INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 8.667s
-[INFO] Finished at: Thu Jun 11 14:04:08 COT 2015
-[INFO] Final Memory: 17M/49M
+[INFO] Total time: 2.258s
+[INFO] Finished at: Fri Jun 12 14:02:07 COT 2015
+[INFO] Final Memory: 16M/53M
 [INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.1:compile (default-compile) on project naifg8: Compilation failure
+[ERROR] /d:/dev/njava/simasoft/naifg8/src/main/java/co/simasoft/Setup/Setup.java:[615,26] cannot find symbol
+[ERROR] symbol:   method setAttributesProperties(java.util.Set<co.simasoft.models.naif.domainmodels.PropertiesAttributes>)
+[ERROR] location: variable attributesTypes12 of type co.simasoft.models.naif.domainmodels.AttributesTypes
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

@@ -184,7 +184,7 @@ public class DomainModelsBean implements Serializable {
 	}
 
 	public int getPageSize() {
-		return 10;
+		return 100;
 	}
 
 	public DomainModels getExample() {

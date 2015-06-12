@@ -169,7 +169,7 @@ public class DependencyBean implements Serializable {
 	}
 
 	public int getPageSize() {
-		return 10;
+		return 100;
 	}
 
 	public Dependency getExample() {
