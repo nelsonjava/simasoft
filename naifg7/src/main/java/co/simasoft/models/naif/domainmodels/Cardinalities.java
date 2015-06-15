@@ -41,26 +41,20 @@ public class Cardinalities implements Serializable {
 	@Version
 	private Integer optlock;
 
-        @Field(index = Index.YES, analyze = Analyze.NO, store = Store.YES)
 	private long orden;
 
-        @Field(index = Index.YES, analyze = Analyze.NO, store = Store.YES)
 	@Column(nullable = true, unique = false)
 	private String annotations;
 
-        @Field(index = Index.YES, analyze = Analyze.NO, store = Store.YES)
 	@Column(nullable = false, unique = false)
 	private String cardinality;
 
-        @Field(index = Index.YES, analyze = Analyze.NO, store = Store.YES)
 	@Column(nullable = true, unique = false)
 	private Boolean unidirectional;
 
-        @Field(index = Index.YES, analyze = Analyze.NO, store = Store.YES)
 	@Column(nullable = false, unique = true)
 	private String name;
 
-        @Field(index = Index.YES, analyze = Analyze.NO, store = Store.YES)
 	@Column(nullable = true, unique = false)
 	private String observations;
 

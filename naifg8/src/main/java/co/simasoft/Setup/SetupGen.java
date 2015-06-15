@@ -58,6 +58,8 @@ line("    private static final Logger log = Logger.getLogger(Setup.class.getName
 
 line("    public void data() {\n");
 
+/*
+
 line("//      ---------------------- Dependency ------------------------\n");
 
         int i=0;
@@ -124,6 +126,8 @@ line("        em.flush();\n");
 line("    } // data()\n");
 
 line("} // Setup");
+
+*/
 
         saveFile("\\docs", "Setup.java");
 

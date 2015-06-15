@@ -20,8 +20,13 @@ import org.jboss.logging.Logger;
 @Named("SetupGen")
 public class SetupGen extends FileTxt {
 
+    private static final String comillas = "\\\\\"";
+
     @PersistenceContext(unitName = "naifg7PU-JTA")
     private EntityManager em;
+
+    int i=0;
+    int j=0;
 
     public void data() {
     try {
@@ -30,11 +35,14 @@ public class SetupGen extends FileTxt {
 
         clearFileTxt();
 
+        SearchBean searchBean = new SearchBean();
         NaifgBean naifgBean = new NaifgBean();
 
 line("package co.simasoft.setup;");
 
 line("import co.simasoft.models.naif.domainmodels.*;\n");
+
+line("import co.simasoft.beans.*;\n");
 
 line("import java.util.*;");
 line("import java.util.Calendar;");
@@ -51,34 +59,94 @@ line("@LocalBean");
 line("@Named(\"Setup\")");
 line("public class Setup {\n");
 
-line("    @PersistenceContext(unitName = \"naifg7PU-JTA\")");
+line("    @PersistenceContext(unitName = \"naifg8PU-JTA\")");
 line("    private EntityManager em;\n");
 
 line("    private static final Logger log = Logger.getLogger(Setup.class.getName());\n");
 
+line("    SearchBean searchBean = new SearchBean();\n");
+
 line("    public void data() {\n");
 
-line("    } // data()\n");
+
+line("//      ---------------------- Dependency ------------------------\n");
+
+        i=0;
+
+//        List<Dependency> dependencys = searchBean.selectAllDependency(em);
+
+        List<Dependency> dependencys = naifgBean.findAllDependency(em);
+        for (Dependency dependency : dependencys) {
+
+line("        Dependency dependency"+String.valueOf(++i)+" = new Dependency();");
+//line("        dependency"+String.valueOf(i)+".setOrden();");
+line("        dependency"+String.valueOf(i)+".setGroupId(\""+dependency.getGroupId()+"\");");
+line("        dependency"+String.valueOf(i)+".setArtifactId(\""+dependency.getArtifactId()+"\");");
+line("        em.persist(dependency"+String.valueOf(i)+");");
+line("        em.flush();\n");
+
+        } // dependencys
+
+line("//      ---------------------- Imports ------------------------\n");
+
+        i=0;
+//        List<Imports> importss = searchBean.selectAllImports(em);
+        List<Imports> importss = naifgBean.findAllImports(em);
+        for (Imports imports : importss) {
+
+line("        Imports imports"+String.valueOf(++i)+" = new Imports();");
+line("        imports"+String.valueOf(i)+".setName(\""+imports.getName()+"\");");
+              if (imports.getDependency() != null){
+line("        Dependency dependencyImports"+String.valueOf(i)+" = new Dependency();");
+line("        dependencyImports"+String.valueOf(i)+" = searchBean.artifactIdDependency(\""+imports.getDependency().getArtifactId()+"\",em);");
+line("        imports"+String.valueOf(i)+".setDependency(dependencyImports"+String.valueOf(i)+");");
+              }
+line("        em.persist(imports"+String.valueOf(i)+");");
+line("        em.flush();\n");
+
+        } // Imports
 
 line("//      ---------------------- AttributesProperties ------------------------\n");
 
-        int i=0;
-        List<AttributesProperties> attributesProperties = naifgBean.findAllAttributesProperties(em);
+        List<AttributesProperties> attributesProperties = searchBean.selectAllAttributesProperties(em);
         for (AttributesProperties attributeProperty : attributesProperties) {
 
-line("        AttributesProperties attributesProperties"+String.valueOf(++i)+" = new AttributesTypes();");
+line("        PropertiesAttributes attributesProperties"+String.valueOf(++i)+" = new PropertiesAttributes();");
 line("        attributesProperties"+String.valueOf(i)+".setName(\""+attributeProperty.getName()+"\");");
-line("        attributesProperties"+String.valueOf(i)+".setCardinality(\""+attributeProperty.getValue()+"\");");
+line("        attributesProperties"+String.valueOf(i)+".setValue(\""+attributeProperty.getValue().replaceAll("\"",comillas)+"\");");
 line("        em.persist(attributesProperties"+String.valueOf(i)+");");
+line("        em.flush();\n");
+        } // AttributesProperties
+
+line("//      ---------------------- AttributesTypes ------------------------\n");
+
+        i=0;
+        List<AttributesTypes> attributesTypes = searchBean.selectAllAttributesTypes(em);
+        for (AttributesTypes attributeType : attributesTypes) {
+
+line("        AttributesTypes attributesTypes"+String.valueOf(++i)+" = new AttributesTypes();");
+line("        attributesTypes"+String.valueOf(i)+".setName(\""+attributeType.getName()+"\");");
+line("        attributesTypes"+String.valueOf(i)+".setType(\""+attributeType.getType()+"\");");
+line("        attributesTypes"+String.valueOf(i)+".setObservations(\""+attributeType.getObservations().replaceAll("\"",comillas)+"\");");
+              if (attributeType.getAttributesProperties() != null){
+line("");
+line("        Set<PropertiesAttributes> attributesTypesAttributesProperties"+String.valueOf(i)+" = new HashSet<PropertiesAttributes>();");
+                 j=0;
+                 for (AttributesProperties attributesProperty : attributeType.getAttributesProperties() ) {
+line("        PropertiesAttributes attributeTypeAttributeProperty"+String.valueOf(++j)+" = searchBean.namePropertiesAttributes(\""+attributesProperty.getName()+"\",em);");
+line("        attributesTypesAttributesProperties"+String.valueOf(i)+".add(attributeTypeAttributeProperty"+String.valueOf(i)+");");
+                 }
+line("        attributesTypes"+String.valueOf(i)+".setAttributesTypes(attributeTypeAttributeProperty"+String.valueOf(i)+");\n");
+              }
+line("        em.persist(attributesTypes"+String.valueOf(i)+");");
 line("        em.flush();\n");
 
         } // AttributesTypes
 
-
 line("//      ---------------------- Cardinalities ------------------------\n");
 
         i=0;
-        List<Cardinalities> cardinalities = naifgBean.findAllCardinalities(em);
+        List<Cardinalities> cardinalities = searchBean.selectAllCardinalities(em);
         for (Cardinalities cardinality : cardinalities) {
 
 line("        Cardinalities cardinalities"+String.valueOf(++i)+" = new AttributesTypes();");
@@ -88,10 +156,11 @@ line("        cardinalities"+String.valueOf(i)+".setUnidirectional(\""+cardinali
 line("        em.persist(cardinalities"+String.valueOf(i)+");");
 line("        em.flush();\n");
 
-        } // AttributesTypes
+        } // Cardinalities
+
+line("    } // data()\n");
 
 line("} // Setup");
-
 
         saveFile("\\docs", "Setup.java");
 

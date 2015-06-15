@@ -24,33 +24,37 @@
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ naifg7 ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 35 source files to d:\dev\njava\simasoft\naifg7\target\classes
+[INFO] Compiling 37 source files to d:\dev\njava\simasoft\naifg7\target\classes
+[INFO] -------------------------------------------------------------
+[WARNING] COMPILATION WARNING : 
+[INFO] -------------------------------------------------------------
 [WARNING] /d:/dev/njava/simasoft/naifg7/src/main/java/co/simasoft/setup/DomainModelsSetup.java: Some input files use unchecked or unsafe operations.
 [WARNING] /d:/dev/njava/simasoft/naifg7/src/main/java/co/simasoft/setup/DomainModelsSetup.java: Recompile with -Xlint:unchecked for details.
-[INFO] 
-[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ naifg7 ---
-[INFO] Using 'UTF-8' encoding to copy filtered resources.
-[INFO] skip non existing resourceDirectory d:\dev\njava\simasoft\naifg7\src\test\resources
-[INFO] 
-[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ naifg7 ---
-[INFO] No sources to compile
-[INFO] 
-[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ naifg7 ---
-[INFO] No tests to run.
-[INFO] 
-[INFO] --- maven-war-plugin:2.1.1:war (default-war) @ naifg7 ---
-[INFO] Packaging webapp
-[INFO] Assembling webapp [naifg7] in [d:\dev\njava\simasoft\naifg7\target\naifg7]
-[INFO] Processing war project
-[INFO] Copying webapp resources [d:\dev\njava\simasoft\naifg7\src\main\webapp]
-[INFO] Webapp assembled in [2359 msecs]
-[INFO] Building war: d:\dev\njava\simasoft\naifg7\target\naifg7.war
-[WARNING] Warning: selected war files include a WEB-INF/web.xml which will be ignored 
-(webxml attribute is missing from war task, or ignoreWebxml attribute is specified as 'true')
+[INFO] 2 warnings 
+[INFO] -------------------------------------------------------------
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /d:/dev/njava/simasoft/naifg7/src/main/java/co/simasoft/beans/SearchBean.java:[120,69] cannot find symbol
+  symbol:   class Properties
+  location: class co.simasoft.models.naif.domainmodels.Attributes
+[INFO] 1 error
+[INFO] -------------------------------------------------------------
 [INFO] ------------------------------------------------------------------------
-[INFO] BUILD SUCCESS
+[INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 9.716 s
-[INFO] Finished at: 2015-05-30T12:28:55-05:00
-[INFO] Final Memory: 17M/49M
+[INFO] Total time: 2.203 s
+[INFO] Finished at: 2015-06-15T10:11:04-05:00
+[INFO] Final Memory: 16M/50M
 [INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.1:compile (default-compile) on project naifg7: Compilation failure
+[ERROR] /d:/dev/njava/simasoft/naifg7/src/main/java/co/simasoft/beans/SearchBean.java:[120,69] cannot find symbol
+[ERROR] symbol:   class Properties
+[ERROR] location: class co.simasoft.models.naif.domainmodels.Attributes
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

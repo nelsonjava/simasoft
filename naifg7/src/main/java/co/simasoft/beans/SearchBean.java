@@ -1,3 +1,7 @@
+/*
+fullTextSession.createIndexer().startAndWait();
+*/
+
 package co.simasoft.beans;
 
 import co.simasoft.models.naif.domainmodels.*;
@@ -32,7 +36,7 @@ import org.hibernate.search.query.dsl.QueryBuilder;
 @LocalBean
 public class SearchBean {
 
-    @PersistenceContext(unitName = "naifg8PU-JTA")
+    @PersistenceContext(unitName = "naifg7PU-JTA")
     private EntityManager em;
 
     private QueryBuilder qb;
@@ -67,12 +71,17 @@ public class SearchBean {
                          Class<?>[] entityClasses,
                          String[] projectionWith,
                          SortField sortByThisField) {
+
+    try {
+
         if (query == null) {
             throw new NullPointerException("Lucene query object is null.");
         }
         if ( (entityClasses == null) || (entityClasses.length == 0) ) {
             throw new NullPointerException("There must be at least one entity class(.class type).");
         }
+
+fTEM.createIndexer().startAndWait();
 
         FullTextQuery fTQ = fTEM.createFullTextQuery(query, entityClasses);
 
@@ -85,6 +94,14 @@ public class SearchBean {
 
         fTQ.initializeObjectsWith(ObjectLookupMethod.SKIP, DatabaseRetrievalMethod.FIND_BY_ID);
         return fTQ.getResultList();
+        
+    } // try
+    catch(Exception ioe) {
+      ioe.printStackTrace();
+    } // catch
+
+    return null; // Revisar        
+
     } // end : execute Method
 
     // QUERIES //
@@ -96,7 +113,7 @@ public class SearchBean {
 
         List<Entities> results = execute(query,
                                               new Class[]{Entities.class}, null,
-                                              new SortField("orden", SortField.DOUBLE));
+                                              new SortField("orden", SortField.LONG));
         return results;
     }
 
@@ -107,18 +124,18 @@ public class SearchBean {
 
         List<DomainModels> results = execute(query,
                                               new Class[]{DomainModels.class}, null,
-                                              new SortField("orden", SortField.DOUBLE));
+                                              new SortField("orden", SortField.LONG));
         return results;
     }
 
-    public List<PropertiesAttributes> selectAllPropertiesAttributes(EntityManager em) {
-        prepare(PropertiesAttributes.class,em);
+    public List<AttributesProperties> selectAllAttributesProperties(EntityManager em) {
+        prepare(AttributesProperties.class,em);
 
         Query query = qb.all().createQuery();
 
-        List<PropertiesAttributes> results = execute(query,
-                                              new Class[]{PropertiesAttributes.class}, null,
-                                              new SortField("orden", SortField.DOUBLE));
+        List<AttributesProperties> results = execute(query,
+                                              new Class[]{AttributesProperties.class}, null,
+                                              new SortField("orden", SortField.LONG));
         return results;
     }
 
@@ -129,7 +146,7 @@ public class SearchBean {
 
         List<GroupIds> results = execute(query,
                                               new Class[]{GroupIds.class}, null,
-                                              new SortField("orden", SortField.DOUBLE));
+                                              new SortField("orden", SortField.LONG));
         return results;
     }
 
@@ -140,7 +157,7 @@ public class SearchBean {
 
         List<AttributesTypes> results = execute(query,
                                               new Class[]{AttributesTypes.class}, null,
-                                              new SortField("orden", SortField.DOUBLE));
+                                              new SortField("orden", SortField.LONG));
         return results;
     }
 
@@ -151,7 +168,7 @@ public class SearchBean {
 
         List<Dependency> results = execute(query,
                                               new Class[]{Dependency.class}, null,
-                                              new SortField("orden", SortField.DOUBLE));
+                                              new SortField("orden", SortField.LONG));
         return results;
     }
 
@@ -162,7 +179,7 @@ public class SearchBean {
 
         List<LinksTypes> results = execute(query,
                                               new Class[]{LinksTypes.class}, null,
-                                              new SortField("orden", SortField.DOUBLE));
+                                              new SortField("orden", SortField.LONG));
         return results;
     }
 
@@ -173,7 +190,7 @@ public class SearchBean {
 
         List<NameQueries> results = execute(query,
                                               new Class[]{NameQueries.class}, null,
-                                              new SortField("orden", SortField.DOUBLE));
+                                              new SortField("orden", SortField.LONG));
         return results;
     }
 
@@ -184,7 +201,7 @@ public class SearchBean {
 
         List<Attributes> results = execute(query,
                                               new Class[]{Attributes.class}, null,
-                                              new SortField("orden", SortField.DOUBLE));
+                                              new SortField("orden", SortField.LONG));
         return results;
     }
 
@@ -195,7 +212,7 @@ public class SearchBean {
 
         List<FilesModels> results = execute(query,
                                               new Class[]{FilesModels.class}, null,
-                                              new SortField("orden", SortField.DOUBLE));
+                                              new SortField("orden", SortField.LONG));
         return results;
     }
 
@@ -206,7 +223,7 @@ public class SearchBean {
 
         List<Cardinalities> results = execute(query,
                                               new Class[]{Cardinalities.class}, null,
-                                              new SortField("orden", SortField.DOUBLE));
+                                              new SortField("orden", SortField.LONG));
         return results;
     }
 
@@ -217,7 +234,7 @@ public class SearchBean {
 
         List<SystemsModels> results = execute(query,
                                               new Class[]{SystemsModels.class}, null,
-                                              new SortField("orden", SortField.DOUBLE));
+                                              new SortField("orden", SortField.LONG));
         return results;
     }
 
@@ -228,7 +245,7 @@ public class SearchBean {
 
         List<Relationships> results = execute(query,
                                               new Class[]{Relationships.class}, null,
-                                              new SortField("orden", SortField.DOUBLE));
+                                              new SortField("orden", SortField.LONG));
         return results;
     }
 
@@ -239,7 +256,7 @@ public class SearchBean {
 
         List<Imports> results = execute(query,
                                               new Class[]{Imports.class}, null,
-                                              new SortField("orden", SortField.DOUBLE));
+                                              new SortField("orden", SortField.LONG));
         return results;
     }
 
@@ -250,7 +267,7 @@ public class SearchBean {
 
         List<Links> results = execute(query,
                                               new Class[]{Links.class}, null,
-                                              new SortField("orden", SortField.DOUBLE));
+                                              new SortField("orden", SortField.LONG));
         return results;
     }
     
@@ -266,20 +283,6 @@ public class SearchBean {
                                            null, null);
         if (!results.isEmpty()) {
            return (Dependency) results.get(0);
-        }
-        return null;
-    }
-    
-    public PropertiesAttributes namePropertiesAttributes(String search,EntityManager em) {
-        prepare(Dependency.class,em);
-
-        Query query = qb.keyword().onField("name").matching(search).createQuery();
-
-        List<Dependency> results = execute(query,
-                                           new Class[]{PropertiesAttributes.class},
-                                           null, null);
-        if (!results.isEmpty()) {
-           return (PropertiesAttributes) results.get(0);
         }
         return null;
     }

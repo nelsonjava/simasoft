@@ -1,8 +1,7 @@
 package co.simasoft.setup;
-
+import co.simasoft.models.naif.domainmodels.*;
 
 import co.simasoft.beans.*;
-import co.simasoft.models.naif.domainmodels.*;
 
 import java.util.*;
 import java.util.Calendar;
@@ -33,32 +32,24 @@ public class Setup {
         Dependency dependency1 = new Dependency();
         dependency1.setGroupId("javax.persistence");
         dependency1.setArtifactId("persistence-api");
-        dependency1.setLink("http://docs.oracle.com/javaee/7/api/javax/persistence/package-summary.html");
-        dependency1.setMaven("Maven1");
         em.persist(dependency1);
         em.flush();
 
         Dependency dependency2 = new Dependency();
         dependency2.setGroupId("javax.validation");
         dependency2.setArtifactId("validation-api");
-        dependency2.setLink("http://docs.oracle.com/javaee/7/api/javax/validation/package-summary.html");
-        dependency2.setMaven("Maven2");
         em.persist(dependency2);
         em.flush();
 
         Dependency dependency3 = new Dependency();
         dependency3.setGroupId("org.hibernate");
         dependency3.setArtifactId("hibernate-validator");
-        dependency3.setLink("http://docs.jboss.org/hibernate/validator/5.1/api/");
-        dependency3.setMaven("Maven3");
         em.persist(dependency3);
         em.flush();
 
         Dependency dependency4 = new Dependency();
         dependency4.setGroupId("org.hibernate");
         dependency4.setArtifactId("hibernate-search");
-        dependency4.setLink("http://docs.jboss.org/hibernate/search/5.2/");
-        dependency4.setMaven("Maven4");
         em.persist(dependency4);
         em.flush();
 
@@ -66,618 +57,614 @@ public class Setup {
 
         Imports imports1 = new Imports();
         imports1.setName("import javax.persistence.Column;");
-        Dependency varDependency = new Dependency();
-        varDependency = searchBean.artifactIdDependency("persistence-api",em);
-        imports1.setDependency(varDependency);
+        Dependency dependencyImports1 = new Dependency();
+        dependencyImports1 = searchBean.artifactIdDependency("persistence-api",em);
+        imports1.setDependency(dependencyImports1);
         em.persist(imports1);
         em.flush();
 
         Imports imports2 = new Imports();
         imports2.setName("import javax.persistence.Basic;");
-        imports2.setDependency(dependency1);
+        Dependency dependencyImports2 = new Dependency();
+        dependencyImports2 = searchBean.artifactIdDependency("persistence-api",em);
+        imports2.setDependency(dependencyImports2);
         em.persist(imports2);
         em.flush();
 
         Imports imports3 = new Imports();
         imports3.setName("import javax.persistence.Lob;");
-        imports3.setDependency(dependency1);
+        Dependency dependencyImports3 = new Dependency();
+        dependencyImports3 = searchBean.artifactIdDependency("persistence-api",em);
+        imports3.setDependency(dependencyImports3);
         em.persist(imports3);
         em.flush();
 
         Imports imports4 = new Imports();
         imports4.setName("import javax.persistence.FetchType;");
-        imports4.setDependency(dependency1);
+        Dependency dependencyImports4 = new Dependency();
+        dependencyImports4 = searchBean.artifactIdDependency("persistence-api",em);
+        imports4.setDependency(dependencyImports4);
         em.persist(imports4);
         em.flush();
 
         Imports imports5 = new Imports();
         imports5.setName("import javax.persistence.CascadeType;");
-        imports5.setDependency(dependency1);
+        Dependency dependencyImports5 = new Dependency();
+        dependencyImports5 = searchBean.artifactIdDependency("persistence-api",em);
+        imports5.setDependency(dependencyImports5);
         em.persist(imports5);
         em.flush();
 
         Imports imports6 = new Imports();
         imports6.setName("import javax.validation.constraints.NotNull;");
-        imports6.setDependency(dependency2);
+        Dependency dependencyImports6 = new Dependency();
+        dependencyImports6 = searchBean.artifactIdDependency("validation-api",em);
+        imports6.setDependency(dependencyImports6);
         em.persist(imports6);
         em.flush();
 
         Imports imports7 = new Imports();
         imports7.setName("import javax.validation.constraints.Size;");
-        imports7.setDependency(dependency2);
+        Dependency dependencyImports7 = new Dependency();
+        dependencyImports7 = searchBean.artifactIdDependency("validation-api",em);
+        imports7.setDependency(dependencyImports7);
         em.persist(imports7);
         em.flush();
 
         Imports imports8 = new Imports();
         imports8.setName("import javax.validation.constraints.Pattern;");
-        imports8.setDependency(dependency2);
+        Dependency dependencyImports8 = new Dependency();
+        dependencyImports8 = searchBean.artifactIdDependency("validation-api",em);
+        imports8.setDependency(dependencyImports8);
         em.persist(imports8);
         em.flush();
 
         Imports imports9 = new Imports();
         imports9.setName("import javax.validation.constraints.Digits;");
-        imports9.setDependency(dependency2);
+        Dependency dependencyImports9 = new Dependency();
+        dependencyImports9 = searchBean.artifactIdDependency("validation-api",em);
+        imports9.setDependency(dependencyImports9);
         em.persist(imports9);
         em.flush();
 
         Imports imports10 = new Imports();
         imports10.setName("import org.hibernate.validator.Length;");
-        imports10.setDependency(dependency3);
+        Dependency dependencyImports10 = new Dependency();
+        dependencyImports10 = searchBean.artifactIdDependency("hibernate-validator",em);
+        imports10.setDependency(dependencyImports10);
         em.persist(imports10);
         em.flush();
 
         Imports imports11 = new Imports();
-        imports11.setName("import org.hibernate.search.annotations.Resolution;");
-        imports11.setDependency(dependency4);
+        imports11.setName("import org.hibernate.validator.constraints.NotEmpty;");
+        Dependency dependencyImports11 = new Dependency();
+        dependencyImports11 = searchBean.artifactIdDependency("hibernate-validator",em);
+        imports11.setDependency(dependencyImports11);
         em.persist(imports11);
         em.flush();
 
         Imports imports12 = new Imports();
-        imports12.setName("import org.hibernate.search.annotations.Store;");
-        imports12.setDependency(dependency4);
+        imports12.setName("import org.hibernate.validator.constraints.Email;");
+        Dependency dependencyImports12 = new Dependency();
+        dependencyImports12 = searchBean.artifactIdDependency("hibernate-validator",em);
+        imports12.setDependency(dependencyImports12);
         em.persist(imports12);
         em.flush();
 
         Imports imports13 = new Imports();
-        imports13.setName("import javax.persistence.Embedded;");
-        imports13.setDependency(dependency1);
+        imports13.setName("import java.util.Date;");
         em.persist(imports13);
         em.flush();
 
         Imports imports14 = new Imports();
-        imports14.setName("import org.hibernate.search.annotations.NumericField;");
-        imports14.setDependency(dependency4);
+        imports14.setName("import org.hibernate.search.annotations.Analyze;");
+        Dependency dependencyImports14 = new Dependency();
+        dependencyImports14 = searchBean.artifactIdDependency("hibernate-search",em);
+        imports14.setDependency(dependencyImports14);
         em.persist(imports14);
         em.flush();
 
         Imports imports15 = new Imports();
-        imports15.setName("import javax.persistence.Temporal;");
-        imports15.setDependency(dependency1);
+        imports15.setName("import org.hibernate.search.annotations.DateBridge;");
+        Dependency dependencyImports15 = new Dependency();
+        dependencyImports15 = searchBean.artifactIdDependency("hibernate-search",em);
+        imports15.setDependency(dependencyImports15);
         em.persist(imports15);
         em.flush();
 
         Imports imports16 = new Imports();
-        imports16.setName("import javax.persistence.TemporalType;");
-        imports16.setDependency(dependency1);
+        imports16.setName("import org.hibernate.search.annotations.DocumentId;");
+        Dependency dependencyImports16 = new Dependency();
+        dependencyImports16 = searchBean.artifactIdDependency("hibernate-search",em);
+        imports16.setDependency(dependencyImports16);
         em.persist(imports16);
         em.flush();
 
         Imports imports17 = new Imports();
-        imports17.setName("import org.hibernate.validator.constraints.NotEmpty;");
-        imports17.setDependency(dependency3);
+        imports17.setName("import org.hibernate.search.annotations.Field;");
+        Dependency dependencyImports17 = new Dependency();
+        dependencyImports17 = searchBean.artifactIdDependency("hibernate-search",em);
+        imports17.setDependency(dependencyImports17);
         em.persist(imports17);
         em.flush();
 
         Imports imports18 = new Imports();
-        imports18.setName("import org.hibernate.validator.constraints.Email;");
-        imports18.setDependency(dependency3);
+        imports18.setName("import org.hibernate.search.annotations.Index;");
+        Dependency dependencyImports18 = new Dependency();
+        dependencyImports18 = searchBean.artifactIdDependency("hibernate-search",em);
+        imports18.setDependency(dependencyImports18);
         em.persist(imports18);
         em.flush();
 
         Imports imports19 = new Imports();
-        imports19.setName("import java.util.Date;");
+        imports19.setName("import org.hibernate.search.annotations.Indexed;");
+        Dependency dependencyImports19 = new Dependency();
+        dependencyImports19 = searchBean.artifactIdDependency("hibernate-search",em);
+        imports19.setDependency(dependencyImports19);
         em.persist(imports19);
         em.flush();
 
         Imports imports20 = new Imports();
-        imports20.setName("import org.hibernate.search.annotations.Analyze;");
-        imports20.setDependency(dependency4);
+        imports20.setName("import org.hibernate.search.annotations.IndexedEmbedded;");
+        Dependency dependencyImports20 = new Dependency();
+        dependencyImports20 = searchBean.artifactIdDependency("hibernate-search",em);
+        imports20.setDependency(dependencyImports20);
         em.persist(imports20);
         em.flush();
 
         Imports imports21 = new Imports();
-        imports21.setName("import org.hibernate.search.annotations.DateBridge;");
-        imports21.setDependency(dependency4);
+        imports21.setName("import org.hibernate.search.annotations.Resolution;");
+        Dependency dependencyImports21 = new Dependency();
+        dependencyImports21 = searchBean.artifactIdDependency("hibernate-search",em);
+        imports21.setDependency(dependencyImports21);
         em.persist(imports21);
         em.flush();
 
         Imports imports22 = new Imports();
-        imports22.setName("import org.hibernate.search.annotations.DocumentId;");
-        imports22.setDependency(dependency4);
+        imports22.setName("import org.hibernate.search.annotations.Store;");
+        Dependency dependencyImports22 = new Dependency();
+        dependencyImports22 = searchBean.artifactIdDependency("hibernate-search",em);
+        imports22.setDependency(dependencyImports22);
         em.persist(imports22);
         em.flush();
 
         Imports imports23 = new Imports();
-        imports23.setName("import org.hibernate.search.annotations.Field;");
-        imports23.setDependency(dependency4);
+        imports23.setName("import javax.persistence.Embedded;");
+        Dependency dependencyImports23 = new Dependency();
+        dependencyImports23 = searchBean.artifactIdDependency("persistence-api",em);
+        imports23.setDependency(dependencyImports23);
         em.persist(imports23);
         em.flush();
 
         Imports imports24 = new Imports();
-        imports24.setName("import org.hibernate.search.annotations.Index;");
-        imports24.setDependency(dependency4);
+        imports24.setName("import org.hibernate.search.annotations.NumericField;");
+        Dependency dependencyImports24 = new Dependency();
+        dependencyImports24 = searchBean.artifactIdDependency("hibernate-search",em);
+        imports24.setDependency(dependencyImports24);
         em.persist(imports24);
         em.flush();
 
         Imports imports25 = new Imports();
-        imports25.setName("import org.hibernate.search.annotations.Indexed;");
-        imports25.setDependency(dependency4);
+        imports25.setName("import javax.persistence.Temporal;");
         em.persist(imports25);
         em.flush();
 
         Imports imports26 = new Imports();
-        imports26.setName("import org.hibernate.search.annotations.IndexedEmbedded;");
-        imports26.setDependency(dependency4);
+        imports26.setName("import javax.persistence.TemporalType;");
         em.persist(imports26);
         em.flush();
 
-//      ---------------------- PropertiesAttributes ------------------------
+//      ---------------------- AttributesProperties ------------------------
 
-        PropertiesAttributes PropertiesAttributes1 = new PropertiesAttributes();
-        PropertiesAttributes1.setName("@NotNull");
-        PropertiesAttributes1.setValue("@NotNull");
-        Set<Imports> varImports1 = new HashSet<Imports>();
-        varImports1.add(imports6);
-        PropertiesAttributes1.setImports(varImports1);
-        em.persist(PropertiesAttributes1);
+        PropertiesAttributes attributesProperties27 = new PropertiesAttributes();
+        attributesProperties27.setName("@NotNull");
+        attributesProperties27.setValue("@NotNull");
+        em.persist(attributesProperties27);
         em.flush();
 
-        PropertiesAttributes PropertiesAttributes2 = new PropertiesAttributes();
-        PropertiesAttributes2.setName("@Size0125");
-        PropertiesAttributes2.setValue("@Size(min = 1, max = 25)");
-        Set<Imports> varImports2 = new HashSet<Imports>();
-        varImports2.add(imports7);
-        PropertiesAttributes2.setImports(varImports2);
-        em.persist(PropertiesAttributes2);
+        PropertiesAttributes attributesProperties28 = new PropertiesAttributes();
+        attributesProperties28.setName("@Size0125");
+        attributesProperties28.setValue("@Size(min = 1, max = 25)");
+        em.persist(attributesProperties28);
         em.flush();
 
-        PropertiesAttributes PropertiesAttributes3 = new PropertiesAttributes();
-        PropertiesAttributes3.setName("@Size0912");
-        PropertiesAttributes3.setValue("@Size(min = 9, max = 12)");
-        Set<Imports> varImports3 = new HashSet<Imports>();
-        varImports3.add(imports7);
-        PropertiesAttributes3.setImports(varImports3);
-        em.persist(PropertiesAttributes3);
+        PropertiesAttributes attributesProperties29 = new PropertiesAttributes();
+        attributesProperties29.setName("@Size0912");
+        attributesProperties29.setValue("@Size(min = 9, max = 12)");
+        em.persist(attributesProperties29);
         em.flush();
 
-        PropertiesAttributes PropertiesAttributes4 = new PropertiesAttributes();
-        PropertiesAttributes4.setName("@Length0125");
-        PropertiesAttributes4.setValue("@Length(min = 1, max = 25, message = \"Size must be between 1 and 25 digits\")");
-        Set<Imports> varImports4 = new HashSet<Imports>();
-        varImports4.add(imports10);
-        PropertiesAttributes4.setImports(varImports4);
-        em.persist(PropertiesAttributes4);
+        PropertiesAttributes attributesProperties30 = new PropertiesAttributes();
+        attributesProperties30.setName("@Length0125");
+        attributesProperties30.setValue("@Length(min = 1, max = 25, message = \"Size must be between 1 and 25 digits\")");
+        em.persist(attributesProperties30);
         em.flush();
 
-        PropertiesAttributes PropertiesAttributes5 = new PropertiesAttributes();
-        PropertiesAttributes5.setName("@Length0912");
-        PropertiesAttributes5.setValue("@Length(min = 9, max = 12, message = \"Size must be between 9 and 12 digits\")");
-        Set<Imports> varImports5 = new HashSet<Imports>();
-        varImports5.add(imports10);
-        PropertiesAttributes5.setImports(varImports5);
-        em.persist(PropertiesAttributes5);
+        PropertiesAttributes attributesProperties31 = new PropertiesAttributes();
+        attributesProperties31.setName("@Length0912");
+        attributesProperties31.setValue("@Length(min = 9, max = 12, message = \"Size must be between 9 and 12 digits\")");
+        em.persist(attributesProperties31);
         em.flush();
 
-        PropertiesAttributes PropertiesAttributes6 = new PropertiesAttributes();
-        PropertiesAttributes6.setName("@Pattern1");
-        PropertiesAttributes6.setValue("@Pattern(regexp = \"[A-Za-z ]*\", message = \"must contain only letters and spaces\")");
-        Set<Imports> varImports6 = new HashSet<Imports>();
-        varImports6.add(imports8);
-        PropertiesAttributes6.setImports(varImports6);
-        em.persist(PropertiesAttributes6);
+        PropertiesAttributes attributesProperties32 = new PropertiesAttributes();
+        attributesProperties32.setName("@Pattern1");
+        attributesProperties32.setValue("@Pattern(regexp = \"[A-Za-z ]*\", message = \"must contain only letters and spaces\")");
+        em.persist(attributesProperties32);
         em.flush();
 
-        PropertiesAttributes PropertiesAttributes7 = new PropertiesAttributes();
-        PropertiesAttributes7.setName("@Pattern2");
-        PropertiesAttributes7.setValue("@Pattern(regexp = \"[^0-9]*\", message = \"Must not contain numbers\")");
-        Set<Imports> varImports7 = new HashSet<Imports>();
-        varImports7.add(imports8);
-        PropertiesAttributes7.setImports(varImports7);
-        em.persist(PropertiesAttributes7);
+        PropertiesAttributes attributesProperties33 = new PropertiesAttributes();
+        attributesProperties33.setName("@Pattern2");
+        attributesProperties33.setValue("@Pattern(regexp = \"[^0-9]*\", message = \"Must not contain numbers\")");
+        em.persist(attributesProperties33);
         em.flush();
 
-        PropertiesAttributes PropertiesAttributes8 = new PropertiesAttributes();
-        PropertiesAttributes8.setName("@NotEmpty");
-        PropertiesAttributes8.setValue("@NotEmpty");
-        Set<Imports> varImports8 = new HashSet<Imports>();
-        varImports8.add(imports17);
-        PropertiesAttributes8.setImports(varImports8);
-        em.persist(PropertiesAttributes8);
+        PropertiesAttributes attributesProperties34 = new PropertiesAttributes();
+        attributesProperties34.setName("@NotEmpty");
+        attributesProperties34.setValue("@NotEmpty");
+        em.persist(attributesProperties34);
         em.flush();
 
-        PropertiesAttributes PropertiesAttributes9 = new PropertiesAttributes();
-        PropertiesAttributes9.setName("@Email");
-        PropertiesAttributes9.setValue("@Email(message = \"Invalid format\")");
-        Set<Imports> varImports9 = new HashSet<Imports>();
-        varImports9.add(imports18);
-        PropertiesAttributes9.setImports(varImports9);
-        em.persist(PropertiesAttributes9);
+        PropertiesAttributes attributesProperties35 = new PropertiesAttributes();
+        attributesProperties35.setName("@Email");
+        attributesProperties35.setValue("@Email(message = \"Invalid format\")");
+        em.persist(attributesProperties35);
         em.flush();
 
-        PropertiesAttributes PropertiesAttributes10 = new PropertiesAttributes();
-        PropertiesAttributes10.setName("@Digits0012");
-        PropertiesAttributes10.setValue("@Digits(fractionalDigits = 0, integerDigits = 12, message = \"Not allowed digit!\")");
-        Set<Imports> varImports10 = new HashSet<Imports>();
-        varImports10.add(imports9);
-        PropertiesAttributes10.setImports(varImports10);
-        em.persist(PropertiesAttributes10);
+        PropertiesAttributes attributesProperties36 = new PropertiesAttributes();
+        attributesProperties36.setName("@Digits0012");
+        attributesProperties36.setValue("@Digits(fractionalDigits = 0, integerDigits = 12, message = \"Not allowed digit!\")");
+        em.persist(attributesProperties36);
         em.flush();
 
-        PropertiesAttributes PropertiesAttributes11 = new PropertiesAttributes();
-        PropertiesAttributes11.setName("@Column");
-        PropertiesAttributes11.setValue("@Column");
-        Set<Imports> varImports11 = new HashSet<Imports>();
-        varImports11.add(imports1);
-        PropertiesAttributes11.setImports(varImports11);
-        em.persist(PropertiesAttributes11);
+        PropertiesAttributes attributesProperties37 = new PropertiesAttributes();
+        attributesProperties37.setName("@DateBridgeSE");
+        attributesProperties37.setValue("@DateBridge(resolution = Resolution.SECOND)");
+        em.persist(attributesProperties37);
         em.flush();
 
-        PropertiesAttributes PropertiesAttributes12 = new PropertiesAttributes();
-        PropertiesAttributes12.setName("NullUnique1");
-        PropertiesAttributes12.setValue("@Column(nullable = true, unique = true)");
-        Set<Imports> varImports12 = new HashSet<Imports>();
-        varImports12.add(imports1);
-        PropertiesAttributes12.setImports(varImports12);
-        em.persist(PropertiesAttributes12);
+        PropertiesAttributes attributesProperties38 = new PropertiesAttributes();
+        attributesProperties38.setName("@DateBridgeML");
+        attributesProperties38.setValue("@DateBridge(resolution = Resolution.MILLISECOND)");
+        em.persist(attributesProperties38);
         em.flush();
 
-        PropertiesAttributes PropertiesAttributes13 = new PropertiesAttributes();
-        PropertiesAttributes13.setName("NullUnique2");
-        PropertiesAttributes13.setValue("@Column(nullable = true, unique = false)");
-        Set<Imports> varImports13 = new HashSet<Imports>();
-        varImports13.add(imports1);
-        PropertiesAttributes13.setImports(varImports13);
-        em.persist(PropertiesAttributes13);
+        PropertiesAttributes attributesProperties39 = new PropertiesAttributes();
+        attributesProperties39.setName("@NumericField");
+        attributesProperties39.setValue("@NumericField");
+        em.persist(attributesProperties39);
         em.flush();
 
-        PropertiesAttributes PropertiesAttributes14 = new PropertiesAttributes();
-        PropertiesAttributes14.setName("NullUnique3");
-        PropertiesAttributes14.setValue("@Column(nullable = false, unique = true)");
-        Set<Imports> varImports14 = new HashSet<Imports>();
-        varImports14.add(imports1);
-        PropertiesAttributes14.setImports(varImports14);
-        em.persist(PropertiesAttributes14);
+        PropertiesAttributes attributesProperties40 = new PropertiesAttributes();
+        attributesProperties40.setName("@Column");
+        attributesProperties40.setValue("@Column");
+        em.persist(attributesProperties40);
         em.flush();
 
-        PropertiesAttributes PropertiesAttributes15 = new PropertiesAttributes();
-        PropertiesAttributes15.setName("NullUnique4");
-        PropertiesAttributes15.setValue("@Column(nullable = false, unique = false)");
-        Set<Imports> varImports15 = new HashSet<Imports>();
-        varImports15.add(imports1);
-        PropertiesAttributes15.setImports(varImports15);
-        em.persist(PropertiesAttributes15);
+        PropertiesAttributes attributesProperties41 = new PropertiesAttributes();
+        attributesProperties41.setName("NullUnique1");
+        attributesProperties41.setValue("@Column(nullable = true, unique = true)");
+        em.persist(attributesProperties41);
         em.flush();
 
-        PropertiesAttributes PropertiesAttributes16 = new PropertiesAttributes();
-        PropertiesAttributes16.setName("@Basic");
-        PropertiesAttributes16.setValue("@Basic");
-        Set<Imports> varImports16 = new HashSet<Imports>();
-        varImports16.add(imports2);
-        PropertiesAttributes16.setImports(varImports16);
-        em.persist(PropertiesAttributes16);
+        PropertiesAttributes attributesProperties42 = new PropertiesAttributes();
+        attributesProperties42.setName("NullUnique2");
+        attributesProperties42.setValue("@Column(nullable = true, unique = false)");
+        em.persist(attributesProperties42);
         em.flush();
 
-        PropertiesAttributes PropertiesAttributes17 = new PropertiesAttributes();
-        PropertiesAttributes17.setName("@Basic1");
-        PropertiesAttributes17.setValue("@Basic(fetch=FetchType.LAZY)");
-        Set<Imports> varImports17 = new HashSet<Imports>();
-        varImports17.add(imports2);
-        PropertiesAttributes17.setImports(varImports17);
-        em.persist(PropertiesAttributes17);
+        PropertiesAttributes attributesProperties43 = new PropertiesAttributes();
+        attributesProperties43.setName("NullUnique3");
+        attributesProperties43.setValue("@Column(nullable = false, unique = true)");
+        em.persist(attributesProperties43);
         em.flush();
 
-        PropertiesAttributes PropertiesAttributes18 = new PropertiesAttributes();
-        PropertiesAttributes18.setName("@Lob");
-        PropertiesAttributes18.setValue("@Lob");
-        Set<Imports> varImports18 = new HashSet<Imports>();
-        varImports18.add(imports3);
-        PropertiesAttributes18.setImports(varImports18);
-        em.persist(PropertiesAttributes18);
+        PropertiesAttributes attributesProperties44 = new PropertiesAttributes();
+        attributesProperties44.setName("NullUnique4");
+        attributesProperties44.setValue("@Column(nullable = false, unique = false)");
+        em.persist(attributesProperties44);
         em.flush();
 
-        PropertiesAttributes PropertiesAttributes19 = new PropertiesAttributes();
-        PropertiesAttributes19.setName("@Indexed");
-        PropertiesAttributes19.setValue("@Indexed");
-        Set<Imports> varImports19 = new HashSet<Imports>();
-        varImports19.add(imports25);
-        PropertiesAttributes19.setImports(varImports19);
-        em.persist(PropertiesAttributes19);
+        PropertiesAttributes attributesProperties45 = new PropertiesAttributes();
+        attributesProperties45.setName("@Basic");
+        attributesProperties45.setValue("@Basic");
+        em.persist(attributesProperties45);
         em.flush();
 
-        PropertiesAttributes PropertiesAttributes20 = new PropertiesAttributes();
-        PropertiesAttributes20.setName("@DocumentId");
-        PropertiesAttributes20.setValue("@DocumentId");
-        Set<Imports> varImports20 = new HashSet<Imports>();
-        varImports20.add(imports22);
-        PropertiesAttributes20.setImports(varImports20 );
-        em.persist(PropertiesAttributes20);
+        PropertiesAttributes attributesProperties46 = new PropertiesAttributes();
+        attributesProperties46.setName("@Basic1");
+        attributesProperties46.setValue("@Basic(fetch=FetchType.LAZY)");
+        em.persist(attributesProperties46);
         em.flush();
 
-        PropertiesAttributes PropertiesAttributes21 = new PropertiesAttributes();
-        PropertiesAttributes21.setName("@Field1");
-        PropertiesAttributes21.setValue("@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)");
-        Set<Imports> varImports21 = new HashSet<Imports>();
-        varImports21.add(imports23);
-        varImports21.add(imports24);
-        varImports21.add(imports20);
-        varImports21.add(imports12);
-        PropertiesAttributes21.setImports(varImports21);
-        em.persist(PropertiesAttributes21);
+        PropertiesAttributes attributesProperties47 = new PropertiesAttributes();
+        attributesProperties47.setName("@Lob");
+        attributesProperties47.setValue("@Lob");
+        em.persist(attributesProperties47);
         em.flush();
 
-        PropertiesAttributes PropertiesAttributes22 = new PropertiesAttributes();
-        PropertiesAttributes22.setName("@Field2");
-        PropertiesAttributes22.setValue("@Field(index = Index.YES, analyze = Analyze.YES, store = Store.YES)");
-        Set<Imports> varImports22 = new HashSet<Imports>();
-        varImports22.add(imports23);
-        varImports22.add(imports24);
-        varImports22.add(imports20);
-        varImports22.add(imports12);
-        PropertiesAttributes22.setImports(varImports22);
-        em.persist(PropertiesAttributes22);
+        PropertiesAttributes attributesProperties48 = new PropertiesAttributes();
+        attributesProperties48.setName("@Indexed");
+        attributesProperties48.setValue("@Indexed");
+        em.persist(attributesProperties48);
         em.flush();
 
-        PropertiesAttributes PropertiesAttributes23 = new PropertiesAttributes();
-        PropertiesAttributes23.setName("@DateBridgeYE");
-        PropertiesAttributes23.setValue("@DateBridge(resolution = Resolution.YEAR)");
-        Set<Imports> varImports23 = new HashSet<Imports>();
-        varImports23.add(imports11);
-        varImports23.add(imports21);
-        PropertiesAttributes23.setImports(varImports23);
-        em.persist(PropertiesAttributes23);
+        PropertiesAttributes attributesProperties49 = new PropertiesAttributes();
+        attributesProperties49.setName("@DocumentId");
+        attributesProperties49.setValue("@DocumentId");
+        em.persist(attributesProperties49);
         em.flush();
 
-        PropertiesAttributes PropertiesAttributes24 = new PropertiesAttributes();
-        PropertiesAttributes24.setName("@Embedded");
-        PropertiesAttributes24.setValue("@Embedded");
-        Set<Imports> varImports24 = new HashSet<Imports>();
-        varImports24.add(imports13);
-        PropertiesAttributes24.setImports(varImports24);
-        em.persist(PropertiesAttributes24);
+        PropertiesAttributes attributesProperties50 = new PropertiesAttributes();
+        attributesProperties50.setName("@Field1");
+        attributesProperties50.setValue("@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)");
+        em.persist(attributesProperties50);
         em.flush();
 
-        PropertiesAttributes PropertiesAttributes25 = new PropertiesAttributes();
-        PropertiesAttributes25.setName("@IndexedEmbedded");
-        PropertiesAttributes25.setValue("@IndexedEmbedded");
-        Set<Imports> varImports25 = new HashSet<Imports>();
-        varImports25.add(imports26);
-        PropertiesAttributes25.setImports(varImports25);
-        em.persist(PropertiesAttributes25);
+        PropertiesAttributes attributesProperties51 = new PropertiesAttributes();
+        attributesProperties51.setName("@Field2");
+        attributesProperties51.setValue("@Field(index = Index.YES, analyze = Analyze.YES, store = Store.YES)");
+        em.persist(attributesProperties51);
         em.flush();
 
-        PropertiesAttributes PropertiesAttributes26 = new PropertiesAttributes();
-        PropertiesAttributes26.setName("@Temporal");
-        PropertiesAttributes26.setValue("@Temporal(TemporalType.DATE)");
-        Set<Imports> varImports26 = new HashSet<Imports>();
-        varImports26.add(imports15);
-        varImports26.add(imports16);
-        PropertiesAttributes26.setImports(varImports26);
-        em.persist(PropertiesAttributes26);
+        PropertiesAttributes attributesProperties52 = new PropertiesAttributes();
+        attributesProperties52.setName("@DateBridgeYE");
+        attributesProperties52.setValue("@DateBridge(resolution = Resolution.YEAR)");
+        em.persist(attributesProperties52);
         em.flush();
 
-        PropertiesAttributes PropertiesAttributes27 = new PropertiesAttributes();
-        PropertiesAttributes27.setName("@DateBridgeMO");
-        PropertiesAttributes27.setValue("@DateBridge(resolution = Resolution.MONTH)");
-        Set<Imports> varImports27 = new HashSet<Imports>();
-        varImports27.add(imports11);
-        varImports27.add(imports21);
-        PropertiesAttributes27.setImports(varImports27);
-        em.persist(PropertiesAttributes27);
+        PropertiesAttributes attributesProperties53 = new PropertiesAttributes();
+        attributesProperties53.setName("@Embedded");
+        attributesProperties53.setValue("@Embedded");
+        em.persist(attributesProperties53);
         em.flush();
 
-        PropertiesAttributes PropertiesAttributes28 = new PropertiesAttributes();
-        PropertiesAttributes28.setName("@DateBridgeDA");
-        PropertiesAttributes28.setValue("@DateBridge(resolution = Resolution.DAY)");
-        Set<Imports> varImports28 = new HashSet<Imports>();
-        varImports28.add(imports11);
-        varImports28.add(imports21);
-        PropertiesAttributes28.setImports(varImports28);
-        em.persist(PropertiesAttributes28);
+        PropertiesAttributes attributesProperties54 = new PropertiesAttributes();
+        attributesProperties54.setName("@IndexedEmbedded");
+        attributesProperties54.setValue("@IndexedEmbedded");
+        em.persist(attributesProperties54);
         em.flush();
 
-        PropertiesAttributes PropertiesAttributes29 = new PropertiesAttributes();
-        PropertiesAttributes29.setName("@DateBridgeHO");
-        PropertiesAttributes29.setValue("@DateBridge(resolution = Resolution.HOUR)");
-        Set<Imports> varImports29 = new HashSet<Imports>();
-        varImports29.add(imports11);
-        varImports29.add(imports21);
-        PropertiesAttributes29.setImports(varImports29);
-        em.persist(PropertiesAttributes29);
+        PropertiesAttributes attributesProperties55 = new PropertiesAttributes();
+        attributesProperties55.setName("@Temporal");
+        attributesProperties55.setValue("@Temporal(TemporalType.DATE)");
+        em.persist(attributesProperties55);
         em.flush();
 
-        PropertiesAttributes PropertiesAttributes30 = new PropertiesAttributes();
-        PropertiesAttributes30.setName("@DateBridgeMI");
-        PropertiesAttributes30.setValue("@DateBridge(resolution = Resolution.MINUTE)");
-        Set<Imports> varImports30 = new HashSet<Imports>();
-        varImports30.add(imports11);
-        varImports30.add(imports21);
-        PropertiesAttributes30.setImports(varImports30);
-        em.persist(PropertiesAttributes30);
+        PropertiesAttributes attributesProperties56 = new PropertiesAttributes();
+        attributesProperties56.setName("@DateBridgeMO");
+        attributesProperties56.setValue("@DateBridge(resolution = Resolution.MONTH)");
+        em.persist(attributesProperties56);
         em.flush();
 
-        PropertiesAttributes PropertiesAttributes31 = new PropertiesAttributes();
-        PropertiesAttributes31.setName("@DateBridgeSE");
-        PropertiesAttributes31.setValue("@DateBridge(resolution = Resolution.SECOND)");
-        Set<Imports> varImports31 = new HashSet<Imports>();
-        varImports31.add(imports11);
-        varImports31.add(imports21);
-        PropertiesAttributes31.setImports(varImports31);
-        em.persist(PropertiesAttributes31);
+        PropertiesAttributes attributesProperties57 = new PropertiesAttributes();
+        attributesProperties57.setName("@DateBridgeDA");
+        attributesProperties57.setValue("@DateBridge(resolution = Resolution.DAY)");
+        em.persist(attributesProperties57);
         em.flush();
 
-        PropertiesAttributes PropertiesAttributes32 = new PropertiesAttributes();
-        PropertiesAttributes32.setName("@DateBridgeML");
-        PropertiesAttributes32.setValue("@DateBridge(resolution = Resolution.MILLISECOND)");
-        Set<Imports> varImports32 = new HashSet<Imports>();
-        varImports32.add(imports11);
-        varImports32.add(imports21);
-        PropertiesAttributes32.setImports(varImports32);
-        em.persist(PropertiesAttributes32);
+        PropertiesAttributes attributesProperties58 = new PropertiesAttributes();
+        attributesProperties58.setName("@DateBridgeHO");
+        attributesProperties58.setValue("@DateBridge(resolution = Resolution.HOUR)");
+        em.persist(attributesProperties58);
         em.flush();
 
-        PropertiesAttributes PropertiesAttributes33 = new PropertiesAttributes();
-        PropertiesAttributes33.setName("@NumericField");
-        PropertiesAttributes33.setValue("@NumericField");
-        Set<Imports> varImports33 = new HashSet<Imports>();
-        varImports33.add(imports14);
-        PropertiesAttributes33.setImports(varImports33);
-        em.persist(PropertiesAttributes33);
+        PropertiesAttributes attributesProperties59 = new PropertiesAttributes();
+        attributesProperties59.setName("@DateBridgeMI");
+        attributesProperties59.setValue("@DateBridge(resolution = Resolution.MINUTE)");
+        em.persist(attributesProperties59);
         em.flush();
 
 //      ---------------------- AttributesTypes ------------------------
 
         AttributesTypes attributesTypes1 = new AttributesTypes();
-        attributesTypes1.setName("Integer");
-        attributesTypes1.setType("Integer");
-        attributesTypes1.setObservations("An integer numerical type");
+        attributesTypes1.setName("byte");
+        attributesTypes1.setType("byte");
+        attributesTypes1.setObservations("A uniform resource locator of a web resource");
+
+        Set<PropertiesAttributes> attributesTypesAttributesProperties1 = new HashSet<PropertiesAttributes>();
+        PropertiesAttributes attributeTypeAttributeProperty1 = searchBean.namePropertiesAttributes("@Basic1",em);
+        attributesTypesAttributesProperties1.add(attributeTypeAttributeProperty1);
+        PropertiesAttributes attributeTypeAttributeProperty2 = searchBean.namePropertiesAttributes("@Lob",em);
+        attributesTypesAttributesProperties1.add(attributeTypeAttributeProperty1);
+        attributesTypes1.setAttributesTypes(attributeTypeAttributeProperty1);
+
         em.persist(attributesTypes1);
         em.flush();
 
         AttributesTypes attributesTypes2 = new AttributesTypes();
-        attributesTypes2.setName("Float");
-        attributesTypes2.setType("Float");
-        attributesTypes2.setObservations("A floating point numerical type");
+        attributesTypes2.setName("double");
+        attributesTypes2.setType("double");
+        attributesTypes2.setObservations("A uniform resource locator of a web resource");
+
+        Set<PropertiesAttributes> attributesTypesAttributesProperties2 = new HashSet<PropertiesAttributes>();
+        PropertiesAttributes attributeTypeAttributeProperty1 = searchBean.namePropertiesAttributes("@NumericField",em);
+        attributesTypesAttributesProperties2.add(attributeTypeAttributeProperty2);
+        PropertiesAttributes attributeTypeAttributeProperty2 = searchBean.namePropertiesAttributes("@Field1",em);
+        attributesTypesAttributesProperties2.add(attributeTypeAttributeProperty2);
+        attributesTypes2.setAttributesTypes(attributeTypeAttributeProperty2);
+
         em.persist(attributesTypes2);
         em.flush();
 
         AttributesTypes attributesTypes3 = new AttributesTypes();
-        attributesTypes3.setName("Date");
-        attributesTypes3.setType("Date");
-        attributesTypes3.setObservations("A calendar date");
+        attributesTypes3.setName("Email");
+        attributesTypes3.setType("Email");
+        attributesTypes3.setObservations("A uniform resource locator of a web resource");
+
+        Set<PropertiesAttributes> attributesTypesAttributesProperties3 = new HashSet<PropertiesAttributes>();
+        attributesTypes3.setAttributesTypes(attributeTypeAttributeProperty3);
+
         em.persist(attributesTypes3);
         em.flush();
 
         AttributesTypes attributesTypes4 = new AttributesTypes();
-        attributesTypes4.setName("Time");
-        attributesTypes4.setType("Date");
-        attributesTypes4.setObservations("A temporal instant of time");
+        attributesTypes4.setName("String");
+        attributesTypes4.setType("String");
+        attributesTypes4.setObservations("A \"short\" sequence of characters");
+
+        Set<PropertiesAttributes> attributesTypesAttributesProperties4 = new HashSet<PropertiesAttributes>();
+        PropertiesAttributes attributeTypeAttributeProperty1 = searchBean.namePropertiesAttributes("@Field1",em);
+        attributesTypesAttributesProperties4.add(attributeTypeAttributeProperty4);
+        attributesTypes4.setAttributesTypes(attributeTypeAttributeProperty4);
+
         em.persist(attributesTypes4);
         em.flush();
 
         AttributesTypes attributesTypes5 = new AttributesTypes();
-        attributesTypes5.setName("Boolean");
-        attributesTypes5.setType("Boolean");
-        attributesTypes5.setObservations("A true or false value");
+        attributesTypes5.setName("Text");
+        attributesTypes5.setType("String");
+        attributesTypes5.setObservations("A \"long\" sequence of characters");
+
+        Set<PropertiesAttributes> attributesTypesAttributesProperties5 = new HashSet<PropertiesAttributes>();
+        PropertiesAttributes attributeTypeAttributeProperty1 = searchBean.namePropertiesAttributes("@Field1",em);
+        attributesTypesAttributesProperties5.add(attributeTypeAttributeProperty5);
+        PropertiesAttributes attributeTypeAttributeProperty2 = searchBean.namePropertiesAttributes("@Lob",em);
+        attributesTypesAttributesProperties5.add(attributeTypeAttributeProperty5);
+        attributesTypes5.setAttributesTypes(attributeTypeAttributeProperty5);
+
         em.persist(attributesTypes5);
         em.flush();
 
         AttributesTypes attributesTypes6 = new AttributesTypes();
-        attributesTypes6.setName("Enumeration");
-        attributesTypes6.setType("Enumeration");
-        attributesTypes6.setObservations("A sequence of user-defined values");
+        attributesTypes6.setName("Integer");
+        attributesTypes6.setType("Integer");
+        attributesTypes6.setObservations("An integer numerical type");
+
+        Set<PropertiesAttributes> attributesTypesAttributesProperties6 = new HashSet<PropertiesAttributes>();
+        attributesTypes6.setAttributesTypes(attributeTypeAttributeProperty6);
+
         em.persist(attributesTypes6);
         em.flush();
 
         AttributesTypes attributesTypes7 = new AttributesTypes();
-        attributesTypes7.setName("Blob");
-        attributesTypes7.setType("Blob");
-        attributesTypes7.setObservations("A binanry large object, for example an image or a video, which must be handled in a special way because of its size. Blob type can be further refined by expressing their MIME type for example image/gif");
+        attributesTypes7.setName("Float");
+        attributesTypes7.setType("Float");
+        attributesTypes7.setObservations("A floating point numerical type");
+
+        Set<PropertiesAttributes> attributesTypesAttributesProperties7 = new HashSet<PropertiesAttributes>();
+        attributesTypes7.setAttributesTypes(attributeTypeAttributeProperty7);
+
         em.persist(attributesTypes7);
         em.flush();
 
         AttributesTypes attributesTypes8 = new AttributesTypes();
-        attributesTypes8.setName("Url");
-        attributesTypes8.setType("Url");
-        attributesTypes8.setObservations("A uniform resource locator of a web resource");
+        attributesTypes8.setName("Date");
+        attributesTypes8.setType("Date");
+        attributesTypes8.setObservations("A calendar date");
+
+        Set<PropertiesAttributes> attributesTypesAttributesProperties8 = new HashSet<PropertiesAttributes>();
+        PropertiesAttributes attributeTypeAttributeProperty1 = searchBean.namePropertiesAttributes("@Temporal",em);
+        attributesTypesAttributesProperties8.add(attributeTypeAttributeProperty8);
+        PropertiesAttributes attributeTypeAttributeProperty2 = searchBean.namePropertiesAttributes("@DateBridgeYE",em);
+        attributesTypesAttributesProperties8.add(attributeTypeAttributeProperty8);
+        attributesTypes8.setAttributesTypes(attributeTypeAttributeProperty8);
+
         em.persist(attributesTypes8);
         em.flush();
 
         AttributesTypes attributesTypes9 = new AttributesTypes();
-        attributesTypes9.setName("Text");
-        attributesTypes9.setType("String");
-        attributesTypes9.setObservations("A long sequence of characters");
+        attributesTypes9.setName("Time");
+        attributesTypes9.setType("Date");
+        attributesTypes9.setObservations("A temporal instant of time");
+
+        Set<PropertiesAttributes> attributesTypesAttributesProperties9 = new HashSet<PropertiesAttributes>();
+        attributesTypes9.setAttributesTypes(attributeTypeAttributeProperty9);
+
         em.persist(attributesTypes9);
         em.flush();
 
         AttributesTypes attributesTypes10 = new AttributesTypes();
-        attributesTypes10.setName("String");
-        attributesTypes10.setType("String");
-        attributesTypes10.setObservations("A short sequence of characters");
+        attributesTypes10.setName("Boolean");
+        attributesTypes10.setType("Boolean");
+        attributesTypes10.setObservations("A true or false value");
+
+        Set<PropertiesAttributes> attributesTypesAttributesProperties10 = new HashSet<PropertiesAttributes>();
+        attributesTypes10.setAttributesTypes(attributeTypeAttributeProperty10);
+
         em.persist(attributesTypes10);
         em.flush();
 
         AttributesTypes attributesTypes11 = new AttributesTypes();
-        attributesTypes11.setName("double");
-        attributesTypes11.setType("double");
-        attributesTypes11.setObservations("An double numerical type");
+        attributesTypes11.setName("Enumeration");
+        attributesTypes11.setType("Enumeration");
+        attributesTypes11.setObservations("A sequence of user-defined values");
+
+        Set<PropertiesAttributes> attributesTypesAttributesProperties11 = new HashSet<PropertiesAttributes>();
+        attributesTypes11.setAttributesTypes(attributeTypeAttributeProperty11);
+
         em.persist(attributesTypes11);
         em.flush();
 
         AttributesTypes attributesTypes12 = new AttributesTypes();
-        attributesTypes12.setName("byte");
-        attributesTypes12.setType("byte");
-        attributesTypes12.setObservations("An byte numerical type");
-        Set<PropertiesAttributes> propertiesByte = new HashSet<PropertiesAttributes>();
-        propertiesByte.add(PropertiesAttributes18);
-        attributesTypes12.setPropertiesAttributes(propertiesByte);
+        attributesTypes12.setName("Blob");
+        attributesTypes12.setType("Blob");
+        attributesTypes12.setObservations("A binanry large object, for example an image or a video, which must be handled in a special way because of its size. Blob type can be further refined by expressing their MIME type for example image/gif");
+
+        Set<PropertiesAttributes> attributesTypesAttributesProperties12 = new HashSet<PropertiesAttributes>();
+        attributesTypes12.setAttributesTypes(attributeTypeAttributeProperty12);
+
         em.persist(attributesTypes12);
         em.flush();
 
         AttributesTypes attributesTypes13 = new AttributesTypes();
-        attributesTypes13.setName("Email");
-        attributesTypes13.setType("Email");
-        attributesTypes13.setObservations("An email type");
+        attributesTypes13.setName("Url");
+        attributesTypes13.setType("Url");
+        attributesTypes13.setObservations("A uniform resource locator of a web resource");
+
+        Set<PropertiesAttributes> attributesTypesAttributesProperties13 = new HashSet<PropertiesAttributes>();
+        attributesTypes13.setAttributesTypes(attributeTypeAttributeProperty13);
+
         em.persist(attributesTypes13);
         em.flush();
 
 //      ---------------------- Cardinalities ------------------------
 
-        Cardinalities cardinalities1 = new Cardinalities();
+        Cardinalities cardinalities1 = new AttributesTypes();
         cardinalities1.setName("Uno a Uno Unidireccional No.1");
         cardinalities1.setCardinality("1..1");
-        cardinalities1.setUnidirectional(true);
+        cardinalities1.setUnidirectional("true");
         em.persist(cardinalities1);
         em.flush();
 
-        Cardinalities cardinalities2 = new Cardinalities();
+        Cardinalities cardinalities2 = new AttributesTypes();
         cardinalities2.setName("Uno a Uno Bidirecccional No.2");
         cardinalities2.setCardinality("1..1");
-        cardinalities2.setUnidirectional(false);
+        cardinalities2.setUnidirectional("false");
         em.persist(cardinalities2);
         em.flush();
 
-        Cardinalities cardinalities3 = new Cardinalities();
+        Cardinalities cardinalities3 = new AttributesTypes();
         cardinalities3.setName("Muchos a Uno Unidireccional No.3");
         cardinalities3.setCardinality("*..1");
-        cardinalities3.setUnidirectional(true);
+        cardinalities3.setUnidirectional("true");
         em.persist(cardinalities3);
         em.flush();
 
-        Cardinalities cardinalities4 = new Cardinalities();
+        Cardinalities cardinalities4 = new AttributesTypes();
         cardinalities4.setName("Uno a Muchos Unidireccional No.4");
         cardinalities4.setCardinality("1..*");
-        cardinalities4.setUnidirectional(true);
+        cardinalities4.setUnidirectional("true");
         em.persist(cardinalities4);
         em.flush();
 
-        Cardinalities cardinalities5 = new Cardinalities();
+        Cardinalities cardinalities5 = new AttributesTypes();
         cardinalities5.setName("Uno a Muchos Bidirecccional No.5");
         cardinalities5.setCardinality("1..*");
-        cardinalities5.setUnidirectional(false);
+        cardinalities5.setUnidirectional("false");
         em.persist(cardinalities5);
         em.flush();
 
-        Cardinalities cardinalities6 = new Cardinalities();
+        Cardinalities cardinalities6 = new AttributesTypes();
         cardinalities6.setName("Muchos a Muchos Unidireccional No.6");
         cardinalities6.setCardinality("*..*");
-        cardinalities6.setUnidirectional(true);
+        cardinalities6.setUnidirectional("true");
         em.persist(cardinalities6);
         em.flush();
 
-        Cardinalities cardinalities7 = new Cardinalities();
+        Cardinalities cardinalities7 = new AttributesTypes();
         cardinalities7.setName("Muchos a Muchos Bidirecccional No.7");
         cardinalities7.setCardinality("*..*");
-        cardinalities7.setUnidirectional(false);
+        cardinalities7.setUnidirectional("false");
         em.persist(cardinalities7);
         em.flush();
 

@@ -49,6 +49,66 @@ Dependency
 
 public class NaifgBean {
 
+    public List<Dependency> findAllDependency(EntityManager em) {
+
+    try {
+
+        FullTextEntityManager fullTextEntityManager = org.hibernate.search.jpa.Search.getFullTextEntityManager(em);
+        fullTextEntityManager.createIndexer().startAndWait();
+
+        QueryBuilder queryBuilder = fullTextEntityManager.getSearchFactory().buildQueryBuilder().forEntity(Dependency.class).get();
+        org.apache.lucene.search.Query query = queryBuilder.all().createQuery();
+
+        FullTextQuery fullTextQuery = fullTextEntityManager.createFullTextQuery(query, Dependency.class);
+        Sort sort = new Sort(new SortField("orden", SortField.LONG));
+        fullTextQuery.setSort(sort);
+
+        fullTextQuery.initializeObjectsWith(ObjectLookupMethod.SKIP, DatabaseRetrievalMethod.FIND_BY_ID);
+
+        List<Dependency> results = fullTextQuery.getResultList();
+
+        return results;
+
+    } // try
+    catch(Exception ioe) {
+      ioe.printStackTrace();
+    } // catch
+
+    return null;
+
+    }
+    
+    public List<Imports> findAllImports(EntityManager em) {
+
+    try {
+
+        FullTextEntityManager fullTextEntityManager = org.hibernate.search.jpa.Search.getFullTextEntityManager(em);
+        fullTextEntityManager.createIndexer().startAndWait();
+
+        QueryBuilder queryBuilder = fullTextEntityManager.getSearchFactory().buildQueryBuilder().forEntity(Imports.class).get();
+        org.apache.lucene.search.Query query = queryBuilder.all().createQuery();
+
+        FullTextQuery fullTextQuery = fullTextEntityManager.createFullTextQuery(query, Imports.class);
+        Sort sort = new Sort(new SortField("orden", SortField.LONG));
+        fullTextQuery.setSort(sort);
+
+        fullTextQuery.initializeObjectsWith(ObjectLookupMethod.SKIP, DatabaseRetrievalMethod.FIND_BY_ID);
+
+        List<Imports> results = fullTextQuery.getResultList();
+
+        return results;
+
+    } // try
+    catch(Exception ioe) {
+      ioe.printStackTrace();
+    } // catch
+
+    return null;
+
+    }
+
+
+
     public List<AttributesProperties> findAllAttributesProperties(EntityManager em) {
 
     try {
@@ -91,26 +151,6 @@ public class NaifgBean {
         fullTextQuery.initializeObjectsWith(ObjectLookupMethod.SKIP, DatabaseRetrievalMethod.FIND_BY_ID);
 
         List<Cardinalities> results = fullTextQuery.getResultList();
-
-        return results;
-
-    }
-
-    public List<Dependency> findAllDependency(EntityManager em) {
-
-        FullTextEntityManager fullTextEntityManager = org.hibernate.search.jpa.Search.getFullTextEntityManager(em);
-
-        QueryBuilder queryBuilder = fullTextEntityManager.getSearchFactory().buildQueryBuilder().forEntity(Dependency.class).get();
-        org.apache.lucene.search.Query query = queryBuilder.all().createQuery();
-
-        FullTextQuery fullTextQuery = fullTextEntityManager.createFullTextQuery(query, Dependency.class);
-        //fullTextQuery.setProjection(FullTextQuery.ID, "orden");
-        Sort sort = new Sort(new SortField("orden", SortField.LONG));
-        fullTextQuery.setSort(sort);
-
-        fullTextQuery.initializeObjectsWith(ObjectLookupMethod.SKIP, DatabaseRetrievalMethod.FIND_BY_ID);
-
-        List<Dependency> results = fullTextQuery.getResultList();
 
         return results;
 

@@ -636,6 +636,7 @@ public class Setup {
         Set<AttributesProperties> propertiesByte = new HashSet<AttributesProperties>();
         propertiesByte.add(varBasic1);
         propertiesByte.add(varLob);
+
         varByte.setAttributesProperties(propertiesByte);
 
         em.persist(varByte);

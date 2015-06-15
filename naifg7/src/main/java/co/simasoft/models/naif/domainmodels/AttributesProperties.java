@@ -41,21 +41,20 @@ public class AttributesProperties implements Serializable {
 	@Version
 	private Integer optlock;
 
-        @Field(index = Index.YES, analyze = Analyze.NO, store = Store.YES)
 	private long orden;
 
-        @Field(index = Index.YES, analyze = Analyze.NO, store = Store.YES)
+	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
 	@Column(nullable = false, unique = true)
 	private String name;
 
-        @Field(index = Index.YES, analyze = Analyze.NO, store = Store.YES)
+	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
 	@Column(nullable = true, unique = false)
 	private String observations;
 
-        @Field(index = Index.YES, analyze = Analyze.NO, store = Store.YES)
+	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
 	private String link;
 
-        @Field(index = Index.YES, analyze = Analyze.NO, store = Store.YES)
+	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
 	@Column(nullable = false, unique = true)
 	private String value;
 
