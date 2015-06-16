@@ -256,10 +256,11 @@ public class SearchBean {
     
 // ------------------------------------------------------------------------------------------ //
 
-    public Dependency artifactIdDependency(String dependencyToSearch,EntityManager em) {
+    public Dependency artifactIdDependency(String search,EntityManager em) {
+
         prepare(Dependency.class,em);
 
-        Query query = qb.keyword().onField("artifactId").matching(dependencyToSearch).createQuery();
+        Query query = qb.keyword().onField("artifactId").matching(search).createQuery();
 
         List<Dependency> results = execute(query,
                                            new Class[]{Dependency.class},
@@ -269,13 +270,14 @@ public class SearchBean {
         }
         return null;
     }
-    
+
     public PropertiesAttributes namePropertiesAttributes(String search,EntityManager em) {
-        prepare(Dependency.class,em);
+
+        prepare(PropertiesAttributes.class,em);
 
         Query query = qb.keyword().onField("name").matching(search).createQuery();
 
-        List<Dependency> results = execute(query,
+        List<PropertiesAttributes> results = execute(query,
                                            new Class[]{PropertiesAttributes.class},
                                            null, null);
         if (!results.isEmpty()) {
@@ -283,5 +285,30 @@ public class SearchBean {
         }
         return null;
     }
+
+/*
+    public PropertiesAttributes namePropertiesAttributes(String search,EntityManager em) {
+
+        prepare(PropertiesAttributes.class,em);
+
+        Query query = qb.keyword().onField("name").matching(search).createQuery();
+
+        List<PropertiesAttributes> results = execute(query,
+                                           new Class[]{PropertiesAttributes.class},
+                                           null, null);
+        if (!results.isEmpty()) {
+
+           PropertiesAttributes propertiesAttributes = new PropertiesAttributes();
+           propertiesAttributes = (PropertiesAttributes) results.get(0);
+           if (propertiesAttributes.getName().equals(search)){
+              return propertiesAttributes;
+           }
+           else{
+              return null;
+           }
+        }
+        return null;
+    }
+*/
 
 } // Fin de clase

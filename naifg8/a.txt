@@ -8,8 +8,6 @@
 [WARNING] 
 [WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
 [WARNING] 
-[INFO] 
-[INFO] Using the builder org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder with a thread count of 1
 [INFO]                                                                         
 [INFO] ------------------------------------------------------------------------
 [INFO] Building naifg8 1.0.0-SNAPSHOT
@@ -25,256 +23,32 @@
 [INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ naifg8 ---
 [INFO] Changes detected - recompiling the module!
 [INFO] Compiling 37 source files to d:\dev\njava\simasoft\naifg8\target\classes
-[INFO] -------------------------------------------------------------
-[WARNING] COMPILATION WARNING : 
-[INFO] -------------------------------------------------------------
 [WARNING] /d:/dev/njava/simasoft/naifg8/src/main/java/co/simasoft/Beans/Naifg8Bean.java: Some input files use unchecked or unsafe operations.
 [WARNING] /d:/dev/njava/simasoft/naifg8/src/main/java/co/simasoft/Beans/Naifg8Bean.java: Recompile with -Xlint:unchecked for details.
-[INFO] 2 warnings 
-[INFO] -------------------------------------------------------------
-[INFO] -------------------------------------------------------------
-[ERROR] COMPILATION ERROR : 
-[INFO] -------------------------------------------------------------
-[ERROR] /d:/dev/njava/simasoft/naifg8/src/main/java/co/simasoft/Setup/Setup.java:[469,25] cannot find symbol
-  symbol:   method setAttributesTypes(co.simasoft.models.naif.domainmodels.PropertiesAttributes)
-  location: variable attributesTypes1 of type co.simasoft.models.naif.domainmodels.AttributesTypes
-[ERROR] /d:/dev/njava/simasoft/naifg8/src/main/java/co/simasoft/Setup/Setup.java:[480,30] variable attributeTypeAttributeProperty1 is already defined in method data()
-[ERROR] /d:/dev/njava/simasoft/naifg8/src/main/java/co/simasoft/Setup/Setup.java:[482,30] variable attributeTypeAttributeProperty2 is already defined in method data()
-[ERROR] /d:/dev/njava/simasoft/naifg8/src/main/java/co/simasoft/Setup/Setup.java:[484,25] cannot find symbol
-  symbol:   method setAttributesTypes(co.simasoft.models.naif.domainmodels.PropertiesAttributes)
-  location: variable attributesTypes2 of type co.simasoft.models.naif.domainmodels.AttributesTypes
-[ERROR] /d:/dev/njava/simasoft/naifg8/src/main/java/co/simasoft/Setup/Setup.java:[495,45] cannot find symbol
-  symbol:   variable attributeTypeAttributeProperty3
-  location: class co.simasoft.setup.Setup
-[ERROR] /d:/dev/njava/simasoft/naifg8/src/main/java/co/simasoft/Setup/Setup.java:[506,30] variable attributeTypeAttributeProperty1 is already defined in method data()
-[ERROR] /d:/dev/njava/simasoft/naifg8/src/main/java/co/simasoft/Setup/Setup.java:[507,50] cannot find symbol
-  symbol:   variable attributeTypeAttributeProperty4
-  location: class co.simasoft.setup.Setup
-[ERROR] /d:/dev/njava/simasoft/naifg8/src/main/java/co/simasoft/Setup/Setup.java:[508,45] cannot find symbol
-  symbol:   variable attributeTypeAttributeProperty4
-  location: class co.simasoft.setup.Setup
-[ERROR] /d:/dev/njava/simasoft/naifg8/src/main/java/co/simasoft/Setup/Setup.java:[519,30] variable attributeTypeAttributeProperty1 is already defined in method data()
-[ERROR] /d:/dev/njava/simasoft/naifg8/src/main/java/co/simasoft/Setup/Setup.java:[520,50] cannot find symbol
-  symbol:   variable attributeTypeAttributeProperty5
-  location: class co.simasoft.setup.Setup
-[ERROR] /d:/dev/njava/simasoft/naifg8/src/main/java/co/simasoft/Setup/Setup.java:[521,30] variable attributeTypeAttributeProperty2 is already defined in method data()
-[ERROR] /d:/dev/njava/simasoft/naifg8/src/main/java/co/simasoft/Setup/Setup.java:[522,50] cannot find symbol
-  symbol:   variable attributeTypeAttributeProperty5
-  location: class co.simasoft.setup.Setup
-[ERROR] /d:/dev/njava/simasoft/naifg8/src/main/java/co/simasoft/Setup/Setup.java:[523,45] cannot find symbol
-  symbol:   variable attributeTypeAttributeProperty5
-  location: class co.simasoft.setup.Setup
-[ERROR] /d:/dev/njava/simasoft/naifg8/src/main/java/co/simasoft/Setup/Setup.java:[534,45] cannot find symbol
-  symbol:   variable attributeTypeAttributeProperty6
-  location: class co.simasoft.setup.Setup
-[ERROR] /d:/dev/njava/simasoft/naifg8/src/main/java/co/simasoft/Setup/Setup.java:[545,45] cannot find symbol
-  symbol:   variable attributeTypeAttributeProperty7
-  location: class co.simasoft.setup.Setup
-[ERROR] /d:/dev/njava/simasoft/naifg8/src/main/java/co/simasoft/Setup/Setup.java:[556,30] variable attributeTypeAttributeProperty1 is already defined in method data()
-[ERROR] /d:/dev/njava/simasoft/naifg8/src/main/java/co/simasoft/Setup/Setup.java:[557,50] cannot find symbol
-  symbol:   variable attributeTypeAttributeProperty8
-  location: class co.simasoft.setup.Setup
-[ERROR] /d:/dev/njava/simasoft/naifg8/src/main/java/co/simasoft/Setup/Setup.java:[558,30] variable attributeTypeAttributeProperty2 is already defined in method data()
-[ERROR] /d:/dev/njava/simasoft/naifg8/src/main/java/co/simasoft/Setup/Setup.java:[559,50] cannot find symbol
-  symbol:   variable attributeTypeAttributeProperty8
-  location: class co.simasoft.setup.Setup
-[ERROR] /d:/dev/njava/simasoft/naifg8/src/main/java/co/simasoft/Setup/Setup.java:[560,45] cannot find symbol
-  symbol:   variable attributeTypeAttributeProperty8
-  location: class co.simasoft.setup.Setup
-[ERROR] /d:/dev/njava/simasoft/naifg8/src/main/java/co/simasoft/Setup/Setup.java:[571,45] cannot find symbol
-  symbol:   variable attributeTypeAttributeProperty9
-  location: class co.simasoft.setup.Setup
-[ERROR] /d:/dev/njava/simasoft/naifg8/src/main/java/co/simasoft/Setup/Setup.java:[582,46] cannot find symbol
-  symbol:   variable attributeTypeAttributeProperty10
-  location: class co.simasoft.setup.Setup
-[ERROR] /d:/dev/njava/simasoft/naifg8/src/main/java/co/simasoft/Setup/Setup.java:[593,46] cannot find symbol
-  symbol:   variable attributeTypeAttributeProperty11
-  location: class co.simasoft.setup.Setup
-[ERROR] /d:/dev/njava/simasoft/naifg8/src/main/java/co/simasoft/Setup/Setup.java:[604,46] cannot find symbol
-  symbol:   variable attributeTypeAttributeProperty12
-  location: class co.simasoft.setup.Setup
-[ERROR] /d:/dev/njava/simasoft/naifg8/src/main/java/co/simasoft/Setup/Setup.java:[615,46] cannot find symbol
-  symbol:   variable attributeTypeAttributeProperty13
-  location: class co.simasoft.setup.Setup
-[ERROR] /d:/dev/njava/simasoft/naifg8/src/main/java/co/simasoft/Setup/Setup.java:[622,40] incompatible types
-  required: co.simasoft.models.naif.domainmodels.Cardinalities
-  found:    co.simasoft.models.naif.domainmodels.AttributesTypes
-[ERROR] /d:/dev/njava/simasoft/naifg8/src/main/java/co/simasoft/Setup/Setup.java:[625,23] method setUnidirectional in class co.simasoft.models.naif.domainmodels.Cardinalities cannot be applied to given types;
-  required: java.lang.Boolean
-  found: java.lang.String
-  reason: actual argument java.lang.String cannot be converted to java.lang.Boolean by method invocation conversion
-[ERROR] /d:/dev/njava/simasoft/naifg8/src/main/java/co/simasoft/Setup/Setup.java:[629,40] incompatible types
-  required: co.simasoft.models.naif.domainmodels.Cardinalities
-  found:    co.simasoft.models.naif.domainmodels.AttributesTypes
-[ERROR] /d:/dev/njava/simasoft/naifg8/src/main/java/co/simasoft/Setup/Setup.java:[632,23] method setUnidirectional in class co.simasoft.models.naif.domainmodels.Cardinalities cannot be applied to given types;
-  required: java.lang.Boolean
-  found: java.lang.String
-  reason: actual argument java.lang.String cannot be converted to java.lang.Boolean by method invocation conversion
-[ERROR] /d:/dev/njava/simasoft/naifg8/src/main/java/co/simasoft/Setup/Setup.java:[636,40] incompatible types
-  required: co.simasoft.models.naif.domainmodels.Cardinalities
-  found:    co.simasoft.models.naif.domainmodels.AttributesTypes
-[ERROR] /d:/dev/njava/simasoft/naifg8/src/main/java/co/simasoft/Setup/Setup.java:[639,23] method setUnidirectional in class co.simasoft.models.naif.domainmodels.Cardinalities cannot be applied to given types;
-  required: java.lang.Boolean
-  found: java.lang.String
-  reason: actual argument java.lang.String cannot be converted to java.lang.Boolean by method invocation conversion
-[ERROR] /d:/dev/njava/simasoft/naifg8/src/main/java/co/simasoft/Setup/Setup.java:[643,40] incompatible types
-  required: co.simasoft.models.naif.domainmodels.Cardinalities
-  found:    co.simasoft.models.naif.domainmodels.AttributesTypes
-[ERROR] /d:/dev/njava/simasoft/naifg8/src/main/java/co/simasoft/Setup/Setup.java:[646,23] method setUnidirectional in class co.simasoft.models.naif.domainmodels.Cardinalities cannot be applied to given types;
-  required: java.lang.Boolean
-  found: java.lang.String
-  reason: actual argument java.lang.String cannot be converted to java.lang.Boolean by method invocation conversion
-[ERROR] /d:/dev/njava/simasoft/naifg8/src/main/java/co/simasoft/Setup/Setup.java:[650,40] incompatible types
-  required: co.simasoft.models.naif.domainmodels.Cardinalities
-  found:    co.simasoft.models.naif.domainmodels.AttributesTypes
-[ERROR] /d:/dev/njava/simasoft/naifg8/src/main/java/co/simasoft/Setup/Setup.java:[653,23] method setUnidirectional in class co.simasoft.models.naif.domainmodels.Cardinalities cannot be applied to given types;
-  required: java.lang.Boolean
-  found: java.lang.String
-  reason: actual argument java.lang.String cannot be converted to java.lang.Boolean by method invocation conversion
-[ERROR] /d:/dev/njava/simasoft/naifg8/src/main/java/co/simasoft/Setup/Setup.java:[657,40] incompatible types
-  required: co.simasoft.models.naif.domainmodels.Cardinalities
-  found:    co.simasoft.models.naif.domainmodels.AttributesTypes
-[ERROR] /d:/dev/njava/simasoft/naifg8/src/main/java/co/simasoft/Setup/Setup.java:[660,23] method setUnidirectional in class co.simasoft.models.naif.domainmodels.Cardinalities cannot be applied to given types;
-  required: java.lang.Boolean
-  found: java.lang.String
-  reason: actual argument java.lang.String cannot be converted to java.lang.Boolean by method invocation conversion
-[ERROR] /d:/dev/njava/simasoft/naifg8/src/main/java/co/simasoft/Setup/Setup.java:[664,40] incompatible types
-  required: co.simasoft.models.naif.domainmodels.Cardinalities
-  found:    co.simasoft.models.naif.domainmodels.AttributesTypes
-[ERROR] /d:/dev/njava/simasoft/naifg8/src/main/java/co/simasoft/Setup/Setup.java:[667,23] method setUnidirectional in class co.simasoft.models.naif.domainmodels.Cardinalities cannot be applied to given types;
-  required: java.lang.Boolean
-  found: java.lang.String
-  reason: actual argument java.lang.String cannot be converted to java.lang.Boolean by method invocation conversion
-[ERROR] /d:/dev/njava/simasoft/naifg8/src/main/java/co/simasoft/Beans/SearchBean.java:[282,53] inconvertible types
-  required: co.simasoft.models.naif.domainmodels.PropertiesAttributes
-  found:    co.simasoft.models.naif.domainmodels.Dependency
-[INFO] 40 errors 
-[INFO] -------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ naifg8 ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory d:\dev\njava\simasoft\naifg8\src\test\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ naifg8 ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ naifg8 ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] --- maven-war-plugin:2.1.1:war (default-war) @ naifg8 ---
+[INFO] Packaging webapp
+[INFO] Assembling webapp [naifg8] in [d:\dev\njava\simasoft\naifg8\target\naifg8]
+[INFO] Processing war project
+[INFO] Copying webapp resources [d:\dev\njava\simasoft\naifg8\src\main\webapp]
+[INFO] Webapp assembled in [2161 msecs]
+[INFO] Building war: d:\dev\njava\simasoft\naifg8\target\naifg8.war
+[WARNING] Warning: selected war files include a WEB-INF/web.xml which will be ignored 
+(webxml attribute is missing from war task, or ignoreWebxml attribute is specified as 'true')
 [INFO] ------------------------------------------------------------------------
-[INFO] BUILD FAILURE
+[INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 2.172 s
-[INFO] Finished at: 2015-06-15T16:09:15-05:00
-[INFO] Final Memory: 16M/49M
+[INFO] Total time: 8.238s
+[INFO] Finished at: Tue Jun 16 15:33:59 COT 2015
+[INFO] Final Memory: 17M/47M
 [INFO] ------------------------------------------------------------------------
-[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.1:compile (default-compile) on project naifg8: Compilation failure: Compilation failure:
-[ERROR] /d:/dev/njava/simasoft/naifg8/src/main/java/co/simasoft/Setup/Setup.java:[469,25] cannot find symbol
-[ERROR] symbol:   method setAttributesTypes(co.simasoft.models.naif.domainmodels.PropertiesAttributes)
-[ERROR] location: variable attributesTypes1 of type co.simasoft.models.naif.domainmodels.AttributesTypes
-[ERROR] /d:/dev/njava/simasoft/naifg8/src/main/java/co/simasoft/Setup/Setup.java:[480,30] variable attributeTypeAttributeProperty1 is already defined in method data()
-[ERROR] /d:/dev/njava/simasoft/naifg8/src/main/java/co/simasoft/Setup/Setup.java:[482,30] variable attributeTypeAttributeProperty2 is already defined in method data()
-[ERROR] /d:/dev/njava/simasoft/naifg8/src/main/java/co/simasoft/Setup/Setup.java:[484,25] cannot find symbol
-[ERROR] symbol:   method setAttributesTypes(co.simasoft.models.naif.domainmodels.PropertiesAttributes)
-[ERROR] location: variable attributesTypes2 of type co.simasoft.models.naif.domainmodels.AttributesTypes
-[ERROR] /d:/dev/njava/simasoft/naifg8/src/main/java/co/simasoft/Setup/Setup.java:[495,45] cannot find symbol
-[ERROR] symbol:   variable attributeTypeAttributeProperty3
-[ERROR] location: class co.simasoft.setup.Setup
-[ERROR] /d:/dev/njava/simasoft/naifg8/src/main/java/co/simasoft/Setup/Setup.java:[506,30] variable attributeTypeAttributeProperty1 is already defined in method data()
-[ERROR] /d:/dev/njava/simasoft/naifg8/src/main/java/co/simasoft/Setup/Setup.java:[507,50] cannot find symbol
-[ERROR] symbol:   variable attributeTypeAttributeProperty4
-[ERROR] location: class co.simasoft.setup.Setup
-[ERROR] /d:/dev/njava/simasoft/naifg8/src/main/java/co/simasoft/Setup/Setup.java:[508,45] cannot find symbol
-[ERROR] symbol:   variable attributeTypeAttributeProperty4
-[ERROR] location: class co.simasoft.setup.Setup
-[ERROR] /d:/dev/njava/simasoft/naifg8/src/main/java/co/simasoft/Setup/Setup.java:[519,30] variable attributeTypeAttributeProperty1 is already defined in method data()
-[ERROR] /d:/dev/njava/simasoft/naifg8/src/main/java/co/simasoft/Setup/Setup.java:[520,50] cannot find symbol
-[ERROR] symbol:   variable attributeTypeAttributeProperty5
-[ERROR] location: class co.simasoft.setup.Setup
-[ERROR] /d:/dev/njava/simasoft/naifg8/src/main/java/co/simasoft/Setup/Setup.java:[521,30] variable attributeTypeAttributeProperty2 is already defined in method data()
-[ERROR] /d:/dev/njava/simasoft/naifg8/src/main/java/co/simasoft/Setup/Setup.java:[522,50] cannot find symbol
-[ERROR] symbol:   variable attributeTypeAttributeProperty5
-[ERROR] location: class co.simasoft.setup.Setup
-[ERROR] /d:/dev/njava/simasoft/naifg8/src/main/java/co/simasoft/Setup/Setup.java:[523,45] cannot find symbol
-[ERROR] symbol:   variable attributeTypeAttributeProperty5
-[ERROR] location: class co.simasoft.setup.Setup
-[ERROR] /d:/dev/njava/simasoft/naifg8/src/main/java/co/simasoft/Setup/Setup.java:[534,45] cannot find symbol
-[ERROR] symbol:   variable attributeTypeAttributeProperty6
-[ERROR] location: class co.simasoft.setup.Setup
-[ERROR] /d:/dev/njava/simasoft/naifg8/src/main/java/co/simasoft/Setup/Setup.java:[545,45] cannot find symbol
-[ERROR] symbol:   variable attributeTypeAttributeProperty7
-[ERROR] location: class co.simasoft.setup.Setup
-[ERROR] /d:/dev/njava/simasoft/naifg8/src/main/java/co/simasoft/Setup/Setup.java:[556,30] variable attributeTypeAttributeProperty1 is already defined in method data()
-[ERROR] /d:/dev/njava/simasoft/naifg8/src/main/java/co/simasoft/Setup/Setup.java:[557,50] cannot find symbol
-[ERROR] symbol:   variable attributeTypeAttributeProperty8
-[ERROR] location: class co.simasoft.setup.Setup
-[ERROR] /d:/dev/njava/simasoft/naifg8/src/main/java/co/simasoft/Setup/Setup.java:[558,30] variable attributeTypeAttributeProperty2 is already defined in method data()
-[ERROR] /d:/dev/njava/simasoft/naifg8/src/main/java/co/simasoft/Setup/Setup.java:[559,50] cannot find symbol
-[ERROR] symbol:   variable attributeTypeAttributeProperty8
-[ERROR] location: class co.simasoft.setup.Setup
-[ERROR] /d:/dev/njava/simasoft/naifg8/src/main/java/co/simasoft/Setup/Setup.java:[560,45] cannot find symbol
-[ERROR] symbol:   variable attributeTypeAttributeProperty8
-[ERROR] location: class co.simasoft.setup.Setup
-[ERROR] /d:/dev/njava/simasoft/naifg8/src/main/java/co/simasoft/Setup/Setup.java:[571,45] cannot find symbol
-[ERROR] symbol:   variable attributeTypeAttributeProperty9
-[ERROR] location: class co.simasoft.setup.Setup
-[ERROR] /d:/dev/njava/simasoft/naifg8/src/main/java/co/simasoft/Setup/Setup.java:[582,46] cannot find symbol
-[ERROR] symbol:   variable attributeTypeAttributeProperty10
-[ERROR] location: class co.simasoft.setup.Setup
-[ERROR] /d:/dev/njava/simasoft/naifg8/src/main/java/co/simasoft/Setup/Setup.java:[593,46] cannot find symbol
-[ERROR] symbol:   variable attributeTypeAttributeProperty11
-[ERROR] location: class co.simasoft.setup.Setup
-[ERROR] /d:/dev/njava/simasoft/naifg8/src/main/java/co/simasoft/Setup/Setup.java:[604,46] cannot find symbol
-[ERROR] symbol:   variable attributeTypeAttributeProperty12
-[ERROR] location: class co.simasoft.setup.Setup
-[ERROR] /d:/dev/njava/simasoft/naifg8/src/main/java/co/simasoft/Setup/Setup.java:[615,46] cannot find symbol
-[ERROR] symbol:   variable attributeTypeAttributeProperty13
-[ERROR] location: class co.simasoft.setup.Setup
-[ERROR] /d:/dev/njava/simasoft/naifg8/src/main/java/co/simasoft/Setup/Setup.java:[622,40] incompatible types
-[ERROR] required: co.simasoft.models.naif.domainmodels.Cardinalities
-[ERROR] found:    co.simasoft.models.naif.domainmodels.AttributesTypes
-[ERROR] /d:/dev/njava/simasoft/naifg8/src/main/java/co/simasoft/Setup/Setup.java:[625,23] method setUnidirectional in class co.simasoft.models.naif.domainmodels.Cardinalities cannot be applied to given types;
-[ERROR] required: java.lang.Boolean
-[ERROR] found: java.lang.String
-[ERROR] reason: actual argument java.lang.String cannot be converted to java.lang.Boolean by method invocation conversion
-[ERROR] /d:/dev/njava/simasoft/naifg8/src/main/java/co/simasoft/Setup/Setup.java:[629,40] incompatible types
-[ERROR] required: co.simasoft.models.naif.domainmodels.Cardinalities
-[ERROR] found:    co.simasoft.models.naif.domainmodels.AttributesTypes
-[ERROR] /d:/dev/njava/simasoft/naifg8/src/main/java/co/simasoft/Setup/Setup.java:[632,23] method setUnidirectional in class co.simasoft.models.naif.domainmodels.Cardinalities cannot be applied to given types;
-[ERROR] required: java.lang.Boolean
-[ERROR] found: java.lang.String
-[ERROR] reason: actual argument java.lang.String cannot be converted to java.lang.Boolean by method invocation conversion
-[ERROR] /d:/dev/njava/simasoft/naifg8/src/main/java/co/simasoft/Setup/Setup.java:[636,40] incompatible types
-[ERROR] required: co.simasoft.models.naif.domainmodels.Cardinalities
-[ERROR] found:    co.simasoft.models.naif.domainmodels.AttributesTypes
-[ERROR] /d:/dev/njava/simasoft/naifg8/src/main/java/co/simasoft/Setup/Setup.java:[639,23] method setUnidirectional in class co.simasoft.models.naif.domainmodels.Cardinalities cannot be applied to given types;
-[ERROR] required: java.lang.Boolean
-[ERROR] found: java.lang.String
-[ERROR] reason: actual argument java.lang.String cannot be converted to java.lang.Boolean by method invocation conversion
-[ERROR] /d:/dev/njava/simasoft/naifg8/src/main/java/co/simasoft/Setup/Setup.java:[643,40] incompatible types
-[ERROR] required: co.simasoft.models.naif.domainmodels.Cardinalities
-[ERROR] found:    co.simasoft.models.naif.domainmodels.AttributesTypes
-[ERROR] /d:/dev/njava/simasoft/naifg8/src/main/java/co/simasoft/Setup/Setup.java:[646,23] method setUnidirectional in class co.simasoft.models.naif.domainmodels.Cardinalities cannot be applied to given types;
-[ERROR] required: java.lang.Boolean
-[ERROR] found: java.lang.String
-[ERROR] reason: actual argument java.lang.String cannot be converted to java.lang.Boolean by method invocation conversion
-[ERROR] /d:/dev/njava/simasoft/naifg8/src/main/java/co/simasoft/Setup/Setup.java:[650,40] incompatible types
-[ERROR] required: co.simasoft.models.naif.domainmodels.Cardinalities
-[ERROR] found:    co.simasoft.models.naif.domainmodels.AttributesTypes
-[ERROR] /d:/dev/njava/simasoft/naifg8/src/main/java/co/simasoft/Setup/Setup.java:[653,23] method setUnidirectional in class co.simasoft.models.naif.domainmodels.Cardinalities cannot be applied to given types;
-[ERROR] required: java.lang.Boolean
-[ERROR] found: java.lang.String
-[ERROR] reason: actual argument java.lang.String cannot be converted to java.lang.Boolean by method invocation conversion
-[ERROR] /d:/dev/njava/simasoft/naifg8/src/main/java/co/simasoft/Setup/Setup.java:[657,40] incompatible types
-[ERROR] required: co.simasoft.models.naif.domainmodels.Cardinalities
-[ERROR] found:    co.simasoft.models.naif.domainmodels.AttributesTypes
-[ERROR] /d:/dev/njava/simasoft/naifg8/src/main/java/co/simasoft/Setup/Setup.java:[660,23] method setUnidirectional in class co.simasoft.models.naif.domainmodels.Cardinalities cannot be applied to given types;
-[ERROR] required: java.lang.Boolean
-[ERROR] found: java.lang.String
-[ERROR] reason: actual argument java.lang.String cannot be converted to java.lang.Boolean by method invocation conversion
-[ERROR] /d:/dev/njava/simasoft/naifg8/src/main/java/co/simasoft/Setup/Setup.java:[664,40] incompatible types
-[ERROR] required: co.simasoft.models.naif.domainmodels.Cardinalities
-[ERROR] found:    co.simasoft.models.naif.domainmodels.AttributesTypes
-[ERROR] /d:/dev/njava/simasoft/naifg8/src/main/java/co/simasoft/Setup/Setup.java:[667,23] method setUnidirectional in class co.simasoft.models.naif.domainmodels.Cardinalities cannot be applied to given types;
-[ERROR] required: java.lang.Boolean
-[ERROR] found: java.lang.String
-[ERROR] reason: actual argument java.lang.String cannot be converted to java.lang.Boolean by method invocation conversion
-[ERROR] /d:/dev/njava/simasoft/naifg8/src/main/java/co/simasoft/Beans/SearchBean.java:[282,53] inconvertible types
-[ERROR] required: co.simasoft.models.naif.domainmodels.PropertiesAttributes
-[ERROR] found:    co.simasoft.models.naif.domainmodels.Dependency
-[ERROR] -> [Help 1]
-[ERROR] 
-[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
-[ERROR] Re-run Maven using the -X switch to enable full debug logging.
-[ERROR] 
-[ERROR] For more information about the errors and possible solutions, please read the following articles:
-[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

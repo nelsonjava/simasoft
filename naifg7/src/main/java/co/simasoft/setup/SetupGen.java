@@ -82,6 +82,8 @@ line("        Dependency dependency"+String.valueOf(++i)+" = new Dependency();")
 //line("        dependency"+String.valueOf(i)+".setOrden();");
 line("        dependency"+String.valueOf(i)+".setGroupId(\""+dependency.getGroupId()+"\");");
 line("        dependency"+String.valueOf(i)+".setArtifactId(\""+dependency.getArtifactId()+"\");");
+line("        dependency"+String.valueOf(i)+".setLink(\""+dependency.getLink()+"\");");
+line("        dependency"+String.valueOf(i)+".setMaven(\""+dependency.getMaven()+"\");");
 line("        em.persist(dependency"+String.valueOf(i)+");");
 line("        em.flush();\n");
 
@@ -121,6 +123,7 @@ line("        em.flush();\n");
 line("//      ---------------------- AttributesTypes ------------------------\n");
 
         i=0;
+        j=0;
         List<AttributesTypes> attributesTypes = searchBean.selectAllAttributesTypes(em);
         for (AttributesTypes attributeType : attributesTypes) {
 
@@ -128,15 +131,15 @@ line("        AttributesTypes attributesTypes"+String.valueOf(++i)+" = new Attri
 line("        attributesTypes"+String.valueOf(i)+".setName(\""+attributeType.getName()+"\");");
 line("        attributesTypes"+String.valueOf(i)+".setType(\""+attributeType.getType()+"\");");
 line("        attributesTypes"+String.valueOf(i)+".setObservations(\""+attributeType.getObservations().replaceAll("\"",comillas)+"\");");
-              if (attributeType.getAttributesProperties() != null){
+              if (!attributeType.getAttributesProperties().isEmpty()){
 line("");
 line("        Set<PropertiesAttributes> attributesTypesAttributesProperties"+String.valueOf(i)+" = new HashSet<PropertiesAttributes>();");
-                 j=0;
                  for (AttributesProperties attributesProperty : attributeType.getAttributesProperties() ) {
+line("//      ...................... "+attributesProperty.getName()+"........................");
 line("        PropertiesAttributes attributeTypeAttributeProperty"+String.valueOf(++j)+" = searchBean.namePropertiesAttributes(\""+attributesProperty.getName()+"\",em);");
-line("        attributesTypesAttributesProperties"+String.valueOf(i)+".add(attributeTypeAttributeProperty"+String.valueOf(i)+");");
+line("        attributesTypesAttributesProperties"+String.valueOf(i)+".add(attributeTypeAttributeProperty"+String.valueOf(j)+");");
                  }
-line("        attributesTypes"+String.valueOf(i)+".setAttributesTypes(attributeTypeAttributeProperty"+String.valueOf(i)+");\n");
+line("        attributesTypes"+String.valueOf(i)+".setPropertiesAttributes(attributesTypesAttributesProperties"+String.valueOf(i)+");\n");
               }
 line("        em.persist(attributesTypes"+String.valueOf(i)+");");
 line("        em.flush();\n");
@@ -149,10 +152,10 @@ line("//      ---------------------- Cardinalities ------------------------\n");
         List<Cardinalities> cardinalities = searchBean.selectAllCardinalities(em);
         for (Cardinalities cardinality : cardinalities) {
 
-line("        Cardinalities cardinalities"+String.valueOf(++i)+" = new AttributesTypes();");
+line("        Cardinalities cardinalities"+String.valueOf(++i)+" = new Cardinalities();");
 line("        cardinalities"+String.valueOf(i)+".setName(\""+cardinality.getName()+"\");");
 line("        cardinalities"+String.valueOf(i)+".setCardinality(\""+cardinality.getCardinality()+"\");");
-line("        cardinalities"+String.valueOf(i)+".setUnidirectional(\""+cardinality.getUnidirectional()+"\");");
+line("        cardinalities"+String.valueOf(i)+".setUnidirectional("+cardinality.getUnidirectional()+");");
 line("        em.persist(cardinalities"+String.valueOf(i)+");");
 line("        em.flush();\n");
 
