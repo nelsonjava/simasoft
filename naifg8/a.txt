@@ -22,9 +22,9 @@
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ naifg8 ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 37 source files to d:\dev\njava\simasoft\naifg8\target\classes
-[WARNING] /d:/dev/njava/simasoft/naifg8/src/main/java/co/simasoft/Beans/Naifg8Bean.java: Some input files use unchecked or unsafe operations.
-[WARNING] /d:/dev/njava/simasoft/naifg8/src/main/java/co/simasoft/Beans/Naifg8Bean.java: Recompile with -Xlint:unchecked for details.
+[INFO] Compiling 38 source files to d:\dev\njava\simasoft\naifg8\target\classes
+[WARNING] /d:/dev/njava/simasoft/naifg8/src/main/java/co/simasoft/Beans/FindBean.java: Some input files use unchecked or unsafe operations.
+[WARNING] /d:/dev/njava/simasoft/naifg8/src/main/java/co/simasoft/Beans/FindBean.java: Recompile with -Xlint:unchecked for details.
 [INFO] 
 [INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ naifg8 ---
 [INFO] Using 'UTF-8' encoding to copy filtered resources.
@@ -41,14 +41,14 @@
 [INFO] Assembling webapp [naifg8] in [d:\dev\njava\simasoft\naifg8\target\naifg8]
 [INFO] Processing war project
 [INFO] Copying webapp resources [d:\dev\njava\simasoft\naifg8\src\main\webapp]
-[INFO] Webapp assembled in [2161 msecs]
+[INFO] Webapp assembled in [719 msecs]
 [INFO] Building war: d:\dev\njava\simasoft\naifg8\target\naifg8.war
 [WARNING] Warning: selected war files include a WEB-INF/web.xml which will be ignored 
 (webxml attribute is missing from war task, or ignoreWebxml attribute is specified as 'true')
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 8.238s
-[INFO] Finished at: Tue Jun 16 15:33:59 COT 2015
-[INFO] Final Memory: 17M/47M
+[INFO] Total time: 7.026s
+[INFO] Finished at: Wed Jun 17 16:06:01 COT 2015
+[INFO] Final Memory: 17M/50M
 [INFO] ------------------------------------------------------------------------

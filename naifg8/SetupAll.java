@@ -72,7 +72,7 @@ public class Setup extends FileTxt {
             line(car.getName());
         } // Cardinalities
 
-     
+
         saveFile("\\docs", "Setup.java");
 
     } // try
@@ -85,7 +85,7 @@ public class Setup extends FileTxt {
     public List<Cardinalities> findAllCardinalities() {
 
         Cardinalities cardinalities = new Cardinalities();
-        List<Cardinalities> results = em.createQuery(QUERYC).getResultList();
+        List<Cardinalities> results = em.createQuery("SELECT c FROM Cardinalities c").getResultList();
 
         if (results.isEmpty()) {
             line("Query all cardinalities with 0.");
@@ -104,6 +104,6 @@ public class Setup extends FileTxt {
            cardinalities = results.get(0);
         }
         return cardinalities;
-    }    
+    }
 
 } // Setup
