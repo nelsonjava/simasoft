@@ -245,7 +245,7 @@ line("        Imports imports"+String.valueOf(++i)+" = new Imports();");
 line("        imports"+String.valueOf(i)+".setName(\""+imports.getName()+"\");");
               if (imports.getDependency() != null){
 line("        Dependency dependencyImports"+String.valueOf(i)+" = new Dependency();");
-line("        dependencyImports"+String.valueOf(i)+" = findBean.idDependency("+imports.getDependency().getId()+"L,em);");
+line("        dependencyImports"+String.valueOf(i)+" = findBean.artifactIdDependency(\""+imports.getDependency().getArtifactId()+"\",em);");
 line("        imports"+String.valueOf(i)+".setDependency(dependencyImports"+String.valueOf(i)+");");
               }
 line("        em.persist(imports"+String.valueOf(i)+");");
@@ -281,7 +281,7 @@ line("");
 line("        Set<PropertiesAttributes> attributesTypesAttributesProperties"+String.valueOf(i)+" = new HashSet<PropertiesAttributes>();");
                  for (AttributesProperties attributesProperty : attributeType.getAttributesProperties() ) {
 line("//      ...................... "+attributesProperty.getName()+"........................");
-line("        PropertiesAttributes attributeTypeAttributeProperty"+String.valueOf(++j)+" = findBean.idAttributesProperties("+attributesProperty.getId()+"L,em);");
+line("        PropertiesAttributes attributeTypeAttributeProperty"+String.valueOf(++j)+" = findBean.nameAttributesProperties(\""+attributesProperty.getName()+"\",em);");
 line("        attributesTypesAttributesProperties"+String.valueOf(i)+".add(attributeTypeAttributeProperty"+String.valueOf(j)+");");
                  }
 line("        attributesTypes"+String.valueOf(i)+".setPropertiesAttributes(attributesTypesAttributesProperties"+String.valueOf(i)+");\n");

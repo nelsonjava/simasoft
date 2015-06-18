@@ -41,14 +41,14 @@
 [INFO] Assembling webapp [naifg8] in [d:\dev\njava\simasoft\naifg8\target\naifg8]
 [INFO] Processing war project
 [INFO] Copying webapp resources [d:\dev\njava\simasoft\naifg8\src\main\webapp]
-[INFO] Webapp assembled in [719 msecs]
+[INFO] Webapp assembled in [1118 msecs]
 [INFO] Building war: d:\dev\njava\simasoft\naifg8\target\naifg8.war
 [WARNING] Warning: selected war files include a WEB-INF/web.xml which will be ignored 
 (webxml attribute is missing from war task, or ignoreWebxml attribute is specified as 'true')
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 7.026s
-[INFO] Finished at: Wed Jun 17 16:06:01 COT 2015
-[INFO] Final Memory: 17M/50M
+[INFO] Total time: 6.143s
+[INFO] Finished at: Thu Jun 18 09:31:27 COT 2015
+[INFO] Final Memory: 17M/49M
 [INFO] ------------------------------------------------------------------------

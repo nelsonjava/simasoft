@@ -355,4 +355,30 @@ public class FindBean {
         return links;
     }
 
+//      ---------------------- Otras Busquedas ------------------------
+
+    public Dependency artifactIdDependency(String search,EntityManager em) {
+
+        Dependency dependency = new Dependency();
+        List<Dependency> results = em.createQuery("SELECT o FROM Dependency o WHERE o.artifactId LIKE :field").setParameter("field", search).getResultList();
+
+        if (!results.isEmpty()) {
+           dependency = results.get(0);
+        }
+        return dependency;
+    }
+    
+    public PropertiesAttributes nameAttributesProperties(String search,EntityManager em) {
+
+        PropertiesAttributes propertiesAttributes = new PropertiesAttributes();
+        List<PropertiesAttributes> results = em.createQuery("SELECT o FROM PropertiesAttributes o WHERE o.name LIKE :field").setParameter("field", search).getResultList();
+
+        if (!results.isEmpty()) {
+           propertiesAttributes = results.get(0);
+        }
+        return propertiesAttributes;
+    }
+
+
+
 } // Fin de clase
