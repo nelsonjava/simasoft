@@ -261,6 +261,16 @@ line("//      ---------------------- AttributesProperties ----------------------
 line("        PropertiesAttributes attributesProperties"+String.valueOf(++i)+" = new PropertiesAttributes();");
 line("        attributesProperties"+String.valueOf(i)+".setName(\""+attributeProperty.getName()+"\");");
 line("        attributesProperties"+String.valueOf(i)+".setValue(\""+attributeProperty.getValue().replaceAll("\"",comillas)+"\");");
+
+            if (!attributeProperty.getImports().isEmpty()){
+line("        Set<Imports> attributesPropertiesImports"+String.valueOf(i)+" = new HashSet<Imports>();");
+              for (Imports imports : attributeProperty.getImports()){
+line("//      ...................... "+imports.getName()+" ........................");
+line("        Imports attributePropertyImports"+String.valueOf(++j)+" = findBean.nameImports(\""+imports.getName()+"\",em);");
+line("        attributesPropertiesImports"+String.valueOf(i)+".add(attributePropertyImports"+String.valueOf(j)+");");
+              }
+line("        attributesProperties"+String.valueOf(i)+".setImports(attributesPropertiesImports"+String.valueOf(i)+");");
+            }
 line("        em.persist(attributesProperties"+String.valueOf(i)+");");
 line("        em.flush();\n");
         } // AttributesProperties

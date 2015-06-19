@@ -346,6 +346,18 @@ public class FindBean {
         return imports;
     }
 
+    public Imports nameImports(String search,EntityManager em) {
+
+        Imports imports = new Imports();
+        List<Imports> results = em.createQuery("SELECT o FROM Imports o WHERE o.name LIKE :field").setParameter("field", search).getResultList();
+
+        if (!results.isEmpty()) {
+           imports = results.get(0);
+        }
+        return imports;
+    }
+
+
 //      ---------------------- Links ------------------------
 
     public List<Links> AllLinks(EntityManager em) {

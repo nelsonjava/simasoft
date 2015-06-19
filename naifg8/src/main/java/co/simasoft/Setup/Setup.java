@@ -64,23 +64,23 @@ public class Setup {
 //      ---------------------- Imports ------------------------
 
         Imports imports1 = new Imports();
-        imports1.setName("import javax.persistence.Column;");
+        imports1.setName("import org.hibernate.search.annotations.Resolution;");
         Dependency dependencyImports1 = new Dependency();
-        dependencyImports1 = findBean.artifactIdDependency("persistence-api",em);
+        dependencyImports1 = findBean.artifactIdDependency("hibernate-search",em);
         imports1.setDependency(dependencyImports1);
         em.persist(imports1);
         em.flush();
 
         Imports imports2 = new Imports();
-        imports2.setName("import javax.persistence.Basic;");
+        imports2.setName("import org.hibernate.search.annotations.Store;");
         Dependency dependencyImports2 = new Dependency();
-        dependencyImports2 = findBean.artifactIdDependency("persistence-api",em);
+        dependencyImports2 = findBean.artifactIdDependency("hibernate-search",em);
         imports2.setDependency(dependencyImports2);
         em.persist(imports2);
         em.flush();
 
         Imports imports3 = new Imports();
-        imports3.setName("import javax.persistence.Lob;");
+        imports3.setName("import javax.persistence.Embedded;");
         Dependency dependencyImports3 = new Dependency();
         dependencyImports3 = findBean.artifactIdDependency("persistence-api",em);
         imports3.setDependency(dependencyImports3);
@@ -88,63 +88,54 @@ public class Setup {
         em.flush();
 
         Imports imports4 = new Imports();
-        imports4.setName("import javax.persistence.FetchType;");
+        imports4.setName("import org.hibernate.search.annotations.NumericField;");
         Dependency dependencyImports4 = new Dependency();
-        dependencyImports4 = findBean.artifactIdDependency("persistence-api",em);
+        dependencyImports4 = findBean.artifactIdDependency("hibernate-search",em);
         imports4.setDependency(dependencyImports4);
         em.persist(imports4);
         em.flush();
 
         Imports imports5 = new Imports();
-        imports5.setName("import javax.persistence.CascadeType;");
-        Dependency dependencyImports5 = new Dependency();
-        dependencyImports5 = findBean.artifactIdDependency("persistence-api",em);
-        imports5.setDependency(dependencyImports5);
+        imports5.setName("import javax.persistence.Temporal;");
         em.persist(imports5);
         em.flush();
 
         Imports imports6 = new Imports();
-        imports6.setName("import javax.validation.constraints.NotNull;");
-        Dependency dependencyImports6 = new Dependency();
-        dependencyImports6 = findBean.artifactIdDependency("validation-api",em);
-        imports6.setDependency(dependencyImports6);
+        imports6.setName("import javax.persistence.TemporalType;");
         em.persist(imports6);
         em.flush();
 
         Imports imports7 = new Imports();
-        imports7.setName("import javax.validation.constraints.Size;");
+        imports7.setName("import org.hibernate.validator.constraints.NotEmpty;");
         Dependency dependencyImports7 = new Dependency();
-        dependencyImports7 = findBean.artifactIdDependency("validation-api",em);
+        dependencyImports7 = findBean.artifactIdDependency("hibernate-validator",em);
         imports7.setDependency(dependencyImports7);
         em.persist(imports7);
         em.flush();
 
         Imports imports8 = new Imports();
-        imports8.setName("import javax.validation.constraints.Pattern;");
+        imports8.setName("import org.hibernate.validator.constraints.Email;");
         Dependency dependencyImports8 = new Dependency();
-        dependencyImports8 = findBean.artifactIdDependency("validation-api",em);
+        dependencyImports8 = findBean.artifactIdDependency("hibernate-validator",em);
         imports8.setDependency(dependencyImports8);
         em.persist(imports8);
         em.flush();
 
         Imports imports9 = new Imports();
-        imports9.setName("import javax.validation.constraints.Digits;");
-        Dependency dependencyImports9 = new Dependency();
-        dependencyImports9 = findBean.artifactIdDependency("validation-api",em);
-        imports9.setDependency(dependencyImports9);
+        imports9.setName("import java.util.Date;");
         em.persist(imports9);
         em.flush();
 
         Imports imports10 = new Imports();
-        imports10.setName("import org.hibernate.validator.Length;");
+        imports10.setName("import org.hibernate.search.annotations.Analyze;");
         Dependency dependencyImports10 = new Dependency();
-        dependencyImports10 = findBean.artifactIdDependency("hibernate-validator",em);
+        dependencyImports10 = findBean.artifactIdDependency("hibernate-search",em);
         imports10.setDependency(dependencyImports10);
         em.persist(imports10);
         em.flush();
 
         Imports imports11 = new Imports();
-        imports11.setName("import org.hibernate.search.annotations.Resolution;");
+        imports11.setName("import org.hibernate.search.annotations.DateBridge;");
         Dependency dependencyImports11 = new Dependency();
         dependencyImports11 = findBean.artifactIdDependency("hibernate-search",em);
         imports11.setDependency(dependencyImports11);
@@ -152,7 +143,7 @@ public class Setup {
         em.flush();
 
         Imports imports12 = new Imports();
-        imports12.setName("import org.hibernate.search.annotations.Store;");
+        imports12.setName("import org.hibernate.search.annotations.DocumentId;");
         Dependency dependencyImports12 = new Dependency();
         dependencyImports12 = findBean.artifactIdDependency("hibernate-search",em);
         imports12.setDependency(dependencyImports12);
@@ -160,15 +151,15 @@ public class Setup {
         em.flush();
 
         Imports imports13 = new Imports();
-        imports13.setName("import javax.persistence.Embedded;");
+        imports13.setName("import org.hibernate.search.annotations.Field;");
         Dependency dependencyImports13 = new Dependency();
-        dependencyImports13 = findBean.artifactIdDependency("persistence-api",em);
+        dependencyImports13 = findBean.artifactIdDependency("hibernate-search",em);
         imports13.setDependency(dependencyImports13);
         em.persist(imports13);
         em.flush();
 
         Imports imports14 = new Imports();
-        imports14.setName("import org.hibernate.search.annotations.NumericField;");
+        imports14.setName("import org.hibernate.search.annotations.Index;");
         Dependency dependencyImports14 = new Dependency();
         dependencyImports14 = findBean.artifactIdDependency("hibernate-search",em);
         imports14.setDependency(dependencyImports14);
@@ -176,88 +167,97 @@ public class Setup {
         em.flush();
 
         Imports imports15 = new Imports();
-        imports15.setName("import javax.persistence.Temporal;");
+        imports15.setName("import org.hibernate.search.annotations.Indexed;");
+        Dependency dependencyImports15 = new Dependency();
+        dependencyImports15 = findBean.artifactIdDependency("hibernate-search",em);
+        imports15.setDependency(dependencyImports15);
         em.persist(imports15);
         em.flush();
 
         Imports imports16 = new Imports();
-        imports16.setName("import javax.persistence.TemporalType;");
+        imports16.setName("import org.hibernate.search.annotations.IndexedEmbedded;");
+        Dependency dependencyImports16 = new Dependency();
+        dependencyImports16 = findBean.artifactIdDependency("hibernate-search",em);
+        imports16.setDependency(dependencyImports16);
         em.persist(imports16);
         em.flush();
 
         Imports imports17 = new Imports();
-        imports17.setName("import org.hibernate.validator.constraints.NotEmpty;");
+        imports17.setName("import javax.persistence.Column;");
         Dependency dependencyImports17 = new Dependency();
-        dependencyImports17 = findBean.artifactIdDependency("hibernate-validator",em);
+        dependencyImports17 = findBean.artifactIdDependency("persistence-api",em);
         imports17.setDependency(dependencyImports17);
         em.persist(imports17);
         em.flush();
 
         Imports imports18 = new Imports();
-        imports18.setName("import org.hibernate.validator.constraints.Email;");
+        imports18.setName("import javax.persistence.Basic;");
         Dependency dependencyImports18 = new Dependency();
-        dependencyImports18 = findBean.artifactIdDependency("hibernate-validator",em);
+        dependencyImports18 = findBean.artifactIdDependency("persistence-api",em);
         imports18.setDependency(dependencyImports18);
         em.persist(imports18);
         em.flush();
 
         Imports imports19 = new Imports();
-        imports19.setName("import java.util.Date;");
+        imports19.setName("import javax.persistence.Lob;");
+        Dependency dependencyImports19 = new Dependency();
+        dependencyImports19 = findBean.artifactIdDependency("persistence-api",em);
+        imports19.setDependency(dependencyImports19);
         em.persist(imports19);
         em.flush();
 
         Imports imports20 = new Imports();
-        imports20.setName("import org.hibernate.search.annotations.Analyze;");
+        imports20.setName("import javax.persistence.FetchType;");
         Dependency dependencyImports20 = new Dependency();
-        dependencyImports20 = findBean.artifactIdDependency("hibernate-search",em);
+        dependencyImports20 = findBean.artifactIdDependency("persistence-api",em);
         imports20.setDependency(dependencyImports20);
         em.persist(imports20);
         em.flush();
 
         Imports imports21 = new Imports();
-        imports21.setName("import org.hibernate.search.annotations.DateBridge;");
+        imports21.setName("import javax.persistence.CascadeType;");
         Dependency dependencyImports21 = new Dependency();
-        dependencyImports21 = findBean.artifactIdDependency("hibernate-search",em);
+        dependencyImports21 = findBean.artifactIdDependency("persistence-api",em);
         imports21.setDependency(dependencyImports21);
         em.persist(imports21);
         em.flush();
 
         Imports imports22 = new Imports();
-        imports22.setName("import org.hibernate.search.annotations.DocumentId;");
+        imports22.setName("import javax.validation.constraints.NotNull;");
         Dependency dependencyImports22 = new Dependency();
-        dependencyImports22 = findBean.artifactIdDependency("hibernate-search",em);
+        dependencyImports22 = findBean.artifactIdDependency("validation-api",em);
         imports22.setDependency(dependencyImports22);
         em.persist(imports22);
         em.flush();
 
         Imports imports23 = new Imports();
-        imports23.setName("import org.hibernate.search.annotations.Field;");
+        imports23.setName("import javax.validation.constraints.Size;");
         Dependency dependencyImports23 = new Dependency();
-        dependencyImports23 = findBean.artifactIdDependency("hibernate-search",em);
+        dependencyImports23 = findBean.artifactIdDependency("validation-api",em);
         imports23.setDependency(dependencyImports23);
         em.persist(imports23);
         em.flush();
 
         Imports imports24 = new Imports();
-        imports24.setName("import org.hibernate.search.annotations.Index;");
+        imports24.setName("import javax.validation.constraints.Pattern;");
         Dependency dependencyImports24 = new Dependency();
-        dependencyImports24 = findBean.artifactIdDependency("hibernate-search",em);
+        dependencyImports24 = findBean.artifactIdDependency("validation-api",em);
         imports24.setDependency(dependencyImports24);
         em.persist(imports24);
         em.flush();
 
         Imports imports25 = new Imports();
-        imports25.setName("import org.hibernate.search.annotations.Indexed;");
+        imports25.setName("import javax.validation.constraints.Digits;");
         Dependency dependencyImports25 = new Dependency();
-        dependencyImports25 = findBean.artifactIdDependency("hibernate-search",em);
+        dependencyImports25 = findBean.artifactIdDependency("validation-api",em);
         imports25.setDependency(dependencyImports25);
         em.persist(imports25);
         em.flush();
 
         Imports imports26 = new Imports();
-        imports26.setName("import org.hibernate.search.annotations.IndexedEmbedded;");
+        imports26.setName("import org.hibernate.validator.Length;");
         Dependency dependencyImports26 = new Dependency();
-        dependencyImports26 = findBean.artifactIdDependency("hibernate-search",em);
+        dependencyImports26 = findBean.artifactIdDependency("hibernate-validator",em);
         imports26.setDependency(dependencyImports26);
         em.persist(imports26);
         em.flush();
@@ -265,62 +265,112 @@ public class Setup {
 //      ---------------------- AttributesProperties ------------------------
 
         PropertiesAttributes attributesProperties27 = new PropertiesAttributes();
-        attributesProperties27.setName("@NotNull");
-        attributesProperties27.setValue("@NotNull");
+        attributesProperties27.setName("@Column");
+        attributesProperties27.setValue("@Column");
+        Set<Imports> attributesPropertiesImports27 = new HashSet<Imports>();
+//      ...................... import javax.persistence.Column; ........................
+        Imports attributePropertyImports1 = findBean.nameImports("import javax.persistence.Column;",em);
+        attributesPropertiesImports27.add(attributePropertyImports1);
+        attributesProperties27.setImports(attributesPropertiesImports27);
         em.persist(attributesProperties27);
         em.flush();
 
         PropertiesAttributes attributesProperties28 = new PropertiesAttributes();
-        attributesProperties28.setName("@Size0125");
-        attributesProperties28.setValue("@Size(min = 1, max = 25)");
+        attributesProperties28.setName("NullUnique1");
+        attributesProperties28.setValue("@Column(nullable = true, unique = true)");
+        Set<Imports> attributesPropertiesImports28 = new HashSet<Imports>();
+//      ...................... import javax.persistence.Column; ........................
+        Imports attributePropertyImports2 = findBean.nameImports("import javax.persistence.Column;",em);
+        attributesPropertiesImports28.add(attributePropertyImports2);
+        attributesProperties28.setImports(attributesPropertiesImports28);
         em.persist(attributesProperties28);
         em.flush();
 
         PropertiesAttributes attributesProperties29 = new PropertiesAttributes();
-        attributesProperties29.setName("@Size0912");
-        attributesProperties29.setValue("@Size(min = 9, max = 12)");
+        attributesProperties29.setName("NullUnique2");
+        attributesProperties29.setValue("@Column(nullable = true, unique = false)");
+        Set<Imports> attributesPropertiesImports29 = new HashSet<Imports>();
+//      ...................... import javax.persistence.Column; ........................
+        Imports attributePropertyImports3 = findBean.nameImports("import javax.persistence.Column;",em);
+        attributesPropertiesImports29.add(attributePropertyImports3);
+        attributesProperties29.setImports(attributesPropertiesImports29);
         em.persist(attributesProperties29);
         em.flush();
 
         PropertiesAttributes attributesProperties30 = new PropertiesAttributes();
-        attributesProperties30.setName("@Length0125");
-        attributesProperties30.setValue("@Length(min = 1, max = 25, message = \"Size must be between 1 and 25 digits\")");
+        attributesProperties30.setName("NullUnique3");
+        attributesProperties30.setValue("@Column(nullable = false, unique = true)");
+        Set<Imports> attributesPropertiesImports30 = new HashSet<Imports>();
+//      ...................... import javax.persistence.Column; ........................
+        Imports attributePropertyImports4 = findBean.nameImports("import javax.persistence.Column;",em);
+        attributesPropertiesImports30.add(attributePropertyImports4);
+        attributesProperties30.setImports(attributesPropertiesImports30);
         em.persist(attributesProperties30);
         em.flush();
 
         PropertiesAttributes attributesProperties31 = new PropertiesAttributes();
-        attributesProperties31.setName("@Length0912");
-        attributesProperties31.setValue("@Length(min = 9, max = 12, message = \"Size must be between 9 and 12 digits\")");
+        attributesProperties31.setName("NullUnique4");
+        attributesProperties31.setValue("@Column(nullable = false, unique = false)");
+        Set<Imports> attributesPropertiesImports31 = new HashSet<Imports>();
+//      ...................... import javax.persistence.Column; ........................
+        Imports attributePropertyImports5 = findBean.nameImports("import javax.persistence.Column;",em);
+        attributesPropertiesImports31.add(attributePropertyImports5);
+        attributesProperties31.setImports(attributesPropertiesImports31);
         em.persist(attributesProperties31);
         em.flush();
 
         PropertiesAttributes attributesProperties32 = new PropertiesAttributes();
-        attributesProperties32.setName("@Pattern1");
-        attributesProperties32.setValue("@Pattern(regexp = \"[A-Za-z ]*\", message = \"must contain only letters and spaces\")");
+        attributesProperties32.setName("@Basic");
+        attributesProperties32.setValue("@Basic");
+        Set<Imports> attributesPropertiesImports32 = new HashSet<Imports>();
+//      ...................... import javax.persistence.Basic; ........................
+        Imports attributePropertyImports6 = findBean.nameImports("import javax.persistence.Basic;",em);
+        attributesPropertiesImports32.add(attributePropertyImports6);
+        attributesProperties32.setImports(attributesPropertiesImports32);
         em.persist(attributesProperties32);
         em.flush();
 
         PropertiesAttributes attributesProperties33 = new PropertiesAttributes();
-        attributesProperties33.setName("@Pattern2");
-        attributesProperties33.setValue("@Pattern(regexp = \"[^0-9]*\", message = \"Must not contain numbers\")");
+        attributesProperties33.setName("@Basic1");
+        attributesProperties33.setValue("@Basic(fetch=FetchType.LAZY)");
+        Set<Imports> attributesPropertiesImports33 = new HashSet<Imports>();
+//      ...................... import javax.persistence.Basic; ........................
+        Imports attributePropertyImports7 = findBean.nameImports("import javax.persistence.Basic;",em);
+        attributesPropertiesImports33.add(attributePropertyImports7);
+        attributesProperties33.setImports(attributesPropertiesImports33);
         em.persist(attributesProperties33);
         em.flush();
 
         PropertiesAttributes attributesProperties34 = new PropertiesAttributes();
-        attributesProperties34.setName("@NotEmpty");
-        attributesProperties34.setValue("@NotEmpty");
+        attributesProperties34.setName("@Lob");
+        attributesProperties34.setValue("@Lob");
+        Set<Imports> attributesPropertiesImports34 = new HashSet<Imports>();
+//      ...................... import javax.persistence.Lob; ........................
+        Imports attributePropertyImports8 = findBean.nameImports("import javax.persistence.Lob;",em);
+        attributesPropertiesImports34.add(attributePropertyImports8);
+        attributesProperties34.setImports(attributesPropertiesImports34);
         em.persist(attributesProperties34);
         em.flush();
 
         PropertiesAttributes attributesProperties35 = new PropertiesAttributes();
-        attributesProperties35.setName("@Email");
-        attributesProperties35.setValue("@Email(message = \"Invalid format\")");
+        attributesProperties35.setName("@Indexed");
+        attributesProperties35.setValue("@Indexed");
+        Set<Imports> attributesPropertiesImports35 = new HashSet<Imports>();
+//      ...................... import org.hibernate.search.annotations.Indexed; ........................
+        Imports attributePropertyImports9 = findBean.nameImports("import org.hibernate.search.annotations.Indexed;",em);
+        attributesPropertiesImports35.add(attributePropertyImports9);
+        attributesProperties35.setImports(attributesPropertiesImports35);
         em.persist(attributesProperties35);
         em.flush();
 
         PropertiesAttributes attributesProperties36 = new PropertiesAttributes();
-        attributesProperties36.setName("@Digits0012");
-        attributesProperties36.setValue("@Digits(fractionalDigits = 0, integerDigits = 12, message = \"Not allowed digit!\")");
+        attributesProperties36.setName("@DocumentId");
+        attributesProperties36.setValue("@DocumentId");
+        Set<Imports> attributesPropertiesImports36 = new HashSet<Imports>();
+//      ...................... import org.hibernate.search.annotations.DocumentId; ........................
+        Imports attributePropertyImports10 = findBean.nameImports("import org.hibernate.search.annotations.DocumentId;",em);
+        attributesPropertiesImports36.add(attributePropertyImports10);
+        attributesProperties36.setImports(attributesPropertiesImports36);
         em.persist(attributesProperties36);
         em.flush();
 
@@ -339,30 +389,73 @@ public class Setup {
         PropertiesAttributes attributesProperties39 = new PropertiesAttributes();
         attributesProperties39.setName("@NumericField");
         attributesProperties39.setValue("@NumericField");
+        Set<Imports> attributesPropertiesImports39 = new HashSet<Imports>();
+//      ...................... import org.hibernate.search.annotations.NumericField; ........................
+        Imports attributePropertyImports11 = findBean.nameImports("import org.hibernate.search.annotations.NumericField;",em);
+        attributesPropertiesImports39.add(attributePropertyImports11);
+        attributesProperties39.setImports(attributesPropertiesImports39);
         em.persist(attributesProperties39);
         em.flush();
 
         PropertiesAttributes attributesProperties40 = new PropertiesAttributes();
         attributesProperties40.setName("@Field1");
         attributesProperties40.setValue("@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)");
+        Set<Imports> attributesPropertiesImports40 = new HashSet<Imports>();
+//      ...................... import org.hibernate.search.annotations.Analyze; ........................
+        Imports attributePropertyImports12 = findBean.nameImports("import org.hibernate.search.annotations.Analyze;",em);
+        attributesPropertiesImports40.add(attributePropertyImports12);
+//      ...................... import org.hibernate.search.annotations.DocumentId; ........................
+        Imports attributePropertyImports13 = findBean.nameImports("import org.hibernate.search.annotations.DocumentId;",em);
+        attributesPropertiesImports40.add(attributePropertyImports13);
+//      ...................... import org.hibernate.search.annotations.Field; ........................
+        Imports attributePropertyImports14 = findBean.nameImports("import org.hibernate.search.annotations.Field;",em);
+        attributesPropertiesImports40.add(attributePropertyImports14);
+//      ...................... import org.hibernate.search.annotations.Store; ........................
+        Imports attributePropertyImports15 = findBean.nameImports("import org.hibernate.search.annotations.Store;",em);
+        attributesPropertiesImports40.add(attributePropertyImports15);
+//      ...................... import org.hibernate.search.annotations.Indexed; ........................
+        Imports attributePropertyImports16 = findBean.nameImports("import org.hibernate.search.annotations.Indexed;",em);
+        attributesPropertiesImports40.add(attributePropertyImports16);
+//      ...................... import org.hibernate.search.annotations.Index; ........................
+        Imports attributePropertyImports17 = findBean.nameImports("import org.hibernate.search.annotations.Index;",em);
+        attributesPropertiesImports40.add(attributePropertyImports17);
+        attributesProperties40.setImports(attributesPropertiesImports40);
         em.persist(attributesProperties40);
         em.flush();
 
         PropertiesAttributes attributesProperties41 = new PropertiesAttributes();
         attributesProperties41.setName("@Field2");
         attributesProperties41.setValue("@Field(index = Index.YES, analyze = Analyze.YES, store = Store.YES)");
+        Set<Imports> attributesPropertiesImports41 = new HashSet<Imports>();
+//      ...................... import org.hibernate.search.annotations.Field; ........................
+        Imports attributePropertyImports18 = findBean.nameImports("import org.hibernate.search.annotations.Field;",em);
+        attributesPropertiesImports41.add(attributePropertyImports18);
+        attributesProperties41.setImports(attributesPropertiesImports41);
         em.persist(attributesProperties41);
         em.flush();
 
         PropertiesAttributes attributesProperties42 = new PropertiesAttributes();
         attributesProperties42.setName("@DateBridgeYE");
         attributesProperties42.setValue("@DateBridge(resolution = Resolution.YEAR)");
+        Set<Imports> attributesPropertiesImports42 = new HashSet<Imports>();
+//      ...................... import org.hibernate.search.annotations.DateBridge; ........................
+        Imports attributePropertyImports19 = findBean.nameImports("import org.hibernate.search.annotations.DateBridge;",em);
+        attributesPropertiesImports42.add(attributePropertyImports19);
+//      ...................... import org.hibernate.search.annotations.Resolution; ........................
+        Imports attributePropertyImports20 = findBean.nameImports("import org.hibernate.search.annotations.Resolution;",em);
+        attributesPropertiesImports42.add(attributePropertyImports20);
+        attributesProperties42.setImports(attributesPropertiesImports42);
         em.persist(attributesProperties42);
         em.flush();
 
         PropertiesAttributes attributesProperties43 = new PropertiesAttributes();
         attributesProperties43.setName("@Embedded");
         attributesProperties43.setValue("@Embedded");
+        Set<Imports> attributesPropertiesImports43 = new HashSet<Imports>();
+//      ...................... import javax.persistence.Embedded; ........................
+        Imports attributePropertyImports21 = findBean.nameImports("import javax.persistence.Embedded;",em);
+        attributesPropertiesImports43.add(attributePropertyImports21);
+        attributesProperties43.setImports(attributesPropertiesImports43);
         em.persist(attributesProperties43);
         em.flush();
 
@@ -375,18 +468,36 @@ public class Setup {
         PropertiesAttributes attributesProperties45 = new PropertiesAttributes();
         attributesProperties45.setName("@Temporal");
         attributesProperties45.setValue("@Temporal(TemporalType.DATE)");
+        Set<Imports> attributesPropertiesImports45 = new HashSet<Imports>();
+//      ...................... import javax.persistence.TemporalType; ........................
+        Imports attributePropertyImports22 = findBean.nameImports("import javax.persistence.TemporalType;",em);
+        attributesPropertiesImports45.add(attributePropertyImports22);
+//      ...................... import javax.persistence.Temporal; ........................
+        Imports attributePropertyImports23 = findBean.nameImports("import javax.persistence.Temporal;",em);
+        attributesPropertiesImports45.add(attributePropertyImports23);
+        attributesProperties45.setImports(attributesPropertiesImports45);
         em.persist(attributesProperties45);
         em.flush();
 
         PropertiesAttributes attributesProperties46 = new PropertiesAttributes();
         attributesProperties46.setName("@DateBridgeMO");
         attributesProperties46.setValue("@DateBridge(resolution = Resolution.MONTH)");
+        Set<Imports> attributesPropertiesImports46 = new HashSet<Imports>();
+//      ...................... import org.hibernate.search.annotations.DateBridge; ........................
+        Imports attributePropertyImports24 = findBean.nameImports("import org.hibernate.search.annotations.DateBridge;",em);
+        attributesPropertiesImports46.add(attributePropertyImports24);
+        attributesProperties46.setImports(attributesPropertiesImports46);
         em.persist(attributesProperties46);
         em.flush();
 
         PropertiesAttributes attributesProperties47 = new PropertiesAttributes();
         attributesProperties47.setName("@DateBridgeDA");
         attributesProperties47.setValue("@DateBridge(resolution = Resolution.DAY)");
+        Set<Imports> attributesPropertiesImports47 = new HashSet<Imports>();
+//      ...................... import org.hibernate.search.annotations.DateBridge; ........................
+        Imports attributePropertyImports25 = findBean.nameImports("import org.hibernate.search.annotations.DateBridge;",em);
+        attributesPropertiesImports47.add(attributePropertyImports25);
+        attributesProperties47.setImports(attributesPropertiesImports47);
         em.persist(attributesProperties47);
         em.flush();
 
@@ -399,205 +510,260 @@ public class Setup {
         PropertiesAttributes attributesProperties49 = new PropertiesAttributes();
         attributesProperties49.setName("@DateBridgeMI");
         attributesProperties49.setValue("@DateBridge(resolution = Resolution.MINUTE)");
+        Set<Imports> attributesPropertiesImports49 = new HashSet<Imports>();
+//      ...................... import org.hibernate.search.annotations.DateBridge; ........................
+        Imports attributePropertyImports26 = findBean.nameImports("import org.hibernate.search.annotations.DateBridge;",em);
+        attributesPropertiesImports49.add(attributePropertyImports26);
+        attributesProperties49.setImports(attributesPropertiesImports49);
         em.persist(attributesProperties49);
         em.flush();
 
         PropertiesAttributes attributesProperties50 = new PropertiesAttributes();
-        attributesProperties50.setName("@Column");
-        attributesProperties50.setValue("@Column");
+        attributesProperties50.setName("@NotNull");
+        attributesProperties50.setValue("@NotNull");
+        Set<Imports> attributesPropertiesImports50 = new HashSet<Imports>();
+//      ...................... import javax.validation.constraints.NotNull; ........................
+        Imports attributePropertyImports27 = findBean.nameImports("import javax.validation.constraints.NotNull;",em);
+        attributesPropertiesImports50.add(attributePropertyImports27);
+        attributesProperties50.setImports(attributesPropertiesImports50);
         em.persist(attributesProperties50);
         em.flush();
 
         PropertiesAttributes attributesProperties51 = new PropertiesAttributes();
-        attributesProperties51.setName("NullUnique1");
-        attributesProperties51.setValue("@Column(nullable = true, unique = true)");
+        attributesProperties51.setName("@Size0125");
+        attributesProperties51.setValue("@Size(min = 1, max = 25)");
+        Set<Imports> attributesPropertiesImports51 = new HashSet<Imports>();
+//      ...................... import javax.validation.constraints.Size; ........................
+        Imports attributePropertyImports28 = findBean.nameImports("import javax.validation.constraints.Size;",em);
+        attributesPropertiesImports51.add(attributePropertyImports28);
+        attributesProperties51.setImports(attributesPropertiesImports51);
         em.persist(attributesProperties51);
         em.flush();
 
         PropertiesAttributes attributesProperties52 = new PropertiesAttributes();
-        attributesProperties52.setName("NullUnique2");
-        attributesProperties52.setValue("@Column(nullable = true, unique = false)");
+        attributesProperties52.setName("@Size0912");
+        attributesProperties52.setValue("@Size(min = 9, max = 12)");
+        Set<Imports> attributesPropertiesImports52 = new HashSet<Imports>();
+//      ...................... import javax.validation.constraints.Size; ........................
+        Imports attributePropertyImports29 = findBean.nameImports("import javax.validation.constraints.Size;",em);
+        attributesPropertiesImports52.add(attributePropertyImports29);
+        attributesProperties52.setImports(attributesPropertiesImports52);
         em.persist(attributesProperties52);
         em.flush();
 
         PropertiesAttributes attributesProperties53 = new PropertiesAttributes();
-        attributesProperties53.setName("NullUnique3");
-        attributesProperties53.setValue("@Column(nullable = false, unique = true)");
+        attributesProperties53.setName("@Length0125");
+        attributesProperties53.setValue("@Length(min = 1, max = 25, message = \"Size must be between 1 and 25 digits\")");
+        Set<Imports> attributesPropertiesImports53 = new HashSet<Imports>();
+//      ...................... import org.hibernate.validator.Length; ........................
+        Imports attributePropertyImports30 = findBean.nameImports("import org.hibernate.validator.Length;",em);
+        attributesPropertiesImports53.add(attributePropertyImports30);
+        attributesProperties53.setImports(attributesPropertiesImports53);
         em.persist(attributesProperties53);
         em.flush();
 
         PropertiesAttributes attributesProperties54 = new PropertiesAttributes();
-        attributesProperties54.setName("NullUnique4");
-        attributesProperties54.setValue("@Column(nullable = false, unique = false)");
+        attributesProperties54.setName("@Length0912");
+        attributesProperties54.setValue("@Length(min = 9, max = 12, message = \"Size must be between 9 and 12 digits\")");
+        Set<Imports> attributesPropertiesImports54 = new HashSet<Imports>();
+//      ...................... import org.hibernate.validator.Length; ........................
+        Imports attributePropertyImports31 = findBean.nameImports("import org.hibernate.validator.Length;",em);
+        attributesPropertiesImports54.add(attributePropertyImports31);
+        attributesProperties54.setImports(attributesPropertiesImports54);
         em.persist(attributesProperties54);
         em.flush();
 
         PropertiesAttributes attributesProperties55 = new PropertiesAttributes();
-        attributesProperties55.setName("@Basic");
-        attributesProperties55.setValue("@Basic");
+        attributesProperties55.setName("@Pattern1");
+        attributesProperties55.setValue("@Pattern(regexp = \"[A-Za-z ]*\", message = \"must contain only letters and spaces\")");
+        Set<Imports> attributesPropertiesImports55 = new HashSet<Imports>();
+//      ...................... import javax.validation.constraints.Pattern; ........................
+        Imports attributePropertyImports32 = findBean.nameImports("import javax.validation.constraints.Pattern;",em);
+        attributesPropertiesImports55.add(attributePropertyImports32);
+        attributesProperties55.setImports(attributesPropertiesImports55);
         em.persist(attributesProperties55);
         em.flush();
 
         PropertiesAttributes attributesProperties56 = new PropertiesAttributes();
-        attributesProperties56.setName("@Basic1");
-        attributesProperties56.setValue("@Basic(fetch=FetchType.LAZY)");
+        attributesProperties56.setName("@Pattern2");
+        attributesProperties56.setValue("@Pattern(regexp = \"[^0-9]*\", message = \"Must not contain numbers\")");
+        Set<Imports> attributesPropertiesImports56 = new HashSet<Imports>();
+//      ...................... import javax.validation.constraints.Pattern; ........................
+        Imports attributePropertyImports33 = findBean.nameImports("import javax.validation.constraints.Pattern;",em);
+        attributesPropertiesImports56.add(attributePropertyImports33);
+        attributesProperties56.setImports(attributesPropertiesImports56);
         em.persist(attributesProperties56);
         em.flush();
 
         PropertiesAttributes attributesProperties57 = new PropertiesAttributes();
-        attributesProperties57.setName("@Lob");
-        attributesProperties57.setValue("@Lob");
+        attributesProperties57.setName("@NotEmpty");
+        attributesProperties57.setValue("@NotEmpty");
+        Set<Imports> attributesPropertiesImports57 = new HashSet<Imports>();
+//      ...................... import org.hibernate.validator.constraints.NotEmpty; ........................
+        Imports attributePropertyImports34 = findBean.nameImports("import org.hibernate.validator.constraints.NotEmpty;",em);
+        attributesPropertiesImports57.add(attributePropertyImports34);
+        attributesProperties57.setImports(attributesPropertiesImports57);
         em.persist(attributesProperties57);
         em.flush();
 
         PropertiesAttributes attributesProperties58 = new PropertiesAttributes();
-        attributesProperties58.setName("@Indexed");
-        attributesProperties58.setValue("@Indexed");
+        attributesProperties58.setName("@Email");
+        attributesProperties58.setValue("@Email(message = \"Invalid format\")");
+        Set<Imports> attributesPropertiesImports58 = new HashSet<Imports>();
+//      ...................... import org.hibernate.validator.constraints.Email; ........................
+        Imports attributePropertyImports35 = findBean.nameImports("import org.hibernate.validator.constraints.Email;",em);
+        attributesPropertiesImports58.add(attributePropertyImports35);
+        attributesProperties58.setImports(attributesPropertiesImports58);
         em.persist(attributesProperties58);
         em.flush();
 
         PropertiesAttributes attributesProperties59 = new PropertiesAttributes();
-        attributesProperties59.setName("@DocumentId");
-        attributesProperties59.setValue("@DocumentId");
+        attributesProperties59.setName("@Digits0012");
+        attributesProperties59.setValue("@Digits(fractionalDigits = 0, integerDigits = 12, message = \"Not allowed digit!\")");
+        Set<Imports> attributesPropertiesImports59 = new HashSet<Imports>();
+//      ...................... import javax.validation.constraints.Digits; ........................
+        Imports attributePropertyImports36 = findBean.nameImports("import javax.validation.constraints.Digits;",em);
+        attributesPropertiesImports59.add(attributePropertyImports36);
+        attributesProperties59.setImports(attributesPropertiesImports59);
         em.persist(attributesProperties59);
         em.flush();
 
 //      ---------------------- AttributesTypes ------------------------
 
         AttributesTypes attributesTypes1 = new AttributesTypes();
-        attributesTypes1.setName("String");
-        attributesTypes1.setType("String");
-        attributesTypes1.setObservations("A \"short\" sequence of characters");
+        attributesTypes1.setName("byte");
+        attributesTypes1.setType("byte");
+        attributesTypes1.setObservations("A uniform resource locator of a web resource");
 
         Set<PropertiesAttributes> attributesTypesAttributesProperties1 = new HashSet<PropertiesAttributes>();
-//      ...................... @Field1........................
-        PropertiesAttributes attributeTypeAttributeProperty1 = findBean.nameAttributesProperties("@Field1",em);
+//      ...................... @Basic1........................
+        PropertiesAttributes attributeTypeAttributeProperty1 = findBean.nameAttributesProperties("@Basic1",em);
         attributesTypesAttributesProperties1.add(attributeTypeAttributeProperty1);
+//      ...................... @Lob........................
+        PropertiesAttributes attributeTypeAttributeProperty2 = findBean.nameAttributesProperties("@Lob",em);
+        attributesTypesAttributesProperties1.add(attributeTypeAttributeProperty2);
         attributesTypes1.setPropertiesAttributes(attributesTypesAttributesProperties1);
 
         em.persist(attributesTypes1);
         em.flush();
 
         AttributesTypes attributesTypes2 = new AttributesTypes();
-        attributesTypes2.setName("Text");
-        attributesTypes2.setType("String");
-        attributesTypes2.setObservations("A \"long\" sequence of characters");
+        attributesTypes2.setName("double");
+        attributesTypes2.setType("double");
+        attributesTypes2.setObservations("A uniform resource locator of a web resource");
 
         Set<PropertiesAttributes> attributesTypesAttributesProperties2 = new HashSet<PropertiesAttributes>();
-//      ...................... @Field1........................
-        PropertiesAttributes attributeTypeAttributeProperty2 = findBean.nameAttributesProperties("@Field1",em);
-        attributesTypesAttributesProperties2.add(attributeTypeAttributeProperty2);
-//      ...................... @Lob........................
-        PropertiesAttributes attributeTypeAttributeProperty3 = findBean.nameAttributesProperties("@Lob",em);
+//      ...................... @NumericField........................
+        PropertiesAttributes attributeTypeAttributeProperty3 = findBean.nameAttributesProperties("@NumericField",em);
         attributesTypesAttributesProperties2.add(attributeTypeAttributeProperty3);
+//      ...................... @Field1........................
+        PropertiesAttributes attributeTypeAttributeProperty4 = findBean.nameAttributesProperties("@Field1",em);
+        attributesTypesAttributesProperties2.add(attributeTypeAttributeProperty4);
         attributesTypes2.setPropertiesAttributes(attributesTypesAttributesProperties2);
 
         em.persist(attributesTypes2);
         em.flush();
 
         AttributesTypes attributesTypes3 = new AttributesTypes();
-        attributesTypes3.setName("Integer");
-        attributesTypes3.setType("Integer");
-        attributesTypes3.setObservations("An integer numerical type");
+        attributesTypes3.setName("String");
+        attributesTypes3.setType("String");
+        attributesTypes3.setObservations("A \"short\" sequence of characters");
+
+        Set<PropertiesAttributes> attributesTypesAttributesProperties3 = new HashSet<PropertiesAttributes>();
+//      ...................... @Field1........................
+        PropertiesAttributes attributeTypeAttributeProperty5 = findBean.nameAttributesProperties("@Field1",em);
+        attributesTypesAttributesProperties3.add(attributeTypeAttributeProperty5);
+        attributesTypes3.setPropertiesAttributes(attributesTypesAttributesProperties3);
+
         em.persist(attributesTypes3);
         em.flush();
 
         AttributesTypes attributesTypes4 = new AttributesTypes();
-        attributesTypes4.setName("Float");
-        attributesTypes4.setType("Float");
-        attributesTypes4.setObservations("A floating point numerical type");
+        attributesTypes4.setName("Email");
+        attributesTypes4.setType("Email");
+        attributesTypes4.setObservations("A uniform resource locator of a web resource");
         em.persist(attributesTypes4);
         em.flush();
 
         AttributesTypes attributesTypes5 = new AttributesTypes();
-        attributesTypes5.setName("Date");
-        attributesTypes5.setType("Date");
-        attributesTypes5.setObservations("A calendar date");
+        attributesTypes5.setName("Text");
+        attributesTypes5.setType("String");
+        attributesTypes5.setObservations("A \"long\" sequence of characters");
 
         Set<PropertiesAttributes> attributesTypesAttributesProperties5 = new HashSet<PropertiesAttributes>();
-//      ...................... @Temporal........................
-        PropertiesAttributes attributeTypeAttributeProperty4 = findBean.nameAttributesProperties("@Temporal",em);
-        attributesTypesAttributesProperties5.add(attributeTypeAttributeProperty4);
-//      ...................... @DateBridgeYE........................
-        PropertiesAttributes attributeTypeAttributeProperty5 = findBean.nameAttributesProperties("@DateBridgeYE",em);
-        attributesTypesAttributesProperties5.add(attributeTypeAttributeProperty5);
+//      ...................... @Field1........................
+        PropertiesAttributes attributeTypeAttributeProperty6 = findBean.nameAttributesProperties("@Field1",em);
+        attributesTypesAttributesProperties5.add(attributeTypeAttributeProperty6);
+//      ...................... @Lob........................
+        PropertiesAttributes attributeTypeAttributeProperty7 = findBean.nameAttributesProperties("@Lob",em);
+        attributesTypesAttributesProperties5.add(attributeTypeAttributeProperty7);
         attributesTypes5.setPropertiesAttributes(attributesTypesAttributesProperties5);
 
         em.persist(attributesTypes5);
         em.flush();
 
         AttributesTypes attributesTypes6 = new AttributesTypes();
-        attributesTypes6.setName("Time");
-        attributesTypes6.setType("Date");
-        attributesTypes6.setObservations("A temporal instant of time");
+        attributesTypes6.setName("Integer");
+        attributesTypes6.setType("Integer");
+        attributesTypes6.setObservations("An integer numerical type");
         em.persist(attributesTypes6);
         em.flush();
 
         AttributesTypes attributesTypes7 = new AttributesTypes();
-        attributesTypes7.setName("Boolean");
-        attributesTypes7.setType("Boolean");
-        attributesTypes7.setObservations("A true or false value");
+        attributesTypes7.setName("Float");
+        attributesTypes7.setType("Float");
+        attributesTypes7.setObservations("A floating point numerical type");
         em.persist(attributesTypes7);
         em.flush();
 
         AttributesTypes attributesTypes8 = new AttributesTypes();
-        attributesTypes8.setName("Enumeration");
-        attributesTypes8.setType("Enumeration");
-        attributesTypes8.setObservations("A sequence of user-defined values");
+        attributesTypes8.setName("Date");
+        attributesTypes8.setType("Date");
+        attributesTypes8.setObservations("A calendar date");
+
+        Set<PropertiesAttributes> attributesTypesAttributesProperties8 = new HashSet<PropertiesAttributes>();
+//      ...................... @Temporal........................
+        PropertiesAttributes attributeTypeAttributeProperty8 = findBean.nameAttributesProperties("@Temporal",em);
+        attributesTypesAttributesProperties8.add(attributeTypeAttributeProperty8);
+//      ...................... @DateBridgeYE........................
+        PropertiesAttributes attributeTypeAttributeProperty9 = findBean.nameAttributesProperties("@DateBridgeYE",em);
+        attributesTypesAttributesProperties8.add(attributeTypeAttributeProperty9);
+        attributesTypes8.setPropertiesAttributes(attributesTypesAttributesProperties8);
+
         em.persist(attributesTypes8);
         em.flush();
 
         AttributesTypes attributesTypes9 = new AttributesTypes();
-        attributesTypes9.setName("Blob");
-        attributesTypes9.setType("Blob");
-        attributesTypes9.setObservations("A binanry large object, for example an image or a video, which must be handled in a special way because of its size. Blob type can be further refined by expressing their MIME type for example image/gif");
+        attributesTypes9.setName("Time");
+        attributesTypes9.setType("Date");
+        attributesTypes9.setObservations("A temporal instant of time");
         em.persist(attributesTypes9);
         em.flush();
 
         AttributesTypes attributesTypes10 = new AttributesTypes();
-        attributesTypes10.setName("Url");
-        attributesTypes10.setType("Url");
-        attributesTypes10.setObservations("A uniform resource locator of a web resource");
+        attributesTypes10.setName("Boolean");
+        attributesTypes10.setType("Boolean");
+        attributesTypes10.setObservations("A true or false value");
         em.persist(attributesTypes10);
         em.flush();
 
         AttributesTypes attributesTypes11 = new AttributesTypes();
-        attributesTypes11.setName("byte");
-        attributesTypes11.setType("byte");
-        attributesTypes11.setObservations("A uniform resource locator of a web resource");
-
-        Set<PropertiesAttributes> attributesTypesAttributesProperties11 = new HashSet<PropertiesAttributes>();
-//      ...................... @Basic1........................
-        PropertiesAttributes attributeTypeAttributeProperty6 = findBean.nameAttributesProperties("@Basic1",em);
-        attributesTypesAttributesProperties11.add(attributeTypeAttributeProperty6);
-//      ...................... @Lob........................
-        PropertiesAttributes attributeTypeAttributeProperty7 = findBean.nameAttributesProperties("@Lob",em);
-        attributesTypesAttributesProperties11.add(attributeTypeAttributeProperty7);
-        attributesTypes11.setPropertiesAttributes(attributesTypesAttributesProperties11);
-
+        attributesTypes11.setName("Enumeration");
+        attributesTypes11.setType("Enumeration");
+        attributesTypes11.setObservations("A sequence of user-defined values");
         em.persist(attributesTypes11);
         em.flush();
 
         AttributesTypes attributesTypes12 = new AttributesTypes();
-        attributesTypes12.setName("double");
-        attributesTypes12.setType("double");
-        attributesTypes12.setObservations("A uniform resource locator of a web resource");
-
-        Set<PropertiesAttributes> attributesTypesAttributesProperties12 = new HashSet<PropertiesAttributes>();
-//      ...................... @NumericField........................
-        PropertiesAttributes attributeTypeAttributeProperty8 = findBean.nameAttributesProperties("@NumericField",em);
-        attributesTypesAttributesProperties12.add(attributeTypeAttributeProperty8);
-//      ...................... @Field1........................
-        PropertiesAttributes attributeTypeAttributeProperty9 = findBean.nameAttributesProperties("@Field1",em);
-        attributesTypesAttributesProperties12.add(attributeTypeAttributeProperty9);
-        attributesTypes12.setPropertiesAttributes(attributesTypesAttributesProperties12);
-
+        attributesTypes12.setName("Blob");
+        attributesTypes12.setType("Blob");
+        attributesTypes12.setObservations("A binanry large object, for example an image or a video, which must be handled in a special way because of its size. Blob type can be further refined by expressing their MIME type for example image/gif");
         em.persist(attributesTypes12);
         em.flush();
 
         AttributesTypes attributesTypes13 = new AttributesTypes();
-        attributesTypes13.setName("Email");
-        attributesTypes13.setType("Email");
+        attributesTypes13.setName("Url");
+        attributesTypes13.setType("Url");
         attributesTypes13.setObservations("A uniform resource locator of a web resource");
         em.persist(attributesTypes13);
         em.flush();
