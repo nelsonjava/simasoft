@@ -115,7 +115,7 @@ public class FindBean {
 
 //      ---------------------- AttributesTypes ------------------------
 
-    public List<AttributesTypes> AllAttributesTypes() {
+    public List<AttributesTypes> AllAttributesTypes(EntityManager em) {
         List<AttributesTypes> results = em.createQuery("SELECT o FROM AttributesTypes o").getResultList();
         if (results.isEmpty()) {
             return new ArrayList<AttributesTypes>();
@@ -137,7 +137,7 @@ public class FindBean {
 
 //      ---------------------- Dependency ------------------------
 
-    public List<Dependency> AllDependency() {
+    public List<Dependency> AllDependency(EntityManager em) {
         List<Dependency> results = em.createQuery("SELECT o FROM Dependency o").getResultList();
         if (results.isEmpty()) {
             return new ArrayList<Dependency>();
@@ -159,7 +159,7 @@ public class FindBean {
 
 //      ---------------------- LinksTypes ------------------------
 
-    public List<LinksTypes> AllLinksTypes() {
+    public List<LinksTypes> AllLinksTypes(EntityManager em) {
         List<LinksTypes> results = em.createQuery("SELECT o FROM LinksTypes o").getResultList();
         if (results.isEmpty()) {
             return new ArrayList<LinksTypes>();
@@ -181,7 +181,7 @@ public class FindBean {
 
 //      ---------------------- NameQueries ------------------------
 
-    public List<NameQueries> AllNameQueries() {
+    public List<NameQueries> AllNameQueries(EntityManager em) {
         List<NameQueries> results = em.createQuery("SELECT o FROM NameQueries o").getResultList();
         if (results.isEmpty()) {
             return new ArrayList<NameQueries>();
@@ -203,7 +203,7 @@ public class FindBean {
 
 //      ---------------------- Attributes ------------------------
 
-    public List<Attributes> AllAttributes() {
+    public List<Attributes> AllAttributes(EntityManager em) {
         List<Attributes> results = em.createQuery("SELECT o FROM Attributes o").getResultList();
         if (results.isEmpty()) {
             return new ArrayList<Attributes>();
@@ -225,7 +225,7 @@ public class FindBean {
 
 //      ---------------------- FilesModels ------------------------
 
-    public List<FilesModels> AllFilesModels() {
+    public List<FilesModels> AllFilesModels(EntityManager em) {
         List<FilesModels> results = em.createQuery("SELECT o FROM FilesModels o").getResultList();
         if (results.isEmpty()) {
             return new ArrayList<FilesModels>();
@@ -247,7 +247,7 @@ public class FindBean {
 
 //      ---------------------- Cardinalities ------------------------
 
-    public List<Cardinalities> AllCardinalities() {
+    public List<Cardinalities> AllCardinalities(EntityManager em) {
         List<Cardinalities> results = em.createQuery("SELECT o FROM Cardinalities o").getResultList();
         if (results.isEmpty()) {
             return new ArrayList<Cardinalities>();
@@ -266,6 +266,18 @@ public class FindBean {
         }
         return cardinalities;
     }
+
+    public Cardinalities nameCardinalities(String search,EntityManager em) {
+
+        Cardinalities cardinalities = new Cardinalities();
+        List<Cardinalities> results = em.createQuery("SELECT o FROM Cardinalities o WHERE o.name LIKE :field").setParameter("field", search).getResultList();
+
+        if (!results.isEmpty()) {
+           cardinalities = results.get(0);
+        }
+        return cardinalities;
+    }
+
 
 //      ---------------------- SystemsModels ------------------------
 
@@ -293,6 +305,7 @@ public class FindBean {
 
     public List<Relationships> AllRelationships(EntityManager em) {
         List<Relationships> results = em.createQuery("SELECT o FROM Relationships o").getResultList();
+
         if (results.isEmpty()) {
             return new ArrayList<Relationships>();
         }

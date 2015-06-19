@@ -267,6 +267,18 @@ public class FindBean {
         return cardinalities;
     }
 
+    public Cardinalities nameCardinalities(String search,EntityManager em) {
+
+        Cardinalities cardinalities = new Cardinalities();
+        List<Cardinalities> results = em.createQuery("SELECT o FROM Cardinalities o WHERE o.name LIKE :field").setParameter("field", search).getResultList();
+
+        if (!results.isEmpty()) {
+           cardinalities = results.get(0);
+        }
+        return cardinalities;
+    }
+
+
 //      ---------------------- SystemsModels ------------------------
 
     public List<SystemsModels> AllSystemsModels() {
@@ -357,6 +369,72 @@ public class FindBean {
 
 //      ---------------------- Otras Busquedas ------------------------
 
+    public SystemsModels nameSystemsModels(String search,EntityManager em) {
+
+        SystemsModels systemsModels = new SystemsModels();
+        List<SystemsModels> results = em.createQuery("SELECT o FROM SystemsModels o WHERE o.name LIKE :field").setParameter("field", search).getResultList();
+
+        if (!results.isEmpty()) {
+           systemsModels = results.get(0);
+        }
+        return systemsModels;
+    }
+
+    public DomainModels artifactIdDomainModels(String search,EntityManager em) {
+
+        DomainModels domainModels = new DomainModels();
+        List<DomainModels> results = em.createQuery("SELECT o FROM DomainModels o WHERE o.artifactId LIKE :field").setParameter("field", search).getResultList();
+
+        if (!results.isEmpty()) {
+           domainModels = results.get(0);
+        }
+        return domainModels;
+    }
+
+    public GroupIds groupIdGroupIds(String search,EntityManager em) {
+
+        GroupIds groupIds = new GroupIds();
+        List<GroupIds> results = em.createQuery("SELECT o FROM GroupIds o WHERE o.groupId LIKE :field").setParameter("field", search).getResultList();
+
+        if (!results.isEmpty()) {
+           groupIds = results.get(0);
+        }
+        return groupIds;
+    }
+
+    public Entities nameEntities(String search,EntityManager em) {
+
+        Entities entities = new Entities();
+        List<Entities> results = em.createQuery("SELECT o FROM Entities o WHERE o.name LIKE :field").setParameter("field", search).getResultList();
+
+        if (!results.isEmpty()) {
+           entities = results.get(0);
+        }
+        return entities;
+    }
+
+    public Attributes fieldAttributes(String search,EntityManager em) {
+
+        Attributes attributes = new Attributes();
+        List<Attributes> results = em.createQuery("SELECT o FROM Attributes o WHERE o.field LIKE :field").setParameter("field", search).getResultList();
+
+        if (!results.isEmpty()) {
+           attributes = results.get(0);
+        }
+        return attributes;
+    }
+    
+    public AttributesTypes nameAttributesTypes(String search,EntityManager em) {
+
+        AttributesTypes attributesTypes = new AttributesTypes();
+        List<AttributesTypes> results = em.createQuery("SELECT o FROM AttributesTypes o WHERE o.name LIKE :field").setParameter("field", search).getResultList();
+
+        if (!results.isEmpty()) {
+           attributesTypes = results.get(0);
+        }
+        return attributesTypes;
+    }
+
     public Dependency artifactIdDependency(String search,EntityManager em) {
 
         Dependency dependency = new Dependency();
@@ -367,7 +445,7 @@ public class FindBean {
         }
         return dependency;
     }
-    
+
     public PropertiesAttributes nameAttributesProperties(String search,EntityManager em) {
 
         PropertiesAttributes propertiesAttributes = new PropertiesAttributes();
