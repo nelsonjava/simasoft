@@ -217,7 +217,7 @@ public class DataDb {
         em.flush();
 
         Entities entities16 = new Entities();
-        entities16.setName("LinksTypes");
+        entities16.setName("LinksTypes1");
 //      ...................... co.simasoft.models.naif.items ........................
         GroupIds groupIds20 = new GroupIds();
         groupIds20 = findBean.groupIdGroupIds("co.simasoft.models.naif.items",em);
@@ -226,7 +226,7 @@ public class DataDb {
         em.flush();
 
         Entities entities17 = new Entities();
-        entities17.setName("Links");
+        entities17.setName("Links1");
 //      ...................... co.simasoft.models.naif.items ........................
         GroupIds groupIds21 = new GroupIds();
         groupIds21 = findBean.groupIdGroupIds("co.simasoft.models.naif.items",em);
@@ -1590,9 +1590,9 @@ public class DataDb {
         attributes91.setName("name");
         attributes91.setNullable(false);
         attributes91.setSingle(true);
-//      ...................... LinksTypes ........................
+//      ...................... LinksTypes1 ........................
         Entities entities202 = new Entities();
-        entities202 = findBean.nameEntities("LinksTypes",em);
+        entities202 = findBean.nameEntities("LinksTypes1",em);
         attributes91.setEntities(entities202);
 //      ...................... String ........................
         AttributesTypes attributesTypes203 = new AttributesTypes();
@@ -1605,9 +1605,9 @@ public class DataDb {
         attributes92.setName("observations");
         attributes92.setNullable(true);
         attributes92.setSingle(false);
-//      ...................... LinksTypes ........................
+//      ...................... LinksTypes1 ........................
         Entities entities204 = new Entities();
-        entities204 = findBean.nameEntities("LinksTypes",em);
+        entities204 = findBean.nameEntities("LinksTypes1",em);
         attributes92.setEntities(entities204);
 //      ...................... Text ........................
         AttributesTypes attributesTypes205 = new AttributesTypes();
@@ -1620,9 +1620,9 @@ public class DataDb {
         attributes93.setName("title");
         attributes93.setNullable(false);
         attributes93.setSingle(true);
-//      ...................... Links ........................
+//      ...................... Links1 ........................
         Entities entities206 = new Entities();
-        entities206 = findBean.nameEntities("Links",em);
+        entities206 = findBean.nameEntities("Links1",em);
         attributes93.setEntities(entities206);
 //      ...................... String ........................
         AttributesTypes attributesTypes207 = new AttributesTypes();
@@ -1635,9 +1635,9 @@ public class DataDb {
         attributes94.setName("link");
         attributes94.setNullable(false);
         attributes94.setSingle(true);
-//      ...................... Links ........................
+//      ...................... Links1 ........................
         Entities entities208 = new Entities();
-        entities208 = findBean.nameEntities("Links",em);
+        entities208 = findBean.nameEntities("Links1",em);
         attributes94.setEntities(entities208);
 //      ...................... String ........................
         AttributesTypes attributesTypes209 = new AttributesTypes();
@@ -1650,9 +1650,9 @@ public class DataDb {
         attributes95.setName("observations");
         attributes95.setNullable(true);
         attributes95.setSingle(false);
-//      ...................... Links ........................
+//      ...................... Links1 ........................
         Entities entities210 = new Entities();
-        entities210 = findBean.nameEntities("Links",em);
+        entities210 = findBean.nameEntities("Links1",em);
         attributes95.setEntities(entities210);
 //      ...................... Text ........................
         AttributesTypes attributesTypes211 = new AttributesTypes();
@@ -2064,13 +2064,13 @@ public class DataDb {
         Relationships relationships23 = new Relationships();
         relationships23.setOptionality(true);
         relationships23.setIsEmbedded(false);
-//      ...................... LinksTypes ........................
+//      ...................... LinksTypes1 ........................
         Entities entities278 = new Entities();
-        entities278 = findBean.nameEntities("LinksTypes",em);
+        entities278 = findBean.nameEntities("LinksTypes1",em);
         relationships23.setFrom(entities278);
-//      ...................... LinksTypes ........................
+//      ...................... LinksTypes1 ........................
         Entities entities279 = new Entities();
-        entities279 = findBean.nameEntities("LinksTypes",em);
+        entities279 = findBean.nameEntities("LinksTypes1",em);
         relationships23.setTo(entities279);
 //      ...................... Uno a Muchos Bidirecccional No.5 ........................
         Cardinalities cardinalities280 = new Cardinalities();
@@ -2082,13 +2082,13 @@ public class DataDb {
         Relationships relationships24 = new Relationships();
         relationships24.setOptionality(true);
         relationships24.setIsEmbedded(false);
-//      ...................... LinksTypes ........................
+//      ...................... LinksTypes1 ........................
         Entities entities281 = new Entities();
-        entities281 = findBean.nameEntities("LinksTypes",em);
+        entities281 = findBean.nameEntities("LinksTypes1",em);
         relationships24.setFrom(entities281);
-//      ...................... Links ........................
+//      ...................... Links1 ........................
         Entities entities282 = new Entities();
-        entities282 = findBean.nameEntities("Links",em);
+        entities282 = findBean.nameEntities("Links1",em);
         relationships24.setTo(entities282);
 //      ...................... Muchos a Muchos Bidirecccional No.7 ........................
         Cardinalities cardinalities283 = new Cardinalities();
@@ -2100,13 +2100,13 @@ public class DataDb {
         Relationships relationships25 = new Relationships();
         relationships25.setOptionality(true);
         relationships25.setIsEmbedded(false);
-//      ...................... Links ........................
+//      ...................... Links1 ........................
         Entities entities284 = new Entities();
-        entities284 = findBean.nameEntities("Links",em);
+        entities284 = findBean.nameEntities("Links1",em);
         relationships25.setFrom(entities284);
-//      ...................... Links ........................
+//      ...................... Links1 ........................
         Entities entities285 = new Entities();
-        entities285 = findBean.nameEntities("Links",em);
+        entities285 = findBean.nameEntities("Links1",em);
         relationships25.setTo(entities285);
 //      ...................... Uno a Muchos Bidirecccional No.5 ........................
         Cardinalities cardinalities286 = new Cardinalities();
