@@ -460,13 +460,6 @@ public class App extends FileTxt{
         generar("contable","co.simasoft","contabilidad",modelos);
 
         modelos.clear();
-        modelos.add(new Modelos("iso","co.simasoft.models.naif.iso.procesos","procesos"));
-        modelos.add(new Modelos("iso","co.simasoft.models.naif.iso.lmd","lmd"));
-        modelos.add(new Modelos("iso","co.simasoft.models.naif.iso.lmr","lmr"));
-        modelos.add(new Modelos("iso","co.simasoft.models.naif.iso.archivoInactivo","archivoinactivo"));
-        generar("iso","co.simasoft","iso",modelos);
-
-        modelos.clear();
         modelos.add(new Modelos("base","co.simasoft.models.naif.base.direcciones","direcciones"));
         modelos.add(new Modelos("base","co.simasoft.models.naif.base.paises","paises"));
         modelos.add(new Modelos("base","co.simasoft.models.naif.base.empresas","empresas"));
@@ -484,6 +477,7 @@ public class App extends FileTxt{
         generar("pruebas","co.simasoft","prueba",modelos);
 */
 
+
         modelos.clear();
         modelos.add(new Modelos("pruebas","co.simasoft.models.naif.prueba1","prueba1"));
         generar("pruebas","co.simasoft","prueba1",modelos);
@@ -500,6 +494,14 @@ public class App extends FileTxt{
         modelos.clear();
         modelos.add(new Modelos("naif","co.simasoft.models.naif.domainmodels","DomainModels"));
         generar("naif","co.simasoft","DomainModels",modelos);
+        
+        modelos.clear();
+        modelos.add(new Modelos("iso","co.simasoft.models.naif.iso.procesos","procesos"));
+        modelos.add(new Modelos("iso","co.simasoft.models.naif.iso.lmd","lmd"));
+        modelos.add(new Modelos("iso","co.simasoft.models.naif.iso.lmr","lmr"));
+        modelos.add(new Modelos("iso","co.simasoft.models.naif.iso.archivoInactivo","archivoinactivo"));
+        generar("iso","co.simasoft","iso",modelos);
+
 
 /*
         modelos.clear();
