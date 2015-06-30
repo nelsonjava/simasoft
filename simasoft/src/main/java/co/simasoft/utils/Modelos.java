@@ -2,21 +2,21 @@ package co.simasoft.utils;
 
 public class Modelos {
 
-    private String modelo     = "";
+    private String filePower  = "";
     private String groupId    = "";
     private String artifactId = "";
 
-    public Modelos(String modelo,String groupId,String artifactId){
-        this.modelo     = modelo;
+    public Modelos(String filePower,String groupId,String artifactId){
+        this.filePower  = filePower;
         this.groupId    = groupId;
         this.artifactId = artifactId ;
     }
 
-    public String getModelo() {
-        return modelo;
+    public String getFilePower() {
+        return filePower;
     }
-    public void setModelo(String modelo) {
-        this.modelo = modelo;
+    public void setFilePower(String filePower) {
+        this.filePower = filePower;
     }
 
     public String getGroupId() {
