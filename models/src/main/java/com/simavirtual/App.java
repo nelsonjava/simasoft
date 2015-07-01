@@ -1,3 +1,6 @@
+/*
+        for(int i = 0; i < 2; i++) {
+*/
 package com.simavirtual;
 
 import java.io.*;
@@ -357,7 +360,7 @@ public class App extends FileTxt{
             // Cleanup - Reinigung
             entidades.clear();
 
-            filePowerDesigner = "src/resources/models/"+modelo.getArtifactId()+"/"+artifactId+"/"+modelo.getArtifactId()+"/"+modelo.getArtifactId()+".oom";
+            filePowerDesigner = "src/resources/models/"+artifactId+".oom";
             PowerDesigner powerDesigner = new PowerDesigner(filePowerDesigner);
             entidades = powerDesigner.getEntidades();
 
@@ -438,16 +441,16 @@ public class App extends FileTxt{
 
         LinkedHashSet<String> imports = new LinkedHashSet<String>();
         for (Modelos modelo : modelos) {
-            imports.add(modelo.getGroupId()+"."+modelo.getArtifactId()+".models."+modelo.getArtifactId());
+            imports.add(modelo.getGroupId()+".models");
         }
 
         for (Modelos modelo : modelos) {
-            jdocbook(modelo.getArtifactId(),modelo.getGroupId(),modelo.getArtifactId(),imports);
-            jpa(modelo.getArtifactId(),modelo.getGroupId(),modelo.getArtifactId(),imports);
-            sql(modelo.getArtifactId(),modelo.getGroupId(),modelo.getArtifactId(),imports);
-            crud(modelo.getArtifactId(),modelo.getGroupId(),modelo.getArtifactId(),imports);
-            warH2(modelo.getArtifactId(),modelo.getGroupId(),modelo.getArtifactId(),imports);
-            warModels(modelo.getArtifactId(),modelo.getGroupId(),modelo.getArtifactId(),imports);
+            jdocbook(modelo.getGroupId(),modelo.getGroupId(),modelo.getGroupId(),imports);
+            jpa(modelo.getGroupId(),modelo.getGroupId(),modelo.getGroupId(),imports);
+            sql(modelo.getGroupId(),modelo.getGroupId(),modelo.getGroupId(),imports);
+            crud(modelo.getGroupId(),modelo.getGroupId(),modelo.getGroupId(),imports);
+            warH2(modelo.getGroupId(),modelo.getGroupId(),modelo.getGroupId(),imports);
+            warModels(modelo.getGroupId(),modelo.getGroupId(),modelo.getGroupId(),imports);
         }
 
     } // Models
@@ -522,11 +525,11 @@ public class App extends FileTxt{
 */
 
         modelos.clear();
-        modelos.add(new Modelos("naif/DomainModels/dependencies/dependencies.oom","co.simasoft.models.naif.domainmodels.dependencies","systemsModels"));
-        modelos.add(new Modelos("naif/DomainModels/entities/entities.oom","co.simasoft.models.naif.domainmodels.entities","entities"));
-        modelos.add(new Modelos("naif/DomainModels/links/links.oom","co.simasoft.models.naif.domainmodels.links","links"));
-        modelos.add(new Modelos("naif/DomainModels/modelsFiles/modelsFiles.oom","co.simasoft.models.naif.domainmodels.modelsFiles","modelsFiles"));
-        modelos.add(new Modelos("naif/DomainModels/systemsModels/systemsModels.oom","co.simasoft.models.naif.domainmodels.dependencies","dependencies"));
+        modelos.add(new Modelos("naif/DomainModels/systemsModels/systemsModels.oom","co.simasoft.models.naif.domainmodels.systemsModels"));
+        modelos.add(new Modelos("naif/DomainModels/entities/entities.oom","co.simasoft.models.naif.domainmodels.entities"));
+        modelos.add(new Modelos("naif/DomainModels/links/links.oom","co.simasoft.models.naif.domainmodels.links"));
+        modelos.add(new Modelos("naif/DomainModels/modelsFiles/modelsFiles.oom","co.simasoft.models.naif.domainmodels.modelsFiles"));
+        modelos.add(new Modelos("naif/DomainModels/dependencies/dependencies.oom","co.simasoft.models.naif.domainmodels.dependencies"));
 
         Prueba("co.simasoft","domainmodels",modelos);
 
@@ -535,15 +538,41 @@ public class App extends FileTxt{
     public static void Prueba(String groupId,String artifactId,ArrayList<Modelos> modelos) throws IOException {
 
         System.out.println("");
+
         for(Modelos modelo : modelos) {
+
+            entidades = null;
             FilePowerDesigner filePowerDesigner = new FilePowerDesigner(modelo.getFilePower());
             entidades = filePowerDesigner.getEntidades();
+
+System.out.println(entidades.size());
+System.out.println(filePowerDesigner.getEntidades().size());
+
             for(Entidad entidad : entidades) {
-               System.out.println(modelo.getGroupId()+"."+entidad.getName());
+
+               if (!entidad.isEntity()){
+                  continue;
+               }
+
+               System.out.println("-------------------------"+entidad.getName());
+/*
                for(Atributos atributo : entidad.getAtributos()) {
                   System.out.println("-"+atributo.getField());
                }
+
+               for(Relation relation : entidad.getRelations()) {
+                  System.out.println("*"+relation.getFrom()+" "+relation.getCardinality()+" "+relation.getTo());
+               }
+*/
+
             }
+
+/*
+            for (Relation relation : filePowerDesigner.getRelations()) {
+                 System.out.println("*"+relation.getFrom()+" "+relation.getCardinality()+" "+relation.getTo());
+            }
+*/
+
         }
 
     } // Prueba

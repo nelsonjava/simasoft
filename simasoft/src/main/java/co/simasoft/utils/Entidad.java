@@ -85,7 +85,7 @@ public class Entidad {
     public boolean isEntity(){
 
       for (Atributos attribute : atributos) {
-          if (attribute.getField().equals("entity")) {
+          if (attribute.getField().toLowerCase().equals("entity")) {
              return false;
           }
       }

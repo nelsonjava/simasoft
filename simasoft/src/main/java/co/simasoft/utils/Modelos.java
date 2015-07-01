@@ -4,12 +4,10 @@ public class Modelos {
 
     private String filePower  = "";
     private String groupId    = "";
-    private String artifactId = "";
 
-    public Modelos(String filePower,String groupId,String artifactId){
+    public Modelos(String filePower,String groupId){
         this.filePower  = filePower;
         this.groupId    = groupId;
-        this.artifactId = artifactId ;
     }
 
     public String getFilePower() {
@@ -24,13 +22,6 @@ public class Modelos {
     }
     public void setGroupId(String groupId) {
         this.groupId = groupId;
-    }
-
-    public String getArtifactId() {
-        return artifactId;
-    }
-    public void setArtifactId(String artifactId) {
-        this.artifactId = artifactId;
     }
 
 } // Fin de clase

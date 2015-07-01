@@ -33,11 +33,11 @@ public class War {
 
         LinkedHashSet<String> imports = new LinkedHashSet<String>();
         for (Modelos modelo : modelos) {
-            imports.add(modelo.getGroupId()+".models."+modelo.getGroupId()+"."+modelo.getArtifactId());
+            imports.add(modelo.getGroupId()+".models."+modelo.getGroupId());
         }
 
         for (Modelos modelo : modelos) {
-            H2(modelo.getGroupId(),modelo.getGroupId(),modelo.getArtifactId(),imports);
+            H2(modelo.getGroupId(),modelo.getGroupId(),modelo.getGroupId(),imports);
         }
 
     }

@@ -42,6 +42,8 @@ public class PowerDesigner {
             xml.getDocumentElement().normalize();
             NodeList nList = xml.getElementsByTagName("o:Class");
 
+            entidades = new ArrayList<Entidad>();
+
             String field = "";
             String type = "";
             String tipo = "";
@@ -227,6 +229,15 @@ public class PowerDesigner {
     public ArrayList<Entidad> getEntidades(){
         return entidades;
     }
+    public void setEntidades(ArrayList<Entidad> entidades) {
+        this.entidades = entidades;
+    }
+
+
+    public ArrayList<Entidad> setEntidades(){
+        return entidades;
+    }
+
 
     public Set<Relation> getRelations(){
         return relations;
