@@ -1,33 +1,42 @@
-
-paso:GroupIds
-paso:DomainModels
-paso:SystemsModels
-paso:Entities
-paso:FilesModels
-Hola
-5
-5
-co.simasoft.models.naif.domainmodels.systemsModels.GroupIds
-co.simasoft.models.naif.domainmodels.systemsModels.DomainModels
-co.simasoft.models.naif.domainmodels.systemsModels.SystemsModels
-paso:Entities
-paso:Attributes
-paso:Cardinalities
-paso:NameQueries
-paso:Imports
-paso:FilesModels
-paso:AttributesTypes
-paso:AttributesProperties
-paso:Relationships
-Hola
-14
-14
-co.simasoft.models.naif.domainmodels.entities.GroupIds
-co.simasoft.models.naif.domainmodels.entities.DomainModels
-co.simasoft.models.naif.domainmodels.entities.SystemsModels
-
-co.simasoft.models.naif.domainmodels.entities.Entities
-co.simasoft.models.naif.domainmodels.entities.Attributes
-co.simasoft.models.naif.domainmodels.entities.Cardinalities
-co.simasoft.models.naif.domainmodels.entities.NameQueries
-co.simasoft.models.naif.domainmodels.entities.Relationships
+[INFO] Scanning for projects...
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building uml 1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ uml ---
+[INFO] Deleting d:\dev\njava\simasoft\models\target
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ uml ---
+[WARNING] Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] Copying 132 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.5.1:compile (default-compile) @ uml ---
+[WARNING] File encoding has not been set, using platform encoding Cp1252, i.e. build is platform dependent!
+[INFO] Compiling 5 source files to d:\dev\njava\simasoft\models\target\classes
+[INFO] 
+[INFO] --- maven-assembly-plugin:2.2-beta-5:single (default-cli) @ uml ---
+[INFO] META-INF/ already added, skipping
+[INFO] META-INF/MANIFEST.MF already added, skipping
+[INFO] META-INF/maven/ already added, skipping
+[INFO] META-INF/MANIFEST.MF already added, skipping
+[INFO] META-INF/ already added, skipping
+[INFO] META-INF/ already added, skipping
+[INFO] META-INF/MANIFEST.MF already added, skipping
+[INFO] META-INF/maven/ already added, skipping
+[INFO] Building jar: d:\dev\njava\simasoft\models\target\uml-1.0-SNAPSHOT-jar-with-dependencies.jar
+[INFO] META-INF/ already added, skipping
+[INFO] META-INF/MANIFEST.MF already added, skipping
+[INFO] META-INF/maven/ already added, skipping
+[INFO] META-INF/MANIFEST.MF already added, skipping
+[INFO] META-INF/ already added, skipping
+[INFO] META-INF/ already added, skipping
+[INFO] META-INF/MANIFEST.MF already added, skipping
+[INFO] META-INF/maven/ already added, skipping
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 22.659s
+[INFO] Finished at: Thu Jul 02 11:48:59 COT 2015
+[INFO] Final Memory: 10M/25M
+[INFO] ------------------------------------------------------------------------

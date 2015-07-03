@@ -5,17 +5,15 @@ import java.util.*;
 public class Packages{
 
     private String groupId    = "";
-    private String artifactId = "";
-    private ArrayList<Entidad> entities = new ArrayList<Entidad>();
+    private Set<Entidad> entities = new HashSet<Entidad>();
+    private Set<Relation> relations = new HashSet<Relation>(0);
+    private Set<Relation> relationsPower = new HashSet<Relation>();
 
-    public Packages(String groupId,String artifactId){
-       this.groupId = groupId;
-       this.artifactId = artifactId;
+    public Packages(){
     }
 
-    public Packages(String groupId,String artifactId,ArrayList<Entidad> entities){
+    public Packages(String groupId,Set<Entidad> entities){
        this.groupId = groupId;
-       this.artifactId = artifactId;
        this.entities = entities;
     }
 
@@ -26,18 +24,25 @@ public class Packages{
         this.groupId = groupId;
     }
 
-    public String getArtifactId() {
-        return artifactId;
-    }
-    public void setArtifactId(String artifactId) {
-        this.artifactId = artifactId;
-    }
-
-    public ArrayList<Entidad> getEntities(){
+    public Set<Entidad> getEntities(){
         return entities;
     }
-    public void setEntities(ArrayList<Entidad> entities){
+    public void setEntities(Set<Entidad> entities){
         this.entities = entities;
+    }
+
+    public Set<Relation> getRelations(){
+        return relations;
+    }
+    public void setRelations(Set<Relation> relations){
+        this.relations = relations;
+    }
+    
+    public Set<Relation> getRelationsPower(){
+        return relationsPower;
+    }
+    public void setRelationsPower(Set<Relation> relationsPower){
+        this.relationsPower = relationsPower;
     }
 
 } // GroupIds

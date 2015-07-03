@@ -118,7 +118,7 @@ public class Models{
                    imports.add(impor);
                }
 
-               EntityH2 entityH2 = new EntityH2(groupIds.getArtifactId(),groupIds.getGroupId(),entidad,imports);
+               EntityH2 entityH2 = new EntityH2(groupIds.getGroupId(),groupIds.getGroupId(),entidad,imports);
                Utils.fileMake(pathDocs+".h2.war."+artifactId+".src.main.java."+groupIds.getGroupId(),entidad.getName()+".java", entityH2);
 
                H2Search h2Search = new H2Search(artifactId,groupId,groupIds.getEntities());

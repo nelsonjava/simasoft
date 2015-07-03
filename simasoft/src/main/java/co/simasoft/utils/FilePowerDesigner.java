@@ -10,7 +10,7 @@ public class FilePowerDesigner{
     private String fileOom = "";
     private static ArrayList<Entidad> entidades = new ArrayList<Entidad>();
     private static Set<Relation> relations = new HashSet<Relation>(0);
-    private static ArrayList<Relation> relationsPower = new ArrayList<Relation>();
+    private static Set<Relation> relationsPower = new HashSet<Relation>();
 
     public FilePowerDesigner(String fileOom) throws IOException {
         this.fileOom = "src/resources/models/"+fileOom;
@@ -28,7 +28,7 @@ public class FilePowerDesigner{
         return relations;
     }
 
-    public ArrayList<Relation> getRelationsPower() {
+    public Set<Relation> getRelationsPower() {
         return relationsPower;
     }
 

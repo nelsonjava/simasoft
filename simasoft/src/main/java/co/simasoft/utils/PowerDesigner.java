@@ -15,7 +15,7 @@ public class PowerDesigner {
 
     private static String fileOob;
     private static ArrayList<Entidad> entidades = new ArrayList<Entidad>();
-    private static ArrayList<Relation> relationsPower = new ArrayList<Relation>();
+    private static Set<Relation> relationsPower = new HashSet<Relation>(0);
     private static Set<Relation> relations = new HashSet<Relation>(0);
 
     String ref = "";
@@ -43,6 +43,8 @@ public class PowerDesigner {
             NodeList nList = xml.getElementsByTagName("o:Class");
 
             entidades = new ArrayList<Entidad>();
+            relationsPower = new HashSet<Relation>(0);
+            relations = new HashSet<Relation>(0);
 
             String field = "";
             String type = "";
@@ -243,7 +245,7 @@ public class PowerDesigner {
         return relations;
     }
 
-    public ArrayList<Relation> getRelationsPower(){
+    public Set<Relation> getRelationsPower(){
         return relationsPower;
     }
 

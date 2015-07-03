@@ -15,7 +15,7 @@ import java.util.*;
 public class War {
 
     private ArrayList<Entidad> entidades       = new ArrayList<Entidad>();
-    private ArrayList<Relation> relationsPower = new ArrayList<Relation>();
+    private Set<Relation> relationsPower = new HashSet<Relation>(0);
     private Set<Relation> relations            = new HashSet<Relation>(0);
     private ArrayList<Modelos> modelos         = new ArrayList<Modelos>();
 

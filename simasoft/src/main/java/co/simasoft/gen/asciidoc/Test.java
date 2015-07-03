@@ -14,7 +14,7 @@ public class Test extends FileTxt {
     }
 
 
-    public Test(String artifactId,String groupId,Set<Relation> relations,ArrayList<Relation> relationsPower) throws IOException {
+    public Test(String artifactId,String groupId,Set<Relation> relations,Set<Relation> relationsPower) throws IOException {
 
         this.relations = relations;
 

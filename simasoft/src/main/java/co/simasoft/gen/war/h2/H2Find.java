@@ -11,7 +11,7 @@ import java.util.Set;
 
 public class H2Find extends FileTxt {
 
-  public H2Find(String artifactId,String groupId,ArrayList<Entidad> entities) {
+  public H2Find(String artifactId,String groupId,Set<Entidad> entities) {
 
 line("package co.simasoft.beans;\n");
 

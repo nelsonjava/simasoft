@@ -32,7 +32,7 @@ public class SqlAllH2 extends FileTxt {
 
 //>>DECLARACION DE INSTANCIAS
       private ArrayList<Entidad> entities = new ArrayList<Entidad>();
-      private ArrayList<Entidad> entidades = new ArrayList<Entidad>();
+      private Set<Entidad> entidades = new HashSet<Entidad>(0);
       private Entidad entity = new Entidad();                                // Entidad
       private ArrayList<Atributos> atributos = new ArrayList<Atributos>();   // Atributos de la Entidad
       private ArrayList<Relation> relations = new ArrayList<Relation>();     // Relaciones de la Entidad

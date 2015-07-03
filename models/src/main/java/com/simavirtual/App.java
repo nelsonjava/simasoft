@@ -22,7 +22,7 @@ public class App extends FileTxt{
     private static ArrayList<Entidad> entidades       = new ArrayList<Entidad>();
     private static Set<Relation> relations            = new HashSet<Relation>(0);
     private static ArrayList<Modelos> modelos         = new ArrayList<Modelos>();
-    private static ArrayList<Relation> relationsPower = new ArrayList<Relation>();
+    private static Set<Relation> relationsPower       = new HashSet<Relation>(0);
 
     private static String fileJar = "../g.jar";
     private static String filePowerDesigner = "";
@@ -364,7 +364,7 @@ public class App extends FileTxt{
             PowerDesigner powerDesigner = new PowerDesigner(filePowerDesigner);
             entidades = powerDesigner.getEntidades();
 
-            Packages packages = new Packages(modelo.getGroupId(),modelo.getGroupId());
+            Packages packages = new Packages();
             for (Entidad entidad : entidades) {
 
                 if (entidad.isEntity()) {
@@ -385,7 +385,7 @@ public class App extends FileTxt{
 
             } // for entidades
 
-            packages.setEntities(entities);
+//            packages.setEntities(entities);
             groupIds.add(packages);
 
         } // modelos
@@ -530,51 +530,9 @@ public class App extends FileTxt{
         modelos.add(new Modelos("naif/DomainModels/links/links.oom","co.simasoft.models.naif.domainmodels.links"));
         modelos.add(new Modelos("naif/DomainModels/modelsFiles/modelsFiles.oom","co.simasoft.models.naif.domainmodels.modelsFiles"));
         modelos.add(new Modelos("naif/DomainModels/dependencies/dependencies.oom","co.simasoft.models.naif.domainmodels.dependencies"));
-
-        Prueba("co.simasoft","domainmodels",modelos);
+        Domains domains = new Domains("co.simasof","SystemsModels",modelos);
+        DataGenH2 systemsModels = new DataGenH2(domains);
 
     } // main
-
-    public static void Prueba(String groupId,String artifactId,ArrayList<Modelos> modelos) throws IOException {
-
-        System.out.println("");
-
-        for(Modelos modelo : modelos) {
-
-            entidades = null;
-            FilePowerDesigner filePowerDesigner = new FilePowerDesigner(modelo.getFilePower());
-            entidades = filePowerDesigner.getEntidades();
-
-System.out.println(entidades.size());
-System.out.println(filePowerDesigner.getEntidades().size());
-
-            for(Entidad entidad : entidades) {
-
-               if (!entidad.isEntity()){
-                  continue;
-               }
-
-               System.out.println("-------------------------"+entidad.getName());
-/*
-               for(Atributos atributo : entidad.getAtributos()) {
-                  System.out.println("-"+atributo.getField());
-               }
-
-               for(Relation relation : entidad.getRelations()) {
-                  System.out.println("*"+relation.getFrom()+" "+relation.getCardinality()+" "+relation.getTo());
-               }
-*/
-
-            }
-
-/*
-            for (Relation relation : filePowerDesigner.getRelations()) {
-                 System.out.println("*"+relation.getFrom()+" "+relation.getCardinality()+" "+relation.getTo());
-            }
-*/
-
-        }
-
-    } // Prueba
 
 } // App

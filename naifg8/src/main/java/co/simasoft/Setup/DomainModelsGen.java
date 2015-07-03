@@ -60,7 +60,7 @@ public class DomainModelsGen extends FileTxt {
         ArrayList<Packages> packages = new ArrayList<Packages>();
         for (GroupIds groupIds : domainModels.getGroupIds()){
 
-            ArrayList<Entidad> entidades = new ArrayList<Entidad>();
+            Set<Entidad> entidades = new HashSet<Entidad>(0);
 
             for (Entities entity : groupIds.getEntities()){
                 Entidad entidad = new Entidad(entity.getName());
@@ -210,7 +210,7 @@ public class DomainModelsGen extends FileTxt {
 
             } // for: groupIds.getEntities()
 
-            packages.add(new Packages(groupIds.getGroupId(),domainModels.getArtifactId(),entidades));
+            packages.add(new Packages(groupIds.getGroupId(),entidades));
 
         } // for: domainModels.getGroupIds()
 
