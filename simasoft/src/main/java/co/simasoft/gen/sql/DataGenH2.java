@@ -92,6 +92,7 @@ line("//      ---------------------- DomainModels ------------------------\n");
 line("        DomainModels domainModels = new DomainModels();");
 line("        domainModels.setGroupId(\""+domain.getGroupId()+"\");");
 line("        domainModels.setArtifactId(\""+domain.getArtifactId()+"\");");
+line("        domainModels.setVersion(\""+domain.getVersion()+"\");");
 line("        em.persist(domainModels);");
 line("        em.flush();\n");
 
@@ -117,9 +118,9 @@ line("//      ---------------------- Entities ------------------------\n");
 line("        Entities entities"+String.valueOf(++i)+" = new Entities();");
 line("        entities"+String.valueOf(i)+".setName(\""+entidad.getName()+"\");");
 line("//      ...................... "+groupId.getGroupId()+" ........................");
-line("        GroupIds groupIds"+String.valueOf(++j)+" = new GroupIds();");
-line("        groupIds"+String.valueOf(j)+" = findBean.groupIdGroupIds(\""+groupId.getGroupId()+"\",em);");
-line("        entities"+String.valueOf(i)+".setGroupIds(groupIds"+String.valueOf(j)+");");
+line("        GroupIds groupId"+String.valueOf(++j)+" = new GroupIds();");
+line("        groupId"+String.valueOf(j)+" = findBean.groupIdGroupIds(\""+groupId.getGroupId()+"\",em);");
+line("        entities"+String.valueOf(i)+".setGroupIds(groupId"+String.valueOf(j)+");");
 line("        em.persist(entities"+String.valueOf(i)+");");
 line("        em.flush();\n");
 
@@ -128,16 +129,16 @@ line("//      ---------------------- Attributes ------------------------\n");
             for (Atributos attri: entidad.getAtributos()) {
 
 line("        Attributes attributes"+String.valueOf(++i)+" = new Attributes();");
-line("        attributes"+String.valueOf(i)+".setName(\""+attri.getName()+"\");");
-line("        attributes"+String.valueOf(i)+".setNullable("+attri.getNullable()+");");
-line("        attributes"+String.valueOf(i)+".setSingle("+attri.getSingle()+");");
-line("//      ...................... "+attri.getEntities().getName()+" ........................");
-line("        Entities entities"+String.valueOf(++j)+" = new Entities();");
-line("        entities"+String.valueOf(j)+" = findBean.nameEntities(\""+attri.getEntities().getName()+"\",em);");
-line("        attributes"+String.valueOf(i)+".setEntities(entities"+String.valueOf(j)+");");
-line("//      ...................... "+attri.getAttributesTypes().getName()+" ........................");
+line("        attributes"+String.valueOf(i)+".setName(\""+attri.getField()+"\");");
+line("        attributes"+String.valueOf(i)+".setNullable("+attri.getNulo()+");");
+line("        attributes"+String.valueOf(i)+".setSingle("+attri.getUnique()+");");
+line("//      ...................... "+entidad.getName()+" ........................");
+line("        Entities entity"+String.valueOf(++j)+" = new Entities();");
+line("        entity"+String.valueOf(j)+" = findBean.nameEntities(\""+entidad.getName()+"\",em);");
+line("        attributes"+String.valueOf(i)+".setEntities(entity"+String.valueOf(j)+");");
+line("//      ...................... "+attri.getType()+" ........................");
 line("        AttributesTypes attributesTypes"+String.valueOf(++j)+" = new AttributesTypes();");
-line("        attributesTypes"+String.valueOf(j)+" = findBean.nameAttributesTypes(\""+attri.getAttributesTypes().getName()+"\",em);");
+line("        attributesTypes"+String.valueOf(j)+" = findBean.nameAttributesTypes(\""+attri.getType()+"\",em);");
 line("        attributes"+String.valueOf(i)+".setAttributesTypes(attributesTypes"+String.valueOf(j)+");");
 line("        em.persist(attributes"+String.valueOf(i)+");");
 line("        em.flush();\n");
@@ -149,15 +150,39 @@ line("        em.flush();\n");
 
     } // for
 
+line("//      ---------------------- Relationships ------------------------\n");
+
+    i=0;
     for (Packages packages : domain.getPackages()){
 
         for (Relation relation: packages.getRelations()) {
 
-line(relation.getFrom()+" "+relation.getCardinality()+" "+relation.getTo());
+line("        Relationships relationships"+String.valueOf(++i)+" = new Relationships();");
+line("        relationships"+String.valueOf(i)+".setOptionality("+relation.getOptionality()+");");
+line("        relationships"+String.valueOf(i)+".setIsEmbedded(false);");
+line("//      ...................... "+relation.getFrom()+" ........................");
+line("        Entities entities"+String.valueOf(++j)+" = new Entities();");
+line("        entities"+String.valueOf(j)+" = findBean.nameEntities(\""+relation.getFrom()+"\",em);");
+line("        relationships"+String.valueOf(i)+".setFrom(entities"+String.valueOf(j)+");");
+line("//      ...................... "+relation.getTo()+" ........................");
+line("        Entities entities"+String.valueOf(++j)+" = new Entities();");
+line("        entities"+String.valueOf(j)+" = findBean.nameEntities(\""+relation.getTo()+"\",em);");
+line("        relationships"+String.valueOf(i)+".setTo(entities"+String.valueOf(j)+");");
+line("//      ...................... "+relation.getCardinality()+" ........................");
+line("        Cardinalities cardinalities"+String.valueOf(++j)+" = new Cardinalities();");
+line("        cardinalities"+String.valueOf(j)+" = findBean.cardinalityCardinalities(\""+relation.getCardinality()+"\",em);");
+line("        relationships"+String.valueOf(i)+".setCardinalities(cardinalities"+String.valueOf(j)+");");
+line("        em.persist(relationships"+String.valueOf(i)+");");
+line("        em.flush();\n");
 
         } // for
 
     } // for
+
+line("    } // data()\n");
+
+line("} // "+domain.getArtifactId());
+
 
 
     saveFile("\\docs", domain.getArtifactId()+"Setup.java");

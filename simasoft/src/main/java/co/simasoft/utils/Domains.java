@@ -9,15 +9,17 @@ public class Domains{
 
     private String groupId    = "";
     private String artifactId = "";
+    private String version = "";
     private ArrayList<Modelos> modelos = new ArrayList<Modelos>();
 
     private Set<Entidad> entities = new HashSet<Entidad>(0);
     private Set<Packages> packages = new HashSet<Packages>(0);
 
 
-    public Domains(String groupId,String artifactId,ArrayList<Modelos> modelos) throws IOException {
+    public Domains(String groupId,String artifactId,String version,ArrayList<Modelos> modelos) throws IOException {
        this.groupId = groupId;
        this.artifactId = artifactId;
+       this.version = version;
        this.modelos = modelos;
        generar();
     }
@@ -59,6 +61,14 @@ public class Domains{
     public void setArtifactId(String artifactId) {
         this.artifactId = artifactId;
     }
+
+    public String getVersion() {
+        return version;
+    }
+    public void setVersion(String version) {
+        this.version = version;
+    }
+
     public Set<Packages> getPackages() {
         return packages;
     }

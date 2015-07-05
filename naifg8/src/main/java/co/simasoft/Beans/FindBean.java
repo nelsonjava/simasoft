@@ -277,6 +277,17 @@ public class FindBean {
         }
         return cardinalities;
     }
+    
+    public Cardinalities cardinalityCardinalities(String search,EntityManager em) {
+
+        Cardinalities cardinalities = new Cardinalities();
+        List<Cardinalities> results = em.createQuery("SELECT o FROM Cardinalities o WHERE o.cardinality LIKE :field").setParameter("field", search).getResultList();
+
+        if (!results.isEmpty()) {
+           cardinalities = results.get(0);
+        }
+        return cardinalities;
+    }
 
 
 //      ---------------------- SystemsModels ------------------------
@@ -434,7 +445,7 @@ public class FindBean {
         }
         return attributes;
     }
-    
+
     public AttributesTypes nameAttributesTypes(String search,EntityManager em) {
 
         AttributesTypes attributesTypes = new AttributesTypes();

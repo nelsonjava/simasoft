@@ -1,4 +1,6 @@
 [INFO] Scanning for projects...
+[INFO] 
+[INFO] Using the builder org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder with a thread count of 1
 [INFO]                                                                         
 [INFO] ------------------------------------------------------------------------
 [INFO] Building simasoft 1.0-SNAPSHOT
@@ -34,7 +36,7 @@
  T E S T S
 -------------------------------------------------------
 Running co.simasoft.AppTest
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec
 
 Results :
 
@@ -45,12 +47,12 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
 [INFO] Building jar: d:\dev\njava\simasoft\simasoft\target\simasoft-1.0-SNAPSHOT.jar
 [INFO] 
 [INFO] --- maven-install-plugin:2.4:install (default-install) @ simasoft ---
-[INFO] Installing d:\dev\njava\simasoft\simasoft\target\simasoft-1.0-SNAPSHOT.jar to C:\Users\Gestión\.m2\repository\co\simasoft\simasoft\1.0-SNAPSHOT\simasoft-1.0-SNAPSHOT.jar
-[INFO] Installing d:\dev\njava\simasoft\simasoft\pom.xml to C:\Users\Gestión\.m2\repository\co\simasoft\simasoft\1.0-SNAPSHOT\simasoft-1.0-SNAPSHOT.pom
+[INFO] Installing d:\dev\njava\simasoft\simasoft\target\simasoft-1.0-SNAPSHOT.jar to C:\Users\admin\.m2\repository\co\simasoft\simasoft\1.0-SNAPSHOT\simasoft-1.0-SNAPSHOT.jar
+[INFO] Installing d:\dev\njava\simasoft\simasoft\pom.xml to C:\Users\admin\.m2\repository\co\simasoft\simasoft\1.0-SNAPSHOT\simasoft-1.0-SNAPSHOT.pom
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 7.842s
-[INFO] Finished at: Thu Jul 02 11:33:52 COT 2015
-[INFO] Final Memory: 12M/33M
+[INFO] Total time: 2.399 s
+[INFO] Finished at: 2015-07-05T16:25:02-05:00
+[INFO] Final Memory: 13M/35M
 [INFO] ------------------------------------------------------------------------

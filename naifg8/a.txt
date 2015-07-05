@@ -8,6 +8,8 @@
 [WARNING] 
 [WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
 [WARNING] 
+[INFO] 
+[INFO] Using the builder org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder with a thread count of 1
 [INFO]                                                                         
 [INFO] ------------------------------------------------------------------------
 [INFO] Building naifg8 1.0.0-SNAPSHOT
@@ -23,32 +25,40 @@
 [INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ naifg8 ---
 [INFO] Changes detected - recompiling the module!
 [INFO] Compiling 40 source files to d:\dev\njava\simasoft\naifg8\target\classes
+[INFO] -------------------------------------------------------------
+[WARNING] COMPILATION WARNING : 
+[INFO] -------------------------------------------------------------
 [WARNING] /d:/dev/njava/simasoft/naifg8/src/main/java/co/simasoft/Beans/FindBean.java: Some input files use unchecked or unsafe operations.
 [WARNING] /d:/dev/njava/simasoft/naifg8/src/main/java/co/simasoft/Beans/FindBean.java: Recompile with -Xlint:unchecked for details.
-[INFO] 
-[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ naifg8 ---
-[INFO] Using 'UTF-8' encoding to copy filtered resources.
-[INFO] skip non existing resourceDirectory d:\dev\njava\simasoft\naifg8\src\test\resources
-[INFO] 
-[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ naifg8 ---
-[INFO] No sources to compile
-[INFO] 
-[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ naifg8 ---
-[INFO] No tests to run.
-[INFO] 
-[INFO] --- maven-war-plugin:2.1.1:war (default-war) @ naifg8 ---
-[INFO] Packaging webapp
-[INFO] Assembling webapp [naifg8] in [d:\dev\njava\simasoft\naifg8\target\naifg8]
-[INFO] Processing war project
-[INFO] Copying webapp resources [d:\dev\njava\simasoft\naifg8\src\main\webapp]
-[INFO] Webapp assembled in [6849 msecs]
-[INFO] Building war: d:\dev\njava\simasoft\naifg8\target\naifg8.war
-[WARNING] Warning: selected war files include a WEB-INF/web.xml which will be ignored 
-(webxml attribute is missing from war task, or ignoreWebxml attribute is specified as 'true')
+[INFO] 2 warnings 
+[INFO] -------------------------------------------------------------
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /d:/dev/njava/simasoft/naifg8/src/main/java/co/simasoft/Setup/SystemsModelsSetup.java:[377,18] variable entities25 is already defined in method data()
+[ERROR] /d:/dev/njava/simasoft/naifg8/src/main/java/co/simasoft/Setup/SystemsModelsSetup.java:[459,18] variable entities31 is already defined in method data()
+[ERROR] /d:/dev/njava/simasoft/naifg8/src/main/java/co/simasoft/Setup/SystemsModelsSetup.java:[556,18] variable entities38 is already defined in method data()
+[ERROR] /d:/dev/njava/simasoft/naifg8/src/main/java/co/simasoft/Setup/SystemsModelsSetup.java:[911,18] variable entities63 is already defined in method data()
+[ERROR] /d:/dev/njava/simasoft/naifg8/src/main/java/co/simasoft/Setup/SystemsModelsSetup.java:[1524,18] variable entities106 is already defined in method data()
+[INFO] 5 errors 
+[INFO] -------------------------------------------------------------
 [INFO] ------------------------------------------------------------------------
-[INFO] BUILD SUCCESS
+[INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 42.095s
-[INFO] Finished at: Fri Jul 03 10:26:36 COT 2015
+[INFO] Total time: 2.286 s
+[INFO] Finished at: 2015-07-05T16:31:10-05:00
 [INFO] Final Memory: 16M/46M
 [INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.1:compile (default-compile) on project naifg8: Compilation failure: Compilation failure:
+[ERROR] /d:/dev/njava/simasoft/naifg8/src/main/java/co/simasoft/Setup/SystemsModelsSetup.java:[377,18] variable entities25 is already defined in method data()
+[ERROR] /d:/dev/njava/simasoft/naifg8/src/main/java/co/simasoft/Setup/SystemsModelsSetup.java:[459,18] variable entities31 is already defined in method data()
+[ERROR] /d:/dev/njava/simasoft/naifg8/src/main/java/co/simasoft/Setup/SystemsModelsSetup.java:[556,18] variable entities38 is already defined in method data()
+[ERROR] /d:/dev/njava/simasoft/naifg8/src/main/java/co/simasoft/Setup/SystemsModelsSetup.java:[911,18] variable entities63 is already defined in method data()
+[ERROR] /d:/dev/njava/simasoft/naifg8/src/main/java/co/simasoft/Setup/SystemsModelsSetup.java:[1524,18] variable entities106 is already defined in method data()
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
