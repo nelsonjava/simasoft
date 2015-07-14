@@ -168,9 +168,9 @@ line("//      ...................... "+relation.getTo()+" ......................
 line("        Entities entities"+String.valueOf(++j)+" = new Entities();");
 line("        entities"+String.valueOf(j)+" = findBean.nameEntities(\""+relation.getTo()+"\",em);");
 line("        relationships"+String.valueOf(i)+".setTo(entities"+String.valueOf(j)+");");
-line("//      ...................... "+relation.getCardinality()+" ........................");
+line("//      ...................... "+Cardinaly(relation.getCardinality())+" ........................");
 line("        Cardinalities cardinalities"+String.valueOf(++j)+" = new Cardinalities();");
-line("        cardinalities"+String.valueOf(j)+" = findBean.cardinalityCardinalities(\""+relation.getCardinality()+"\",em);");
+line("        cardinalities"+String.valueOf(j)+" = findBean.nameCardinalities(\""+Cardinaly(relation.getCardinality())+"\",em);");
 line("        relationships"+String.valueOf(i)+".setCardinalities(cardinalities"+String.valueOf(j)+");");
 line("        em.persist(relationships"+String.valueOf(i)+");");
 line("        em.flush();\n");
@@ -193,6 +193,27 @@ line("} // "+domain.getArtifactId());
     }
 
 } // Constructor
+
+    public String Cardinaly(String cardinality) {
+
+        switch (cardinality) {
+
+            case "1..1":
+                 return "Uno a Uno Bidirecccional No.2";
+
+            case "*..1":
+                 return "Uno a Muchos Bidirecccional No.5";
+
+            case "1..*":
+                 return "Uno a Muchos Bidirecccional No.5";
+
+            case "*..*":
+                 return "Muchos a Muchos Bidirecccional No.7";
+
+        } // switch
+        return "";
+
+    } // Cardinaly
 
 } // class
 

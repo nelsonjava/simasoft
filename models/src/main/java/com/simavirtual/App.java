@@ -533,6 +533,11 @@ public class App extends FileTxt{
         Domains domains = new Domains("co.simasof","SystemsModels","1.0-SNAPSHOT",modelos);
         DataGenH2 systemsModels = new DataGenH2(domains);
 
+        modelos.clear();
+        modelos.add(new Modelos("naif/SGDEA/SGDEA.oom","co.simasoft.models.naif.sgdea"));
+        domains = new Domains("co.simasof","SGDEA","1.0-SNAPSHOT",modelos);
+        systemsModels = new DataGenH2(domains);
+
     } // main
 
 } // App
