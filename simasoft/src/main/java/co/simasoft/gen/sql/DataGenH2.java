@@ -155,8 +155,25 @@ line("//      ---------------------- Relationships ------------------------\n");
     i=0;
     for (Packages packages : domain.getPackages()){
 
+line("/*");
         for (Relation relation: packages.getRelations()) {
 
+            switch (relation.getCardinality()) {
+                case "1..1":
+                case "1..*":
+                case "*..*":
+line(relation.getFrom()+" "+relation.getCardinality()+" "+relation.getTo());
+            } // switch
+
+        } // for
+line("*/");        
+
+        for (Relation relation: packages.getRelations()) {
+
+            switch (relation.getCardinality()) {
+                case "1..1":
+                case "1..*":
+                case "*..*":
 line("        Relationships relationships"+String.valueOf(++i)+" = new Relationships();");
 line("        relationships"+String.valueOf(i)+".setOptionality("+relation.getOptionality()+");");
 line("        relationships"+String.valueOf(i)+".setIsEmbedded(false);");
@@ -174,6 +191,7 @@ line("        cardinalities"+String.valueOf(j)+" = findBean.nameCardinalities(\"
 line("        relationships"+String.valueOf(i)+".setCardinalities(cardinalities"+String.valueOf(j)+");");
 line("        em.persist(relationships"+String.valueOf(i)+");");
 line("        em.flush();\n");
+            } // switch
 
         } // for
 

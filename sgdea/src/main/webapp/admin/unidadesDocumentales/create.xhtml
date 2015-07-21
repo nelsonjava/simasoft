@@ -1,0 +1,295 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:forgeview="http://jboss.org/forge/view"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="id" value='#{unidadesDocumentalesBean.id}'/>
+		<f:event type="preRenderView" listener='#{unidadesDocumentalesBean.retrieve}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="Create Unidades Documentales"/>
+
+	<ui:define name="header">
+		Unidades Documentales
+	</ui:define>
+
+	<ui:define name="subheader">
+		<c:choose>
+			<c:when test='#{!empty unidadesDocumentalesBean.id}'>
+				Edit existing Unidades Documentales
+			</c:when>
+			<c:otherwise>
+				Create a new Unidades Documentales
+			</c:otherwise>
+		</c:choose>
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:form id="create">
+			<h:messages globalOnly="true" styleClass="error"/>
+
+			<h:panelGrid columnClasses="label,component,required" columns="3">
+				<h:outputLabel for="unidadesDocumentalesBeanUnidadesDocumentalesOrden" value="Orden:"/>
+				<h:panelGroup>
+					<h:inputText id="unidadesDocumentalesBeanUnidadesDocumentalesOrden" value="#{unidadesDocumentalesBean.unidadesDocumentales.orden}"/>
+					<h:message for="unidadesDocumentalesBeanUnidadesDocumentalesOrden" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="unidadesDocumentalesBeanUnidadesDocumentalesNombre" value="Nombre:"/>
+				<h:panelGroup>
+					<h:inputText id="unidadesDocumentalesBeanUnidadesDocumentalesNombre" value="#{unidadesDocumentalesBean.unidadesDocumentales.nombre}"/>
+					<h:message for="unidadesDocumentalesBeanUnidadesDocumentalesNombre" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="unidadesDocumentalesBeanUnidadesDocumentalesInventarioDocumental" value="Inventario Documental:"/>
+				<h:panelGroup>
+					<ui:param name="_collection" value="#{unidadesDocumentalesBean.unidadesDocumentales.inventarioDocumental}"/>
+					<h:dataTable id="unidadesDocumentalesBeanUnidadesDocumentalesInventarioDocumental" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Orden"/>
+							</f:facet>
+							<h:link outcome="/admin/inventarioDocumental/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemOrden" value="#{_item.orden}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="inventarioDocumentalBeanAddOrden" value="#{inventarioDocumentalBean.add.orden}"/>
+								<h:message for="inventarioDocumentalBeanAddOrden" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Fecha Depuracion"/>
+							</f:facet>
+							<h:link outcome="/admin/inventarioDocumental/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemFechaDepuracion" value="#{_item.fechaDepuracion}">
+									<f:convertDateTime type="date"/>
+								</h:outputText>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="inventarioDocumentalBeanAddFechaDepuracion" value="#{inventarioDocumentalBean.add.fechaDepuracion}">
+									<f:convertDateTime type="date"/>
+								</h:inputText>
+								<h:message for="inventarioDocumentalBeanAddFechaDepuracion" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Cantidad"/>
+							</f:facet>
+							<h:link outcome="/admin/inventarioDocumental/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemCantidad" value="#{_item.cantidad}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="inventarioDocumentalBeanAddCantidad" value="#{inventarioDocumentalBean.add.cantidad}"/>
+								<h:message for="inventarioDocumentalBeanAddCantidad" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Folios"/>
+							</f:facet>
+							<h:link outcome="/admin/inventarioDocumental/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemFolios" value="#{_item.folios}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="inventarioDocumentalBeanAddFolios" value="#{inventarioDocumentalBean.add.folios}"/>
+								<h:message for="inventarioDocumentalBeanAddFolios" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Fecha Final"/>
+							</f:facet>
+							<h:link outcome="/admin/inventarioDocumental/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemFechaFinal" value="#{_item.fechaFinal}">
+									<f:convertDateTime type="date"/>
+								</h:outputText>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="inventarioDocumentalBeanAddFechaFinal" value="#{inventarioDocumentalBean.add.fechaFinal}">
+									<f:convertDateTime type="date"/>
+								</h:inputText>
+								<h:message for="inventarioDocumentalBeanAddFechaFinal" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column footerClass="remove-column" headerClass="remove-column">
+							<h:commandLink action="#{_collection.remove(_item)}" styleClass="remove-button"/>
+							<f:facet name="footer">
+								<h:commandLink action="#{_collection.add(inventarioDocumentalBean.added)}" id="unidadesDocumentalesBeanUnidadesDocumentalesInventarioDocumentalAdd" styleClass="add-button">
+									<f:setPropertyActionListener target="#{inventarioDocumentalBean.add.unidadesDocumentales}" value="#{unidadesDocumentalesBean.unidadesDocumentales}"/>
+								</h:commandLink>
+							</f:facet>
+						</h:column>
+					</h:dataTable>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="unidadesDocumentalesBeanUnidadesDocumentalesSoporteDocumental" value="Soporte Documental:"/>
+				<h:panelGroup>
+					<ui:param name="_collection" value="#{unidadesDocumentalesBean.unidadesDocumentales.soporteDocumental}"/>
+					<h:dataTable id="unidadesDocumentalesBeanUnidadesDocumentalesSoporteDocumental" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Orden"/>
+							</f:facet>
+							<h:link outcome="/admin/soporteDocumental/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemOrden" value="#{_item.orden}"/>
+							</h:link>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Nombre"/>
+							</f:facet>
+							<h:link outcome="/admin/soporteDocumental/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemNombre" value="#{_item.nombre}"/>
+							</h:link>
+						</h:column>
+						<h:column footerClass="remove-column" headerClass="remove-column">
+							<h:commandLink action="#{_collection.remove(_item)}" styleClass="remove-button"/>
+						</h:column>
+					</h:dataTable>
+					<h:panelGrid columnClasses=",remove-column" columns="2" styleClass="data-table-footer">
+						<h:selectOneMenu converter="#{soporteDocumentalBean.converter}" id="unidadesDocumentalesBeanUnidadesDocumentalesSoporteDocumentalSelect" value="#{requestScope['unidadesDocumentalesBeanUnidadesDocumentalesSoporteDocumentalSelect']}">
+							<f:selectItem/>
+							<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{soporteDocumentalBean.all}" var="_item"/>
+						</h:selectOneMenu>
+						<h:commandLink action="#{_collection.add(requestScope['unidadesDocumentalesBeanUnidadesDocumentalesSoporteDocumentalSelect'])}" id="unidadesDocumentalesBeanUnidadesDocumentalesSoporteDocumentalAdd" onclick="if (document.getElementById(document.forms[0].id+':unidadesDocumentalesBeanUnidadesDocumentalesSoporteDocumentalSelect').selectedIndex &lt; 1) { alert('Must select a Soporte Documental'); return false; }" styleClass="add-button"/>
+					</h:panelGrid>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="unidadesDocumentalesBeanUnidadesDocumentalesSeries" value="Series:"/>
+				<h:panelGroup>
+					<ui:param name="_collection" value="#{unidadesDocumentalesBean.unidadesDocumentales.series}"/>
+					<h:dataTable id="unidadesDocumentalesBeanUnidadesDocumentalesSeries" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Orden"/>
+							</f:facet>
+							<h:link outcome="/admin/series/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemOrden" value="#{_item.orden}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="seriesBeanAddOrden" value="#{seriesBean.add.orden}"/>
+								<h:message for="seriesBeanAddOrden" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Nombre"/>
+							</f:facet>
+							<h:link outcome="/admin/series/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemNombre" value="#{_item.nombre}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="seriesBeanAddNombre" value="#{seriesBean.add.nombre}"/>
+								<h:message for="seriesBeanAddNombre" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Codigo"/>
+							</f:facet>
+							<h:link outcome="/admin/series/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemCodigo" value="#{_item.codigo}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="seriesBeanAddCodigo" value="#{seriesBean.add.codigo}"/>
+								<h:message for="seriesBeanAddCodigo" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Observaciones"/>
+							</f:facet>
+							<h:link outcome="/admin/series/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemObservaciones" value="#{_item.observaciones}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="seriesBeanAddObservaciones" value="#{seriesBean.add.observaciones}"/>
+								<h:message for="seriesBeanAddObservaciones" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Obj Padre"/>
+							</f:facet>
+							<h:link outcome="/admin/series/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="forgeviewdisplayitemObjPadre" value="#{forgeview:display(_item.objPadre)}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:selectOneMenu converter="#{seriesBean.converter}" id="seriesBeanAddObjPadre" value="#{seriesBean.add.objPadre}">
+									<f:selectItem/>
+									<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{seriesBean.all}" var="_item"/>
+								</h:selectOneMenu>
+								<h:message for="seriesBeanAddObjPadre" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column footerClass="remove-column" headerClass="remove-column">
+							<h:commandLink action="#{_collection.remove(_item)}" styleClass="remove-button"/>
+							<f:facet name="footer">
+								<h:commandLink action="#{_collection.add(seriesBean.added)}" id="unidadesDocumentalesBeanUnidadesDocumentalesSeriesAdd" styleClass="add-button">
+									<f:setPropertyActionListener target="#{seriesBean.add.unidadesDocumentales}" value="#{unidadesDocumentalesBean.unidadesDocumentales}"/>
+								</h:commandLink>
+							</f:facet>
+						</h:column>
+					</h:dataTable>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="unidadesDocumentalesBeanUnidadesDocumentalesUnidadesConservacion" value="Unidades Conservacion:"/>
+				<h:panelGroup>
+					<h:selectOneMenu converter="#{unidadesConservacionBean.converter}" id="unidadesDocumentalesBeanUnidadesDocumentalesUnidadesConservacion" value="#{unidadesDocumentalesBean.unidadesDocumentales.unidadesConservacion}">
+						<f:selectItem/>
+						<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{unidadesConservacionBean.all}" var="_item"/>
+					</h:selectOneMenu>
+					<h:message for="unidadesDocumentalesBeanUnidadesDocumentalesUnidadesConservacion" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="unidadesDocumentalesBeanUnidadesDocumentalesFrecuenciasConsulta" value="Frecuencias Consulta:"/>
+				<h:panelGroup>
+					<h:selectOneMenu converter="#{frecuenciasConsultaBean.converter}" id="unidadesDocumentalesBeanUnidadesDocumentalesFrecuenciasConsulta" value="#{unidadesDocumentalesBean.unidadesDocumentales.frecuenciasConsulta}">
+						<f:selectItem/>
+						<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{frecuenciasConsultaBean.all}" var="_item"/>
+					</h:selectOneMenu>
+					<h:message for="unidadesDocumentalesBeanUnidadesDocumentalesFrecuenciasConsulta" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+			</h:panelGrid>
+
+			<div class="buttons">
+				<h:commandLink value="Save" action='#{unidadesDocumentalesBean.update}' styleClass="btn btn-primary"/>
+				<c:choose>
+					<c:when test='#{!empty unidadesDocumentalesBean.id}'>
+						<h:link value="Cancel" outcome="view" styleClass="btn btn-primary">
+							<f:param name="id" value='#{unidadesDocumentalesBean.id}'/>
+						</h:link>
+						<h:commandLink value="Delete" action='#{unidadesDocumentalesBean.delete}' styleClass="btn btn-primary"/>
+					</c:when>
+					<c:otherwise>
+						<h:link value="Cancel" outcome="search" styleClass="btn btn-primary"/>
+					</c:otherwise>
+				</c:choose>
+			</div>
+		</h:form>
+	</ui:define>
+
+</ui:composition>

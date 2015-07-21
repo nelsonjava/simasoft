@@ -1,0 +1,197 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:forgeview="http://jboss.org/forge/view"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="id" value='#{fondosDocumentalesBean.id}'/>
+		<f:event type="preRenderView" listener='#{fondosDocumentalesBean.retrieve}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="Create Fondos Documentales"/>
+
+	<ui:define name="header">
+		Fondos Documentales
+	</ui:define>
+
+	<ui:define name="subheader">
+		<c:choose>
+			<c:when test='#{!empty fondosDocumentalesBean.id}'>
+				Edit existing Fondos Documentales
+			</c:when>
+			<c:otherwise>
+				Create a new Fondos Documentales
+			</c:otherwise>
+		</c:choose>
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:form id="create">
+			<h:messages globalOnly="true" styleClass="error"/>
+
+			<h:panelGrid columnClasses="label,component,required" columns="3">
+				<h:outputLabel for="fondosDocumentalesBeanFondosDocumentalesOrden" value="Orden:"/>
+				<h:panelGroup>
+					<h:inputText id="fondosDocumentalesBeanFondosDocumentalesOrden" value="#{fondosDocumentalesBean.fondosDocumentales.orden}"/>
+					<h:message for="fondosDocumentalesBeanFondosDocumentalesOrden" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="fondosDocumentalesBeanFondosDocumentalesOrganismos" value="Organismos:"/>
+				<h:panelGroup>
+					<h:inputText id="fondosDocumentalesBeanFondosDocumentalesOrganismos" value="#{fondosDocumentalesBean.fondosDocumentales.organismos}"/>
+					<h:message for="fondosDocumentalesBeanFondosDocumentalesOrganismos" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="fondosDocumentalesBeanFondosDocumentalesNombre" value="Nombre:"/>
+				<h:panelGroup>
+					<h:inputText id="fondosDocumentalesBeanFondosDocumentalesNombre" value="#{fondosDocumentalesBean.fondosDocumentales.nombre}"/>
+					<h:message for="fondosDocumentalesBeanFondosDocumentalesNombre" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="fondosDocumentalesBeanFondosDocumentalesFechaCreacion" value="Fecha Creacion:"/>
+				<h:panelGroup>
+					<h:inputText id="fondosDocumentalesBeanFondosDocumentalesFechaCreacion" value="#{fondosDocumentalesBean.fondosDocumentales.fechaCreacion}">
+						<f:convertDateTime type="date"/>
+					</h:inputText>
+					<h:message for="fondosDocumentalesBeanFondosDocumentalesFechaCreacion" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="fondosDocumentalesBeanFondosDocumentalesFechaTerminacion" value="Fecha Terminacion:"/>
+				<h:panelGroup>
+					<h:inputText id="fondosDocumentalesBeanFondosDocumentalesFechaTerminacion" value="#{fondosDocumentalesBean.fondosDocumentales.fechaTerminacion}">
+						<f:convertDateTime type="date"/>
+					</h:inputText>
+					<h:message for="fondosDocumentalesBeanFondosDocumentalesFechaTerminacion" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="fondosDocumentalesBeanFondosDocumentalesDisposiciones" value="Disposiciones:"/>
+				<h:panelGroup>
+					<h:inputText id="fondosDocumentalesBeanFondosDocumentalesDisposiciones" value="#{fondosDocumentalesBean.fondosDocumentales.disposiciones}"/>
+					<h:message for="fondosDocumentalesBeanFondosDocumentalesDisposiciones" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="fondosDocumentalesBeanFondosDocumentalesSecciones" value="Secciones:"/>
+				<h:panelGroup>
+					<ui:param name="_collection" value="#{fondosDocumentalesBean.fondosDocumentales.secciones}"/>
+					<h:dataTable id="fondosDocumentalesBeanFondosDocumentalesSecciones" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Orden"/>
+							</f:facet>
+							<h:link outcome="/admin/secciones/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemOrden" value="#{_item.orden}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="seccionesBeanAddOrden" value="#{seccionesBean.add.orden}"/>
+								<h:message for="seccionesBeanAddOrden" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Observaciones"/>
+							</f:facet>
+							<h:link outcome="/admin/secciones/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemObservaciones" value="#{_item.observaciones}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="seccionesBeanAddObservaciones" value="#{seccionesBean.add.observaciones}"/>
+								<h:message for="seccionesBeanAddObservaciones" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Nro Transferencias"/>
+							</f:facet>
+							<h:link outcome="/admin/secciones/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemNroTransferencias" value="#{_item.nroTransferencias}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="seccionesBeanAddNroTransferencias" value="#{seccionesBean.add.nroTransferencias}"/>
+								<h:message for="seccionesBeanAddNroTransferencias" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Codigo"/>
+							</f:facet>
+							<h:link outcome="/admin/secciones/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemCodigo" value="#{_item.codigo}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="seccionesBeanAddCodigo" value="#{seccionesBean.add.codigo}"/>
+								<h:message for="seccionesBeanAddCodigo" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Nombre"/>
+							</f:facet>
+							<h:link outcome="/admin/secciones/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemNombre" value="#{_item.nombre}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="seccionesBeanAddNombre" value="#{seccionesBean.add.nombre}"/>
+								<h:message for="seccionesBeanAddNombre" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column footerClass="remove-column" headerClass="remove-column">
+							<h:commandLink action="#{_collection.remove(_item)}" styleClass="remove-button"/>
+							<f:facet name="footer">
+								<h:commandLink action="#{_collection.add(seccionesBean.added)}" id="fondosDocumentalesBeanFondosDocumentalesSeccionesAdd" styleClass="add-button">
+									<f:setPropertyActionListener target="#{seccionesBean.add.fondosDocumentales}" value="#{fondosDocumentalesBean.fondosDocumentales}"/>
+								</h:commandLink>
+							</f:facet>
+						</h:column>
+					</h:dataTable>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="fondosDocumentalesBeanFondosDocumentalesVigenciaFondos" value="Vigencia Fondos:"/>
+				<h:panelGroup>
+					<h:selectOneMenu converter="#{vigenciaFondosBean.converter}" id="fondosDocumentalesBeanFondosDocumentalesVigenciaFondos" value="#{fondosDocumentalesBean.fondosDocumentales.vigenciaFondos}">
+						<f:selectItem/>
+						<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{vigenciaFondosBean.all}" var="_item"/>
+					</h:selectOneMenu>
+					<h:message for="fondosDocumentalesBeanFondosDocumentalesVigenciaFondos" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="fondosDocumentalesBeanFondosDocumentalesEmpresas" value="Empresas:"/>
+				<h:panelGroup>
+					<h:selectOneMenu converter="#{empresasBean.converter}" id="fondosDocumentalesBeanFondosDocumentalesEmpresas" value="#{fondosDocumentalesBean.fondosDocumentales.empresas}">
+						<f:selectItem/>
+						<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{empresasBean.all}" var="_item"/>
+					</h:selectOneMenu>
+					<h:message for="fondosDocumentalesBeanFondosDocumentalesEmpresas" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+			</h:panelGrid>
+
+			<div class="buttons">
+				<h:commandLink value="Save" action='#{fondosDocumentalesBean.update}' styleClass="btn btn-primary"/>
+				<c:choose>
+					<c:when test='#{!empty fondosDocumentalesBean.id}'>
+						<h:link value="Cancel" outcome="view" styleClass="btn btn-primary">
+							<f:param name="id" value='#{fondosDocumentalesBean.id}'/>
+						</h:link>
+						<h:commandLink value="Delete" action='#{fondosDocumentalesBean.delete}' styleClass="btn btn-primary"/>
+					</c:when>
+					<c:otherwise>
+						<h:link value="Cancel" outcome="search" styleClass="btn btn-primary"/>
+					</c:otherwise>
+				</c:choose>
+			</div>
+		</h:form>
+	</ui:define>
+
+</ui:composition>

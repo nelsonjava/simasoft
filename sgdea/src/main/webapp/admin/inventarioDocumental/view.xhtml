@@ -1,0 +1,82 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="id" value='#{inventarioDocumentalBean.id}'/>
+		<f:event type="preRenderView" listener='#{inventarioDocumentalBean.retrieve}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="View Inventario Documental"/>
+
+	<ui:define name="header">
+		Inventario Documental
+	</ui:define>
+
+	<ui:define name="subheader">
+		View existing Inventario Documental
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:panelGrid columnClasses="label,component,required" columns="3">
+			<h:outputLabel for="inventarioDocumentalBeanInventarioDocumentalOrden" value="Orden:"/>
+			<h:outputText id="inventarioDocumentalBeanInventarioDocumentalOrden" value="#{inventarioDocumentalBean.inventarioDocumental.orden}"/>
+			<h:outputText/>
+			<h:outputLabel for="inventarioDocumentalBeanInventarioDocumentalFechaDepuracion" value="Fecha Depuracion:"/>
+			<h:outputText id="inventarioDocumentalBeanInventarioDocumentalFechaDepuracion" value="#{inventarioDocumentalBean.inventarioDocumental.fechaDepuracion}">
+				<f:convertDateTime type="date"/>
+			</h:outputText>
+			<h:outputText/>
+			<h:outputLabel for="inventarioDocumentalBeanInventarioDocumentalCantidad" value="Cantidad:"/>
+			<h:outputText id="inventarioDocumentalBeanInventarioDocumentalCantidad" value="#{inventarioDocumentalBean.inventarioDocumental.cantidad}"/>
+			<h:outputText/>
+			<h:outputLabel for="inventarioDocumentalBeanInventarioDocumentalFolios" value="Folios:"/>
+			<h:outputText id="inventarioDocumentalBeanInventarioDocumentalFolios" value="#{inventarioDocumentalBean.inventarioDocumental.folios}"/>
+			<h:outputText/>
+			<h:outputLabel for="inventarioDocumentalBeanInventarioDocumentalFechaFinal" value="Fecha Final:"/>
+			<h:outputText id="inventarioDocumentalBeanInventarioDocumentalFechaFinal" value="#{inventarioDocumentalBean.inventarioDocumental.fechaFinal}">
+				<f:convertDateTime type="date"/>
+			</h:outputText>
+			<h:outputText/>
+			<h:outputLabel for="inventarioDocumentalBeanInventarioDocumentalDisposcionFinal" value="Disposcion Final:"/>
+			<h:outputText id="inventarioDocumentalBeanInventarioDocumentalDisposcionFinal" value="#{inventarioDocumentalBean.inventarioDocumental.disposcionFinal}"/>
+			<h:outputText/>
+			<h:outputLabel for="inventarioDocumentalBeanInventarioDocumentalFechaInicial" value="Fecha Inicial:"/>
+			<h:outputText id="inventarioDocumentalBeanInventarioDocumentalFechaInicial" value="#{inventarioDocumentalBean.inventarioDocumental.fechaInicial}">
+				<f:convertDateTime type="date"/>
+			</h:outputText>
+			<h:outputText/>
+			<h:outputLabel for="inventarioDocumentalBeanInventarioDocumentalNroTransferencia" value="Nro Transferencia:"/>
+			<h:outputText id="inventarioDocumentalBeanInventarioDocumentalNroTransferencia" value="#{inventarioDocumentalBean.inventarioDocumental.nroTransferencia}"/>
+			<h:outputText/>
+			<h:outputLabel for="inventarioDocumentalBeanInventarioDocumentalFechaEntrega" value="Fecha Entrega:"/>
+			<h:outputText id="inventarioDocumentalBeanInventarioDocumentalFechaEntrega" value="#{inventarioDocumentalBean.inventarioDocumental.fechaEntrega}">
+				<f:convertDateTime type="date"/>
+			</h:outputText>
+			<h:outputText/>
+			<h:outputLabel for="inventarioDocumentalBeanInventarioDocumentalUnidadesDocumentales" value="Unidades Documentales:"/>
+			<h:link id="inventarioDocumentalBeanInventarioDocumentalUnidadesDocumentales" outcome="/admin/unidadesDocumentales/view" rendered="#{!empty inventarioDocumentalBean.inventarioDocumental.unidadesDocumentales}" value="#{inventarioDocumentalBean.inventarioDocumental.unidadesDocumentales}">
+				<f:param name="id" value="#{inventarioDocumentalBean.inventarioDocumental.unidadesDocumentales.id}"/>
+			</h:link>
+			<h:outputText/>
+			<h:outputLabel for="inventarioDocumentalBeanInventarioDocumentalFinalidadInventario" value="Finalidad Inventario:"/>
+			<h:link id="inventarioDocumentalBeanInventarioDocumentalFinalidadInventario" outcome="/admin/finalidadInventario/view" rendered="#{!empty inventarioDocumentalBean.inventarioDocumental.finalidadInventario}" value="#{inventarioDocumentalBean.inventarioDocumental.finalidadInventario}">
+				<f:param name="id" value="#{inventarioDocumentalBean.inventarioDocumental.finalidadInventario.id}"/>
+			</h:link>
+			<h:outputText/>
+		</h:panelGrid>
+
+		<div class="buttons">
+			<h:link value="View All" outcome="search" styleClass="btn btn-primary"/> 
+			<h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
+			<h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
+		</div>
+	</ui:define>
+
+</ui:composition>

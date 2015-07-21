@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:forgeview="http://jboss.org/forge/view"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="id" value='#{soporteDocumentalBean.id}'/>
+		<f:event type="preRenderView" listener='#{soporteDocumentalBean.retrieve}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="View Soporte Documental"/>
+
+	<ui:define name="header">
+		Soporte Documental
+	</ui:define>
+
+	<ui:define name="subheader">
+		View existing Soporte Documental
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:panelGrid columnClasses="label,component,required" columns="3">
+			<h:outputLabel for="soporteDocumentalBeanSoporteDocumentalOrden" value="Orden:"/>
+			<h:outputText id="soporteDocumentalBeanSoporteDocumentalOrden" value="#{soporteDocumentalBean.soporteDocumental.orden}"/>
+			<h:outputText/>
+			<h:outputLabel for="soporteDocumentalBeanSoporteDocumentalNombre" value="Nombre:"/>
+			<h:outputText id="soporteDocumentalBeanSoporteDocumentalNombre" value="#{soporteDocumentalBean.soporteDocumental.nombre}"/>
+			<h:outputText/>
+			<h:outputLabel for="soporteDocumentalBeanSoporteDocumentalUnidadesDocumentales" value="Unidades Documentales:"/>
+			<h:dataTable id="soporteDocumentalBeanSoporteDocumentalUnidadesDocumentales" styleClass="data-table" value="#{forgeview:asList(soporteDocumentalBean.soporteDocumental.unidadesDocumentales)}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Orden"/>
+					</f:facet>
+					<h:link outcome="/admin/unidadesDocumentales/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemOrden" value="#{_item.orden}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Nombre"/>
+					</f:facet>
+					<h:link outcome="/admin/unidadesDocumentales/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemNombre" value="#{_item.nombre}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Unidades Conservacion"/>
+					</f:facet>
+					<h:link outcome="/admin/unidadesDocumentales/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="forgeviewdisplayitemUnidadesConservacion" value="#{forgeview:display(_item.unidadesConservacion)}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Frecuencias Consulta"/>
+					</f:facet>
+					<h:link outcome="/admin/unidadesDocumentales/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="forgeviewdisplayitemFrecuenciasConsulta" value="#{forgeview:display(_item.frecuenciasConsulta)}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<h:outputText/>
+		</h:panelGrid>
+
+		<div class="buttons">
+			<h:link value="View All" outcome="search" styleClass="btn btn-primary"/> 
+			<h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
+			<h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
+		</div>
+	</ui:define>
+
+</ui:composition>

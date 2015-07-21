@@ -530,12 +530,12 @@ public class App extends FileTxt{
         modelos.add(new Modelos("naif/DomainModels/links/links.oom","co.simasoft.models.naif.domainmodels.links"));
         modelos.add(new Modelos("naif/DomainModels/modelsFiles/modelsFiles.oom","co.simasoft.models.naif.domainmodels.modelsFiles"));
         modelos.add(new Modelos("naif/DomainModels/dependencies/dependencies.oom","co.simasoft.models.naif.domainmodels.dependencies"));
-        Domains domains = new Domains("co.simasof","SystemsModels","1.0-SNAPSHOT",modelos);
+        Domains domains = new Domains("co.simasoft","SystemsModels","1.0-SNAPSHOT",modelos);
         DataGenH2 systemsModels = new DataGenH2(domains);
 
         modelos.clear();
         modelos.add(new Modelos("naif/SGDEA/SGDEA.oom","co.simasoft.models.naif.sgdea"));
-        domains = new Domains("co.simasof","SGDEA","1.0-SNAPSHOT",modelos);
+        domains = new Domains("co.simasoft","SGDEA","1.0-SNAPSHOT",modelos);
         systemsModels = new DataGenH2(domains);
 
     } // main

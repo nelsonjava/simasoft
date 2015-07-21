@@ -1,0 +1,128 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:forgeview="http://jboss.org/forge/view"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="page" value='#{seccionesBean.page}'/>
+		<f:event type="preRenderView" listener='#{seccionesBean.paginate}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="Search Secciones entities"/>
+
+	<ui:define name="header">
+		Secciones
+	</ui:define>
+
+	<ui:define name="subheader">
+		Search Secciones entities
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:form id="search">
+			<f:validateBean disabled="true">
+				<h:panelGroup styleClass="search">
+
+					<h:panelGrid columnClasses="label,component,required" columns="3">
+						<h:outputLabel for="seccionesBeanExampleObservaciones" value="Observaciones:"/>
+						<h:panelGroup>
+							<h:inputText id="seccionesBeanExampleObservaciones" value="#{seccionesBean.example.observaciones}"/>
+							<h:message for="seccionesBeanExampleObservaciones" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="seccionesBeanExampleNroTransferencias" value="Nro Transferencias:"/>
+						<h:panelGroup>
+							<h:inputText id="seccionesBeanExampleNroTransferencias" value="#{seccionesBean.example.nroTransferencias}"/>
+							<h:message for="seccionesBeanExampleNroTransferencias" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="seccionesBeanExampleCodigo" value="Codigo:"/>
+						<h:panelGroup>
+							<h:inputText id="seccionesBeanExampleCodigo" value="#{seccionesBean.example.codigo}"/>
+							<h:message for="seccionesBeanExampleCodigo" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="seccionesBeanExampleNombre" value="Nombre:"/>
+						<h:panelGroup>
+							<h:inputText id="seccionesBeanExampleNombre" value="#{seccionesBean.example.nombre}"/>
+							<h:message for="seccionesBeanExampleNombre" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="seccionesBeanExampleObjPadre" value="Obj Padre:"/>
+						<h:panelGroup>
+							<h:selectOneMenu converter="#{seccionesBean.converter}" id="seccionesBeanExampleObjPadre" value="#{seccionesBean.example.objPadre}">
+								<f:selectItem/>
+								<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{seccionesBean.all}" var="_item"/>
+							</h:selectOneMenu>
+							<h:message for="seccionesBeanExampleObjPadre" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+					</h:panelGrid>
+					<h:panelGroup styleClass="buttons">
+						<h:commandLink value="Search" action='#{seccionesBean.search}' styleClass="btn btn-primary"/>
+						<h:commandLink value="Create New" action='#{seccionesBean.create}' styleClass="btn btn-primary"/>
+					</h:panelGroup>
+				</h:panelGroup>
+			</f:validateBean>
+			
+			<h:dataTable id="seccionesBeanPageItems" styleClass="data-table" value="#{seccionesBean.pageItems}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Orden"/>
+					</f:facet>
+					<h:link outcome="/admin/secciones/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemOrden" value="#{_item.orden}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Observaciones"/>
+					</f:facet>
+					<h:link outcome="/admin/secciones/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemObservaciones" value="#{_item.observaciones}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Nro Transferencias"/>
+					</f:facet>
+					<h:link outcome="/admin/secciones/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemNroTransferencias" value="#{_item.nroTransferencias}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Codigo"/>
+					</f:facet>
+					<h:link outcome="/admin/secciones/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemCodigo" value="#{_item.codigo}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Nombre"/>
+					</f:facet>
+					<h:link outcome="/admin/secciones/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemNombre" value="#{_item.nombre}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<ui:include src="/resources/scaffold/paginator.xhtml">
+				<ui:param name="paginatorBean" value='#{seccionesBean}'/>
+			</ui:include>
+		</h:form>
+			
+	</ui:define>
+
+</ui:composition>

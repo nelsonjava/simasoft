@@ -1,0 +1,131 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:forgeview="http://jboss.org/forge/view"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="page" value='#{seriesBean.page}'/>
+		<f:event type="preRenderView" listener='#{seriesBean.paginate}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="Search Series entities"/>
+
+	<ui:define name="header">
+		Series
+	</ui:define>
+
+	<ui:define name="subheader">
+		Search Series entities
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:form id="search">
+			<f:validateBean disabled="true">
+				<h:panelGroup styleClass="search">
+
+					<h:panelGrid columnClasses="label,component,required" columns="3">
+						<h:outputLabel for="seriesBeanExampleNombre" value="Nombre:"/>
+						<h:panelGroup>
+							<h:inputText id="seriesBeanExampleNombre" value="#{seriesBean.example.nombre}"/>
+							<h:message for="seriesBeanExampleNombre" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="seriesBeanExampleCodigo" value="Codigo:"/>
+						<h:panelGroup>
+							<h:inputText id="seriesBeanExampleCodigo" value="#{seriesBean.example.codigo}"/>
+							<h:message for="seriesBeanExampleCodigo" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="seriesBeanExampleObservaciones" value="Observaciones:"/>
+						<h:panelGroup>
+							<h:inputText id="seriesBeanExampleObservaciones" value="#{seriesBean.example.observaciones}"/>
+							<h:message for="seriesBeanExampleObservaciones" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="seriesBeanExampleObjPadre" value="Obj Padre:"/>
+						<h:panelGroup>
+							<h:selectOneMenu converter="#{seriesBean.converter}" id="seriesBeanExampleObjPadre" value="#{seriesBean.example.objPadre}">
+								<f:selectItem/>
+								<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{seriesBean.all}" var="_item"/>
+							</h:selectOneMenu>
+							<h:message for="seriesBeanExampleObjPadre" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="seriesBeanExampleUnidadesDocumentales" value="Unidades Documentales:"/>
+						<h:panelGroup>
+							<h:selectOneMenu converter="#{unidadesDocumentalesBean.converter}" id="seriesBeanExampleUnidadesDocumentales" value="#{seriesBean.example.unidadesDocumentales}">
+								<f:selectItem/>
+								<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{unidadesDocumentalesBean.all}" var="_item"/>
+							</h:selectOneMenu>
+							<h:message for="seriesBeanExampleUnidadesDocumentales" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+					</h:panelGrid>
+					<h:panelGroup styleClass="buttons">
+						<h:commandLink value="Search" action='#{seriesBean.search}' styleClass="btn btn-primary"/>
+						<h:commandLink value="Create New" action='#{seriesBean.create}' styleClass="btn btn-primary"/>
+					</h:panelGroup>
+				</h:panelGroup>
+			</f:validateBean>
+			
+			<h:dataTable id="seriesBeanPageItems" styleClass="data-table" value="#{seriesBean.pageItems}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Orden"/>
+					</f:facet>
+					<h:link outcome="/admin/series/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemOrden" value="#{_item.orden}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Nombre"/>
+					</f:facet>
+					<h:link outcome="/admin/series/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemNombre" value="#{_item.nombre}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Codigo"/>
+					</f:facet>
+					<h:link outcome="/admin/series/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemCodigo" value="#{_item.codigo}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Observaciones"/>
+					</f:facet>
+					<h:link outcome="/admin/series/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemObservaciones" value="#{_item.observaciones}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Obj Padre"/>
+					</f:facet>
+					<h:link outcome="/admin/series/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="forgeviewdisplayitemObjPadre" value="#{forgeview:display(_item.objPadre)}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<ui:include src="/resources/scaffold/paginator.xhtml">
+				<ui:param name="paginatorBean" value='#{seriesBean}'/>
+			</ui:include>
+		</h:form>
+			
+	</ui:define>
+
+</ui:composition>

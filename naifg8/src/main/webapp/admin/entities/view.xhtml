@@ -62,6 +62,17 @@
 			
 			<h:outputLabel for="entitiesBeanEntitiesAttributes" value="Attributes:"/>
 			<h:dataTable id="entitiesBeanEntitiesAttributes" styleClass="data-table" value="#{forgeview:asList(entitiesBean.entities.attributes)}" var="_item">
+
+ 				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Orden"/>
+					</f:facet>
+					<h:link outcome="/admin/attributes/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemOrden" value="#{_item.orden}"/>
+					</h:link>
+				</h:column>
+
 				<h:column>
 					<f:facet name="header">
 						<h:outputText value="Name"/>
@@ -71,6 +82,46 @@
 						<h:outputText id="itemName" value="#{_item.name}"/>
 					</h:link>
 				</h:column>
+
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="TypeName"/>
+					</f:facet>
+					<h:link outcome="/admin/attributes/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemType" value="#{_item.attributesTypes.name}"/>
+					</h:link>
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Type"/>
+					</f:facet>
+					<h:link outcome="/admin/attributes/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemType1" value="#{_item.attributesTypes.type}"/>
+					</h:link>
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Null"/>
+					</f:facet>
+					<h:link outcome="/admin/attributes/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemNull" value="#{_item.nullable}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Unique"/>
+					</f:facet>
+					<h:link outcome="/admin/attributes/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemUnique" value="#{_item.single}"/>
+					</h:link>
+				</h:column>
+
 			</h:dataTable>
 			<h:outputText/>
 
@@ -293,8 +344,6 @@
 			</h:dataTable>
 			<h:outputText/>
 
-
-			<h:outputText/>
 			<h:outputLabel for="entitiesBeanEntitiesNameQueries" value="Name Queries:"/>
 			<h:dataTable id="entitiesBeanEntitiesNameQueries" styleClass="data-table" value="#{forgeview:asList(entitiesBean.entities.nameQueries)}" var="_item">
 				<h:column>
@@ -330,15 +379,16 @@
 				</h:column>
 			</h:dataTable>
 			<h:outputText/>
+
 			<h:outputLabel for="entitiesBeanEntitiesGroupIds" value="Group Ids:"/>
 			<h:link id="entitiesBeanEntitiesGroupIds" outcome="/admin/groupIds/view" rendered="#{!empty entitiesBean.entities.groupIds}" value="#{entitiesBean.entities.groupIds}">
 				<f:param name="id" value="#{entitiesBean.entities.groupIds.id}"/>
 			</h:link>
-			<h:outputText/>
+
 		</h:panelGrid>
 
 		<div class="buttons">
-			<h:link value="View All" outcome="search" styleClass="btn btn-primary"/> 
+			<h:link value="View All" outcome="search" styleClass="btn btn-primary"/>
 			<h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
 			<h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
 		</div>

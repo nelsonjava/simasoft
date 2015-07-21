@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:forgeview="http://jboss.org/forge/view"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="id" value='#{finalidadInventarioBean.id}'/>
+		<f:event type="preRenderView" listener='#{finalidadInventarioBean.retrieve}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="View Finalidad Inventario"/>
+
+	<ui:define name="header">
+		Finalidad Inventario
+	</ui:define>
+
+	<ui:define name="subheader">
+		View existing Finalidad Inventario
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:panelGrid columnClasses="label,component,required" columns="3">
+			<h:outputLabel for="finalidadInventarioBeanFinalidadInventarioOrden" value="Orden:"/>
+			<h:outputText id="finalidadInventarioBeanFinalidadInventarioOrden" value="#{finalidadInventarioBean.finalidadInventario.orden}"/>
+			<h:outputText/>
+			<h:outputLabel for="finalidadInventarioBeanFinalidadInventarioNombre" value="Nombre:"/>
+			<h:outputText id="finalidadInventarioBeanFinalidadInventarioNombre" value="#{finalidadInventarioBean.finalidadInventario.nombre}"/>
+			<h:outputText/>
+			<h:outputLabel for="finalidadInventarioBeanFinalidadInventarioInventarioDocumental" value="Inventario Documental:"/>
+			<h:dataTable id="finalidadInventarioBeanFinalidadInventarioInventarioDocumental" styleClass="data-table" value="#{forgeview:asList(finalidadInventarioBean.finalidadInventario.inventarioDocumental)}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Orden"/>
+					</f:facet>
+					<h:link outcome="/admin/inventarioDocumental/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemOrden" value="#{_item.orden}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Fecha Depuracion"/>
+					</f:facet>
+					<h:link outcome="/admin/inventarioDocumental/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemFechaDepuracion" value="#{_item.fechaDepuracion}">
+							<f:convertDateTime type="date"/>
+						</h:outputText>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Cantidad"/>
+					</f:facet>
+					<h:link outcome="/admin/inventarioDocumental/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemCantidad" value="#{_item.cantidad}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Folios"/>
+					</f:facet>
+					<h:link outcome="/admin/inventarioDocumental/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemFolios" value="#{_item.folios}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Fecha Final"/>
+					</f:facet>
+					<h:link outcome="/admin/inventarioDocumental/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemFechaFinal" value="#{_item.fechaFinal}">
+							<f:convertDateTime type="date"/>
+						</h:outputText>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<h:outputText/>
+		</h:panelGrid>
+
+		<div class="buttons">
+			<h:link value="View All" outcome="search" styleClass="btn btn-primary"/> 
+			<h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
+			<h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
+		</div>
+	</ui:define>
+
+</ui:composition>

@@ -1,0 +1,134 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:forgeview="http://jboss.org/forge/view"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="page" value='#{trdBean.page}'/>
+		<f:event type="preRenderView" listener='#{trdBean.paginate}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="Search Trd entities"/>
+
+	<ui:define name="header">
+		Trd
+	</ui:define>
+
+	<ui:define name="subheader">
+		Search Trd entities
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:form id="search">
+			<f:validateBean disabled="true">
+				<h:panelGroup styleClass="search">
+
+					<h:panelGrid columnClasses="label,component,required" columns="3">
+						<h:outputLabel for="trdBeanExampleObservaciones" value="Observaciones:"/>
+						<h:panelGroup>
+							<h:inputText id="trdBeanExampleObservaciones" value="#{trdBean.example.observaciones}"/>
+							<h:message for="trdBeanExampleObservaciones" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="trdBeanExampleProcedimientos" value="Procedimientos:"/>
+						<h:panelGroup>
+							<h:inputText id="trdBeanExampleProcedimientos" value="#{trdBean.example.procedimientos}"/>
+							<h:message for="trdBeanExampleProcedimientos" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="trdBeanExampleGestion" value="Gestion:"/>
+						<h:panelGroup>
+							<h:selectOneMenu converter="#{retencionDocumentalBean.converter}" id="trdBeanExampleGestion" value="#{trdBean.example.gestion}">
+								<f:selectItem/>
+								<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{retencionDocumentalBean.all}" var="_item"/>
+							</h:selectOneMenu>
+							<h:message for="trdBeanExampleGestion" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="trdBeanExampleCentral" value="Central:"/>
+						<h:panelGroup>
+							<h:selectOneMenu converter="#{retencionDocumentalBean.converter}" id="trdBeanExampleCentral" value="#{trdBean.example.central}">
+								<f:selectItem/>
+								<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{retencionDocumentalBean.all}" var="_item"/>
+							</h:selectOneMenu>
+							<h:message for="trdBeanExampleCentral" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="trdBeanExampleDisposicionFinal" value="Disposicion Final:"/>
+						<h:panelGroup>
+							<h:selectOneMenu converter="#{disposicionFinalBean.converter}" id="trdBeanExampleDisposicionFinal" value="#{trdBean.example.disposicionFinal}">
+								<f:selectItem/>
+								<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{disposicionFinalBean.all}" var="_item"/>
+							</h:selectOneMenu>
+							<h:message for="trdBeanExampleDisposicionFinal" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+					</h:panelGrid>
+					<h:panelGroup styleClass="buttons">
+						<h:commandLink value="Search" action='#{trdBean.search}' styleClass="btn btn-primary"/>
+						<h:commandLink value="Create New" action='#{trdBean.create}' styleClass="btn btn-primary"/>
+					</h:panelGroup>
+				</h:panelGroup>
+			</f:validateBean>
+			
+			<h:dataTable id="trdBeanPageItems" styleClass="data-table" value="#{trdBean.pageItems}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Orden"/>
+					</f:facet>
+					<h:link outcome="/admin/trd/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemOrden" value="#{_item.orden}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Observaciones"/>
+					</f:facet>
+					<h:link outcome="/admin/trd/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemObservaciones" value="#{_item.observaciones}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Procedimientos"/>
+					</f:facet>
+					<h:link outcome="/admin/trd/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemProcedimientos" value="#{_item.procedimientos}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Gestion"/>
+					</f:facet>
+					<h:link outcome="/admin/trd/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="forgeviewdisplayitemGestion" value="#{forgeview:display(_item.gestion)}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Central"/>
+					</f:facet>
+					<h:link outcome="/admin/trd/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="forgeviewdisplayitemCentral" value="#{forgeview:display(_item.central)}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<ui:include src="/resources/scaffold/paginator.xhtml">
+				<ui:param name="paginatorBean" value='#{trdBean}'/>
+			</ui:include>
+		</h:form>
+			
+	</ui:define>
+
+</ui:composition>

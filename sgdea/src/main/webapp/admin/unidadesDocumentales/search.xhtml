@@ -1,0 +1,110 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:forgeview="http://jboss.org/forge/view"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="page" value='#{unidadesDocumentalesBean.page}'/>
+		<f:event type="preRenderView" listener='#{unidadesDocumentalesBean.paginate}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="Search Unidades Documentales entities"/>
+
+	<ui:define name="header">
+		Unidades Documentales
+	</ui:define>
+
+	<ui:define name="subheader">
+		Search Unidades Documentales entities
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:form id="search">
+			<f:validateBean disabled="true">
+				<h:panelGroup styleClass="search">
+
+					<h:panelGrid columnClasses="label,component,required" columns="3">
+						<h:outputLabel for="unidadesDocumentalesBeanExampleNombre" value="Nombre:"/>
+						<h:panelGroup>
+							<h:inputText id="unidadesDocumentalesBeanExampleNombre" value="#{unidadesDocumentalesBean.example.nombre}"/>
+							<h:message for="unidadesDocumentalesBeanExampleNombre" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="unidadesDocumentalesBeanExampleUnidadesConservacion" value="Unidades Conservacion:"/>
+						<h:panelGroup>
+							<h:selectOneMenu converter="#{unidadesConservacionBean.converter}" id="unidadesDocumentalesBeanExampleUnidadesConservacion" value="#{unidadesDocumentalesBean.example.unidadesConservacion}">
+								<f:selectItem/>
+								<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{unidadesConservacionBean.all}" var="_item"/>
+							</h:selectOneMenu>
+							<h:message for="unidadesDocumentalesBeanExampleUnidadesConservacion" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="unidadesDocumentalesBeanExampleFrecuenciasConsulta" value="Frecuencias Consulta:"/>
+						<h:panelGroup>
+							<h:selectOneMenu converter="#{frecuenciasConsultaBean.converter}" id="unidadesDocumentalesBeanExampleFrecuenciasConsulta" value="#{unidadesDocumentalesBean.example.frecuenciasConsulta}">
+								<f:selectItem/>
+								<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{frecuenciasConsultaBean.all}" var="_item"/>
+							</h:selectOneMenu>
+							<h:message for="unidadesDocumentalesBeanExampleFrecuenciasConsulta" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+					</h:panelGrid>
+					<h:panelGroup styleClass="buttons">
+						<h:commandLink value="Search" action='#{unidadesDocumentalesBean.search}' styleClass="btn btn-primary"/>
+						<h:commandLink value="Create New" action='#{unidadesDocumentalesBean.create}' styleClass="btn btn-primary"/>
+					</h:panelGroup>
+				</h:panelGroup>
+			</f:validateBean>
+			
+			<h:dataTable id="unidadesDocumentalesBeanPageItems" styleClass="data-table" value="#{unidadesDocumentalesBean.pageItems}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Orden"/>
+					</f:facet>
+					<h:link outcome="/admin/unidadesDocumentales/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemOrden" value="#{_item.orden}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Nombre"/>
+					</f:facet>
+					<h:link outcome="/admin/unidadesDocumentales/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemNombre" value="#{_item.nombre}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Unidades Conservacion"/>
+					</f:facet>
+					<h:link outcome="/admin/unidadesDocumentales/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="forgeviewdisplayitemUnidadesConservacion" value="#{forgeview:display(_item.unidadesConservacion)}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Frecuencias Consulta"/>
+					</f:facet>
+					<h:link outcome="/admin/unidadesDocumentales/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="forgeviewdisplayitemFrecuenciasConsulta" value="#{forgeview:display(_item.frecuenciasConsulta)}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<ui:include src="/resources/scaffold/paginator.xhtml">
+				<ui:param name="paginatorBean" value='#{unidadesDocumentalesBean}'/>
+			</ui:include>
+		</h:form>
+			
+	</ui:define>
+
+</ui:composition>

@@ -1,0 +1,185 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:forgeview="http://jboss.org/forge/view"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="id" value='#{seriesBean.id}'/>
+		<f:event type="preRenderView" listener='#{seriesBean.retrieve}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="View Series"/>
+
+	<ui:define name="header">
+		Series
+	</ui:define>
+
+	<ui:define name="subheader">
+		View existing Series
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:panelGrid columnClasses="label,component,required" columns="3">
+			<h:outputLabel for="seriesBeanSeriesOrden" value="Orden:"/>
+			<h:outputText id="seriesBeanSeriesOrden" value="#{seriesBean.series.orden}"/>
+			<h:outputText/>
+			<h:outputLabel for="seriesBeanSeriesNombre" value="Nombre:"/>
+			<h:outputText id="seriesBeanSeriesNombre" value="#{seriesBean.series.nombre}"/>
+			<h:outputText/>
+			<h:outputLabel for="seriesBeanSeriesCodigo" value="Codigo:"/>
+			<h:outputText id="seriesBeanSeriesCodigo" value="#{seriesBean.series.codigo}"/>
+			<h:outputText/>
+			<h:outputLabel for="seriesBeanSeriesObservaciones" value="Observaciones:"/>
+			<h:outputText id="seriesBeanSeriesObservaciones" value="#{seriesBean.series.observaciones}"/>
+			<h:outputText/>
+			<h:outputLabel for="seriesBeanSeriesObjHijos" value="Obj Hijos:"/>
+			<h:dataTable id="seriesBeanSeriesObjHijos" styleClass="data-table" value="#{forgeview:asList(seriesBean.series.objHijos)}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Orden"/>
+					</f:facet>
+					<h:link outcome="/admin/series/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemOrden" value="#{_item.orden}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Nombre"/>
+					</f:facet>
+					<h:link outcome="/admin/series/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemNombre" value="#{_item.nombre}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Codigo"/>
+					</f:facet>
+					<h:link outcome="/admin/series/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemCodigo" value="#{_item.codigo}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Observaciones"/>
+					</f:facet>
+					<h:link outcome="/admin/series/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemObservaciones" value="#{_item.observaciones}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Unidades Documentales"/>
+					</f:facet>
+					<h:link outcome="/admin/series/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="forgeviewdisplayitemUnidadesDocumentales" value="#{forgeview:display(_item.unidadesDocumentales)}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<h:outputText/>
+			<h:outputLabel for="seriesBeanSeriesObjPadre" value="Obj Padre:"/>
+			<h:link id="seriesBeanSeriesObjPadre" outcome="/admin/series/view" rendered="#{!empty seriesBean.series.objPadre}" value="#{seriesBean.series.objPadre}">
+				<f:param name="id" value="#{seriesBean.series.objPadre.id}"/>
+			</h:link>
+			<h:outputText/>
+			<h:outputLabel for="seriesBeanSeriesSecciones" value="Secciones:"/>
+			<h:dataTable id="seriesBeanSeriesSecciones" styleClass="data-table" value="#{forgeview:asList(seriesBean.series.secciones)}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Orden"/>
+					</f:facet>
+					<h:link outcome="/admin/secciones/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemOrden" value="#{_item.orden}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Observaciones"/>
+					</f:facet>
+					<h:link outcome="/admin/secciones/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemObservaciones" value="#{_item.observaciones}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Nro Transferencias"/>
+					</f:facet>
+					<h:link outcome="/admin/secciones/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemNroTransferencias" value="#{_item.nroTransferencias}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Codigo"/>
+					</f:facet>
+					<h:link outcome="/admin/secciones/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemCodigo" value="#{_item.codigo}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Nombre"/>
+					</f:facet>
+					<h:link outcome="/admin/secciones/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemNombre" value="#{_item.nombre}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<h:outputText/>
+			<h:outputLabel for="seriesBeanSeriesUnidadesDocumentales" value="Unidades Documentales:"/>
+			<h:link id="seriesBeanSeriesUnidadesDocumentales" outcome="/admin/unidadesDocumentales/view" rendered="#{!empty seriesBean.series.unidadesDocumentales}" value="#{seriesBean.series.unidadesDocumentales}">
+				<f:param name="id" value="#{seriesBean.series.unidadesDocumentales.id}"/>
+			</h:link>
+			<h:outputText/>
+			<h:outputLabel for="seriesBeanSeriesTiposDocumentales" value="Tipos Documentales:"/>
+			<h:dataTable id="seriesBeanSeriesTiposDocumentales" styleClass="data-table" value="#{forgeview:asList(seriesBean.series.tiposDocumentales)}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Orden"/>
+					</f:facet>
+					<h:link outcome="/admin/tiposDocumentales/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemOrden" value="#{_item.orden}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Nombre"/>
+					</f:facet>
+					<h:link outcome="/admin/tiposDocumentales/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemNombre" value="#{_item.nombre}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<h:outputText/>
+			<h:outputLabel for="seriesBeanSeriesTrd" value="Trd:"/>
+			<h:link id="seriesBeanSeriesTrd" outcome="/admin/trd/view" rendered="#{!empty seriesBean.series.trd}" value="#{seriesBean.series.trd}">
+				<f:param name="id" value="#{seriesBean.series.trd.id}"/>
+			</h:link>
+			<h:outputText/>
+		</h:panelGrid>
+
+		<div class="buttons">
+			<h:link value="View All" outcome="search" styleClass="btn btn-primary"/> 
+			<h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
+			<h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
+		</div>
+	</ui:define>
+
+</ui:composition>

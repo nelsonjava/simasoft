@@ -1,0 +1,166 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:forgeview="http://jboss.org/forge/view"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="id" value='#{seccionesBean.id}'/>
+		<f:event type="preRenderView" listener='#{seccionesBean.retrieve}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="View Secciones"/>
+
+	<ui:define name="header">
+		Secciones
+	</ui:define>
+
+	<ui:define name="subheader">
+		View existing Secciones
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:panelGrid columnClasses="label,component,required" columns="3">
+			<h:outputLabel for="seccionesBeanSeccionesOrden" value="Orden:"/>
+			<h:outputText id="seccionesBeanSeccionesOrden" value="#{seccionesBean.secciones.orden}"/>
+			<h:outputText/>
+			<h:outputLabel for="seccionesBeanSeccionesObservaciones" value="Observaciones:"/>
+			<h:outputText id="seccionesBeanSeccionesObservaciones" value="#{seccionesBean.secciones.observaciones}"/>
+			<h:outputText/>
+			<h:outputLabel for="seccionesBeanSeccionesNroTransferencias" value="Nro Transferencias:"/>
+			<h:outputText id="seccionesBeanSeccionesNroTransferencias" value="#{seccionesBean.secciones.nroTransferencias}"/>
+			<h:outputText/>
+			<h:outputLabel for="seccionesBeanSeccionesCodigo" value="Codigo:"/>
+			<h:outputText id="seccionesBeanSeccionesCodigo" value="#{seccionesBean.secciones.codigo}"/>
+			<h:outputText/>
+			<h:outputLabel for="seccionesBeanSeccionesNombre" value="Nombre:"/>
+			<h:outputText id="seccionesBeanSeccionesNombre" value="#{seccionesBean.secciones.nombre}"/>
+			<h:outputText/>
+			<h:outputLabel for="seccionesBeanSeccionesObjHijos" value="Obj Hijos:"/>
+			<h:dataTable id="seccionesBeanSeccionesObjHijos" styleClass="data-table" value="#{forgeview:asList(seccionesBean.secciones.objHijos)}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Orden"/>
+					</f:facet>
+					<h:link outcome="/admin/secciones/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemOrden" value="#{_item.orden}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Observaciones"/>
+					</f:facet>
+					<h:link outcome="/admin/secciones/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemObservaciones" value="#{_item.observaciones}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Nro Transferencias"/>
+					</f:facet>
+					<h:link outcome="/admin/secciones/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemNroTransferencias" value="#{_item.nroTransferencias}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Codigo"/>
+					</f:facet>
+					<h:link outcome="/admin/secciones/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemCodigo" value="#{_item.codigo}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Nombre"/>
+					</f:facet>
+					<h:link outcome="/admin/secciones/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemNombre" value="#{_item.nombre}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<h:outputText/>
+			<h:outputLabel for="seccionesBeanSeccionesSeries" value="Series:"/>
+			<h:dataTable id="seccionesBeanSeccionesSeries" styleClass="data-table" value="#{forgeview:asList(seccionesBean.secciones.series)}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Orden"/>
+					</f:facet>
+					<h:link outcome="/admin/series/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemOrden" value="#{_item.orden}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Nombre"/>
+					</f:facet>
+					<h:link outcome="/admin/series/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemNombre" value="#{_item.nombre}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Codigo"/>
+					</f:facet>
+					<h:link outcome="/admin/series/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemCodigo" value="#{_item.codigo}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Observaciones"/>
+					</f:facet>
+					<h:link outcome="/admin/series/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemObservaciones" value="#{_item.observaciones}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Obj Padre"/>
+					</f:facet>
+					<h:link outcome="/admin/series/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="forgeviewdisplayitemObjPadre" value="#{forgeview:display(_item.objPadre)}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<h:outputText/>
+			<h:outputLabel for="seccionesBeanSeccionesObjPadre" value="Obj Padre:"/>
+			<h:link id="seccionesBeanSeccionesObjPadre" outcome="/admin/secciones/view" rendered="#{!empty seccionesBean.secciones.objPadre}" value="#{seccionesBean.secciones.objPadre}">
+				<f:param name="id" value="#{seccionesBean.secciones.objPadre.id}"/>
+			</h:link>
+			<h:outputText/>
+			<h:outputLabel for="seccionesBeanSeccionesPersonas" value="Personas:"/>
+			<h:link id="seccionesBeanSeccionesPersonas" outcome="/admin/personas/view" rendered="#{!empty seccionesBean.secciones.personas}" value="#{seccionesBean.secciones.personas}">
+				<f:param name="id" value="#{seccionesBean.secciones.personas.id}"/>
+			</h:link>
+			<h:outputText/>
+			<h:outputLabel for="seccionesBeanSeccionesFondosDocumentales" value="Fondos Documentales:"/>
+			<h:link id="seccionesBeanSeccionesFondosDocumentales" outcome="/admin/fondosDocumentales/view" rendered="#{!empty seccionesBean.secciones.fondosDocumentales}" value="#{seccionesBean.secciones.fondosDocumentales}">
+				<f:param name="id" value="#{seccionesBean.secciones.fondosDocumentales.id}"/>
+			</h:link>
+			<h:outputText/>
+		</h:panelGrid>
+
+		<div class="buttons">
+			<h:link value="View All" outcome="search" styleClass="btn btn-primary"/> 
+			<h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
+			<h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
+		</div>
+	</ui:define>
+
+</ui:composition>
