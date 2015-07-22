@@ -43,7 +43,7 @@ public class SGDEASetup {
         groupIds1.setGroupId("co.simasoft.models.naif.sgdea");
 //      ...................... SGDEA ........................
         DomainModels domainModel1 = new DomainModels();
-        domainModel1 = findBean.artifactIdDomainModels("SGDEA",em);
+        domainModel1 = findBean.artifactIdDomainModels("sgdea",em);
         groupIds1.setDomainModels(domainModel1);
         em.persist(groupIds1);
         em.flush();
