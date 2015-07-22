@@ -39,6 +39,12 @@
 
                           <li>
                             <h:form>
+                              <h:commandButton value="Click Me to execute Test!" action="#{SetupTest.data()}" />
+                            </h:form>
+                          </li>
+
+                          <li>
+                            <h:form>
                               <h:commandButton value="Generate Setup Init!" action="#{SetupGen.data()}" />
                             </h:form>
                           </li>
@@ -66,7 +72,7 @@
                               <h:commandButton value="Click Me to Populate SGDEA Init!" action="#{SGDEASetup.data()}" />
                             </h:form>
                           </li>
-                          
+
                           <li>
                             <h:form>
                               <h:commandButton value="Click Me to Populate Inventary Init!" action="#{InventarySetup.data()}" />
