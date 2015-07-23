@@ -121,14 +121,14 @@ public class Models{
                EntityH2 entityH2 = new EntityH2(groupIds.getGroupId(),groupIds.getGroupId(),entidad,imports);
                Utils.fileMake(pathDocs+".h2.war."+artifactId+".src.main.java."+groupIds.getGroupId(),entidad.getName()+".java", entityH2);
 
-               H2Search h2Search = new H2Search(artifactId,groupId,groupIds.getEntities());
+               H2Search h2Search = new H2Search(artifactId,groupIds.getGroupId(),groupIds.getEntities());
                Utils.fileMake(pathDocs+".h2.war."+artifactId+".src.main.java."+groupId+".Beans","SearchBean.java", h2Search);
 
-               H2Find h2Find = new H2Find(artifactId,groupId,groupIds.getEntities());
+               H2Find h2Find = new H2Find(artifactId,groupIds.getGroupId(),groupIds.getEntities());
                Utils.fileMake(pathDocs+".h2.war."+artifactId+".src.main.java."+groupId+".Beans","FindBean.java", h2Find);
 
 
-               H2Setup h2Setup = new H2Setup(artifactId,groupId);
+               H2Setup h2Setup = new H2Setup(artifactId,groupIds.getGroupId());
                Utils.fileMake(pathDocs+".h2.war."+artifactId+".src.main.java."+groupId+".Setup","Setup.java", h2Setup);
 
 

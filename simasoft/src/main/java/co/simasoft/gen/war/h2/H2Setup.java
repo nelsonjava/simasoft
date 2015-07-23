@@ -15,7 +15,7 @@ public class H2Setup extends FileTxt {
 
 line("package co.simasoft.setup;\n");
 
-line("import co.simasoft.models.naif.domainmodels.*;\n");
+line("import "+groupId+".*;\n");
 
 line("import java.util.*;");
 line("import java.util.Calendar;");

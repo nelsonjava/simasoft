@@ -162,11 +162,11 @@ line("/*");
                 case "1..1":
                 case "1..*":
                 case "*..*":
-line(relation.getFrom()+" "+relation.getCardinality()+" "+relation.getTo());
+line(". "+relation.getFrom()+" . "+relation.getCardinality()+" "+relation.getTo());
             } // switch
 
         } // for
-line("*/");        
+line("*/");
 
         for (Relation relation: packages.getRelations()) {
 

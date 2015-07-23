@@ -15,7 +15,7 @@ public class H2Find extends FileTxt {
 
 line("package co.simasoft.beans;\n");
 
-line("import co.simasoft.models.naif.domainmodels.*;\n");
+line("import "+groupId+".*;\n");
 
 line("import java.util.*;\n");
 

@@ -539,8 +539,8 @@ public class App extends FileTxt{
         systemsModels = new DataGenH2(domains);
         
         modelos.clear();
-        modelos.add(new Modelos("naif/Inventary/Inventary.oom","co.simasoft.models.naif.inventary"));
-        domains = new Domains("co.simasoft","Inventary","1.0-SNAPSHOT",modelos);
+        modelos.add(new Modelos("naif/crm/crm.oom","co.simasoft.models.naif.crm"));
+        domains = new Domains("co.simasoft","crm","1.0-SNAPSHOT",modelos);
         systemsModels = new DataGenH2(domains);
 
 
