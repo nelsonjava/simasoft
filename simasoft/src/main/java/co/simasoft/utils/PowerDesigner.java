@@ -158,6 +158,14 @@ public class PowerDesigner {
                       if (rela.getNodeName().equals("a:Code")) {
                          relation.setTo(rela.getTextContent());
                       }
+                      
+                      if (rela.getNodeName().equals("a:RoleAName")) {
+                         relation.setRolA(rela.getTextContent());
+                      }
+                      
+                      if (rela.getNodeName().equals("a:RoleBName")) {
+                         relation.setRolB(rela.getTextContent());
+                      }
 
                       if (rela.getNodeName().equals("a:RoleAMultiplicity")) {
                          relation.setMultiplicityA(rela.getTextContent());

@@ -9,6 +9,9 @@ public class Relation{
 
     private String to = "";                 // Movimientos
     private String from = "";               // Pucs
+    
+    private String rolA = "";               // RolA = from o to
+    private String rolB = "";               // RolB = from o to
 
     private String multiplicityA = "";      // 0..1
     private String multiplicityB = "";      // 0..*
@@ -73,7 +76,6 @@ public class Relation{
     public String getTo(){
         return to;
     }
-
     public void setTo(String to){
         this.to = to;
     }
@@ -81,9 +83,22 @@ public class Relation{
     public String getFrom(){
         return from;
     }
-
     public void setFrom(String from){
         this.from = from;
+    }
+
+    public String getRolA(){
+        return rolA;
+    }
+    public void setRolA(String rolA){
+        this.rolA = rolA;
+    }
+    
+    public String getRolB(){
+        return rolB;
+    }
+    public void setRolB(String rolB){
+        this.rolB = rolB;
     }
 
     public String getMultiplicityA(){
