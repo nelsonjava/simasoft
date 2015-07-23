@@ -30,54 +30,30 @@ public class SetupTest extends FileTxt {
 
     public void data() {
     try {
+      
+line("paso1");
 
 //      ---------------------- DomainModels ------------------------
 
-/*
         DomainModels domainModels = new DomainModels();
         domainModels.setGroupId("co.simasoft");
-        domainModels.setArtifactId("sgdea");
+        domainModels.setArtifactId("Inventary");
         domainModels.setVersion("1.0-SNAPSHOT");
         em.persist(domainModels);
         em.flush();
-*/
 
 //      ---------------------- GroupIds ------------------------
 
-/*
         GroupIds groupIds1 = new GroupIds();
-        groupIds1.setGroupId("co.simasoft.models.naif.sgdea");
-
+        groupIds1.setGroupId("co.simasoft.models.naif.inventary");
+//      ...................... Inventary ........................
         DomainModels domainModel1 = new DomainModels();
-        domainModel1 = findBean.artifactIdDomainModels("SGDEA",em);
+        domainModel1 = findBean.artifactIdDomainModels("Inventary",em);
         groupIds1.setDomainModels(domainModel1);
-
         em.persist(groupIds1);
         em.flush();
-*/
 
-
-//      ---------------------- Entities ------------------------
-
-/*
-        Entities entities2 = new Entities();
-        entities2.setName("UnidadesConservacion");
-
-        GroupIds groupId2 = new GroupIds();
-        groupId2 = findBean.groupIdGroupIds("co.simasoft.models.naif.sgdea",em);
-        entities2.setGroupIds(groupId2);
-        em.persist(entities2);
-        em.flush();
-*/
-
-line("paso1");
-//DomainModels domainModel1 = new DomainModels();
-//domainModel1 = findBean.artifactIdDomainModels("sgdea",em);
 line("paso2");
-//line(domainModel1.getArtifactId());
-line("paso3");
-
-
 
 
 //      ---------------------- Relationships ------------------------

@@ -69,9 +69,9 @@ public class InventarySetup {
         Entities entity3 = new Entities();
         entity3 = findBean.nameEntities("Items",em);
         attributes3.setEntities(entity3);
-//      ...................... int ........................
+//      ...................... String ........................
         AttributesTypes attributesTypes4 = new AttributesTypes();
-        attributesTypes4 = findBean.nameAttributesTypes("int",em);
+        attributesTypes4 = findBean.nameAttributesTypes("String",em);
         attributes3.setAttributesTypes(attributesTypes4);
         em.persist(attributes3);
         em.flush();
@@ -656,9 +656,9 @@ public class InventarySetup {
         Entities entity78 = new Entities();
         entity78 = findBean.nameEntities("ItemsFacturas",em);
         attributes44.setEntities(entity78);
-//      ...................... Double ........................
+//      ...................... double ........................
         AttributesTypes attributesTypes79 = new AttributesTypes();
-        attributesTypes79 = findBean.nameAttributesTypes("Double",em);
+        attributesTypes79 = findBean.nameAttributesTypes("double",em);
         attributes44.setAttributesTypes(attributesTypes79);
         em.persist(attributes44);
         em.flush();
@@ -690,7 +690,7 @@ public class InventarySetup {
         em.flush();
 
         Entities entities47 = new Entities();
-        entities47.setName("MAC-IP");
+        entities47.setName("Macs");
 //      ...................... co.simasoft.models.naif.inventary ........................
         GroupIds groupId83 = new GroupIds();
         groupId83 = findBean.groupIdGroupIds("co.simasoft.models.naif.inventary",em);
@@ -704,9 +704,9 @@ public class InventarySetup {
         attributes48.setName("ip");
         attributes48.setNullable(true);
         attributes48.setSingle(false);
-//      ...................... MAC-IP ........................
+//      ...................... Macs ........................
         Entities entity84 = new Entities();
-        entity84 = findBean.nameEntities("MAC-IP",em);
+        entity84 = findBean.nameEntities("Macs",em);
         attributes48.setEntities(entity84);
 //      ...................... String ........................
         AttributesTypes attributesTypes85 = new AttributesTypes();
@@ -719,9 +719,9 @@ public class InventarySetup {
         attributes49.setName("mac");
         attributes49.setNullable(true);
         attributes49.setSingle(false);
-//      ...................... MAC-IP ........................
+//      ...................... Macs ........................
         Entities entity86 = new Entities();
-        entity86 = findBean.nameEntities("MAC-IP",em);
+        entity86 = findBean.nameEntities("Macs",em);
         attributes49.setEntities(entity86);
 //      ...................... String ........................
         AttributesTypes attributesTypes87 = new AttributesTypes();
@@ -809,7 +809,7 @@ public class InventarySetup {
         em.flush();
 
         Entities entities56 = new Entities();
-        entities56.setName("VLAN");
+        entities56.setName("Vlan");
 //      ...................... co.simasoft.models.naif.inventary ........................
         GroupIds groupId97 = new GroupIds();
         groupId97 = findBean.groupIdGroupIds("co.simasoft.models.naif.inventary",em);
@@ -823,9 +823,9 @@ public class InventarySetup {
         attributes57.setName("nombre");
         attributes57.setNullable(true);
         attributes57.setSingle(false);
-//      ...................... VLAN ........................
+//      ...................... Vlan ........................
         Entities entity98 = new Entities();
-        entity98 = findBean.nameEntities("VLAN",em);
+        entity98 = findBean.nameEntities("Vlan",em);
         attributes57.setEntities(entity98);
 //      ...................... String ........................
         AttributesTypes attributesTypes99 = new AttributesTypes();
@@ -838,9 +838,9 @@ public class InventarySetup {
         attributes58.setName("ip");
         attributes58.setNullable(true);
         attributes58.setSingle(false);
-//      ...................... VLAN ........................
+//      ...................... Vlan ........................
         Entities entity100 = new Entities();
-        entity100 = findBean.nameEntities("VLAN",em);
+        entity100 = findBean.nameEntities("Vlan",em);
         attributes58.setEntities(entity100);
 //      ...................... String ........................
         AttributesTypes attributesTypes101 = new AttributesTypes();
@@ -958,7 +958,7 @@ public class InventarySetup {
         em.flush();
 
         Attributes attributes67 = new Attributes();
-        attributes67.setName("PatchPanelPorts");
+        attributes67.setName("patchPanelPorts");
         attributes67.setNullable(true);
         attributes67.setSingle(false);
 //      ...................... SwitchPorts ........................
@@ -1070,6 +1070,7 @@ public class InventarySetup {
 /*
 Empresas 1..* Facturas
 TiposInventarios 1..* Inventarios
+TipoPersonal 1..* Personas
 Facturas 1..* ItemsFacturas
 Items 1..* ItemsFacturas
 TiposItems 1..* Items
@@ -1084,13 +1085,12 @@ TiposSecciones 1..* Secciones
 EstadosItems 1..* Items
 Empresas *..* Marcas
 Marcas 1..* NamesItems
-Items 1..* MAC-IP
+Items 1..* Macs
 SwitchPortsTypes 1..* SwitchPorts
 AreasFisicas 1..* Items
 Personas 1..* Secciones
-TipoPersonal 1..* Personas
 AreasFisicas 1..* AreasFisicas
-VLAN 1..* MAC-IP
+Vlan 1..* Macs
 Secciones 1..* Secciones
 */
         Relationships relationships1 = new Relationships();
@@ -1255,24 +1255,6 @@ Secciones 1..* Secciones
         em.persist(relationships9);
         em.flush();
 
-        Relationships relationships10 = new Relationships();
-        relationships10.setOptionality(true);
-        relationships10.setIsEmbedded(false);
-//      ...................... Marcas ........................
-        Entities entities155 = new Entities();
-        entities155 = findBean.nameEntities("Marcas",em);
-        relationships10.setFrom(entities155);
-//      ...................... Empresas ........................
-        Entities entities156 = new Entities();
-        entities156 = findBean.nameEntities("Empresas",em);
-        relationships10.setTo(entities156);
-//      ...................... Muchos a Muchos Bidirecccional No.7 ........................
-        Cardinalities cardinalities157 = new Cardinalities();
-        cardinalities157 = findBean.nameCardinalities("Muchos a Muchos Bidirecccional No.7",em);
-        relationships10.setCardinalities(cardinalities157);
-        em.persist(relationships10);
-        em.flush();
-
         Relationships relationships11 = new Relationships();
         relationships11.setOptionality(true);
         relationships11.setIsEmbedded(false);
@@ -1388,9 +1370,9 @@ Secciones 1..* Secciones
         Entities entities176 = new Entities();
         entities176 = findBean.nameEntities("Items",em);
         relationships17.setFrom(entities176);
-//      ...................... MAC-IP ........................
+//      ...................... Macs ........................
         Entities entities177 = new Entities();
-        entities177 = findBean.nameEntities("MAC-IP",em);
+        entities177 = findBean.nameEntities("Macs",em);
         relationships17.setTo(entities177);
 //      ...................... Uno a Muchos Bidirecccional No.5 ........................
         Cardinalities cardinalities178 = new Cardinalities();
@@ -1492,13 +1474,13 @@ Secciones 1..* Secciones
         Relationships relationships23 = new Relationships();
         relationships23.setOptionality(true);
         relationships23.setIsEmbedded(false);
-//      ...................... VLAN ........................
+//      ...................... Vlan ........................
         Entities entities194 = new Entities();
-        entities194 = findBean.nameEntities("VLAN",em);
+        entities194 = findBean.nameEntities("Vlan",em);
         relationships23.setFrom(entities194);
-//      ...................... MAC-IP ........................
+//      ...................... Macs ........................
         Entities entities195 = new Entities();
-        entities195 = findBean.nameEntities("MAC-IP",em);
+        entities195 = findBean.nameEntities("Macs",em);
         relationships23.setTo(entities195);
 //      ...................... Uno a Muchos Bidirecccional No.5 ........................
         Cardinalities cardinalities196 = new Cardinalities();
