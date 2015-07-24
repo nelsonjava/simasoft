@@ -27,6 +27,7 @@ public class PowerDesigner {
         relationsPower();
         relations();
         relationsEntities();
+        validarRelations();
     }
 
     public static void generar() throws IOException {
@@ -158,11 +159,11 @@ public class PowerDesigner {
                       if (rela.getNodeName().equals("a:Code")) {
                          relation.setTo(rela.getTextContent());
                       }
-                      
+
                       if (rela.getNodeName().equals("a:RoleAName")) {
                          relation.setRolA(rela.getTextContent());
                       }
-                      
+
                       if (rela.getNodeName().equals("a:RoleBName")) {
                          relation.setRolB(rela.getTextContent());
                       }
@@ -220,6 +221,7 @@ public class PowerDesigner {
 
                       relation.setNavigabilityFrom();
                       relationsPower.add(relation);
+
                   }
 
 
@@ -251,6 +253,9 @@ public class PowerDesigner {
 
     public Set<Relation> getRelations(){
         return relations;
+    }
+    private void setRelations(Set<Relation> relations){
+        this.relations = relations ;
     }
 
     public Set<Relation> getRelationsPower(){
@@ -396,6 +401,7 @@ public class PowerDesigner {
             relaFrom.setNavigabilityA(relationPower.getNavigabilityA());
             relaFrom.setNavigabilityB(relationPower.getNavigabilityB());
             relaFrom.setNavigability(relationPower.getNavigabilityA());
+            relaFrom.setRolA(relationPower.getRolA());
 
             relations.add(relaFrom);
 
@@ -416,6 +422,7 @@ public class PowerDesigner {
             relaTo.setNavigabilityA(relationPower.getNavigabilityB());
             relaTo.setNavigabilityB(relationPower.getNavigabilityA());
             relaTo.setNavigability(relationPower.getNavigabilityB());
+            relaTo.setRolB(relationPower.getRolB());
 
             relations.add(relaTo);
 
@@ -449,6 +456,43 @@ public class PowerDesigner {
         }
 
     } // relationsEntities
+
+    public void validarRelations(){
+
+        Set<Relation> relationships = new HashSet<Relation>(0);
+
+        for (Relation relation : relations) {
+
+            switch (relation.getCardinality()) {
+                case "1..1":
+                     if (relation.getRolA().equals("from") || relation.getRolB().equals("from") ){
+                        relationships.add(relation);
+                     }
+                     break;
+
+                case "1..*":
+                     relationships.add(relation);
+                     break;
+
+                case "*..*":
+                     if (relation.getRolA().equals("from") || relation.getRolB().equals("from") ){
+                        relationships.add(relation);
+                     }
+                     else{
+                        if (relation.getRolA().equals("") & relation.getRolB().equals("") ){
+                        relationships.add(relation);
+                        }
+                     }
+                     break;
+
+            } // switch
+
+        } // for relations
+
+        setRelations(relationships);
+
+    } // validarRelations
+
 
 
 } // PowerDesigner

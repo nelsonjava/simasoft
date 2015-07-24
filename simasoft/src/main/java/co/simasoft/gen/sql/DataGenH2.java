@@ -160,9 +160,14 @@ line("/*");
 
             switch (relation.getCardinality()) {
                 case "1..1":
-                case "1..*":
+                case "1..*":                
                 case "*..*":
-line(". "+relation.getFrom()+" . "+relation.getCardinality()+" "+relation.getTo()+" rolA:"+relation.getRolA()+" rolB:"+relation.getRolB());
+                     if (relation.getRolA().equals("from") || relation.getRolB().equals("from") ){
+line(". "+relation.getFrom()+" . "+relation.getCardinality()+" "+relation.getTo()+" rolA:"+relation.getRolA()+" rolB:"+relation.getRolB()+" OK\n");
+                     }
+                     else{
+line(". "+relation.getFrom()+" . "+relation.getCardinality()+" "+relation.getTo()+" rolA:"+relation.getRolA()+" rolB:"+relation.getRolB()+"\n");
+                     }
             } // switch
 
         } // for

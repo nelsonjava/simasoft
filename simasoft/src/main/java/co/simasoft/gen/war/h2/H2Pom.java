@@ -14,6 +14,8 @@ line("         xsi:schemaLocation=\"http://maven.apache.org/POM/4.0.0");
 line("         http://maven.apache.org/maven-v4_0_0.xsd\">\n");
 
 line("  <!-- http://sinjava.blogspot.com/2012/10/hola-mundo-jsf.html -->");
+line("  <!-- http://localhost:8080/auth/admin/index.html -->");
+line("  <!-- mvn wildfly:undeploy -->");
 line("  <!-- mvn clean package wildfly:deploy -->");
 line("  <!-- http://localhost:8080 -->");
 line("  <!-- http://localhost:8080/"+artifactId+" -->\n");
