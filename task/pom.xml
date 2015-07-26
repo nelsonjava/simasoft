@@ -5,17 +5,16 @@
          http://maven.apache.org/maven-v4_0_0.xsd">
 
   <!-- http://sinjava.blogspot.com/2012/10/hola-mundo-jsf.html -->
-  <!-- http://localhost:8080/auth/admin/index.html  -->
   <!-- http://localhost:8080/auth/admin/index.html -->
   <!-- mvn wildfly:undeploy -->
   <!-- mvn clean package wildfly:deploy -->
   <!-- http://localhost:8080 -->
-  <!-- http://localhost:8080/naifg8 -->
+  <!-- http://localhost:8080/task -->
 
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>co.simasoft</groupId>
-  <artifactId>naifg8</artifactId>
+  <artifactId>task</artifactId>
   <version>1.0.0-SNAPSHOT</version>
   <packaging>war</packaging>
 

@@ -1,0 +1,45 @@
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
+             http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+             version="2.0">
+
+  <!-- Use this for H2 -->
+  <persistence-unit name="taskPU-JTA" transaction-type="JTA">
+
+    <provider>org.hibernate.ejb.HibernatePersistence</provider>
+
+    <class>co.simasoft.models.naif.task.archival.DocumentalsSupports</class>
+    <class>co.simasoft.models.naif.task.archival.Sections</class>
+    <class>co.simasoft.models.naif.task.archival.DocumentsTypes</class>
+    <class>co.simasoft.models.naif.task.archival.DocumentalsUnits</class>
+    <class>co.simasoft.models.naif.task.archival.Series</class>
+    <class>co.simasoft.models.naif.task.archival.SectionsTypes</class>
+    <class>co.simasoft.models.naif.task.archival.Funds</class>
+    <class>co.simasoft.models.naif.task.archival.ConservationUnits</class>
+    <class>co.simasoft.models.naif.task.persons.Persons</class>
+    <class>co.simasoft.models.naif.task.persons.PersonalType</class>
+    <class>co.simasoft.models.naif.task.sites.SitesTypes</class>
+    <class>co.simasoft.models.naif.task.sites.Sites</class>
+    <class>co.simasoft.models.naif.task.activities.Calendars</class>
+    <class>co.simasoft.models.naif.task.activities.ActivitiesTypes</class>
+    <class>co.simasoft.models.naif.task.activities.Tasks</class>
+    <class>co.simasoft.models.naif.task.activities.Guides</class>
+    <class>co.simasoft.models.naif.task.activities.Diaries</class>
+    <class>co.simasoft.models.naif.task.activities.Activities</class>
+
+    <exclude-unlisted-classes>true</exclude-unlisted-classes>
+    <jta-data-source>java:jboss/datasources/taskDS</jta-data-source>
+    <properties>
+      <!-- <property name="javax.persistence.jdbc.url"      value="jdbc:h2:/db/task/data"/>  -->
+      <!-- <property name="javax.persistence.jdbc.user"     value="sa"/>  -->
+      <!-- <property name="javax.persistence.jdbc.password" value=""/>  -->
+      <property name="hibernate.connection.driver_class"    value="org.h2.Driver"/>
+      <property name="hibernate.dialect"                    value="org.hibernate.dialect.H2Dialect"/>
+      <property name="hibernate.hbm2ddl.auto"               value="update" />
+      <property name="hibernate.show_sql"                   value="true" />
+      <property name="hibernate.format_sql"                 value="true"/>
+    </properties>
+  </persistence-unit>
+
+</persistence>

@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="id" value='#{documentalsUnitsBean.id}'/>
+		<f:event type="preRenderView" listener='#{documentalsUnitsBean.retrieve}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="View Documentals Units"/>
+
+	<ui:define name="header">
+		Documentals Units
+	</ui:define>
+
+	<ui:define name="subheader">
+		View existing Documentals Units
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:panelGrid columnClasses="label,component,required" columns="3">
+			<h:outputLabel for="documentalsUnitsBeanDocumentalsUnitsOrden" value="Orden:"/>
+			<h:outputText id="documentalsUnitsBeanDocumentalsUnitsOrden" value="#{documentalsUnitsBean.documentalsUnits.orden}"/>
+			<h:outputText/>
+			<h:outputLabel for="documentalsUnitsBeanDocumentalsUnitsLink" value="Link:"/>
+			<h:outputText id="documentalsUnitsBeanDocumentalsUnitsLink" value="#{documentalsUnitsBean.documentalsUnits.link}"/>
+			<h:outputText/>
+			<h:outputLabel for="documentalsUnitsBeanDocumentalsUnitsDate" value="Date:"/>
+			<h:outputText id="documentalsUnitsBeanDocumentalsUnitsDate" value="#{documentalsUnitsBean.documentalsUnits.date}"/>
+			<h:outputText/>
+			<h:outputLabel for="documentalsUnitsBeanDocumentalsUnitsName" value="Name:"/>
+			<h:outputText id="documentalsUnitsBeanDocumentalsUnitsName" value="#{documentalsUnitsBean.documentalsUnits.name}"/>
+			<h:outputText/>
+			<h:outputLabel for="documentalsUnitsBeanDocumentalsUnitsSeries" value="Series:"/>
+			<h:link id="documentalsUnitsBeanDocumentalsUnitsSeries" outcome="/admin/series/view" rendered="#{!empty documentalsUnitsBean.documentalsUnits.series}" value="#{documentalsUnitsBean.documentalsUnits.series}">
+				<f:param name="id" value="#{documentalsUnitsBean.documentalsUnits.series.id}"/>
+			</h:link>
+			<h:outputText/>
+			<h:outputLabel for="documentalsUnitsBeanDocumentalsUnitsConservationUnits" value="Conservation Units:"/>
+			<h:link id="documentalsUnitsBeanDocumentalsUnitsConservationUnits" outcome="/admin/conservationUnits/view" rendered="#{!empty documentalsUnitsBean.documentalsUnits.conservationUnits}" value="#{documentalsUnitsBean.documentalsUnits.conservationUnits}">
+				<f:param name="id" value="#{documentalsUnitsBean.documentalsUnits.conservationUnits.id}"/>
+			</h:link>
+			<h:outputText/>
+			<h:outputLabel for="documentalsUnitsBeanDocumentalsUnitsDocumentalsSupports" value="Documentals Supports:"/>
+			<h:link id="documentalsUnitsBeanDocumentalsUnitsDocumentalsSupports" outcome="/admin/documentalsSupports/view" rendered="#{!empty documentalsUnitsBean.documentalsUnits.documentalsSupports}" value="#{documentalsUnitsBean.documentalsUnits.documentalsSupports}">
+				<f:param name="id" value="#{documentalsUnitsBean.documentalsUnits.documentalsSupports.id}"/>
+			</h:link>
+			<h:outputText/>
+		</h:panelGrid>
+
+		<div class="buttons">
+			<h:link value="View All" outcome="search" styleClass="btn btn-primary"/> 
+			<h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
+			<h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
+		</div>
+	</ui:define>
+
+</ui:composition>

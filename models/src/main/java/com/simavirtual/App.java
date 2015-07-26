@@ -544,6 +544,21 @@ public class App extends FileTxt{
         domains = new Domains("co.simasoft","crm","1.0-SNAPSHOT",modelos);
         systemsModels = new DataGenH2(domains);
 
+        modelos.clear();
+        modelos.add(new Modelos("naif/task/activities/activities.oom","co.simasoft.models.naif.task.activities"));
+        modelos.add(new Modelos("naif/task/archival/archival.oom","co.simasoft.models.naif.task.archival"));
+        modelos.add(new Modelos("naif/task/persons/persons.oom","co.simasoft.models.naif.task.persons"));
+        modelos.add(new Modelos("naif/task/sites/sites.oom","co.simasoft.models.naif.task.sites"));
+        domains = new Domains("co.simasoft","task","1.0-SNAPSHOT",modelos);
+        systemsModels = new DataGenH2(domains);
+
+
+
+
+
+
+
+
 
 
 

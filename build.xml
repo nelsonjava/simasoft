@@ -49,6 +49,7 @@
     <delete dir="favorites/target" failonerror="no"/>
     <delete dir="favorites_gi/target" failonerror="no"/>
     <delete dir="sgdea/target" failonerror="no"/>
+    <delete dir="task/target" failonerror="no"/>    
 
     <!-- DabaBases -->
     <delete dir="db/contabDb/target" failonerror="no"/>
