@@ -14,9 +14,9 @@ import javax.persistence.FetchType;
 
 import javax.persistence.Column;
 
-import co.simasoft.models.naif.task.archival.*;
-import co.simasoft.models.naif.task.persons.*;
 import co.simasoft.models.naif.task.sites.*;
+import co.simasoft.models.naif.task.persons.*;
+import co.simasoft.models.naif.task.archival.*;
 import co.simasoft.models.naif.task.activities.*;
 import org.hibernate.search.annotations.Analyze;
 import org.hibernate.search.annotations.Index;
@@ -28,9 +28,9 @@ import javax.persistence.TemporalType;
 import javax.persistence.Temporal;
 import org.hibernate.search.annotations.DateBridge;
 import org.hibernate.search.annotations.Resolution;
-import javax.persistence.OneToMany;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Indexed
 @Entity
@@ -49,12 +49,8 @@ public class Tasks implements Serializable {
 	private double orden;
 
 	@Column(nullable = true, unique = false)
-	private Integer priority;
-
-	@Column(nullable = true, unique = false)
-	@Temporal(TemporalType.DATE)
-	@DateBridge(resolution = Resolution.YEAR)
-	private Date finalDate;
+	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+	private String name;
 
 	@Column(nullable = true, unique = false)
 	@Temporal(TemporalType.DATE)
@@ -63,17 +59,21 @@ public class Tasks implements Serializable {
 
 	@Column(nullable = true, unique = false)
 	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-	private String name;
-
-	@Column(nullable = true, unique = false)
-	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
 	private String detail;
 
-	@OneToMany(mappedBy = "tasks")
-	private Set<Diaries> diaries = new HashSet<Diaries>();
+	@Column(nullable = true, unique = false)
+	@Temporal(TemporalType.DATE)
+	@DateBridge(resolution = Resolution.YEAR)
+	private Date finalDate;
+
+	@Column(nullable = true, unique = false)
+	private Integer priority;
 
 	@OneToMany(mappedBy = "tasks")
 	private Set<Sites> sites = new HashSet<Sites>();
+
+	@OneToMany(mappedBy = "tasks")
+	private Set<Diaries> diaries = new HashSet<Diaries>();
 
 	@ManyToOne
 	private Activities activities;
@@ -84,13 +84,13 @@ public class Tasks implements Serializable {
 	public Tasks() {
 	}
 
-	public Tasks(Integer priority, Date finalDate, Date startDate, String name,
-			String detail) {
-		this.priority = priority;
-		this.finalDate = finalDate;
-		this.startDate = startDate;
+	public Tasks(String name, Date startDate, String detail, Date finalDate,
+			Integer priority) {
 		this.name = name;
+		this.startDate = startDate;
 		this.detail = detail;
+		this.finalDate = finalDate;
+		this.priority = priority;
 	}
 
 	public Long getId() {
@@ -114,18 +114,11 @@ public class Tasks implements Serializable {
 		this.orden = orden;
 	}
 
-	public Integer getPriority() {
-		return priority;
+	public String getName() {
+		return name;
 	}
-	public void setPriority(Integer priority) {
-		this.priority = priority;
-	}
-
-	public Date getFinalDate() {
-		return finalDate;
-	}
-	public void setFinalDate(Date finalDate) {
-		this.finalDate = finalDate;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public Date getStartDate() {
@@ -135,13 +128,6 @@ public class Tasks implements Serializable {
 		this.startDate = startDate;
 	}
 
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-
 	public String getDetail() {
 		return detail;
 	}
@@ -149,11 +135,18 @@ public class Tasks implements Serializable {
 		this.detail = detail;
 	}
 
-	public Set<Diaries> getDiaries() {
-		return diaries;
+	public Date getFinalDate() {
+		return finalDate;
 	}
-	public void setDiaries(Set<Diaries> diaries) {
-		this.diaries = diaries;
+	public void setFinalDate(Date finalDate) {
+		this.finalDate = finalDate;
+	}
+
+	public Integer getPriority() {
+		return priority;
+	}
+	public void setPriority(Integer priority) {
+		this.priority = priority;
 	}
 
 	public Set<Sites> getSites() {
@@ -161,6 +154,13 @@ public class Tasks implements Serializable {
 	}
 	public void setSites(Set<Sites> sites) {
 		this.sites = sites;
+	}
+
+	public Set<Diaries> getDiaries() {
+		return diaries;
+	}
+	public void setDiaries(Set<Diaries> diaries) {
+		this.diaries = diaries;
 	}
 
 	public Activities getActivities() {

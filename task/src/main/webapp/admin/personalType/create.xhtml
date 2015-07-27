@@ -68,54 +68,54 @@
 						</h:column>
 						<h:column>
 							<f:facet name="header">
-								<h:outputText value="First Name"/>
+								<h:outputText value="Skype"/>
 							</f:facet>
 							<h:link outcome="/admin/persons/view">
 								<f:param name="id" value="#{_item.id}"/>
-								<h:outputText id="itemFirstName" value="#{_item.firstName}"/>
+								<h:outputText id="itemSkype" value="#{_item.skype}"/>
 							</h:link>
 							<f:facet name="footer">
-								<h:inputText id="personsBeanAddFirstName" value="#{personsBean.add.firstName}"/>
-								<h:message for="personsBeanAddFirstName" styleClass="error"/>
+								<h:inputText id="personsBeanAddSkype" value="#{personsBean.add.skype}"/>
+								<h:message for="personsBeanAddSkype" styleClass="error"/>
 							</f:facet>
 						</h:column>
 						<h:column>
 							<f:facet name="header">
-								<h:outputText value="Second Name"/>
+								<h:outputText value="Email"/>
 							</f:facet>
 							<h:link outcome="/admin/persons/view">
 								<f:param name="id" value="#{_item.id}"/>
-								<h:outputText id="itemSecondName" value="#{_item.secondName}"/>
+								<h:outputText id="itemEmail" value="#{_item.email}"/>
 							</h:link>
 							<f:facet name="footer">
-								<h:inputText id="personsBeanAddSecondName" value="#{personsBean.add.secondName}"/>
-								<h:message for="personsBeanAddSecondName" styleClass="error"/>
+								<h:inputText id="personsBeanAddEmail" value="#{personsBean.add.email}"/>
+								<h:message for="personsBeanAddEmail" styleClass="error"/>
 							</f:facet>
 						</h:column>
 						<h:column>
 							<f:facet name="header">
-								<h:outputText value="First Last Name"/>
+								<h:outputText value="Telephones"/>
 							</f:facet>
 							<h:link outcome="/admin/persons/view">
 								<f:param name="id" value="#{_item.id}"/>
-								<h:outputText id="itemFirstLastName" value="#{_item.firstLastName}"/>
+								<h:outputText id="itemTelephones" value="#{_item.telephones}"/>
 							</h:link>
 							<f:facet name="footer">
-								<h:inputText id="personsBeanAddFirstLastName" value="#{personsBean.add.firstLastName}"/>
-								<h:message for="personsBeanAddFirstLastName" styleClass="error"/>
+								<h:inputText id="personsBeanAddTelephones" value="#{personsBean.add.telephones}"/>
+								<h:message for="personsBeanAddTelephones" styleClass="error"/>
 							</f:facet>
 						</h:column>
 						<h:column>
 							<f:facet name="header">
-								<h:outputText value="Second Last Name"/>
+								<h:outputText value="Address"/>
 							</f:facet>
 							<h:link outcome="/admin/persons/view">
 								<f:param name="id" value="#{_item.id}"/>
-								<h:outputText id="itemSecondLastName" value="#{_item.secondLastName}"/>
+								<h:outputText id="itemAddress" value="#{_item.address}"/>
 							</h:link>
 							<f:facet name="footer">
-								<h:inputText id="personsBeanAddSecondLastName" value="#{personsBean.add.secondLastName}"/>
-								<h:message for="personsBeanAddSecondLastName" styleClass="error"/>
+								<h:inputText id="personsBeanAddAddress" value="#{personsBean.add.address}"/>
+								<h:message for="personsBeanAddAddress" styleClass="error"/>
 							</f:facet>
 						</h:column>
 						<h:column footerClass="remove-column" headerClass="remove-column">

@@ -45,38 +45,38 @@
 				</h:column>
 				<h:column>
 					<f:facet name="header">
-						<h:outputText value="First Name"/>
+						<h:outputText value="Skype"/>
 					</f:facet>
 					<h:link outcome="/admin/persons/view">
 						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemFirstName" value="#{_item.firstName}"/>
+						<h:outputText id="itemSkype" value="#{_item.skype}"/>
 					</h:link>
 				</h:column>
 				<h:column>
 					<f:facet name="header">
-						<h:outputText value="Second Name"/>
+						<h:outputText value="Email"/>
 					</f:facet>
 					<h:link outcome="/admin/persons/view">
 						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemSecondName" value="#{_item.secondName}"/>
+						<h:outputText id="itemEmail" value="#{_item.email}"/>
 					</h:link>
 				</h:column>
 				<h:column>
 					<f:facet name="header">
-						<h:outputText value="First Last Name"/>
+						<h:outputText value="Telephones"/>
 					</f:facet>
 					<h:link outcome="/admin/persons/view">
 						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemFirstLastName" value="#{_item.firstLastName}"/>
+						<h:outputText id="itemTelephones" value="#{_item.telephones}"/>
 					</h:link>
 				</h:column>
 				<h:column>
 					<f:facet name="header">
-						<h:outputText value="Second Last Name"/>
+						<h:outputText value="Address"/>
 					</f:facet>
 					<h:link outcome="/admin/persons/view">
 						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemSecondLastName" value="#{_item.secondLastName}"/>
+						<h:outputText id="itemAddress" value="#{_item.address}"/>
 					</h:link>
 				</h:column>
 			</h:dataTable>

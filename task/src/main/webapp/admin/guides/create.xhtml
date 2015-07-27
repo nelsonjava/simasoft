@@ -43,16 +43,16 @@
 					<h:message for="guidesBeanGuidesOrden" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
-				<h:outputLabel for="guidesBeanGuidesTitle" value="Title:"/>
-				<h:panelGroup>
-					<h:inputText id="guidesBeanGuidesTitle" value="#{guidesBean.guides.title}"/>
-					<h:message for="guidesBeanGuidesTitle" styleClass="error"/>
-				</h:panelGroup>
-				<h:outputText/>
 				<h:outputLabel for="guidesBeanGuidesGuide" value="Guide:"/>
 				<h:panelGroup>
 					<h:inputText id="guidesBeanGuidesGuide" value="#{guidesBean.guides.guide}"/>
 					<h:message for="guidesBeanGuidesGuide" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="guidesBeanGuidesTitle" value="Title:"/>
+				<h:panelGroup>
+					<h:inputText id="guidesBeanGuidesTitle" value="#{guidesBean.guides.title}"/>
+					<h:message for="guidesBeanGuidesTitle" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
 				<h:outputLabel for="guidesBeanGuidesActivities" value="Activities:"/>
@@ -81,6 +81,15 @@
 						</h:column>
 						<h:column>
 							<f:facet name="header">
+								<h:outputText value="Name"/>
+							</f:facet>
+							<h:link outcome="/admin/activities/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemName" value="#{_item.name}"/>
+							</h:link>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
 								<h:outputText value="Timely Date"/>
 							</f:facet>
 							<h:link outcome="/admin/activities/view">
@@ -97,17 +106,6 @@
 							<h:link outcome="/admin/activities/view">
 								<f:param name="id" value="#{_item.id}"/>
 								<h:outputText id="itemFinalDate" value="#{_item.finalDate}">
-									<f:convertDateTime type="date"/>
-								</h:outputText>
-							</h:link>
-						</h:column>
-						<h:column>
-							<f:facet name="header">
-								<h:outputText value="Start Date"/>
-							</f:facet>
-							<h:link outcome="/admin/activities/view">
-								<f:param name="id" value="#{_item.id}"/>
-								<h:outputText id="itemStartDate" value="#{_item.startDate}">
 									<f:convertDateTime type="date"/>
 								</h:outputText>
 							</h:link>

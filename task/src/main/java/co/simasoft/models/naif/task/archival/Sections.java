@@ -14,9 +14,9 @@ import javax.persistence.FetchType;
 
 import javax.persistence.Column;
 
-import co.simasoft.models.naif.task.archival.*;
-import co.simasoft.models.naif.task.persons.*;
 import co.simasoft.models.naif.task.sites.*;
+import co.simasoft.models.naif.task.persons.*;
+import co.simasoft.models.naif.task.archival.*;
 import co.simasoft.models.naif.task.activities.*;
 import org.hibernate.search.annotations.Analyze;
 import org.hibernate.search.annotations.Index;
@@ -28,9 +28,9 @@ import javax.persistence.TemporalType;
 import javax.persistence.Temporal;
 import org.hibernate.search.annotations.DateBridge;
 import org.hibernate.search.annotations.Resolution;
-import javax.persistence.OneToMany;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Indexed
 @Entity
@@ -54,23 +54,23 @@ public class Sections implements Serializable {
 
 	@Column(nullable = true, unique = false)
 	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-	private String email;
+	private String name;
 
 	@Column(nullable = true, unique = false)
 	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-	private String name;
-
-	@OneToMany(mappedBy = "sections")
-	private Set<Activities> activities = new HashSet<Activities>();
+	private String email;
 
 	@OneToMany(mappedBy = "objPadre")
 	private Set<Sections> objHijos = new HashSet<Sections>();
 
 	@ManyToMany
-	private Set<Tasks> tasks = new HashSet<Tasks>();
+	private Set<Series> series = new HashSet<Series>();
 
 	@ManyToMany
-	private Set<Series> series = new HashSet<Series>();
+	private Set<Tasks> tasks = new HashSet<Tasks>();
+
+	@OneToMany(mappedBy = "sections")
+	private Set<Activities> activities = new HashSet<Activities>();
 
 	@ManyToOne
 	private Sections objPadre;
@@ -87,10 +87,10 @@ public class Sections implements Serializable {
 	public Sections() {
 	}
 
-	public Sections(String code, String email, String name) {
+	public Sections(String code, String name, String email) {
 		this.code = code;
-		this.email = email;
 		this.name = name;
+		this.email = email;
 	}
 
 	public Long getId() {
@@ -121,13 +121,6 @@ public class Sections implements Serializable {
 		this.code = code;
 	}
 
-	public String getEmail() {
-		return email;
-	}
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
 	public String getName() {
 		return name;
 	}
@@ -135,11 +128,11 @@ public class Sections implements Serializable {
 		this.name = name;
 	}
 
-	public Set<Activities> getActivities() {
-		return activities;
+	public String getEmail() {
+		return email;
 	}
-	public void setActivities(Set<Activities> activities) {
-		this.activities = activities;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public Set<Sections> getObjHijos() {
@@ -149,6 +142,13 @@ public class Sections implements Serializable {
 		this.objHijos = objHijos;
 	}
 
+	public Set<Series> getSeries() {
+		return series;
+	}
+	public void setSeries(Set<Series> series) {
+		this.series = series;
+	}
+
 	public Set<Tasks> getTasks() {
 		return tasks;
 	}
@@ -156,11 +156,11 @@ public class Sections implements Serializable {
 		this.tasks = tasks;
 	}
 
-	public Set<Series> getSeries() {
-		return series;
+	public Set<Activities> getActivities() {
+		return activities;
 	}
-	public void setSeries(Set<Series> series) {
-		this.series = series;
+	public void setActivities(Set<Activities> activities) {
+		this.activities = activities;
 	}
 
 	public Sections getObjPadre() {

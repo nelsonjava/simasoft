@@ -49,32 +49,16 @@
 					<h:message for="sectionsBeanSectionsCode" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
-				<h:outputLabel for="sectionsBeanSectionsEmail" value="Email:"/>
-				<h:panelGroup>
-					<h:inputText id="sectionsBeanSectionsEmail" value="#{sectionsBean.sections.email}"/>
-					<h:message for="sectionsBeanSectionsEmail" styleClass="error"/>
-				</h:panelGroup>
-				<h:outputText/>
 				<h:outputLabel for="sectionsBeanSectionsName" value="Name:"/>
 				<h:panelGroup>
 					<h:inputText id="sectionsBeanSectionsName" value="#{sectionsBean.sections.name}"/>
 					<h:message for="sectionsBeanSectionsName" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
-				<h:outputLabel for="sectionsBeanSectionsActivities" value="Activities:"/>
+				<h:outputLabel for="sectionsBeanSectionsEmail" value="Email:"/>
 				<h:panelGroup>
-					<ui:param name="_collection" value="#{sectionsBean.sections.activities}"/>
-					<h:dataTable id="sectionsBeanSectionsActivities" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
-						<h:column>
-							<f:facet name="header">
-								<h:outputText value="Activities"/>
-							</f:facet>
-							<h:link outcome="/admin/activities/view">
-								<f:param name="id" value="#{_item.id}"/>
-								<h:outputText value="#{_item}"/>
-							</h:link>
-						</h:column>
-					</h:dataTable>
+					<h:inputText id="sectionsBeanSectionsEmail" value="#{sectionsBean.sections.email}"/>
+					<h:message for="sectionsBeanSectionsEmail" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
 				<h:outputLabel for="sectionsBeanSectionsObjHijos" value="Obj Hijos:"/>
@@ -109,19 +93,6 @@
 						</h:column>
 						<h:column>
 							<f:facet name="header">
-								<h:outputText value="Email"/>
-							</f:facet>
-							<h:link outcome="/admin/sections/view">
-								<f:param name="id" value="#{_item.id}"/>
-								<h:outputText id="itemEmail" value="#{_item.email}"/>
-							</h:link>
-							<f:facet name="footer">
-								<h:inputText id="sectionsBeanAddEmail" value="#{sectionsBean.add.email}"/>
-								<h:message for="sectionsBeanAddEmail" styleClass="error"/>
-							</f:facet>
-						</h:column>
-						<h:column>
-							<f:facet name="header">
 								<h:outputText value="Name"/>
 							</f:facet>
 							<h:link outcome="/admin/sections/view">
@@ -131,6 +102,19 @@
 							<f:facet name="footer">
 								<h:inputText id="sectionsBeanAddName" value="#{sectionsBean.add.name}"/>
 								<h:message for="sectionsBeanAddName" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Email"/>
+							</f:facet>
+							<h:link outcome="/admin/sections/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemEmail" value="#{_item.email}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="sectionsBeanAddEmail" value="#{sectionsBean.add.email}"/>
+								<h:message for="sectionsBeanAddEmail" styleClass="error"/>
 							</f:facet>
 						</h:column>
 						<h:column>
@@ -160,6 +144,68 @@
 					</h:dataTable>
 				</h:panelGroup>
 				<h:outputText/>
+				<h:outputLabel for="sectionsBeanSectionsSeries" value="Series:"/>
+				<h:panelGroup>
+					<ui:param name="_collection" value="#{sectionsBean.sections.series}"/>
+					<h:dataTable id="sectionsBeanSectionsSeries" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Orden"/>
+							</f:facet>
+							<h:link outcome="/admin/series/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemOrden" value="#{_item.orden}"/>
+							</h:link>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Located"/>
+							</f:facet>
+							<h:link outcome="/admin/series/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemLocated" value="#{_item.located}"/>
+							</h:link>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Name"/>
+							</f:facet>
+							<h:link outcome="/admin/series/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemName" value="#{_item.name}"/>
+							</h:link>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Link"/>
+							</f:facet>
+							<h:link outcome="/admin/series/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemLink" value="#{_item.link}"/>
+							</h:link>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Code"/>
+							</f:facet>
+							<h:link outcome="/admin/series/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemCode" value="#{_item.code}"/>
+							</h:link>
+						</h:column>
+						<h:column footerClass="remove-column" headerClass="remove-column">
+							<h:commandLink action="#{_collection.remove(_item)}" styleClass="remove-button"/>
+						</h:column>
+					</h:dataTable>
+					<h:panelGrid columnClasses=",remove-column" columns="2" styleClass="data-table-footer">
+						<h:selectOneMenu converter="#{seriesBean.converter}" id="sectionsBeanSectionsSeriesSelect" value="#{requestScope['sectionsBeanSectionsSeriesSelect']}">
+							<f:selectItem/>
+							<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{seriesBean.all}" var="_item"/>
+						</h:selectOneMenu>
+						<h:commandLink action="#{_collection.add(requestScope['sectionsBeanSectionsSeriesSelect'])}" id="sectionsBeanSectionsSeriesAdd" onclick="if (document.getElementById(document.forms[0].id+':sectionsBeanSectionsSeriesSelect').selectedIndex &lt; 1) { alert('Must select a Series'); return false; }" styleClass="add-button"/>
+					</h:panelGrid>
+				</h:panelGroup>
+				<h:outputText/>
 				<h:outputLabel for="sectionsBeanSectionsTasks" value="Tasks:"/>
 				<h:panelGroup>
 					<ui:param name="_collection" value="#{sectionsBean.sections.tasks}"/>
@@ -183,66 +229,20 @@
 					</h:panelGrid>
 				</h:panelGroup>
 				<h:outputText/>
-				<h:outputLabel for="sectionsBeanSectionsSeries" value="Series:"/>
+				<h:outputLabel for="sectionsBeanSectionsActivities" value="Activities:"/>
 				<h:panelGroup>
-					<ui:param name="_collection" value="#{sectionsBean.sections.series}"/>
-					<h:dataTable id="sectionsBeanSectionsSeries" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
+					<ui:param name="_collection" value="#{sectionsBean.sections.activities}"/>
+					<h:dataTable id="sectionsBeanSectionsActivities" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
 						<h:column>
 							<f:facet name="header">
-								<h:outputText value="Orden"/>
+								<h:outputText value="Activities"/>
 							</f:facet>
-							<h:link outcome="/admin/series/view">
+							<h:link outcome="/admin/activities/view">
 								<f:param name="id" value="#{_item.id}"/>
-								<h:outputText id="itemOrden" value="#{_item.orden}"/>
+								<h:outputText value="#{_item}"/>
 							</h:link>
-						</h:column>
-						<h:column>
-							<f:facet name="header">
-								<h:outputText value="Link"/>
-							</f:facet>
-							<h:link outcome="/admin/series/view">
-								<f:param name="id" value="#{_item.id}"/>
-								<h:outputText id="itemLink" value="#{_item.link}"/>
-							</h:link>
-						</h:column>
-						<h:column>
-							<f:facet name="header">
-								<h:outputText value="Name"/>
-							</f:facet>
-							<h:link outcome="/admin/series/view">
-								<f:param name="id" value="#{_item.id}"/>
-								<h:outputText id="itemName" value="#{_item.name}"/>
-							</h:link>
-						</h:column>
-						<h:column>
-							<f:facet name="header">
-								<h:outputText value="Located"/>
-							</f:facet>
-							<h:link outcome="/admin/series/view">
-								<f:param name="id" value="#{_item.id}"/>
-								<h:outputText id="itemLocated" value="#{_item.located}"/>
-							</h:link>
-						</h:column>
-						<h:column>
-							<f:facet name="header">
-								<h:outputText value="Code"/>
-							</f:facet>
-							<h:link outcome="/admin/series/view">
-								<f:param name="id" value="#{_item.id}"/>
-								<h:outputText id="itemCode" value="#{_item.code}"/>
-							</h:link>
-						</h:column>
-						<h:column footerClass="remove-column" headerClass="remove-column">
-							<h:commandLink action="#{_collection.remove(_item)}" styleClass="remove-button"/>
 						</h:column>
 					</h:dataTable>
-					<h:panelGrid columnClasses=",remove-column" columns="2" styleClass="data-table-footer">
-						<h:selectOneMenu converter="#{seriesBean.converter}" id="sectionsBeanSectionsSeriesSelect" value="#{requestScope['sectionsBeanSectionsSeriesSelect']}">
-							<f:selectItem/>
-							<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{seriesBean.all}" var="_item"/>
-						</h:selectOneMenu>
-						<h:commandLink action="#{_collection.add(requestScope['sectionsBeanSectionsSeriesSelect'])}" id="sectionsBeanSectionsSeriesAdd" onclick="if (document.getElementById(document.forms[0].id+':sectionsBeanSectionsSeriesSelect').selectedIndex &lt; 1) { alert('Must select a Series'); return false; }" styleClass="add-button"/>
-					</h:panelGrid>
 				</h:panelGroup>
 				<h:outputText/>
 				<h:outputLabel for="sectionsBeanSectionsObjPadre" value="Obj Padre:"/>

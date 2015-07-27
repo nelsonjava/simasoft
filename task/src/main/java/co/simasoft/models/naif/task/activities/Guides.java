@@ -14,9 +14,9 @@ import javax.persistence.FetchType;
 
 import javax.persistence.Column;
 
-import co.simasoft.models.naif.task.archival.*;
-import co.simasoft.models.naif.task.persons.*;
 import co.simasoft.models.naif.task.sites.*;
+import co.simasoft.models.naif.task.persons.*;
+import co.simasoft.models.naif.task.archival.*;
 import co.simasoft.models.naif.task.activities.*;
 import org.hibernate.search.annotations.Analyze;
 import org.hibernate.search.annotations.Index;
@@ -28,9 +28,9 @@ import javax.persistence.TemporalType;
 import javax.persistence.Temporal;
 import org.hibernate.search.annotations.DateBridge;
 import org.hibernate.search.annotations.Resolution;
-import javax.persistence.OneToMany;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Indexed
 @Entity
@@ -50,11 +50,11 @@ public class Guides implements Serializable {
 
 	@Column(nullable = true, unique = false)
 	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-	private String title;
+	private String guide;
 
 	@Column(nullable = true, unique = false)
 	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-	private String guide;
+	private String title;
 
 	@ManyToMany(mappedBy = "guides")
 	private Set<Activities> activities = new HashSet<Activities>();
@@ -62,9 +62,9 @@ public class Guides implements Serializable {
 	public Guides() {
 	}
 
-	public Guides(String title, String guide) {
-		this.title = title;
+	public Guides(String guide, String title) {
 		this.guide = guide;
+		this.title = title;
 	}
 
 	public Long getId() {
@@ -88,18 +88,18 @@ public class Guides implements Serializable {
 		this.orden = orden;
 	}
 
-	public String getTitle() {
-		return title;
-	}
-	public void setTitle(String title) {
-		this.title = title;
-	}
-
 	public String getGuide() {
 		return guide;
 	}
 	public void setGuide(String guide) {
 		this.guide = guide;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
 	}
 
 	public Set<Activities> getActivities() {

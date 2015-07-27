@@ -34,7 +34,7 @@ import javax.persistence.OneToMany;
 
 @Indexed
 @Entity
-public class SectionsTypes implements Serializable {
+public class OriginalOrder implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
@@ -49,17 +49,48 @@ public class SectionsTypes implements Serializable {
 	private double orden;
 
 	@Column(nullable = true, unique = false)
+	@Temporal(TemporalType.DATE)
+	@DateBridge(resolution = Resolution.YEAR)
+	private Date entryDate;
+
+	@Column(nullable = true, unique = false)
+	@Temporal(TemporalType.DATE)
+	@DateBridge(resolution = Resolution.YEAR)
+	private Date startDate;
+
+	@Column(nullable = true, unique = false)
+	@Temporal(TemporalType.DATE)
+	@DateBridge(resolution = Resolution.YEAR)
+	private Date finalDate;
+
+	@Column(nullable = true, unique = false)
+	private Integer folios;
+
+	@Column(nullable = true, unique = false)
 	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-	private String name;
+	private String link;
 
-	@OneToMany(mappedBy = "sectionsTypes")
-	private Set<Sections> sections = new HashSet<Sections>();
+	@Column(nullable = true, unique = false)
+	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+	private String located;
 
-	public SectionsTypes() {
+	@ManyToOne
+	private DocumentalsSupports documentalsSupports;
+
+	@ManyToOne
+	private DocumentalsUnits documentalsUnits;
+
+	public OriginalOrder() {
 	}
 
-	public SectionsTypes(String name) {
-		this.name = name;
+	public OriginalOrder(Date entryDate, Date startDate, Date finalDate,
+			Integer folios, String link, String located) {
+		this.entryDate = entryDate;
+		this.startDate = startDate;
+		this.finalDate = finalDate;
+		this.folios = folios;
+		this.link = link;
+		this.located = located;
 	}
 
 	public Long getId() {
@@ -83,18 +114,60 @@ public class SectionsTypes implements Serializable {
 		this.orden = orden;
 	}
 
-	public String getName() {
-		return name;
+	public Date getEntryDate() {
+		return entryDate;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setEntryDate(Date entryDate) {
+		this.entryDate = entryDate;
 	}
 
-	public Set<Sections> getSections() {
-		return sections;
+	public Date getStartDate() {
+		return startDate;
 	}
-	public void setSections(Set<Sections> sections) {
-		this.sections = sections;
+	public void setStartDate(Date startDate) {
+		this.startDate = startDate;
+	}
+
+	public Date getFinalDate() {
+		return finalDate;
+	}
+	public void setFinalDate(Date finalDate) {
+		this.finalDate = finalDate;
+	}
+
+	public Integer getFolios() {
+		return folios;
+	}
+	public void setFolios(Integer folios) {
+		this.folios = folios;
+	}
+
+	public String getLink() {
+		return link;
+	}
+	public void setLink(String link) {
+		this.link = link;
+	}
+
+	public String getLocated() {
+		return located;
+	}
+	public void setLocated(String located) {
+		this.located = located;
+	}
+
+	public DocumentalsSupports getDocumentalsSupports() {
+		return documentalsSupports;
+	}
+	public void setDocumentalsSupports(DocumentalsSupports documentalsSupports) {
+		this.documentalsSupports = documentalsSupports;
+	}
+
+	public DocumentalsUnits getDocumentalsUnits() {
+		return documentalsUnits;
+	}
+	public void setDocumentalsUnits(DocumentalsUnits documentalsUnits) {
+		this.documentalsUnits = documentalsUnits;
 	}
 
 	@Override
@@ -116,7 +189,7 @@ public class SectionsTypes implements Serializable {
 		if (getClass() != ojt.getClass())
 			return false;
 
-		SectionsTypes other = (SectionsTypes) ojt;
+		OriginalOrder other = (OriginalOrder) ojt;
 		if (id == null) {
 			if (other.id != null) {
 				return false;

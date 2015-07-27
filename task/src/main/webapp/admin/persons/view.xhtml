@@ -29,42 +29,29 @@
 			<h:outputLabel for="personsBeanPersonsOrden" value="Orden:"/>
 			<h:outputText id="personsBeanPersonsOrden" value="#{personsBean.persons.orden}"/>
 			<h:outputText/>
-			<h:outputLabel for="personsBeanPersonsFirstName" value="First Name:"/>
-			<h:outputText id="personsBeanPersonsFirstName" value="#{personsBean.persons.firstName}"/>
-			<h:outputText/>
-			<h:outputLabel for="personsBeanPersonsSecondName" value="Second Name:"/>
-			<h:outputText id="personsBeanPersonsSecondName" value="#{personsBean.persons.secondName}"/>
-			<h:outputText/>
-			<h:outputLabel for="personsBeanPersonsFirstLastName" value="First Last Name:"/>
-			<h:outputText id="personsBeanPersonsFirstLastName" value="#{personsBean.persons.firstLastName}"/>
-			<h:outputText/>
-			<h:outputLabel for="personsBeanPersonsSecondLastName" value="Second Last Name:"/>
-			<h:outputText id="personsBeanPersonsSecondLastName" value="#{personsBean.persons.secondLastName}"/>
+			<h:outputLabel for="personsBeanPersonsSkype" value="Skype:"/>
+			<h:outputText id="personsBeanPersonsSkype" value="#{personsBean.persons.skype}"/>
 			<h:outputText/>
 			<h:outputLabel for="personsBeanPersonsEmail" value="Email:"/>
 			<h:outputText id="personsBeanPersonsEmail" value="#{personsBean.persons.email}"/>
 			<h:outputText/>
-			<h:outputLabel for="personsBeanPersonsSkype" value="Skype:"/>
-			<h:outputText id="personsBeanPersonsSkype" value="#{personsBean.persons.skype}"/>
+			<h:outputLabel for="personsBeanPersonsTelephones" value="Telephones:"/>
+			<h:outputText id="personsBeanPersonsTelephones" value="#{personsBean.persons.telephones}"/>
 			<h:outputText/>
 			<h:outputLabel for="personsBeanPersonsAddress" value="Address:"/>
 			<h:outputText id="personsBeanPersonsAddress" value="#{personsBean.persons.address}"/>
 			<h:outputText/>
-			<h:outputLabel for="personsBeanPersonsTelephones" value="Telephones:"/>
-			<h:outputText id="personsBeanPersonsTelephones" value="#{personsBean.persons.telephones}"/>
+			<h:outputLabel for="personsBeanPersonsSecondName" value="Second Name:"/>
+			<h:outputText id="personsBeanPersonsSecondName" value="#{personsBean.persons.secondName}"/>
 			<h:outputText/>
-			<h:outputLabel for="personsBeanPersonsActivities" value="Activities:"/>
-			<h:dataTable id="personsBeanPersonsActivities" styleClass="data-table" value="#{forgeview:asList(personsBean.persons.activities)}" var="_item">
-				<h:column>
-					<f:facet name="header">
-						<h:outputText value="Activities"/>
-					</f:facet>
-					<h:link outcome="/admin/activities/view">
-						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText value="#{_item}"/>
-					</h:link>
-				</h:column>
-			</h:dataTable>
+			<h:outputLabel for="personsBeanPersonsFirstName" value="First Name:"/>
+			<h:outputText id="personsBeanPersonsFirstName" value="#{personsBean.persons.firstName}"/>
+			<h:outputText/>
+			<h:outputLabel for="personsBeanPersonsSecondLastName" value="Second Last Name:"/>
+			<h:outputText id="personsBeanPersonsSecondLastName" value="#{personsBean.persons.secondLastName}"/>
+			<h:outputText/>
+			<h:outputLabel for="personsBeanPersonsFirstLastName" value="First Last Name:"/>
+			<h:outputText id="personsBeanPersonsFirstLastName" value="#{personsBean.persons.firstLastName}"/>
 			<h:outputText/>
 			<h:outputLabel for="personsBeanPersonsSections" value="Sections:"/>
 			<h:dataTable id="personsBeanPersonsSections" styleClass="data-table" value="#{forgeview:asList(personsBean.persons.sections)}" var="_item">
@@ -73,6 +60,19 @@
 						<h:outputText value="Sections"/>
 					</f:facet>
 					<h:link outcome="/admin/sections/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText value="#{_item}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<h:outputText/>
+			<h:outputLabel for="personsBeanPersonsActivities" value="Activities:"/>
+			<h:dataTable id="personsBeanPersonsActivities" styleClass="data-table" value="#{forgeview:asList(personsBean.persons.activities)}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Activities"/>
+					</f:facet>
+					<h:link outcome="/admin/activities/view">
 						<f:param name="id" value="#{_item.id}"/>
 						<h:outputText value="#{_item}"/>
 					</h:link>

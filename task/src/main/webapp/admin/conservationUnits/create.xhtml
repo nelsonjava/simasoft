@@ -74,32 +74,6 @@
 						</h:column>
 						<h:column>
 							<f:facet name="header">
-								<h:outputText value="Link"/>
-							</f:facet>
-							<h:link outcome="/admin/documentalsUnits/view">
-								<f:param name="id" value="#{_item.id}"/>
-								<h:outputText id="itemLink" value="#{_item.link}"/>
-							</h:link>
-							<f:facet name="footer">
-								<h:inputText id="documentalsUnitsBeanAddLink" value="#{documentalsUnitsBean.add.link}"/>
-								<h:message for="documentalsUnitsBeanAddLink" styleClass="error"/>
-							</f:facet>
-						</h:column>
-						<h:column>
-							<f:facet name="header">
-								<h:outputText value="Date"/>
-							</f:facet>
-							<h:link outcome="/admin/documentalsUnits/view">
-								<f:param name="id" value="#{_item.id}"/>
-								<h:outputText id="itemDate" value="#{_item.date}"/>
-							</h:link>
-							<f:facet name="footer">
-								<h:inputText id="documentalsUnitsBeanAddDate" value="#{documentalsUnitsBean.add.date}"/>
-								<h:message for="documentalsUnitsBeanAddDate" styleClass="error"/>
-							</f:facet>
-						</h:column>
-						<h:column>
-							<f:facet name="header">
 								<h:outputText value="Name"/>
 							</f:facet>
 							<h:link outcome="/admin/documentalsUnits/view">
@@ -109,6 +83,23 @@
 							<f:facet name="footer">
 								<h:inputText id="documentalsUnitsBeanAddName" value="#{documentalsUnitsBean.add.name}"/>
 								<h:message for="documentalsUnitsBeanAddName" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Creation Date"/>
+							</f:facet>
+							<h:link outcome="/admin/documentalsUnits/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemCreationDate" value="#{_item.creationDate}">
+									<f:convertDateTime type="date"/>
+								</h:outputText>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="documentalsUnitsBeanAddCreationDate" value="#{documentalsUnitsBean.add.creationDate}">
+									<f:convertDateTime type="date"/>
+								</h:inputText>
+								<h:message for="documentalsUnitsBeanAddCreationDate" styleClass="error"/>
 							</f:facet>
 						</h:column>
 						<h:column>

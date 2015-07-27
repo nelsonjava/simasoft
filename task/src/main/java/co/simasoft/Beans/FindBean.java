@@ -47,28 +47,6 @@ public class FindBean {
         return calendars;
     }
 
-//      ---------------------- ActivitiesTypes ------------------------
-
-    public List<ActivitiesTypes> AllActivitiesTypes() {
-        List<ActivitiesTypes> results = em.createQuery("SELECT o FROM ActivitiesTypes o").getResultList();
-        if (results.isEmpty()) {
-            return new ArrayList<ActivitiesTypes>();
-        }
-        return results;
-    }
-
-    public ActivitiesTypes idActivitiesTypes(Long id) {
-
-        ActivitiesTypes activitiesTypes = new ActivitiesTypes();
-        List<ActivitiesTypes> results = em.createQuery("SELECT o FROM ActivitiesTypes o WHERE o.id LIKE :custId").setParameter("custId", id).getResultList();
-
-        if (!results.isEmpty()) {
-
-           activitiesTypes = results.get(0);
-        }
-        return activitiesTypes;
-    }
-
 //      ---------------------- Tasks ------------------------
 
     public List<Tasks> AllTasks() {
@@ -89,6 +67,50 @@ public class FindBean {
            tasks = results.get(0);
         }
         return tasks;
+    }
+
+//      ---------------------- Activities ------------------------
+
+    public List<Activities> AllActivities() {
+        List<Activities> results = em.createQuery("SELECT o FROM Activities o").getResultList();
+        if (results.isEmpty()) {
+            return new ArrayList<Activities>();
+        }
+        return results;
+    }
+
+    public Activities idActivities(Long id) {
+
+        Activities activities = new Activities();
+        List<Activities> results = em.createQuery("SELECT o FROM Activities o WHERE o.id LIKE :custId").setParameter("custId", id).getResultList();
+
+        if (!results.isEmpty()) {
+
+           activities = results.get(0);
+        }
+        return activities;
+    }
+
+//      ---------------------- ActivitiesTypes ------------------------
+
+    public List<ActivitiesTypes> AllActivitiesTypes() {
+        List<ActivitiesTypes> results = em.createQuery("SELECT o FROM ActivitiesTypes o").getResultList();
+        if (results.isEmpty()) {
+            return new ArrayList<ActivitiesTypes>();
+        }
+        return results;
+    }
+
+    public ActivitiesTypes idActivitiesTypes(Long id) {
+
+        ActivitiesTypes activitiesTypes = new ActivitiesTypes();
+        List<ActivitiesTypes> results = em.createQuery("SELECT o FROM ActivitiesTypes o WHERE o.id LIKE :custId").setParameter("custId", id).getResultList();
+
+        if (!results.isEmpty()) {
+
+           activitiesTypes = results.get(0);
+        }
+        return activitiesTypes;
     }
 
 //      ---------------------- Guides ------------------------
@@ -133,28 +155,6 @@ public class FindBean {
            diaries = results.get(0);
         }
         return diaries;
-    }
-
-//      ---------------------- Activities ------------------------
-
-    public List<Activities> AllActivities() {
-        List<Activities> results = em.createQuery("SELECT o FROM Activities o").getResultList();
-        if (results.isEmpty()) {
-            return new ArrayList<Activities>();
-        }
-        return results;
-    }
-
-    public Activities idActivities(Long id) {
-
-        Activities activities = new Activities();
-        List<Activities> results = em.createQuery("SELECT o FROM Activities o WHERE o.id LIKE :custId").setParameter("custId", id).getResultList();
-
-        if (!results.isEmpty()) {
-
-           activities = results.get(0);
-        }
-        return activities;
     }
 
 } // Fin de clase

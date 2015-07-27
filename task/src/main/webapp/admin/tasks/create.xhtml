@@ -43,18 +43,10 @@
 					<h:message for="tasksBeanTasksOrden" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
-				<h:outputLabel for="tasksBeanTasksPriority" value="Priority:"/>
+				<h:outputLabel for="tasksBeanTasksName" value="Name:"/>
 				<h:panelGroup>
-					<h:inputText id="tasksBeanTasksPriority" value="#{tasksBean.tasks.priority}"/>
-					<h:message for="tasksBeanTasksPriority" styleClass="error"/>
-				</h:panelGroup>
-				<h:outputText/>
-				<h:outputLabel for="tasksBeanTasksFinalDate" value="Final Date:"/>
-				<h:panelGroup>
-					<h:inputText id="tasksBeanTasksFinalDate" value="#{tasksBean.tasks.finalDate}">
-						<f:convertDateTime type="date"/>
-					</h:inputText>
-					<h:message for="tasksBeanTasksFinalDate" styleClass="error"/>
+					<h:inputText id="tasksBeanTasksName" value="#{tasksBean.tasks.name}"/>
+					<h:message for="tasksBeanTasksName" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
 				<h:outputLabel for="tasksBeanTasksStartDate" value="Start Date:"/>
@@ -65,16 +57,40 @@
 					<h:message for="tasksBeanTasksStartDate" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
-				<h:outputLabel for="tasksBeanTasksName" value="Name:"/>
-				<h:panelGroup>
-					<h:inputText id="tasksBeanTasksName" value="#{tasksBean.tasks.name}"/>
-					<h:message for="tasksBeanTasksName" styleClass="error"/>
-				</h:panelGroup>
-				<h:outputText/>
 				<h:outputLabel for="tasksBeanTasksDetail" value="Detail:"/>
 				<h:panelGroup>
 					<h:inputText id="tasksBeanTasksDetail" value="#{tasksBean.tasks.detail}"/>
 					<h:message for="tasksBeanTasksDetail" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="tasksBeanTasksFinalDate" value="Final Date:"/>
+				<h:panelGroup>
+					<h:inputText id="tasksBeanTasksFinalDate" value="#{tasksBean.tasks.finalDate}">
+						<f:convertDateTime type="date"/>
+					</h:inputText>
+					<h:message for="tasksBeanTasksFinalDate" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="tasksBeanTasksPriority" value="Priority:"/>
+				<h:panelGroup>
+					<h:inputText id="tasksBeanTasksPriority" value="#{tasksBean.tasks.priority}"/>
+					<h:message for="tasksBeanTasksPriority" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="tasksBeanTasksSites" value="Sites:"/>
+				<h:panelGroup>
+					<ui:param name="_collection" value="#{tasksBean.tasks.sites}"/>
+					<h:dataTable id="tasksBeanTasksSites" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Sites"/>
+							</f:facet>
+							<h:link outcome="/admin/sites/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText value="#{_item}"/>
+							</h:link>
+						</h:column>
+					</h:dataTable>
 				</h:panelGroup>
 				<h:outputText/>
 				<h:outputLabel for="tasksBeanTasksDiaries" value="Diaries:"/>
@@ -131,22 +147,6 @@
 									<f:setPropertyActionListener target="#{diariesBean.add.tasks}" value="#{tasksBean.tasks}"/>
 								</h:commandLink>
 							</f:facet>
-						</h:column>
-					</h:dataTable>
-				</h:panelGroup>
-				<h:outputText/>
-				<h:outputLabel for="tasksBeanTasksSites" value="Sites:"/>
-				<h:panelGroup>
-					<ui:param name="_collection" value="#{tasksBean.tasks.sites}"/>
-					<h:dataTable id="tasksBeanTasksSites" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
-						<h:column>
-							<f:facet name="header">
-								<h:outputText value="Sites"/>
-							</f:facet>
-							<h:link outcome="/admin/sites/view">
-								<f:param name="id" value="#{_item.id}"/>
-								<h:outputText value="#{_item}"/>
-							</h:link>
 						</h:column>
 					</h:dataTable>
 				</h:panelGroup>

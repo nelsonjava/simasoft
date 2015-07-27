@@ -14,9 +14,9 @@ import javax.persistence.FetchType;
 
 import javax.persistence.Column;
 
-import co.simasoft.models.naif.task.archival.*;
-import co.simasoft.models.naif.task.persons.*;
 import co.simasoft.models.naif.task.sites.*;
+import co.simasoft.models.naif.task.persons.*;
+import co.simasoft.models.naif.task.archival.*;
 import co.simasoft.models.naif.task.activities.*;
 import org.hibernate.search.annotations.Analyze;
 import org.hibernate.search.annotations.Index;
@@ -28,9 +28,9 @@ import javax.persistence.TemporalType;
 import javax.persistence.Temporal;
 import org.hibernate.search.annotations.DateBridge;
 import org.hibernate.search.annotations.Resolution;
-import javax.persistence.OneToMany;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Indexed
 @Entity
@@ -50,15 +50,15 @@ public class DocumentalsUnits implements Serializable {
 
 	@Column(nullable = true, unique = false)
 	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-	private String link;
-
-	@Column(nullable = true, unique = false)
-	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-	private String date;
-
-	@Column(nullable = true, unique = false)
-	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
 	private String name;
+
+	@Column(nullable = true, unique = false)
+	@Temporal(TemporalType.DATE)
+	@DateBridge(resolution = Resolution.YEAR)
+	private Date creationDate;
+
+	@OneToMany(mappedBy = "documentalsUnits")
+	private Set<OriginalOrder> originalOrder = new HashSet<OriginalOrder>();
 
 	@ManyToOne
 	private Series series;
@@ -66,16 +66,12 @@ public class DocumentalsUnits implements Serializable {
 	@ManyToOne
 	private ConservationUnits conservationUnits;
 
-	@ManyToOne
-	private DocumentalsSupports documentalsSupports;
-
 	public DocumentalsUnits() {
 	}
 
-	public DocumentalsUnits(String link, String date, String name) {
-		this.link = link;
-		this.date = date;
+	public DocumentalsUnits(String name, Date creationDate) {
 		this.name = name;
+		this.creationDate = creationDate;
 	}
 
 	public Long getId() {
@@ -99,25 +95,25 @@ public class DocumentalsUnits implements Serializable {
 		this.orden = orden;
 	}
 
-	public String getLink() {
-		return link;
-	}
-	public void setLink(String link) {
-		this.link = link;
-	}
-
-	public String getDate() {
-		return date;
-	}
-	public void setDate(String date) {
-		this.date = date;
-	}
-
 	public String getName() {
 		return name;
 	}
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public Date getCreationDate() {
+		return creationDate;
+	}
+	public void setCreationDate(Date creationDate) {
+		this.creationDate = creationDate;
+	}
+
+	public Set<OriginalOrder> getOriginalOrder() {
+		return originalOrder;
+	}
+	public void setOriginalOrder(Set<OriginalOrder> originalOrder) {
+		this.originalOrder = originalOrder;
 	}
 
 	public Series getSeries() {
@@ -132,13 +128,6 @@ public class DocumentalsUnits implements Serializable {
 	}
 	public void setConservationUnits(ConservationUnits conservationUnits) {
 		this.conservationUnits = conservationUnits;
-	}
-
-	public DocumentalsSupports getDocumentalsSupports() {
-		return documentalsSupports;
-	}
-	public void setDocumentalsSupports(DocumentalsSupports documentalsSupports) {
-		this.documentalsSupports = documentalsSupports;
 	}
 
 	@Override

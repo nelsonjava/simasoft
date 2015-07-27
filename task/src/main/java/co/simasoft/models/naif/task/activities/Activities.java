@@ -14,9 +14,9 @@ import javax.persistence.FetchType;
 
 import javax.persistence.Column;
 
-import co.simasoft.models.naif.task.archival.*;
-import co.simasoft.models.naif.task.persons.*;
 import co.simasoft.models.naif.task.sites.*;
+import co.simasoft.models.naif.task.persons.*;
+import co.simasoft.models.naif.task.archival.*;
 import co.simasoft.models.naif.task.activities.*;
 import org.hibernate.search.annotations.Analyze;
 import org.hibernate.search.annotations.Index;
@@ -28,9 +28,9 @@ import javax.persistence.TemporalType;
 import javax.persistence.Temporal;
 import org.hibernate.search.annotations.DateBridge;
 import org.hibernate.search.annotations.Resolution;
-import javax.persistence.OneToMany;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Indexed
 @Entity
@@ -54,6 +54,10 @@ public class Activities implements Serializable {
 	private Date untimelyDate;
 
 	@Column(nullable = true, unique = false)
+	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+	private String name;
+
+	@Column(nullable = true, unique = false)
 	@Temporal(TemporalType.DATE)
 	@DateBridge(resolution = Resolution.YEAR)
 	private Date timelyDate;
@@ -72,48 +76,44 @@ public class Activities implements Serializable {
 	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
 	private String detail;
 
-	@Column(nullable = true, unique = false)
-	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-	private String name;
-
 	@OneToMany(mappedBy = "objPadre")
 	private Set<Activities> objHijos = new HashSet<Activities>();
 
-	@ManyToMany
-	private Set<Sites> sites = new HashSet<Sites>();
+	@OneToMany(mappedBy = "activities")
+	private Set<Tasks> tasks = new HashSet<Tasks>();
 
 	@ManyToMany
 	private Set<Guides> guides = new HashSet<Guides>();
 
-	@OneToMany(mappedBy = "activities")
-	private Set<Tasks> tasks = new HashSet<Tasks>();
+	@ManyToMany
+	private Set<Sites> sites = new HashSet<Sites>();
 
 	@ManyToOne
 	private Activities objPadre;
 
 	@ManyToOne
-	private Sections sections;
-
-	@ManyToOne
-	private Persons persons;
+	private ActivitiesTypes activitiesTypes;
 
 	@ManyToOne
 	private Calendars calendars;
 
 	@ManyToOne
-	private ActivitiesTypes activitiesTypes;
+	private Persons persons;
+
+	@ManyToOne
+	private Sections sections;
 
 	public Activities() {
 	}
 
-	public Activities(Date untimelyDate, Date timelyDate, Date finalDate,
-			Date startDate, String detail, String name) {
+	public Activities(Date untimelyDate, String name, Date timelyDate,
+			Date finalDate, Date startDate, String detail) {
 		this.untimelyDate = untimelyDate;
+		this.name = name;
 		this.timelyDate = timelyDate;
 		this.finalDate = finalDate;
 		this.startDate = startDate;
 		this.detail = detail;
-		this.name = name;
 	}
 
 	public Long getId() {
@@ -144,6 +144,13 @@ public class Activities implements Serializable {
 		this.untimelyDate = untimelyDate;
 	}
 
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+
 	public Date getTimelyDate() {
 		return timelyDate;
 	}
@@ -172,32 +179,11 @@ public class Activities implements Serializable {
 		this.detail = detail;
 	}
 
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-
 	public Set<Activities> getObjHijos() {
 		return this.objHijos;
 	}
 	public void setObjHijos(Set<Activities> objHijos) {
 		this.objHijos = objHijos;
-	}
-
-	public Set<Sites> getSites() {
-		return sites;
-	}
-	public void setSites(Set<Sites> sites) {
-		this.sites = sites;
-	}
-
-	public Set<Guides> getGuides() {
-		return guides;
-	}
-	public void setGuides(Set<Guides> guides) {
-		this.guides = guides;
 	}
 
 	public Set<Tasks> getTasks() {
@@ -207,6 +193,20 @@ public class Activities implements Serializable {
 		this.tasks = tasks;
 	}
 
+	public Set<Guides> getGuides() {
+		return guides;
+	}
+	public void setGuides(Set<Guides> guides) {
+		this.guides = guides;
+	}
+
+	public Set<Sites> getSites() {
+		return sites;
+	}
+	public void setSites(Set<Sites> sites) {
+		this.sites = sites;
+	}
+
 	public Activities getObjPadre() {
 		return this.objPadre;
 	}
@@ -214,18 +214,11 @@ public class Activities implements Serializable {
 		this.objPadre = objPadre;
 	}
 
-	public Sections getSections() {
-		return sections;
+	public ActivitiesTypes getActivitiesTypes() {
+		return activitiesTypes;
 	}
-	public void setSections(Sections sections) {
-		this.sections = sections;
-	}
-
-	public Persons getPersons() {
-		return persons;
-	}
-	public void setPersons(Persons persons) {
-		this.persons = persons;
+	public void setActivitiesTypes(ActivitiesTypes activitiesTypes) {
+		this.activitiesTypes = activitiesTypes;
 	}
 
 	public Calendars getCalendars() {
@@ -235,11 +228,18 @@ public class Activities implements Serializable {
 		this.calendars = calendars;
 	}
 
-	public ActivitiesTypes getActivitiesTypes() {
-		return activitiesTypes;
+	public Persons getPersons() {
+		return persons;
 	}
-	public void setActivitiesTypes(ActivitiesTypes activitiesTypes) {
-		this.activitiesTypes = activitiesTypes;
+	public void setPersons(Persons persons) {
+		this.persons = persons;
+	}
+
+	public Sections getSections() {
+		return sections;
+	}
+	public void setSections(Sections sections) {
+		this.sections = sections;
 	}
 
 	@Override

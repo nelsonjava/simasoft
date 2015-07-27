@@ -45,11 +45,11 @@
 				</h:column>
 				<h:column>
 					<f:facet name="header">
-						<h:outputText value="Link"/>
+						<h:outputText value="Located"/>
 					</f:facet>
 					<h:link outcome="/admin/series/view">
 						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemLink" value="#{_item.link}"/>
+						<h:outputText id="itemLocated" value="#{_item.located}"/>
 					</h:link>
 				</h:column>
 				<h:column>
@@ -63,11 +63,11 @@
 				</h:column>
 				<h:column>
 					<f:facet name="header">
-						<h:outputText value="Located"/>
+						<h:outputText value="Link"/>
 					</f:facet>
 					<h:link outcome="/admin/series/view">
 						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemLocated" value="#{_item.located}"/>
+						<h:outputText id="itemLink" value="#{_item.link}"/>
 					</h:link>
 				</h:column>
 				<h:column>

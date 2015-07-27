@@ -43,28 +43,10 @@
 					<h:message for="personsBeanPersonsOrden" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
-				<h:outputLabel for="personsBeanPersonsFirstName" value="First Name:"/>
+				<h:outputLabel for="personsBeanPersonsSkype" value="Skype:"/>
 				<h:panelGroup>
-					<h:inputText id="personsBeanPersonsFirstName" value="#{personsBean.persons.firstName}"/>
-					<h:message for="personsBeanPersonsFirstName" styleClass="error"/>
-				</h:panelGroup>
-				<h:outputText/>
-				<h:outputLabel for="personsBeanPersonsSecondName" value="Second Name:"/>
-				<h:panelGroup>
-					<h:inputText id="personsBeanPersonsSecondName" value="#{personsBean.persons.secondName}"/>
-					<h:message for="personsBeanPersonsSecondName" styleClass="error"/>
-				</h:panelGroup>
-				<h:outputText/>
-				<h:outputLabel for="personsBeanPersonsFirstLastName" value="First Last Name:"/>
-				<h:panelGroup>
-					<h:inputText id="personsBeanPersonsFirstLastName" value="#{personsBean.persons.firstLastName}"/>
-					<h:message for="personsBeanPersonsFirstLastName" styleClass="error"/>
-				</h:panelGroup>
-				<h:outputText/>
-				<h:outputLabel for="personsBeanPersonsSecondLastName" value="Second Last Name:"/>
-				<h:panelGroup>
-					<h:inputText id="personsBeanPersonsSecondLastName" value="#{personsBean.persons.secondLastName}"/>
-					<h:message for="personsBeanPersonsSecondLastName" styleClass="error"/>
+					<h:inputText id="personsBeanPersonsSkype" value="#{personsBean.persons.skype}"/>
+					<h:message for="personsBeanPersonsSkype" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
 				<h:outputLabel for="personsBeanPersonsEmail" value="Email:"/>
@@ -73,10 +55,10 @@
 					<h:message for="personsBeanPersonsEmail" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
-				<h:outputLabel for="personsBeanPersonsSkype" value="Skype:"/>
+				<h:outputLabel for="personsBeanPersonsTelephones" value="Telephones:"/>
 				<h:panelGroup>
-					<h:inputText id="personsBeanPersonsSkype" value="#{personsBean.persons.skype}"/>
-					<h:message for="personsBeanPersonsSkype" styleClass="error"/>
+					<h:inputText id="personsBeanPersonsTelephones" value="#{personsBean.persons.telephones}"/>
+					<h:message for="personsBeanPersonsTelephones" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
 				<h:outputLabel for="personsBeanPersonsAddress" value="Address:"/>
@@ -85,26 +67,28 @@
 					<h:message for="personsBeanPersonsAddress" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
-				<h:outputLabel for="personsBeanPersonsTelephones" value="Telephones:"/>
+				<h:outputLabel for="personsBeanPersonsSecondName" value="Second Name:"/>
 				<h:panelGroup>
-					<h:inputText id="personsBeanPersonsTelephones" value="#{personsBean.persons.telephones}"/>
-					<h:message for="personsBeanPersonsTelephones" styleClass="error"/>
+					<h:inputText id="personsBeanPersonsSecondName" value="#{personsBean.persons.secondName}"/>
+					<h:message for="personsBeanPersonsSecondName" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
-				<h:outputLabel for="personsBeanPersonsActivities" value="Activities:"/>
+				<h:outputLabel for="personsBeanPersonsFirstName" value="First Name:"/>
 				<h:panelGroup>
-					<ui:param name="_collection" value="#{personsBean.persons.activities}"/>
-					<h:dataTable id="personsBeanPersonsActivities" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
-						<h:column>
-							<f:facet name="header">
-								<h:outputText value="Activities"/>
-							</f:facet>
-							<h:link outcome="/admin/activities/view">
-								<f:param name="id" value="#{_item.id}"/>
-								<h:outputText value="#{_item}"/>
-							</h:link>
-						</h:column>
-					</h:dataTable>
+					<h:inputText id="personsBeanPersonsFirstName" value="#{personsBean.persons.firstName}"/>
+					<h:message for="personsBeanPersonsFirstName" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="personsBeanPersonsSecondLastName" value="Second Last Name:"/>
+				<h:panelGroup>
+					<h:inputText id="personsBeanPersonsSecondLastName" value="#{personsBean.persons.secondLastName}"/>
+					<h:message for="personsBeanPersonsSecondLastName" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="personsBeanPersonsFirstLastName" value="First Last Name:"/>
+				<h:panelGroup>
+					<h:inputText id="personsBeanPersonsFirstLastName" value="#{personsBean.persons.firstLastName}"/>
+					<h:message for="personsBeanPersonsFirstLastName" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
 				<h:outputLabel for="personsBeanPersonsSections" value="Sections:"/>
@@ -116,6 +100,22 @@
 								<h:outputText value="Sections"/>
 							</f:facet>
 							<h:link outcome="/admin/sections/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText value="#{_item}"/>
+							</h:link>
+						</h:column>
+					</h:dataTable>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="personsBeanPersonsActivities" value="Activities:"/>
+				<h:panelGroup>
+					<ui:param name="_collection" value="#{personsBean.persons.activities}"/>
+					<h:dataTable id="personsBeanPersonsActivities" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Activities"/>
+							</f:facet>
+							<h:link outcome="/admin/activities/view">
 								<f:param name="id" value="#{_item.id}"/>
 								<h:outputText value="#{_item}"/>
 							</h:link>

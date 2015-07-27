@@ -214,17 +214,17 @@ public class GuidesBean implements Serializable {
 		CriteriaBuilder builder = this.entityManager.getCriteriaBuilder();
 		List<Predicate> predicatesList = new ArrayList<Predicate>();
 
-		String title = this.example.getTitle();
-		if (title != null && !"".equals(title)) {
-			predicatesList.add(builder.like(
-					builder.lower(root.<String> get("title")),
-					'%' + title.toLowerCase() + '%'));
-		}
 		String guide = this.example.getGuide();
 		if (guide != null && !"".equals(guide)) {
 			predicatesList.add(builder.like(
 					builder.lower(root.<String> get("guide")),
 					'%' + guide.toLowerCase() + '%'));
+		}
+		String title = this.example.getTitle();
+		if (title != null && !"".equals(title)) {
+			predicatesList.add(builder.like(
+					builder.lower(root.<String> get("title")),
+					'%' + title.toLowerCase() + '%'));
 		}
 
 		return predicatesList.toArray(new Predicate[predicatesList.size()]);

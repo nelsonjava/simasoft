@@ -242,17 +242,17 @@ public class SectionsBean implements Serializable {
 					builder.lower(root.<String> get("code")),
 					'%' + code.toLowerCase() + '%'));
 		}
-		String email = this.example.getEmail();
-		if (email != null && !"".equals(email)) {
-			predicatesList.add(builder.like(
-					builder.lower(root.<String> get("email")),
-					'%' + email.toLowerCase() + '%'));
-		}
 		String name = this.example.getName();
 		if (name != null && !"".equals(name)) {
 			predicatesList.add(builder.like(
 					builder.lower(root.<String> get("name")),
 					'%' + name.toLowerCase() + '%'));
+		}
+		String email = this.example.getEmail();
+		if (email != null && !"".equals(email)) {
+			predicatesList.add(builder.like(
+					builder.lower(root.<String> get("email")),
+					'%' + email.toLowerCase() + '%'));
 		}
 		Sections objPadre = this.example.getObjPadre();
 		if (objPadre != null) {

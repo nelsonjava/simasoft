@@ -43,22 +43,110 @@
 					<h:message for="documentalsUnitsBeanDocumentalsUnitsOrden" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
-				<h:outputLabel for="documentalsUnitsBeanDocumentalsUnitsLink" value="Link:"/>
-				<h:panelGroup>
-					<h:inputText id="documentalsUnitsBeanDocumentalsUnitsLink" value="#{documentalsUnitsBean.documentalsUnits.link}"/>
-					<h:message for="documentalsUnitsBeanDocumentalsUnitsLink" styleClass="error"/>
-				</h:panelGroup>
-				<h:outputText/>
-				<h:outputLabel for="documentalsUnitsBeanDocumentalsUnitsDate" value="Date:"/>
-				<h:panelGroup>
-					<h:inputText id="documentalsUnitsBeanDocumentalsUnitsDate" value="#{documentalsUnitsBean.documentalsUnits.date}"/>
-					<h:message for="documentalsUnitsBeanDocumentalsUnitsDate" styleClass="error"/>
-				</h:panelGroup>
-				<h:outputText/>
 				<h:outputLabel for="documentalsUnitsBeanDocumentalsUnitsName" value="Name:"/>
 				<h:panelGroup>
 					<h:inputText id="documentalsUnitsBeanDocumentalsUnitsName" value="#{documentalsUnitsBean.documentalsUnits.name}"/>
 					<h:message for="documentalsUnitsBeanDocumentalsUnitsName" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="documentalsUnitsBeanDocumentalsUnitsCreationDate" value="Creation Date:"/>
+				<h:panelGroup>
+					<h:inputText id="documentalsUnitsBeanDocumentalsUnitsCreationDate" value="#{documentalsUnitsBean.documentalsUnits.creationDate}">
+						<f:convertDateTime type="date"/>
+					</h:inputText>
+					<h:message for="documentalsUnitsBeanDocumentalsUnitsCreationDate" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="documentalsUnitsBeanDocumentalsUnitsOriginalOrder" value="Original Order:"/>
+				<h:panelGroup>
+					<ui:param name="_collection" value="#{documentalsUnitsBean.documentalsUnits.originalOrder}"/>
+					<h:dataTable id="documentalsUnitsBeanDocumentalsUnitsOriginalOrder" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Orden"/>
+							</f:facet>
+							<h:link outcome="/admin/originalOrder/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemOrden" value="#{_item.orden}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="originalOrderBeanAddOrden" value="#{originalOrderBean.add.orden}"/>
+								<h:message for="originalOrderBeanAddOrden" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Entry Date"/>
+							</f:facet>
+							<h:link outcome="/admin/originalOrder/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemEntryDate" value="#{_item.entryDate}">
+									<f:convertDateTime type="date"/>
+								</h:outputText>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="originalOrderBeanAddEntryDate" value="#{originalOrderBean.add.entryDate}">
+									<f:convertDateTime type="date"/>
+								</h:inputText>
+								<h:message for="originalOrderBeanAddEntryDate" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Start Date"/>
+							</f:facet>
+							<h:link outcome="/admin/originalOrder/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemStartDate" value="#{_item.startDate}">
+									<f:convertDateTime type="date"/>
+								</h:outputText>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="originalOrderBeanAddStartDate" value="#{originalOrderBean.add.startDate}">
+									<f:convertDateTime type="date"/>
+								</h:inputText>
+								<h:message for="originalOrderBeanAddStartDate" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Final Date"/>
+							</f:facet>
+							<h:link outcome="/admin/originalOrder/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemFinalDate" value="#{_item.finalDate}">
+									<f:convertDateTime type="date"/>
+								</h:outputText>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="originalOrderBeanAddFinalDate" value="#{originalOrderBean.add.finalDate}">
+									<f:convertDateTime type="date"/>
+								</h:inputText>
+								<h:message for="originalOrderBeanAddFinalDate" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Folios"/>
+							</f:facet>
+							<h:link outcome="/admin/originalOrder/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemFolios" value="#{_item.folios}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="originalOrderBeanAddFolios" value="#{originalOrderBean.add.folios}"/>
+								<h:message for="originalOrderBeanAddFolios" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column footerClass="remove-column" headerClass="remove-column">
+							<h:commandLink action="#{_collection.remove(_item)}" styleClass="remove-button"/>
+							<f:facet name="footer">
+								<h:commandLink action="#{_collection.add(originalOrderBean.added)}" id="documentalsUnitsBeanDocumentalsUnitsOriginalOrderAdd" styleClass="add-button">
+									<f:setPropertyActionListener target="#{originalOrderBean.add.documentalsUnits}" value="#{documentalsUnitsBean.documentalsUnits}"/>
+								</h:commandLink>
+							</f:facet>
+						</h:column>
+					</h:dataTable>
 				</h:panelGroup>
 				<h:outputText/>
 				<h:outputLabel for="documentalsUnitsBeanDocumentalsUnitsSeries" value="Series:"/>
@@ -77,15 +165,6 @@
 						<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{conservationUnitsBean.all}" var="_item"/>
 					</h:selectOneMenu>
 					<h:message for="documentalsUnitsBeanDocumentalsUnitsConservationUnits" styleClass="error"/>
-				</h:panelGroup>
-				<h:outputText/>
-				<h:outputLabel for="documentalsUnitsBeanDocumentalsUnitsDocumentalsSupports" value="Documentals Supports:"/>
-				<h:panelGroup>
-					<h:selectOneMenu converter="#{documentalsSupportsBean.converter}" id="documentalsUnitsBeanDocumentalsUnitsDocumentalsSupports" value="#{documentalsUnitsBean.documentalsUnits.documentalsSupports}">
-						<f:selectItem/>
-						<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{documentalsSupportsBean.all}" var="_item"/>
-					</h:selectOneMenu>
-					<h:message for="documentalsUnitsBeanDocumentalsUnitsDocumentalsSupports" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
 			</h:panelGrid>

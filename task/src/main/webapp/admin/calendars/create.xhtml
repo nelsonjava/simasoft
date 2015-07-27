@@ -93,6 +93,19 @@
 						</h:column>
 						<h:column>
 							<f:facet name="header">
+								<h:outputText value="Name"/>
+							</f:facet>
+							<h:link outcome="/admin/activities/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemName" value="#{_item.name}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="activitiesBeanAddName" value="#{activitiesBean.add.name}"/>
+								<h:message for="activitiesBeanAddName" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
 								<h:outputText value="Timely Date"/>
 							</f:facet>
 							<h:link outcome="/admin/activities/view">
@@ -123,23 +136,6 @@
 									<f:convertDateTime type="date"/>
 								</h:inputText>
 								<h:message for="activitiesBeanAddFinalDate" styleClass="error"/>
-							</f:facet>
-						</h:column>
-						<h:column>
-							<f:facet name="header">
-								<h:outputText value="Start Date"/>
-							</f:facet>
-							<h:link outcome="/admin/activities/view">
-								<f:param name="id" value="#{_item.id}"/>
-								<h:outputText id="itemStartDate" value="#{_item.startDate}">
-									<f:convertDateTime type="date"/>
-								</h:outputText>
-							</h:link>
-							<f:facet name="footer">
-								<h:inputText id="activitiesBeanAddStartDate" value="#{activitiesBean.add.startDate}">
-									<f:convertDateTime type="date"/>
-								</h:inputText>
-								<h:message for="activitiesBeanAddStartDate" styleClass="error"/>
 							</f:facet>
 						</h:column>
 						<h:column footerClass="remove-column" headerClass="remove-column">

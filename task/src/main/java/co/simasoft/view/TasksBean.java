@@ -219,10 +219,6 @@ public class TasksBean implements Serializable {
 		CriteriaBuilder builder = this.entityManager.getCriteriaBuilder();
 		List<Predicate> predicatesList = new ArrayList<Predicate>();
 
-		Integer priority = this.example.getPriority();
-		if (priority != null && priority.intValue() != 0) {
-			predicatesList.add(builder.equal(root.get("priority"), priority));
-		}
 		String name = this.example.getName();
 		if (name != null && !"".equals(name)) {
 			predicatesList.add(builder.like(
@@ -234,6 +230,10 @@ public class TasksBean implements Serializable {
 			predicatesList.add(builder.like(
 					builder.lower(root.<String> get("detail")),
 					'%' + detail.toLowerCase() + '%'));
+		}
+		Integer priority = this.example.getPriority();
+		if (priority != null && priority.intValue() != 0) {
+			predicatesList.add(builder.equal(root.get("priority"), priority));
 		}
 		Activities activities = this.example.getActivities();
 		if (activities != null) {

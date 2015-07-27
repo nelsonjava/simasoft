@@ -43,10 +43,10 @@
 					<h:message for="seriesBeanSeriesOrden" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
-				<h:outputLabel for="seriesBeanSeriesLink" value="Link:"/>
+				<h:outputLabel for="seriesBeanSeriesLocated" value="Located:"/>
 				<h:panelGroup>
-					<h:inputText id="seriesBeanSeriesLink" value="#{seriesBean.series.link}"/>
-					<h:message for="seriesBeanSeriesLink" styleClass="error"/>
+					<h:inputText id="seriesBeanSeriesLocated" value="#{seriesBean.series.located}"/>
+					<h:message for="seriesBeanSeriesLocated" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
 				<h:outputLabel for="seriesBeanSeriesName" value="Name:"/>
@@ -55,10 +55,10 @@
 					<h:message for="seriesBeanSeriesName" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
-				<h:outputLabel for="seriesBeanSeriesLocated" value="Located:"/>
+				<h:outputLabel for="seriesBeanSeriesLink" value="Link:"/>
 				<h:panelGroup>
-					<h:inputText id="seriesBeanSeriesLocated" value="#{seriesBean.series.located}"/>
-					<h:message for="seriesBeanSeriesLocated" styleClass="error"/>
+					<h:inputText id="seriesBeanSeriesLink" value="#{seriesBean.series.link}"/>
+					<h:message for="seriesBeanSeriesLink" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
 				<h:outputLabel for="seriesBeanSeriesCode" value="Code:"/>
@@ -86,32 +86,6 @@
 						</h:column>
 						<h:column>
 							<f:facet name="header">
-								<h:outputText value="Link"/>
-							</f:facet>
-							<h:link outcome="/admin/documentalsUnits/view">
-								<f:param name="id" value="#{_item.id}"/>
-								<h:outputText id="itemLink" value="#{_item.link}"/>
-							</h:link>
-							<f:facet name="footer">
-								<h:inputText id="documentalsUnitsBeanAddLink" value="#{documentalsUnitsBean.add.link}"/>
-								<h:message for="documentalsUnitsBeanAddLink" styleClass="error"/>
-							</f:facet>
-						</h:column>
-						<h:column>
-							<f:facet name="header">
-								<h:outputText value="Date"/>
-							</f:facet>
-							<h:link outcome="/admin/documentalsUnits/view">
-								<f:param name="id" value="#{_item.id}"/>
-								<h:outputText id="itemDate" value="#{_item.date}"/>
-							</h:link>
-							<f:facet name="footer">
-								<h:inputText id="documentalsUnitsBeanAddDate" value="#{documentalsUnitsBean.add.date}"/>
-								<h:message for="documentalsUnitsBeanAddDate" styleClass="error"/>
-							</f:facet>
-						</h:column>
-						<h:column>
-							<f:facet name="header">
 								<h:outputText value="Name"/>
 							</f:facet>
 							<h:link outcome="/admin/documentalsUnits/view">
@@ -121,6 +95,23 @@
 							<f:facet name="footer">
 								<h:inputText id="documentalsUnitsBeanAddName" value="#{documentalsUnitsBean.add.name}"/>
 								<h:message for="documentalsUnitsBeanAddName" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Creation Date"/>
+							</f:facet>
+							<h:link outcome="/admin/documentalsUnits/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemCreationDate" value="#{_item.creationDate}">
+									<f:convertDateTime type="date"/>
+								</h:outputText>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="documentalsUnitsBeanAddCreationDate" value="#{documentalsUnitsBean.add.creationDate}">
+									<f:convertDateTime type="date"/>
+								</h:inputText>
+								<h:message for="documentalsUnitsBeanAddCreationDate" styleClass="error"/>
 							</f:facet>
 						</h:column>
 						<h:column>
@@ -192,15 +183,15 @@
 						</h:column>
 						<h:column>
 							<f:facet name="header">
-								<h:outputText value="Link"/>
+								<h:outputText value="Located"/>
 							</f:facet>
 							<h:link outcome="/admin/series/view">
 								<f:param name="id" value="#{_item.id}"/>
-								<h:outputText id="itemLink" value="#{_item.link}"/>
+								<h:outputText id="itemLocated" value="#{_item.located}"/>
 							</h:link>
 							<f:facet name="footer">
-								<h:inputText id="seriesBeanAddLink" value="#{seriesBean.add.link}"/>
-								<h:message for="seriesBeanAddLink" styleClass="error"/>
+								<h:inputText id="seriesBeanAddLocated" value="#{seriesBean.add.located}"/>
+								<h:message for="seriesBeanAddLocated" styleClass="error"/>
 							</f:facet>
 						</h:column>
 						<h:column>
@@ -218,15 +209,15 @@
 						</h:column>
 						<h:column>
 							<f:facet name="header">
-								<h:outputText value="Located"/>
+								<h:outputText value="Link"/>
 							</f:facet>
 							<h:link outcome="/admin/series/view">
 								<f:param name="id" value="#{_item.id}"/>
-								<h:outputText id="itemLocated" value="#{_item.located}"/>
+								<h:outputText id="itemLink" value="#{_item.link}"/>
 							</h:link>
 							<f:facet name="footer">
-								<h:inputText id="seriesBeanAddLocated" value="#{seriesBean.add.located}"/>
-								<h:message for="seriesBeanAddLocated" styleClass="error"/>
+								<h:inputText id="seriesBeanAddLink" value="#{seriesBean.add.link}"/>
+								<h:message for="seriesBeanAddLink" styleClass="error"/>
 							</f:facet>
 						</h:column>
 						<h:column>
@@ -253,15 +244,6 @@
 					</h:dataTable>
 				</h:panelGroup>
 				<h:outputText/>
-				<h:outputLabel for="seriesBeanSeriesDocumentsTypes" value="Documents Types:"/>
-				<h:panelGroup>
-					<h:selectOneMenu converter="#{documentsTypesBean.converter}" id="seriesBeanSeriesDocumentsTypes" value="#{seriesBean.series.documentsTypes}">
-						<f:selectItem/>
-						<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{documentsTypesBean.all}" var="_item"/>
-					</h:selectOneMenu>
-					<h:message for="seriesBeanSeriesDocumentsTypes" styleClass="error"/>
-				</h:panelGroup>
-				<h:outputText/>
 				<h:outputLabel for="seriesBeanSeriesSections" value="Sections:"/>
 				<h:panelGroup>
 					<ui:param name="_collection" value="#{seriesBean.series.sections}"/>
@@ -286,20 +268,20 @@
 						</h:column>
 						<h:column>
 							<f:facet name="header">
-								<h:outputText value="Email"/>
-							</f:facet>
-							<h:link outcome="/admin/sections/view">
-								<f:param name="id" value="#{_item.id}"/>
-								<h:outputText id="itemEmail" value="#{_item.email}"/>
-							</h:link>
-						</h:column>
-						<h:column>
-							<f:facet name="header">
 								<h:outputText value="Name"/>
 							</f:facet>
 							<h:link outcome="/admin/sections/view">
 								<f:param name="id" value="#{_item.id}"/>
 								<h:outputText id="itemName" value="#{_item.name}"/>
+							</h:link>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Email"/>
+							</f:facet>
+							<h:link outcome="/admin/sections/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemEmail" value="#{_item.email}"/>
 							</h:link>
 						</h:column>
 						<h:column>
@@ -331,6 +313,15 @@
 						<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{seriesBean.all}" var="_item"/>
 					</h:selectOneMenu>
 					<h:message for="seriesBeanSeriesObjPadre" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="seriesBeanSeriesDocumentsTypes" value="Documents Types:"/>
+				<h:panelGroup>
+					<h:selectOneMenu converter="#{documentsTypesBean.converter}" id="seriesBeanSeriesDocumentsTypes" value="#{seriesBean.series.documentsTypes}">
+						<f:selectItem/>
+						<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{documentsTypesBean.all}" var="_item"/>
+					</h:selectOneMenu>
+					<h:message for="seriesBeanSeriesDocumentsTypes" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
 			</h:panelGrid>

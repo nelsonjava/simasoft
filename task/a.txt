@@ -8,8 +8,6 @@
 [WARNING] 
 [WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
 [WARNING] 
-[INFO] 
-[INFO] Using the builder org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder with a thread count of 1
 [INFO]                                                                         
 [INFO] ------------------------------------------------------------------------
 [INFO] Building task 1.0.0-SNAPSHOT
@@ -24,7 +22,7 @@
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ task ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 40 source files to d:\docs\h2\war\task\target\classes
+[INFO] Compiling 42 source files to d:\docs\h2\war\task\target\classes
 [WARNING] /d:/docs/h2/war/task/src/main/java/co/simasoft/Beans/FindBean.java: Some input files use unchecked or unsafe operations.
 [WARNING] /d:/docs/h2/war/task/src/main/java/co/simasoft/Beans/FindBean.java: Recompile with -Xlint:unchecked for details.
 [INFO] 
@@ -43,7 +41,7 @@
 [INFO] Assembling webapp [task] in [d:\docs\h2\war\task\target\task]
 [INFO] Processing war project
 [INFO] Copying webapp resources [d:\docs\h2\war\task\src\main\webapp]
-[INFO] Webapp assembled in [761 msecs]
+[INFO] Webapp assembled in [672 msecs]
 [INFO] Building war: d:\docs\h2\war\task\target\task.war
 [WARNING] Warning: selected war files include a WEB-INF/web.xml which will be ignored 
 (webxml attribute is missing from war task, or ignoreWebxml attribute is specified as 'true')
@@ -73,7 +71,7 @@
 [INFO] Assembling webapp [task] in [d:\docs\h2\war\task\target\task]
 [INFO] Processing war project
 [INFO] Copying webapp resources [d:\docs\h2\war\task\src\main\webapp]
-[INFO] Webapp assembled in [309 msecs]
+[INFO] Webapp assembled in [688 msecs]
 [INFO] Building war: d:\docs\h2\war\task\target\task.war
 [WARNING] Warning: selected war files include a WEB-INF/web.xml which will be ignored 
 (webxml attribute is missing from war task, or ignoreWebxml attribute is specified as 'true')
@@ -84,7 +82,7 @@
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 39.685 s
-[INFO] Finished at: 2015-07-26T17:04:45-05:00
-[INFO] Final Memory: 20M/50M
+[INFO] Total time: 33.407s
+[INFO] Finished at: Mon Jul 27 14:02:37 COT 2015
+[INFO] Final Memory: 20M/51M
 [INFO] ------------------------------------------------------------------------

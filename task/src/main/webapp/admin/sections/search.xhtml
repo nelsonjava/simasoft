@@ -36,16 +36,16 @@
 							<h:message for="sectionsBeanExampleCode" styleClass="error"/>
 						</h:panelGroup>
 						<h:outputText/>
-						<h:outputLabel for="sectionsBeanExampleEmail" value="Email:"/>
-						<h:panelGroup>
-							<h:inputText id="sectionsBeanExampleEmail" value="#{sectionsBean.example.email}"/>
-							<h:message for="sectionsBeanExampleEmail" styleClass="error"/>
-						</h:panelGroup>
-						<h:outputText/>
 						<h:outputLabel for="sectionsBeanExampleName" value="Name:"/>
 						<h:panelGroup>
 							<h:inputText id="sectionsBeanExampleName" value="#{sectionsBean.example.name}"/>
 							<h:message for="sectionsBeanExampleName" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="sectionsBeanExampleEmail" value="Email:"/>
+						<h:panelGroup>
+							<h:inputText id="sectionsBeanExampleEmail" value="#{sectionsBean.example.email}"/>
+							<h:message for="sectionsBeanExampleEmail" styleClass="error"/>
 						</h:panelGroup>
 						<h:outputText/>
 						<h:outputLabel for="sectionsBeanExampleObjPadre" value="Obj Padre:"/>
@@ -95,20 +95,20 @@
 				</h:column>
 				<h:column>
 					<f:facet name="header">
-						<h:outputText value="Email"/>
-					</f:facet>
-					<h:link outcome="/admin/sections/view">
-						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemEmail" value="#{_item.email}"/>
-					</h:link>
-				</h:column>
-				<h:column>
-					<f:facet name="header">
 						<h:outputText value="Name"/>
 					</f:facet>
 					<h:link outcome="/admin/sections/view">
 						<f:param name="id" value="#{_item.id}"/>
 						<h:outputText id="itemName" value="#{_item.name}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Email"/>
+					</f:facet>
+					<h:link outcome="/admin/sections/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemEmail" value="#{_item.email}"/>
 					</h:link>
 				</h:column>
 				<h:column>

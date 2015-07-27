@@ -209,35 +209,35 @@ public class PersonsBean implements Serializable {
 		CriteriaBuilder builder = this.entityManager.getCriteriaBuilder();
 		List<Predicate> predicatesList = new ArrayList<Predicate>();
 
-		String firstName = this.example.getFirstName();
-		if (firstName != null && !"".equals(firstName)) {
+		String skype = this.example.getSkype();
+		if (skype != null && !"".equals(skype)) {
 			predicatesList.add(builder.like(
-					builder.lower(root.<String> get("firstName")),
-					'%' + firstName.toLowerCase() + '%'));
-		}
-		String secondName = this.example.getSecondName();
-		if (secondName != null && !"".equals(secondName)) {
-			predicatesList.add(builder.like(
-					builder.lower(root.<String> get("secondName")),
-					'%' + secondName.toLowerCase() + '%'));
-		}
-		String firstLastName = this.example.getFirstLastName();
-		if (firstLastName != null && !"".equals(firstLastName)) {
-			predicatesList.add(builder.like(
-					builder.lower(root.<String> get("firstLastName")),
-					'%' + firstLastName.toLowerCase() + '%'));
-		}
-		String secondLastName = this.example.getSecondLastName();
-		if (secondLastName != null && !"".equals(secondLastName)) {
-			predicatesList.add(builder.like(
-					builder.lower(root.<String> get("secondLastName")),
-					'%' + secondLastName.toLowerCase() + '%'));
+					builder.lower(root.<String> get("skype")),
+					'%' + skype.toLowerCase() + '%'));
 		}
 		String email = this.example.getEmail();
 		if (email != null && !"".equals(email)) {
 			predicatesList.add(builder.like(
 					builder.lower(root.<String> get("email")),
 					'%' + email.toLowerCase() + '%'));
+		}
+		String telephones = this.example.getTelephones();
+		if (telephones != null && !"".equals(telephones)) {
+			predicatesList.add(builder.like(
+					builder.lower(root.<String> get("telephones")),
+					'%' + telephones.toLowerCase() + '%'));
+		}
+		String address = this.example.getAddress();
+		if (address != null && !"".equals(address)) {
+			predicatesList.add(builder.like(
+					builder.lower(root.<String> get("address")),
+					'%' + address.toLowerCase() + '%'));
+		}
+		String secondName = this.example.getSecondName();
+		if (secondName != null && !"".equals(secondName)) {
+			predicatesList.add(builder.like(
+					builder.lower(root.<String> get("secondName")),
+					'%' + secondName.toLowerCase() + '%'));
 		}
 
 		return predicatesList.toArray(new Predicate[predicatesList.size()]);

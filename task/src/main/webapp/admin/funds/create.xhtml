@@ -87,19 +87,6 @@
 						</h:column>
 						<h:column>
 							<f:facet name="header">
-								<h:outputText value="Email"/>
-							</f:facet>
-							<h:link outcome="/admin/sections/view">
-								<f:param name="id" value="#{_item.id}"/>
-								<h:outputText id="itemEmail" value="#{_item.email}"/>
-							</h:link>
-							<f:facet name="footer">
-								<h:inputText id="sectionsBeanAddEmail" value="#{sectionsBean.add.email}"/>
-								<h:message for="sectionsBeanAddEmail" styleClass="error"/>
-							</f:facet>
-						</h:column>
-						<h:column>
-							<f:facet name="header">
 								<h:outputText value="Name"/>
 							</f:facet>
 							<h:link outcome="/admin/sections/view">
@@ -109,6 +96,19 @@
 							<f:facet name="footer">
 								<h:inputText id="sectionsBeanAddName" value="#{sectionsBean.add.name}"/>
 								<h:message for="sectionsBeanAddName" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Email"/>
+							</f:facet>
+							<h:link outcome="/admin/sections/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemEmail" value="#{_item.email}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="sectionsBeanAddEmail" value="#{sectionsBean.add.email}"/>
+								<h:message for="sectionsBeanAddEmail" styleClass="error"/>
 							</f:facet>
 						</h:column>
 						<h:column>

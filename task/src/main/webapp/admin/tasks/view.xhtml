@@ -29,24 +29,37 @@
 			<h:outputLabel for="tasksBeanTasksOrden" value="Orden:"/>
 			<h:outputText id="tasksBeanTasksOrden" value="#{tasksBean.tasks.orden}"/>
 			<h:outputText/>
-			<h:outputLabel for="tasksBeanTasksPriority" value="Priority:"/>
-			<h:outputText id="tasksBeanTasksPriority" value="#{tasksBean.tasks.priority}"/>
-			<h:outputText/>
-			<h:outputLabel for="tasksBeanTasksFinalDate" value="Final Date:"/>
-			<h:outputText id="tasksBeanTasksFinalDate" value="#{tasksBean.tasks.finalDate}">
-				<f:convertDateTime type="date"/>
-			</h:outputText>
+			<h:outputLabel for="tasksBeanTasksName" value="Name:"/>
+			<h:outputText id="tasksBeanTasksName" value="#{tasksBean.tasks.name}"/>
 			<h:outputText/>
 			<h:outputLabel for="tasksBeanTasksStartDate" value="Start Date:"/>
 			<h:outputText id="tasksBeanTasksStartDate" value="#{tasksBean.tasks.startDate}">
 				<f:convertDateTime type="date"/>
 			</h:outputText>
 			<h:outputText/>
-			<h:outputLabel for="tasksBeanTasksName" value="Name:"/>
-			<h:outputText id="tasksBeanTasksName" value="#{tasksBean.tasks.name}"/>
-			<h:outputText/>
 			<h:outputLabel for="tasksBeanTasksDetail" value="Detail:"/>
 			<h:outputText id="tasksBeanTasksDetail" value="#{tasksBean.tasks.detail}"/>
+			<h:outputText/>
+			<h:outputLabel for="tasksBeanTasksFinalDate" value="Final Date:"/>
+			<h:outputText id="tasksBeanTasksFinalDate" value="#{tasksBean.tasks.finalDate}">
+				<f:convertDateTime type="date"/>
+			</h:outputText>
+			<h:outputText/>
+			<h:outputLabel for="tasksBeanTasksPriority" value="Priority:"/>
+			<h:outputText id="tasksBeanTasksPriority" value="#{tasksBean.tasks.priority}"/>
+			<h:outputText/>
+			<h:outputLabel for="tasksBeanTasksSites" value="Sites:"/>
+			<h:dataTable id="tasksBeanTasksSites" styleClass="data-table" value="#{forgeview:asList(tasksBean.tasks.sites)}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Sites"/>
+					</f:facet>
+					<h:link outcome="/admin/sites/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText value="#{_item}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
 			<h:outputText/>
 			<h:outputLabel for="tasksBeanTasksDiaries" value="Diaries:"/>
 			<h:dataTable id="tasksBeanTasksDiaries" styleClass="data-table" value="#{forgeview:asList(tasksBean.tasks.diaries)}" var="_item">
@@ -77,19 +90,6 @@
 						<h:outputText id="itemDate" value="#{_item.date}">
 							<f:convertDateTime type="date"/>
 						</h:outputText>
-					</h:link>
-				</h:column>
-			</h:dataTable>
-			<h:outputText/>
-			<h:outputLabel for="tasksBeanTasksSites" value="Sites:"/>
-			<h:dataTable id="tasksBeanTasksSites" styleClass="data-table" value="#{forgeview:asList(tasksBean.tasks.sites)}" var="_item">
-				<h:column>
-					<f:facet name="header">
-						<h:outputText value="Sites"/>
-					</f:facet>
-					<h:link outcome="/admin/sites/view">
-						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText value="#{_item}"/>
 					</h:link>
 				</h:column>
 			</h:dataTable>

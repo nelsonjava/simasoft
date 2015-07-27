@@ -28,8 +28,6 @@ import co.simasoft.models.naif.task.activities.Activities;
 import co.simasoft.models.naif.task.activities.ActivitiesTypes;
 import co.simasoft.models.naif.task.activities.Calendars;
 import co.simasoft.models.naif.task.activities.Guides;
-import co.simasoft.models.naif.task.persons.Persons;
-import co.simasoft.models.naif.task.archival.Sections;
 import co.simasoft.models.naif.task.activities.Tasks;
 import java.util.Iterator;
 
@@ -145,6 +143,13 @@ public class ActivitiesBean implements Serializable {
 				iterObjHijos.remove();
 				this.entityManager.merge(nextInObjHijos);
 			}
+			Iterator<Tasks> iterTasks = deletableEntity.getTasks().iterator();
+			for (; iterTasks.hasNext();) {
+				Tasks nextInTasks = iterTasks.next();
+				nextInTasks.setActivities(null);
+				iterTasks.remove();
+				this.entityManager.merge(nextInTasks);
+			}
 			Iterator<Guides> iterGuides = deletableEntity.getGuides()
 					.iterator();
 			for (; iterGuides.hasNext();) {
@@ -153,26 +158,19 @@ public class ActivitiesBean implements Serializable {
 				iterGuides.remove();
 				this.entityManager.merge(nextInGuides);
 			}
-			Iterator<Tasks> iterTasks = deletableEntity.getTasks().iterator();
-			for (; iterTasks.hasNext();) {
-				Tasks nextInTasks = iterTasks.next();
-				nextInTasks.setActivities(null);
-				iterTasks.remove();
-				this.entityManager.merge(nextInTasks);
-			}
 			Activities objPadre = deletableEntity.getObjPadre();
 			objPadre.getObjHijos().remove(deletableEntity);
 			deletableEntity.setObjPadre(null);
 			this.entityManager.merge(objPadre);
-			Calendars calendars = deletableEntity.getCalendars();
-			calendars.getActivities().remove(deletableEntity);
-			deletableEntity.setCalendars(null);
-			this.entityManager.merge(calendars);
 			ActivitiesTypes activitiesTypes = deletableEntity
 					.getActivitiesTypes();
 			activitiesTypes.getActivities().remove(deletableEntity);
 			deletableEntity.setActivitiesTypes(null);
 			this.entityManager.merge(activitiesTypes);
+			Calendars calendars = deletableEntity.getCalendars();
+			calendars.getActivities().remove(deletableEntity);
+			deletableEntity.setCalendars(null);
+			this.entityManager.merge(calendars);
 			this.entityManager.remove(deletableEntity);
 			this.entityManager.flush();
 			return "search?faces-redirect=true";
@@ -248,29 +246,30 @@ public class ActivitiesBean implements Serializable {
 		CriteriaBuilder builder = this.entityManager.getCriteriaBuilder();
 		List<Predicate> predicatesList = new ArrayList<Predicate>();
 
-		String detail = this.example.getDetail();
-		if (detail != null && !"".equals(detail)) {
-			predicatesList.add(builder.like(
-					builder.lower(root.<String> get("detail")),
-					'%' + detail.toLowerCase() + '%'));
-		}
 		String name = this.example.getName();
 		if (name != null && !"".equals(name)) {
 			predicatesList.add(builder.like(
 					builder.lower(root.<String> get("name")),
 					'%' + name.toLowerCase() + '%'));
 		}
+		String detail = this.example.getDetail();
+		if (detail != null && !"".equals(detail)) {
+			predicatesList.add(builder.like(
+					builder.lower(root.<String> get("detail")),
+					'%' + detail.toLowerCase() + '%'));
+		}
 		Activities objPadre = this.example.getObjPadre();
 		if (objPadre != null) {
 			predicatesList.add(builder.equal(root.get("objPadre"), objPadre));
 		}
-		Sections sections = this.example.getSections();
-		if (sections != null) {
-			predicatesList.add(builder.equal(root.get("sections"), sections));
+		ActivitiesTypes activitiesTypes = this.example.getActivitiesTypes();
+		if (activitiesTypes != null) {
+			predicatesList.add(builder.equal(root.get("activitiesTypes"),
+					activitiesTypes));
 		}
-		Persons persons = this.example.getPersons();
-		if (persons != null) {
-			predicatesList.add(builder.equal(root.get("persons"), persons));
+		Calendars calendars = this.example.getCalendars();
+		if (calendars != null) {
+			predicatesList.add(builder.equal(root.get("calendars"), calendars));
 		}
 
 		return predicatesList.toArray(new Predicate[predicatesList.size()]);

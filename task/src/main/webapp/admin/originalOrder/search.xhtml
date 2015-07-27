@@ -1,0 +1,137 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:forgeview="http://jboss.org/forge/view"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="page" value='#{originalOrderBean.page}'/>
+		<f:event type="preRenderView" listener='#{originalOrderBean.paginate}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="Search Original Order entities"/>
+
+	<ui:define name="header">
+		Original Order
+	</ui:define>
+
+	<ui:define name="subheader">
+		Search Original Order entities
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:form id="search">
+			<f:validateBean disabled="true">
+				<h:panelGroup styleClass="search">
+
+					<h:panelGrid columnClasses="label,component,required" columns="3">
+						<h:outputLabel for="originalOrderBeanExampleFolios" value="Folios:"/>
+						<h:panelGroup>
+							<h:inputText id="originalOrderBeanExampleFolios" value="#{originalOrderBean.example.folios}"/>
+							<h:message for="originalOrderBeanExampleFolios" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="originalOrderBeanExampleLink" value="Link:"/>
+						<h:panelGroup>
+							<h:inputText id="originalOrderBeanExampleLink" value="#{originalOrderBean.example.link}"/>
+							<h:message for="originalOrderBeanExampleLink" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="originalOrderBeanExampleLocated" value="Located:"/>
+						<h:panelGroup>
+							<h:inputText id="originalOrderBeanExampleLocated" value="#{originalOrderBean.example.located}"/>
+							<h:message for="originalOrderBeanExampleLocated" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="originalOrderBeanExampleDocumentalsSupports" value="Documentals Supports:"/>
+						<h:panelGroup>
+							<h:selectOneMenu converter="#{documentalsSupportsBean.converter}" id="originalOrderBeanExampleDocumentalsSupports" value="#{originalOrderBean.example.documentalsSupports}">
+								<f:selectItem/>
+								<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{documentalsSupportsBean.all}" var="_item"/>
+							</h:selectOneMenu>
+							<h:message for="originalOrderBeanExampleDocumentalsSupports" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="originalOrderBeanExampleDocumentalsUnits" value="Documentals Units:"/>
+						<h:panelGroup>
+							<h:selectOneMenu converter="#{documentalsUnitsBean.converter}" id="originalOrderBeanExampleDocumentalsUnits" value="#{originalOrderBean.example.documentalsUnits}">
+								<f:selectItem/>
+								<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{documentalsUnitsBean.all}" var="_item"/>
+							</h:selectOneMenu>
+							<h:message for="originalOrderBeanExampleDocumentalsUnits" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+					</h:panelGrid>
+					<h:panelGroup styleClass="buttons">
+						<h:commandLink value="Search" action='#{originalOrderBean.search}' styleClass="btn btn-primary"/>
+						<h:commandLink value="Create New" action='#{originalOrderBean.create}' styleClass="btn btn-primary"/>
+					</h:panelGroup>
+				</h:panelGroup>
+			</f:validateBean>
+			
+			<h:dataTable id="originalOrderBeanPageItems" styleClass="data-table" value="#{originalOrderBean.pageItems}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Orden"/>
+					</f:facet>
+					<h:link outcome="/admin/originalOrder/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemOrden" value="#{_item.orden}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Entry Date"/>
+					</f:facet>
+					<h:link outcome="/admin/originalOrder/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemEntryDate" value="#{_item.entryDate}">
+							<f:convertDateTime type="date"/>
+						</h:outputText>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Start Date"/>
+					</f:facet>
+					<h:link outcome="/admin/originalOrder/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemStartDate" value="#{_item.startDate}">
+							<f:convertDateTime type="date"/>
+						</h:outputText>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Final Date"/>
+					</f:facet>
+					<h:link outcome="/admin/originalOrder/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemFinalDate" value="#{_item.finalDate}">
+							<f:convertDateTime type="date"/>
+						</h:outputText>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Folios"/>
+					</f:facet>
+					<h:link outcome="/admin/originalOrder/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemFolios" value="#{_item.folios}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<ui:include src="/resources/scaffold/paginator.xhtml">
+				<ui:param name="paginatorBean" value='#{originalOrderBean}'/>
+			</ui:include>
+		</h:form>
+			
+	</ui:define>
+
+</ui:composition>

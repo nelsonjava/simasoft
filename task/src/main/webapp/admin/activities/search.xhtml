@@ -30,16 +30,16 @@
 				<h:panelGroup styleClass="search">
 
 					<h:panelGrid columnClasses="label,component,required" columns="3">
-						<h:outputLabel for="activitiesBeanExampleDetail" value="Detail:"/>
-						<h:panelGroup>
-							<h:inputText id="activitiesBeanExampleDetail" value="#{activitiesBean.example.detail}"/>
-							<h:message for="activitiesBeanExampleDetail" styleClass="error"/>
-						</h:panelGroup>
-						<h:outputText/>
 						<h:outputLabel for="activitiesBeanExampleName" value="Name:"/>
 						<h:panelGroup>
 							<h:inputText id="activitiesBeanExampleName" value="#{activitiesBean.example.name}"/>
 							<h:message for="activitiesBeanExampleName" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="activitiesBeanExampleDetail" value="Detail:"/>
+						<h:panelGroup>
+							<h:inputText id="activitiesBeanExampleDetail" value="#{activitiesBean.example.detail}"/>
+							<h:message for="activitiesBeanExampleDetail" styleClass="error"/>
 						</h:panelGroup>
 						<h:outputText/>
 						<h:outputLabel for="activitiesBeanExampleObjPadre" value="Obj Padre:"/>
@@ -51,22 +51,22 @@
 							<h:message for="activitiesBeanExampleObjPadre" styleClass="error"/>
 						</h:panelGroup>
 						<h:outputText/>
-						<h:outputLabel for="activitiesBeanExampleSections" value="Sections:"/>
+						<h:outputLabel for="activitiesBeanExampleActivitiesTypes" value="Activities Types:"/>
 						<h:panelGroup>
-							<h:selectOneMenu converter="#{sectionsBean.converter}" id="activitiesBeanExampleSections" value="#{activitiesBean.example.sections}">
+							<h:selectOneMenu converter="#{activitiesTypesBean.converter}" id="activitiesBeanExampleActivitiesTypes" value="#{activitiesBean.example.activitiesTypes}">
 								<f:selectItem/>
-								<f:selectItems value="#{sectionsBean.all}"/>
+								<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{activitiesTypesBean.all}" var="_item"/>
 							</h:selectOneMenu>
-							<h:message for="activitiesBeanExampleSections" styleClass="error"/>
+							<h:message for="activitiesBeanExampleActivitiesTypes" styleClass="error"/>
 						</h:panelGroup>
 						<h:outputText/>
-						<h:outputLabel for="activitiesBeanExamplePersons" value="Persons:"/>
+						<h:outputLabel for="activitiesBeanExampleCalendars" value="Calendars:"/>
 						<h:panelGroup>
-							<h:selectOneMenu converter="#{personsBean.converter}" id="activitiesBeanExamplePersons" value="#{activitiesBean.example.persons}">
+							<h:selectOneMenu converter="#{calendarsBean.converter}" id="activitiesBeanExampleCalendars" value="#{activitiesBean.example.calendars}">
 								<f:selectItem/>
-								<f:selectItems value="#{personsBean.all}"/>
+								<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{calendarsBean.all}" var="_item"/>
 							</h:selectOneMenu>
-							<h:message for="activitiesBeanExamplePersons" styleClass="error"/>
+							<h:message for="activitiesBeanExampleCalendars" styleClass="error"/>
 						</h:panelGroup>
 						<h:outputText/>
 					</h:panelGrid>
@@ -100,6 +100,15 @@
 				</h:column>
 				<h:column>
 					<f:facet name="header">
+						<h:outputText value="Name"/>
+					</f:facet>
+					<h:link outcome="/admin/activities/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemName" value="#{_item.name}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
 						<h:outputText value="Timely Date"/>
 					</f:facet>
 					<h:link outcome="/admin/activities/view">
@@ -116,17 +125,6 @@
 					<h:link outcome="/admin/activities/view">
 						<f:param name="id" value="#{_item.id}"/>
 						<h:outputText id="itemFinalDate" value="#{_item.finalDate}">
-							<f:convertDateTime type="date"/>
-						</h:outputText>
-					</h:link>
-				</h:column>
-				<h:column>
-					<f:facet name="header">
-						<h:outputText value="Start Date"/>
-					</f:facet>
-					<h:link outcome="/admin/activities/view">
-						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemStartDate" value="#{_item.startDate}">
 							<f:convertDateTime type="date"/>
 						</h:outputText>
 					</h:link>

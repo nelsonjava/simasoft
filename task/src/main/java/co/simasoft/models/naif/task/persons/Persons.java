@@ -14,9 +14,9 @@ import javax.persistence.FetchType;
 
 import javax.persistence.Column;
 
-import co.simasoft.models.naif.task.archival.*;
-import co.simasoft.models.naif.task.persons.*;
 import co.simasoft.models.naif.task.sites.*;
+import co.simasoft.models.naif.task.persons.*;
+import co.simasoft.models.naif.task.archival.*;
 import co.simasoft.models.naif.task.activities.*;
 import org.hibernate.search.annotations.Analyze;
 import org.hibernate.search.annotations.Index;
@@ -28,9 +28,9 @@ import javax.persistence.TemporalType;
 import javax.persistence.Temporal;
 import org.hibernate.search.annotations.DateBridge;
 import org.hibernate.search.annotations.Resolution;
-import javax.persistence.OneToMany;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Indexed
 @Entity
@@ -50,19 +50,7 @@ public class Persons implements Serializable {
 
 	@Column(nullable = true, unique = false)
 	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-	private String firstName;
-
-	@Column(nullable = true, unique = false)
-	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-	private String secondName;
-
-	@Column(nullable = true, unique = false)
-	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-	private String firstLastName;
-
-	@Column(nullable = true, unique = false)
-	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-	private String secondLastName;
+	private String skype;
 
 	@Column(nullable = true, unique = false)
 	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
@@ -70,7 +58,7 @@ public class Persons implements Serializable {
 
 	@Column(nullable = true, unique = false)
 	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-	private String skype;
+	private String telephones;
 
 	@Column(nullable = true, unique = false)
 	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
@@ -78,13 +66,25 @@ public class Persons implements Serializable {
 
 	@Column(nullable = true, unique = false)
 	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-	private String telephones;
+	private String secondName;
 
-	@OneToMany(mappedBy = "persons")
-	private Set<Activities> activities = new HashSet<Activities>();
+	@Column(nullable = true, unique = false)
+	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+	private String firstName;
+
+	@Column(nullable = true, unique = false)
+	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+	private String secondLastName;
+
+	@Column(nullable = true, unique = false)
+	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+	private String firstLastName;
 
 	@OneToMany(mappedBy = "persons")
 	private Set<Sections> sections = new HashSet<Sections>();
+
+	@OneToMany(mappedBy = "persons")
+	private Set<Activities> activities = new HashSet<Activities>();
 
 	@ManyToOne
 	private PersonalType personalType;
@@ -92,17 +92,17 @@ public class Persons implements Serializable {
 	public Persons() {
 	}
 
-	public Persons(String firstName, String secondName, String firstLastName,
-			String secondLastName, String email, String skype, String address,
-			String telephones) {
-		this.firstName = firstName;
-		this.secondName = secondName;
-		this.firstLastName = firstLastName;
-		this.secondLastName = secondLastName;
-		this.email = email;
+	public Persons(String skype, String email, String telephones,
+			String address, String secondName, String firstName,
+			String secondLastName, String firstLastName) {
 		this.skype = skype;
-		this.address = address;
+		this.email = email;
 		this.telephones = telephones;
+		this.address = address;
+		this.secondName = secondName;
+		this.firstName = firstName;
+		this.secondLastName = secondLastName;
+		this.firstLastName = firstLastName;
 	}
 
 	public Long getId() {
@@ -126,32 +126,11 @@ public class Persons implements Serializable {
 		this.orden = orden;
 	}
 
-	public String getFirstName() {
-		return firstName;
+	public String getSkype() {
+		return skype;
 	}
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-
-	public String getSecondName() {
-		return secondName;
-	}
-	public void setSecondName(String secondName) {
-		this.secondName = secondName;
-	}
-
-	public String getFirstLastName() {
-		return firstLastName;
-	}
-	public void setFirstLastName(String firstLastName) {
-		this.firstLastName = firstLastName;
-	}
-
-	public String getSecondLastName() {
-		return secondLastName;
-	}
-	public void setSecondLastName(String secondLastName) {
-		this.secondLastName = secondLastName;
+	public void setSkype(String skype) {
+		this.skype = skype;
 	}
 
 	public String getEmail() {
@@ -161,11 +140,11 @@ public class Persons implements Serializable {
 		this.email = email;
 	}
 
-	public String getSkype() {
-		return skype;
+	public String getTelephones() {
+		return telephones;
 	}
-	public void setSkype(String skype) {
-		this.skype = skype;
+	public void setTelephones(String telephones) {
+		this.telephones = telephones;
 	}
 
 	public String getAddress() {
@@ -175,18 +154,32 @@ public class Persons implements Serializable {
 		this.address = address;
 	}
 
-	public String getTelephones() {
-		return telephones;
+	public String getSecondName() {
+		return secondName;
 	}
-	public void setTelephones(String telephones) {
-		this.telephones = telephones;
+	public void setSecondName(String secondName) {
+		this.secondName = secondName;
 	}
 
-	public Set<Activities> getActivities() {
-		return activities;
+	public String getFirstName() {
+		return firstName;
 	}
-	public void setActivities(Set<Activities> activities) {
-		this.activities = activities;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getSecondLastName() {
+		return secondLastName;
+	}
+	public void setSecondLastName(String secondLastName) {
+		this.secondLastName = secondLastName;
+	}
+
+	public String getFirstLastName() {
+		return firstLastName;
+	}
+	public void setFirstLastName(String firstLastName) {
+		this.firstLastName = firstLastName;
 	}
 
 	public Set<Sections> getSections() {
@@ -194,6 +187,13 @@ public class Persons implements Serializable {
 	}
 	public void setSections(Set<Sections> sections) {
 		this.sections = sections;
+	}
+
+	public Set<Activities> getActivities() {
+		return activities;
+	}
+	public void setActivities(Set<Activities> activities) {
+		this.activities = activities;
 	}
 
 	public PersonalType getPersonalType() {

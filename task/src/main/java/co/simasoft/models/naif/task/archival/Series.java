@@ -14,9 +14,9 @@ import javax.persistence.FetchType;
 
 import javax.persistence.Column;
 
-import co.simasoft.models.naif.task.archival.*;
-import co.simasoft.models.naif.task.persons.*;
 import co.simasoft.models.naif.task.sites.*;
+import co.simasoft.models.naif.task.persons.*;
+import co.simasoft.models.naif.task.archival.*;
 import co.simasoft.models.naif.task.activities.*;
 import org.hibernate.search.annotations.Analyze;
 import org.hibernate.search.annotations.Index;
@@ -28,9 +28,9 @@ import javax.persistence.TemporalType;
 import javax.persistence.Temporal;
 import org.hibernate.search.annotations.DateBridge;
 import org.hibernate.search.annotations.Resolution;
-import javax.persistence.OneToMany;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Indexed
 @Entity
@@ -50,7 +50,7 @@ public class Series implements Serializable {
 
 	@Column(nullable = true, unique = false)
 	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-	private String link;
+	private String located;
 
 	@Column(nullable = true, unique = false)
 	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
@@ -58,7 +58,7 @@ public class Series implements Serializable {
 
 	@Column(nullable = true, unique = false)
 	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-	private String located;
+	private String link;
 
 	@Column(nullable = true, unique = false)
 	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
@@ -73,22 +73,22 @@ public class Series implements Serializable {
 	@OneToMany(mappedBy = "objPadre")
 	private Set<Series> objHijos = new HashSet<Series>();
 
-	@ManyToOne
-	private DocumentsTypes documentsTypes;
-
 	@ManyToMany(mappedBy = "series")
 	private Set<Sections> sections = new HashSet<Sections>();
 
 	@ManyToOne
 	private Series objPadre;
 
+	@ManyToOne
+	private DocumentsTypes documentsTypes;
+
 	public Series() {
 	}
 
-	public Series(String link, String name, String located, String code) {
-		this.link = link;
-		this.name = name;
+	public Series(String located, String name, String link, String code) {
 		this.located = located;
+		this.name = name;
+		this.link = link;
 		this.code = code;
 	}
 
@@ -113,11 +113,11 @@ public class Series implements Serializable {
 		this.orden = orden;
 	}
 
-	public String getLink() {
-		return link;
+	public String getLocated() {
+		return located;
 	}
-	public void setLink(String link) {
-		this.link = link;
+	public void setLocated(String located) {
+		this.located = located;
 	}
 
 	public String getName() {
@@ -127,11 +127,11 @@ public class Series implements Serializable {
 		this.name = name;
 	}
 
-	public String getLocated() {
-		return located;
+	public String getLink() {
+		return link;
 	}
-	public void setLocated(String located) {
-		this.located = located;
+	public void setLink(String link) {
+		this.link = link;
 	}
 
 	public String getCode() {
@@ -162,13 +162,6 @@ public class Series implements Serializable {
 		this.objHijos = objHijos;
 	}
 
-	public DocumentsTypes getDocumentsTypes() {
-		return documentsTypes;
-	}
-	public void setDocumentsTypes(DocumentsTypes documentsTypes) {
-		this.documentsTypes = documentsTypes;
-	}
-
 	public Set<Sections> getSections() {
 		return sections;
 	}
@@ -181,6 +174,13 @@ public class Series implements Serializable {
 	}
 	public void setObjPadre(Series objPadre) {
 		this.objPadre = objPadre;
+	}
+
+	public DocumentsTypes getDocumentsTypes() {
+		return documentsTypes;
+	}
+	public void setDocumentsTypes(DocumentsTypes documentsTypes) {
+		this.documentsTypes = documentsTypes;
 	}
 
 	@Override

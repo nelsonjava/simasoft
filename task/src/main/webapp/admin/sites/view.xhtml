@@ -35,24 +35,6 @@
 			<h:outputLabel for="sitesBeanSitesLink" value="Link:"/>
 			<h:outputText id="sitesBeanSitesLink" value="#{sitesBean.sites.link}"/>
 			<h:outputText/>
-			<h:outputLabel for="sitesBeanSitesActivities" value="Activities:"/>
-			<h:dataTable id="sitesBeanSitesActivities" styleClass="data-table" value="#{forgeview:asList(sitesBean.sites.activities)}" var="_item">
-				<h:column>
-					<f:facet name="header">
-						<h:outputText value="Activities"/>
-					</f:facet>
-					<h:link outcome="/admin/activities/view">
-						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText value="#{_item}"/>
-					</h:link>
-				</h:column>
-			</h:dataTable>
-			<h:outputText/>
-			<h:outputLabel for="sitesBeanSitesTasks" value="Tasks:"/>
-			<h:link id="sitesBeanSitesTasks" outcome="/admin/tasks/view" rendered="#{!empty sitesBean.sites.tasks}" value="#{sitesBean.sites.tasks}">
-				<f:param name="id" value="#{sitesBean.sites.tasks.id}"/>
-			</h:link>
-			<h:outputText/>
 			<h:outputLabel for="sitesBeanSitesSitesTypes" value="Sites Types:"/>
 			<h:dataTable id="sitesBeanSitesSitesTypes" styleClass="data-table" value="#{forgeview:asList(sitesBean.sites.sitesTypes)}" var="_item">
 				<h:column>
@@ -82,6 +64,24 @@
 						<h:outputText value="Series"/>
 					</f:facet>
 					<h:link outcome="/admin/series/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText value="#{_item}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<h:outputText/>
+			<h:outputLabel for="sitesBeanSitesTasks" value="Tasks:"/>
+			<h:link id="sitesBeanSitesTasks" outcome="/admin/tasks/view" rendered="#{!empty sitesBean.sites.tasks}" value="#{sitesBean.sites.tasks}">
+				<f:param name="id" value="#{sitesBean.sites.tasks.id}"/>
+			</h:link>
+			<h:outputText/>
+			<h:outputLabel for="sitesBeanSitesActivities" value="Activities:"/>
+			<h:dataTable id="sitesBeanSitesActivities" styleClass="data-table" value="#{forgeview:asList(sitesBean.sites.activities)}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Activities"/>
+					</f:facet>
+					<h:link outcome="/admin/activities/view">
 						<f:param name="id" value="#{_item.id}"/>
 						<h:outputText value="#{_item}"/>
 					</h:link>

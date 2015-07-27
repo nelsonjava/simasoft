@@ -100,17 +100,6 @@ public class SearchBean {
         return results;
     }
 
-    public List<ActivitiesTypes> selectAllActivitiesTypes(EntityManager em) {
-        prepare(ActivitiesTypes.class,em);
-
-        Query query = qb.all().createQuery();
-
-        List<ActivitiesTypes> results = execute(query,
-                                              new Class[]{ActivitiesTypes.class}, null,
-                                              new SortField("orden", SortField.DOUBLE));
-        return results;
-    }
-
     public List<Tasks> selectAllTasks(EntityManager em) {
         prepare(Tasks.class,em);
 
@@ -118,6 +107,28 @@ public class SearchBean {
 
         List<Tasks> results = execute(query,
                                               new Class[]{Tasks.class}, null,
+                                              new SortField("orden", SortField.DOUBLE));
+        return results;
+    }
+
+    public List<Activities> selectAllActivities(EntityManager em) {
+        prepare(Activities.class,em);
+
+        Query query = qb.all().createQuery();
+
+        List<Activities> results = execute(query,
+                                              new Class[]{Activities.class}, null,
+                                              new SortField("orden", SortField.DOUBLE));
+        return results;
+    }
+
+    public List<ActivitiesTypes> selectAllActivitiesTypes(EntityManager em) {
+        prepare(ActivitiesTypes.class,em);
+
+        Query query = qb.all().createQuery();
+
+        List<ActivitiesTypes> results = execute(query,
+                                              new Class[]{ActivitiesTypes.class}, null,
                                               new SortField("orden", SortField.DOUBLE));
         return results;
     }
@@ -140,17 +151,6 @@ public class SearchBean {
 
         List<Diaries> results = execute(query,
                                               new Class[]{Diaries.class}, null,
-                                              new SortField("orden", SortField.DOUBLE));
-        return results;
-    }
-
-    public List<Activities> selectAllActivities(EntityManager em) {
-        prepare(Activities.class,em);
-
-        Query query = qb.all().createQuery();
-
-        List<Activities> results = execute(query,
-                                              new Class[]{Activities.class}, null,
                                               new SortField("orden", SortField.DOUBLE));
         return results;
     }

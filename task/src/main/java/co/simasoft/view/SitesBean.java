@@ -27,6 +27,7 @@ import javax.persistence.criteria.Root;
 import co.simasoft.models.naif.task.sites.Sites;
 import co.simasoft.models.naif.task.sites.SitesTypes;
 import co.simasoft.models.naif.task.activities.Tasks;
+
 import java.util.Iterator;
 
 /**

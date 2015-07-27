@@ -30,18 +30,6 @@
 				<h:panelGroup styleClass="search">
 
 					<h:panelGrid columnClasses="label,component,required" columns="3">
-						<h:outputLabel for="documentalsUnitsBeanExampleLink" value="Link:"/>
-						<h:panelGroup>
-							<h:inputText id="documentalsUnitsBeanExampleLink" value="#{documentalsUnitsBean.example.link}"/>
-							<h:message for="documentalsUnitsBeanExampleLink" styleClass="error"/>
-						</h:panelGroup>
-						<h:outputText/>
-						<h:outputLabel for="documentalsUnitsBeanExampleDate" value="Date:"/>
-						<h:panelGroup>
-							<h:inputText id="documentalsUnitsBeanExampleDate" value="#{documentalsUnitsBean.example.date}"/>
-							<h:message for="documentalsUnitsBeanExampleDate" styleClass="error"/>
-						</h:panelGroup>
-						<h:outputText/>
 						<h:outputLabel for="documentalsUnitsBeanExampleName" value="Name:"/>
 						<h:panelGroup>
 							<h:inputText id="documentalsUnitsBeanExampleName" value="#{documentalsUnitsBean.example.name}"/>
@@ -86,24 +74,6 @@
 				</h:column>
 				<h:column>
 					<f:facet name="header">
-						<h:outputText value="Link"/>
-					</f:facet>
-					<h:link outcome="/admin/documentalsUnits/view">
-						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemLink" value="#{_item.link}"/>
-					</h:link>
-				</h:column>
-				<h:column>
-					<f:facet name="header">
-						<h:outputText value="Date"/>
-					</f:facet>
-					<h:link outcome="/admin/documentalsUnits/view">
-						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemDate" value="#{_item.date}"/>
-					</h:link>
-				</h:column>
-				<h:column>
-					<f:facet name="header">
 						<h:outputText value="Name"/>
 					</f:facet>
 					<h:link outcome="/admin/documentalsUnits/view">
@@ -113,11 +83,31 @@
 				</h:column>
 				<h:column>
 					<f:facet name="header">
+						<h:outputText value="Creation Date"/>
+					</f:facet>
+					<h:link outcome="/admin/documentalsUnits/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemCreationDate" value="#{_item.creationDate}">
+							<f:convertDateTime type="date"/>
+						</h:outputText>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
 						<h:outputText value="Series"/>
 					</f:facet>
 					<h:link outcome="/admin/documentalsUnits/view">
 						<f:param name="id" value="#{_item.id}"/>
 						<h:outputText id="forgeviewdisplayitemSeries" value="#{forgeview:display(_item.series)}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Conservation Units"/>
+					</f:facet>
+					<h:link outcome="/admin/documentalsUnits/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="forgeviewdisplayitemConservationUnits" value="#{forgeview:display(_item.conservationUnits)}"/>
 					</h:link>
 				</h:column>
 			</h:dataTable>

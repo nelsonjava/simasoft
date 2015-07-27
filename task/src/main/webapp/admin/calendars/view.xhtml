@@ -61,6 +61,15 @@
 				</h:column>
 				<h:column>
 					<f:facet name="header">
+						<h:outputText value="Name"/>
+					</f:facet>
+					<h:link outcome="/admin/activities/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemName" value="#{_item.name}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
 						<h:outputText value="Timely Date"/>
 					</f:facet>
 					<h:link outcome="/admin/activities/view">
@@ -77,17 +86,6 @@
 					<h:link outcome="/admin/activities/view">
 						<f:param name="id" value="#{_item.id}"/>
 						<h:outputText id="itemFinalDate" value="#{_item.finalDate}">
-							<f:convertDateTime type="date"/>
-						</h:outputText>
-					</h:link>
-				</h:column>
-				<h:column>
-					<f:facet name="header">
-						<h:outputText value="Start Date"/>
-					</f:facet>
-					<h:link outcome="/admin/activities/view">
-						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemStartDate" value="#{_item.startDate}">
 							<f:convertDateTime type="date"/>
 						</h:outputText>
 					</h:link>

@@ -24,14 +24,14 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
-import co.simasoft.models.naif.task.archival.DocumentalsSupports;
 import co.simasoft.models.naif.task.archival.OriginalOrder;
-import java.util.Iterator;
+import co.simasoft.models.naif.task.archival.DocumentalsSupports;
+import co.simasoft.models.naif.task.archival.DocumentalsUnits;
 
 /**
- * Backing bean for DocumentalsSupports entities.
+ * Backing bean for OriginalOrder entities.
  * <p/>
- * This class provides CRUD functionality for all DocumentalsSupports entities. It focuses
+ * This class provides CRUD functionality for all OriginalOrder entities. It focuses
  * purely on Java EE 6 standards (e.g. <tt>&#64;ConversationScoped</tt> for
  * state management, <tt>PersistenceContext</tt> for persistence,
  * <tt>CriteriaBuilder</tt> for searches) rather than introducing a CRUD framework or
@@ -41,12 +41,12 @@ import java.util.Iterator;
 @Named
 @Stateful
 @ConversationScoped
-public class DocumentalsSupportsBean implements Serializable {
+public class OriginalOrderBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
 	/*
-	 * Support creating and retrieving DocumentalsSupports entities
+	 * Support creating and retrieving OriginalOrder entities
 	 */
 
 	private Long id;
@@ -59,14 +59,14 @@ public class DocumentalsSupportsBean implements Serializable {
 		this.id = id;
 	}
 
-	private DocumentalsSupports documentalsSupports;
+	private OriginalOrder originalOrder;
 
-	public DocumentalsSupports getDocumentalsSupports() {
-		return this.documentalsSupports;
+	public OriginalOrder getOriginalOrder() {
+		return this.originalOrder;
 	}
 
-	public void setDocumentalsSupports(DocumentalsSupports documentalsSupports) {
-		this.documentalsSupports = documentalsSupports;
+	public void setOriginalOrder(OriginalOrder originalOrder) {
+		this.originalOrder = originalOrder;
 	}
 
 	@Inject
@@ -94,19 +94,19 @@ public class DocumentalsSupportsBean implements Serializable {
 		}
 
 		if (this.id == null) {
-			this.documentalsSupports = this.example;
+			this.originalOrder = this.example;
 		} else {
-			this.documentalsSupports = findById(getId());
+			this.originalOrder = findById(getId());
 		}
 	}
 
-	public DocumentalsSupports findById(Long id) {
+	public OriginalOrder findById(Long id) {
 
-		return this.entityManager.find(DocumentalsSupports.class, id);
+		return this.entityManager.find(OriginalOrder.class, id);
 	}
 
 	/*
-	 * Support updating and deleting DocumentalsSupports entities
+	 * Support updating and deleting OriginalOrder entities
 	 */
 
 	public String update() {
@@ -114,12 +114,12 @@ public class DocumentalsSupportsBean implements Serializable {
 
 		try {
 			if (this.id == null) {
-				this.entityManager.persist(this.documentalsSupports);
+				this.entityManager.persist(this.originalOrder);
 				return "search?faces-redirect=true";
 			} else {
-				this.entityManager.merge(this.documentalsSupports);
+				this.entityManager.merge(this.originalOrder);
 				return "view?faces-redirect=true&id="
-						+ this.documentalsSupports.getId();
+						+ this.originalOrder.getId();
 			}
 		} catch (Exception e) {
 			FacesContext.getCurrentInstance().addMessage(null,
@@ -132,15 +132,17 @@ public class DocumentalsSupportsBean implements Serializable {
 		this.conversation.end();
 
 		try {
-			DocumentalsSupports deletableEntity = findById(getId());
-			Iterator<OriginalOrder> iterOriginalOrder = deletableEntity
-					.getOriginalOrder().iterator();
-			for (; iterOriginalOrder.hasNext();) {
-				OriginalOrder nextInOriginalOrder = iterOriginalOrder.next();
-				nextInOriginalOrder.setDocumentalsSupports(null);
-				iterOriginalOrder.remove();
-				this.entityManager.merge(nextInOriginalOrder);
-			}
+			OriginalOrder deletableEntity = findById(getId());
+			DocumentalsSupports documentalsSupports = deletableEntity
+					.getDocumentalsSupports();
+			documentalsSupports.getOriginalOrder().remove(deletableEntity);
+			deletableEntity.setDocumentalsSupports(null);
+			this.entityManager.merge(documentalsSupports);
+			DocumentalsUnits documentalsUnits = deletableEntity
+					.getDocumentalsUnits();
+			documentalsUnits.getOriginalOrder().remove(deletableEntity);
+			deletableEntity.setDocumentalsUnits(null);
+			this.entityManager.merge(documentalsUnits);
 			this.entityManager.remove(deletableEntity);
 			this.entityManager.flush();
 			return "search?faces-redirect=true";
@@ -152,14 +154,14 @@ public class DocumentalsSupportsBean implements Serializable {
 	}
 
 	/*
-	 * Support searching DocumentalsSupports entities with pagination
+	 * Support searching OriginalOrder entities with pagination
 	 */
 
 	private int page;
 	private long count;
-	private List<DocumentalsSupports> pageItems;
+	private List<OriginalOrder> pageItems;
 
-	private DocumentalsSupports example = new DocumentalsSupports();
+	private OriginalOrder example = new OriginalOrder();
 
 	public int getPage() {
 		return this.page;
@@ -173,11 +175,11 @@ public class DocumentalsSupportsBean implements Serializable {
 		return 10;
 	}
 
-	public DocumentalsSupports getExample() {
+	public OriginalOrder getExample() {
 		return this.example;
 	}
 
-	public void setExample(DocumentalsSupports example) {
+	public void setExample(OriginalOrder example) {
 		this.example = example;
 	}
 
@@ -193,8 +195,7 @@ public class DocumentalsSupportsBean implements Serializable {
 		// Populate this.count
 
 		CriteriaQuery<Long> countCriteria = builder.createQuery(Long.class);
-		Root<DocumentalsSupports> root = countCriteria
-				.from(DocumentalsSupports.class);
+		Root<OriginalOrder> root = countCriteria.from(OriginalOrder.class);
 		countCriteria = countCriteria.select(builder.count(root)).where(
 				getSearchPredicates(root));
 		this.count = this.entityManager.createQuery(countCriteria)
@@ -202,10 +203,10 @@ public class DocumentalsSupportsBean implements Serializable {
 
 		// Populate this.pageItems
 
-		CriteriaQuery<DocumentalsSupports> criteria = builder
-				.createQuery(DocumentalsSupports.class);
-		root = criteria.from(DocumentalsSupports.class);
-		TypedQuery<DocumentalsSupports> query = this.entityManager
+		CriteriaQuery<OriginalOrder> criteria = builder
+				.createQuery(OriginalOrder.class);
+		root = criteria.from(OriginalOrder.class);
+		TypedQuery<OriginalOrder> query = this.entityManager
 				.createQuery(criteria.select(root).where(
 						getSearchPredicates(root)));
 		query.setFirstResult(this.page * getPageSize()).setMaxResults(
@@ -213,28 +214,43 @@ public class DocumentalsSupportsBean implements Serializable {
 		this.pageItems = query.getResultList();
 	}
 
-	private Predicate[] getSearchPredicates(Root<DocumentalsSupports> root) {
+	private Predicate[] getSearchPredicates(Root<OriginalOrder> root) {
 
 		CriteriaBuilder builder = this.entityManager.getCriteriaBuilder();
 		List<Predicate> predicatesList = new ArrayList<Predicate>();
 
-		String name = this.example.getName();
-		if (name != null && !"".equals(name)) {
-			predicatesList.add(builder.like(
-					builder.lower(root.<String> get("name")),
-					'%' + name.toLowerCase() + '%'));
+		Integer folios = this.example.getFolios();
+		if (folios != null && folios.intValue() != 0) {
+			predicatesList.add(builder.equal(root.get("folios"), folios));
 		}
-		String code = this.example.getCode();
-		if (code != null && !"".equals(code)) {
+		String link = this.example.getLink();
+		if (link != null && !"".equals(link)) {
 			predicatesList.add(builder.like(
-					builder.lower(root.<String> get("code")),
-					'%' + code.toLowerCase() + '%'));
+					builder.lower(root.<String> get("link")),
+					'%' + link.toLowerCase() + '%'));
+		}
+		String located = this.example.getLocated();
+		if (located != null && !"".equals(located)) {
+			predicatesList.add(builder.like(
+					builder.lower(root.<String> get("located")),
+					'%' + located.toLowerCase() + '%'));
+		}
+		DocumentalsSupports documentalsSupports = this.example
+				.getDocumentalsSupports();
+		if (documentalsSupports != null) {
+			predicatesList.add(builder.equal(root.get("documentalsSupports"),
+					documentalsSupports));
+		}
+		DocumentalsUnits documentalsUnits = this.example.getDocumentalsUnits();
+		if (documentalsUnits != null) {
+			predicatesList.add(builder.equal(root.get("documentalsUnits"),
+					documentalsUnits));
 		}
 
 		return predicatesList.toArray(new Predicate[predicatesList.size()]);
 	}
 
-	public List<DocumentalsSupports> getPageItems() {
+	public List<OriginalOrder> getPageItems() {
 		return this.pageItems;
 	}
 
@@ -243,16 +259,16 @@ public class DocumentalsSupportsBean implements Serializable {
 	}
 
 	/*
-	 * Support listing and POSTing back DocumentalsSupports entities (e.g. from inside an
+	 * Support listing and POSTing back OriginalOrder entities (e.g. from inside an
 	 * HtmlSelectOneMenu)
 	 */
 
-	public List<DocumentalsSupports> getAll() {
+	public List<OriginalOrder> getAll() {
 
-		CriteriaQuery<DocumentalsSupports> criteria = this.entityManager
-				.getCriteriaBuilder().createQuery(DocumentalsSupports.class);
+		CriteriaQuery<OriginalOrder> criteria = this.entityManager
+				.getCriteriaBuilder().createQuery(OriginalOrder.class);
 		return this.entityManager.createQuery(
-				criteria.select(criteria.from(DocumentalsSupports.class)))
+				criteria.select(criteria.from(OriginalOrder.class)))
 				.getResultList();
 	}
 
@@ -261,8 +277,8 @@ public class DocumentalsSupportsBean implements Serializable {
 
 	public Converter getConverter() {
 
-		final DocumentalsSupportsBean ejbProxy = this.sessionContext
-				.getBusinessObject(DocumentalsSupportsBean.class);
+		final OriginalOrderBean ejbProxy = this.sessionContext
+				.getBusinessObject(OriginalOrderBean.class);
 
 		return new Converter() {
 
@@ -281,7 +297,7 @@ public class DocumentalsSupportsBean implements Serializable {
 					return "";
 				}
 
-				return String.valueOf(((DocumentalsSupports) value).getId());
+				return String.valueOf(((OriginalOrder) value).getId());
 			}
 		};
 	}
@@ -290,15 +306,15 @@ public class DocumentalsSupportsBean implements Serializable {
 	 * Support adding children to bidirectional, one-to-many tables
 	 */
 
-	private DocumentalsSupports add = new DocumentalsSupports();
+	private OriginalOrder add = new OriginalOrder();
 
-	public DocumentalsSupports getAdd() {
+	public OriginalOrder getAdd() {
 		return this.add;
 	}
 
-	public DocumentalsSupports getAdded() {
-		DocumentalsSupports added = this.add;
-		this.add = new DocumentalsSupports();
+	public OriginalOrder getAdded() {
+		OriginalOrder added = this.add;
+		this.add = new OriginalOrder();
 		return added;
 	}
 }

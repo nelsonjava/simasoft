@@ -14,9 +14,9 @@ import javax.persistence.FetchType;
 
 import javax.persistence.Column;
 
-import co.simasoft.models.naif.task.archival.*;
-import co.simasoft.models.naif.task.persons.*;
 import co.simasoft.models.naif.task.sites.*;
+import co.simasoft.models.naif.task.persons.*;
+import co.simasoft.models.naif.task.archival.*;
 import co.simasoft.models.naif.task.activities.*;
 import org.hibernate.search.annotations.Analyze;
 import org.hibernate.search.annotations.Index;
@@ -28,6 +28,8 @@ import javax.persistence.TemporalType;
 import javax.persistence.Temporal;
 import org.hibernate.search.annotations.DateBridge;
 import org.hibernate.search.annotations.Resolution;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Indexed
@@ -55,7 +57,7 @@ public class DocumentalsSupports implements Serializable {
 	private String code;
 
 	@OneToMany(mappedBy = "documentalsSupports")
-	private Set<DocumentalsUnits> documentalsUnits = new HashSet<DocumentalsUnits>();
+	private Set<OriginalOrder> originalOrder = new HashSet<OriginalOrder>();
 
 	public DocumentalsSupports() {
 	}
@@ -100,11 +102,11 @@ public class DocumentalsSupports implements Serializable {
 		this.code = code;
 	}
 
-	public Set<DocumentalsUnits> getDocumentalsUnits() {
-		return documentalsUnits;
+	public Set<OriginalOrder> getOriginalOrder() {
+		return originalOrder;
 	}
-	public void setDocumentalsUnits(Set<DocumentalsUnits> documentalsUnits) {
-		this.documentalsUnits = documentalsUnits;
+	public void setOriginalOrder(Set<OriginalOrder> originalOrder) {
+		this.originalOrder = originalOrder;
 	}
 
 	@Override

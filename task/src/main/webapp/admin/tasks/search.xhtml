@@ -30,12 +30,6 @@
 				<h:panelGroup styleClass="search">
 
 					<h:panelGrid columnClasses="label,component,required" columns="3">
-						<h:outputLabel for="tasksBeanExamplePriority" value="Priority:"/>
-						<h:panelGroup>
-							<h:inputText id="tasksBeanExamplePriority" value="#{tasksBean.example.priority}"/>
-							<h:message for="tasksBeanExamplePriority" styleClass="error"/>
-						</h:panelGroup>
-						<h:outputText/>
 						<h:outputLabel for="tasksBeanExampleName" value="Name:"/>
 						<h:panelGroup>
 							<h:inputText id="tasksBeanExampleName" value="#{tasksBean.example.name}"/>
@@ -46,6 +40,12 @@
 						<h:panelGroup>
 							<h:inputText id="tasksBeanExampleDetail" value="#{tasksBean.example.detail}"/>
 							<h:message for="tasksBeanExampleDetail" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="tasksBeanExamplePriority" value="Priority:"/>
+						<h:panelGroup>
+							<h:inputText id="tasksBeanExamplePriority" value="#{tasksBean.example.priority}"/>
+							<h:message for="tasksBeanExamplePriority" styleClass="error"/>
 						</h:panelGroup>
 						<h:outputText/>
 						<h:outputLabel for="tasksBeanExampleActivities" value="Activities:"/>
@@ -77,22 +77,11 @@
 				</h:column>
 				<h:column>
 					<f:facet name="header">
-						<h:outputText value="Priority"/>
+						<h:outputText value="Name"/>
 					</f:facet>
 					<h:link outcome="/admin/tasks/view">
 						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemPriority" value="#{_item.priority}"/>
-					</h:link>
-				</h:column>
-				<h:column>
-					<f:facet name="header">
-						<h:outputText value="Final Date"/>
-					</f:facet>
-					<h:link outcome="/admin/tasks/view">
-						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemFinalDate" value="#{_item.finalDate}">
-							<f:convertDateTime type="date"/>
-						</h:outputText>
+						<h:outputText id="itemName" value="#{_item.name}"/>
 					</h:link>
 				</h:column>
 				<h:column>
@@ -108,11 +97,22 @@
 				</h:column>
 				<h:column>
 					<f:facet name="header">
-						<h:outputText value="Name"/>
+						<h:outputText value="Detail"/>
 					</f:facet>
 					<h:link outcome="/admin/tasks/view">
 						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemName" value="#{_item.name}"/>
+						<h:outputText id="itemDetail" value="#{_item.detail}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Final Date"/>
+					</f:facet>
+					<h:link outcome="/admin/tasks/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemFinalDate" value="#{_item.finalDate}">
+							<f:convertDateTime type="date"/>
+						</h:outputText>
 					</h:link>
 				</h:column>
 			</h:dataTable>

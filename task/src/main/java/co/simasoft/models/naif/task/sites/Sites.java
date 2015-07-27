@@ -14,9 +14,9 @@ import javax.persistence.FetchType;
 
 import javax.persistence.Column;
 
-import co.simasoft.models.naif.task.archival.*;
-import co.simasoft.models.naif.task.persons.*;
 import co.simasoft.models.naif.task.sites.*;
+import co.simasoft.models.naif.task.persons.*;
+import co.simasoft.models.naif.task.archival.*;
 import co.simasoft.models.naif.task.activities.*;
 import org.hibernate.search.annotations.Analyze;
 import org.hibernate.search.annotations.Index;
@@ -28,7 +28,6 @@ import javax.persistence.TemporalType;
 import javax.persistence.Temporal;
 import org.hibernate.search.annotations.DateBridge;
 import org.hibernate.search.annotations.Resolution;
-import javax.persistence.OneToMany;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
@@ -57,16 +56,16 @@ public class Sites implements Serializable {
 	private String link;
 
 	@ManyToMany(mappedBy = "sites")
-	private Set<Activities> activities = new HashSet<Activities>();
+	private Set<SitesTypes> sitesTypes = new HashSet<SitesTypes>();
+
+	@ManyToMany(mappedBy = "sites")
+	private Set<Series> series = new HashSet<Series>();
 
 	@ManyToOne
 	private Tasks tasks;
 
 	@ManyToMany(mappedBy = "sites")
-	private Set<SitesTypes> sitesTypes = new HashSet<SitesTypes>();
-
-	@ManyToMany(mappedBy = "sites")
-	private Set<Series> series = new HashSet<Series>();
+	private Set<Activities> activities = new HashSet<Activities>();
 
 	public Sites() {
 	}
@@ -111,20 +110,6 @@ public class Sites implements Serializable {
 		this.link = link;
 	}
 
-	public Set<Activities> getActivities() {
-		return activities;
-	}
-	public void setActivities(Set<Activities> activities) {
-		this.activities = activities;
-	}
-
-	public Tasks getTasks() {
-		return tasks;
-	}
-	public void setTasks(Tasks tasks) {
-		this.tasks = tasks;
-	}
-
 	public Set<SitesTypes> getSitesTypes() {
 		return sitesTypes;
 	}
@@ -137,6 +122,20 @@ public class Sites implements Serializable {
 	}
 	public void setSeries(Set<Series> series) {
 		this.series = series;
+	}
+
+	public Tasks getTasks() {
+		return tasks;
+	}
+	public void setTasks(Tasks tasks) {
+		this.tasks = tasks;
+	}
+
+	public Set<Activities> getActivities() {
+		return activities;
+	}
+	public void setActivities(Set<Activities> activities) {
+		this.activities = activities;
 	}
 
 	@Override

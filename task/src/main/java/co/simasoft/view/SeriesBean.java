@@ -151,10 +151,6 @@ public class SeriesBean implements Serializable {
 				iterObjHijos.remove();
 				this.entityManager.merge(nextInObjHijos);
 			}
-			DocumentsTypes documentsTypes = deletableEntity.getDocumentsTypes();
-			documentsTypes.getSeries().remove(deletableEntity);
-			deletableEntity.setDocumentsTypes(null);
-			this.entityManager.merge(documentsTypes);
 			Iterator<Sections> iterSections = deletableEntity.getSections()
 					.iterator();
 			for (; iterSections.hasNext();) {
@@ -167,6 +163,10 @@ public class SeriesBean implements Serializable {
 			objPadre.getObjHijos().remove(deletableEntity);
 			deletableEntity.setObjPadre(null);
 			this.entityManager.merge(objPadre);
+			DocumentsTypes documentsTypes = deletableEntity.getDocumentsTypes();
+			documentsTypes.getSeries().remove(deletableEntity);
+			deletableEntity.setDocumentsTypes(null);
+			this.entityManager.merge(documentsTypes);
 			this.entityManager.remove(deletableEntity);
 			this.entityManager.flush();
 			return "search?faces-redirect=true";
@@ -241,11 +241,11 @@ public class SeriesBean implements Serializable {
 		CriteriaBuilder builder = this.entityManager.getCriteriaBuilder();
 		List<Predicate> predicatesList = new ArrayList<Predicate>();
 
-		String link = this.example.getLink();
-		if (link != null && !"".equals(link)) {
+		String located = this.example.getLocated();
+		if (located != null && !"".equals(located)) {
 			predicatesList.add(builder.like(
-					builder.lower(root.<String> get("link")),
-					'%' + link.toLowerCase() + '%'));
+					builder.lower(root.<String> get("located")),
+					'%' + located.toLowerCase() + '%'));
 		}
 		String name = this.example.getName();
 		if (name != null && !"".equals(name)) {
@@ -253,11 +253,11 @@ public class SeriesBean implements Serializable {
 					builder.lower(root.<String> get("name")),
 					'%' + name.toLowerCase() + '%'));
 		}
-		String located = this.example.getLocated();
-		if (located != null && !"".equals(located)) {
+		String link = this.example.getLink();
+		if (link != null && !"".equals(link)) {
 			predicatesList.add(builder.like(
-					builder.lower(root.<String> get("located")),
-					'%' + located.toLowerCase() + '%'));
+					builder.lower(root.<String> get("link")),
+					'%' + link.toLowerCase() + '%'));
 		}
 		String code = this.example.getCode();
 		if (code != null && !"".equals(code)) {
@@ -265,10 +265,9 @@ public class SeriesBean implements Serializable {
 					builder.lower(root.<String> get("code")),
 					'%' + code.toLowerCase() + '%'));
 		}
-		DocumentsTypes documentsTypes = this.example.getDocumentsTypes();
-		if (documentsTypes != null) {
-			predicatesList.add(builder.equal(root.get("documentsTypes"),
-					documentsTypes));
+		Series objPadre = this.example.getObjPadre();
+		if (objPadre != null) {
+			predicatesList.add(builder.equal(root.get("objPadre"), objPadre));
 		}
 
 		return predicatesList.toArray(new Predicate[predicatesList.size()]);

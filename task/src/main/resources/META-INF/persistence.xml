@@ -9,24 +9,25 @@
 
     <provider>org.hibernate.ejb.HibernatePersistence</provider>
 
-    <class>co.simasoft.models.naif.task.archival.DocumentalsSupports</class>
+    <class>co.simasoft.models.naif.task.sites.Sites</class>
+    <class>co.simasoft.models.naif.task.sites.SitesTypes</class>
+    <class>co.simasoft.models.naif.task.persons.PersonalType</class>
+    <class>co.simasoft.models.naif.task.persons.Persons</class>
     <class>co.simasoft.models.naif.task.archival.Sections</class>
-    <class>co.simasoft.models.naif.task.archival.DocumentsTypes</class>
-    <class>co.simasoft.models.naif.task.archival.DocumentalsUnits</class>
-    <class>co.simasoft.models.naif.task.archival.Series</class>
-    <class>co.simasoft.models.naif.task.archival.SectionsTypes</class>
     <class>co.simasoft.models.naif.task.archival.Funds</class>
     <class>co.simasoft.models.naif.task.archival.ConservationUnits</class>
-    <class>co.simasoft.models.naif.task.persons.Persons</class>
-    <class>co.simasoft.models.naif.task.persons.PersonalType</class>
-    <class>co.simasoft.models.naif.task.sites.SitesTypes</class>
-    <class>co.simasoft.models.naif.task.sites.Sites</class>
+    <class>co.simasoft.models.naif.task.archival.DocumentalsUnits</class>
+    <class>co.simasoft.models.naif.task.archival.DocumentsTypes</class>
+    <class>co.simasoft.models.naif.task.archival.SectionsTypes</class>
+    <class>co.simasoft.models.naif.task.archival.DocumentalsSupports</class>
+    <class>co.simasoft.models.naif.task.archival.OriginalOrder</class>
+    <class>co.simasoft.models.naif.task.archival.Series</class>
     <class>co.simasoft.models.naif.task.activities.Calendars</class>
-    <class>co.simasoft.models.naif.task.activities.ActivitiesTypes</class>
     <class>co.simasoft.models.naif.task.activities.Tasks</class>
+    <class>co.simasoft.models.naif.task.activities.Activities</class>
+    <class>co.simasoft.models.naif.task.activities.ActivitiesTypes</class>
     <class>co.simasoft.models.naif.task.activities.Guides</class>
     <class>co.simasoft.models.naif.task.activities.Diaries</class>
-    <class>co.simasoft.models.naif.task.activities.Activities</class>
 
     <exclude-unlisted-classes>true</exclude-unlisted-classes>
     <jta-data-source>java:jboss/datasources/taskDS</jta-data-source>

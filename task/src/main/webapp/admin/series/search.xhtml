@@ -30,10 +30,10 @@
 				<h:panelGroup styleClass="search">
 
 					<h:panelGrid columnClasses="label,component,required" columns="3">
-						<h:outputLabel for="seriesBeanExampleLink" value="Link:"/>
+						<h:outputLabel for="seriesBeanExampleLocated" value="Located:"/>
 						<h:panelGroup>
-							<h:inputText id="seriesBeanExampleLink" value="#{seriesBean.example.link}"/>
-							<h:message for="seriesBeanExampleLink" styleClass="error"/>
+							<h:inputText id="seriesBeanExampleLocated" value="#{seriesBean.example.located}"/>
+							<h:message for="seriesBeanExampleLocated" styleClass="error"/>
 						</h:panelGroup>
 						<h:outputText/>
 						<h:outputLabel for="seriesBeanExampleName" value="Name:"/>
@@ -42,10 +42,10 @@
 							<h:message for="seriesBeanExampleName" styleClass="error"/>
 						</h:panelGroup>
 						<h:outputText/>
-						<h:outputLabel for="seriesBeanExampleLocated" value="Located:"/>
+						<h:outputLabel for="seriesBeanExampleLink" value="Link:"/>
 						<h:panelGroup>
-							<h:inputText id="seriesBeanExampleLocated" value="#{seriesBean.example.located}"/>
-							<h:message for="seriesBeanExampleLocated" styleClass="error"/>
+							<h:inputText id="seriesBeanExampleLink" value="#{seriesBean.example.link}"/>
+							<h:message for="seriesBeanExampleLink" styleClass="error"/>
 						</h:panelGroup>
 						<h:outputText/>
 						<h:outputLabel for="seriesBeanExampleCode" value="Code:"/>
@@ -54,13 +54,13 @@
 							<h:message for="seriesBeanExampleCode" styleClass="error"/>
 						</h:panelGroup>
 						<h:outputText/>
-						<h:outputLabel for="seriesBeanExampleDocumentsTypes" value="Documents Types:"/>
+						<h:outputLabel for="seriesBeanExampleObjPadre" value="Obj Padre:"/>
 						<h:panelGroup>
-							<h:selectOneMenu converter="#{documentsTypesBean.converter}" id="seriesBeanExampleDocumentsTypes" value="#{seriesBean.example.documentsTypes}">
+							<h:selectOneMenu converter="#{seriesBean.converter}" id="seriesBeanExampleObjPadre" value="#{seriesBean.example.objPadre}">
 								<f:selectItem/>
-								<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{documentsTypesBean.all}" var="_item"/>
+								<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{seriesBean.all}" var="_item"/>
 							</h:selectOneMenu>
-							<h:message for="seriesBeanExampleDocumentsTypes" styleClass="error"/>
+							<h:message for="seriesBeanExampleObjPadre" styleClass="error"/>
 						</h:panelGroup>
 						<h:outputText/>
 					</h:panelGrid>
@@ -83,11 +83,11 @@
 				</h:column>
 				<h:column>
 					<f:facet name="header">
-						<h:outputText value="Link"/>
+						<h:outputText value="Located"/>
 					</f:facet>
 					<h:link outcome="/admin/series/view">
 						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemLink" value="#{_item.link}"/>
+						<h:outputText id="itemLocated" value="#{_item.located}"/>
 					</h:link>
 				</h:column>
 				<h:column>
@@ -101,11 +101,11 @@
 				</h:column>
 				<h:column>
 					<f:facet name="header">
-						<h:outputText value="Located"/>
+						<h:outputText value="Link"/>
 					</f:facet>
 					<h:link outcome="/admin/series/view">
 						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemLocated" value="#{_item.located}"/>
+						<h:outputText id="itemLink" value="#{_item.link}"/>
 					</h:link>
 				</h:column>
 				<h:column>

@@ -51,6 +51,12 @@
 					<h:message for="activitiesBeanActivitiesUntimelyDate" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
+				<h:outputLabel for="activitiesBeanActivitiesName" value="Name:"/>
+				<h:panelGroup>
+					<h:inputText id="activitiesBeanActivitiesName" value="#{activitiesBean.activities.name}"/>
+					<h:message for="activitiesBeanActivitiesName" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
 				<h:outputLabel for="activitiesBeanActivitiesTimelyDate" value="Timely Date:"/>
 				<h:panelGroup>
 					<h:inputText id="activitiesBeanActivitiesTimelyDate" value="#{activitiesBean.activities.timelyDate}">
@@ -79,12 +85,6 @@
 				<h:panelGroup>
 					<h:inputText id="activitiesBeanActivitiesDetail" value="#{activitiesBean.activities.detail}"/>
 					<h:message for="activitiesBeanActivitiesDetail" styleClass="error"/>
-				</h:panelGroup>
-				<h:outputText/>
-				<h:outputLabel for="activitiesBeanActivitiesName" value="Name:"/>
-				<h:panelGroup>
-					<h:inputText id="activitiesBeanActivitiesName" value="#{activitiesBean.activities.name}"/>
-					<h:message for="activitiesBeanActivitiesName" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
 				<h:outputLabel for="activitiesBeanActivitiesObjHijos" value="Obj Hijos:"/>
@@ -123,6 +123,19 @@
 						</h:column>
 						<h:column>
 							<f:facet name="header">
+								<h:outputText value="Name"/>
+							</f:facet>
+							<h:link outcome="/admin/activities/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemName" value="#{_item.name}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="activitiesBeanAddName" value="#{activitiesBean.add.name}"/>
+								<h:message for="activitiesBeanAddName" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
 								<h:outputText value="Timely Date"/>
 							</f:facet>
 							<h:link outcome="/admin/activities/view">
@@ -155,23 +168,6 @@
 								<h:message for="activitiesBeanAddFinalDate" styleClass="error"/>
 							</f:facet>
 						</h:column>
-						<h:column>
-							<f:facet name="header">
-								<h:outputText value="Start Date"/>
-							</f:facet>
-							<h:link outcome="/admin/activities/view">
-								<f:param name="id" value="#{_item.id}"/>
-								<h:outputText id="itemStartDate" value="#{_item.startDate}">
-									<f:convertDateTime type="date"/>
-								</h:outputText>
-							</h:link>
-							<f:facet name="footer">
-								<h:inputText id="activitiesBeanAddStartDate" value="#{activitiesBean.add.startDate}">
-									<f:convertDateTime type="date"/>
-								</h:inputText>
-								<h:message for="activitiesBeanAddStartDate" styleClass="error"/>
-							</f:facet>
-						</h:column>
 						<h:column footerClass="remove-column" headerClass="remove-column">
 							<h:commandLink action="#{_collection.remove(_item)}" styleClass="remove-button"/>
 							<f:facet name="footer">
@@ -181,6 +177,138 @@
 							</f:facet>
 						</h:column>
 					</h:dataTable>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="activitiesBeanActivitiesTasks" value="Tasks:"/>
+				<h:panelGroup>
+					<ui:param name="_collection" value="#{activitiesBean.activities.tasks}"/>
+					<h:dataTable id="activitiesBeanActivitiesTasks" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Orden"/>
+							</f:facet>
+							<h:link outcome="/admin/tasks/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemOrden" value="#{_item.orden}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="tasksBeanAddOrden" value="#{tasksBean.add.orden}"/>
+								<h:message for="tasksBeanAddOrden" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Name"/>
+							</f:facet>
+							<h:link outcome="/admin/tasks/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemName" value="#{_item.name}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="tasksBeanAddName" value="#{tasksBean.add.name}"/>
+								<h:message for="tasksBeanAddName" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Start Date"/>
+							</f:facet>
+							<h:link outcome="/admin/tasks/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemStartDate" value="#{_item.startDate}">
+									<f:convertDateTime type="date"/>
+								</h:outputText>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="tasksBeanAddStartDate" value="#{tasksBean.add.startDate}">
+									<f:convertDateTime type="date"/>
+								</h:inputText>
+								<h:message for="tasksBeanAddStartDate" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Detail"/>
+							</f:facet>
+							<h:link outcome="/admin/tasks/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemDetail" value="#{_item.detail}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="tasksBeanAddDetail" value="#{tasksBean.add.detail}"/>
+								<h:message for="tasksBeanAddDetail" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Final Date"/>
+							</f:facet>
+							<h:link outcome="/admin/tasks/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemFinalDate" value="#{_item.finalDate}">
+									<f:convertDateTime type="date"/>
+								</h:outputText>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="tasksBeanAddFinalDate" value="#{tasksBean.add.finalDate}">
+									<f:convertDateTime type="date"/>
+								</h:inputText>
+								<h:message for="tasksBeanAddFinalDate" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column footerClass="remove-column" headerClass="remove-column">
+							<h:commandLink action="#{_collection.remove(_item)}" styleClass="remove-button"/>
+							<f:facet name="footer">
+								<h:commandLink action="#{_collection.add(tasksBean.added)}" id="activitiesBeanActivitiesTasksAdd" styleClass="add-button">
+									<f:setPropertyActionListener target="#{tasksBean.add.activities}" value="#{activitiesBean.activities}"/>
+								</h:commandLink>
+							</f:facet>
+						</h:column>
+					</h:dataTable>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="activitiesBeanActivitiesGuides" value="Guides:"/>
+				<h:panelGroup>
+					<ui:param name="_collection" value="#{activitiesBean.activities.guides}"/>
+					<h:dataTable id="activitiesBeanActivitiesGuides" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Orden"/>
+							</f:facet>
+							<h:link outcome="/admin/guides/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemOrden" value="#{_item.orden}"/>
+							</h:link>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Guide"/>
+							</f:facet>
+							<h:link outcome="/admin/guides/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemGuide" value="#{_item.guide}"/>
+							</h:link>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Title"/>
+							</f:facet>
+							<h:link outcome="/admin/guides/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemTitle" value="#{_item.title}"/>
+							</h:link>
+						</h:column>
+						<h:column footerClass="remove-column" headerClass="remove-column">
+							<h:commandLink action="#{_collection.remove(_item)}" styleClass="remove-button"/>
+						</h:column>
+					</h:dataTable>
+					<h:panelGrid columnClasses=",remove-column" columns="2" styleClass="data-table-footer">
+						<h:selectOneMenu converter="#{guidesBean.converter}" id="activitiesBeanActivitiesGuidesSelect" value="#{requestScope['activitiesBeanActivitiesGuidesSelect']}">
+							<f:selectItem/>
+							<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{guidesBean.all}" var="_item"/>
+						</h:selectOneMenu>
+						<h:commandLink action="#{_collection.add(requestScope['activitiesBeanActivitiesGuidesSelect'])}" id="activitiesBeanActivitiesGuidesAdd" onclick="if (document.getElementById(document.forms[0].id+':activitiesBeanActivitiesGuidesSelect').selectedIndex &lt; 1) { alert('Must select a Guides'); return false; }" styleClass="add-button"/>
+					</h:panelGrid>
 				</h:panelGroup>
 				<h:outputText/>
 				<h:outputLabel for="activitiesBeanActivitiesSites" value="Sites:"/>
@@ -206,138 +334,6 @@
 					</h:panelGrid>
 				</h:panelGroup>
 				<h:outputText/>
-				<h:outputLabel for="activitiesBeanActivitiesGuides" value="Guides:"/>
-				<h:panelGroup>
-					<ui:param name="_collection" value="#{activitiesBean.activities.guides}"/>
-					<h:dataTable id="activitiesBeanActivitiesGuides" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
-						<h:column>
-							<f:facet name="header">
-								<h:outputText value="Orden"/>
-							</f:facet>
-							<h:link outcome="/admin/guides/view">
-								<f:param name="id" value="#{_item.id}"/>
-								<h:outputText id="itemOrden" value="#{_item.orden}"/>
-							</h:link>
-						</h:column>
-						<h:column>
-							<f:facet name="header">
-								<h:outputText value="Title"/>
-							</f:facet>
-							<h:link outcome="/admin/guides/view">
-								<f:param name="id" value="#{_item.id}"/>
-								<h:outputText id="itemTitle" value="#{_item.title}"/>
-							</h:link>
-						</h:column>
-						<h:column>
-							<f:facet name="header">
-								<h:outputText value="Guide"/>
-							</f:facet>
-							<h:link outcome="/admin/guides/view">
-								<f:param name="id" value="#{_item.id}"/>
-								<h:outputText id="itemGuide" value="#{_item.guide}"/>
-							</h:link>
-						</h:column>
-						<h:column footerClass="remove-column" headerClass="remove-column">
-							<h:commandLink action="#{_collection.remove(_item)}" styleClass="remove-button"/>
-						</h:column>
-					</h:dataTable>
-					<h:panelGrid columnClasses=",remove-column" columns="2" styleClass="data-table-footer">
-						<h:selectOneMenu converter="#{guidesBean.converter}" id="activitiesBeanActivitiesGuidesSelect" value="#{requestScope['activitiesBeanActivitiesGuidesSelect']}">
-							<f:selectItem/>
-							<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{guidesBean.all}" var="_item"/>
-						</h:selectOneMenu>
-						<h:commandLink action="#{_collection.add(requestScope['activitiesBeanActivitiesGuidesSelect'])}" id="activitiesBeanActivitiesGuidesAdd" onclick="if (document.getElementById(document.forms[0].id+':activitiesBeanActivitiesGuidesSelect').selectedIndex &lt; 1) { alert('Must select a Guides'); return false; }" styleClass="add-button"/>
-					</h:panelGrid>
-				</h:panelGroup>
-				<h:outputText/>
-				<h:outputLabel for="activitiesBeanActivitiesTasks" value="Tasks:"/>
-				<h:panelGroup>
-					<ui:param name="_collection" value="#{activitiesBean.activities.tasks}"/>
-					<h:dataTable id="activitiesBeanActivitiesTasks" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
-						<h:column>
-							<f:facet name="header">
-								<h:outputText value="Orden"/>
-							</f:facet>
-							<h:link outcome="/admin/tasks/view">
-								<f:param name="id" value="#{_item.id}"/>
-								<h:outputText id="itemOrden" value="#{_item.orden}"/>
-							</h:link>
-							<f:facet name="footer">
-								<h:inputText id="tasksBeanAddOrden" value="#{tasksBean.add.orden}"/>
-								<h:message for="tasksBeanAddOrden" styleClass="error"/>
-							</f:facet>
-						</h:column>
-						<h:column>
-							<f:facet name="header">
-								<h:outputText value="Priority"/>
-							</f:facet>
-							<h:link outcome="/admin/tasks/view">
-								<f:param name="id" value="#{_item.id}"/>
-								<h:outputText id="itemPriority" value="#{_item.priority}"/>
-							</h:link>
-							<f:facet name="footer">
-								<h:inputText id="tasksBeanAddPriority" value="#{tasksBean.add.priority}"/>
-								<h:message for="tasksBeanAddPriority" styleClass="error"/>
-							</f:facet>
-						</h:column>
-						<h:column>
-							<f:facet name="header">
-								<h:outputText value="Final Date"/>
-							</f:facet>
-							<h:link outcome="/admin/tasks/view">
-								<f:param name="id" value="#{_item.id}"/>
-								<h:outputText id="itemFinalDate" value="#{_item.finalDate}">
-									<f:convertDateTime type="date"/>
-								</h:outputText>
-							</h:link>
-							<f:facet name="footer">
-								<h:inputText id="tasksBeanAddFinalDate" value="#{tasksBean.add.finalDate}">
-									<f:convertDateTime type="date"/>
-								</h:inputText>
-								<h:message for="tasksBeanAddFinalDate" styleClass="error"/>
-							</f:facet>
-						</h:column>
-						<h:column>
-							<f:facet name="header">
-								<h:outputText value="Start Date"/>
-							</f:facet>
-							<h:link outcome="/admin/tasks/view">
-								<f:param name="id" value="#{_item.id}"/>
-								<h:outputText id="itemStartDate" value="#{_item.startDate}">
-									<f:convertDateTime type="date"/>
-								</h:outputText>
-							</h:link>
-							<f:facet name="footer">
-								<h:inputText id="tasksBeanAddStartDate" value="#{tasksBean.add.startDate}">
-									<f:convertDateTime type="date"/>
-								</h:inputText>
-								<h:message for="tasksBeanAddStartDate" styleClass="error"/>
-							</f:facet>
-						</h:column>
-						<h:column>
-							<f:facet name="header">
-								<h:outputText value="Name"/>
-							</f:facet>
-							<h:link outcome="/admin/tasks/view">
-								<f:param name="id" value="#{_item.id}"/>
-								<h:outputText id="itemName" value="#{_item.name}"/>
-							</h:link>
-							<f:facet name="footer">
-								<h:inputText id="tasksBeanAddName" value="#{tasksBean.add.name}"/>
-								<h:message for="tasksBeanAddName" styleClass="error"/>
-							</f:facet>
-						</h:column>
-						<h:column footerClass="remove-column" headerClass="remove-column">
-							<h:commandLink action="#{_collection.remove(_item)}" styleClass="remove-button"/>
-							<f:facet name="footer">
-								<h:commandLink action="#{_collection.add(tasksBean.added)}" id="activitiesBeanActivitiesTasksAdd" styleClass="add-button">
-									<f:setPropertyActionListener target="#{tasksBean.add.activities}" value="#{activitiesBean.activities}"/>
-								</h:commandLink>
-							</f:facet>
-						</h:column>
-					</h:dataTable>
-				</h:panelGroup>
-				<h:outputText/>
 				<h:outputLabel for="activitiesBeanActivitiesObjPadre" value="Obj Padre:"/>
 				<h:panelGroup>
 					<h:selectOneMenu converter="#{activitiesBean.converter}" id="activitiesBeanActivitiesObjPadre" value="#{activitiesBean.activities.objPadre}">
@@ -347,22 +343,13 @@
 					<h:message for="activitiesBeanActivitiesObjPadre" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
-				<h:outputLabel for="activitiesBeanActivitiesSections" value="Sections:"/>
+				<h:outputLabel for="activitiesBeanActivitiesActivitiesTypes" value="Activities Types:"/>
 				<h:panelGroup>
-					<h:selectOneMenu converter="#{sectionsBean.converter}" id="activitiesBeanActivitiesSections" value="#{activitiesBean.activities.sections}">
+					<h:selectOneMenu converter="#{activitiesTypesBean.converter}" id="activitiesBeanActivitiesActivitiesTypes" value="#{activitiesBean.activities.activitiesTypes}">
 						<f:selectItem/>
-						<f:selectItems value="#{sectionsBean.all}"/>
+						<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{activitiesTypesBean.all}" var="_item"/>
 					</h:selectOneMenu>
-					<h:message for="activitiesBeanActivitiesSections" styleClass="error"/>
-				</h:panelGroup>
-				<h:outputText/>
-				<h:outputLabel for="activitiesBeanActivitiesPersons" value="Persons:"/>
-				<h:panelGroup>
-					<h:selectOneMenu converter="#{personsBean.converter}" id="activitiesBeanActivitiesPersons" value="#{activitiesBean.activities.persons}">
-						<f:selectItem/>
-						<f:selectItems value="#{personsBean.all}"/>
-					</h:selectOneMenu>
-					<h:message for="activitiesBeanActivitiesPersons" styleClass="error"/>
+					<h:message for="activitiesBeanActivitiesActivitiesTypes" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
 				<h:outputLabel for="activitiesBeanActivitiesCalendars" value="Calendars:"/>
@@ -374,13 +361,22 @@
 					<h:message for="activitiesBeanActivitiesCalendars" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
-				<h:outputLabel for="activitiesBeanActivitiesActivitiesTypes" value="Activities Types:"/>
+				<h:outputLabel for="activitiesBeanActivitiesPersons" value="Persons:"/>
 				<h:panelGroup>
-					<h:selectOneMenu converter="#{activitiesTypesBean.converter}" id="activitiesBeanActivitiesActivitiesTypes" value="#{activitiesBean.activities.activitiesTypes}">
+					<h:selectOneMenu converter="#{personsBean.converter}" id="activitiesBeanActivitiesPersons" value="#{activitiesBean.activities.persons}">
 						<f:selectItem/>
-						<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{activitiesTypesBean.all}" var="_item"/>
+						<f:selectItems value="#{personsBean.all}"/>
 					</h:selectOneMenu>
-					<h:message for="activitiesBeanActivitiesActivitiesTypes" styleClass="error"/>
+					<h:message for="activitiesBeanActivitiesPersons" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="activitiesBeanActivitiesSections" value="Sections:"/>
+				<h:panelGroup>
+					<h:selectOneMenu converter="#{sectionsBean.converter}" id="activitiesBeanActivitiesSections" value="#{activitiesBean.activities.sections}">
+						<f:selectItem/>
+						<f:selectItems value="#{sectionsBean.all}"/>
+					</h:selectOneMenu>
+					<h:message for="activitiesBeanActivitiesSections" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
 			</h:panelGrid>

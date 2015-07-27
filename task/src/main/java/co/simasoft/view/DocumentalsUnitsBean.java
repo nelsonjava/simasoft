@@ -26,8 +26,9 @@ import javax.persistence.criteria.Root;
 
 import co.simasoft.models.naif.task.archival.DocumentalsUnits;
 import co.simasoft.models.naif.task.archival.ConservationUnits;
-import co.simasoft.models.naif.task.archival.DocumentalsSupports;
+import co.simasoft.models.naif.task.archival.OriginalOrder;
 import co.simasoft.models.naif.task.archival.Series;
+import java.util.Iterator;
 
 /**
  * Backing bean for DocumentalsUnits entities.
@@ -134,6 +135,14 @@ public class DocumentalsUnitsBean implements Serializable {
 
 		try {
 			DocumentalsUnits deletableEntity = findById(getId());
+			Iterator<OriginalOrder> iterOriginalOrder = deletableEntity
+					.getOriginalOrder().iterator();
+			for (; iterOriginalOrder.hasNext();) {
+				OriginalOrder nextInOriginalOrder = iterOriginalOrder.next();
+				nextInOriginalOrder.setDocumentalsUnits(null);
+				iterOriginalOrder.remove();
+				this.entityManager.merge(nextInOriginalOrder);
+			}
 			Series series = deletableEntity.getSeries();
 			series.getDocumentalsUnits().remove(deletableEntity);
 			deletableEntity.setSeries(null);
@@ -143,11 +152,6 @@ public class DocumentalsUnitsBean implements Serializable {
 			conservationUnits.getDocumentalsUnits().remove(deletableEntity);
 			deletableEntity.setConservationUnits(null);
 			this.entityManager.merge(conservationUnits);
-			DocumentalsSupports documentalsSupports = deletableEntity
-					.getDocumentalsSupports();
-			documentalsSupports.getDocumentalsUnits().remove(deletableEntity);
-			deletableEntity.setDocumentalsSupports(null);
-			this.entityManager.merge(documentalsSupports);
 			this.entityManager.remove(deletableEntity);
 			this.entityManager.flush();
 			return "search?faces-redirect=true";
@@ -225,18 +229,6 @@ public class DocumentalsUnitsBean implements Serializable {
 		CriteriaBuilder builder = this.entityManager.getCriteriaBuilder();
 		List<Predicate> predicatesList = new ArrayList<Predicate>();
 
-		String link = this.example.getLink();
-		if (link != null && !"".equals(link)) {
-			predicatesList.add(builder.like(
-					builder.lower(root.<String> get("link")),
-					'%' + link.toLowerCase() + '%'));
-		}
-		String date = this.example.getDate();
-		if (date != null && !"".equals(date)) {
-			predicatesList.add(builder.like(
-					builder.lower(root.<String> get("date")),
-					'%' + date.toLowerCase() + '%'));
-		}
 		String name = this.example.getName();
 		if (name != null && !"".equals(name)) {
 			predicatesList.add(builder.like(
