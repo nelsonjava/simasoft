@@ -67,7 +67,7 @@
 
     <login-config>
         <auth-method>KEYCLOAK</auth-method>
-        <realm-name>demo</realm-name>
+        <realm-name>naif</realm-name>
     </login-config>
 
     <security-role>

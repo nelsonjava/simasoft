@@ -24,6 +24,8 @@
 					<ul class="nav">
 						<li><a href="http://forge.jboss.org/docs/important_plugins/ui-scaffolding.html">How to Customize</a></li>
 					</ul>
+					<h:outputText value="Welcome to " rendered=" #{request.userPrincipal !=null} "/>
+					<h:outputText value="Welcome TO " />
 				</div>
 			</div>
 		</div>
@@ -38,12 +40,18 @@
 				<li>
 					<h:link outcome="/admin/activities/search" value="Activities"/>
 				</li>
+
+				<li>
+					<h:link outcome="/admin/tasks/search" value="Tasks"/>
+				</li>
+
 				<li>
 					<h:link outcome="/admin/activitiesTypes/search" value="Activities Types"/>
 				</li>
 				<li>
 					<h:link outcome="/admin/calendars/search" value="Calendars"/>
 				</li>
+
 				<li>
 					<h:link outcome="/admin/conservationUnits/search" value="Conservation Units"/>
 				</li>
@@ -86,9 +94,7 @@
 				<li>
 					<h:link outcome="/admin/sitesTypes/search" value="Sites Types"/>
 				</li>
-				<li>
-					<h:link outcome="/admin/tasks/search" value="Tasks"/>
-				</li>
+
 			</ul>
 		</div>
 
