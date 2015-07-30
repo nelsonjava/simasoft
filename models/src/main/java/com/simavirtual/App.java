@@ -479,7 +479,6 @@ public class App extends FileTxt{
         modelos.add(new Modelos("pruebas","co.simasoft.models.naif.pruebas","prueba"));
         generar("pruebas","co.simasoft","prueba",modelos);
 
-
         modelos.clear();
         modelos.add(new Modelos("pruebas","co.simasoft.models.naif.prueba1","prueba1"));
         generar("pruebas","co.simasoft","prueba1",modelos);
@@ -522,8 +521,6 @@ public class App extends FileTxt{
         modelos.clear();
         modelos.add(new Modelos("naif","co.simasoft","DomainModels"));
         Models(modelos);
-*/
-
 
         modelos.clear();
         modelos.add(new Modelos("naif/DomainModels/systemsModels/systemsModels.oom","co.simasoft.models.naif.domainmodels.systemsModels"));
@@ -552,10 +549,14 @@ public class App extends FileTxt{
         domains = new Domains("co.simasoft","task","1.0-SNAPSHOT",modelos);
         systemsModels = new DataGenH2(domains);
 
+*/
 
-
-
-
+        modelos.clear();
+        modelos.add(new Modelos("dev/naifg/naifgEntities.oom","co.simasoft.models.dev.naifg"));
+        modelos.add(new Modelos("dev/naifg/naifgModel.oom","co.simasoft.models.dev.naifg"));
+        modelos.add(new Modelos("dev/naifg/naifgModelExternal.oom","co.simasoft.models.dev.naifg"));
+        Domains domains = new Domains("co.simasoft","naifg","1.0-SNAPSHOT",modelos);
+        DataGenH2 systemsModels = new DataGenH2(domains);
 
 
 
