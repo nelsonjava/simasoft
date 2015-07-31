@@ -82,13 +82,22 @@ public class Entidad {
         this.relations.add(relations);
     }
 
-    public boolean isEntity(){
+    public boolean isEntity() {
+
+      if (atributos == null) {
+          return false;
+      }
 
       for (Atributos attribute : atributos) {
           if (attribute.getField().toLowerCase().equals("entity")) {
              return false;
           }
       }
+
+      if (atributos.isEmpty()) {
+          return false;
+      }
+
       return true;
     }
 
