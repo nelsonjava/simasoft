@@ -1,0 +1,62 @@
+ El volumen de la unidad D es datos
+ El n£mero de serie del volumen es: BA09-07A5
+
+ Directorio de d:\dev\njava\simasoft\models\src\resources\models\core
+
+01/08/2015  12:10    <DIR>          .
+01/08/2015  12:10    <DIR>          ..
+01/08/2015  12:11                 0 a.txt
+01/08/2015  12:10    <DIR>          archival
+01/08/2015  11:24    <DIR>          books
+01/08/2015  11:46    <DIR>          companies
+01/08/2015  12:02    <DIR>          regulations
+01/08/2015  12:09    <DIR>          sites
+               1 archivos              0 bytes
+
+ Directorio de d:\dev\njava\simasoft\models\src\resources\models\core\archival
+
+01/08/2015  12:10    <DIR>          .
+01/08/2015  12:10    <DIR>          ..
+01/08/2015  10:26            63.166 archivalEntities.oom
+01/08/2015  10:54            80.623 archivalModel.oom
+01/08/2015  11:44            47.825 archivalModelExternal.oom
+               3 archivos        191.614 bytes
+
+ Directorio de d:\dev\njava\simasoft\models\src\resources\models\core\books
+
+01/08/2015  11:24    <DIR>          .
+01/08/2015  11:24    <DIR>          ..
+01/08/2015  11:09            37.212 booksEntities.oom
+01/08/2015  11:08            40.499 booksModel.oom
+01/08/2015  11:20            43.550 booksModelExternal.oom
+               3 archivos        121.261 bytes
+
+ Directorio de d:\dev\njava\simasoft\models\src\resources\models\core\companies
+
+01/08/2015  11:46    <DIR>          .
+01/08/2015  11:46    <DIR>          ..
+01/08/2015  11:31            35.035 companiesEntities.oom
+01/08/2015  11:28            36.045 companiesModel.oom
+01/08/2015  11:46            42.388 companiesModelExternal.oom
+               3 archivos        113.468 bytes
+
+ Directorio de d:\dev\njava\simasoft\models\src\resources\models\core\regulations
+
+01/08/2015  12:02    <DIR>          .
+01/08/2015  12:02    <DIR>          ..
+01/08/2015  11:57            36.218 regulationsEntities.oom
+01/08/2015  11:55            40.546 regulationsModel.oom
+01/08/2015  12:01            34.685 regulationsModelExternal.oom
+               3 archivos        111.449 bytes
+
+ Directorio de d:\dev\njava\simasoft\models\src\resources\models\core\sites
+
+01/08/2015  12:09    <DIR>          .
+01/08/2015  12:09    <DIR>          ..
+01/08/2015  12:09            34.236 sitesEntities.oom
+01/08/2015  12:07            36.102 sitesModel.oom
+               2 archivos         70.338 bytes
+
+     Total de archivos en la lista:
+              15 archivos        608.130 bytes
+              17 dirs  53.451.497.472 bytes libres

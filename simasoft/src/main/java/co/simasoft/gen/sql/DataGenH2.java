@@ -36,6 +36,7 @@ public class DataGenH2 extends FileTxt {
 //>>DECLARACION DE INSTANCIAS
       int i=0;
       int j=0;
+      LinkedHashSet<String> imports = new LinkedHashSet<String>();
 //>>DECLARACION DE INSTANCIAS
 
 /****************************************************************************************************************
@@ -56,6 +57,10 @@ OBJETIVOS:
 public DataGenH2(Domains domain) throws IOException {
 
     try {
+
+    for (Packages groupId : domain.getPackages()){
+        imports.add(groupId.getGroupId());
+    }
 
 line("import co.simasoft.models.naif.domainmodels.*;\n");
 
@@ -100,16 +105,24 @@ line("//      ---------------------- GroupIds ------------------------\n");
 
     i=0;
     j=0;
-    for (Packages groupId : domain.getPackages()){
+    for (String impor : imports) {
 
 line("        GroupIds groupIds"+String.valueOf(++i)+" = new GroupIds();");
-line("        groupIds"+String.valueOf(i)+".setGroupId(\""+groupId.getGroupId()+"\");");
-line("//      ...................... "+domain.getArtifactId()+" ........................");
+line("        groupIds"+String.valueOf(i)+".setGroupId(\""+impor+"\");");
+line("//      ...................... "+impor+" ........................");
 line("        DomainModels domainModel"+String.valueOf(++j)+" = new DomainModels();");
 line("        domainModel"+String.valueOf(j)+" = findBean.artifactIdDomainModels(\""+domain.getArtifactId()+"\",em);");
 line("        groupIds"+String.valueOf(i)+".setDomainModels(domainModel"+String.valueOf(j)+");");
 line("        em.persist(groupIds"+String.valueOf(i)+");");
 line("        em.flush();\n");
+
+    }
+
+
+    i=0;
+    j=0;
+    for (Packages groupId : domain.getPackages()){
+
 
 line("//      ---------------------- Entities ------------------------\n");
 
@@ -150,6 +163,7 @@ line("        em.flush();\n");
 
     } // for
 
+
 line("//      ---------------------- Relationships ------------------------\n");
 
     i=0;
@@ -160,7 +174,7 @@ line("/*");
 
             switch (relation.getCardinality()) {
                 case "1..1":
-                case "1..*":                
+                case "1..*":
                 case "*..*":
                      if (relation.getRolA().equals("from") || relation.getRolB().equals("from") ){
 line(". "+relation.getFrom()+" . "+relation.getCardinality()+" "+relation.getTo()+" rolA:"+relation.getRolA()+" rolB:"+relation.getRolB()+" OK\n");
@@ -205,6 +219,8 @@ line("        em.flush();\n");
 line("    } // data()\n");
 
 line("} // "+domain.getArtifactId());
+
+
 
 
 

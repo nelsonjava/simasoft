@@ -1571,11 +1571,11 @@ LABL 0 Arial,8,N</a:FontList>
 </o:Class>
 <o:Class Id="o15">
 <a:ObjectID>CF127FB8-CF22-47CC-AD8E-C245A77A44E2</a:ObjectID>
-<a:Name>Dependency</a:Name>
-<a:Code>Dependency</a:Code>
+<a:Name>Dependencies</a:Name>
+<a:Code>Dependencies</a:Code>
 <a:CreationDate>1431096552</a:CreationDate>
 <a:Creator>admin</a:Creator>
-<a:ModificationDate>1438230306</a:ModificationDate>
+<a:ModificationDate>1438568716</a:ModificationDate>
 <a:Modifier>admin</a:Modifier>
 <a:UseParentNamespace>0</a:UseParentNamespace>
 <c:Attributes>

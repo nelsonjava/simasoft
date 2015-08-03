@@ -1,0 +1,16 @@
+ El volumen de la unidad D es datos
+ El n£mero de serie del volumen es: BA09-07A5
+
+ Directorio de d:\dev\njava\simasoft\models\src\resources\models\dev\naifg\dependencies
+
+02/08/2015  20:24    <DIR>          .
+02/08/2015  20:24    <DIR>          ..
+02/08/2015  20:24                 0 a.txt
+29/07/2015  23:26            42.519 dependenciesEntities.oob
+29/07/2015  23:50            42.518 dependenciesEntities.oom
+29/07/2015  23:22            57.779 dependenciesModel.oob
+29/07/2015  23:22            57.779 dependenciesModel.oom
+29/07/2015  23:49            53.901 dependenciesModelExternal.oob
+29/07/2015  23:49            53.901 dependenciesModelExternal.oom
+               7 archivos        308.397 bytes
+               2 dirs  45.695.832.064 bytes libres

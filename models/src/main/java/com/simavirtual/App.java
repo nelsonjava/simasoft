@@ -552,11 +552,37 @@ public class App extends FileTxt{
 */
 
         modelos.clear();
+        modelos.add(new Modelos("core/archival/archivalEntities.oom","co.simasoft.models.core.archival"));
+        modelos.add(new Modelos("core/archival/archivalModel.oom","co.simasoft.models.core.archival"));
+        modelos.add(new Modelos("core/archival/archivalModelExternal.oom","co.simasoft.models.core.archival"));
+
+        modelos.add(new Modelos("core/books/booksEntities.oom","co.simasoft.models.core.books"));
+        modelos.add(new Modelos("core/books/booksModel.oom","co.simasoft.models.core.books"));
+        modelos.add(new Modelos("core/books/booksModelExternal.oom","co.simasoft.models.core.books"));
+
+        modelos.add(new Modelos("core/companies/companiesEntities.oom","co.simasoft.models.core.companies"));
+        modelos.add(new Modelos("core/companies/companiesModel.oom","co.simasoft.models.core.companies"));
+        modelos.add(new Modelos("core/companies/companiesModelExternal.oom","co.simasoft.models.core.companies"));
+
+        modelos.add(new Modelos("core/regulations/regulationsEntities.oom","co.simasoft.models.core.regulations"));
+        modelos.add(new Modelos("core/regulations/regulationsModel.oom","co.simasoft.models.core.regulations"));
+        modelos.add(new Modelos("core/regulations/regulationsModelExternal.oom","co.simasoft.models.core.regulations"));
+
+        modelos.add(new Modelos("core/sites/sitesEntities.oom","co.simasoft.models.core.sites"));
+        modelos.add(new Modelos("core/sites/sitesModel.oom","co.simasoft.models.core.sites"));
+        Domains domains = new Domains("co.simasoft","core","1.0-SNAPSHOT",modelos);
+        DataGenH2 dataGenH2 = new DataGenH2(domains);
+
+        modelos.clear();
+        modelos.add(new Modelos("dev/naifg/dependencies/dependenciesEntities.oom","co.simasoft.models.dev.naifg.dependencies"));
+        modelos.add(new Modelos("dev/naifg/dependencies/dependenciesModel.oom","co.simasoft.models.dev.naifg.dependencies"));
+        modelos.add(new Modelos("dev/naifg/dependencies/dependenciesModelExternal.oom","co.simasoft.models.dev.naifg.dependencies"));
+
         modelos.add(new Modelos("dev/naifg/naifgEntities.oom","co.simasoft.models.dev.naifg"));
         modelos.add(new Modelos("dev/naifg/naifgModel.oom","co.simasoft.models.dev.naifg"));
         modelos.add(new Modelos("dev/naifg/naifgModelExternal.oom","co.simasoft.models.dev.naifg"));
-        Domains domains = new Domains("co.simasoft","naifg","1.0-SNAPSHOT",modelos);
-        DataGenH2 systemsModels = new DataGenH2(domains);
+        domains = new Domains("co.simasoft","naifg","1.0-SNAPSHOT",modelos);
+        dataGenH2 = new DataGenH2(domains);
 
 
 
