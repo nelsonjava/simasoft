@@ -29,22 +29,16 @@
 				<h:panelGroup styleClass="search">
 
 					<h:panelGrid columnClasses="label,component,required" columns="3">
-						<h:outputLabel for="entitiesBeanExampleName" value="Name:"/>
+						<h:outputLabel for="entitiesBeanExampleTable" value="Table:"/>
 						<h:panelGroup>
-							<h:inputText id="entitiesBeanExampleName" value="#{entitiesBean.example.name}"/>
-							<h:message for="entitiesBeanExampleName" styleClass="error"/>
+							<h:inputText id="entitiesBeanExampleTable" value="#{entitiesBean.example.table}"/>
+							<h:message for="entitiesBeanExampleTable" styleClass="error"/>
 						</h:panelGroup>
 						<h:outputText/>
-						<h:outputLabel for="entitiesBeanExampleTabla" value="Tabla:"/>
+						<h:outputLabel for="entitiesBeanExampleTableSecuencia" value="Table Secuencia:"/>
 						<h:panelGroup>
-							<h:inputText id="entitiesBeanExampleTabla" value="#{entitiesBean.example.tabla}"/>
-							<h:message for="entitiesBeanExampleTabla" styleClass="error"/>
-						</h:panelGroup>
-						<h:outputText/>
-						<h:outputLabel for="entitiesBeanExampleTablaSecuencia" value="Tabla Secuencia:"/>
-						<h:panelGroup>
-							<h:inputText id="entitiesBeanExampleTablaSecuencia" value="#{entitiesBean.example.tablaSecuencia}"/>
-							<h:message for="entitiesBeanExampleTablaSecuencia" styleClass="error"/>
+							<h:inputText id="entitiesBeanExampleTableSecuencia" value="#{entitiesBean.example.tableSecuencia}"/>
+							<h:message for="entitiesBeanExampleTableSecuencia" styleClass="error"/>
 						</h:panelGroup>
 						<h:outputText/>
 						<h:outputLabel for="entitiesBeanExampleModifier" value="Modifier:"/>
@@ -57,6 +51,12 @@
 						<h:panelGroup>
 							<h:inputText id="entitiesBeanExampleExtend" value="#{entitiesBean.example.extend}"/>
 							<h:message for="entitiesBeanExampleExtend" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="entitiesBeanExampleAnnotations" value="Annotations:"/>
+						<h:panelGroup>
+							<h:inputText id="entitiesBeanExampleAnnotations" value="#{entitiesBean.example.annotations}"/>
+							<h:message for="entitiesBeanExampleAnnotations" styleClass="error"/>
 						</h:panelGroup>
 						<h:outputText/>
 					</h:panelGrid>
@@ -75,42 +75,6 @@
 					<h:link outcome="/admin/entities/view">
 						<f:param name="id" value="#{_item.id}"/>
 						<h:outputText id="itemName" value="#{_item.name}"/>
-					</h:link>
-				</h:column>
-				<h:column>
-					<f:facet name="header">
-						<h:outputText value="Tabla"/>
-					</f:facet>
-					<h:link outcome="/admin/entities/view">
-						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemTabla" value="#{_item.tabla}"/>
-					</h:link>
-				</h:column>
-				<h:column>
-					<f:facet name="header">
-						<h:outputText value="Tabla Secuencia"/>
-					</f:facet>
-					<h:link outcome="/admin/entities/view">
-						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemTablaSecuencia" value="#{_item.tablaSecuencia}"/>
-					</h:link>
-				</h:column>
-				<h:column>
-					<f:facet name="header">
-						<h:outputText value="Modifier"/>
-					</f:facet>
-					<h:link outcome="/admin/entities/view">
-						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemModifier" value="#{_item.modifier}"/>
-					</h:link>
-				</h:column>
-				<h:column>
-					<f:facet name="header">
-						<h:outputText value="Extend"/>
-					</f:facet>
-					<h:link outcome="/admin/entities/view">
-						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemExtend" value="#{_item.extend}"/>
 					</h:link>
 				</h:column>
 			</h:dataTable>

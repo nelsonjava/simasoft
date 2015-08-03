@@ -5,10 +5,11 @@
          http://maven.apache.org/maven-v4_0_0.xsd">
 
   <!-- http://sinjava.blogspot.com/2012/10/hola-mundo-jsf.html -->
+  <!-- http://localhost:8080/auth/admin/index.html -->
+  <!-- mvn wildfly:undeploy -->
   <!-- mvn clean package wildfly:deploy -->
   <!-- http://localhost:8080 -->
-  <!-- http://localhost:8080/naifg --> 
-  <!-- java -cp h2*.jar org.h2.tools.Script -url "jdbc:h2:/db/DomainModels/data" -user "sa" -script "/db/backup.sql"  -->
+  <!-- http://localhost:8080/naifg -->
 
   <modelVersion>4.0.0</modelVersion>
 
@@ -16,8 +17,6 @@
   <artifactId>naifg</artifactId>
   <version>1.0.0-SNAPSHOT</version>
   <packaging>war</packaging>
-  <name>Network App Internet Factory Generator</name>
-
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -70,7 +69,7 @@
   </dependencyManagement>
 
   <dependencies>
-  
+
     <dependency>
       <groupId>co.simasoft</groupId>
       <artifactId>simasoft</artifactId>

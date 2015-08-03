@@ -41,10 +41,26 @@
 							<h:message for="cardinalitiesBeanExampleCardinality" styleClass="error"/>
 						</h:panelGroup>
 						<h:outputText/>
-						<h:outputLabel for="cardinalitiesBeanExampleObservaciones" value="Observaciones:"/>
+						<h:outputLabel for="cardinalitiesBeanExampleUnidirectional" value="Unidirectional:"/>
 						<h:panelGroup>
-							<h:inputText id="cardinalitiesBeanExampleObservaciones" value="#{cardinalitiesBean.example.observaciones}"/>
-							<h:message for="cardinalitiesBeanExampleObservaciones" styleClass="error"/>
+							<h:selectOneMenu id="cardinalitiesBeanExampleUnidirectional" value="#{cardinalitiesBean.example.unidirectional}">
+								<f:selectItem/>
+								<f:selectItem itemLabel="Yes" itemValue="true"/>
+								<f:selectItem itemLabel="No" itemValue="false"/>
+							</h:selectOneMenu>
+							<h:message for="cardinalitiesBeanExampleUnidirectional" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="cardinalitiesBeanExampleAnnotations" value="Annotations:"/>
+						<h:panelGroup>
+							<h:inputText id="cardinalitiesBeanExampleAnnotations" value="#{cardinalitiesBean.example.annotations}"/>
+							<h:message for="cardinalitiesBeanExampleAnnotations" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="cardinalitiesBeanExampleObservations" value="Observations:"/>
+						<h:panelGroup>
+							<h:inputText id="cardinalitiesBeanExampleObservations" value="#{cardinalitiesBean.example.observations}"/>
+							<h:message for="cardinalitiesBeanExampleObservations" styleClass="error"/>
 						</h:panelGroup>
 						<h:outputText/>
 					</h:panelGrid>
@@ -72,24 +88,6 @@
 					<h:link outcome="/admin/cardinalities/view">
 						<f:param name="id" value="#{_item.id}"/>
 						<h:outputText id="itemCardinality" value="#{_item.cardinality}"/>
-					</h:link>
-				</h:column>
-				<h:column>
-					<f:facet name="header">
-						<h:outputText value="Unidireccional"/>
-					</f:facet>
-					<h:link outcome="/admin/cardinalities/view">
-						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText styleClass="#{_item.unidireccional ? 'boolean-true' : 'boolean-false'}" value=""/>
-					</h:link>
-				</h:column>
-				<h:column>
-					<f:facet name="header">
-						<h:outputText value="Observaciones"/>
-					</f:facet>
-					<h:link outcome="/admin/cardinalities/view">
-						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemObservaciones" value="#{_item.observaciones}"/>
 					</h:link>
 				</h:column>
 			</h:dataTable>

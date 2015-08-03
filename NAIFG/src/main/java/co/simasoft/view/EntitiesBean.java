@@ -24,11 +24,11 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
-import co.simasoft.models.naif.DomainModels.Entities;
-import co.simasoft.models.naif.DomainModels.Attributes;
-import co.simasoft.models.naif.DomainModels.FilesModels;
-import co.simasoft.models.naif.DomainModels.NameQueries;
-import co.simasoft.models.naif.DomainModels.Relationships;
+import co.simasoft.models.dev.naifg.Entities;
+import co.simasoft.models.dev.naifg.Attributes;
+import co.simasoft.models.dev.naifg.GroupIds;
+import co.simasoft.models.dev.naifg.NameQueries;
+import co.simasoft.models.dev.naifg.Relationships;
 import java.util.Iterator;
 
 /**
@@ -44,346 +44,304 @@ import java.util.Iterator;
 @Named
 @Stateful
 @ConversationScoped
-public class EntitiesBean implements Serializable
-{
+public class EntitiesBean implements Serializable {
 
-   private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
-   /*
-    * Support creating and retrieving Entities entities
-    */
+	/*
+	 * Support creating and retrieving Entities entities
+	 */
 
-   private Long id;
+	private Long id;
 
-   public Long getId()
-   {
-      return this.id;
-   }
+	public Long getId() {
+		return this.id;
+	}
 
-   public void setId(Long id)
-   {
-      this.id = id;
-   }
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-   private Entities entities;
+	private Entities entities;
 
-   public Entities getEntities()
-   {
-      return this.entities;
-   }
+	public Entities getEntities() {
+		return this.entities;
+	}
 
-   public void setEntities(Entities entities)
-   {
-      this.entities = entities;
-   }
+	public void setEntities(Entities entities) {
+		this.entities = entities;
+	}
 
-   @Inject
-   private Conversation conversation;
+	@Inject
+	private Conversation conversation;
 
-   @PersistenceContext(unitName = "DomainModelsPU-JTA", type = PersistenceContextType.EXTENDED)
-   private EntityManager entityManager;
+	@PersistenceContext(unitName = "naifgPU-JTA", type = PersistenceContextType.EXTENDED)
+	private EntityManager entityManager;
 
-   public String create()
-   {
+	public String create() {
 
-      this.conversation.begin();
-      this.conversation.setTimeout(1800000L);
-      return "create?faces-redirect=true";
-   }
+		this.conversation.begin();
+		this.conversation.setTimeout(1800000L);
+		return "create?faces-redirect=true";
+	}
 
-   public void retrieve()
-   {
+	public void retrieve() {
 
-      if (FacesContext.getCurrentInstance().isPostback())
-      {
-         return;
-      }
+		if (FacesContext.getCurrentInstance().isPostback()) {
+			return;
+		}
 
-      if (this.conversation.isTransient())
-      {
-         this.conversation.begin();
-         this.conversation.setTimeout(1800000L);
-      }
+		if (this.conversation.isTransient()) {
+			this.conversation.begin();
+			this.conversation.setTimeout(1800000L);
+		}
 
-      if (this.id == null)
-      {
-         this.entities = this.example;
-      }
-      else
-      {
-         this.entities = findById(getId());
-      }
-   }
+		if (this.id == null) {
+			this.entities = this.example;
+		} else {
+			this.entities = findById(getId());
+		}
+	}
 
-   public Entities findById(Long id)
-   {
+	public Entities findById(Long id) {
 
-      return this.entityManager.find(Entities.class, id);
-   }
+		return this.entityManager.find(Entities.class, id);
+	}
 
-   /*
-    * Support updating and deleting Entities entities
-    */
+	/*
+	 * Support updating and deleting Entities entities
+	 */
 
-   public String update()
-   {
-      this.conversation.end();
+	public String update() {
+		this.conversation.end();
 
-      try
-      {
-         if (this.id == null)
-         {
-            this.entityManager.persist(this.entities);
-            return "search?faces-redirect=true";
-         }
-         else
-         {
-            this.entityManager.merge(this.entities);
-            return "view?faces-redirect=true&id=" + this.entities.getId();
-         }
-      }
-      catch (Exception e)
-      {
-         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(e.getMessage()));
-         return null;
-      }
-   }
+		try {
+			if (this.id == null) {
+				this.entityManager.persist(this.entities);
+				return "search?faces-redirect=true";
+			} else {
+				this.entityManager.merge(this.entities);
+				return "view?faces-redirect=true&id=" + this.entities.getId();
+			}
+		} catch (Exception e) {
+			FacesContext.getCurrentInstance().addMessage(null,
+					new FacesMessage(e.getMessage()));
+			return null;
+		}
+	}
 
-   public String delete()
-   {
-      this.conversation.end();
+	public String delete() {
+		this.conversation.end();
 
-      try
-      {
-         Entities deletableEntity = findById(getId());
-         Iterator<NameQueries> iterNameQueries = deletableEntity.getNameQueries().iterator();
-         for (; iterNameQueries.hasNext();)
-         {
-            NameQueries nextInNameQueries = iterNameQueries.next();
-            nextInNameQueries.setEntities(null);
-            iterNameQueries.remove();
-            this.entityManager.merge(nextInNameQueries);
-         }
+		try {
+			Entities deletableEntity = findById(getId());
+			Iterator<Attributes> iterAttributes = deletableEntity
+					.getAttributes().iterator();
+			for (; iterAttributes.hasNext();) {
+				Attributes nextInAttributes = iterAttributes.next();
+				nextInAttributes.setEntities(null);
+				iterAttributes.remove();
+				this.entityManager.merge(nextInAttributes);
+			}
+			Iterator<Relationships> iterTo = deletableEntity.getTo().iterator();
+			for (; iterTo.hasNext();) {
+				Relationships nextInTo = iterTo.next();
+				nextInTo.setTo(null);
+				iterTo.remove();
+				this.entityManager.merge(nextInTo);
+			}
+			Iterator<Relationships> iterRelationships = deletableEntity
+					.getRelationships().iterator();
+			for (; iterRelationships.hasNext();) {
+				Relationships nextInRelationships = iterRelationships.next();
+				nextInRelationships.setEntities(null);
+				iterRelationships.remove();
+				this.entityManager.merge(nextInRelationships);
+			}
+			Iterator<NameQueries> iterNameQueries = deletableEntity
+					.getNameQueries().iterator();
+			for (; iterNameQueries.hasNext();) {
+				NameQueries nextInNameQueries = iterNameQueries.next();
+				nextInNameQueries.setEntities(null);
+				iterNameQueries.remove();
+				this.entityManager.merge(nextInNameQueries);
+			}
+			GroupIds groupIds = deletableEntity.getGroupIds();
+			groupIds.getEntities().remove(deletableEntity);
+			deletableEntity.setGroupIds(null);
+			this.entityManager.merge(groupIds);
+			this.entityManager.remove(deletableEntity);
+			this.entityManager.flush();
+			return "search?faces-redirect=true";
+		} catch (Exception e) {
+			FacesContext.getCurrentInstance().addMessage(null,
+					new FacesMessage(e.getMessage()));
+			return null;
+		}
+	}
 
-         Iterator<Relationships> iterFrom = deletableEntity.getFrom().iterator();
-         for (; iterFrom.hasNext();)
-         {
-            Relationships nextInFrom = iterFrom.next();
-            nextInFrom.setFrom(null);
-            iterFrom.remove();
-            this.entityManager.merge(nextInFrom);
-         }
+	/*
+	 * Support searching Entities entities with pagination
+	 */
 
-         Iterator<Relationships> iterTo = deletableEntity.getTo().iterator();
-         for (; iterTo.hasNext();)
-         {
-            Relationships nextInTo = iterTo.next();
-            nextInTo.setTo(null);
-            iterTo.remove();
-            this.entityManager.merge(nextInTo);
-         }
+	private int page;
+	private long count;
+	private List<Entities> pageItems;
 
-         Iterator<FilesModels> iterFilesModels = deletableEntity.getFilesModels().iterator();
-         for (; iterFilesModels.hasNext();)
-         {
-            FilesModels nextInFilesModels = iterFilesModels.next();
-            nextInFilesModels.setEntities(null);
-            iterFilesModels.remove();
-            this.entityManager.merge(nextInFilesModels);
-         }
-         Iterator<Attributes> iterAttributes = deletableEntity.getAttributes().iterator();
-         for (; iterAttributes.hasNext();)
-         {
-            Attributes nextInAttributes = iterAttributes.next();
-            nextInAttributes.setEntities(null);
-            iterAttributes.remove();
-            this.entityManager.merge(nextInAttributes);
-         }
-         this.entityManager.remove(deletableEntity);
-         this.entityManager.flush();
-         return "search?faces-redirect=true";
-      }
-      catch (Exception e)
-      {
-         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(e.getMessage()));
-         return null;
-      }
-   }
+	private Entities example = new Entities();
 
-   /*
-    * Support searching Entities entities with pagination
-    */
+	public int getPage() {
+		return this.page;
+	}
 
-   private int page;
-   private long count;
-   private List<Entities> pageItems;
+	public void setPage(int page) {
+		this.page = page;
+	}
 
-   private Entities example = new Entities();
+	public int getPageSize() {
+		return 10;
+	}
 
-   public int getPage()
-   {
-      return this.page;
-   }
+	public Entities getExample() {
+		return this.example;
+	}
 
-   public void setPage(int page)
-   {
-      this.page = page;
-   }
+	public void setExample(Entities example) {
+		this.example = example;
+	}
 
-   public int getPageSize()
-   {
-      return 30;
-   }
+	public String search() {
+		this.page = 0;
+		return null;
+	}
 
-   public Entities getExample()
-   {
-      return this.example;
-   }
+	public void paginate() {
 
-   public void setExample(Entities example)
-   {
-      this.example = example;
-   }
+		CriteriaBuilder builder = this.entityManager.getCriteriaBuilder();
 
-   public String search()
-   {
-      this.page = 0;
-      return null;
-   }
+		// Populate this.count
 
-   public void paginate()
-   {
+		CriteriaQuery<Long> countCriteria = builder.createQuery(Long.class);
+		Root<Entities> root = countCriteria.from(Entities.class);
+		countCriteria = countCriteria.select(builder.count(root)).where(
+				getSearchPredicates(root));
+		this.count = this.entityManager.createQuery(countCriteria)
+				.getSingleResult();
 
-      CriteriaBuilder builder = this.entityManager.getCriteriaBuilder();
+		// Populate this.pageItems
 
-      // Populate this.count
+		CriteriaQuery<Entities> criteria = builder.createQuery(Entities.class);
+		root = criteria.from(Entities.class);
+		TypedQuery<Entities> query = this.entityManager.createQuery(criteria
+				.select(root).where(getSearchPredicates(root)));
+		query.setFirstResult(this.page * getPageSize()).setMaxResults(
+				getPageSize());
+		this.pageItems = query.getResultList();
+	}
 
-      CriteriaQuery<Long> countCriteria = builder.createQuery(Long.class);
-      Root<Entities> root = countCriteria.from(Entities.class);
-      countCriteria = countCriteria.select(builder.count(root)).where(
-            getSearchPredicates(root));
-      this.count = this.entityManager.createQuery(countCriteria)
-            .getSingleResult();
+	private Predicate[] getSearchPredicates(Root<Entities> root) {
 
-      // Populate this.pageItems
+		CriteriaBuilder builder = this.entityManager.getCriteriaBuilder();
+		List<Predicate> predicatesList = new ArrayList<Predicate>();
 
-      CriteriaQuery<Entities> criteria = builder.createQuery(Entities.class);
-      root = criteria.from(Entities.class);
-      TypedQuery<Entities> query = this.entityManager.createQuery(criteria
-            .select(root).where(getSearchPredicates(root)));
-      query.setFirstResult(this.page * getPageSize()).setMaxResults(
-            getPageSize());
-      this.pageItems = query.getResultList();
-   }
+		String table = this.example.getTable();
+		if (table != null && !"".equals(table)) {
+			predicatesList.add(builder.like(
+					builder.lower(root.<String> get("table")),
+					'%' + table.toLowerCase() + '%'));
+		}
+		String tableSecuencia = this.example.getTableSecuencia();
+		if (tableSecuencia != null && !"".equals(tableSecuencia)) {
+			predicatesList.add(builder.like(
+					builder.lower(root.<String> get("tableSecuencia")),
+					'%' + tableSecuencia.toLowerCase() + '%'));
+		}
+		String modifier = this.example.getModifier();
+		if (modifier != null && !"".equals(modifier)) {
+			predicatesList.add(builder.like(
+					builder.lower(root.<String> get("modifier")),
+					'%' + modifier.toLowerCase() + '%'));
+		}
+		String extend = this.example.getExtend();
+		if (extend != null && !"".equals(extend)) {
+			predicatesList.add(builder.like(
+					builder.lower(root.<String> get("extend")),
+					'%' + extend.toLowerCase() + '%'));
+		}
+		String annotations = this.example.getAnnotations();
+		if (annotations != null && !"".equals(annotations)) {
+			predicatesList.add(builder.like(
+					builder.lower(root.<String> get("annotations")),
+					'%' + annotations.toLowerCase() + '%'));
+		}
 
-   private Predicate[] getSearchPredicates(Root<Entities> root)
-   {
+		return predicatesList.toArray(new Predicate[predicatesList.size()]);
+	}
 
-      CriteriaBuilder builder = this.entityManager.getCriteriaBuilder();
-      List<Predicate> predicatesList = new ArrayList<Predicate>();
+	public List<Entities> getPageItems() {
+		return this.pageItems;
+	}
 
-      String name = this.example.getName();
-      if (name != null && !"".equals(name))
-      {
-         predicatesList.add(builder.like(builder.lower(root.<String> get("name")), '%' + name.toLowerCase() + '%'));
-      }
-      String tabla = this.example.getTabla();
-      if (tabla != null && !"".equals(tabla))
-      {
-         predicatesList.add(builder.like(builder.lower(root.<String> get("tabla")), '%' + tabla.toLowerCase() + '%'));
-      }
-      String tablaSecuencia = this.example.getTablaSecuencia();
-      if (tablaSecuencia != null && !"".equals(tablaSecuencia))
-      {
-         predicatesList.add(builder.like(builder.lower(root.<String> get("tablaSecuencia")), '%' + tablaSecuencia.toLowerCase() + '%'));
-      }
-      String modifier = this.example.getModifier();
-      if (modifier != null && !"".equals(modifier))
-      {
-         predicatesList.add(builder.like(builder.lower(root.<String> get("modifier")), '%' + modifier.toLowerCase() + '%'));
-      }
-      String extend = this.example.getExtend();
-      if (extend != null && !"".equals(extend))
-      {
-         predicatesList.add(builder.like(builder.lower(root.<String> get("extend")), '%' + extend.toLowerCase() + '%'));
-      }
+	public long getCount() {
+		return this.count;
+	}
 
-      return predicatesList.toArray(new Predicate[predicatesList.size()]);
-   }
+	/*
+	 * Support listing and POSTing back Entities entities (e.g. from inside an
+	 * HtmlSelectOneMenu)
+	 */
 
-   public List<Entities> getPageItems()
-   {
-      return this.pageItems;
-   }
+	public List<Entities> getAll() {
 
-   public long getCount()
-   {
-      return this.count;
-   }
+		CriteriaQuery<Entities> criteria = this.entityManager
+				.getCriteriaBuilder().createQuery(Entities.class);
+		return this.entityManager.createQuery(
+				criteria.select(criteria.from(Entities.class))).getResultList();
+	}
 
-   /*
-    * Support listing and POSTing back Entities entities (e.g. from inside an
-    * HtmlSelectOneMenu)
-    */
+	@Resource
+	private SessionContext sessionContext;
 
-   public List<Entities> getAll()
-   {
+	public Converter getConverter() {
 
-      CriteriaQuery<Entities> criteria = this.entityManager
-            .getCriteriaBuilder().createQuery(Entities.class);
-      return this.entityManager.createQuery(
-            criteria.select(criteria.from(Entities.class))).getResultList();
-   }
+		final EntitiesBean ejbProxy = this.sessionContext
+				.getBusinessObject(EntitiesBean.class);
 
-   @Resource
-   private SessionContext sessionContext;
+		return new Converter() {
 
-   public Converter getConverter()
-   {
+			@Override
+			public Object getAsObject(FacesContext context,
+					UIComponent component, String value) {
 
-      final EntitiesBean ejbProxy = this.sessionContext.getBusinessObject(EntitiesBean.class);
+				return ejbProxy.findById(Long.valueOf(value));
+			}
 
-      return new Converter()
-      {
+			@Override
+			public String getAsString(FacesContext context,
+					UIComponent component, Object value) {
 
-         @Override
-         public Object getAsObject(FacesContext context,
-               UIComponent component, String value)
-         {
+				if (value == null) {
+					return "";
+				}
 
-            return ejbProxy.findById(Long.valueOf(value));
-         }
+				return String.valueOf(((Entities) value).getId());
+			}
+		};
+	}
 
-         @Override
-         public String getAsString(FacesContext context,
-               UIComponent component, Object value)
-         {
+	/*
+	 * Support adding children to bidirectional, one-to-many tables
+	 */
 
-            if (value == null)
-            {
-               return "";
-            }
+	private Entities add = new Entities();
 
-            return String.valueOf(((Entities) value).getId());
-         }
-      };
-   }
+	public Entities getAdd() {
+		return this.add;
+	}
 
-   /*
-    * Support adding children to bidirectional, one-to-many tables
-    */
-
-   private Entities add = new Entities();
-
-   public Entities getAdd()
-   {
-      return this.add;
-   }
-
-   public Entities getAdded()
-   {
-      Entities added = this.add;
-      this.add = new Entities();
-      return added;
-   }
+	public Entities getAdded() {
+		Entities added = this.add;
+		this.add = new Entities();
+		return added;
+	}
 }

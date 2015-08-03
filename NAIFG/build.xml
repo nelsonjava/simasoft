@@ -3,7 +3,7 @@
 
   <tstamp/>
   <property name="bak"          value="/dev/backups/co/simasoft"/>
-  <property name="project.name" value="NAIFG"/>
+  <property name="project.name" value="naifg"/>
   <!--
   <property name="wildfly"      value="d:/javasrv/wildfly-8.2.0.Final"/>
   -->

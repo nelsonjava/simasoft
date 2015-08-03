@@ -17,13 +17,12 @@
 			<div class="container">
 				<h:link id="brandLink" outcome="/index.xhtml" styleClass="brand">
 					<h:outputText value="Welcome to " rendered=" #{request.userPrincipal !=null} "/>
-                    Domain Models
+                    Naifg
                     <h:outputText value=",  #{request.userPrincipal.name}" rendered="#{request.userPrincipal !=null} "/>
 				</h:link>
 				<div class="nav-collapse collapse">
 					<ul class="nav">
-						<li><a href="/naifg/home.jsf">Home</a></li>
-						<li><a href="/naifg/jdocbook/index.html" target="_blank">Documentation</a></li>
+                                                <li><a href="/naifg/home.jsf">Home</a></li>
 					</ul>
 				</div>
 			</div>
@@ -36,42 +35,59 @@
 				<img src='#{resource["forge-logo.png"]}' alt="Forge... get hammered" border="0" />
 			</h:link>
 			<ul>
+
 				<li>
-					<h:link outcome="/admin/systemsModels/search" value="Systems Models"/>
+					<h:link outcome="/admin/developments/search" value="Developments"/>
 				</li>
+
 				<li>
-					<h:link outcome="/admin/domainModels/search" value="Domain Models"/>
+					<h:link outcome="/admin/models/search" value="Models"/>
 				</li>
+
+				<li>
+					<h:link outcome="/admin/groupIds/search" value="GroupIds"/>
+				</li>
+
 				<li>
 					<h:link outcome="/admin/entities/search" value="Entities"/>
 				</li>
+
 				<li>
 					<h:link outcome="/admin/attributes/search" value="Attributes"/>
 				</li>
+
 				<li>
 					<h:link outcome="/admin/relationships/search" value="Relationships"/>
 				</li>
-				<li>
-					<h:link outcome="/admin/nameQueries/search" value="Name Queries"/>
-				</li>
-				<li>
-					<h:link outcome="/admin/propertiesAttributes/search" value="Properties Attributes"/>
-				</li>
+
 				<li>
 					<h:link outcome="/admin/cardinalities/search" value="Cardinalities"/>
 				</li>
+				
 				<li>
-					<h:link outcome="/admin/tiposLinksModels/search" value="Tipos Links Models"/>
+                                        <p>====================</p>
 				</li>
+
 				<li>
-					<h:link outcome="/admin/linksModels/search" value="Links Models"/>
+					<h:link outcome="/admin/dependencies/search" value="Dependencies"/>
 				</li>
+
 				<li>
-					<h:link outcome="/admin/filesModels/search" value="Files Models"/>
+					<h:link outcome="/admin/imports/search" value="Imports"/>
 				</li>
+
 				<li>
-					<h:link outcome="/admin/typesAttributes/search" value="typesAttributes"/>
+					<h:link outcome="/admin/attributesProperties/search" value="Attributes Properties"/>
 				</li>
+
+				<li>
+					<h:link outcome="/admin/attributesTypes/search" value="Attributes Types"/>
+				</li>
+
+				<li>
+					<h:link outcome="/admin/nameQueries/search" value="Name Queries"/>
+				</li>
+
 			</ul>
 		</div>
 

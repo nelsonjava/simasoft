@@ -4,6 +4,7 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:forgeview="http://jboss.org/forge/view"
 	template="/resources/scaffold/pageTemplate.xhtml">
 
 	<f:metadata>
@@ -29,10 +30,24 @@
 				<h:panelGroup styleClass="search">
 
 					<h:panelGrid columnClasses="label,component,required" columns="3">
-						<h:outputLabel for="relationshipsBeanExampleEntity" value="Entity:"/>
+						<h:outputLabel for="relationshipsBeanExampleOptionality" value="Optionality:"/>
 						<h:panelGroup>
-							<h:inputText id="relationshipsBeanExampleEntity" value="#{relationshipsBean.example.entity}"/>
-							<h:message for="relationshipsBeanExampleEntity" styleClass="error"/>
+							<h:selectOneMenu id="relationshipsBeanExampleOptionality" value="#{relationshipsBean.example.optionality}">
+								<f:selectItem/>
+								<f:selectItem itemLabel="Yes" itemValue="true"/>
+								<f:selectItem itemLabel="No" itemValue="false"/>
+							</h:selectOneMenu>
+							<h:message for="relationshipsBeanExampleOptionality" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="relationshipsBeanExampleIsEmbedded" value="Is Embedded:"/>
+						<h:panelGroup>
+							<h:selectOneMenu id="relationshipsBeanExampleIsEmbedded" value="#{relationshipsBean.example.isEmbedded}">
+								<f:selectItem/>
+								<f:selectItem itemLabel="Yes" itemValue="true"/>
+								<f:selectItem itemLabel="No" itemValue="false"/>
+							</h:selectOneMenu>
+							<h:message for="relationshipsBeanExampleIsEmbedded" styleClass="error"/>
 						</h:panelGroup>
 						<h:outputText/>
 						<h:outputLabel for="relationshipsBeanExampleName" value="Name:"/>
@@ -41,22 +56,19 @@
 							<h:message for="relationshipsBeanExampleName" styleClass="error"/>
 						</h:panelGroup>
 						<h:outputText/>
-						<h:outputLabel for="relationshipsBeanExampleMappedby" value="Mappedby:"/>
+						<h:outputLabel for="relationshipsBeanExampleObservations" value="Observations:"/>
 						<h:panelGroup>
-							<h:inputText id="relationshipsBeanExampleMappedby" value="#{relationshipsBean.example.mappedby}"/>
-							<h:message for="relationshipsBeanExampleMappedby" styleClass="error"/>
+							<h:inputText id="relationshipsBeanExampleObservations" value="#{relationshipsBean.example.observations}"/>
+							<h:message for="relationshipsBeanExampleObservations" styleClass="error"/>
 						</h:panelGroup>
 						<h:outputText/>
-						<h:outputLabel for="relationshipsBeanExampleAnnotationsMethod" value="Annotations Method:"/>
+						<h:outputLabel for="relationshipsBeanExampleTo" value="To:"/>
 						<h:panelGroup>
-							<h:inputText id="relationshipsBeanExampleAnnotationsMethod" value="#{relationshipsBean.example.annotationsMethod}"/>
-							<h:message for="relationshipsBeanExampleAnnotationsMethod" styleClass="error"/>
-						</h:panelGroup>
-						<h:outputText/>
-						<h:outputLabel for="relationshipsBeanExampleAnnotationsField" value="Annotations Field:"/>
-						<h:panelGroup>
-							<h:inputText id="relationshipsBeanExampleAnnotationsField" value="#{relationshipsBean.example.annotationsField}"/>
-							<h:message for="relationshipsBeanExampleAnnotationsField" styleClass="error"/>
+							<h:selectOneMenu converter="#{entitiesBean.converter}" id="relationshipsBeanExampleTo" value="#{relationshipsBean.example.to}">
+								<f:selectItem/>
+								<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{entitiesBean.all}" var="_item"/>
+							</h:selectOneMenu>
+							<h:message for="relationshipsBeanExampleTo" styleClass="error"/>
 						</h:panelGroup>
 						<h:outputText/>
 					</h:panelGrid>
@@ -67,41 +79,34 @@
 				</h:panelGroup>
 			</f:validateBean>
 			
-			<h:dataTable id="relationshipsBeanPageItems" 
-                                     styleClass="data-table" 
-                                     value="#{relationshipsBean.pageItems}" 
-                                     var="_item">
-
+			<h:dataTable id="relationshipsBeanPageItems" styleClass="data-table" value="#{relationshipsBean.pageItems}" var="_item">
 				<h:column>
 					<f:facet name="header">
-						<h:outputText value="From:"/>
+						<h:outputText value="Orden"/>
 					</f:facet>
 					<h:link outcome="/admin/relationships/view">
 						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemEntity" value="#{_item.from.name}"/>
+						<h:outputText id="itemOrden" value="#{_item.orden}"/>
 					</h:link>
 				</h:column>
-
 				<h:column>
 					<f:facet name="header">
-						<h:outputText value=""/>
+						<h:outputText value="Optionality"/>
 					</f:facet>
 					<h:link outcome="/admin/relationships/view">
 						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemName" value="#{_item.cardinalities.cardinality}"/>
+						<h:outputText id="itemOptionality" value="#{_item.optionality}"/>
 					</h:link>
 				</h:column>
-
 				<h:column>
 					<f:facet name="header">
-						<h:outputText value="To"/>
+						<h:outputText value="Is Embedded"/>
 					</f:facet>
 					<h:link outcome="/admin/relationships/view">
 						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemMappedby" value="#{_item.to.name}"/>
+						<h:outputText id="itemIsEmbedded" value="#{_item.isEmbedded}"/>
 					</h:link>
 				</h:column>
-				
 				<h:column>
 					<f:facet name="header">
 						<h:outputText value="Name"/>
@@ -111,33 +116,21 @@
 						<h:outputText id="itemName" value="#{_item.name}"/>
 					</h:link>
 				</h:column>
-
 				<h:column>
 					<f:facet name="header">
-						<h:outputText value="Optionality"/>
+						<h:outputText value="Observations"/>
 					</f:facet>
 					<h:link outcome="/admin/relationships/view">
 						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText styleClass="#{_item.optionality ? 'boolean-true' : 'boolean-false'}" value=""/>
+						<h:outputText id="itemObservations" value="#{_item.observations}"/>
 					</h:link>
 				</h:column>
-
-				<h:column>
-					<f:facet name="header">
-						<h:outputText value="Relationship"/>
-					</f:facet>
-					<h:link outcome="/admin/relationships/view">
-						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemAnnotationsMethod" value="#{_item.cardinalities.name}"/>
-					</h:link>
-				</h:column>
-
 			</h:dataTable>
 			<ui:include src="/resources/scaffold/paginator.xhtml">
 				<ui:param name="paginatorBean" value='#{relationshipsBean}'/>
 			</ui:include>
 		</h:form>
-
+			
 	</ui:define>
 
 </ui:composition>

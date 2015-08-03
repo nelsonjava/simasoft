@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="page" value='#{developmentsBean.page}'/>
+		<f:event type="preRenderView" listener='#{developmentsBean.paginate}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="Search Developments entities"/>
+
+	<ui:define name="header">
+		Developments
+	</ui:define>
+
+	<ui:define name="subheader">
+		Search Developments entities
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:form id="search">
+			<f:validateBean disabled="true">
+				<h:panelGroup styleClass="search">
+
+					<h:panelGrid columnClasses="label,component,required" columns="3">
+						<h:outputLabel for="developmentsBeanExampleName" value="Name:"/>
+						<h:panelGroup>
+							<h:inputText id="developmentsBeanExampleName" value="#{developmentsBean.example.name}"/>
+							<h:message for="developmentsBeanExampleName" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="developmentsBeanExampleArtifactId" value="Artifact Id:"/>
+						<h:panelGroup>
+							<h:inputText id="developmentsBeanExampleArtifactId" value="#{developmentsBean.example.artifactId}"/>
+							<h:message for="developmentsBeanExampleArtifactId" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="developmentsBeanExampleGroupId" value="Group Id:"/>
+						<h:panelGroup>
+							<h:inputText id="developmentsBeanExampleGroupId" value="#{developmentsBean.example.groupId}"/>
+							<h:message for="developmentsBeanExampleGroupId" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="developmentsBeanExampleCode" value="Code:"/>
+						<h:panelGroup>
+							<h:inputText id="developmentsBeanExampleCode" value="#{developmentsBean.example.code}"/>
+							<h:message for="developmentsBeanExampleCode" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="developmentsBeanExampleVersion" value="Version:"/>
+						<h:panelGroup>
+							<h:inputText id="developmentsBeanExampleVersion" value="#{developmentsBean.example.version}"/>
+							<h:message for="developmentsBeanExampleVersion" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+					</h:panelGrid>
+					<h:panelGroup styleClass="buttons">
+						<h:commandLink value="Search" action='#{developmentsBean.search}' styleClass="btn btn-primary"/>
+						<h:commandLink value="Create New" action='#{developmentsBean.create}' styleClass="btn btn-primary"/>
+					</h:panelGroup>
+				</h:panelGroup>
+			</f:validateBean>
+			
+			<h:dataTable id="developmentsBeanPageItems" styleClass="data-table" value="#{developmentsBean.pageItems}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Name"/>
+					</f:facet>
+					<h:link outcome="/admin/developments/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemName" value="#{_item.name}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Group Id"/>
+					</f:facet>
+					<h:link outcome="/admin/developments/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemGroupId" value="#{_item.groupId}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<ui:include src="/resources/scaffold/paginator.xhtml">
+				<ui:param name="paginatorBean" value='#{developmentsBean}'/>
+			</ui:include>
+		</h:form>
+			
+	</ui:define>
+
+</ui:composition>

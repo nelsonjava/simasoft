@@ -29,22 +29,14 @@
 				<h:panelGroup styleClass="search">
 
 					<h:panelGrid columnClasses="label,component,required" columns="3">
-						<h:outputLabel for="attributesBeanExampleName" value="Name:"/>
+						<h:outputLabel for="attributesBeanExampleNullable" value="Nullable:"/>
 						<h:panelGroup>
-							<h:inputText id="attributesBeanExampleName" value="#{attributesBean.example.name}"/>
-							<h:message for="attributesBeanExampleName" styleClass="error"/>
-						</h:panelGroup>
-						<h:outputText/>
-						<h:outputLabel for="attributesBeanExampleType" value="Type:"/>
-						<h:panelGroup>
-							<h:inputText id="attributesBeanExampleType" value="#{attributesBean.example.type}"/>
-							<h:message for="attributesBeanExampleType" styleClass="error"/>
-						</h:panelGroup>
-						<h:outputText/>
-						<h:outputLabel for="attributesBeanExampleLength" value="Length:"/>
-						<h:panelGroup>
-							<h:inputText id="attributesBeanExampleLength" value="#{attributesBean.example.length}"/>
-							<h:message for="attributesBeanExampleLength" styleClass="error"/>
+							<h:selectOneMenu id="attributesBeanExampleNullable" value="#{attributesBean.example.nullable}">
+								<f:selectItem/>
+								<f:selectItem itemLabel="Yes" itemValue="true"/>
+								<f:selectItem itemLabel="No" itemValue="false"/>
+							</h:selectOneMenu>
+							<h:message for="attributesBeanExampleNullable" styleClass="error"/>
 						</h:panelGroup>
 						<h:outputText/>
 						<h:outputLabel for="attributesBeanExamplePrecision" value="Precision:"/>
@@ -53,10 +45,22 @@
 							<h:message for="attributesBeanExamplePrecision" styleClass="error"/>
 						</h:panelGroup>
 						<h:outputText/>
-						<h:outputLabel for="attributesBeanExampleDescripcion" value="Descripcion:"/>
+						<h:outputLabel for="attributesBeanExampleLength" value="Length:"/>
 						<h:panelGroup>
-							<h:inputText id="attributesBeanExampleDescripcion" value="#{attributesBean.example.descripcion}"/>
-							<h:message for="attributesBeanExampleDescripcion" styleClass="error"/>
+							<h:inputText id="attributesBeanExampleLength" value="#{attributesBean.example.length}"/>
+							<h:message for="attributesBeanExampleLength" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="attributesBeanExampleName" value="Name:"/>
+						<h:panelGroup>
+							<h:inputText id="attributesBeanExampleName" value="#{attributesBean.example.name}"/>
+							<h:message for="attributesBeanExampleName" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="attributesBeanExampleField" value="Field:"/>
+						<h:panelGroup>
+							<h:inputText id="attributesBeanExampleField" value="#{attributesBean.example.field}"/>
+							<h:message for="attributesBeanExampleField" styleClass="error"/>
 						</h:panelGroup>
 						<h:outputText/>
 					</h:panelGrid>
@@ -66,7 +70,7 @@
 					</h:panelGroup>
 				</h:panelGroup>
 			</f:validateBean>
-
+			
 			<h:dataTable id="attributesBeanPageItems" styleClass="data-table" value="#{attributesBean.pageItems}" var="_item">
 				<h:column>
 					<f:facet name="header">
@@ -77,70 +81,12 @@
 						<h:outputText id="itemName" value="#{_item.name}"/>
 					</h:link>
 				</h:column>
-				<h:column>
-					<f:facet name="header">
-						<h:outputText value="Type"/>
-					</f:facet>
-					<h:link outcome="/admin/attributes/view">
-						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemType" value="#{_item.type}"/>
-					</h:link>
-				</h:column>
-				<h:column>
-					<f:facet name="header">
-						<h:outputText value="Length"/>
-					</f:facet>
-					<h:link outcome="/admin/attributes/view">
-						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemLength" value="#{_item.length}"/>
-					</h:link>
-				</h:column>
-				<h:column>
-					<f:facet name="header">
-						<h:outputText value="Precision"/>
-					</f:facet>
-					<h:link outcome="/admin/attributes/view">
-						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemPrecision" value="#{_item.precision}"/>
-					</h:link>
-				</h:column>
-				<h:column>
-					<f:facet name="header">
-						<h:outputText value="Nullable"/>
-					</f:facet>
-					<h:link outcome="/admin/attributes/view">
-						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText styleClass="#{_item.nullable ? 'boolean-true' : 'boolean-false'}" value=""/>
-					</h:link>
-				</h:column>
-				
-				<h:column>
-					<f:facet name="header">
-						<h:outputText value="Entity"/>
-					</f:facet>
-					<h:link outcome="/admin/attributes/view">
-						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemEntity" value="#{_item.entities.name}"/>
-					</h:link>
-				</h:column>
-
-				<h:column>
-					<f:facet name="header">
-						<h:outputText value="Type Attribute"/>
-					</f:facet>
-					<h:link outcome="/admin/attributes/view">
-						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemEntity" value="#{_item.typesAttributes.name}"/>
-					</h:link>
-				</h:column>
-
-
 			</h:dataTable>
 			<ui:include src="/resources/scaffold/paginator.xhtml">
 				<ui:param name="paginatorBean" value='#{attributesBean}'/>
 			</ui:include>
 		</h:form>
-
+			
 	</ui:define>
 
 </ui:composition>

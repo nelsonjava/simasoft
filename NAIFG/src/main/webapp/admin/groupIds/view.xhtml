@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:forgeview="http://jboss.org/forge/view"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="id" value='#{groupIdsBean.id}'/>
+		<f:event type="preRenderView" listener='#{groupIdsBean.retrieve}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="View Group Ids"/>
+
+	<ui:define name="header">
+		Group Ids
+	</ui:define>
+
+	<ui:define name="subheader">
+		View existing Group Ids
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:panelGrid columnClasses="label,component,required" columns="3">
+			<h:outputLabel for="groupIdsBeanGroupIdsOrden" value="Orden:"/>
+			<h:outputText id="groupIdsBeanGroupIdsOrden" value="#{groupIdsBean.groupIds.orden}"/>
+			<h:outputText/>
+			<h:outputLabel for="groupIdsBeanGroupIdsDate" value="Date:"/>
+			<h:outputText id="groupIdsBeanGroupIdsDate" value="#{groupIdsBean.groupIds.date}">
+				<f:convertDateTime type="date"/>
+			</h:outputText>
+			<h:outputText/>
+			<h:outputLabel for="groupIdsBeanGroupIdsCode" value="Code:"/>
+			<h:outputText id="groupIdsBeanGroupIdsCode" value="#{groupIdsBean.groupIds.code}"/>
+			<h:outputText/>
+			<h:outputLabel for="groupIdsBeanGroupIdsVersion" value="Version:"/>
+			<h:outputText id="groupIdsBeanGroupIdsVersion" value="#{groupIdsBean.groupIds.version}"/>
+			<h:outputText/>
+			<h:outputLabel for="groupIdsBeanGroupIdsArtifactId" value="Artifact Id:"/>
+			<h:outputText id="groupIdsBeanGroupIdsArtifactId" value="#{groupIdsBean.groupIds.artifactId}"/>
+			<h:outputText/>
+			<h:outputLabel for="groupIdsBeanGroupIdsGroupId" value="Group Id:"/>
+			<h:outputText id="groupIdsBeanGroupIdsGroupId" value="#{groupIdsBean.groupIds.groupId}"/>
+			<h:outputText/>
+			<h:outputLabel for="groupIdsBeanGroupIdsName" value="Name:"/>
+			<h:outputText id="groupIdsBeanGroupIdsName" value="#{groupIdsBean.groupIds.name}"/>
+			<h:outputText/>
+			<h:outputLabel for="groupIdsBeanGroupIdsEntities" value="Entities:"/>
+			<h:dataTable id="groupIdsBeanGroupIdsEntities" styleClass="data-table" value="#{forgeview:asList(groupIdsBean.groupIds.entities)}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Name"/>
+					</f:facet>
+					<h:link outcome="/admin/entities/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemName" value="#{_item.name}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<h:outputText/>
+			<h:outputLabel for="groupIdsBeanGroupIdsModels" value="Models:"/>
+			<h:link id="groupIdsBeanGroupIdsModels" outcome="/admin/models/view" rendered="#{!empty groupIdsBean.groupIds.models}" value="#{groupIdsBean.groupIds.models}">
+				<f:param name="id" value="#{groupIdsBean.groupIds.models.id}"/>
+			</h:link>
+			<h:outputText/>
+		</h:panelGrid>
+
+		<div class="buttons">
+			<h:link value="View All" outcome="search" styleClass="btn btn-primary"/> 
+			<h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
+			<h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
+		</div>
+	</ui:define>
+
+</ui:composition>

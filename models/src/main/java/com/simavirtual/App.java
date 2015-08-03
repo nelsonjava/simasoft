@@ -576,11 +576,12 @@ public class App extends FileTxt{
         modelos.clear();
         modelos.add(new Modelos("dev/naifg/dependencies/dependenciesEntities.oom","co.simasoft.models.dev.naifg.dependencies"));
         modelos.add(new Modelos("dev/naifg/dependencies/dependenciesModel.oom","co.simasoft.models.dev.naifg.dependencies"));
-        modelos.add(new Modelos("dev/naifg/dependencies/dependenciesModelExternal.oom","co.simasoft.models.dev.naifg.dependencies"));
+//        modelos.add(new Modelos("dev/naifg/dependencies/dependenciesModelExternal.oom","co.simasoft.models.dev.naifg.dependencies"));
 
         modelos.add(new Modelos("dev/naifg/naifgEntities.oom","co.simasoft.models.dev.naifg"));
         modelos.add(new Modelos("dev/naifg/naifgModel.oom","co.simasoft.models.dev.naifg"));
-        modelos.add(new Modelos("dev/naifg/naifgModelExternal.oom","co.simasoft.models.dev.naifg"));
+//        modelos.add(new Modelos("dev/naifg/naifgModelExternal.oom","co.simasoft.models.dev.naifg"));
+        modelos.add(new Modelos("dev/naifg/naifgModelExt.oom","co.simasoft.models.dev.naifg"));
         domains = new Domains("co.simasoft","naifg","1.0-SNAPSHOT",modelos);
         dataGenH2 = new DataGenH2(domains);
 

@@ -1,0 +1,143 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="page" value='#{relationshipsBean.page}'/>
+		<f:event type="preRenderView" listener='#{relationshipsBean.paginate}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="Search Relationships entities"/>
+
+	<ui:define name="header">
+		Relationships
+	</ui:define>
+
+	<ui:define name="subheader">
+		Search Relationships entities
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:form id="search">
+			<f:validateBean disabled="true">
+				<h:panelGroup styleClass="search">
+
+					<h:panelGrid columnClasses="label,component,required" columns="3">
+						<h:outputLabel for="relationshipsBeanExampleEntity" value="Entity:"/>
+						<h:panelGroup>
+							<h:inputText id="relationshipsBeanExampleEntity" value="#{relationshipsBean.example.entity}"/>
+							<h:message for="relationshipsBeanExampleEntity" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="relationshipsBeanExampleName" value="Name:"/>
+						<h:panelGroup>
+							<h:inputText id="relationshipsBeanExampleName" value="#{relationshipsBean.example.name}"/>
+							<h:message for="relationshipsBeanExampleName" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="relationshipsBeanExampleMappedby" value="Mappedby:"/>
+						<h:panelGroup>
+							<h:inputText id="relationshipsBeanExampleMappedby" value="#{relationshipsBean.example.mappedby}"/>
+							<h:message for="relationshipsBeanExampleMappedby" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="relationshipsBeanExampleAnnotationsMethod" value="Annotations Method:"/>
+						<h:panelGroup>
+							<h:inputText id="relationshipsBeanExampleAnnotationsMethod" value="#{relationshipsBean.example.annotationsMethod}"/>
+							<h:message for="relationshipsBeanExampleAnnotationsMethod" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="relationshipsBeanExampleAnnotationsField" value="Annotations Field:"/>
+						<h:panelGroup>
+							<h:inputText id="relationshipsBeanExampleAnnotationsField" value="#{relationshipsBean.example.annotationsField}"/>
+							<h:message for="relationshipsBeanExampleAnnotationsField" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+					</h:panelGrid>
+					<h:panelGroup styleClass="buttons">
+						<h:commandLink value="Search" action='#{relationshipsBean.search}' styleClass="btn btn-primary"/>
+						<h:commandLink value="Create New" action='#{relationshipsBean.create}' styleClass="btn btn-primary"/>
+					</h:panelGroup>
+				</h:panelGroup>
+			</f:validateBean>
+			
+			<h:dataTable id="relationshipsBeanPageItems" 
+                                     styleClass="data-table" 
+                                     value="#{relationshipsBean.pageItems}" 
+                                     var="_item">
+
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="From:"/>
+					</f:facet>
+					<h:link outcome="/admin/relationships/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemEntity" value="#{_item.from.name}"/>
+					</h:link>
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value=""/>
+					</f:facet>
+					<h:link outcome="/admin/relationships/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemName" value="#{_item.cardinalities.cardinality}"/>
+					</h:link>
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="To"/>
+					</f:facet>
+					<h:link outcome="/admin/relationships/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemMappedby" value="#{_item.to.name}"/>
+					</h:link>
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Name"/>
+					</f:facet>
+					<h:link outcome="/admin/relationships/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemName" value="#{_item.name}"/>
+					</h:link>
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Optionality"/>
+					</f:facet>
+					<h:link outcome="/admin/relationships/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText styleClass="#{_item.optionality ? 'boolean-true' : 'boolean-false'}" value=""/>
+					</h:link>
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Relationship"/>
+					</f:facet>
+					<h:link outcome="/admin/relationships/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemAnnotationsMethod" value="#{_item.cardinalities.name}"/>
+					</h:link>
+				</h:column>
+
+			</h:dataTable>
+			<ui:include src="/resources/scaffold/paginator.xhtml">
+				<ui:param name="paginatorBean" value='#{relationshipsBean}'/>
+			</ui:include>
+		</h:form>
+
+	</ui:define>
+
+</ui:composition>

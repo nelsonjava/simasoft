@@ -30,10 +30,10 @@
 				<h:panelGroup styleClass="search">
 
 					<h:panelGrid columnClasses="label,component,required" columns="3">
-						<h:outputLabel for="nameQueriesBeanExampleName" value="Name:"/>
+						<h:outputLabel for="nameQueriesBeanExampleObservations" value="Observations:"/>
 						<h:panelGroup>
-							<h:inputText id="nameQueriesBeanExampleName" value="#{nameQueriesBean.example.name}"/>
-							<h:message for="nameQueriesBeanExampleName" styleClass="error"/>
+							<h:inputText id="nameQueriesBeanExampleObservations" value="#{nameQueriesBean.example.observations}"/>
+							<h:message for="nameQueriesBeanExampleObservations" styleClass="error"/>
 						</h:panelGroup>
 						<h:outputText/>
 						<h:outputLabel for="nameQueriesBeanExampleQuery" value="Query:"/>
@@ -42,10 +42,10 @@
 							<h:message for="nameQueriesBeanExampleQuery" styleClass="error"/>
 						</h:panelGroup>
 						<h:outputText/>
-						<h:outputLabel for="nameQueriesBeanExampleObservaciones" value="Observaciones:"/>
+						<h:outputLabel for="nameQueriesBeanExampleName" value="Name:"/>
 						<h:panelGroup>
-							<h:inputText id="nameQueriesBeanExampleObservaciones" value="#{nameQueriesBean.example.observaciones}"/>
-							<h:message for="nameQueriesBeanExampleObservaciones" styleClass="error"/>
+							<h:inputText id="nameQueriesBeanExampleName" value="#{nameQueriesBean.example.name}"/>
+							<h:message for="nameQueriesBeanExampleName" styleClass="error"/>
 						</h:panelGroup>
 						<h:outputText/>
 						<h:outputLabel for="nameQueriesBeanExampleEntities" value="Entities:"/>
@@ -68,15 +68,6 @@
 			<h:dataTable id="nameQueriesBeanPageItems" styleClass="data-table" value="#{nameQueriesBean.pageItems}" var="_item">
 				<h:column>
 					<f:facet name="header">
-						<h:outputText value="Name"/>
-					</f:facet>
-					<h:link outcome="/admin/nameQueries/view">
-						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemName" value="#{_item.name}"/>
-					</h:link>
-				</h:column>
-				<h:column>
-					<f:facet name="header">
 						<h:outputText value="Query"/>
 					</f:facet>
 					<h:link outcome="/admin/nameQueries/view">
@@ -86,20 +77,11 @@
 				</h:column>
 				<h:column>
 					<f:facet name="header">
-						<h:outputText value="Observaciones"/>
+						<h:outputText value="Name"/>
 					</f:facet>
 					<h:link outcome="/admin/nameQueries/view">
 						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemObservaciones" value="#{_item.observaciones}"/>
-					</h:link>
-				</h:column>
-				<h:column>
-					<f:facet name="header">
-						<h:outputText value="Entities"/>
-					</f:facet>
-					<h:link outcome="/admin/nameQueries/view">
-						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="forgeviewdisplayitemEntities" value="#{forgeview:display(_item.entities)}"/>
+						<h:outputText id="itemName" value="#{_item.name}"/>
 					</h:link>
 				</h:column>
 			</h:dataTable>

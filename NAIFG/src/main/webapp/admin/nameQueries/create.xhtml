@@ -37,24 +37,30 @@
 			<h:messages globalOnly="true" styleClass="error"/>
 
 			<h:panelGrid columnClasses="label,component,required" columns="3">
-				<h:outputLabel for="nameQueriesBeanNameQueriesName" value="Name:"/>
+				<h:outputLabel for="nameQueriesBeanNameQueriesOrden" value="Orden:"/>
 				<h:panelGroup>
-					<h:inputText id="nameQueriesBeanNameQueriesName" value="#{nameQueriesBean.nameQueries.name}"/>
-					<h:message for="nameQueriesBeanNameQueriesName" styleClass="error"/>
+					<h:inputText id="nameQueriesBeanNameQueriesOrden" value="#{nameQueriesBean.nameQueries.orden}"/>
+					<h:message for="nameQueriesBeanNameQueriesOrden" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="nameQueriesBeanNameQueriesObservations" value="Observations:"/>
+				<h:panelGroup>
+					<h:inputText id="nameQueriesBeanNameQueriesObservations" value="#{nameQueriesBean.nameQueries.observations}"/>
+					<h:message for="nameQueriesBeanNameQueriesObservations" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
 				<h:outputLabel for="nameQueriesBeanNameQueriesQuery" value="Query:"/>
 				<h:panelGroup>
-					<h:inputText id="nameQueriesBeanNameQueriesQuery" value="#{nameQueriesBean.nameQueries.query}"/>
+					<h:inputText id="nameQueriesBeanNameQueriesQuery" required="true" value="#{nameQueriesBean.nameQueries.query}"/>
 					<h:message for="nameQueriesBeanNameQueriesQuery" styleClass="error"/>
 				</h:panelGroup>
-				<h:outputText/>
-				<h:outputLabel for="nameQueriesBeanNameQueriesObservaciones" value="Observaciones:"/>
+				<h:outputText value="*"/>
+				<h:outputLabel for="nameQueriesBeanNameQueriesName" value="Name:"/>
 				<h:panelGroup>
-					<h:inputText id="nameQueriesBeanNameQueriesObservaciones" value="#{nameQueriesBean.nameQueries.observaciones}"/>
-					<h:message for="nameQueriesBeanNameQueriesObservaciones" styleClass="error"/>
+					<h:inputText id="nameQueriesBeanNameQueriesName" required="true" value="#{nameQueriesBean.nameQueries.name}"/>
+					<h:message for="nameQueriesBeanNameQueriesName" styleClass="error"/>
 				</h:panelGroup>
-				<h:outputText/>
+				<h:outputText value="*"/>
 				<h:outputLabel for="nameQueriesBeanNameQueriesEntities" value="Entities:"/>
 				<h:panelGroup>
 					<h:selectOneMenu converter="#{entitiesBean.converter}" id="nameQueriesBeanNameQueriesEntities" value="#{nameQueriesBean.nameQueries.entities}">
