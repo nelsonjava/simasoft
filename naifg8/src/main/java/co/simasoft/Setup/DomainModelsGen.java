@@ -214,10 +214,10 @@ public class DomainModelsGen extends FileTxt {
 
         } // for: domainModels.getGroupIds()
 
-        Models models = new Models(domainModels.getGroupId(),domainModels.getArtifactId());
-        models.setImports(imports);
-        models.setPackages(packages);
-        models.WarH2();
+        ModelsGen modelsGen = new ModelsGen(domainModels.getGroupId(),domainModels.getArtifactId());
+        modelsGen.setImports(imports);
+        modelsGen.setPackages(packages);
+        modelsGen.WarH2();
 
     } // data()
 

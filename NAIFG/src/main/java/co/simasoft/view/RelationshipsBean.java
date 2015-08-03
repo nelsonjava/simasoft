@@ -134,14 +134,14 @@ public class RelationshipsBean implements Serializable {
 
 		try {
 			Relationships deletableEntity = findById(getId());
+			Entities from = deletableEntity.getFrom();
+			from.getFrom().remove(deletableEntity);
+			deletableEntity.setFrom(null);
+			this.entityManager.merge(from);
 			Entities to = deletableEntity.getTo();
 			to.getTo().remove(deletableEntity);
 			deletableEntity.setTo(null);
 			this.entityManager.merge(to);
-			Entities entities = deletableEntity.getEntities();
-			entities.getRelationships().remove(deletableEntity);
-			deletableEntity.setEntities(null);
-			this.entityManager.merge(entities);
 			Cardinalities cardinalities = deletableEntity.getCardinalities();
 			cardinalities.getRelationships().remove(deletableEntity);
 			deletableEntity.setCardinalities(null);
@@ -244,9 +244,9 @@ public class RelationshipsBean implements Serializable {
 					builder.lower(root.<String> get("observations")),
 					'%' + observations.toLowerCase() + '%'));
 		}
-		Entities to = this.example.getTo();
-		if (to != null) {
-			predicatesList.add(builder.equal(root.get("to"), to));
+		Entities from = this.example.getFrom();
+		if (from != null) {
+			predicatesList.add(builder.equal(root.get("from"), from));
 		}
 
 		return predicatesList.toArray(new Predicate[predicatesList.size()]);

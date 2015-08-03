@@ -98,6 +98,15 @@
 					</h:panelGrid>
 				</h:panelGroup>
 				<h:outputText/>
+				<h:outputLabel for="relationshipsBeanRelationshipsFrom" value="From:"/>
+				<h:panelGroup>
+					<h:selectOneMenu converter="#{entitiesBean.converter}" id="relationshipsBeanRelationshipsFrom" value="#{relationshipsBean.relationships.from}">
+						<f:selectItem/>
+						<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{entitiesBean.all}" var="_item"/>
+					</h:selectOneMenu>
+					<h:message for="relationshipsBeanRelationshipsFrom" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
 				<h:outputLabel for="relationshipsBeanRelationshipsTo" value="To:"/>
 				<h:panelGroup>
 					<h:selectOneMenu converter="#{entitiesBean.converter}" id="relationshipsBeanRelationshipsTo" value="#{relationshipsBean.relationships.to}">
@@ -105,15 +114,6 @@
 						<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{entitiesBean.all}" var="_item"/>
 					</h:selectOneMenu>
 					<h:message for="relationshipsBeanRelationshipsTo" styleClass="error"/>
-				</h:panelGroup>
-				<h:outputText/>
-				<h:outputLabel for="relationshipsBeanRelationshipsEntities" value="Entities:"/>
-				<h:panelGroup>
-					<h:selectOneMenu converter="#{entitiesBean.converter}" id="relationshipsBeanRelationshipsEntities" value="#{relationshipsBean.relationships.entities}">
-						<f:selectItem/>
-						<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{entitiesBean.all}" var="_item"/>
-					</h:selectOneMenu>
-					<h:message for="relationshipsBeanRelationshipsEntities" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
 				<h:outputLabel for="relationshipsBeanRelationshipsCardinalities" value="Cardinalities:"/>

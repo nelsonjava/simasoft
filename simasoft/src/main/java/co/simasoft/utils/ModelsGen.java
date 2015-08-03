@@ -12,7 +12,7 @@ import co.simasoft.gen.war.h2.*;
 import java.io.*;
 import java.util.*;
 
-public class Models{
+public class ModelsGen{
 
     private String name;
     private String groupId;
@@ -25,7 +25,7 @@ public class Models{
     private String fileJar = "../g.jar";
     private String pathDocs = "\\docs";
 
-    public Models(String groupId,String artifactId){
+    public ModelsGen(String groupId,String artifactId){
        this.groupId = groupId;
        this.artifactId = artifactId;
     }
@@ -209,4 +209,4 @@ public class Models{
     }
 
 
-} // Models
+} // ModelsGen

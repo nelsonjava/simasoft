@@ -89,14 +89,14 @@ public class Entities implements Serializable {
 	@OneToMany(mappedBy = "entities")
 	private Set<Attributes> attributes = new HashSet<Attributes>();
 
-	@OneToMany(mappedBy = "to")
-	private Set<Relationships> to = new HashSet<Relationships>();
+	@OneToMany(mappedBy = "from")
+	private Set<Relationships> from = new HashSet<Relationships>();
 
 	@ManyToMany
 	private Set<Imports> imports = new HashSet<Imports>();
 
-	@OneToMany(mappedBy = "entities")
-	private Set<Relationships> relationships = new HashSet<Relationships>();
+	@OneToMany(mappedBy = "to")
+	private Set<Relationships> to = new HashSet<Relationships>();
 
 	@OneToMany(mappedBy = "entities")
 	private Set<NameQueries> nameQueries = new HashSet<NameQueries>();
@@ -221,11 +221,11 @@ public class Entities implements Serializable {
 		this.attributes = attributes;
 	}
 
-	public Set<Relationships> getTo() {
-		return to;
+	public Set<Relationships> getFrom() {
+		return from;
 	}
-	public void setTo(Set<Relationships> to) {
-		this.to = to;
+	public void setFrom(Set<Relationships> from) {
+		this.from = from;
 	}
 
 	public Set<Imports> getImports() {
@@ -235,11 +235,11 @@ public class Entities implements Serializable {
 		this.imports = imports;
 	}
 
-	public Set<Relationships> getRelationships() {
-		return relationships;
+	public Set<Relationships> getTo() {
+		return to;
 	}
-	public void setRelationships(Set<Relationships> relationships) {
-		this.relationships = relationships;
+	public void setTo(Set<Relationships> to) {
+		this.to = to;
 	}
 
 	public Set<NameQueries> getNameQueries() {

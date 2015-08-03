@@ -1453,7 +1453,7 @@ public class naifgSetup {
         Relationships relationships13 = new Relationships();
         relationships13.setOptionality(true);
         relationships13.setIsEmbedded(false);
-        relationships11.setName("to");        
+        relationships13.setName("to");
 //      ...................... Entities ........................
         Entities entities181 = new Entities();
         entities181 = findBean.nameEntities("Entities",em);

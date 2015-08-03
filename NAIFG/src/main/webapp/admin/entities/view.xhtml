@@ -72,8 +72,8 @@
 				</h:column>
 			</h:dataTable>
 			<h:outputText/>
-			<h:outputLabel for="entitiesBeanEntitiesTo" value="To:"/>
-			<h:dataTable id="entitiesBeanEntitiesTo" styleClass="data-table" value="#{forgeview:asList(entitiesBean.entities.to)}" var="_item">
+			<h:outputLabel for="entitiesBeanEntitiesFrom" value="From:"/>
+			<h:dataTable id="entitiesBeanEntitiesFrom" styleClass="data-table" value="#{forgeview:asList(entitiesBean.entities.from)}" var="_item">
 				<h:column>
 					<f:facet name="header">
 						<h:outputText value="Orden"/>
@@ -134,8 +134,8 @@
 				</h:column>
 			</h:dataTable>
 			<h:outputText/>
-			<h:outputLabel for="entitiesBeanEntitiesRelationships" value="Relationships:"/>
-			<h:dataTable id="entitiesBeanEntitiesRelationships" styleClass="data-table" value="#{forgeview:asList(entitiesBean.entities.relationships)}" var="_item">
+			<h:outputLabel for="entitiesBeanEntitiesTo" value="To:"/>
+			<h:dataTable id="entitiesBeanEntitiesTo" styleClass="data-table" value="#{forgeview:asList(entitiesBean.entities.to)}" var="_item">
 				<h:column>
 					<f:facet name="header">
 						<h:outputText value="Orden"/>

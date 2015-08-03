@@ -62,13 +62,13 @@
 							<h:message for="relationshipsBeanExampleObservations" styleClass="error"/>
 						</h:panelGroup>
 						<h:outputText/>
-						<h:outputLabel for="relationshipsBeanExampleTo" value="To:"/>
+						<h:outputLabel for="relationshipsBeanExampleFrom" value="From:"/>
 						<h:panelGroup>
-							<h:selectOneMenu converter="#{entitiesBean.converter}" id="relationshipsBeanExampleTo" value="#{relationshipsBean.example.to}">
+							<h:selectOneMenu converter="#{entitiesBean.converter}" id="relationshipsBeanExampleFrom" value="#{relationshipsBean.example.from}">
 								<f:selectItem/>
 								<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{entitiesBean.all}" var="_item"/>
 							</h:selectOneMenu>
-							<h:message for="relationshipsBeanExampleTo" styleClass="error"/>
+							<h:message for="relationshipsBeanExampleFrom" styleClass="error"/>
 						</h:panelGroup>
 						<h:outputText/>
 					</h:panelGrid>

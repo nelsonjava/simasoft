@@ -28,6 +28,7 @@ import org.hibernate.search.annotations.DateBridge;
 import org.hibernate.search.annotations.Resolution;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Indexed
 @Entity
@@ -63,10 +64,10 @@ public class Relationships implements Serializable {
 	private Set<AttributesProperties> attributesProperties = new HashSet<AttributesProperties>();
 
 	@ManyToOne
-	private Entities to;
+	private Entities from;
 
 	@ManyToOne
-	private Entities entities;
+	private Entities to;
 
 	@ManyToOne
 	private Cardinalities cardinalities;
@@ -139,18 +140,18 @@ public class Relationships implements Serializable {
 		this.attributesProperties = attributesProperties;
 	}
 
+	public Entities getFrom() {
+		return from;
+	}
+	public void setFrom(Entities from) {
+		this.from = from;
+	}
+
 	public Entities getTo() {
 		return to;
 	}
 	public void setTo(Entities to) {
 		this.to = to;
-	}
-
-	public Entities getEntities() {
-		return entities;
-	}
-	public void setEntities(Entities entities) {
-		this.entities = entities;
 	}
 
 	public Cardinalities getCardinalities() {

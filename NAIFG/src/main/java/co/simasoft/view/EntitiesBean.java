@@ -143,20 +143,20 @@ public class EntitiesBean implements Serializable {
 				iterAttributes.remove();
 				this.entityManager.merge(nextInAttributes);
 			}
+			Iterator<Relationships> iterFrom = deletableEntity.getFrom()
+					.iterator();
+			for (; iterFrom.hasNext();) {
+				Relationships nextInFrom = iterFrom.next();
+				nextInFrom.setFrom(null);
+				iterFrom.remove();
+				this.entityManager.merge(nextInFrom);
+			}
 			Iterator<Relationships> iterTo = deletableEntity.getTo().iterator();
 			for (; iterTo.hasNext();) {
 				Relationships nextInTo = iterTo.next();
 				nextInTo.setTo(null);
 				iterTo.remove();
 				this.entityManager.merge(nextInTo);
-			}
-			Iterator<Relationships> iterRelationships = deletableEntity
-					.getRelationships().iterator();
-			for (; iterRelationships.hasNext();) {
-				Relationships nextInRelationships = iterRelationships.next();
-				nextInRelationships.setEntities(null);
-				iterRelationships.remove();
-				this.entityManager.merge(nextInRelationships);
 			}
 			Iterator<NameQueries> iterNameQueries = deletableEntity
 					.getNameQueries().iterator();
