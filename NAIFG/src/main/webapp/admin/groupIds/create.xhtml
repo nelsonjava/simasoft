@@ -111,11 +111,37 @@
 				<h:outputText/>
 				<h:outputLabel for="groupIdsBeanGroupIdsModels" value="Models:"/>
 				<h:panelGroup>
-					<h:selectOneMenu converter="#{modelsBean.converter}" id="groupIdsBeanGroupIdsModels" value="#{groupIdsBean.groupIds.models}">
-						<f:selectItem/>
-						<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{modelsBean.all}" var="_item"/>
-					</h:selectOneMenu>
-					<h:message for="groupIdsBeanGroupIdsModels" styleClass="error"/>
+					<ui:param name="_collection" value="#{groupIdsBean.groupIds.models}"/>
+					<h:dataTable id="groupIdsBeanGroupIdsModels" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Name"/>
+							</f:facet>
+							<h:link outcome="/admin/models/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemName" value="#{_item.name}"/>
+							</h:link>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Group Id"/>
+							</f:facet>
+							<h:link outcome="/admin/models/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemGroupId" value="#{_item.groupId}"/>
+							</h:link>
+						</h:column>
+						<h:column footerClass="remove-column" headerClass="remove-column">
+							<h:commandLink action="#{_collection.remove(_item)}" styleClass="remove-button"/>
+						</h:column>
+					</h:dataTable>
+					<h:panelGrid columnClasses=",remove-column" columns="2" styleClass="data-table-footer">
+						<h:selectOneMenu converter="#{modelsBean.converter}" id="groupIdsBeanGroupIdsModelsSelect" value="#{requestScope['groupIdsBeanGroupIdsModelsSelect']}">
+							<f:selectItem/>
+							<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{modelsBean.all}" var="_item"/>
+						</h:selectOneMenu>
+						<h:commandLink action="#{_collection.add(requestScope['groupIdsBeanGroupIdsModelsSelect'])}" id="groupIdsBeanGroupIdsModelsAdd" onclick="if (document.getElementById(document.forms[0].id+':groupIdsBeanGroupIdsModelsSelect').selectedIndex &lt; 1) { alert('Must select a Models'); return false; }" styleClass="add-button"/>
+					</h:panelGrid>
 				</h:panelGroup>
 				<h:outputText/>
 			</h:panelGrid>

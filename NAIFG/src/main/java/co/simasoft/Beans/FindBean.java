@@ -139,6 +139,17 @@ public class FindBean {
         return groupIds;
     }
 
+    public GroupIds groupGroupIds(String search,EntityManager em) {
+
+        GroupIds groupId = new GroupIds();
+        List<GroupIds> results = em.createQuery("SELECT o FROM GroupIds o WHERE o.groupId LIKE :field").setParameter("field", search).getResultList();
+
+        if (!results.isEmpty()) {
+           groupId = results.get(0);
+        }
+        return groupId;
+    }
+
 //      ---------------------- AttributesTypes ------------------------
 
     public List<AttributesTypes> AllAttributesTypes() {
@@ -182,7 +193,7 @@ public class FindBean {
         }
         return dependencies;
     }
-    
+
     public Dependencies artifactIdDependency(String search,EntityManager em) {
 
         Dependencies dependency = new Dependencies();

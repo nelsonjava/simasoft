@@ -74,8 +74,8 @@ public class GroupIds implements Serializable {
 	@OneToMany(mappedBy = "groupIds")
 	private Set<Entities> entities = new HashSet<Entities>();
 
-	@ManyToOne
-	private Models models;
+	@ManyToMany(mappedBy = "groupIds")
+	private Set<Models> models = new HashSet<Models>();
 
 	public GroupIds() {
 	}
@@ -160,10 +160,10 @@ public class GroupIds implements Serializable {
 		this.entities = entities;
 	}
 
-	public Models getModels() {
+	public Set<Models> getModels() {
 		return models;
 	}
-	public void setModels(Models models) {
+	public void setModels(Set<Models> models) {
 		this.models = models;
 	}
 

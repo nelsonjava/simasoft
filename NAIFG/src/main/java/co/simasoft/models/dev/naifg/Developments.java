@@ -27,8 +27,6 @@ import javax.persistence.Temporal;
 import org.hibernate.search.annotations.DateBridge;
 import org.hibernate.search.annotations.Resolution;
 import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 
 @Indexed
 @Entity

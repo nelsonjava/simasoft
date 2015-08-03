@@ -137,7 +137,7 @@ public class ModelsBean implements Serializable {
 					.iterator();
 			for (; iterGroupIds.hasNext();) {
 				GroupIds nextInGroupIds = iterGroupIds.next();
-				nextInGroupIds.setModels(null);
+				nextInGroupIds.getModels().remove(deletableEntity);
 				iterGroupIds.remove();
 				this.entityManager.merge(nextInGroupIds);
 			}

@@ -93,10 +93,6 @@
 								<f:param name="id" value="#{_item.id}"/>
 								<h:outputText id="itemGroupId" value="#{_item.groupId}"/>
 							</h:link>
-							<f:facet name="footer">
-								<h:inputText id="groupIdsBeanAddGroupId" value="#{groupIdsBean.add.groupId}"/>
-								<h:message for="groupIdsBeanAddGroupId" styleClass="error"/>
-							</f:facet>
 						</h:column>
 						<h:column>
 							<f:facet name="header">
@@ -106,20 +102,18 @@
 								<f:param name="id" value="#{_item.id}"/>
 								<h:outputText id="itemName" value="#{_item.name}"/>
 							</h:link>
-							<f:facet name="footer">
-								<h:inputText id="groupIdsBeanAddName" value="#{groupIdsBean.add.name}"/>
-								<h:message for="groupIdsBeanAddName" styleClass="error"/>
-							</f:facet>
 						</h:column>
 						<h:column footerClass="remove-column" headerClass="remove-column">
 							<h:commandLink action="#{_collection.remove(_item)}" styleClass="remove-button"/>
-							<f:facet name="footer">
-								<h:commandLink action="#{_collection.add(groupIdsBean.added)}" id="modelsBeanModelsGroupIdsAdd" styleClass="add-button">
-									<f:setPropertyActionListener target="#{groupIdsBean.add.models}" value="#{modelsBean.models}"/>
-								</h:commandLink>
-							</f:facet>
 						</h:column>
 					</h:dataTable>
+					<h:panelGrid columnClasses=",remove-column" columns="2" styleClass="data-table-footer">
+						<h:selectOneMenu converter="#{groupIdsBean.converter}" id="modelsBeanModelsGroupIdsSelect" value="#{requestScope['modelsBeanModelsGroupIdsSelect']}">
+							<f:selectItem/>
+							<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{groupIdsBean.all}" var="_item"/>
+						</h:selectOneMenu>
+						<h:commandLink action="#{_collection.add(requestScope['modelsBeanModelsGroupIdsSelect'])}" id="modelsBeanModelsGroupIdsAdd" onclick="if (document.getElementById(document.forms[0].id+':modelsBeanModelsGroupIdsSelect').selectedIndex &lt; 1) { alert('Must select a Group Ids'); return false; }" styleClass="add-button"/>
+					</h:panelGrid>
 				</h:panelGroup>
 				<h:outputText/>
 				<h:outputLabel for="modelsBeanModelsDevelopments" value="Developments:"/>

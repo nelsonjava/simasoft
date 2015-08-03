@@ -30,14 +30,18 @@ public class naifgSetup {
 
     public void data() {
 
-//      ---------------------- DomainModels ------------------------
+//      ---------------------- GroupIds ------------------------
 
-        Developments dev = new Developments();
-        dev.setGroupId("co.simasoft");
-        dev.setArtifactId("naifg");
-        dev.setVersion("1.0-SNAPSHOT");
-        dev.setName("naifg");
-        em.persist(dev);
+        GroupIds groupIds1 = new GroupIds();
+        groupIds1.setGroupId("co.simasoft.models.dev.naifg.dependencies");
+        groupIds1.setName("dependencies");
+        em.persist(groupIds1);
+        em.flush();
+
+        GroupIds groupIds2 = new GroupIds();
+        groupIds2.setGroupId("co.simasoft.models.dev.naifg");
+        groupIds2.setName("naifg");
+        em.persist(groupIds2);
         em.flush();
 
 //      ---------------------- Models ------------------------
@@ -47,37 +51,34 @@ public class naifgSetup {
         models.setArtifactId("naifg");
         models.setVersion("1.0-SNAPSHOT");
         models.setName("naifg");
-//      ...................... naifg ........................
-        Set<Developments> dev1 = new HashSet<Developments>();
-        Developments developments1 = findBean.artifactIdDevelopments("naifg",em);
-        dev1.add(developments1);
-        models.setDevelopments(dev1);
+
+        Set<GroupIds> modelsGroupIds1 = new HashSet<GroupIds>();
+
+        GroupIds modelsGroupId1 = findBean.groupGroupIds("co.simasoft.models.dev.naifg.dependencies",em);
+        modelsGroupIds1.add(modelsGroupId1);
+
+        GroupIds modelsGroupId2 = findBean.groupGroupIds("co.simasoft.models.dev.naifg",em);
+        modelsGroupIds1.add(modelsGroupId2);
+
+        models.setGroupIds(modelsGroupIds1);
+
         em.persist(models);
         em.flush();
 
-//      ---------------------- GroupIds ------------------------
+//      ---------------------- Developments ------------------------
 
-        GroupIds groupIds1 = new GroupIds();
-        groupIds1.setGroupId("co.simasoft.models.dev.naifg.dependencies");
-        groupIds1.setName("dependencies");
-//      ...................... co.simasoft.models.dev.naifg.dependencies ........................
-        Models models1 = new Models();
-        models1 = findBean.artifactIdModels("naifg",em);
-        groupIds1.setModels(models1);
-        em.persist(groupIds1);
+        Developments dev = new Developments();
+        dev.setGroupId("co.simasoft");
+        dev.setArtifactId("naifg");
+        dev.setVersion("1.0-SNAPSHOT");
+        dev.setName("naifg");
+        Set<Models> models1 = new HashSet<Models>();
+        Models model1 = findBean.artifactIdModels("naifg",em);
+        models1.add(model1);
+        dev.setModels(models1);
+        em.persist(dev);
         em.flush();
 
-        GroupIds groupIds2 = new GroupIds();
-        groupIds2.setGroupId("co.simasoft.models.dev.naifg");
-        groupIds2.setName("naifg");
-//      ...................... co.simasoft.models.dev.naifg ........................
-        Models models2 = new Models();
-        models2 = findBean.artifactIdModels("naifg",em);
-        groupIds2.setModels(models2);
-        em.persist(groupIds2);
-        em.flush();
-
-//      ---------------------- Entities ------------------------
 
 //      ---------------------- Entities ------------------------
 

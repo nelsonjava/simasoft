@@ -29,14 +29,36 @@ public class coreSetup {
 
     public void data() {
 
-//      ---------------------- DomainModels ------------------------
+//      ---------------------- GroupIds ------------------------
 
-        Developments dev = new Developments();
-        dev.setGroupId("co.simasoft");
-        dev.setArtifactId("core");
-        dev.setVersion("1.0-SNAPSHOT");
-        dev.setName("core");
-        em.persist(dev);
+        GroupIds groupIds1 = new GroupIds();
+        groupIds1.setGroupId("co.simasoft.models.core.regulations");
+        groupIds1.setName("regulations");
+        em.persist(groupIds1);
+        em.flush();
+
+        GroupIds groupIds2 = new GroupIds();
+        groupIds2.setGroupId("co.simasoft.models.core.archival");
+        groupIds2.setName("archival");
+        em.persist(groupIds2);
+        em.flush();
+
+        GroupIds groupIds3 = new GroupIds();
+        groupIds3.setGroupId("co.simasoft.models.core.companies");
+        groupIds3.setName("companies");
+        em.persist(groupIds3);
+        em.flush();
+
+        GroupIds groupIds4 = new GroupIds();
+        groupIds4.setGroupId("co.simasoft.models.core.sites");
+        groupIds4.setName("sites");
+        em.persist(groupIds4);
+        em.flush();
+
+        GroupIds groupIds5 = new GroupIds();
+        groupIds5.setGroupId("co.simasoft.models.core.books");
+        groupIds5.setName("books");
+        em.persist(groupIds5);
         em.flush();
 
 //      ---------------------- Models ------------------------
@@ -46,66 +68,42 @@ public class coreSetup {
         models.setArtifactId("core");
         models.setVersion("1.0-SNAPSHOT");
         models.setName("core");
-//      ...................... naifg ........................
-        Set<Developments> dev1 = new HashSet<Developments>();
-        Developments developments1 = findBean.artifactIdDevelopments("core",em);
-        dev1.add(developments1);
-        models.setDevelopments(dev1);
+
+        Set<GroupIds> modelsGroupId1 = new HashSet<GroupIds>();
+
+        GroupIds group1 = findBean.groupGroupIds("co.simasoft.models.core.regulations",em);
+        modelsGroupId1.add(group1);
+
+        GroupIds group2 = findBean.groupGroupIds("co.simasoft.models.core.archival",em);
+        modelsGroupId1.add(group2);
+
+        GroupIds group3 = findBean.groupGroupIds("co.simasoft.models.core.companies",em);
+        modelsGroupId1.add(group3);
+
+        GroupIds group4 = findBean.groupGroupIds("co.simasoft.models.core.sites",em);
+        modelsGroupId1.add(group4);
+
+        GroupIds group5 = findBean.groupGroupIds("co.simasoft.models.core.books",em);
+        modelsGroupId1.add(group5);
+
+        models.setGroupIds(modelsGroupId1);
+
         em.persist(models);
         em.flush();
 
 
+//      ---------------------- Developments ------------------------
 
-//      ---------------------- GroupIds ------------------------
-
-        GroupIds groupIds1 = new GroupIds();
-        groupIds1.setGroupId("co.simasoft.models.core.regulations");
-        groupIds1.setName("regulations");
-//      ...................... co.simasoft.models.core.regulations ........................
-        Models domainModel1 = new Models();
-        domainModel1 = findBean.artifactIdModels("core",em);
-        groupIds1.setModels(domainModel1);
-        em.persist(groupIds1);
-        em.flush();
-
-        GroupIds groupIds2 = new GroupIds();
-        groupIds2.setGroupId("co.simasoft.models.core.archival");
-        groupIds2.setName("archival");
-//      ...................... co.simasoft.models.core.archival ........................
-        Models domainModel2 = new Models();
-        domainModel2 = findBean.artifactIdModels("core",em);
-        groupIds2.setModels(domainModel2);
-        em.persist(groupIds2);
-        em.flush();
-
-        GroupIds groupIds3 = new GroupIds();
-        groupIds3.setGroupId("co.simasoft.models.core.companies");
-        groupIds3.setName("companies");
-//      ...................... co.simasoft.models.core.companies ........................
-        Models domainModel3 = new Models();
-        domainModel3 = findBean.artifactIdModels("core",em);
-        groupIds3.setModels(domainModel3);
-        em.persist(groupIds3);
-        em.flush();
-
-        GroupIds groupIds4 = new GroupIds();
-        groupIds4.setGroupId("co.simasoft.models.core.sites");
-        groupIds4.setName("sites");
-//      ...................... co.simasoft.models.core.sites ........................
-        Models domainModel4 = new Models();
-        domainModel4 = findBean.artifactIdModels("core",em);
-        groupIds4.setModels(domainModel4);
-        em.persist(groupIds4);
-        em.flush();
-
-        GroupIds groupIds5 = new GroupIds();
-        groupIds5.setGroupId("co.simasoft.models.core.books");
-        groupIds5.setName("books");
-//      ...................... co.simasoft.models.core.books ........................
-        Models domainModel5 = new Models();
-        domainModel5 = findBean.artifactIdModels("core",em);
-        groupIds5.setModels(domainModel5);
-        em.persist(groupIds5);
+        Developments dev = new Developments();
+        dev.setGroupId("co.simasoft");
+        dev.setArtifactId("core");
+        dev.setVersion("1.0-SNAPSHOT");
+        dev.setName("core");
+        Set<Models> models1 = new HashSet<Models>();
+        Models model1 = findBean.artifactIdModels("core",em);
+        models1.add(model1);
+        dev.setModels(models1);
+        em.persist(dev);
         em.flush();
 
 //      ---------------------- Entities ------------------------

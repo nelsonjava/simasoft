@@ -141,10 +141,14 @@ public class GroupIdsBean implements Serializable {
 				iterEntities.remove();
 				this.entityManager.merge(nextInEntities);
 			}
-			Models models = deletableEntity.getModels();
-			models.getGroupIds().remove(deletableEntity);
-			deletableEntity.setModels(null);
-			this.entityManager.merge(models);
+			Iterator<Models> iterModels = deletableEntity.getModels()
+					.iterator();
+			for (; iterModels.hasNext();) {
+				Models nextInModels = iterModels.next();
+				nextInModels.getGroupIds().remove(deletableEntity);
+				iterModels.remove();
+				this.entityManager.merge(nextInModels);
+			}
 			this.entityManager.remove(deletableEntity);
 			this.entityManager.flush();
 			return "search?faces-redirect=true";

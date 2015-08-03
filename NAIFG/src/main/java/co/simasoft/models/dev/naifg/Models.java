@@ -27,8 +27,6 @@ import javax.persistence.Temporal;
 import org.hibernate.search.annotations.DateBridge;
 import org.hibernate.search.annotations.Resolution;
 import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 
 @Indexed
 @Entity
@@ -71,7 +69,7 @@ public class Models implements Serializable {
 	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
 	private String code;
 
-	@OneToMany(mappedBy = "models")
+	@ManyToMany
 	private Set<GroupIds> groupIds = new HashSet<GroupIds>();
 
 	@ManyToMany(mappedBy = "models")

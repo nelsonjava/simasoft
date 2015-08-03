@@ -63,9 +63,26 @@
 			</h:dataTable>
 			<h:outputText/>
 			<h:outputLabel for="groupIdsBeanGroupIdsModels" value="Models:"/>
-			<h:link id="groupIdsBeanGroupIdsModels" outcome="/admin/models/view" rendered="#{!empty groupIdsBean.groupIds.models}" value="#{groupIdsBean.groupIds.models}">
-				<f:param name="id" value="#{groupIdsBean.groupIds.models.id}"/>
-			</h:link>
+			<h:dataTable id="groupIdsBeanGroupIdsModels" styleClass="data-table" value="#{forgeview:asList(groupIdsBean.groupIds.models)}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Name"/>
+					</f:facet>
+					<h:link outcome="/admin/models/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemName" value="#{_item.name}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Group Id"/>
+					</f:facet>
+					<h:link outcome="/admin/models/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemGroupId" value="#{_item.groupId}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
 			<h:outputText/>
 		</h:panelGrid>
 
