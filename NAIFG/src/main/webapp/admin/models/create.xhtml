@@ -81,7 +81,7 @@
 					<h:message for="modelsBeanModelsCode" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
-				<h:outputLabel for="modelsBeanModelsGroupIds" value="Group Ids:"/>
+				<h:outputLabel for="modelsBeanModelsGroupIds" value="GroupIds:"/>
 				<h:panelGroup>
 					<ui:param name="_collection" value="#{modelsBean.models.groupIds}"/>
 					<h:dataTable id="modelsBeanModelsGroupIds" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
@@ -110,7 +110,7 @@
 					<h:panelGrid columnClasses=",remove-column" columns="2" styleClass="data-table-footer">
 						<h:selectOneMenu converter="#{groupIdsBean.converter}" id="modelsBeanModelsGroupIdsSelect" value="#{requestScope['modelsBeanModelsGroupIdsSelect']}">
 							<f:selectItem/>
-							<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{groupIdsBean.all}" var="_item"/>
+							<f:selectItems itemLabel="#{forgeview:display(_item.name)}" itemValue="#{_item}" value="#{groupIdsBean.all}" var="_item"/>
 						</h:selectOneMenu>
 						<h:commandLink action="#{_collection.add(requestScope['modelsBeanModelsGroupIdsSelect'])}" id="modelsBeanModelsGroupIdsAdd" onclick="if (document.getElementById(document.forms[0].id+':modelsBeanModelsGroupIdsSelect').selectedIndex &lt; 1) { alert('Must select a Group Ids'); return false; }" styleClass="add-button"/>
 					</h:panelGrid>

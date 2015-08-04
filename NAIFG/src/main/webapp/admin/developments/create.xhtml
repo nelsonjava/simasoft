@@ -110,7 +110,7 @@
 					<h:panelGrid columnClasses=",remove-column" columns="2" styleClass="data-table-footer">
 						<h:selectOneMenu converter="#{modelsBean.converter}" id="developmentsBeanDevelopmentsModelsSelect" value="#{requestScope['developmentsBeanDevelopmentsModelsSelect']}">
 							<f:selectItem/>
-							<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{modelsBean.all}" var="_item"/>
+							<f:selectItems itemLabel="#{forgeview:display(_item.name)}" itemValue="#{_item}" value="#{modelsBean.all}" var="_item"/>
 						</h:selectOneMenu>
 						<h:commandLink action="#{_collection.add(requestScope['developmentsBeanDevelopmentsModelsSelect'])}" id="developmentsBeanDevelopmentsModelsAdd" onclick="if (document.getElementById(document.forms[0].id+':developmentsBeanDevelopmentsModelsSelect').selectedIndex &lt; 1) { alert('Must select a Models'); return false; }" styleClass="add-button"/>
 					</h:panelGrid>

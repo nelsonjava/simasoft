@@ -1896,21 +1896,9 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Code>Developments</a:Code>
 <a:CreationDate>1438227797</a:CreationDate>
 <a:Creator>admin</a:Creator>
-<a:ModificationDate>1438229067</a:ModificationDate>
+<a:ModificationDate>1438646402</a:ModificationDate>
 <a:Modifier>admin</a:Modifier>
 <a:UseParentNamespace>0</a:UseParentNamespace>
-<c:Operations>
-<o:Operation Id="o59">
-<a:ObjectID>FF78A580-6913-42C5-981F-7F518E05F497</a:ObjectID>
-<a:Name>naifg</a:Name>
-<a:Code>naifg</a:Code>
-<a:CreationDate>1438227828</a:CreationDate>
-<a:Creator>admin</a:Creator>
-<a:ModificationDate>1438227828</a:ModificationDate>
-<a:Modifier>admin</a:Modifier>
-<a:TemplateBody>%DefaultBody%</a:TemplateBody>
-</o:Operation>
-</c:Operations>
 </o:Class>
 <o:Class Id="o48">
 <a:ObjectID>C2821D4B-9417-4AFB-A9C4-B1751205ED4F</a:ObjectID>
@@ -1922,7 +1910,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Modifier>admin</a:Modifier>
 <a:UseParentNamespace>0</a:UseParentNamespace>
 <c:Operations>
-<o:Operation Id="o60">
+<o:Operation Id="o59">
 <a:ObjectID>AFB65F69-16E7-4822-95AA-BAB582EDAE60</a:ObjectID>
 <a:Name>Companies</a:Name>
 <a:Code>companies</a:Code>
@@ -1944,7 +1932,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Modifier>admin</a:Modifier>
 <a:UseParentNamespace>0</a:UseParentNamespace>
 <c:Operations>
-<o:Operation Id="o61">
+<o:Operation Id="o60">
 <a:ObjectID>28F18BEB-ED8E-4F56-A496-02A57C33BD76</a:ObjectID>
 <a:Name>archival</a:Name>
 <a:Code>archival</a:Code>
@@ -1966,7 +1954,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Modifier>admin</a:Modifier>
 <a:UseParentNamespace>0</a:UseParentNamespace>
 <c:Operations>
-<o:Operation Id="o62">
+<o:Operation Id="o61">
 <a:ObjectID>965D0352-AEF0-46F5-A324-3767A9263412</a:ObjectID>
 <a:Name>books</a:Name>
 <a:Code>books</a:Code>
@@ -1984,21 +1972,9 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Code>Models</a:Code>
 <a:CreationDate>1438228683</a:CreationDate>
 <a:Creator>admin</a:Creator>
-<a:ModificationDate>1438229083</a:ModificationDate>
+<a:ModificationDate>1438646423</a:ModificationDate>
 <a:Modifier>admin</a:Modifier>
 <a:UseParentNamespace>0</a:UseParentNamespace>
-<c:Operations>
-<o:Operation Id="o63">
-<a:ObjectID>4F3F4B30-C702-4013-B460-1AD58646CA56</a:ObjectID>
-<a:Name>naifg</a:Name>
-<a:Code>naifg</a:Code>
-<a:CreationDate>1438228765</a:CreationDate>
-<a:Creator>admin</a:Creator>
-<a:ModificationDate>1438228765</a:ModificationDate>
-<a:Modifier>admin</a:Modifier>
-<a:TemplateBody>%DefaultBody%</a:TemplateBody>
-</o:Operation>
-</c:Operations>
 </o:Class>
 <o:Class Id="o52">
 <a:ObjectID>63C9E08A-8881-4A45-B621-FE33FEE9A10A</a:ObjectID>
@@ -2010,7 +1986,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Modifier>admin</a:Modifier>
 <a:UseParentNamespace>0</a:UseParentNamespace>
 <c:Operations>
-<o:Operation Id="o64">
+<o:Operation Id="o62">
 <a:ObjectID>FB69108A-FD8B-41CF-9C44-2DDD5A14F46D</a:ObjectID>
 <a:Name>naifg</a:Name>
 <a:Code>naifg</a:Code>
@@ -2028,21 +2004,9 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Code>Cardinalities</a:Code>
 <a:CreationDate>1438232021</a:CreationDate>
 <a:Creator>admin</a:Creator>
-<a:ModificationDate>1438232725</a:ModificationDate>
+<a:ModificationDate>1438646435</a:ModificationDate>
 <a:Modifier>admin</a:Modifier>
 <a:UseParentNamespace>0</a:UseParentNamespace>
-<c:Operations>
-<o:Operation Id="o65">
-<a:ObjectID>BFD3D09F-3B94-4132-9ADF-2B5101D74D4B</a:ObjectID>
-<a:Name>naifg</a:Name>
-<a:Code>naifg</a:Code>
-<a:CreationDate>1438232069</a:CreationDate>
-<a:Creator>admin</a:Creator>
-<a:ModificationDate>1438232069</a:ModificationDate>
-<a:Modifier>admin</a:Modifier>
-<a:TemplateBody>%DefaultBody%</a:TemplateBody>
-</o:Operation>
-</c:Operations>
 </o:Class>
 <o:Class Id="o54">
 <a:ObjectID>1ED639E7-1AA2-40CD-8FDB-8C3A6F998B53</a:ObjectID>
@@ -2054,7 +2018,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Modifier>admin</a:Modifier>
 <a:UseParentNamespace>0</a:UseParentNamespace>
 <c:Operations>
-<o:Operation Id="o66">
+<o:Operation Id="o63">
 <a:ObjectID>A5A372F8-9340-49C5-AA0F-9B0570CC345F</a:ObjectID>
 <a:Name>dependencies</a:Name>
 <a:Code>dependencies</a:Code>
@@ -2072,21 +2036,9 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Code>Relationships</a:Code>
 <a:CreationDate>1438232843</a:CreationDate>
 <a:Creator>admin</a:Creator>
-<a:ModificationDate>1438233878</a:ModificationDate>
+<a:ModificationDate>1438646464</a:ModificationDate>
 <a:Modifier>admin</a:Modifier>
 <a:UseParentNamespace>0</a:UseParentNamespace>
-<c:Operations>
-<o:Operation Id="o67">
-<a:ObjectID>FF99811D-C5D5-456E-BA9E-CB80665B0B55</a:ObjectID>
-<a:Name>naifg</a:Name>
-<a:Code>naifg</a:Code>
-<a:CreationDate>1438233878</a:CreationDate>
-<a:Creator>admin</a:Creator>
-<a:ModificationDate>1438233886</a:ModificationDate>
-<a:Modifier>admin</a:Modifier>
-<a:TemplateBody>%DefaultBody%</a:TemplateBody>
-</o:Operation>
-</c:Operations>
 </o:Class>
 <o:Class Id="o56">
 <a:ObjectID>5C76D059-C249-4E2A-BC4A-6081E35EC04B</a:ObjectID>
@@ -2098,7 +2050,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Modifier>admin</a:Modifier>
 <a:UseParentNamespace>0</a:UseParentNamespace>
 <c:Operations>
-<o:Operation Id="o68">
+<o:Operation Id="o64">
 <a:ObjectID>0B54F987-C907-4B7C-AB31-C7FB482647D5</a:ObjectID>
 <a:Name>dependencies</a:Name>
 <a:Code>dependencies</a:Code>
@@ -2116,21 +2068,9 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Code>Attributes</a:Code>
 <a:CreationDate>1438232846</a:CreationDate>
 <a:Creator>admin</a:Creator>
-<a:ModificationDate>1438233868</a:ModificationDate>
+<a:ModificationDate>1438646449</a:ModificationDate>
 <a:Modifier>admin</a:Modifier>
 <a:UseParentNamespace>0</a:UseParentNamespace>
-<c:Operations>
-<o:Operation Id="o69">
-<a:ObjectID>F3C04995-62D7-4ACF-87A2-E25DF38CEE4D</a:ObjectID>
-<a:Name>naifg</a:Name>
-<a:Code>naifg</a:Code>
-<a:CreationDate>1438233868</a:CreationDate>
-<a:Creator>admin</a:Creator>
-<a:ModificationDate>1438233868</a:ModificationDate>
-<a:Modifier>admin</a:Modifier>
-<a:TemplateBody>%DefaultBody%</a:TemplateBody>
-</o:Operation>
-</c:Operations>
 </o:Class>
 <o:Class Id="o58">
 <a:ObjectID>7AB40080-DBB8-4A24-909B-63E94CCE5223</a:ObjectID>
@@ -2142,7 +2082,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Modifier>admin</a:Modifier>
 <a:UseParentNamespace>0</a:UseParentNamespace>
 <c:Operations>
-<o:Operation Id="o70">
+<o:Operation Id="o65">
 <a:ObjectID>90B71F9A-4324-414D-9B64-C6913317F938</a:ObjectID>
 <a:Name>dependencies</a:Name>
 <a:Code>dependencies</a:Code>
@@ -2489,7 +2429,7 @@ LABL 0 Arial,8,N</a:FontList>
 </o:Association>
 </c:Associations>
 <c:TargetModels>
-<o:TargetModel Id="o71">
+<o:TargetModel Id="o66">
 <a:ObjectID>107B79E4-AB49-432D-BDBC-29ADA0FE10A4</a:ObjectID>
 <a:Name>Java</a:Name>
 <a:Code>Java</a:Code>
@@ -2504,7 +2444,7 @@ LABL 0 Arial,8,N</a:FontList>
 <o:Shortcut Ref="o3"/>
 </c:SessionShortcuts>
 </o:TargetModel>
-<o:TargetModel Id="o72">
+<o:TargetModel Id="o67">
 <a:ObjectID>5A99677D-3EFA-45B6-98D5-268DE2B06E48</a:ObjectID>
 <a:Name>WSDL for Java</a:Name>
 <a:Code>WSDLJava</a:Code>

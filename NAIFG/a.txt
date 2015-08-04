@@ -8,13 +8,15 @@
 [WARNING] 
 [WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
 [WARNING] 
+[INFO] 
+[INFO] Using the builder org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder with a thread count of 1
 [INFO]                                                                         
 [INFO] ------------------------------------------------------------------------
 [INFO] Building naifg 1.0.0-SNAPSHOT
 [INFO] ------------------------------------------------------------------------
 [INFO] 
 [INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ naifg ---
-[INFO] Deleting d:\docs\h2\war\naifg\target
+[INFO] Deleting d:\dev\njava\simasoft\NAIFG\target
 [INFO] 
 [INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ naifg ---
 [INFO] Using 'UTF-8' encoding to copy filtered resources.
@@ -22,13 +24,13 @@
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ naifg ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 30 source files to d:\docs\h2\war\naifg\target\classes
-[WARNING] /d:/docs/h2/war/naifg/src/main/java/co/simasoft/Beans/FindBean.java: Some input files use unchecked or unsafe operations.
-[WARNING] /d:/docs/h2/war/naifg/src/main/java/co/simasoft/Beans/FindBean.java: Recompile with -Xlint:unchecked for details.
+[INFO] Compiling 31 source files to d:\dev\njava\simasoft\NAIFG\target\classes
+[WARNING] /d:/dev/njava/simasoft/NAIFG/src/main/java/co/simasoft/Beans/FindBean.java: Some input files use unchecked or unsafe operations.
+[WARNING] /d:/dev/njava/simasoft/NAIFG/src/main/java/co/simasoft/Beans/FindBean.java: Recompile with -Xlint:unchecked for details.
 [INFO] 
 [INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ naifg ---
 [INFO] Using 'UTF-8' encoding to copy filtered resources.
-[INFO] skip non existing resourceDirectory d:\docs\h2\war\naifg\src\test\resources
+[INFO] skip non existing resourceDirectory d:\dev\njava\simasoft\NAIFG\src\test\resources
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ naifg ---
 [INFO] No sources to compile
@@ -38,11 +40,11 @@
 [INFO] 
 [INFO] --- maven-war-plugin:2.1.1:war (default-war) @ naifg ---
 [INFO] Packaging webapp
-[INFO] Assembling webapp [naifg] in [d:\docs\h2\war\naifg\target\naifg]
+[INFO] Assembling webapp [naifg] in [d:\dev\njava\simasoft\NAIFG\target\naifg]
 [INFO] Processing war project
-[INFO] Copying webapp resources [d:\docs\h2\war\naifg\src\main\webapp]
-[INFO] Webapp assembled in [687 msecs]
-[INFO] Building war: d:\docs\h2\war\naifg\target\naifg.war
+[INFO] Copying webapp resources [d:\dev\njava\simasoft\NAIFG\src\main\webapp]
+[INFO] Webapp assembled in [697 msecs]
+[INFO] Building war: d:\dev\njava\simasoft\NAIFG\target\naifg.war
 [WARNING] Warning: selected war files include a WEB-INF/web.xml which will be ignored 
 (webxml attribute is missing from war task, or ignoreWebxml attribute is specified as 'true')
 [INFO] 
@@ -54,13 +56,13 @@
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ naifg ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 30 source files to d:\docs\h2\war\naifg\target\classes
-[WARNING] /d:/docs/h2/war/naifg/src/main/java/co/simasoft/Beans/FindBean.java: Some input files use unchecked or unsafe operations.
-[WARNING] /d:/docs/h2/war/naifg/src/main/java/co/simasoft/Beans/FindBean.java: Recompile with -Xlint:unchecked for details.
+[INFO] Compiling 31 source files to d:\dev\njava\simasoft\NAIFG\target\classes
+[WARNING] /d:/dev/njava/simasoft/NAIFG/src/main/java/co/simasoft/Beans/FindBean.java: Some input files use unchecked or unsafe operations.
+[WARNING] /d:/dev/njava/simasoft/NAIFG/src/main/java/co/simasoft/Beans/FindBean.java: Recompile with -Xlint:unchecked for details.
 [INFO] 
 [INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ naifg ---
 [INFO] Using 'UTF-8' encoding to copy filtered resources.
-[INFO] skip non existing resourceDirectory d:\docs\h2\war\naifg\src\test\resources
+[INFO] skip non existing resourceDirectory d:\dev\njava\simasoft\NAIFG\src\test\resources
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ naifg ---
 [INFO] No sources to compile
@@ -71,15 +73,21 @@
 [INFO] 
 [INFO] --- maven-war-plugin:2.1.1:war (default-war) @ naifg ---
 [INFO] Packaging webapp
-[INFO] Assembling webapp [naifg] in [d:\docs\h2\war\naifg\target\naifg]
+[INFO] Assembling webapp [naifg] in [d:\dev\njava\simasoft\NAIFG\target\naifg]
 [INFO] Processing war project
-[INFO] Copying webapp resources [d:\docs\h2\war\naifg\src\main\webapp]
-[INFO] Webapp assembled in [484 msecs]
-[INFO] Building war: d:\docs\h2\war\naifg\target\naifg.war
+[INFO] Copying webapp resources [d:\dev\njava\simasoft\NAIFG\src\main\webapp]
+[INFO] Webapp assembled in [1060 msecs]
+[INFO] Building war: d:\dev\njava\simasoft\NAIFG\target\naifg.war
 [WARNING] Warning: selected war files include a WEB-INF/web.xml which will be ignored 
 (webxml attribute is missing from war task, or ignoreWebxml attribute is specified as 'true')
 [INFO] 
 [INFO] <<< wildfly-maven-plugin:1.0.2.Final:deploy (default-cli) @ naifg <<<
 [INFO] 
 [INFO] --- wildfly-maven-plugin:1.0.2.Final:deploy (default-cli) @ naifg ---
-¨Desea terminar el trabajo por lotes (S/N)? 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 40.201 s
+[INFO] Finished at: 2015-08-03T21:24:22-05:00
+[INFO] Final Memory: 23M/57M
+[INFO] ------------------------------------------------------------------------
