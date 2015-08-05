@@ -1615,7 +1615,7 @@ LABL 0 Arial,8,N</a:FontList>
 <o:ClassSymbol Id="o36">
 <a:CreationDate>1438441766</a:CreationDate>
 <a:ModificationDate>1438442656</a:ModificationDate>
-<a:Rect>((-23144,-33769), (-12048,-22831))</a:Rect>
+<a:Rect>((-23029,-33769), (-12163,-22831))</a:Rect>
 <a:LineColor>16744448</a:LineColor>
 <a:FillColor>16770222</a:FillColor>
 <a:ShadowColor>12632256</a:ShadowColor>
@@ -2239,11 +2239,11 @@ LABL 0 Arial,8,N</a:FontList>
 </o:Attribute>
 <o:Attribute Id="o75">
 <a:ObjectID>1809DEF7-CDC3-4AF8-8C20-A858013E774A</a:ObjectID>
-<a:Name>FinalDisposition</a:Name>
+<a:Name>finalDisposition</a:Name>
 <a:Code>finalDisposition</a:Code>
 <a:CreationDate>1438441766</a:CreationDate>
 <a:Creator>admin</a:Creator>
-<a:ModificationDate>1438442618</a:ModificationDate>
+<a:ModificationDate>1438745384</a:ModificationDate>
 <a:Modifier>admin</a:Modifier>
 <a:DataType>String</a:DataType>
 <a:Attribute.Visibility>-</a:Attribute.Visibility>

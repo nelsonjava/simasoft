@@ -86,11 +86,10 @@ public EntityH2(String artifactId,String groupId,Entidad entity,LinkedHashSet<St
 
       line("import javax.persistence.Column;\n");
 
-
       for (String impor : imports) {
          line(impor);
       }
-      line("");
+      line("\n");
 //>>FIN IMPORTS DE LA CLASE
 
 

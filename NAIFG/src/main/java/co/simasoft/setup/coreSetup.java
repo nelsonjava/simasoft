@@ -757,7 +757,7 @@ public class coreSetup {
         em.flush();
 
         Attributes attributes47 = new Attributes();
-        attributes47.setName("FinalDisposition");
+        attributes47.setName("finalDisposition");
         attributes47.setNullable(true);
         attributes47.setSingle(false);
 //      ...................... DocumentalsInventory ........................
@@ -1626,6 +1626,7 @@ public class coreSetup {
         Relationships relationships14 = new Relationships();
         relationships14.setOptionality(true);
         relationships14.setIsEmbedded(false);
+        relationships14.setName("gestion");
 //      ...................... DocumentaryRetention ........................
         Entities entities188 = new Entities();
         entities188 = findBean.nameEntities("DocumentaryRetention",em);
@@ -1644,6 +1645,7 @@ public class coreSetup {
         Relationships relationships15 = new Relationships();
         relationships15.setOptionality(true);
         relationships15.setIsEmbedded(false);
+        relationships15.setName("central");
 //      ...................... DocumentaryRetention ........................
         Entities entities191 = new Entities();
         entities191 = findBean.nameEntities("DocumentaryRetention",em);
