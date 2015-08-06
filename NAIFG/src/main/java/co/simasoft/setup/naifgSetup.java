@@ -761,7 +761,7 @@ public class naifgSetup {
         attributes48.setSingle(true);
 //      ...................... GroupIds ........................
         Entities entity86 = new Entities();
-        entity86 = findBean.nameEntities("GroupIds",em);
+         entity86 = findBean.nameEntities("GroupIds",em);
         attributes48.setEntities(entity86);
 //      ...................... String ........................
         AttributesTypes attributesTypes87 = new AttributesTypes();

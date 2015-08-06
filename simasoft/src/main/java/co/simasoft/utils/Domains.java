@@ -73,6 +73,10 @@ public class Domains{
         return packages;
     }
 
+    public ArrayList<Modelos> getModels() {
+        return modelos;
+    }
+
 
 
 

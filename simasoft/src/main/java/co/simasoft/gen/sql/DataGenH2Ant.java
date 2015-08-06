@@ -31,7 +31,7 @@ OBJETIVOS:
 *------------------------------------------- DECLARACION DE LA CLASE -------------------------------------------*
 *---------------------------------------------------------------------------------------------------------------*/
 
-public class DataGenH2 extends FileTxt {
+public class DataGenH2Ant extends FileTxt {
 
 //>>DECLARACION DE INSTANCIAS
       int i=0;
@@ -54,26 +54,19 @@ OBJETIVOS:
 *                                           IMPLEMENTACION DEL METODO                                           *
 *---------------------------------------------------------------------------------------------------------------*/
 
-public DataGenH2(Domains domain) throws IOException {
+public DataGenH2Ant(Domains domain) throws IOException {
+
     try {
 
     for (Packages groupId : domain.getPackages()){
         imports.add(groupId.getGroupId());
     }
 
-line("package "+domain.getGroupId()+".setup;\n");
+line("import co.simasoft.models.naif.domainmodels.*;\n");
 
-line("import "+domain.getGroupId()+".beans.*;");
-line("import "+domain.getGroupId()+".utils.*;\n");
+line("import co.simasoft.beans.*;\n");
 
-    i=0;
-    for (String impor : imports) {
-
-line("import "+impor+".*;");
-
-    } // for: imports
-
-line("");
+line("import co.simasoft.utils.*;\n");
 
 line("import java.util.*;");
 line("import java.util.Calendar;");
@@ -90,14 +83,23 @@ line("@LocalBean");
 line("@Named(\""+domain.getArtifactId()+"Setup\")");
 line("public class "+domain.getArtifactId()+"Setup {\n");
 
-line("    @PersistenceContext(unitName = \"naifgPU-JTA\")");
+line("    @PersistenceContext(unitName = \"naifg8PU-JTA\")");
 line("    private EntityManager em;\n");
 
 line("    FindBean findBean = new FindBean();\n");
 
-line("    private static final Logger log = Logger.getLogger("+domain.getArtifactId()+"Setup.class.getName());\n");
+line("    private static final Logger log = Logger.getLogger(DataDb.class.getName());\n");
 
 line("    public void data() {\n");
+
+line("//      ---------------------- DomainModels ------------------------\n");
+
+line("        DomainModels domainModels = new DomainModels();");
+line("        domainModels.setGroupId(\""+domain.getGroupId()+"\");");
+line("        domainModels.setArtifactId(\""+domain.getArtifactId()+"\");");
+line("        domainModels.setVersion(\""+domain.getVersion()+"\");");
+line("        em.persist(domainModels);");
+line("        em.flush();\n");
 
 line("//      ---------------------- GroupIds ------------------------\n");
 
@@ -107,49 +109,15 @@ line("//      ---------------------- GroupIds ------------------------\n");
 
 line("        GroupIds groupIds"+String.valueOf(++i)+" = new GroupIds();");
 line("        groupIds"+String.valueOf(i)+".setGroupId(\""+impor+"\");");
-line("        groupIds"+String.valueOf(i)+".setName(\""+impor+"\");");
+line("//      ...................... "+impor+" ........................");
+line("        DomainModels domainModel"+String.valueOf(++j)+" = new DomainModels();");
+line("        domainModel"+String.valueOf(j)+" = findBean.artifactIdDomainModels(\""+domain.getArtifactId()+"\",em);");
+line("        groupIds"+String.valueOf(i)+".setDomainModels(domainModel"+String.valueOf(j)+");");
 line("        em.persist(groupIds"+String.valueOf(i)+");");
 line("        em.flush();\n");
 
-    } // for: imports
+    }
 
-line("//      ---------------------- Models ------------------------\n");
-
-line("        Models models = new Models();");
-line("        models.setGroupId(\""+domain.getGroupId()+"."+domain.getArtifactId()+"\");");
-line("        models.setArtifactId(\""+domain.getArtifactId()+"\");");
-line("        models.setVersion(\""+domain.getVersion()+"\");");
-line("        models.setName(\""+domain.getArtifactId()+"\");\n");
-
-line("        Set<GroupIds> modelsGroupIds = new HashSet<GroupIds>();\n");
-
-    i=0;
-    j=0;
-    for (String impor : imports) {
-line("        GroupIds modelsGroupId"+String.valueOf(++i)+" = findBean.groupGroupIds(\""+impor+"\",em);");
-line("        modelsGroupIds.add(modelsGroupId"+String.valueOf(i)+");\n");
-    } // for: imports
-
-line("        models.setGroupIds(modelsGroupIds);\n");
-
-line("        em.persist(models);");
-line("        em.flush();\n");
-
-line("//      ---------------------- Developments ------------------------\n");
-
-line("        Developments dev = new Developments();");
-line("        dev.setGroupId(\""+domain.getGroupId()+"\");");
-line("        dev.setArtifactId(\""+domain.getArtifactId()+"\");");
-line("        dev.setVersion(\""+domain.getVersion()+"\");");
-line("        dev.setName(\""+domain.getArtifactId()+"\");");
-line("        Set<Models> models1 = new HashSet<Models>();");
-line("        Models model1 = findBean.artifactIdModels(\""+domain.getArtifactId()+"\",em);");
-line("        models1.add(model1);");
-line("        dev.setModels(models1);");
-line("        em.persist(dev);");
-line("        em.flush();\n");
-
-line("//      ---------------------- Entities ------------------------\n");
 
     i=0;
     j=0;
@@ -188,12 +156,14 @@ line("        attributes"+String.valueOf(i)+".setAttributesTypes(attributesTypes
 line("        em.persist(attributes"+String.valueOf(i)+");");
 line("        em.flush();\n");
 
-            } // for: entidad.getAtributos()
+            } // for
 
-        } // for: groupId.getEntities()
 
-    } // for: domain.getPackages()
-    
+        } // for
+
+    } // for
+
+
 line("//      ---------------------- Relationships ------------------------\n");
 
     i=0;
@@ -214,7 +184,7 @@ line(". "+relation.getFrom()+" . "+relation.getCardinality()+" "+relation.getTo(
                      }
             } // switch
 
-        } // for: packages.getRelations()
+        } // for
 line("*/");
 
         for (Relation relation: packages.getRelations()) {
@@ -242,13 +212,17 @@ line("        em.persist(relationships"+String.valueOf(i)+");");
 line("        em.flush();\n");
             } // switch
 
-        } // for: packages.getRelations()
+        } // for
 
-    } // for: domain.getPackages()
+    } // for
 
 line("    } // data()\n");
 
 line("} // "+domain.getArtifactId());
+
+
+
+
 
     saveFile("\\docs", domain.getArtifactId()+"Setup.java");
 

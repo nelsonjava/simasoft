@@ -24,7 +24,7 @@ public class naifgSetup {
 
     FindBean findBean = new FindBean();
 
-    private static final Logger log = Logger.getLogger(DataDb.class.getName());
+    private static final  Logger log = Logger.getLogger(DataDb.class.getName());
 
     public void data() {
 
@@ -44,7 +44,7 @@ public class naifgSetup {
 //      ...................... co.simasoft.models.dev.naifg.dependencies ........................
         DomainModels domainModel1 = new DomainModels();
         domainModel1 = findBean.artifactIdDomainModels("naifg",em);
-        groupIds1.setDomainModels(domainModel1);
+         groupIds1.setDomainModels(domainModel1);
         em.persist(groupIds1);
         em.flush();
 

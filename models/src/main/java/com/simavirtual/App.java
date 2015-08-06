@@ -410,10 +410,10 @@ public class App extends FileTxt{
         relations = powerDesigner.getRelations();
         relationsPower = powerDesigner.getRelationsPower();
 
-        Models models = new Models(groupId,artifactId);
-        models.setImports(imports);
-        models.setEntities(entidades);
-        models.WarH2();
+        ModelsGen modelsGen = new ModelsGen(groupId,artifactId);
+        modelsGen.setImports(imports);
+        modelsGen.setEntities(entidades);
+        modelsGen.WarH2();
 
     } // sqlH2
 
