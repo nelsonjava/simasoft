@@ -1,7 +1,6 @@
 import co.simasoft.models.dev.naifg.*;
 import co.simasoft.models.dev.naifg.dependencies.*;
 
-
 import co.simasoft.beans.*;
 
 import co.simasoft.utils.*;

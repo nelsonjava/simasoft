@@ -169,7 +169,7 @@ line("        entities"+String.valueOf(i)+".setGroupIds(groupId"+String.valueOf(
 line("        em.persist(entities"+String.valueOf(i)+");");
 line("        em.flush();\n");
 
-line("//      ---------------------- Attributes ------------------------\n");
+
 
             for (Atributos attri: entidad.getAtributos()) {
 

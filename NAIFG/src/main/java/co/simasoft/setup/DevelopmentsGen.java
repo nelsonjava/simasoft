@@ -1,3 +1,7 @@
+/*
+line(Integer.toString(developments.getModels().size()));
+*/
+
 package co.simasoft.setup;
 
 import co.simasoft.utils.*;
@@ -224,13 +228,15 @@ line(entidad.getName()+":"+attribute.getName());
              } // models.getGroupIds()
 
         } // developments.getModels()
-        
+
+        saveFile("\\docs", "Prueba.txt");
+
         ModelsGen modelsGen = new ModelsGen(developments.getGroupId(),developments.getArtifactId());
         modelsGen.setImports(imports);
         modelsGen.setPackages(packages);
         modelsGen.WarH2();
+        war(developments);
 
-        saveFile("\\docs", "Prueba.txt");
 
     }
     catch(Exception ioe) {
@@ -249,6 +255,167 @@ line(entidad.getName()+":"+attribute.getName());
         }
         return attributesProperties;
     }
+
+    public void war(Developments developments) throws IOException {
+    try {
+
+        clearFileTxt();
+        int i=0;
+        int j=0;
+        LinkedHashSet<String> imports = new LinkedHashSet<String>();
+
+line("package "+developments.getGroupId()+".setup;\n");
+
+line("import "+developments.getGroupId()+".beans.*;");
+line("import "+developments.getGroupId()+".utils.*;\n");
+
+line("");
+
+line("import java.util.*;");
+line("import java.util.Calendar;");
+line("import java.util.Random;");
+line("import javax.ejb.LocalBean;");
+line("import javax.ejb.Singleton;");
+line("import javax.inject.Named;");
+line("import javax.persistence.EntityManager;");
+line("import javax.persistence.PersistenceContext;");
+line("import org.jboss.logging.Logger;\n");
+
+line("@Singleton");
+line("@LocalBean");
+
+line("@Named(\""+developments.getArtifactId()+"Setup\")");
+line("public class "+developments.getArtifactId()+"Setup {\n");
+
+line("    @PersistenceContext(unitName = \"naifgPU-JTA\")");
+line("    private EntityManager em;\n");
+
+line("    FindBean findBean = new FindBean();\n");
+
+line("    private static final Logger log = Logger.getLogger("+developments.getArtifactId()+"Setup.class.getName());\n");
+
+line("    public void data() {\n");
+
+line("//      ---------------------- GroupIds ------------------------\n");
+
+
+    for (Models models : developments.getModels()) {
+
+        for (GroupIds groupId : models.getGroupIds()) {
+
+line("        GroupIds groupIds"+String.valueOf(++i)+" = new GroupIds();");
+line("        groupIds"+String.valueOf(i)+".setGroupId(\""+groupId.getGroupId()+"\");");
+line("        groupIds"+String.valueOf(i)+".setName(\""+groupId.getName()+"\");");
+line("        em.persist(groupIds"+String.valueOf(i)+");");
+line("        em.flush();\n");
+
+        } // models.getGroupIds()
+
+    } // developments.getModels()
+
+line("//      ---------------------- Models ------------------------\n");
+
+    for (Models models : developments.getModels()) {
+
+line("        Models models = new Models();");
+line("        models.setGroupId(\""+models.getGroupId()+"."+models.getArtifactId()+"\");");
+line("        models.setArtifactId(\""+models.getArtifactId()+"\");");
+line("        models.setVersion(\""+models.getVersion()+"\");");
+line("        models.setName(\""+models.getArtifactId()+"\");\n");
+
+line("        Set<GroupIds> modelsGroupIds = new HashSet<GroupIds>();\n");
+
+        i=0;
+        for (GroupIds groupId : models.getGroupIds()) {
+
+line("        GroupIds modelsGroupId"+String.valueOf(++i)+" = findBean.groupGroupIds(\""+groupId.getGroupId()+"\",em);");
+line("        modelsGroupIds.add(modelsGroupId"+String.valueOf(i)+");\n");
+
+        } // models.getGroupIds()
+
+line("        models.setGroupIds(modelsGroupIds);\n");
+
+line("        em.persist(models);");
+line("        em.flush();\n");
+
+    } // developments.getModels()
+
+line("//      ---------------------- Developments ------------------------\n");
+
+line("        Developments dev = new Developments();");
+line("        dev.setGroupId(\""+developments.getGroupId()+"\");");
+line("        dev.setArtifactId(\""+developments.getArtifactId()+"\");");
+line("        dev.setVersion(\""+developments.getVersion()+"\");");
+line("        dev.setCode(\""+developments.getCode()+"\");");
+line("        dev.setName(\""+developments.getName()+"\");");
+line("        Set<Models> models1 = new HashSet<Models>();");
+line("        Models model1 = findBean.artifactIdModels(\""+developments.getArtifactId()+"\",em);");
+line("        models1.add(model1);");
+line("        dev.setModels(models1);");
+line("        em.persist(dev);");
+line("        em.flush();\n");
+
+line("//      ---------------------- Entities ------------------------\n");
+
+    i=0;
+    j=0;
+    for (Models models : developments.getModels()) {
+
+        for (GroupIds groupId : models.getGroupIds()) {
+
+            for (Entities entities: groupId.getEntities()) {
+
+line("        Entities entities"+String.valueOf(++i)+" = new Entities();");
+line("        entities"+String.valueOf(i)+".setName(\""+entities.getName()+"\");");
+line("//      ...................... "+groupId.getGroupId()+" ........................");
+line("        GroupIds groupId"+String.valueOf(++j)+" = new GroupIds();");
+line("        groupId"+String.valueOf(j)+" = findBean.groupIdGroupIds(\""+groupId.getGroupId()+"\",em);");
+line("        entities"+String.valueOf(i)+".setGroupIds(groupId"+String.valueOf(j)+");");
+line("        em.persist(entities"+String.valueOf(i)+");");
+line("        em.flush();\n");
+
+line("//      ---------------------- Attributes ------------------------\n");
+
+              for (Attributes attributes: entities.getAttributes()) {
+
+line("        Attributes attributes"+String.valueOf(++i)+" = new Attributes();");
+line("        attributes"+String.valueOf(i)+".setName(\""+attributes.getName()+"\");");
+line("        attributes"+String.valueOf(i)+".setNullable("+attributes.getNullable()+");");
+line("        attributes"+String.valueOf(i)+".setSingle("+attributes.getSingle()+");");
+line("//      ...................... "+entities.getName()+" ........................");
+line("        Entities entity"+String.valueOf(++j)+" = new Entities();");
+line("        entity"+String.valueOf(j)+" = findBean.nameEntities(\""+entities.getName()+"\",em);");
+line("        attributes"+String.valueOf(i)+".setEntities(entity"+String.valueOf(j)+");");
+line("//      ...................... "+attributes.getAttributesTypes().getName()+" ........................");
+line("        AttributesTypes attributesTypes"+String.valueOf(++j)+" = new AttributesTypes();");
+line("        attributesTypes"+String.valueOf(j)+" = findBean.nameAttributesTypes(\""+attributes.getAttributesTypes().getName()+"\",em);");
+line("        attributes"+String.valueOf(i)+".setAttributesTypes(attributesTypes"+String.valueOf(j)+");");
+line("        em.persist(attributes"+String.valueOf(i)+");");
+line("        em.flush();\n");
+
+              }
+
+
+            } // groupId.getEntities()
+
+        } // models.getGroupIds()
+
+    } // developments.getModels()
+    
+line("//      ---------------------- Relationships ------------------------\n");
+
+    
+
+
+    saveFile("\\docs.h2.war."+developments.getArtifactId(),developments.getArtifactId()+"Setup.java");
+
+    }
+    catch(Exception ioe) {
+      ioe.printStackTrace();
+    }
+
+    } // war
+
 
 
 } // DevelopmentsGen
