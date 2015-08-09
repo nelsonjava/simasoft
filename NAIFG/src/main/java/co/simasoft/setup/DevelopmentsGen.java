@@ -267,7 +267,9 @@ line(entidad.getName()+":"+attribute.getName());
 line("package "+developments.getGroupId()+".setup;\n");
 
 line("import "+developments.getGroupId()+".beans.*;");
-line("import "+developments.getGroupId()+".utils.*;\n");
+line("import "+developments.getGroupId()+".utils.*;");
+line("import co.simasoft.models.dev.naifg.*;");
+line("import co.simasoft.models.dev.naifg.dependencies.*;\n");
 
 line("");
 
@@ -401,10 +403,86 @@ line("        em.flush();\n");
         } // models.getGroupIds()
 
     } // developments.getModels()
-    
+
 line("//      ---------------------- Relationships ------------------------\n");
 
-    
+line("/*");
+    i=0;
+    for (Models models : developments.getModels()) {
+
+        for (GroupIds groupId : models.getGroupIds()) {
+
+            for (Entities entities: groupId.getEntities()) {
+
+                for (Relationships relationships: entities.getFrom() ) {
+
+
+                    switch (relationships.getCardinalities().getCardinality()) {
+                        case "1..1":
+                        case "1..*":
+                        case "*..*":
+line(". "+relationships.getFrom().getName()+" . "+relationships.getCardinalities().getCardinality()+" "+relationships.getTo().getName());
+                    } // switch
+
+                } // entities.getFrom()
+
+            } // groupId.getEntities()
+
+        } // models.getGroupIds()
+
+    } // developments.getModels()
+line("*/");
+
+    i=0;
+    for (Models models : developments.getModels()) {
+
+        for (GroupIds groupId : models.getGroupIds()) {
+
+            for (Entities entities: groupId.getEntities()) {
+
+                for (Relationships relationships: entities.getFrom() ) {
+
+
+                    switch (relationships.getCardinalities().getCardinality()) {
+                        case "1..1":
+                        case "1..*":
+                        case "*..*":
+line("        Relationships relationships"+String.valueOf(++i)+" = new Relationships();");
+line("        relationships"+String.valueOf(i)+".setOptionality("+relationships.getOptionality()+");");
+line("        relationships"+String.valueOf(i)+".setIsEmbedded("+relationships.getIsEmbedded()+");");
+                          if(relationships.getName() == null || relationships.getName().isEmpty() ){
+line("        relationships"+String.valueOf(i)+".setName(\"\");");
+                          }
+                          else{
+line("        relationships"+String.valueOf(i)+".setName(\""+relationships.getName()+"\");");
+                          }
+line("//      ...................... "+relationships.getFrom().getName()+" ........................");
+line("        Entities entities"+String.valueOf(++j)+" = new Entities();");
+line("        entities"+String.valueOf(j)+" = findBean.nameEntities(\""+relationships.getFrom().getName()+"\",em);");
+line("        relationships"+String.valueOf(i)+".setFrom(entities"+String.valueOf(j)+");");
+line("//      ...................... "+relationships.getTo().getName()+" ........................");
+line("        Entities entities"+String.valueOf(++j)+" = new Entities();");
+line("        entities"+String.valueOf(j)+" = findBean.nameEntities(\""+relationships.getTo().getName()+"\",em);");
+line("        relationships"+String.valueOf(i)+".setTo(entities"+String.valueOf(j)+");");
+line("//      ...................... "+Cardinaly(relationships.getCardinalities().getCardinality())+" ........................");
+line("        Cardinalities cardinalities"+String.valueOf(++j)+" = new Cardinalities();");
+line("        cardinalities"+String.valueOf(j)+" = findBean.nameCardinalities(\""+Cardinaly(relationships.getCardinalities().getCardinality())+"\",em);");
+line("        relationships"+String.valueOf(i)+".setCardinalities(cardinalities"+String.valueOf(j)+");");
+line("        em.persist(relationships"+String.valueOf(i)+");");
+line("        em.flush();\n");
+                    } // switch
+
+                } // entities.getFrom()
+
+            } // groupId.getEntities()
+
+        } // models.getGroupIds()
+
+    } // developments.getModels()
+
+line("    } // data()\n");
+
+line("} // "+developments.getArtifactId()+"Setup");
 
 
     saveFile("\\docs.h2.war."+developments.getArtifactId(),developments.getArtifactId()+"Setup.java");
@@ -416,6 +494,26 @@ line("//      ---------------------- Relationships ------------------------\n");
 
     } // war
 
+    public String Cardinaly(String cardinality) {
+
+        switch (cardinality) {
+
+            case "1..1":
+                 return "Uno a Uno Bidirecccional No.2";
+
+            case "*..1":
+                 return "Uno a Muchos Bidirecccional No.5";
+
+            case "1..*":
+                 return "Uno a Muchos Bidirecccional No.5";
+
+            case "*..*":
+                 return "Muchos a Muchos Bidirecccional No.7";
+
+        } // switch
+        return "";
+
+    } // Cardinaly
 
 
 } // DevelopmentsGen
