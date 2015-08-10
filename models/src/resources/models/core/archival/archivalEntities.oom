@@ -1531,7 +1531,7 @@ LABL 0 Arial,8,N</a:FontList>
 <o:ClassSymbol Id="o28">
 <a:CreationDate>1438440712</a:CreationDate>
 <a:ModificationDate>1438441694</a:ModificationDate>
-<a:Rect>((-9113,2699), (-415,7793))</a:Rect>
+<a:Rect>((-8926,2699), (-602,7793))</a:Rect>
 <a:LineColor>16744448</a:LineColor>
 <a:FillColor>16770222</a:FillColor>
 <a:ShadowColor>12632256</a:ShadowColor>
@@ -2049,12 +2049,12 @@ LABL 0 Arial,8,N</a:FontList>
 </o:Class>
 <o:Class Id="o29">
 <a:ObjectID>25D2B1FE-E92F-4D62-98FC-8ACEDE0C4D09</a:ObjectID>
-<a:Name>DocumentaryRetention</a:Name>
-<a:Code>DocumentaryRetention</a:Code>
+<a:Name>DocumentalRetention</a:Name>
+<a:Code>DocumentalRetention</a:Code>
 <a:CreationDate>1438440712</a:CreationDate>
 <a:Creator>admin</a:Creator>
-<a:ModificationDate>1438441512</a:ModificationDate>
-<a:Modifier>admin</a:Modifier>
+<a:ModificationDate>1439230664</a:ModificationDate>
+<a:Modifier>Gestión</a:Modifier>
 <a:UseParentNamespace>0</a:UseParentNamespace>
 <c:Attributes>
 <o:Attribute Id="o63">
@@ -2129,12 +2129,12 @@ LABL 0 Arial,8,N</a:FontList>
 </o:Class>
 <o:Class Id="o35">
 <a:ObjectID>40E33C61-0B75-4994-8958-27F35C69DCDE</a:ObjectID>
-<a:Name>Inventoryfinality</a:Name>
-<a:Code>Inventoryfinality</a:Code>
+<a:Name>InventoryFinality</a:Name>
+<a:Code>InventoryFinality</a:Code>
 <a:CreationDate>1438441189</a:CreationDate>
 <a:Creator>admin</a:Creator>
-<a:ModificationDate>1438441788</a:ModificationDate>
-<a:Modifier>admin</a:Modifier>
+<a:ModificationDate>1439231427</a:ModificationDate>
+<a:Modifier>Gestión</a:Modifier>
 <a:UseParentNamespace>0</a:UseParentNamespace>
 <c:Attributes>
 <o:Attribute Id="o67">
@@ -2152,12 +2152,12 @@ LABL 0 Arial,8,N</a:FontList>
 </o:Class>
 <o:Class Id="o37">
 <a:ObjectID>EF952335-C812-4B73-98C9-69980FA104D1</a:ObjectID>
-<a:Name>DocumentalsInventory</a:Name>
-<a:Code>DocumentalsInventory</a:Code>
+<a:Name>DocumentalInventory</a:Name>
+<a:Code>DocumentalInventory</a:Code>
 <a:CreationDate>1438441766</a:CreationDate>
 <a:Creator>admin</a:Creator>
-<a:ModificationDate>1438442639</a:ModificationDate>
-<a:Modifier>admin</a:Modifier>
+<a:ModificationDate>1439230765</a:ModificationDate>
+<a:Modifier>Gestión</a:Modifier>
 <a:UseParentNamespace>0</a:UseParentNamespace>
 <c:Attributes>
 <o:Attribute Id="o68">

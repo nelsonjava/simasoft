@@ -1302,7 +1302,7 @@ Shadow=0</a:DisplayPreferences>
 <a:ModificationDate>1438435584</a:ModificationDate>
 <a:SourceTextOffset>(-1012, 587)</a:SourceTextOffset>
 <a:DestinationTextOffset>(188, -662)</a:DestinationTextOffset>
-<a:Rect>((-1386,19901), (1763,24984))</a:Rect>
+<a:Rect>((-1385,19901), (1763,24984))</a:Rect>
 <a:ListOfPoints>((1763,21375),(1763,23622),(-1012,23622),(-1012,21150),(1163,21150))</a:ListOfPoints>
 <a:CornerStyle>1</a:CornerStyle>
 <a:ArrowStyle>0</a:ArrowStyle>
@@ -1420,7 +1420,7 @@ Multiplicity 0 Arial,8,N</a:FontList>
 <a:ModificationDate>1438314071</a:ModificationDate>
 <a:SourceTextOffset>(113, -737)</a:SourceTextOffset>
 <a:DestinationTextOffset>(-263, -1013)</a:DestinationTextOffset>
-<a:Rect>((4988,30312), (16163,30412))</a:Rect>
+<a:Rect>((4988,28712), (16163,30412))</a:Rect>
 <a:ListOfPoints>((16163,30312),(4988,30312))</a:ListOfPoints>
 <a:ArrowStyle>0</a:ArrowStyle>
 <a:LineColor>16744448</a:LineColor>
@@ -1505,11 +1505,11 @@ Multiplicity 0 Arial,8,N</a:FontList>
 </o:AssociationSymbol>
 <o:AssociationSymbol Id="o31">
 <a:CreationDate>1438312895</a:CreationDate>
-<a:ModificationDate>1438435678</a:ModificationDate>
+<a:ModificationDate>1439230891</a:ModificationDate>
 <a:SourceTextOffset>(1012, 213)</a:SourceTextOffset>
 <a:DestinationTextOffset>(1063, -213)</a:DestinationTextOffset>
-<a:Rect>((-10800,12925), (-8776,23400))</a:Rect>
-<a:ListOfPoints>((-10800,23400),(-10800,12925))</a:ListOfPoints>
+<a:Rect>((-10825,12925), (-8801,23400))</a:Rect>
+<a:ListOfPoints>((-10825,23400),(-10825,12925))</a:ListOfPoints>
 <a:ArrowStyle>0</a:ArrowStyle>
 <a:LineColor>16744448</a:LineColor>
 <a:ShadowColor>12632256</a:ShadowColor>
@@ -1527,11 +1527,11 @@ Multiplicity 0 Arial,8,N</a:FontList>
 </o:AssociationSymbol>
 <o:AssociationSymbol Id="o34">
 <a:CreationDate>1438312900</a:CreationDate>
-<a:ModificationDate>1438435678</a:ModificationDate>
+<a:ModificationDate>1439230887</a:ModificationDate>
 <a:SourceTextOffset>(1012, 213)</a:SourceTextOffset>
 <a:DestinationTextOffset>(1063, -213)</a:DestinationTextOffset>
-<a:Rect>((-13912,12625), (-11888,23250))</a:Rect>
-<a:ListOfPoints>((-13912,23250),(-13912,12625))</a:ListOfPoints>
+<a:Rect>((-13870,12625), (-11846,23250))</a:Rect>
+<a:ListOfPoints>((-13870,23250),(-13870,12625))</a:ListOfPoints>
 <a:ArrowStyle>0</a:ArrowStyle>
 <a:LineColor>16744448</a:LineColor>
 <a:ShadowColor>12632256</a:ShadowColor>
@@ -1659,11 +1659,11 @@ Multiplicity 0 Arial,8,N</a:FontList>
 </o:AssociationSymbol>
 <o:AssociationSymbol Id="o51">
 <a:CreationDate>1438313301</a:CreationDate>
-<a:ModificationDate>1438313330</a:ModificationDate>
+<a:ModificationDate>1439230960</a:ModificationDate>
 <a:SourceTextOffset>(1012, 613)</a:SourceTextOffset>
 <a:DestinationTextOffset>(1063, -613)</a:DestinationTextOffset>
-<a:Rect>((3300,-12900), (5324,-4350))</a:Rect>
-<a:ListOfPoints>((3300,-4350),(3300,-12900))</a:ListOfPoints>
+<a:Rect>((3308,-12900), (5332,-4350))</a:Rect>
+<a:ListOfPoints>((3308,-4350),(3308,-12900))</a:ListOfPoints>
 <a:ArrowStyle>0</a:ArrowStyle>
 <a:LineColor>16744448</a:LineColor>
 <a:ShadowColor>12632256</a:ShadowColor>
@@ -1706,8 +1706,8 @@ Multiplicity 0 Arial,8,N</a:FontList>
 <a:ModificationDate>1438313450</a:ModificationDate>
 <a:SourceTextOffset>(-188, -613)</a:SourceTextOffset>
 <a:DestinationTextOffset>(263, -587)</a:DestinationTextOffset>
-<a:Rect>((-9487,-15712), (-262,-14413))</a:Rect>
-<a:ListOfPoints>((-9487,-14513),(-262,-14513))</a:ListOfPoints>
+<a:Rect>((-9398,-15712), (-118,-14413))</a:Rect>
+<a:ListOfPoints>((-9398,-14513),(-118,-14513))</a:ListOfPoints>
 <a:ArrowStyle>0</a:ArrowStyle>
 <a:LineColor>16744448</a:LineColor>
 <a:ShadowColor>12632256</a:ShadowColor>
@@ -1918,7 +1918,7 @@ LABL 0 Arial,8,N</a:FontList>
 <o:ClassSymbol Id="o32">
 <a:CreationDate>1438311305</a:CreationDate>
 <a:ModificationDate>1438313913</a:ModificationDate>
-<a:Rect>((-16313,22689), (-7615,26810))</a:Rect>
+<a:Rect>((-16126,22689), (-7802,26810))</a:Rect>
 <a:LineColor>16744448</a:LineColor>
 <a:FillColor>16770222</a:FillColor>
 <a:ShadowColor>12632256</a:ShadowColor>
@@ -2025,7 +2025,7 @@ LABL 0 Arial,8,N</a:FontList>
 <o:ClassSymbol Id="o52">
 <a:CreationDate>1438311833</a:CreationDate>
 <a:ModificationDate>1438312407</a:ModificationDate>
-<a:Rect>((-413,-16611), (7985,-12490))</a:Rect>
+<a:Rect>((-264,-16611), (7836,-12490))</a:Rect>
 <a:LineColor>16744448</a:LineColor>
 <a:FillColor>16770222</a:FillColor>
 <a:ShadowColor>12632256</a:ShadowColor>
@@ -2046,7 +2046,7 @@ LABL 0 Arial,8,N</a:FontList>
 <o:ClassSymbol Id="o58">
 <a:CreationDate>1438311945</a:CreationDate>
 <a:ModificationDate>1438312443</a:ModificationDate>
-<a:Rect>((-15076,-16461), (-8852,-12340))</a:Rect>
+<a:Rect>((-15188,-16461), (-8740,-12340))</a:Rect>
 <a:LineColor>16744448</a:LineColor>
 <a:FillColor>16770222</a:FillColor>
 <a:ShadowColor>12632256</a:ShadowColor>
@@ -2174,12 +2174,12 @@ LABL 0 Arial,8,N</a:FontList>
 </o:Class>
 <o:Class Id="o70">
 <a:ObjectID>30F58A59-D090-4F55-BE53-B2C431679B61</a:ObjectID>
-<a:Name>DocumentaryRetention</a:Name>
-<a:Code>DocumentaryRetention</a:Code>
+<a:Name>DocumentalRetention</a:Name>
+<a:Code>DocumentalRetention</a:Code>
 <a:CreationDate>1438311305</a:CreationDate>
 <a:Creator>admin</a:Creator>
-<a:ModificationDate>1438312929</a:ModificationDate>
-<a:Modifier>admin</a:Modifier>
+<a:ModificationDate>1439230881</a:ModificationDate>
+<a:Modifier>Gestión</a:Modifier>
 <a:UseParentNamespace>0</a:UseParentNamespace>
 </o:Class>
 <o:Class Id="o71">
@@ -2224,22 +2224,22 @@ LABL 0 Arial,8,N</a:FontList>
 </o:Class>
 <o:Class Id="o75">
 <a:ObjectID>62EDC33C-70D5-4158-AA28-FDAB707FC897</a:ObjectID>
-<a:Name>DocumentalsInventory</a:Name>
-<a:Code>DocumentalsInventory</a:Code>
+<a:Name>DocumentalInventory</a:Name>
+<a:Code>DocumentalInventory</a:Code>
 <a:CreationDate>1438311833</a:CreationDate>
 <a:Creator>admin</a:Creator>
-<a:ModificationDate>1438313438</a:ModificationDate>
-<a:Modifier>admin</a:Modifier>
+<a:ModificationDate>1439231209</a:ModificationDate>
+<a:Modifier>Gestión</a:Modifier>
 <a:UseParentNamespace>0</a:UseParentNamespace>
 </o:Class>
 <o:Class Id="o76">
 <a:ObjectID>BFC308DB-4E7B-4434-B7E8-6A643866C6BB</a:ObjectID>
-<a:Name>Inventoryfinality</a:Name>
-<a:Code>Inventoryfinality</a:Code>
+<a:Name>InventoryFinality</a:Name>
+<a:Code>InventoryFinality</a:Code>
 <a:CreationDate>1438311945</a:CreationDate>
 <a:Creator>admin</a:Creator>
-<a:ModificationDate>1438313438</a:ModificationDate>
-<a:Modifier>admin</a:Modifier>
+<a:ModificationDate>1439231441</a:ModificationDate>
+<a:Modifier>Gestión</a:Modifier>
 <a:UseParentNamespace>0</a:UseParentNamespace>
 </o:Class>
 <o:Class Id="o77">
