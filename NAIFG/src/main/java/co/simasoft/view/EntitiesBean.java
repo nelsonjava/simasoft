@@ -135,14 +135,6 @@ public class EntitiesBean implements Serializable {
 
 		try {
 			Entities deletableEntity = findById(getId());
-			Iterator<Attributes> iterAttributes = deletableEntity
-					.getAttributes().iterator();
-			for (; iterAttributes.hasNext();) {
-				Attributes nextInAttributes = iterAttributes.next();
-				nextInAttributes.setEntities(null);
-				iterAttributes.remove();
-				this.entityManager.merge(nextInAttributes);
-			}
 			Iterator<Relationships> iterFrom = deletableEntity.getFrom()
 					.iterator();
 			for (; iterFrom.hasNext();) {
@@ -165,6 +157,14 @@ public class EntitiesBean implements Serializable {
 				nextInNameQueries.setEntities(null);
 				iterNameQueries.remove();
 				this.entityManager.merge(nextInNameQueries);
+			}
+			Iterator<Attributes> iterAttributes = deletableEntity
+					.getAttributes().iterator();
+			for (; iterAttributes.hasNext();) {
+				Attributes nextInAttributes = iterAttributes.next();
+				nextInAttributes.setEntities(null);
+				iterAttributes.remove();
+				this.entityManager.merge(nextInAttributes);
 			}
 			GroupIds groupIds = deletableEntity.getGroupIds();
 			groupIds.getEntities().remove(deletableEntity);
@@ -244,35 +244,35 @@ public class EntitiesBean implements Serializable {
 		CriteriaBuilder builder = this.entityManager.getCriteriaBuilder();
 		List<Predicate> predicatesList = new ArrayList<Predicate>();
 
-		String table = this.example.getTable();
-		if (table != null && !"".equals(table)) {
+		String serialID = this.example.getSerialID();
+		if (serialID != null && !"".equals(serialID)) {
 			predicatesList.add(builder.like(
-					builder.lower(root.<String> get("table")),
-					'%' + table.toLowerCase() + '%'));
+					builder.lower(root.<String> get("serialID")),
+					'%' + serialID.toLowerCase() + '%'));
 		}
-		String tableSecuencia = this.example.getTableSecuencia();
-		if (tableSecuencia != null && !"".equals(tableSecuencia)) {
+		String description = this.example.getDescription();
+		if (description != null && !"".equals(description)) {
 			predicatesList.add(builder.like(
-					builder.lower(root.<String> get("tableSecuencia")),
-					'%' + tableSecuencia.toLowerCase() + '%'));
+					builder.lower(root.<String> get("description")),
+					'%' + description.toLowerCase() + '%'));
 		}
-		String modifier = this.example.getModifier();
-		if (modifier != null && !"".equals(modifier)) {
+		String source = this.example.getSource();
+		if (source != null && !"".equals(source)) {
 			predicatesList.add(builder.like(
-					builder.lower(root.<String> get("modifier")),
-					'%' + modifier.toLowerCase() + '%'));
+					builder.lower(root.<String> get("source")),
+					'%' + source.toLowerCase() + '%'));
 		}
-		String extend = this.example.getExtend();
-		if (extend != null && !"".equals(extend)) {
+		String observations = this.example.getObservations();
+		if (observations != null && !"".equals(observations)) {
 			predicatesList.add(builder.like(
-					builder.lower(root.<String> get("extend")),
-					'%' + extend.toLowerCase() + '%'));
+					builder.lower(root.<String> get("observations")),
+					'%' + observations.toLowerCase() + '%'));
 		}
-		String annotations = this.example.getAnnotations();
-		if (annotations != null && !"".equals(annotations)) {
+		String name = this.example.getName();
+		if (name != null && !"".equals(name)) {
 			predicatesList.add(builder.like(
-					builder.lower(root.<String> get("annotations")),
-					'%' + annotations.toLowerCase() + '%'));
+					builder.lower(root.<String> get("name")),
+					'%' + name.toLowerCase() + '%'));
 		}
 
 		return predicatesList.toArray(new Predicate[predicatesList.size()]);

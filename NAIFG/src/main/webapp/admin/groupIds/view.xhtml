@@ -29,25 +29,28 @@
 			<h:outputLabel for="groupIdsBeanGroupIdsOrden" value="Orden:"/>
 			<h:outputText id="groupIdsBeanGroupIdsOrden" value="#{groupIdsBean.groupIds.orden}"/>
 			<h:outputText/>
-			<h:outputLabel for="groupIdsBeanGroupIdsDate" value="Date:"/>
-			<h:outputText id="groupIdsBeanGroupIdsDate" value="#{groupIdsBean.groupIds.date}">
-				<f:convertDateTime type="date"/>
-			</h:outputText>
-			<h:outputText/>
-			<h:outputLabel for="groupIdsBeanGroupIdsCode" value="Code:"/>
-			<h:outputText id="groupIdsBeanGroupIdsCode" value="#{groupIdsBean.groupIds.code}"/>
-			<h:outputText/>
 			<h:outputLabel for="groupIdsBeanGroupIdsVersion" value="Version:"/>
 			<h:outputText id="groupIdsBeanGroupIdsVersion" value="#{groupIdsBean.groupIds.version}"/>
 			<h:outputText/>
 			<h:outputLabel for="groupIdsBeanGroupIdsArtifactId" value="Artifact Id:"/>
 			<h:outputText id="groupIdsBeanGroupIdsArtifactId" value="#{groupIdsBean.groupIds.artifactId}"/>
 			<h:outputText/>
-			<h:outputLabel for="groupIdsBeanGroupIdsGroupId" value="Group Id:"/>
-			<h:outputText id="groupIdsBeanGroupIdsGroupId" value="#{groupIdsBean.groupIds.groupId}"/>
+			<h:outputLabel for="groupIdsBeanGroupIdsDate" value="Date:"/>
+			<h:outputText id="groupIdsBeanGroupIdsDate" value="#{groupIdsBean.groupIds.date}">
+				<f:convertDateTime type="date"/>
+			</h:outputText>
 			<h:outputText/>
 			<h:outputLabel for="groupIdsBeanGroupIdsName" value="Name:"/>
 			<h:outputText id="groupIdsBeanGroupIdsName" value="#{groupIdsBean.groupIds.name}"/>
+			<h:outputText/>
+			<h:outputLabel for="groupIdsBeanGroupIdsCode" value="Code:"/>
+			<h:outputText id="groupIdsBeanGroupIdsCode" value="#{groupIdsBean.groupIds.code}"/>
+			<h:outputText/>
+			<h:outputLabel for="groupIdsBeanGroupIdsGroupId" value="Group Id:"/>
+			<h:outputText id="groupIdsBeanGroupIdsGroupId" value="#{groupIdsBean.groupIds.groupId}"/>
+			<h:outputText/>
+			<h:outputLabel for="groupIdsBeanGroupIdsIsSingle" value="Is Single:"/>
+			<h:outputText id="groupIdsBeanGroupIdsIsSingle" value="#{groupIdsBean.groupIds.isSingle}"/>
 			<h:outputText/>
 			<h:outputLabel for="groupIdsBeanGroupIdsEntities" value="Entities:"/>
 			<h:dataTable id="groupIdsBeanGroupIdsEntities" styleClass="data-table" value="#{forgeview:asList(groupIdsBean.groupIds.entities)}" var="_item">

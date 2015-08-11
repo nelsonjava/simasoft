@@ -227,16 +227,16 @@ public class RelationshipsBean implements Serializable {
 			predicatesList.add(builder.equal(root.get("optionality"),
 					optionality));
 		}
-		Boolean isEmbedded = this.example.getIsEmbedded();
-		if (isEmbedded != null) {
-			predicatesList
-					.add(builder.equal(root.get("isEmbedded"), isEmbedded));
-		}
 		String name = this.example.getName();
 		if (name != null && !"".equals(name)) {
 			predicatesList.add(builder.like(
 					builder.lower(root.<String> get("name")),
 					'%' + name.toLowerCase() + '%'));
+		}
+		Boolean isEmbedded = this.example.getIsEmbedded();
+		if (isEmbedded != null) {
+			predicatesList
+					.add(builder.equal(root.get("isEmbedded"), isEmbedded));
 		}
 		String observations = this.example.getObservations();
 		if (observations != null && !"".equals(observations)) {

@@ -29,10 +29,16 @@
 				<h:panelGroup styleClass="search">
 
 					<h:panelGrid columnClasses="label,component,required" columns="3">
-						<h:outputLabel for="dependenciesBeanExampleMaven" value="Maven:"/>
+						<h:outputLabel for="dependenciesBeanExampleGroupId" value="Group Id:"/>
 						<h:panelGroup>
-							<h:inputText id="dependenciesBeanExampleMaven" value="#{dependenciesBean.example.maven}"/>
-							<h:message for="dependenciesBeanExampleMaven" styleClass="error"/>
+							<h:inputText id="dependenciesBeanExampleGroupId" value="#{dependenciesBean.example.groupId}"/>
+							<h:message for="dependenciesBeanExampleGroupId" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="dependenciesBeanExampleVersion" value="Version:"/>
+						<h:panelGroup>
+							<h:inputText id="dependenciesBeanExampleVersion" value="#{dependenciesBean.example.version}"/>
+							<h:message for="dependenciesBeanExampleVersion" styleClass="error"/>
 						</h:panelGroup>
 						<h:outputText/>
 						<h:outputLabel for="dependenciesBeanExampleScope" value="Scope:"/>
@@ -47,16 +53,10 @@
 							<h:message for="dependenciesBeanExampleType" styleClass="error"/>
 						</h:panelGroup>
 						<h:outputText/>
-						<h:outputLabel for="dependenciesBeanExampleVersion" value="Version:"/>
+						<h:outputLabel for="dependenciesBeanExampleMaven" value="Maven:"/>
 						<h:panelGroup>
-							<h:inputText id="dependenciesBeanExampleVersion" value="#{dependenciesBean.example.version}"/>
-							<h:message for="dependenciesBeanExampleVersion" styleClass="error"/>
-						</h:panelGroup>
-						<h:outputText/>
-						<h:outputLabel for="dependenciesBeanExampleArtifactId" value="Artifact Id:"/>
-						<h:panelGroup>
-							<h:inputText id="dependenciesBeanExampleArtifactId" value="#{dependenciesBean.example.artifactId}"/>
-							<h:message for="dependenciesBeanExampleArtifactId" styleClass="error"/>
+							<h:inputText id="dependenciesBeanExampleMaven" value="#{dependenciesBean.example.maven}"/>
+							<h:message for="dependenciesBeanExampleMaven" styleClass="error"/>
 						</h:panelGroup>
 						<h:outputText/>
 					</h:panelGrid>
@@ -68,6 +68,15 @@
 			</f:validateBean>
 			
 			<h:dataTable id="dependenciesBeanPageItems" styleClass="data-table" value="#{dependenciesBean.pageItems}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Group Id"/>
+					</f:facet>
+					<h:link outcome="/admin/dependencies/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemGroupId" value="#{_item.groupId}"/>
+					</h:link>
+				</h:column>
 				<h:column>
 					<f:facet name="header">
 						<h:outputText value="Maven"/>
@@ -84,15 +93,6 @@
 					<h:link outcome="/admin/dependencies/view">
 						<f:param name="id" value="#{_item.id}"/>
 						<h:outputText id="itemArtifactId" value="#{_item.artifactId}"/>
-					</h:link>
-				</h:column>
-				<h:column>
-					<f:facet name="header">
-						<h:outputText value="Group Id"/>
-					</f:facet>
-					<h:link outcome="/admin/dependencies/view">
-						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemGroupId" value="#{_item.groupId}"/>
 					</h:link>
 				</h:column>
 			</h:dataTable>

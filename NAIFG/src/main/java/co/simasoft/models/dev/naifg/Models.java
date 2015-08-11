@@ -16,6 +16,7 @@ import javax.persistence.Column;
 
 import co.simasoft.models.dev.naifg.*;
 import co.simasoft.models.dev.naifg.dependencies.*;
+import co.simasoft.models.dev.naifg.sites.*;
 import org.hibernate.search.annotations.Analyze;
 import org.hibernate.search.annotations.Index;
 import org.hibernate.search.annotations.Field;
@@ -27,6 +28,8 @@ import javax.persistence.Temporal;
 import org.hibernate.search.annotations.DateBridge;
 import org.hibernate.search.annotations.Resolution;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 
 @Indexed
 @Entity
@@ -48,9 +51,9 @@ public class Models implements Serializable {
 	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
 	private String name;
 
-	@Column(nullable = false, unique = false)
+	@Column(nullable = true, unique = true)
 	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-	private String groupId;
+	private String code;
 
 	@Column(nullable = true, unique = false)
 	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
@@ -60,14 +63,17 @@ public class Models implements Serializable {
 	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
 	private String artifactId;
 
+	@Column(nullable = false, unique = false)
+	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+	private String groupId;
+
 	@Column(nullable = true, unique = false)
 	@Temporal(TemporalType.DATE)
 	@DateBridge(resolution = Resolution.YEAR)
 	private Date date;
 
-	@Column(nullable = true, unique = true)
-	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-	private String code;
+	@ManyToMany
+	private Set<Sites> sites = new HashSet<Sites>();
 
 	@ManyToMany
 	private Set<GroupIds> groupIds = new HashSet<GroupIds>();
@@ -78,14 +84,14 @@ public class Models implements Serializable {
 	public Models() {
 	}
 
-	public Models(String name, String groupId, String version,
-			String artifactId, Date date, String code) {
+	public Models(String name, String code, String version, String artifactId,
+			String groupId, Date date) {
 		this.name = name;
-		this.groupId = groupId;
+		this.code = code;
 		this.version = version;
 		this.artifactId = artifactId;
+		this.groupId = groupId;
 		this.date = date;
-		this.code = code;
 	}
 
 	public Long getId() {
@@ -116,11 +122,11 @@ public class Models implements Serializable {
 		this.name = name;
 	}
 
-	public String getGroupId() {
-		return groupId;
+	public String getCode() {
+		return code;
 	}
-	public void setGroupId(String groupId) {
-		this.groupId = groupId;
+	public void setCode(String code) {
+		this.code = code;
 	}
 
 	public String getVersion() {
@@ -137,6 +143,13 @@ public class Models implements Serializable {
 		this.artifactId = artifactId;
 	}
 
+	public String getGroupId() {
+		return groupId;
+	}
+	public void setGroupId(String groupId) {
+		this.groupId = groupId;
+	}
+
 	public Date getDate() {
 		return date;
 	}
@@ -144,11 +157,11 @@ public class Models implements Serializable {
 		this.date = date;
 	}
 
-	public String getCode() {
-		return code;
+	public Set<Sites> getSites() {
+		return sites;
 	}
-	public void setCode(String code) {
-		this.code = code;
+	public void setSites(Set<Sites> sites) {
+		this.sites = sites;
 	}
 
 	public Set<GroupIds> getGroupIds() {

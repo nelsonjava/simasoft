@@ -29,12 +29,6 @@
 				<h:panelGroup styleClass="search">
 
 					<h:panelGrid columnClasses="label,component,required" columns="3">
-						<h:outputLabel for="groupIdsBeanExampleCode" value="Code:"/>
-						<h:panelGroup>
-							<h:inputText id="groupIdsBeanExampleCode" value="#{groupIdsBean.example.code}"/>
-							<h:message for="groupIdsBeanExampleCode" styleClass="error"/>
-						</h:panelGroup>
-						<h:outputText/>
 						<h:outputLabel for="groupIdsBeanExampleVersion" value="Version:"/>
 						<h:panelGroup>
 							<h:inputText id="groupIdsBeanExampleVersion" value="#{groupIdsBean.example.version}"/>
@@ -47,16 +41,22 @@
 							<h:message for="groupIdsBeanExampleArtifactId" styleClass="error"/>
 						</h:panelGroup>
 						<h:outputText/>
-						<h:outputLabel for="groupIdsBeanExampleGroupId" value="Group Id:"/>
-						<h:panelGroup>
-							<h:inputText id="groupIdsBeanExampleGroupId" value="#{groupIdsBean.example.groupId}"/>
-							<h:message for="groupIdsBeanExampleGroupId" styleClass="error"/>
-						</h:panelGroup>
-						<h:outputText/>
 						<h:outputLabel for="groupIdsBeanExampleName" value="Name:"/>
 						<h:panelGroup>
 							<h:inputText id="groupIdsBeanExampleName" value="#{groupIdsBean.example.name}"/>
 							<h:message for="groupIdsBeanExampleName" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="groupIdsBeanExampleCode" value="Code:"/>
+						<h:panelGroup>
+							<h:inputText id="groupIdsBeanExampleCode" value="#{groupIdsBean.example.code}"/>
+							<h:message for="groupIdsBeanExampleCode" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="groupIdsBeanExampleGroupId" value="Group Id:"/>
+						<h:panelGroup>
+							<h:inputText id="groupIdsBeanExampleGroupId" value="#{groupIdsBean.example.groupId}"/>
+							<h:message for="groupIdsBeanExampleGroupId" styleClass="error"/>
 						</h:panelGroup>
 						<h:outputText/>
 					</h:panelGrid>
@@ -70,20 +70,20 @@
 			<h:dataTable id="groupIdsBeanPageItems" styleClass="data-table" value="#{groupIdsBean.pageItems}" var="_item">
 				<h:column>
 					<f:facet name="header">
-						<h:outputText value="Group Id"/>
-					</f:facet>
-					<h:link outcome="/admin/groupIds/view">
-						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemGroupId" value="#{_item.groupId}"/>
-					</h:link>
-				</h:column>
-				<h:column>
-					<f:facet name="header">
 						<h:outputText value="Name"/>
 					</f:facet>
 					<h:link outcome="/admin/groupIds/view">
 						<f:param name="id" value="#{_item.id}"/>
 						<h:outputText id="itemName" value="#{_item.name}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Group Id"/>
+					</f:facet>
+					<h:link outcome="/admin/groupIds/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemGroupId" value="#{_item.groupId}"/>
 					</h:link>
 				</h:column>
 			</h:dataTable>

@@ -49,6 +49,61 @@
 					<h:message for="importsBeanImportsName" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText value="*"/>
+				<h:outputLabel for="importsBeanImportsSites" value="Sites::"/>
+				<h:panelGroup>
+					<ui:param name="_collection" value="#{importsBean.imports.sites}"/>
+					<h:dataTable id="importsBeanImportsSites" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Sites"/>
+							</f:facet>
+							<h:link outcome="/admin/sites/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText value="#{_item.link}"/>
+							</h:link>
+						</h:column>
+					</h:dataTable>
+
+					<h:panelGrid columnClasses=",remove-column" 
+                                                           columns="2" 
+                                                           styleClass="data-table-footer">
+						<h:selectOneMenu converter="#{sitesBean.converter}" 
+                                                                       id="importsBeanImportsSitesSelect" 
+                                                                       value="#{requestScope['importsBeanImportsSitesSelect']}">
+							<f:selectItem/>
+							<f:selectItems value="#{sitesBean.all}"/>
+						</h:selectOneMenu>
+						<h:commandLink action="#{_collection.add(requestScope['importsBeanImportsSitesSelect'])}" 
+                                                                   id="importsBeanImportsSitesAdd" 
+                                                                   onclick="if (document.getElementById(document.forms[0].id+':importsBeanImportsSitesSelect').selectedIndex &lt; 1) { alert('Must select a Sites'); return false; }" 
+                                                                   styleClass="add-button"/>
+					</h:panelGrid>
+
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="importsBeanImportsEntities" value="Entities:"/>
+				<h:panelGroup>
+					<ui:param name="_collection" value="#{importsBean.imports.entities}"/>
+					<h:dataTable id="importsBeanImportsEntities" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Entities"/>
+							</f:facet>
+							<h:link outcome="/admin/entities/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText value="#{_item}"/>
+							</h:link>
+						</h:column>
+					</h:dataTable>
+					<h:panelGrid columnClasses=",remove-column" columns="2" styleClass="data-table-footer">
+						<h:selectOneMenu converter="#{entitiesBean.converter}" id="importsBeanImportsEntitiesSelect" value="#{requestScope['importsBeanImportsEntitiesSelect']}">
+							<f:selectItem/>
+							<f:selectItems value="#{entitiesBean.all}"/>
+						</h:selectOneMenu>
+						<h:commandLink action="#{_collection.add(requestScope['importsBeanImportsEntitiesSelect'])}" id="importsBeanImportsEntitiesAdd" onclick="if (document.getElementById(document.forms[0].id+':importsBeanImportsEntitiesSelect').selectedIndex &lt; 1) { alert('Must select a Entities'); return false; }" styleClass="add-button"/>
+					</h:panelGrid>
+				</h:panelGroup>
+				<h:outputText/>
 				<h:outputLabel for="importsBeanImportsCardinalities" value="Cardinalities:"/>
 				<h:panelGroup>
 					<ui:param name="_collection" value="#{importsBean.imports.cardinalities}"/>
@@ -114,29 +169,6 @@
 						<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{dependenciesBean.all}" var="_item"/>
 					</h:selectOneMenu>
 					<h:message for="importsBeanImportsDependencies" styleClass="error"/>
-				</h:panelGroup>
-				<h:outputText/>
-				<h:outputLabel for="importsBeanImportsEntities" value="Entities:"/>
-				<h:panelGroup>
-					<ui:param name="_collection" value="#{importsBean.imports.entities}"/>
-					<h:dataTable id="importsBeanImportsEntities" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
-						<h:column>
-							<f:facet name="header">
-								<h:outputText value="Entities"/>
-							</f:facet>
-							<h:link outcome="/admin/entities/view">
-								<f:param name="id" value="#{_item.id}"/>
-								<h:outputText value="#{_item}"/>
-							</h:link>
-						</h:column>
-					</h:dataTable>
-					<h:panelGrid columnClasses=",remove-column" columns="2" styleClass="data-table-footer">
-						<h:selectOneMenu converter="#{entitiesBean.converter}" id="importsBeanImportsEntitiesSelect" value="#{requestScope['importsBeanImportsEntitiesSelect']}">
-							<f:selectItem/>
-							<f:selectItems value="#{entitiesBean.all}"/>
-						</h:selectOneMenu>
-						<h:commandLink action="#{_collection.add(requestScope['importsBeanImportsEntitiesSelect'])}" id="importsBeanImportsEntitiesAdd" onclick="if (document.getElementById(document.forms[0].id+':importsBeanImportsEntitiesSelect').selectedIndex &lt; 1) { alert('Must select a Entities'); return false; }" styleClass="add-button"/>
-					</h:panelGrid>
 				</h:panelGroup>
 				<h:outputText/>
 			</h:panelGrid>

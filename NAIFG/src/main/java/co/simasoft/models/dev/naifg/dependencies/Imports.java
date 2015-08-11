@@ -16,6 +16,7 @@ import javax.persistence.Column;
 
 import co.simasoft.models.dev.naifg.*;
 import co.simasoft.models.dev.naifg.dependencies.*;
+import co.simasoft.models.dev.naifg.sites.*;
 import org.hibernate.search.annotations.Analyze;
 import org.hibernate.search.annotations.Index;
 import org.hibernate.search.annotations.Field;
@@ -27,8 +28,8 @@ import javax.persistence.Temporal;
 import org.hibernate.search.annotations.DateBridge;
 import org.hibernate.search.annotations.Resolution;
 import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 
 @Indexed
 @Entity
@@ -50,6 +51,12 @@ public class Imports implements Serializable {
 	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
 	private String name;
 
+	@ManyToMany
+	private Set<Sites> sites = new HashSet<Sites>();
+
+	@ManyToMany(mappedBy = "imports")
+	private Set<Entities> entities = new HashSet<Entities>();
+
 	@ManyToMany(mappedBy = "imports")
 	private Set<Cardinalities> cardinalities = new HashSet<Cardinalities>();
 
@@ -58,9 +65,6 @@ public class Imports implements Serializable {
 
 	@ManyToOne
 	private Dependencies dependencies;
-
-	@ManyToMany(mappedBy = "imports")
-	private Set<Entities> entities = new HashSet<Entities>();
 
 	public Imports() {
 	}
@@ -97,6 +101,20 @@ public class Imports implements Serializable {
 		this.name = name;
 	}
 
+	public Set<Sites> getSites() {
+		return sites;
+	}
+	public void setSites(Set<Sites> sites) {
+		this.sites = sites;
+	}
+
+	public Set<Entities> getEntities() {
+		return entities;
+	}
+	public void setEntities(Set<Entities> entities) {
+		this.entities = entities;
+	}
+
 	public Set<Cardinalities> getCardinalities() {
 		return cardinalities;
 	}
@@ -117,13 +135,6 @@ public class Imports implements Serializable {
 	}
 	public void setDependencies(Dependencies dependencies) {
 		this.dependencies = dependencies;
-	}
-
-	public Set<Entities> getEntities() {
-		return entities;
-	}
-	public void setEntities(Set<Entities> entities) {
-		this.entities = entities;
 	}
 
 	@Override

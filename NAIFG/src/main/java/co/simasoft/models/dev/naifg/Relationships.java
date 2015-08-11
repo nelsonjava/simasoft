@@ -16,6 +16,7 @@ import javax.persistence.Column;
 
 import co.simasoft.models.dev.naifg.*;
 import co.simasoft.models.dev.naifg.dependencies.*;
+import co.simasoft.models.dev.naifg.sites.*;
 import org.hibernate.search.annotations.Analyze;
 import org.hibernate.search.annotations.Index;
 import org.hibernate.search.annotations.Field;
@@ -27,6 +28,7 @@ import javax.persistence.Temporal;
 import org.hibernate.search.annotations.DateBridge;
 import org.hibernate.search.annotations.Resolution;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.ManyToOne;
 
 @Indexed
@@ -49,11 +51,11 @@ public class Relationships implements Serializable {
 	private Boolean optionality;
 
 	@Column(nullable = true, unique = false)
-	private Boolean isEmbedded;
-
-	@Column(nullable = true, unique = false)
 	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
 	private String name;
+
+	@Column(nullable = true, unique = false)
+	private Boolean isEmbedded;
 
 	@Column(nullable = true, unique = false)
 	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
@@ -74,11 +76,11 @@ public class Relationships implements Serializable {
 	public Relationships() {
 	}
 
-	public Relationships(Boolean optionality, Boolean isEmbedded, String name,
+	public Relationships(Boolean optionality, String name, Boolean isEmbedded,
 			String observations) {
 		this.optionality = optionality;
-		this.isEmbedded = isEmbedded;
 		this.name = name;
+		this.isEmbedded = isEmbedded;
 		this.observations = observations;
 	}
 
@@ -110,18 +112,18 @@ public class Relationships implements Serializable {
 		this.optionality = optionality;
 	}
 
-	public Boolean getIsEmbedded() {
-		return isEmbedded;
-	}
-	public void setIsEmbedded(Boolean isEmbedded) {
-		this.isEmbedded = isEmbedded;
-	}
-
 	public String getName() {
 		return name;
 	}
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public Boolean getIsEmbedded() {
+		return isEmbedded;
+	}
+	public void setIsEmbedded(Boolean isEmbedded) {
+		this.isEmbedded = isEmbedded;
 	}
 
 	public String getObservations() {

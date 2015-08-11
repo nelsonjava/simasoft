@@ -43,20 +43,6 @@
 					<h:message for="groupIdsBeanGroupIdsOrden" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
-				<h:outputLabel for="groupIdsBeanGroupIdsDate" value="Date:"/>
-				<h:panelGroup>
-					<h:inputText id="groupIdsBeanGroupIdsDate" value="#{groupIdsBean.groupIds.date}">
-						<f:convertDateTime type="date"/>
-					</h:inputText>
-					<h:message for="groupIdsBeanGroupIdsDate" styleClass="error"/>
-				</h:panelGroup>
-				<h:outputText/>
-				<h:outputLabel for="groupIdsBeanGroupIdsCode" value="Code:"/>
-				<h:panelGroup>
-					<h:inputText id="groupIdsBeanGroupIdsCode" value="#{groupIdsBean.groupIds.code}"/>
-					<h:message for="groupIdsBeanGroupIdsCode" styleClass="error"/>
-				</h:panelGroup>
-				<h:outputText/>
 				<h:outputLabel for="groupIdsBeanGroupIdsVersion" value="Version:"/>
 				<h:panelGroup>
 					<h:inputText id="groupIdsBeanGroupIdsVersion" value="#{groupIdsBean.groupIds.version}"/>
@@ -69,18 +55,42 @@
 					<h:message for="groupIdsBeanGroupIdsArtifactId" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
-				<h:outputLabel for="groupIdsBeanGroupIdsGroupId" value="Group Id:"/>
+				<h:outputLabel for="groupIdsBeanGroupIdsDate" value="Date:"/>
 				<h:panelGroup>
-					<h:inputText id="groupIdsBeanGroupIdsGroupId" required="true" value="#{groupIdsBean.groupIds.groupId}"/>
-					<h:message for="groupIdsBeanGroupIdsGroupId" styleClass="error"/>
+					<h:inputText id="groupIdsBeanGroupIdsDate" value="#{groupIdsBean.groupIds.date}">
+						<f:convertDateTime type="date"/>
+					</h:inputText>
+					<h:message for="groupIdsBeanGroupIdsDate" styleClass="error"/>
 				</h:panelGroup>
-				<h:outputText value="*"/>
+				<h:outputText/>
 				<h:outputLabel for="groupIdsBeanGroupIdsName" value="Name:"/>
 				<h:panelGroup>
 					<h:inputText id="groupIdsBeanGroupIdsName" required="true" value="#{groupIdsBean.groupIds.name}"/>
 					<h:message for="groupIdsBeanGroupIdsName" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText value="*"/>
+				<h:outputLabel for="groupIdsBeanGroupIdsCode" value="Code:"/>
+				<h:panelGroup>
+					<h:inputText id="groupIdsBeanGroupIdsCode" value="#{groupIdsBean.groupIds.code}"/>
+					<h:message for="groupIdsBeanGroupIdsCode" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="groupIdsBeanGroupIdsGroupId" value="Group Id:"/>
+				<h:panelGroup>
+					<h:inputText id="groupIdsBeanGroupIdsGroupId" required="true" value="#{groupIdsBean.groupIds.groupId}"/>
+					<h:message for="groupIdsBeanGroupIdsGroupId" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText value="*"/>
+				<h:outputLabel for="groupIdsBeanGroupIdsIsSingle" value="Is Single:"/>
+				<h:panelGroup>
+					<h:selectOneMenu id="groupIdsBeanGroupIdsIsSingle" value="#{groupIdsBean.groupIds.isSingle}">
+						<f:selectItem/>
+						<f:selectItem itemLabel="Yes" itemValue="true"/>
+						<f:selectItem itemLabel="No" itemValue="false"/>
+					</h:selectOneMenu>
+					<h:message for="groupIdsBeanGroupIdsIsSingle" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
 				<h:outputLabel for="groupIdsBeanGroupIdsEntities" value="Entities:"/>
 				<h:panelGroup>
 					<ui:param name="_collection" value="#{groupIdsBean.groupIds.entities}"/>

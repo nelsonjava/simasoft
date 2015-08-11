@@ -211,29 +211,31 @@ public class AttributesBean implements Serializable {
 		CriteriaBuilder builder = this.entityManager.getCriteriaBuilder();
 		List<Predicate> predicatesList = new ArrayList<Predicate>();
 
+		String annotationsMethod = this.example.getAnnotationsMethod();
+		if (annotationsMethod != null && !"".equals(annotationsMethod)) {
+			predicatesList.add(builder.like(
+					builder.lower(root.<String> get("annotationsMethod")),
+					'%' + annotationsMethod.toLowerCase() + '%'));
+		}
+		String annotationsField = this.example.getAnnotationsField();
+		if (annotationsField != null && !"".equals(annotationsField)) {
+			predicatesList.add(builder.like(
+					builder.lower(root.<String> get("annotationsField")),
+					'%' + annotationsField.toLowerCase() + '%'));
+		}
+		String descripcion = this.example.getDescripcion();
+		if (descripcion != null && !"".equals(descripcion)) {
+			predicatesList.add(builder.like(
+					builder.lower(root.<String> get("descripcion")),
+					'%' + descripcion.toLowerCase() + '%'));
+		}
+		Boolean single = this.example.getSingle();
+		if (single != null) {
+			predicatesList.add(builder.equal(root.get("single"), single));
+		}
 		Boolean nullable = this.example.getNullable();
 		if (nullable != null) {
 			predicatesList.add(builder.equal(root.get("nullable"), nullable));
-		}
-		Integer precision = this.example.getPrecision();
-		if (precision != null && precision.intValue() != 0) {
-			predicatesList.add(builder.equal(root.get("precision"), precision));
-		}
-		Integer length = this.example.getLength();
-		if (length != null && length.intValue() != 0) {
-			predicatesList.add(builder.equal(root.get("length"), length));
-		}
-		String name = this.example.getName();
-		if (name != null && !"".equals(name)) {
-			predicatesList.add(builder.like(
-					builder.lower(root.<String> get("name")),
-					'%' + name.toLowerCase() + '%'));
-		}
-		String field = this.example.getField();
-		if (field != null && !"".equals(field)) {
-			predicatesList.add(builder.like(
-					builder.lower(root.<String> get("field")),
-					'%' + field.toLowerCase() + '%'));
 		}
 
 		return predicatesList.toArray(new Predicate[predicatesList.size()]);

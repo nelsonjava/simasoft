@@ -16,6 +16,7 @@ import javax.persistence.Column;
 
 import co.simasoft.models.dev.naifg.*;
 import co.simasoft.models.dev.naifg.dependencies.*;
+import co.simasoft.models.dev.naifg.sites.*;
 import org.hibernate.search.annotations.Analyze;
 import org.hibernate.search.annotations.Index;
 import org.hibernate.search.annotations.Field;
@@ -27,8 +28,8 @@ import javax.persistence.Temporal;
 import org.hibernate.search.annotations.DateBridge;
 import org.hibernate.search.annotations.Resolution;
 import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 
 @Indexed
 @Entity
@@ -46,14 +47,6 @@ public class Cardinalities implements Serializable {
 
 	private double orden;
 
-	@Column(nullable = false, unique = true)
-	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-	private String name;
-
-	@Column(nullable = false, unique = false)
-	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-	private String cardinality;
-
 	@Column(nullable = true, unique = false)
 	private Boolean unidirectional;
 
@@ -61,12 +54,23 @@ public class Cardinalities implements Serializable {
 	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
 	private String annotations;
 
+	@Column(nullable = false, unique = false)
+	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+	private String cardinality;
+
 	@Column(nullable = true, unique = false)
 	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
 	private String observations;
 
+	@Column(nullable = false, unique = true)
+	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+	private String name;
+
 	@ManyToMany
 	private Set<Imports> imports = new HashSet<Imports>();
+
+	@ManyToMany
+	private Set<Sites> sites = new HashSet<Sites>();
 
 	@OneToMany(mappedBy = "cardinalities")
 	private Set<Relationships> relationships = new HashSet<Relationships>();
@@ -74,13 +78,13 @@ public class Cardinalities implements Serializable {
 	public Cardinalities() {
 	}
 
-	public Cardinalities(String name, String cardinality,
-			Boolean unidirectional, String annotations, String observations) {
-		this.name = name;
-		this.cardinality = cardinality;
+	public Cardinalities(Boolean unidirectional, String annotations,
+			String cardinality, String observations, String name) {
 		this.unidirectional = unidirectional;
 		this.annotations = annotations;
+		this.cardinality = cardinality;
 		this.observations = observations;
+		this.name = name;
 	}
 
 	public Long getId() {
@@ -104,20 +108,6 @@ public class Cardinalities implements Serializable {
 		this.orden = orden;
 	}
 
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getCardinality() {
-		return cardinality;
-	}
-	public void setCardinality(String cardinality) {
-		this.cardinality = cardinality;
-	}
-
 	public Boolean getUnidirectional() {
 		return unidirectional;
 	}
@@ -132,6 +122,13 @@ public class Cardinalities implements Serializable {
 		this.annotations = annotations;
 	}
 
+	public String getCardinality() {
+		return cardinality;
+	}
+	public void setCardinality(String cardinality) {
+		this.cardinality = cardinality;
+	}
+
 	public String getObservations() {
 		return observations;
 	}
@@ -139,11 +136,25 @@ public class Cardinalities implements Serializable {
 		this.observations = observations;
 	}
 
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+
 	public Set<Imports> getImports() {
 		return imports;
 	}
 	public void setImports(Set<Imports> imports) {
 		this.imports = imports;
+	}
+
+	public Set<Sites> getSites() {
+		return sites;
+	}
+	public void setSites(Set<Sites> sites) {
+		this.sites = sites;
 	}
 
 	public Set<Relationships> getRelationships() {

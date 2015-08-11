@@ -16,6 +16,7 @@ import javax.persistence.Column;
 
 import co.simasoft.models.dev.naifg.*;
 import co.simasoft.models.dev.naifg.dependencies.*;
+import co.simasoft.models.dev.naifg.sites.*;
 import org.hibernate.search.annotations.Analyze;
 import org.hibernate.search.annotations.Index;
 import org.hibernate.search.annotations.Field;
@@ -27,6 +28,7 @@ import javax.persistence.Temporal;
 import org.hibernate.search.annotations.DateBridge;
 import org.hibernate.search.annotations.Resolution;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.ManyToOne;
 
 @Indexed
@@ -46,10 +48,41 @@ public class Attributes implements Serializable {
 	private double orden;
 
 	@Column(nullable = true, unique = false)
+	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+	private String annotationsMethod;
+
+	@Column(nullable = true, unique = false)
+	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+	private String annotationsField;
+
+	@Column(nullable = true, unique = false)
+	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+	private String descripcion;
+
+	@Column(nullable = true, unique = false)
+	private Boolean single;
+
+	@Column(nullable = true, unique = false)
 	private Boolean nullable;
 
 	@Column(nullable = true, unique = false)
+	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+	private String columnDefinition;
+
+	@Column(nullable = true, unique = false)
+	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+	private String observations;
+
+	@Column(nullable = true, unique = false)
 	private Integer precision;
+
+	@Column(nullable = true, unique = false)
+	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+	private String access;
+
+	@Column(nullable = true, unique = false)
+	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+	private String field;
 
 	@Column(nullable = true, unique = false)
 	private Integer length;
@@ -58,36 +91,8 @@ public class Attributes implements Serializable {
 	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
 	private String name;
 
-	@Column(nullable = true, unique = false)
-	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-	private String field;
-
-	@Column(nullable = true, unique = false)
-	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-	private String access;
-
-	@Column(nullable = true, unique = false)
-	private Boolean single;
-
-	@Column(nullable = true, unique = false)
-	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-	private String descripcion;
-
-	@Column(nullable = true, unique = false)
-	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-	private String annotationsMethod;
-
-	@Column(nullable = true, unique = false)
-	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-	private String observations;
-
-	@Column(nullable = true, unique = false)
-	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-	private String columnDefinition;
-
-	@Column(nullable = true, unique = false)
-	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-	private String annotationsField;
+	@ManyToMany
+	private Set<Sites> sites = new HashSet<Sites>();
 
 	@ManyToMany
 	private Set<AttributesProperties> attributesProperties = new HashSet<AttributesProperties>();
@@ -101,22 +106,22 @@ public class Attributes implements Serializable {
 	public Attributes() {
 	}
 
-	public Attributes(Boolean nullable, Integer precision, Integer length,
-			String name, String field, String access, Boolean single,
-			String descripcion, String annotationsMethod, String observations,
-			String columnDefinition, String annotationsField) {
+	public Attributes(String annotationsMethod, String annotationsField,
+			String descripcion, Boolean single, Boolean nullable,
+			String columnDefinition, String observations, Integer precision,
+			String access, String field, Integer length, String name) {
+		this.annotationsMethod = annotationsMethod;
+		this.annotationsField = annotationsField;
+		this.descripcion = descripcion;
+		this.single = single;
 		this.nullable = nullable;
+		this.columnDefinition = columnDefinition;
+		this.observations = observations;
 		this.precision = precision;
+		this.access = access;
+		this.field = field;
 		this.length = length;
 		this.name = name;
-		this.field = field;
-		this.access = access;
-		this.single = single;
-		this.descripcion = descripcion;
-		this.annotationsMethod = annotationsMethod;
-		this.observations = observations;
-		this.columnDefinition = columnDefinition;
-		this.annotationsField = annotationsField;
 	}
 
 	public Long getId() {
@@ -140,6 +145,34 @@ public class Attributes implements Serializable {
 		this.orden = orden;
 	}
 
+	public String getAnnotationsMethod() {
+		return annotationsMethod;
+	}
+	public void setAnnotationsMethod(String annotationsMethod) {
+		this.annotationsMethod = annotationsMethod;
+	}
+
+	public String getAnnotationsField() {
+		return annotationsField;
+	}
+	public void setAnnotationsField(String annotationsField) {
+		this.annotationsField = annotationsField;
+	}
+
+	public String getDescripcion() {
+		return descripcion;
+	}
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
+
+	public Boolean getSingle() {
+		return single;
+	}
+	public void setSingle(Boolean single) {
+		this.single = single;
+	}
+
 	public Boolean getNullable() {
 		return nullable;
 	}
@@ -147,11 +180,39 @@ public class Attributes implements Serializable {
 		this.nullable = nullable;
 	}
 
+	public String getColumnDefinition() {
+		return columnDefinition;
+	}
+	public void setColumnDefinition(String columnDefinition) {
+		this.columnDefinition = columnDefinition;
+	}
+
+	public String getObservations() {
+		return observations;
+	}
+	public void setObservations(String observations) {
+		this.observations = observations;
+	}
+
 	public Integer getPrecision() {
 		return precision;
 	}
 	public void setPrecision(Integer precision) {
 		this.precision = precision;
+	}
+
+	public String getAccess() {
+		return access;
+	}
+	public void setAccess(String access) {
+		this.access = access;
+	}
+
+	public String getField() {
+		return field;
+	}
+	public void setField(String field) {
+		this.field = field;
 	}
 
 	public Integer getLength() {
@@ -168,60 +229,11 @@ public class Attributes implements Serializable {
 		this.name = name;
 	}
 
-	public String getField() {
-		return field;
+	public Set<Sites> getSites() {
+		return sites;
 	}
-	public void setField(String field) {
-		this.field = field;
-	}
-
-	public String getAccess() {
-		return access;
-	}
-	public void setAccess(String access) {
-		this.access = access;
-	}
-
-	public Boolean getSingle() {
-		return single;
-	}
-	public void setSingle(Boolean single) {
-		this.single = single;
-	}
-
-	public String getDescripcion() {
-		return descripcion;
-	}
-	public void setDescripcion(String descripcion) {
-		this.descripcion = descripcion;
-	}
-
-	public String getAnnotationsMethod() {
-		return annotationsMethod;
-	}
-	public void setAnnotationsMethod(String annotationsMethod) {
-		this.annotationsMethod = annotationsMethod;
-	}
-
-	public String getObservations() {
-		return observations;
-	}
-	public void setObservations(String observations) {
-		this.observations = observations;
-	}
-
-	public String getColumnDefinition() {
-		return columnDefinition;
-	}
-	public void setColumnDefinition(String columnDefinition) {
-		this.columnDefinition = columnDefinition;
-	}
-
-	public String getAnnotationsField() {
-		return annotationsField;
-	}
-	public void setAnnotationsField(String annotationsField) {
-		this.annotationsField = annotationsField;
+	public void setSites(Set<Sites> sites) {
+		this.sites = sites;
 	}
 
 	public Set<AttributesProperties> getAttributesProperties() {

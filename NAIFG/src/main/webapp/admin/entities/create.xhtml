@@ -43,46 +43,22 @@
 					<h:message for="entitiesBeanEntitiesOrden" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
-				<h:outputLabel for="entitiesBeanEntitiesTable" value="Table:"/>
+				<h:outputLabel for="entitiesBeanEntitiesSerialID" value="Serial ID:"/>
 				<h:panelGroup>
-					<h:inputText id="entitiesBeanEntitiesTable" value="#{entitiesBean.entities.table}"/>
-					<h:message for="entitiesBeanEntitiesTable" styleClass="error"/>
-				</h:panelGroup>
-				<h:outputText/>
-				<h:outputLabel for="entitiesBeanEntitiesTableSecuencia" value="Table Secuencia:"/>
-				<h:panelGroup>
-					<h:inputText id="entitiesBeanEntitiesTableSecuencia" value="#{entitiesBean.entities.tableSecuencia}"/>
-					<h:message for="entitiesBeanEntitiesTableSecuencia" styleClass="error"/>
-				</h:panelGroup>
-				<h:outputText/>
-				<h:outputLabel for="entitiesBeanEntitiesModifier" value="Modifier:"/>
-				<h:panelGroup>
-					<h:inputText id="entitiesBeanEntitiesModifier" value="#{entitiesBean.entities.modifier}"/>
-					<h:message for="entitiesBeanEntitiesModifier" styleClass="error"/>
-				</h:panelGroup>
-				<h:outputText/>
-				<h:outputLabel for="entitiesBeanEntitiesExtend" value="Extend:"/>
-				<h:panelGroup>
-					<h:inputText id="entitiesBeanEntitiesExtend" value="#{entitiesBean.entities.extend}"/>
-					<h:message for="entitiesBeanEntitiesExtend" styleClass="error"/>
-				</h:panelGroup>
-				<h:outputText/>
-				<h:outputLabel for="entitiesBeanEntitiesAnnotations" value="Annotations:"/>
-				<h:panelGroup>
-					<h:inputText id="entitiesBeanEntitiesAnnotations" value="#{entitiesBean.entities.annotations}"/>
-					<h:message for="entitiesBeanEntitiesAnnotations" styleClass="error"/>
-				</h:panelGroup>
-				<h:outputText/>
-				<h:outputLabel for="entitiesBeanEntitiesSource" value="Source:"/>
-				<h:panelGroup>
-					<h:inputText id="entitiesBeanEntitiesSource" value="#{entitiesBean.entities.source}"/>
-					<h:message for="entitiesBeanEntitiesSource" styleClass="error"/>
+					<h:inputText id="entitiesBeanEntitiesSerialID" value="#{entitiesBean.entities.serialID}"/>
+					<h:message for="entitiesBeanEntitiesSerialID" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
 				<h:outputLabel for="entitiesBeanEntitiesDescription" value="Description:"/>
 				<h:panelGroup>
 					<h:inputText id="entitiesBeanEntitiesDescription" value="#{entitiesBean.entities.description}"/>
 					<h:message for="entitiesBeanEntitiesDescription" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="entitiesBeanEntitiesSource" value="Source:"/>
+				<h:panelGroup>
+					<h:inputText id="entitiesBeanEntitiesSource" value="#{entitiesBean.entities.source}"/>
+					<h:message for="entitiesBeanEntitiesSource" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
 				<h:outputLabel for="entitiesBeanEntitiesObservations" value="Observations:"/>
@@ -97,38 +73,57 @@
 					<h:message for="entitiesBeanEntitiesName" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText value="*"/>
-				<h:outputLabel for="entitiesBeanEntitiesSerialID" value="Serial ID:"/>
+				<h:outputLabel for="entitiesBeanEntitiesAnnotations" value="Annotations:"/>
 				<h:panelGroup>
-					<h:inputText id="entitiesBeanEntitiesSerialID" value="#{entitiesBean.entities.serialID}"/>
-					<h:message for="entitiesBeanEntitiesSerialID" styleClass="error"/>
+					<h:inputText id="entitiesBeanEntitiesAnnotations" value="#{entitiesBean.entities.annotations}"/>
+					<h:message for="entitiesBeanEntitiesAnnotations" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
-				<h:outputLabel for="entitiesBeanEntitiesAttributes" value="Attributes:"/>
+				<h:outputLabel for="entitiesBeanEntitiesTableSecuencia" value="Table Secuencia:"/>
 				<h:panelGroup>
-					<ui:param name="_collection" value="#{entitiesBean.entities.attributes}"/>
-					<h:dataTable id="entitiesBeanEntitiesAttributes" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
+					<h:inputText id="entitiesBeanEntitiesTableSecuencia" value="#{entitiesBean.entities.tableSecuencia}"/>
+					<h:message for="entitiesBeanEntitiesTableSecuencia" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="entitiesBeanEntitiesModifier" value="Modifier:"/>
+				<h:panelGroup>
+					<h:inputText id="entitiesBeanEntitiesModifier" value="#{entitiesBean.entities.modifier}"/>
+					<h:message for="entitiesBeanEntitiesModifier" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="entitiesBeanEntitiesTable" value="Table:"/>
+				<h:panelGroup>
+					<h:inputText id="entitiesBeanEntitiesTable" value="#{entitiesBean.entities.table}"/>
+					<h:message for="entitiesBeanEntitiesTable" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="entitiesBeanEntitiesExtend" value="Extend:"/>
+				<h:panelGroup>
+					<h:inputText id="entitiesBeanEntitiesExtend" value="#{entitiesBean.entities.extend}"/>
+					<h:message for="entitiesBeanEntitiesExtend" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="entitiesBeanEntitiesImports" value="Imports:"/>
+				<h:panelGroup>
+					<ui:param name="_collection" value="#{entitiesBean.entities.imports}"/>
+					<h:dataTable id="entitiesBeanEntitiesImports" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
 						<h:column>
 							<f:facet name="header">
-								<h:outputText value="Name"/>
+								<h:outputText value="Imports"/>
 							</f:facet>
-							<h:link outcome="/admin/attributes/view">
+							<h:link outcome="/admin/imports/view">
 								<f:param name="id" value="#{_item.id}"/>
-								<h:outputText id="itemName" value="#{_item.name}"/>
+								<h:outputText value="#{_item}"/>
 							</h:link>
-							<f:facet name="footer">
-								<h:inputText id="attributesBeanAddName" value="#{attributesBean.add.name}"/>
-								<h:message for="attributesBeanAddName" styleClass="error"/>
-							</f:facet>
-						</h:column>
-						<h:column footerClass="remove-column" headerClass="remove-column">
-							<h:commandLink action="#{_collection.remove(_item)}" styleClass="remove-button"/>
-							<f:facet name="footer">
-								<h:commandLink action="#{_collection.add(attributesBean.added)}" id="entitiesBeanEntitiesAttributesAdd" styleClass="add-button">
-									<f:setPropertyActionListener target="#{attributesBean.add.entities}" value="#{entitiesBean.entities}"/>
-								</h:commandLink>
-							</f:facet>
 						</h:column>
 					</h:dataTable>
+					<h:panelGrid columnClasses=",remove-column" columns="2" styleClass="data-table-footer">
+						<h:selectOneMenu converter="#{importsBean.converter}" id="entitiesBeanEntitiesImportsSelect" value="#{requestScope['entitiesBeanEntitiesImportsSelect']}">
+							<f:selectItem/>
+							<f:selectItems value="#{importsBean.all}"/>
+						</h:selectOneMenu>
+						<h:commandLink action="#{_collection.add(requestScope['entitiesBeanEntitiesImportsSelect'])}" id="entitiesBeanEntitiesImportsAdd" onclick="if (document.getElementById(document.forms[0].id+':entitiesBeanEntitiesImportsSelect').selectedIndex &lt; 1) { alert('Must select a Imports'); return false; }" styleClass="add-button"/>
+					</h:panelGrid>
 				</h:panelGroup>
 				<h:outputText/>
 				<h:outputLabel for="entitiesBeanEntitiesFrom" value="From:"/>
@@ -167,6 +162,19 @@
 						</h:column>
 						<h:column>
 							<f:facet name="header">
+								<h:outputText value="Name"/>
+							</f:facet>
+							<h:link outcome="/admin/relationships/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemName" value="#{_item.name}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="relationshipsBeanAddName" value="#{relationshipsBean.add.name}"/>
+								<h:message for="relationshipsBeanAddName" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
 								<h:outputText value="Is Embedded"/>
 							</f:facet>
 							<h:link outcome="/admin/relationships/view">
@@ -180,19 +188,6 @@
 									<f:selectItem itemLabel="No" itemValue="false"/>
 								</h:selectOneMenu>
 								<h:message for="relationshipsBeanAddIsEmbedded" styleClass="error"/>
-							</f:facet>
-						</h:column>
-						<h:column>
-							<f:facet name="header">
-								<h:outputText value="Name"/>
-							</f:facet>
-							<h:link outcome="/admin/relationships/view">
-								<f:param name="id" value="#{_item.id}"/>
-								<h:outputText id="itemName" value="#{_item.name}"/>
-							</h:link>
-							<f:facet name="footer">
-								<h:inputText id="relationshipsBeanAddName" value="#{relationshipsBean.add.name}"/>
-								<h:message for="relationshipsBeanAddName" styleClass="error"/>
 							</f:facet>
 						</h:column>
 						<h:column>
@@ -219,26 +214,26 @@
 					</h:dataTable>
 				</h:panelGroup>
 				<h:outputText/>
-				<h:outputLabel for="entitiesBeanEntitiesImports" value="Imports:"/>
+				<h:outputLabel for="entitiesBeanEntitiesSites" value="Sites:"/>
 				<h:panelGroup>
-					<ui:param name="_collection" value="#{entitiesBean.entities.imports}"/>
-					<h:dataTable id="entitiesBeanEntitiesImports" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
+					<ui:param name="_collection" value="#{entitiesBean.entities.sites}"/>
+					<h:dataTable id="entitiesBeanEntitiesSites" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
 						<h:column>
 							<f:facet name="header">
-								<h:outputText value="Imports"/>
+								<h:outputText value="Sites"/>
 							</f:facet>
-							<h:link outcome="/admin/imports/view">
+							<h:link outcome="/admin/sites/view">
 								<f:param name="id" value="#{_item.id}"/>
 								<h:outputText value="#{_item}"/>
 							</h:link>
 						</h:column>
 					</h:dataTable>
 					<h:panelGrid columnClasses=",remove-column" columns="2" styleClass="data-table-footer">
-						<h:selectOneMenu converter="#{importsBean.converter}" id="entitiesBeanEntitiesImportsSelect" value="#{requestScope['entitiesBeanEntitiesImportsSelect']}">
+						<h:selectOneMenu converter="#{sitesBean.converter}" id="entitiesBeanEntitiesSitesSelect" value="#{requestScope['entitiesBeanEntitiesSitesSelect']}">
 							<f:selectItem/>
-							<f:selectItems value="#{importsBean.all}"/>
+							<f:selectItems value="#{sitesBean.all}"/>
 						</h:selectOneMenu>
-						<h:commandLink action="#{_collection.add(requestScope['entitiesBeanEntitiesImportsSelect'])}" id="entitiesBeanEntitiesImportsAdd" onclick="if (document.getElementById(document.forms[0].id+':entitiesBeanEntitiesImportsSelect').selectedIndex &lt; 1) { alert('Must select a Imports'); return false; }" styleClass="add-button"/>
+						<h:commandLink action="#{_collection.add(requestScope['entitiesBeanEntitiesSitesSelect'])}" id="entitiesBeanEntitiesSitesAdd" onclick="if (document.getElementById(document.forms[0].id+':entitiesBeanEntitiesSitesSelect').selectedIndex &lt; 1) { alert('Must select a Sites'); return false; }" styleClass="add-button"/>
 					</h:panelGrid>
 				</h:panelGroup>
 				<h:outputText/>
@@ -278,6 +273,19 @@
 						</h:column>
 						<h:column>
 							<f:facet name="header">
+								<h:outputText value="Name"/>
+							</f:facet>
+							<h:link outcome="/admin/relationships/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemName" value="#{_item.name}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="relationshipsBeanAddName" value="#{relationshipsBean.add.name}"/>
+								<h:message for="relationshipsBeanAddName" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
 								<h:outputText value="Is Embedded"/>
 							</f:facet>
 							<h:link outcome="/admin/relationships/view">
@@ -291,19 +299,6 @@
 									<f:selectItem itemLabel="No" itemValue="false"/>
 								</h:selectOneMenu>
 								<h:message for="relationshipsBeanAddIsEmbedded" styleClass="error"/>
-							</f:facet>
-						</h:column>
-						<h:column>
-							<f:facet name="header">
-								<h:outputText value="Name"/>
-							</f:facet>
-							<h:link outcome="/admin/relationships/view">
-								<f:param name="id" value="#{_item.id}"/>
-								<h:outputText id="itemName" value="#{_item.name}"/>
-							</h:link>
-							<f:facet name="footer">
-								<h:inputText id="relationshipsBeanAddName" value="#{relationshipsBean.add.name}"/>
-								<h:message for="relationshipsBeanAddName" styleClass="error"/>
 							</f:facet>
 						</h:column>
 						<h:column>
@@ -365,6 +360,34 @@
 							<f:facet name="footer">
 								<h:commandLink action="#{_collection.add(nameQueriesBean.added)}" id="entitiesBeanEntitiesNameQueriesAdd" styleClass="add-button">
 									<f:setPropertyActionListener target="#{nameQueriesBean.add.entities}" value="#{entitiesBean.entities}"/>
+								</h:commandLink>
+							</f:facet>
+						</h:column>
+					</h:dataTable>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="entitiesBeanEntitiesAttributes" value="Attributes:"/>
+				<h:panelGroup>
+					<ui:param name="_collection" value="#{entitiesBean.entities.attributes}"/>
+					<h:dataTable id="entitiesBeanEntitiesAttributes" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Name"/>
+							</f:facet>
+							<h:link outcome="/admin/attributes/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemName" value="#{_item.name}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="attributesBeanAddName" value="#{attributesBean.add.name}"/>
+								<h:message for="attributesBeanAddName" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column footerClass="remove-column" headerClass="remove-column">
+							<h:commandLink action="#{_collection.remove(_item)}" styleClass="remove-button"/>
+							<f:facet name="footer">
+								<h:commandLink action="#{_collection.add(attributesBean.added)}" id="entitiesBeanEntitiesAttributesAdd" styleClass="add-button">
+									<f:setPropertyActionListener target="#{attributesBean.add.entities}" value="#{entitiesBean.entities}"/>
 								</h:commandLink>
 							</f:facet>
 						</h:column>

@@ -16,6 +16,7 @@ import javax.persistence.Column;
 
 import co.simasoft.models.dev.naifg.*;
 import co.simasoft.models.dev.naifg.dependencies.*;
+import co.simasoft.models.dev.naifg.sites.*;
 import org.hibernate.search.annotations.Analyze;
 import org.hibernate.search.annotations.Index;
 import org.hibernate.search.annotations.Field;
@@ -27,8 +28,8 @@ import javax.persistence.Temporal;
 import org.hibernate.search.annotations.DateBridge;
 import org.hibernate.search.annotations.Resolution;
 import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 
 @Indexed
 @Entity
@@ -57,14 +58,17 @@ public class AttributesProperties implements Serializable {
 	@ManyToMany
 	private Set<Imports> imports = new HashSet<Imports>();
 
+	@ManyToMany
+	private Set<Sites> sites = new HashSet<Sites>();
+
+	@ManyToMany(mappedBy = "attributesProperties")
+	private Set<AttributesTypes> attributesTypes = new HashSet<AttributesTypes>();
+
 	@ManyToMany(mappedBy = "attributesProperties")
 	private Set<Attributes> attributes = new HashSet<Attributes>();
 
 	@ManyToMany(mappedBy = "attributesProperties")
 	private Set<Relationships> relationships = new HashSet<Relationships>();
-
-	@ManyToMany(mappedBy = "attributesProperties")
-	private Set<AttributesTypes> attributesTypes = new HashSet<AttributesTypes>();
 
 	public AttributesProperties() {
 	}
@@ -116,6 +120,20 @@ public class AttributesProperties implements Serializable {
 		this.imports = imports;
 	}
 
+	public Set<Sites> getSites() {
+		return sites;
+	}
+	public void setSites(Set<Sites> sites) {
+		this.sites = sites;
+	}
+
+	public Set<AttributesTypes> getAttributesTypes() {
+		return attributesTypes;
+	}
+	public void setAttributesTypes(Set<AttributesTypes> attributesTypes) {
+		this.attributesTypes = attributesTypes;
+	}
+
 	public Set<Attributes> getAttributes() {
 		return attributes;
 	}
@@ -128,13 +146,6 @@ public class AttributesProperties implements Serializable {
 	}
 	public void setRelationships(Set<Relationships> relationships) {
 		this.relationships = relationships;
-	}
-
-	public Set<AttributesTypes> getAttributesTypes() {
-		return attributesTypes;
-	}
-	public void setAttributesTypes(Set<AttributesTypes> attributesTypes) {
-		this.attributesTypes = attributesTypes;
 	}
 
 	@Override

@@ -16,6 +16,7 @@ import javax.persistence.Column;
 
 import co.simasoft.models.dev.naifg.*;
 import co.simasoft.models.dev.naifg.dependencies.*;
+import co.simasoft.models.dev.naifg.sites.*;
 import org.hibernate.search.annotations.Analyze;
 import org.hibernate.search.annotations.Index;
 import org.hibernate.search.annotations.Field;
@@ -27,8 +28,8 @@ import javax.persistence.Temporal;
 import org.hibernate.search.annotations.DateBridge;
 import org.hibernate.search.annotations.Resolution;
 import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 
 @Indexed
 @Entity
@@ -46,13 +47,13 @@ public class NameQueries implements Serializable {
 
 	private double orden;
 
-	@Column(nullable = true, unique = false)
-	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-	private String observations;
-
 	@Column(nullable = false, unique = true)
 	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
 	private String query;
+
+	@Column(nullable = true, unique = false)
+	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+	private String observations;
 
 	@Column(nullable = false, unique = true)
 	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
@@ -64,9 +65,9 @@ public class NameQueries implements Serializable {
 	public NameQueries() {
 	}
 
-	public NameQueries(String observations, String query, String name) {
-		this.observations = observations;
+	public NameQueries(String query, String observations, String name) {
 		this.query = query;
+		this.observations = observations;
 		this.name = name;
 	}
 
@@ -91,18 +92,18 @@ public class NameQueries implements Serializable {
 		this.orden = orden;
 	}
 
-	public String getObservations() {
-		return observations;
-	}
-	public void setObservations(String observations) {
-		this.observations = observations;
-	}
-
 	public String getQuery() {
 		return query;
 	}
 	public void setQuery(String query) {
 		this.query = query;
+	}
+
+	public String getObservations() {
+		return observations;
+	}
+	public void setObservations(String observations) {
+		this.observations = observations;
 	}
 
 	public String getName() {

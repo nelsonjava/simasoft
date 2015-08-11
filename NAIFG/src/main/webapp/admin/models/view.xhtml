@@ -32,8 +32,8 @@
 			<h:outputLabel for="modelsBeanModelsName" value="Name:"/>
 			<h:outputText id="modelsBeanModelsName" value="#{modelsBean.models.name}"/>
 			<h:outputText/>
-			<h:outputLabel for="modelsBeanModelsGroupId" value="Group Id:"/>
-			<h:outputText id="modelsBeanModelsGroupId" value="#{modelsBean.models.groupId}"/>
+			<h:outputLabel for="modelsBeanModelsCode" value="Code:"/>
+			<h:outputText id="modelsBeanModelsCode" value="#{modelsBean.models.code}"/>
 			<h:outputText/>
 			<h:outputLabel for="modelsBeanModelsVersion" value="Version:"/>
 			<h:outputText id="modelsBeanModelsVersion" value="#{modelsBean.models.version}"/>
@@ -41,25 +41,29 @@
 			<h:outputLabel for="modelsBeanModelsArtifactId" value="Artifact Id:"/>
 			<h:outputText id="modelsBeanModelsArtifactId" value="#{modelsBean.models.artifactId}"/>
 			<h:outputText/>
+			<h:outputLabel for="modelsBeanModelsGroupId" value="Group Id:"/>
+			<h:outputText id="modelsBeanModelsGroupId" value="#{modelsBean.models.groupId}"/>
+			<h:outputText/>
 			<h:outputLabel for="modelsBeanModelsDate" value="Date:"/>
 			<h:outputText id="modelsBeanModelsDate" value="#{modelsBean.models.date}">
 				<f:convertDateTime type="date"/>
 			</h:outputText>
 			<h:outputText/>
-			<h:outputLabel for="modelsBeanModelsCode" value="Code:"/>
-			<h:outputText id="modelsBeanModelsCode" value="#{modelsBean.models.code}"/>
+			<h:outputLabel for="modelsBeanModelsSites" value="Sites:"/>
+			<h:dataTable id="modelsBeanModelsSites" styleClass="data-table" value="#{forgeview:asList(modelsBean.models.sites)}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Sites"/>
+					</f:facet>
+					<h:link outcome="/admin/sites/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText value="#{_item}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
 			<h:outputText/>
 			<h:outputLabel for="modelsBeanModelsGroupIds" value="Group Ids:"/>
 			<h:dataTable id="modelsBeanModelsGroupIds" styleClass="data-table" value="#{forgeview:asList(modelsBean.models.groupIds)}" var="_item">
-				<h:column>
-					<f:facet name="header">
-						<h:outputText value="Group Id"/>
-					</f:facet>
-					<h:link outcome="/admin/groupIds/view">
-						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemGroupId" value="#{_item.groupId}"/>
-					</h:link>
-				</h:column>
 				<h:column>
 					<f:facet name="header">
 						<h:outputText value="Name"/>
@@ -67,6 +71,15 @@
 					<h:link outcome="/admin/groupIds/view">
 						<f:param name="id" value="#{_item.id}"/>
 						<h:outputText id="itemName" value="#{_item.name}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Group Id"/>
+					</f:facet>
+					<h:link outcome="/admin/groupIds/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemGroupId" value="#{_item.groupId}"/>
 					</h:link>
 				</h:column>
 			</h:dataTable>
@@ -75,20 +88,20 @@
 			<h:dataTable id="modelsBeanModelsDevelopments" styleClass="data-table" value="#{forgeview:asList(modelsBean.models.developments)}" var="_item">
 				<h:column>
 					<f:facet name="header">
-						<h:outputText value="Name"/>
-					</f:facet>
-					<h:link outcome="/admin/developments/view">
-						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemName" value="#{_item.name}"/>
-					</h:link>
-				</h:column>
-				<h:column>
-					<f:facet name="header">
 						<h:outputText value="Group Id"/>
 					</f:facet>
 					<h:link outcome="/admin/developments/view">
 						<f:param name="id" value="#{_item.id}"/>
 						<h:outputText id="itemGroupId" value="#{_item.groupId}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Name"/>
+					</f:facet>
+					<h:link outcome="/admin/developments/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemName" value="#{_item.name}"/>
 					</h:link>
 				</h:column>
 			</h:dataTable>

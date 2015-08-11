@@ -16,6 +16,7 @@ import javax.persistence.Column;
 
 import co.simasoft.models.dev.naifg.*;
 import co.simasoft.models.dev.naifg.dependencies.*;
+import co.simasoft.models.dev.naifg.sites.*;
 import org.hibernate.search.annotations.Analyze;
 import org.hibernate.search.annotations.Index;
 import org.hibernate.search.annotations.Field;
@@ -27,6 +28,8 @@ import javax.persistence.Temporal;
 import org.hibernate.search.annotations.DateBridge;
 import org.hibernate.search.annotations.Resolution;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 
 @Indexed
 @Entity
@@ -44,30 +47,33 @@ public class Developments implements Serializable {
 
 	private double orden;
 
-	@Column(nullable = false, unique = true)
-	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-	private String name;
+	@Column(nullable = true, unique = false)
+	@Temporal(TemporalType.DATE)
+	@DateBridge(resolution = Resolution.YEAR)
+	private Date date;
 
 	@Column(nullable = true, unique = true)
 	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
 	private String artifactId;
 
+	@Column(nullable = true, unique = true)
+	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+	private String code;
+
 	@Column(nullable = false, unique = false)
 	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
 	private String groupId;
 
-	@Column(nullable = true, unique = true)
+	@Column(nullable = false, unique = true)
 	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-	private String code;
+	private String name;
 
 	@Column(nullable = true, unique = false)
 	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
 	private String version;
 
-	@Column(nullable = true, unique = false)
-	@Temporal(TemporalType.DATE)
-	@DateBridge(resolution = Resolution.YEAR)
-	private Date date;
+	@ManyToMany
+	private Set<Sites> sites = new HashSet<Sites>();
 
 	@ManyToMany
 	private Set<Models> models = new HashSet<Models>();
@@ -75,14 +81,14 @@ public class Developments implements Serializable {
 	public Developments() {
 	}
 
-	public Developments(String name, String artifactId, String groupId,
-			String code, String version, Date date) {
-		this.name = name;
-		this.artifactId = artifactId;
-		this.groupId = groupId;
-		this.code = code;
-		this.version = version;
+	public Developments(Date date, String artifactId, String code,
+			String groupId, String name, String version) {
 		this.date = date;
+		this.artifactId = artifactId;
+		this.code = code;
+		this.groupId = groupId;
+		this.name = name;
+		this.version = version;
 	}
 
 	public Long getId() {
@@ -106,11 +112,11 @@ public class Developments implements Serializable {
 		this.orden = orden;
 	}
 
-	public String getName() {
-		return name;
+	public Date getDate() {
+		return date;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setDate(Date date) {
+		this.date = date;
 	}
 
 	public String getArtifactId() {
@@ -120,6 +126,13 @@ public class Developments implements Serializable {
 		this.artifactId = artifactId;
 	}
 
+	public String getCode() {
+		return code;
+	}
+	public void setCode(String code) {
+		this.code = code;
+	}
+
 	public String getGroupId() {
 		return groupId;
 	}
@@ -127,11 +140,11 @@ public class Developments implements Serializable {
 		this.groupId = groupId;
 	}
 
-	public String getCode() {
-		return code;
+	public String getName() {
+		return name;
 	}
-	public void setCode(String code) {
-		this.code = code;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public String getVersion() {
@@ -141,11 +154,11 @@ public class Developments implements Serializable {
 		this.version = version;
 	}
 
-	public Date getDate() {
-		return date;
+	public Set<Sites> getSites() {
+		return sites;
 	}
-	public void setDate(Date date) {
-		this.date = date;
+	public void setSites(Set<Sites> sites) {
+		this.sites = sites;
 	}
 
 	public Set<Models> getModels() {

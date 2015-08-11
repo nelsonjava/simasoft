@@ -29,16 +29,16 @@
 				<h:panelGroup styleClass="search">
 
 					<h:panelGrid columnClasses="label,component,required" columns="3">
-						<h:outputLabel for="developmentsBeanExampleName" value="Name:"/>
-						<h:panelGroup>
-							<h:inputText id="developmentsBeanExampleName" value="#{developmentsBean.example.name}"/>
-							<h:message for="developmentsBeanExampleName" styleClass="error"/>
-						</h:panelGroup>
-						<h:outputText/>
 						<h:outputLabel for="developmentsBeanExampleArtifactId" value="Artifact Id:"/>
 						<h:panelGroup>
 							<h:inputText id="developmentsBeanExampleArtifactId" value="#{developmentsBean.example.artifactId}"/>
 							<h:message for="developmentsBeanExampleArtifactId" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="developmentsBeanExampleCode" value="Code:"/>
+						<h:panelGroup>
+							<h:inputText id="developmentsBeanExampleCode" value="#{developmentsBean.example.code}"/>
+							<h:message for="developmentsBeanExampleCode" styleClass="error"/>
 						</h:panelGroup>
 						<h:outputText/>
 						<h:outputLabel for="developmentsBeanExampleGroupId" value="Group Id:"/>
@@ -47,10 +47,10 @@
 							<h:message for="developmentsBeanExampleGroupId" styleClass="error"/>
 						</h:panelGroup>
 						<h:outputText/>
-						<h:outputLabel for="developmentsBeanExampleCode" value="Code:"/>
+						<h:outputLabel for="developmentsBeanExampleName" value="Name:"/>
 						<h:panelGroup>
-							<h:inputText id="developmentsBeanExampleCode" value="#{developmentsBean.example.code}"/>
-							<h:message for="developmentsBeanExampleCode" styleClass="error"/>
+							<h:inputText id="developmentsBeanExampleName" value="#{developmentsBean.example.name}"/>
+							<h:message for="developmentsBeanExampleName" styleClass="error"/>
 						</h:panelGroup>
 						<h:outputText/>
 						<h:outputLabel for="developmentsBeanExampleVersion" value="Version:"/>
@@ -70,20 +70,20 @@
 			<h:dataTable id="developmentsBeanPageItems" styleClass="data-table" value="#{developmentsBean.pageItems}" var="_item">
 				<h:column>
 					<f:facet name="header">
-						<h:outputText value="Name"/>
-					</f:facet>
-					<h:link outcome="/admin/developments/view">
-						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemName" value="#{_item.name}"/>
-					</h:link>
-				</h:column>
-				<h:column>
-					<f:facet name="header">
 						<h:outputText value="Group Id"/>
 					</f:facet>
 					<h:link outcome="/admin/developments/view">
 						<f:param name="id" value="#{_item.id}"/>
 						<h:outputText id="itemGroupId" value="#{_item.groupId}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Name"/>
+					</f:facet>
+					<h:link outcome="/admin/developments/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemName" value="#{_item.name}"/>
 					</h:link>
 				</h:column>
 			</h:dataTable>

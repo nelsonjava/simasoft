@@ -29,11 +29,35 @@
 			<h:outputLabel for="attributesBeanAttributesOrden" value="Orden:"/>
 			<h:outputText id="attributesBeanAttributesOrden" value="#{attributesBean.attributes.orden}"/>
 			<h:outputText/>
+			<h:outputLabel for="attributesBeanAttributesAnnotationsMethod" value="Annotations Method:"/>
+			<h:outputText id="attributesBeanAttributesAnnotationsMethod" value="#{attributesBean.attributes.annotationsMethod}"/>
+			<h:outputText/>
+			<h:outputLabel for="attributesBeanAttributesAnnotationsField" value="Annotations Field:"/>
+			<h:outputText id="attributesBeanAttributesAnnotationsField" value="#{attributesBean.attributes.annotationsField}"/>
+			<h:outputText/>
+			<h:outputLabel for="attributesBeanAttributesDescripcion" value="Descripcion:"/>
+			<h:outputText id="attributesBeanAttributesDescripcion" value="#{attributesBean.attributes.descripcion}"/>
+			<h:outputText/>
+			<h:outputLabel for="attributesBeanAttributesSingle" value="Single:"/>
+			<h:outputText id="attributesBeanAttributesSingle" value="#{attributesBean.attributes.single}"/>
+			<h:outputText/>
 			<h:outputLabel for="attributesBeanAttributesNullable" value="Nullable:"/>
 			<h:outputText id="attributesBeanAttributesNullable" value="#{attributesBean.attributes.nullable}"/>
 			<h:outputText/>
+			<h:outputLabel for="attributesBeanAttributesColumnDefinition" value="Column Definition:"/>
+			<h:outputText id="attributesBeanAttributesColumnDefinition" value="#{attributesBean.attributes.columnDefinition}"/>
+			<h:outputText/>
+			<h:outputLabel for="attributesBeanAttributesObservations" value="Observations:"/>
+			<h:outputText id="attributesBeanAttributesObservations" value="#{attributesBean.attributes.observations}"/>
+			<h:outputText/>
 			<h:outputLabel for="attributesBeanAttributesPrecision" value="Precision:"/>
 			<h:outputText id="attributesBeanAttributesPrecision" value="#{attributesBean.attributes.precision}"/>
+			<h:outputText/>
+			<h:outputLabel for="attributesBeanAttributesAccess" value="Access:"/>
+			<h:outputText id="attributesBeanAttributesAccess" value="#{attributesBean.attributes.access}"/>
+			<h:outputText/>
+			<h:outputLabel for="attributesBeanAttributesField" value="Field:"/>
+			<h:outputText id="attributesBeanAttributesField" value="#{attributesBean.attributes.field}"/>
 			<h:outputText/>
 			<h:outputLabel for="attributesBeanAttributesLength" value="Length:"/>
 			<h:outputText id="attributesBeanAttributesLength" value="#{attributesBean.attributes.length}"/>
@@ -41,29 +65,18 @@
 			<h:outputLabel for="attributesBeanAttributesName" value="Name:"/>
 			<h:outputText id="attributesBeanAttributesName" value="#{attributesBean.attributes.name}"/>
 			<h:outputText/>
-			<h:outputLabel for="attributesBeanAttributesField" value="Field:"/>
-			<h:outputText id="attributesBeanAttributesField" value="#{attributesBean.attributes.field}"/>
-			<h:outputText/>
-			<h:outputLabel for="attributesBeanAttributesAccess" value="Access:"/>
-			<h:outputText id="attributesBeanAttributesAccess" value="#{attributesBean.attributes.access}"/>
-			<h:outputText/>
-			<h:outputLabel for="attributesBeanAttributesSingle" value="Single:"/>
-			<h:outputText id="attributesBeanAttributesSingle" value="#{attributesBean.attributes.single}"/>
-			<h:outputText/>
-			<h:outputLabel for="attributesBeanAttributesDescripcion" value="Descripcion:"/>
-			<h:outputText id="attributesBeanAttributesDescripcion" value="#{attributesBean.attributes.descripcion}"/>
-			<h:outputText/>
-			<h:outputLabel for="attributesBeanAttributesAnnotationsMethod" value="Annotations Method:"/>
-			<h:outputText id="attributesBeanAttributesAnnotationsMethod" value="#{attributesBean.attributes.annotationsMethod}"/>
-			<h:outputText/>
-			<h:outputLabel for="attributesBeanAttributesObservations" value="Observations:"/>
-			<h:outputText id="attributesBeanAttributesObservations" value="#{attributesBean.attributes.observations}"/>
-			<h:outputText/>
-			<h:outputLabel for="attributesBeanAttributesColumnDefinition" value="Column Definition:"/>
-			<h:outputText id="attributesBeanAttributesColumnDefinition" value="#{attributesBean.attributes.columnDefinition}"/>
-			<h:outputText/>
-			<h:outputLabel for="attributesBeanAttributesAnnotationsField" value="Annotations Field:"/>
-			<h:outputText id="attributesBeanAttributesAnnotationsField" value="#{attributesBean.attributes.annotationsField}"/>
+			<h:outputLabel for="attributesBeanAttributesSites" value="Sites:"/>
+			<h:dataTable id="attributesBeanAttributesSites" styleClass="data-table" value="#{forgeview:asList(attributesBean.attributes.sites)}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Sites"/>
+					</f:facet>
+					<h:link outcome="/admin/sites/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText value="#{_item}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
 			<h:outputText/>
 			<h:outputLabel for="attributesBeanAttributesAttributesProperties" value="Attributes Properties:"/>
 			<h:dataTable id="attributesBeanAttributesAttributesProperties" styleClass="data-table" value="#{forgeview:asList(attributesBean.attributes.attributesProperties)}" var="_item">

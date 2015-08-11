@@ -16,6 +16,7 @@ import javax.persistence.Column;
 
 import co.simasoft.models.dev.naifg.*;
 import co.simasoft.models.dev.naifg.dependencies.*;
+import co.simasoft.models.dev.naifg.sites.*;
 import org.hibernate.search.annotations.Analyze;
 import org.hibernate.search.annotations.Index;
 import org.hibernate.search.annotations.Field;
@@ -27,8 +28,8 @@ import javax.persistence.Temporal;
 import org.hibernate.search.annotations.DateBridge;
 import org.hibernate.search.annotations.Resolution;
 import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 
 @Indexed
 @Entity
@@ -47,15 +48,6 @@ public class GroupIds implements Serializable {
 	private double orden;
 
 	@Column(nullable = true, unique = false)
-	@Temporal(TemporalType.DATE)
-	@DateBridge(resolution = Resolution.YEAR)
-	private Date date;
-
-	@Column(nullable = true, unique = true)
-	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-	private String code;
-
-	@Column(nullable = true, unique = false)
 	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
 	private String version;
 
@@ -63,13 +55,25 @@ public class GroupIds implements Serializable {
 	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
 	private String artifactId;
 
-	@Column(nullable = false, unique = false)
-	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-	private String groupId;
+	@Column(nullable = true, unique = false)
+	@Temporal(TemporalType.DATE)
+	@DateBridge(resolution = Resolution.YEAR)
+	private Date date;
 
 	@Column(nullable = false, unique = true)
 	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
 	private String name;
+
+	@Column(nullable = true, unique = true)
+	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+	private String code;
+
+	@Column(nullable = false, unique = false)
+	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+	private String groupId;
+
+	@Column(nullable = true, unique = false)
+	private Boolean isSingle;
 
 	@OneToMany(mappedBy = "groupIds")
 	private Set<Entities> entities = new HashSet<Entities>();
@@ -80,14 +84,15 @@ public class GroupIds implements Serializable {
 	public GroupIds() {
 	}
 
-	public GroupIds(Date date, String code, String version, String artifactId,
-			String groupId, String name) {
-		this.date = date;
-		this.code = code;
+	public GroupIds(String version, String artifactId, Date date, String name,
+			String code, String groupId, Boolean isSingle) {
 		this.version = version;
 		this.artifactId = artifactId;
-		this.groupId = groupId;
+		this.date = date;
 		this.name = name;
+		this.code = code;
+		this.groupId = groupId;
+		this.isSingle = isSingle;
 	}
 
 	public Long getId() {
@@ -111,20 +116,6 @@ public class GroupIds implements Serializable {
 		this.orden = orden;
 	}
 
-	public Date getDate() {
-		return date;
-	}
-	public void setDate(Date date) {
-		this.date = date;
-	}
-
-	public String getCode() {
-		return code;
-	}
-	public void setCode(String code) {
-		this.code = code;
-	}
-
 	public String getVersion() {
 		return version;
 	}
@@ -139,11 +130,11 @@ public class GroupIds implements Serializable {
 		this.artifactId = artifactId;
 	}
 
-	public String getGroupId() {
-		return groupId;
+	public Date getDate() {
+		return date;
 	}
-	public void setGroupId(String groupId) {
-		this.groupId = groupId;
+	public void setDate(Date date) {
+		this.date = date;
 	}
 
 	public String getName() {
@@ -151,6 +142,27 @@ public class GroupIds implements Serializable {
 	}
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public String getCode() {
+		return code;
+	}
+	public void setCode(String code) {
+		this.code = code;
+	}
+
+	public String getGroupId() {
+		return groupId;
+	}
+	public void setGroupId(String groupId) {
+		this.groupId = groupId;
+	}
+
+	public Boolean getIsSingle() {
+		return isSingle;
+	}
+	public void setIsSingle(Boolean isSingle) {
+		this.isSingle = isSingle;
 	}
 
 	public Set<Entities> getEntities() {

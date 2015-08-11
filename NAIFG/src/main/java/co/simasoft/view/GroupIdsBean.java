@@ -223,12 +223,6 @@ public class GroupIdsBean implements Serializable {
 		CriteriaBuilder builder = this.entityManager.getCriteriaBuilder();
 		List<Predicate> predicatesList = new ArrayList<Predicate>();
 
-		String code = this.example.getCode();
-		if (code != null && !"".equals(code)) {
-			predicatesList.add(builder.like(
-					builder.lower(root.<String> get("code")),
-					'%' + code.toLowerCase() + '%'));
-		}
 		String version = this.example.getVersion();
 		if (version != null && !"".equals(version)) {
 			predicatesList.add(builder.like(
@@ -241,17 +235,23 @@ public class GroupIdsBean implements Serializable {
 					builder.lower(root.<String> get("artifactId")),
 					'%' + artifactId.toLowerCase() + '%'));
 		}
-		String groupId = this.example.getGroupId();
-		if (groupId != null && !"".equals(groupId)) {
-			predicatesList.add(builder.like(
-					builder.lower(root.<String> get("groupId")),
-					'%' + groupId.toLowerCase() + '%'));
-		}
 		String name = this.example.getName();
 		if (name != null && !"".equals(name)) {
 			predicatesList.add(builder.like(
 					builder.lower(root.<String> get("name")),
 					'%' + name.toLowerCase() + '%'));
+		}
+		String code = this.example.getCode();
+		if (code != null && !"".equals(code)) {
+			predicatesList.add(builder.like(
+					builder.lower(root.<String> get("code")),
+					'%' + code.toLowerCase() + '%'));
+		}
+		String groupId = this.example.getGroupId();
+		if (groupId != null && !"".equals(groupId)) {
+			predicatesList.add(builder.like(
+					builder.lower(root.<String> get("groupId")),
+					'%' + groupId.toLowerCase() + '%'));
 		}
 
 		return predicatesList.toArray(new Predicate[predicatesList.size()]);

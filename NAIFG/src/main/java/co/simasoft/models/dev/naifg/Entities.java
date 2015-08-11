@@ -16,6 +16,7 @@ import javax.persistence.Column;
 
 import co.simasoft.models.dev.naifg.*;
 import co.simasoft.models.dev.naifg.dependencies.*;
+import co.simasoft.models.dev.naifg.sites.*;
 import org.hibernate.search.annotations.Analyze;
 import org.hibernate.search.annotations.Index;
 import org.hibernate.search.annotations.Field;
@@ -27,8 +28,8 @@ import javax.persistence.Temporal;
 import org.hibernate.search.annotations.DateBridge;
 import org.hibernate.search.annotations.Resolution;
 import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 
 @Indexed
 @Entity
@@ -46,9 +47,29 @@ public class Entities implements Serializable {
 
 	private double orden;
 
+	@Column(nullable = true, unique = true)
+	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+	private String serialID;
+
 	@Column(nullable = true, unique = false)
 	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-	private String table;
+	private String description;
+
+	@Column(nullable = true, unique = false)
+	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+	private String source;
+
+	@Column(nullable = true, unique = false)
+	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+	private String observations;
+
+	@Column(nullable = false, unique = false)
+	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+	private String name;
+
+	@Column(nullable = true, unique = false)
+	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+	private String annotations;
 
 	@Column(nullable = true, unique = false)
 	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
@@ -60,40 +81,20 @@ public class Entities implements Serializable {
 
 	@Column(nullable = true, unique = false)
 	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+	private String table;
+
+	@Column(nullable = true, unique = false)
+	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
 	private String extend;
 
-	@Column(nullable = true, unique = false)
-	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-	private String annotations;
-
-	@Column(nullable = true, unique = false)
-	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-	private String source;
-
-	@Column(nullable = true, unique = false)
-	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-	private String description;
-
-	@Column(nullable = true, unique = false)
-	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-	private String observations;
-
-	@Column(nullable = false, unique = false)
-	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-	private String name;
-
-	@Column(nullable = true, unique = true)
-	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-	private String serialID;
-
-	@OneToMany(mappedBy = "entities")
-	private Set<Attributes> attributes = new HashSet<Attributes>();
+	@ManyToMany
+	private Set<Imports> imports = new HashSet<Imports>();
 
 	@OneToMany(mappedBy = "from")
 	private Set<Relationships> from = new HashSet<Relationships>();
 
 	@ManyToMany
-	private Set<Imports> imports = new HashSet<Imports>();
+	private Set<Sites> sites = new HashSet<Sites>();
 
 	@OneToMany(mappedBy = "to")
 	private Set<Relationships> to = new HashSet<Relationships>();
@@ -101,26 +102,28 @@ public class Entities implements Serializable {
 	@OneToMany(mappedBy = "entities")
 	private Set<NameQueries> nameQueries = new HashSet<NameQueries>();
 
+	@OneToMany(mappedBy = "entities")
+	private Set<Attributes> attributes = new HashSet<Attributes>();
+
 	@ManyToOne
 	private GroupIds groupIds;
 
 	public Entities() {
 	}
 
-	public Entities(String table, String tableSecuencia, String modifier,
-			String extend, String annotations, String source,
-			String description, String observations, String name,
-			String serialID) {
-		this.table = table;
-		this.tableSecuencia = tableSecuencia;
-		this.modifier = modifier;
-		this.extend = extend;
-		this.annotations = annotations;
-		this.source = source;
+	public Entities(String serialID, String description, String source,
+			String observations, String name, String annotations,
+			String tableSecuencia, String modifier, String table, String extend) {
+		this.serialID = serialID;
 		this.description = description;
+		this.source = source;
 		this.observations = observations;
 		this.name = name;
-		this.serialID = serialID;
+		this.annotations = annotations;
+		this.tableSecuencia = tableSecuencia;
+		this.modifier = modifier;
+		this.table = table;
+		this.extend = extend;
 	}
 
 	public Long getId() {
@@ -144,46 +147,11 @@ public class Entities implements Serializable {
 		this.orden = orden;
 	}
 
-	public String getTable() {
-		return table;
+	public String getSerialID() {
+		return serialID;
 	}
-	public void setTable(String table) {
-		this.table = table;
-	}
-
-	public String getTableSecuencia() {
-		return tableSecuencia;
-	}
-	public void setTableSecuencia(String tableSecuencia) {
-		this.tableSecuencia = tableSecuencia;
-	}
-
-	public String getModifier() {
-		return modifier;
-	}
-	public void setModifier(String modifier) {
-		this.modifier = modifier;
-	}
-
-	public String getExtend() {
-		return extend;
-	}
-	public void setExtend(String extend) {
-		this.extend = extend;
-	}
-
-	public String getAnnotations() {
-		return annotations;
-	}
-	public void setAnnotations(String annotations) {
-		this.annotations = annotations;
-	}
-
-	public String getSource() {
-		return source;
-	}
-	public void setSource(String source) {
-		this.source = source;
+	public void setSerialID(String serialID) {
+		this.serialID = serialID;
 	}
 
 	public String getDescription() {
@@ -191,6 +159,13 @@ public class Entities implements Serializable {
 	}
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public String getSource() {
+		return source;
+	}
+	public void setSource(String source) {
+		this.source = source;
 	}
 
 	public String getObservations() {
@@ -207,18 +182,46 @@ public class Entities implements Serializable {
 		this.name = name;
 	}
 
-	public String getSerialID() {
-		return serialID;
+	public String getAnnotations() {
+		return annotations;
 	}
-	public void setSerialID(String serialID) {
-		this.serialID = serialID;
+	public void setAnnotations(String annotations) {
+		this.annotations = annotations;
 	}
 
-	public Set<Attributes> getAttributes() {
-		return attributes;
+	public String getTableSecuencia() {
+		return tableSecuencia;
 	}
-	public void setAttributes(Set<Attributes> attributes) {
-		this.attributes = attributes;
+	public void setTableSecuencia(String tableSecuencia) {
+		this.tableSecuencia = tableSecuencia;
+	}
+
+	public String getModifier() {
+		return modifier;
+	}
+	public void setModifier(String modifier) {
+		this.modifier = modifier;
+	}
+
+	public String getTable() {
+		return table;
+	}
+	public void setTable(String table) {
+		this.table = table;
+	}
+
+	public String getExtend() {
+		return extend;
+	}
+	public void setExtend(String extend) {
+		this.extend = extend;
+	}
+
+	public Set<Imports> getImports() {
+		return imports;
+	}
+	public void setImports(Set<Imports> imports) {
+		this.imports = imports;
 	}
 
 	public Set<Relationships> getFrom() {
@@ -228,11 +231,11 @@ public class Entities implements Serializable {
 		this.from = from;
 	}
 
-	public Set<Imports> getImports() {
-		return imports;
+	public Set<Sites> getSites() {
+		return sites;
 	}
-	public void setImports(Set<Imports> imports) {
-		this.imports = imports;
+	public void setSites(Set<Sites> sites) {
+		this.sites = sites;
 	}
 
 	public Set<Relationships> getTo() {
@@ -247,6 +250,13 @@ public class Entities implements Serializable {
 	}
 	public void setNameQueries(Set<NameQueries> nameQueries) {
 		this.nameQueries = nameQueries;
+	}
+
+	public Set<Attributes> getAttributes() {
+		return attributes;
+	}
+	public void setAttributes(Set<Attributes> attributes) {
+		this.attributes = attributes;
 	}
 
 	public GroupIds getGroupIds() {

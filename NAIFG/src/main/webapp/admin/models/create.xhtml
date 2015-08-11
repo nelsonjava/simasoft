@@ -49,12 +49,12 @@
 					<h:message for="modelsBeanModelsName" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText value="*"/>
-				<h:outputLabel for="modelsBeanModelsGroupId" value="Group Id:"/>
+				<h:outputLabel for="modelsBeanModelsCode" value="Code:"/>
 				<h:panelGroup>
-					<h:inputText id="modelsBeanModelsGroupId" required="true" value="#{modelsBean.models.groupId}"/>
-					<h:message for="modelsBeanModelsGroupId" styleClass="error"/>
+					<h:inputText id="modelsBeanModelsCode" value="#{modelsBean.models.code}"/>
+					<h:message for="modelsBeanModelsCode" styleClass="error"/>
 				</h:panelGroup>
-				<h:outputText value="*"/>
+				<h:outputText/>
 				<h:outputLabel for="modelsBeanModelsVersion" value="Version:"/>
 				<h:panelGroup>
 					<h:inputText id="modelsBeanModelsVersion" value="#{modelsBean.models.version}"/>
@@ -67,6 +67,12 @@
 					<h:message for="modelsBeanModelsArtifactId" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
+				<h:outputLabel for="modelsBeanModelsGroupId" value="Group Id:"/>
+				<h:panelGroup>
+					<h:inputText id="modelsBeanModelsGroupId" required="true" value="#{modelsBean.models.groupId}"/>
+					<h:message for="modelsBeanModelsGroupId" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText value="*"/>
 				<h:outputLabel for="modelsBeanModelsDate" value="Date:"/>
 				<h:panelGroup>
 					<h:inputText id="modelsBeanModelsDate" value="#{modelsBean.models.date}">
@@ -75,25 +81,33 @@
 					<h:message for="modelsBeanModelsDate" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
-				<h:outputLabel for="modelsBeanModelsCode" value="Code:"/>
+				<h:outputLabel for="modelsBeanModelsSites" value="Sites:"/>
 				<h:panelGroup>
-					<h:inputText id="modelsBeanModelsCode" value="#{modelsBean.models.code}"/>
-					<h:message for="modelsBeanModelsCode" styleClass="error"/>
+					<ui:param name="_collection" value="#{modelsBean.models.sites}"/>
+					<h:dataTable id="modelsBeanModelsSites" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Sites"/>
+							</f:facet>
+							<h:link outcome="/admin/sites/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText value="#{_item}"/>
+							</h:link>
+						</h:column>
+					</h:dataTable>
+					<h:panelGrid columnClasses=",remove-column" columns="2" styleClass="data-table-footer">
+						<h:selectOneMenu converter="#{sitesBean.converter}" id="modelsBeanModelsSitesSelect" value="#{requestScope['modelsBeanModelsSitesSelect']}">
+							<f:selectItem/>
+							<f:selectItems value="#{sitesBean.all}"/>
+						</h:selectOneMenu>
+						<h:commandLink action="#{_collection.add(requestScope['modelsBeanModelsSitesSelect'])}" id="modelsBeanModelsSitesAdd" onclick="if (document.getElementById(document.forms[0].id+':modelsBeanModelsSitesSelect').selectedIndex &lt; 1) { alert('Must select a Sites'); return false; }" styleClass="add-button"/>
+					</h:panelGrid>
 				</h:panelGroup>
 				<h:outputText/>
-				<h:outputLabel for="modelsBeanModelsGroupIds" value="GroupIds:"/>
+				<h:outputLabel for="modelsBeanModelsGroupIds" value="Group Ids:"/>
 				<h:panelGroup>
 					<ui:param name="_collection" value="#{modelsBean.models.groupIds}"/>
 					<h:dataTable id="modelsBeanModelsGroupIds" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
-						<h:column>
-							<f:facet name="header">
-								<h:outputText value="Group Id"/>
-							</f:facet>
-							<h:link outcome="/admin/groupIds/view">
-								<f:param name="id" value="#{_item.id}"/>
-								<h:outputText id="itemGroupId" value="#{_item.groupId}"/>
-							</h:link>
-						</h:column>
 						<h:column>
 							<f:facet name="header">
 								<h:outputText value="Name"/>
@@ -103,6 +117,15 @@
 								<h:outputText id="itemName" value="#{_item.name}"/>
 							</h:link>
 						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Group Id"/>
+							</f:facet>
+							<h:link outcome="/admin/groupIds/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemGroupId" value="#{_item.groupId}"/>
+							</h:link>
+						</h:column>
 						<h:column footerClass="remove-column" headerClass="remove-column">
 							<h:commandLink action="#{_collection.remove(_item)}" styleClass="remove-button"/>
 						</h:column>
@@ -110,7 +133,7 @@
 					<h:panelGrid columnClasses=",remove-column" columns="2" styleClass="data-table-footer">
 						<h:selectOneMenu converter="#{groupIdsBean.converter}" id="modelsBeanModelsGroupIdsSelect" value="#{requestScope['modelsBeanModelsGroupIdsSelect']}">
 							<f:selectItem/>
-							<f:selectItems itemLabel="#{forgeview:display(_item.name)}" itemValue="#{_item}" value="#{groupIdsBean.all}" var="_item"/>
+							<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{groupIdsBean.all}" var="_item"/>
 						</h:selectOneMenu>
 						<h:commandLink action="#{_collection.add(requestScope['modelsBeanModelsGroupIdsSelect'])}" id="modelsBeanModelsGroupIdsAdd" onclick="if (document.getElementById(document.forms[0].id+':modelsBeanModelsGroupIdsSelect').selectedIndex &lt; 1) { alert('Must select a Group Ids'); return false; }" styleClass="add-button"/>
 					</h:panelGrid>
@@ -122,20 +145,20 @@
 					<h:dataTable id="modelsBeanModelsDevelopments" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
 						<h:column>
 							<f:facet name="header">
-								<h:outputText value="Name"/>
-							</f:facet>
-							<h:link outcome="/admin/developments/view">
-								<f:param name="id" value="#{_item.id}"/>
-								<h:outputText id="itemName" value="#{_item.name}"/>
-							</h:link>
-						</h:column>
-						<h:column>
-							<f:facet name="header">
 								<h:outputText value="Group Id"/>
 							</f:facet>
 							<h:link outcome="/admin/developments/view">
 								<f:param name="id" value="#{_item.id}"/>
 								<h:outputText id="itemGroupId" value="#{_item.groupId}"/>
+							</h:link>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Name"/>
+							</f:facet>
+							<h:link outcome="/admin/developments/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemName" value="#{_item.name}"/>
 							</h:link>
 						</h:column>
 						<h:column footerClass="remove-column" headerClass="remove-column">

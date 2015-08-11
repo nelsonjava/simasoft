@@ -211,17 +211,17 @@ public class NameQueriesBean implements Serializable {
 		CriteriaBuilder builder = this.entityManager.getCriteriaBuilder();
 		List<Predicate> predicatesList = new ArrayList<Predicate>();
 
-		String observations = this.example.getObservations();
-		if (observations != null && !"".equals(observations)) {
-			predicatesList.add(builder.like(
-					builder.lower(root.<String> get("observations")),
-					'%' + observations.toLowerCase() + '%'));
-		}
 		String query = this.example.getQuery();
 		if (query != null && !"".equals(query)) {
 			predicatesList.add(builder.like(
 					builder.lower(root.<String> get("query")),
 					'%' + query.toLowerCase() + '%'));
+		}
+		String observations = this.example.getObservations();
+		if (observations != null && !"".equals(observations)) {
+			predicatesList.add(builder.like(
+					builder.lower(root.<String> get("observations")),
+					'%' + observations.toLowerCase() + '%'));
 		}
 		String name = this.example.getName();
 		if (name != null && !"".equals(name)) {

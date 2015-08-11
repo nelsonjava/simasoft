@@ -32,6 +32,32 @@
 			<h:outputLabel for="importsBeanImportsName" value="Name:"/>
 			<h:outputText id="importsBeanImportsName" value="#{importsBean.imports.name}"/>
 			<h:outputText/>
+			<h:outputLabel for="importsBeanImportsSites" value="Sites:"/>
+			<h:dataTable id="importsBeanImportsSites" styleClass="data-table" value="#{forgeview:asList(importsBean.imports.sites)}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Sites"/>
+					</f:facet>
+					<h:link outcome="/admin/sites/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText value="#{_item}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<h:outputText/>
+			<h:outputLabel for="importsBeanImportsEntities" value="Entities:"/>
+			<h:dataTable id="importsBeanImportsEntities" styleClass="data-table" value="#{forgeview:asList(importsBean.imports.entities)}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Entities"/>
+					</f:facet>
+					<h:link outcome="/admin/entities/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText value="#{_item}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<h:outputText/>
 			<h:outputLabel for="importsBeanImportsCardinalities" value="Cardinalities:"/>
 			<h:dataTable id="importsBeanImportsCardinalities" styleClass="data-table" value="#{forgeview:asList(importsBean.imports.cardinalities)}" var="_item">
 				<h:column>
@@ -71,19 +97,6 @@
 			<h:link id="importsBeanImportsDependencies" outcome="/admin/dependencies/view" rendered="#{!empty importsBean.imports.dependencies}" value="#{importsBean.imports.dependencies}">
 				<f:param name="id" value="#{importsBean.imports.dependencies.id}"/>
 			</h:link>
-			<h:outputText/>
-			<h:outputLabel for="importsBeanImportsEntities" value="Entities:"/>
-			<h:dataTable id="importsBeanImportsEntities" styleClass="data-table" value="#{forgeview:asList(importsBean.imports.entities)}" var="_item">
-				<h:column>
-					<f:facet name="header">
-						<h:outputText value="Entities"/>
-					</f:facet>
-					<h:link outcome="/admin/entities/view">
-						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText value="#{_item}"/>
-					</h:link>
-				</h:column>
-			</h:dataTable>
 			<h:outputText/>
 		</h:panelGrid>
 

@@ -576,7 +576,10 @@ public class App extends FileTxt{
         modelos.clear();
         modelos.add(new Modelos("dev/naifg/dependencies/dependenciesEntities.oom","co.simasoft.models.dev.naifg.dependencies"));
         modelos.add(new Modelos("dev/naifg/dependencies/dependenciesModel.oom","co.simasoft.models.dev.naifg.dependencies"));
-//        modelos.add(new Modelos("dev/naifg/dependencies/dependenciesModelExternal.oom","co.simasoft.models.dev.naifg.dependencies"));
+        modelos.add(new Modelos("dev/naifg/dependencies/dependenciesModelExternal.oom","co.simasoft.models.dev.naifg.dependencies"));
+
+        modelos.add(new Modelos("dev/naifg/sites/sitesEntities.oom","co.simasoft.models.dev.naifg.sites"));
+        modelos.add(new Modelos("dev/naifg/sites/sitesModel.oom","co.simasoft.models.dev.naifg.sites"));
 
         modelos.add(new Modelos("dev/naifg/naifgEntities.oom","co.simasoft.models.dev.naifg"));
         modelos.add(new Modelos("dev/naifg/naifgModel.oom","co.simasoft.models.dev.naifg"));

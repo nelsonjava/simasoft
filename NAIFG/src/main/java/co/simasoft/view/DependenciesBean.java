@@ -217,11 +217,17 @@ public class DependenciesBean implements Serializable {
 		CriteriaBuilder builder = this.entityManager.getCriteriaBuilder();
 		List<Predicate> predicatesList = new ArrayList<Predicate>();
 
-		String maven = this.example.getMaven();
-		if (maven != null && !"".equals(maven)) {
+		String groupId = this.example.getGroupId();
+		if (groupId != null && !"".equals(groupId)) {
 			predicatesList.add(builder.like(
-					builder.lower(root.<String> get("maven")),
-					'%' + maven.toLowerCase() + '%'));
+					builder.lower(root.<String> get("groupId")),
+					'%' + groupId.toLowerCase() + '%'));
+		}
+		String version = this.example.getVersion();
+		if (version != null && !"".equals(version)) {
+			predicatesList.add(builder.like(
+					builder.lower(root.<String> get("version")),
+					'%' + version.toLowerCase() + '%'));
 		}
 		String scope = this.example.getScope();
 		if (scope != null && !"".equals(scope)) {
@@ -235,17 +241,11 @@ public class DependenciesBean implements Serializable {
 					builder.lower(root.<String> get("type")),
 					'%' + type.toLowerCase() + '%'));
 		}
-		String version = this.example.getVersion();
-		if (version != null && !"".equals(version)) {
+		String maven = this.example.getMaven();
+		if (maven != null && !"".equals(maven)) {
 			predicatesList.add(builder.like(
-					builder.lower(root.<String> get("version")),
-					'%' + version.toLowerCase() + '%'));
-		}
-		String artifactId = this.example.getArtifactId();
-		if (artifactId != null && !"".equals(artifactId)) {
-			predicatesList.add(builder.like(
-					builder.lower(root.<String> get("artifactId")),
-					'%' + artifactId.toLowerCase() + '%'));
+					builder.lower(root.<String> get("maven")),
+					'%' + maven.toLowerCase() + '%'));
 		}
 
 		return predicatesList.toArray(new Predicate[predicatesList.size()]);

@@ -30,16 +30,16 @@
 				<h:panelGroup styleClass="search">
 
 					<h:panelGrid columnClasses="label,component,required" columns="3">
-						<h:outputLabel for="nameQueriesBeanExampleObservations" value="Observations:"/>
-						<h:panelGroup>
-							<h:inputText id="nameQueriesBeanExampleObservations" value="#{nameQueriesBean.example.observations}"/>
-							<h:message for="nameQueriesBeanExampleObservations" styleClass="error"/>
-						</h:panelGroup>
-						<h:outputText/>
 						<h:outputLabel for="nameQueriesBeanExampleQuery" value="Query:"/>
 						<h:panelGroup>
 							<h:inputText id="nameQueriesBeanExampleQuery" value="#{nameQueriesBean.example.query}"/>
 							<h:message for="nameQueriesBeanExampleQuery" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="nameQueriesBeanExampleObservations" value="Observations:"/>
+						<h:panelGroup>
+							<h:inputText id="nameQueriesBeanExampleObservations" value="#{nameQueriesBean.example.observations}"/>
+							<h:message for="nameQueriesBeanExampleObservations" styleClass="error"/>
 						</h:panelGroup>
 						<h:outputText/>
 						<h:outputLabel for="nameQueriesBeanExampleName" value="Name:"/>

@@ -43,18 +43,6 @@
 					<h:message for="attributesTypesBeanAttributesTypesOrden" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
-				<h:outputLabel for="attributesTypesBeanAttributesTypesType" value="Type:"/>
-				<h:panelGroup>
-					<h:inputText id="attributesTypesBeanAttributesTypesType" required="true" value="#{attributesTypesBean.attributesTypes.type}"/>
-					<h:message for="attributesTypesBeanAttributesTypesType" styleClass="error"/>
-				</h:panelGroup>
-				<h:outputText value="*"/>
-				<h:outputLabel for="attributesTypesBeanAttributesTypesName" value="Name:"/>
-				<h:panelGroup>
-					<h:inputText id="attributesTypesBeanAttributesTypesName" required="true" value="#{attributesTypesBean.attributesTypes.name}"/>
-					<h:message for="attributesTypesBeanAttributesTypesName" styleClass="error"/>
-				</h:panelGroup>
-				<h:outputText value="*"/>
 				<h:outputLabel for="attributesTypesBeanAttributesTypesPrecision" value="Precision:"/>
 				<h:panelGroup>
 					<h:inputText id="attributesTypesBeanAttributesTypesPrecision" value="#{attributesTypesBean.attributesTypes.precision}"/>
@@ -67,28 +55,24 @@
 					<h:message for="attributesTypesBeanAttributesTypesLength" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
+				<h:outputLabel for="attributesTypesBeanAttributesTypesName" value="Name:"/>
+				<h:panelGroup>
+					<h:inputText id="attributesTypesBeanAttributesTypesName" required="true" value="#{attributesTypesBean.attributesTypes.name}"/>
+					<h:message for="attributesTypesBeanAttributesTypesName" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText value="*"/>
 				<h:outputLabel for="attributesTypesBeanAttributesTypesAnnotations" value="Annotations:"/>
 				<h:panelGroup>
 					<h:inputText id="attributesTypesBeanAttributesTypesAnnotations" value="#{attributesTypesBean.attributesTypes.annotations}"/>
 					<h:message for="attributesTypesBeanAttributesTypesAnnotations" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
-				<h:outputLabel for="attributesTypesBeanAttributesTypesAttributes" value="Attributes:"/>
+				<h:outputLabel for="attributesTypesBeanAttributesTypesType" value="Type:"/>
 				<h:panelGroup>
-					<ui:param name="_collection" value="#{attributesTypesBean.attributesTypes.attributes}"/>
-					<h:dataTable id="attributesTypesBeanAttributesTypesAttributes" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
-						<h:column>
-							<f:facet name="header">
-								<h:outputText value="Attributes"/>
-							</f:facet>
-							<h:link outcome="/admin/attributes/view">
-								<f:param name="id" value="#{_item.id}"/>
-								<h:outputText value="#{_item}"/>
-							</h:link>
-						</h:column>
-					</h:dataTable>
+					<h:inputText id="attributesTypesBeanAttributesTypesType" required="true" value="#{attributesTypesBean.attributesTypes.type}"/>
+					<h:message for="attributesTypesBeanAttributesTypesType" styleClass="error"/>
 				</h:panelGroup>
-				<h:outputText/>
+				<h:outputText value="*"/>
 				<h:outputLabel for="attributesTypesBeanAttributesTypesAttributesProperties" value="Attributes Properties:"/>
 				<h:panelGroup>
 					<ui:param name="_collection" value="#{attributesTypesBean.attributesTypes.attributesProperties}"/>
@@ -122,6 +106,45 @@
 						</h:selectOneMenu>
 						<h:commandLink action="#{_collection.add(requestScope['attributesTypesBeanAttributesTypesAttributesPropertiesSelect'])}" id="attributesTypesBeanAttributesTypesAttributesPropertiesAdd" onclick="if (document.getElementById(document.forms[0].id+':attributesTypesBeanAttributesTypesAttributesPropertiesSelect').selectedIndex &lt; 1) { alert('Must select a Attributes Properties'); return false; }" styleClass="add-button"/>
 					</h:panelGrid>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="attributesTypesBeanAttributesTypesSites" value="Sites:"/>
+				<h:panelGroup>
+					<ui:param name="_collection" value="#{attributesTypesBean.attributesTypes.sites}"/>
+					<h:dataTable id="attributesTypesBeanAttributesTypesSites" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Sites"/>
+							</f:facet>
+							<h:link outcome="/admin/sites/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText value="#{_item}"/>
+							</h:link>
+						</h:column>
+					</h:dataTable>
+					<h:panelGrid columnClasses=",remove-column" columns="2" styleClass="data-table-footer">
+						<h:selectOneMenu converter="#{sitesBean.converter}" id="attributesTypesBeanAttributesTypesSitesSelect" value="#{requestScope['attributesTypesBeanAttributesTypesSitesSelect']}">
+							<f:selectItem/>
+							<f:selectItems value="#{sitesBean.all}"/>
+						</h:selectOneMenu>
+						<h:commandLink action="#{_collection.add(requestScope['attributesTypesBeanAttributesTypesSitesSelect'])}" id="attributesTypesBeanAttributesTypesSitesAdd" onclick="if (document.getElementById(document.forms[0].id+':attributesTypesBeanAttributesTypesSitesSelect').selectedIndex &lt; 1) { alert('Must select a Sites'); return false; }" styleClass="add-button"/>
+					</h:panelGrid>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="attributesTypesBeanAttributesTypesAttributes" value="Attributes:"/>
+				<h:panelGroup>
+					<ui:param name="_collection" value="#{attributesTypesBean.attributesTypes.attributes}"/>
+					<h:dataTable id="attributesTypesBeanAttributesTypesAttributes" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Attributes"/>
+							</f:facet>
+							<h:link outcome="/admin/attributes/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText value="#{_item}"/>
+							</h:link>
+						</h:column>
+					</h:dataTable>
 				</h:panelGroup>
 				<h:outputText/>
 			</h:panelGrid>

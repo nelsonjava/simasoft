@@ -43,18 +43,6 @@
 					<h:message for="cardinalitiesBeanCardinalitiesOrden" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
-				<h:outputLabel for="cardinalitiesBeanCardinalitiesName" value="Name:"/>
-				<h:panelGroup>
-					<h:inputText id="cardinalitiesBeanCardinalitiesName" required="true" value="#{cardinalitiesBean.cardinalities.name}"/>
-					<h:message for="cardinalitiesBeanCardinalitiesName" styleClass="error"/>
-				</h:panelGroup>
-				<h:outputText value="*"/>
-				<h:outputLabel for="cardinalitiesBeanCardinalitiesCardinality" value="Cardinality:"/>
-				<h:panelGroup>
-					<h:inputText id="cardinalitiesBeanCardinalitiesCardinality" required="true" value="#{cardinalitiesBean.cardinalities.cardinality}"/>
-					<h:message for="cardinalitiesBeanCardinalitiesCardinality" styleClass="error"/>
-				</h:panelGroup>
-				<h:outputText value="*"/>
 				<h:outputLabel for="cardinalitiesBeanCardinalitiesUnidirectional" value="Unidirectional:"/>
 				<h:panelGroup>
 					<h:selectOneMenu id="cardinalitiesBeanCardinalitiesUnidirectional" value="#{cardinalitiesBean.cardinalities.unidirectional}">
@@ -71,12 +59,24 @@
 					<h:message for="cardinalitiesBeanCardinalitiesAnnotations" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
+				<h:outputLabel for="cardinalitiesBeanCardinalitiesCardinality" value="Cardinality:"/>
+				<h:panelGroup>
+					<h:inputText id="cardinalitiesBeanCardinalitiesCardinality" required="true" value="#{cardinalitiesBean.cardinalities.cardinality}"/>
+					<h:message for="cardinalitiesBeanCardinalitiesCardinality" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText value="*"/>
 				<h:outputLabel for="cardinalitiesBeanCardinalitiesObservations" value="Observations:"/>
 				<h:panelGroup>
 					<h:inputText id="cardinalitiesBeanCardinalitiesObservations" value="#{cardinalitiesBean.cardinalities.observations}"/>
 					<h:message for="cardinalitiesBeanCardinalitiesObservations" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
+				<h:outputLabel for="cardinalitiesBeanCardinalitiesName" value="Name:"/>
+				<h:panelGroup>
+					<h:inputText id="cardinalitiesBeanCardinalitiesName" required="true" value="#{cardinalitiesBean.cardinalities.name}"/>
+					<h:message for="cardinalitiesBeanCardinalitiesName" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText value="*"/>
 				<h:outputLabel for="cardinalitiesBeanCardinalitiesImports" value="Imports:"/>
 				<h:panelGroup>
 					<ui:param name="_collection" value="#{cardinalitiesBean.cardinalities.imports}"/>
@@ -97,6 +97,29 @@
 							<f:selectItems value="#{importsBean.all}"/>
 						</h:selectOneMenu>
 						<h:commandLink action="#{_collection.add(requestScope['cardinalitiesBeanCardinalitiesImportsSelect'])}" id="cardinalitiesBeanCardinalitiesImportsAdd" onclick="if (document.getElementById(document.forms[0].id+':cardinalitiesBeanCardinalitiesImportsSelect').selectedIndex &lt; 1) { alert('Must select a Imports'); return false; }" styleClass="add-button"/>
+					</h:panelGrid>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="cardinalitiesBeanCardinalitiesSites" value="Sites:"/>
+				<h:panelGroup>
+					<ui:param name="_collection" value="#{cardinalitiesBean.cardinalities.sites}"/>
+					<h:dataTable id="cardinalitiesBeanCardinalitiesSites" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Sites"/>
+							</f:facet>
+							<h:link outcome="/admin/sites/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText value="#{_item}"/>
+							</h:link>
+						</h:column>
+					</h:dataTable>
+					<h:panelGrid columnClasses=",remove-column" columns="2" styleClass="data-table-footer">
+						<h:selectOneMenu converter="#{sitesBean.converter}" id="cardinalitiesBeanCardinalitiesSitesSelect" value="#{requestScope['cardinalitiesBeanCardinalitiesSitesSelect']}">
+							<f:selectItem/>
+							<f:selectItems value="#{sitesBean.all}"/>
+						</h:selectOneMenu>
+						<h:commandLink action="#{_collection.add(requestScope['cardinalitiesBeanCardinalitiesSitesSelect'])}" id="cardinalitiesBeanCardinalitiesSitesAdd" onclick="if (document.getElementById(document.forms[0].id+':cardinalitiesBeanCardinalitiesSitesSelect').selectedIndex &lt; 1) { alert('Must select a Sites'); return false; }" styleClass="add-button"/>
 					</h:panelGrid>
 				</h:panelGroup>
 				<h:outputText/>
@@ -136,6 +159,19 @@
 						</h:column>
 						<h:column>
 							<f:facet name="header">
+								<h:outputText value="Name"/>
+							</f:facet>
+							<h:link outcome="/admin/relationships/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemName" value="#{_item.name}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="relationshipsBeanAddName" value="#{relationshipsBean.add.name}"/>
+								<h:message for="relationshipsBeanAddName" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
 								<h:outputText value="Is Embedded"/>
 							</f:facet>
 							<h:link outcome="/admin/relationships/view">
@@ -149,19 +185,6 @@
 									<f:selectItem itemLabel="No" itemValue="false"/>
 								</h:selectOneMenu>
 								<h:message for="relationshipsBeanAddIsEmbedded" styleClass="error"/>
-							</f:facet>
-						</h:column>
-						<h:column>
-							<f:facet name="header">
-								<h:outputText value="Name"/>
-							</f:facet>
-							<h:link outcome="/admin/relationships/view">
-								<f:param name="id" value="#{_item.id}"/>
-								<h:outputText id="itemName" value="#{_item.name}"/>
-							</h:link>
-							<f:facet name="footer">
-								<h:inputText id="relationshipsBeanAddName" value="#{relationshipsBean.add.name}"/>
-								<h:message for="relationshipsBeanAddName" styleClass="error"/>
 							</f:facet>
 						</h:column>
 						<h:column>

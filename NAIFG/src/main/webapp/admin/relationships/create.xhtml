@@ -53,6 +53,12 @@
 					<h:message for="relationshipsBeanRelationshipsOptionality" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
+				<h:outputLabel for="relationshipsBeanRelationshipsName" value="Name:"/>
+				<h:panelGroup>
+					<h:inputText id="relationshipsBeanRelationshipsName" value="#{relationshipsBean.relationships.name}"/>
+					<h:message for="relationshipsBeanRelationshipsName" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
 				<h:outputLabel for="relationshipsBeanRelationshipsIsEmbedded" value="Is Embedded:"/>
 				<h:panelGroup>
 					<h:selectOneMenu id="relationshipsBeanRelationshipsIsEmbedded" value="#{relationshipsBean.relationships.isEmbedded}">
@@ -61,12 +67,6 @@
 						<f:selectItem itemLabel="No" itemValue="false"/>
 					</h:selectOneMenu>
 					<h:message for="relationshipsBeanRelationshipsIsEmbedded" styleClass="error"/>
-				</h:panelGroup>
-				<h:outputText/>
-				<h:outputLabel for="relationshipsBeanRelationshipsName" value="Name:"/>
-				<h:panelGroup>
-					<h:inputText id="relationshipsBeanRelationshipsName" value="#{relationshipsBean.relationships.name}"/>
-					<h:message for="relationshipsBeanRelationshipsName" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
 				<h:outputLabel for="relationshipsBeanRelationshipsObservations" value="Observations:"/>

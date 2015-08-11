@@ -29,25 +29,38 @@
 			<h:outputLabel for="developmentsBeanDevelopmentsOrden" value="Orden:"/>
 			<h:outputText id="developmentsBeanDevelopmentsOrden" value="#{developmentsBean.developments.orden}"/>
 			<h:outputText/>
-			<h:outputLabel for="developmentsBeanDevelopmentsName" value="Name:"/>
-			<h:outputText id="developmentsBeanDevelopmentsName" value="#{developmentsBean.developments.name}"/>
-			<h:outputText/>
-			<h:outputLabel for="developmentsBeanDevelopmentsArtifactId" value="Artifact Id:"/>
-			<h:outputText id="developmentsBeanDevelopmentsArtifactId" value="#{developmentsBean.developments.artifactId}"/>
-			<h:outputText/>
-			<h:outputLabel for="developmentsBeanDevelopmentsGroupId" value="Group Id:"/>
-			<h:outputText id="developmentsBeanDevelopmentsGroupId" value="#{developmentsBean.developments.groupId}"/>
-			<h:outputText/>
-			<h:outputLabel for="developmentsBeanDevelopmentsCode" value="Code:"/>
-			<h:outputText id="developmentsBeanDevelopmentsCode" value="#{developmentsBean.developments.code}"/>
-			<h:outputText/>
-			<h:outputLabel for="developmentsBeanDevelopmentsVersion" value="Version:"/>
-			<h:outputText id="developmentsBeanDevelopmentsVersion" value="#{developmentsBean.developments.version}"/>
-			<h:outputText/>
 			<h:outputLabel for="developmentsBeanDevelopmentsDate" value="Date:"/>
 			<h:outputText id="developmentsBeanDevelopmentsDate" value="#{developmentsBean.developments.date}">
 				<f:convertDateTime type="date"/>
 			</h:outputText>
+			<h:outputText/>
+			<h:outputLabel for="developmentsBeanDevelopmentsArtifactId" value="Artifact Id:"/>
+			<h:outputText id="developmentsBeanDevelopmentsArtifactId" value="#{developmentsBean.developments.artifactId}"/>
+			<h:outputText/>
+			<h:outputLabel for="developmentsBeanDevelopmentsCode" value="Code:"/>
+			<h:outputText id="developmentsBeanDevelopmentsCode" value="#{developmentsBean.developments.code}"/>
+			<h:outputText/>
+			<h:outputLabel for="developmentsBeanDevelopmentsGroupId" value="Group Id:"/>
+			<h:outputText id="developmentsBeanDevelopmentsGroupId" value="#{developmentsBean.developments.groupId}"/>
+			<h:outputText/>
+			<h:outputLabel for="developmentsBeanDevelopmentsName" value="Name:"/>
+			<h:outputText id="developmentsBeanDevelopmentsName" value="#{developmentsBean.developments.name}"/>
+			<h:outputText/>
+			<h:outputLabel for="developmentsBeanDevelopmentsVersion" value="Version:"/>
+			<h:outputText id="developmentsBeanDevelopmentsVersion" value="#{developmentsBean.developments.version}"/>
+			<h:outputText/>
+			<h:outputLabel for="developmentsBeanDevelopmentsSites" value="Sites:"/>
+			<h:dataTable id="developmentsBeanDevelopmentsSites" styleClass="data-table" value="#{forgeview:asList(developmentsBean.developments.sites)}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Sites"/>
+					</f:facet>
+					<h:link outcome="/admin/sites/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText value="#{_item}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
 			<h:outputText/>
 			<h:outputLabel for="developmentsBeanDevelopmentsModels" value="Models:"/>
 			<h:dataTable id="developmentsBeanDevelopmentsModels" styleClass="data-table" value="#{forgeview:asList(developmentsBean.developments.models)}" var="_item">
@@ -78,11 +91,10 @@
                         </h:form>
 			<h:outputText/>
 
-
 		</h:panelGrid>
 
 		<div class="buttons">
-			<h:link value="View All" outcome="search" styleClass="btn btn-primary"/> 
+			<h:link value="View All" outcome="search" styleClass="btn btn-primary"/>
 			<h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
 			<h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
 		</div>

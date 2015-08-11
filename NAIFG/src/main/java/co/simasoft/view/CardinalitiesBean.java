@@ -218,18 +218,6 @@ public class CardinalitiesBean implements Serializable {
 		CriteriaBuilder builder = this.entityManager.getCriteriaBuilder();
 		List<Predicate> predicatesList = new ArrayList<Predicate>();
 
-		String name = this.example.getName();
-		if (name != null && !"".equals(name)) {
-			predicatesList.add(builder.like(
-					builder.lower(root.<String> get("name")),
-					'%' + name.toLowerCase() + '%'));
-		}
-		String cardinality = this.example.getCardinality();
-		if (cardinality != null && !"".equals(cardinality)) {
-			predicatesList.add(builder.like(
-					builder.lower(root.<String> get("cardinality")),
-					'%' + cardinality.toLowerCase() + '%'));
-		}
 		Boolean unidirectional = this.example.getUnidirectional();
 		if (unidirectional != null) {
 			predicatesList.add(builder.equal(root.get("unidirectional"),
@@ -241,11 +229,23 @@ public class CardinalitiesBean implements Serializable {
 					builder.lower(root.<String> get("annotations")),
 					'%' + annotations.toLowerCase() + '%'));
 		}
+		String cardinality = this.example.getCardinality();
+		if (cardinality != null && !"".equals(cardinality)) {
+			predicatesList.add(builder.like(
+					builder.lower(root.<String> get("cardinality")),
+					'%' + cardinality.toLowerCase() + '%'));
+		}
 		String observations = this.example.getObservations();
 		if (observations != null && !"".equals(observations)) {
 			predicatesList.add(builder.like(
 					builder.lower(root.<String> get("observations")),
 					'%' + observations.toLowerCase() + '%'));
+		}
+		String name = this.example.getName();
+		if (name != null && !"".equals(name)) {
+			predicatesList.add(builder.like(
+					builder.lower(root.<String> get("name")),
+					'%' + name.toLowerCase() + '%'));
 		}
 
 		return predicatesList.toArray(new Predicate[predicatesList.size()]);

@@ -16,6 +16,7 @@ import javax.persistence.Column;
 
 import co.simasoft.models.dev.naifg.*;
 import co.simasoft.models.dev.naifg.dependencies.*;
+import co.simasoft.models.dev.naifg.sites.*;
 import org.hibernate.search.annotations.Analyze;
 import org.hibernate.search.annotations.Index;
 import org.hibernate.search.annotations.Field;
@@ -27,8 +28,8 @@ import javax.persistence.Temporal;
 import org.hibernate.search.annotations.DateBridge;
 import org.hibernate.search.annotations.Resolution;
 import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 
 @Indexed
 @Entity
@@ -46,40 +47,43 @@ public class AttributesTypes implements Serializable {
 
 	private double orden;
 
-	@Column(nullable = false, unique = false)
-	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-	private String type;
-
-	@Column(nullable = false, unique = true)
-	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-	private String name;
-
 	@Column(nullable = true, unique = false)
 	private Integer precision;
 
 	@Column(nullable = true, unique = false)
 	private Integer length;
 
+	@Column(nullable = false, unique = true)
+	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+	private String name;
+
 	@Column(nullable = true, unique = false)
 	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
 	private String annotations;
 
-	@OneToMany(mappedBy = "attributesTypes")
-	private Set<Attributes> attributes = new HashSet<Attributes>();
+	@Column(nullable = false, unique = false)
+	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+	private String type;
 
 	@ManyToMany
 	private Set<AttributesProperties> attributesProperties = new HashSet<AttributesProperties>();
 
+	@ManyToMany
+	private Set<Sites> sites = new HashSet<Sites>();
+
+	@OneToMany(mappedBy = "attributesTypes")
+	private Set<Attributes> attributes = new HashSet<Attributes>();
+
 	public AttributesTypes() {
 	}
 
-	public AttributesTypes(String type, String name, Integer precision,
-			Integer length, String annotations) {
-		this.type = type;
-		this.name = name;
+	public AttributesTypes(Integer precision, Integer length, String name,
+			String annotations, String type) {
 		this.precision = precision;
 		this.length = length;
+		this.name = name;
 		this.annotations = annotations;
+		this.type = type;
 	}
 
 	public Long getId() {
@@ -103,20 +107,6 @@ public class AttributesTypes implements Serializable {
 		this.orden = orden;
 	}
 
-	public String getType() {
-		return type;
-	}
-	public void setType(String type) {
-		this.type = type;
-	}
-
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-
 	public Integer getPrecision() {
 		return precision;
 	}
@@ -131,6 +121,13 @@ public class AttributesTypes implements Serializable {
 		this.length = length;
 	}
 
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+
 	public String getAnnotations() {
 		return annotations;
 	}
@@ -138,11 +135,11 @@ public class AttributesTypes implements Serializable {
 		this.annotations = annotations;
 	}
 
-	public Set<Attributes> getAttributes() {
-		return attributes;
+	public String getType() {
+		return type;
 	}
-	public void setAttributes(Set<Attributes> attributes) {
-		this.attributes = attributes;
+	public void setType(String type) {
+		this.type = type;
 	}
 
 	public Set<AttributesProperties> getAttributesProperties() {
@@ -151,6 +148,20 @@ public class AttributesTypes implements Serializable {
 	public void setAttributesProperties(
 			Set<AttributesProperties> attributesProperties) {
 		this.attributesProperties = attributesProperties;
+	}
+
+	public Set<Sites> getSites() {
+		return sites;
+	}
+	public void setSites(Set<Sites> sites) {
+		this.sites = sites;
+	}
+
+	public Set<Attributes> getAttributes() {
+		return attributes;
+	}
+	public void setAttributes(Set<Attributes> attributes) {
+		this.attributes = attributes;
 	}
 
 	@Override
