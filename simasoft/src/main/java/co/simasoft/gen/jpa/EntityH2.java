@@ -84,7 +84,8 @@ public EntityH2(String artifactId,String groupId,Entidad entity,LinkedHashSet<St
       line("import javax.persistence.GeneratedValue;");
       line("import javax.persistence.FetchType;\n");
 
-      line("import javax.persistence.Column;\n");
+      line("import javax.persistence.Column;");
+      line("import javax.persistence.Lob;\n");
 
       for (String impor : imports) {
          line(impor);
@@ -122,6 +123,11 @@ public EntityH2(String artifactId,String groupId,Entidad entity,LinkedHashSet<St
       line("    private Integer optlock;\n");
 
       line("    private double orden;\n");
+
+      line("    @Lob");
+      line("    @Column(nullable = true, unique = false)");
+      line("    @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)");
+      line("    private String observations;\n");
 //>>FIN ATTRIBUTOS POR DEFECTO
 
 //>>ATTRIBUTOS DE LA CLASE
@@ -258,6 +264,13 @@ public EntityH2(String artifactId,String groupId,Entidad entity,LinkedHashSet<St
       line("    public void setOrden(double orden) {");
       line("        this.orden = orden;");
       line("    }\n");
+
+      line("    public String getObservations() {");
+      line("        return observations;");
+      line("    }");
+      line("    public void setObservations(String observations) {");
+      line("        this.observations = observations;");
+      line("    }");
 //>>FIN GET Y SET PREDEFINIDOS
 
 //>>GET Y SET DE ATRIBUTOS

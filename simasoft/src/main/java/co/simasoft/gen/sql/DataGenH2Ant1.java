@@ -31,7 +31,7 @@ OBJETIVOS:
 *------------------------------------------- DECLARACION DE LA CLASE -------------------------------------------*
 *---------------------------------------------------------------------------------------------------------------*/
 
-public class DataGenH2 extends FileTxt {
+public class DataGenH2Ant1 extends FileTxt {
 
 //>>DECLARACION DE INSTANCIAS
       int i=0;
@@ -54,7 +54,7 @@ OBJETIVOS:
 *                                           IMPLEMENTACION DEL METODO                                           *
 *---------------------------------------------------------------------------------------------------------------*/
 
-public DataGenH2(Domains domain) throws IOException {
+public DataGenH2Ant1(Domains domain) throws IOException {
     try {
 
     for (Packages groupId : domain.getPackages()){
@@ -66,18 +66,12 @@ line("package "+domain.getGroupId()+".setup;\n");
 line("import "+domain.getGroupId()+".beans.*;");
 line("import "+domain.getGroupId()+".utils.*;\n");
 
-line("import co.simasoft.models.dev.naifg.sites.*;");
-line("import co.simasoft.models.dev.naifg.*;");
-line("import co.simasoft.models.dev.naifg.dependencies.*;");
-
-/*
     i=0;
     for (String impor : imports) {
 
 line("import "+impor+".*;");
 
     } // for: imports
-*/
 
 line("");
 
@@ -114,7 +108,6 @@ line("//      ---------------------- GroupIds ------------------------\n");
 line("        GroupIds groupIds"+String.valueOf(++i)+" = new GroupIds();");
 line("        groupIds"+String.valueOf(i)+".setGroupId(\""+impor+"\");");
 line("        groupIds"+String.valueOf(i)+".setName(\""+impor+"\");");
-line("        groupIds"+String.valueOf(i)+".setArtifactId(\""+impor+"\");");
 line("        em.persist(groupIds"+String.valueOf(i)+");");
 line("        em.flush();\n");
 
@@ -127,6 +120,18 @@ line("        models.setGroupId(\""+domain.getGroupId()+"."+domain.getArtifactId
 line("        models.setArtifactId(\""+domain.getArtifactId()+"\");");
 line("        models.setVersion(\""+domain.getVersion()+"\");");
 line("        models.setName(\""+domain.getArtifactId()+"\");\n");
+
+line("        Set<GroupIds> modelsGroupIds = new HashSet<GroupIds>();\n");
+
+    i=0;
+    j=0;
+    for (String impor : imports) {
+line("        GroupIds modelsGroupId"+String.valueOf(++i)+" = findBean.groupGroupIds(\""+impor+"\",em);");
+line("        modelsGroupIds.add(modelsGroupId"+String.valueOf(i)+");\n");
+    } // for: imports
+
+line("        models.setGroupIds(modelsGroupIds);\n");
+
 line("        em.persist(models);");
 line("        em.flush();\n");
 
@@ -164,12 +169,14 @@ line("        entities"+String.valueOf(i)+".setGroupIds(groupId"+String.valueOf(
 line("        em.persist(entities"+String.valueOf(i)+");");
 line("        em.flush();\n");
 
+
+
             for (Atributos attri: entidad.getAtributos()) {
 
 line("        Attributes attributes"+String.valueOf(++i)+" = new Attributes();");
 line("        attributes"+String.valueOf(i)+".setName(\""+attri.getField()+"\");");
-line("        attributes"+String.valueOf(i)+".setIsNullable("+attri.getNulo()+");");
-line("        attributes"+String.valueOf(i)+".setIsUnique("+attri.getUnique()+");");
+line("        attributes"+String.valueOf(i)+".setNullable("+attri.getNulo()+");");
+line("        attributes"+String.valueOf(i)+".setSingle("+attri.getUnique()+");");
 line("//      ...................... "+entidad.getName()+" ........................");
 line("        Entities entity"+String.valueOf(++j)+" = new Entities();");
 line("        entity"+String.valueOf(j)+" = findBean.nameEntities(\""+entidad.getName()+"\",em);");
@@ -186,7 +193,7 @@ line("        em.flush();\n");
         } // for: groupId.getEntities()
 
     } // for: domain.getPackages()
-
+    
 line("//      ---------------------- Relationships ------------------------\n");
 
     i=0;
@@ -217,7 +224,7 @@ line("*/");
                 case "1..*":
                 case "*..*":
 line("        Relationships relationships"+String.valueOf(++i)+" = new Relationships();");
-line("        relationships"+String.valueOf(i)+".setIsOptionality("+relation.getOptionality()+");");
+line("        relationships"+String.valueOf(i)+".setOptionality("+relation.getOptionality()+");");
 line("        relationships"+String.valueOf(i)+".setIsEmbedded(false);");
 line("//      ...................... "+relation.getFrom()+" ........................");
 line("        Entities entities"+String.valueOf(++j)+" = new Entities();");
