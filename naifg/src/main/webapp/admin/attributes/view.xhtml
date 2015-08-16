@@ -26,33 +26,39 @@
 
 	<ui:define name="main">
 		<h:panelGrid columnClasses="label,component,required" columns="3">
+
 			<h:outputLabel for="attributesBeanAttributesOrden" value="Orden:"/>
 			<h:outputText id="attributesBeanAttributesOrden" value="#{attributesBean.attributes.orden}"/>
 			<h:outputText/>
-			<h:outputLabel for="attributesBeanAttributesObservations" value="Observations:"/>
-			<h:inputTextarea id="attributesBeanAttributesObservations" value="#{attributesBean.attributes.observations}"/>
-			<h:outputText/>
+
 			<h:outputLabel for="attributesBeanAttributesDescription" value="Description:"/>
 			<h:outputText id="attributesBeanAttributesDescription" value="#{attributesBean.attributes.description}"/>
 			<h:outputText/>
+
 			<h:outputLabel for="attributesBeanAttributesIsSimplified" value="Is Simplified:"/>
 			<h:outputText id="attributesBeanAttributesIsSimplified" value="#{attributesBean.attributes.isSimplified}"/>
 			<h:outputText/>
+
 			<h:outputLabel for="attributesBeanAttributesIsUnique" value="Is Unique:"/>
 			<h:outputText id="attributesBeanAttributesIsUnique" value="#{attributesBean.attributes.isUnique}"/>
 			<h:outputText/>
+
 			<h:outputLabel for="attributesBeanAttributesIsNullable" value="Is Nullable:"/>
 			<h:outputText id="attributesBeanAttributesIsNullable" value="#{attributesBean.attributes.isNullable}"/>
 			<h:outputText/>
+
 			<h:outputLabel for="attributesBeanAttributesPrecision" value="Precision:"/>
 			<h:outputText id="attributesBeanAttributesPrecision" value="#{attributesBean.attributes.precision}"/>
 			<h:outputText/>
+
 			<h:outputLabel for="attributesBeanAttributesLength" value="Length:"/>
 			<h:outputText id="attributesBeanAttributesLength" value="#{attributesBean.attributes.length}"/>
 			<h:outputText/>
+
 			<h:outputLabel for="attributesBeanAttributesName" value="Name:"/>
 			<h:outputText id="attributesBeanAttributesName" value="#{attributesBean.attributes.name}"/>
 			<h:outputText/>
+
 			<h:outputLabel for="attributesBeanAttributesAttributesProperties" value="Attributes Properties:"/>
 			<h:dataTable id="attributesBeanAttributesAttributesProperties" styleClass="data-table" value="#{forgeview:asList(attributesBean.attributes.attributesProperties)}" var="_item">
 				<h:column>
@@ -66,6 +72,7 @@
 				</h:column>
 			</h:dataTable>
 			<h:outputText/>
+
 			<h:outputLabel for="attributesBeanAttributesSites" value="Sites:"/>
 			<h:dataTable id="attributesBeanAttributesSites" styleClass="data-table" value="#{forgeview:asList(attributesBean.attributes.sites)}" var="_item">
 				<h:column>
@@ -79,20 +86,27 @@
 				</h:column>
 			</h:dataTable>
 			<h:outputText/>
+
 			<h:outputLabel for="attributesBeanAttributesAttributesTypes" value="Attributes Types:"/>
 			<h:link id="attributesBeanAttributesAttributesTypes" outcome="/admin/attributesTypes/view" rendered="#{!empty attributesBean.attributes.attributesTypes}" value="#{attributesBean.attributes.attributesTypes.type}">
 				<f:param name="id" value="#{attributesBean.attributes.attributesTypes.id}"/>
 			</h:link>
 			<h:outputText/>
+
 			<h:outputLabel for="attributesBeanAttributesEntities" value="Entities:"/>
 			<h:link id="attributesBeanAttributesEntities" outcome="/admin/entities/view" rendered="#{!empty attributesBean.attributes.entities}" value="#{attributesBean.attributes.entities.name}">
 				<f:param name="id" value="#{attributesBean.attributes.entities.id}"/>
 			</h:link>
 			<h:outputText/>
+			
+			<h:outputLabel for="attributesBeanAttributesObservations" value="Observations:"/>
+                        <h:outputText id="attributesBeanAttributesObservations" value="#{attributesBean.attributes.observations}" escape="false" />
+			<h:outputText/>
+
 		</h:panelGrid>
 
 		<div class="buttons">
-			<h:link value="View All" outcome="search" styleClass="btn btn-primary"/> 
+			<h:link value="View All" outcome="search" styleClass="btn btn-primary"/>
 			<h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
 			<h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
 		</div>

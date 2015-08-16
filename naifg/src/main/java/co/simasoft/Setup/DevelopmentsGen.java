@@ -180,6 +180,23 @@ public class DevelopmentsGen extends FileTxt {
 
                       for (Relationships relationships : entity.getTo()) {
 
+                          if (!isRelationModel(relationships.getFrom().getGroupIds().getGroupId(),
+                                              relationships.getTo().getGroupIds().getGroupId(),
+                                              models.getGroupId())){
+
+                             if (modelsGroupIds.getIsSingle()){
+                                continue;
+                             }
+
+                          }
+
+line("************");
+line("     "+relationships.getTo().getGroupIds().getGroupId());
+line("to  :"+relationships.getTo().getGroupIds().getGroupId()+"."+relationships.getTo().getName());
+line("from:"+relationships.getFrom().getGroupIds().getGroupId()+"."+relationships.getFrom().getName());
+line(".***********");
+
+
                           switch (relationships.getCardinalities().getName()) {
 
                               case "Uno a Uno Unidireccional No.1":
@@ -220,8 +237,6 @@ public class DevelopmentsGen extends FileTxt {
 
                       } // for: entity.getTo()
 
-line(modelsGroupIds.getGroupIds().getGroupId()+":"+entidad.getName());
-
                       entidad.setGroupId(modelsGroupIds.getGroupIds().getGroupId());
                       entidades.add(entidad);
 
@@ -232,15 +247,6 @@ line(modelsGroupIds.getGroupIds().getGroupId()+":"+entidad.getName());
              } // for: models.getModelsGroupIds()
 
         } // for: developments.getModels()
-
-line("Prueba:");
-for(Packages groupIds : packages) {
-    for(Entidad entidad : groupIds.getEntities()) {
-line(entidad.getGroupId()+":"+entidad.getName());
-    }
-line("****:");
-}
-
 
         saveFile("\\docs", "Prueba.txt");
 
@@ -257,6 +263,30 @@ line("****:");
 
     } // data()
 
+    public boolean isRelationModel(String groupIdFrom,String groupIdTo,String groupIdModel) {
+
+/*
+line("************");
+line("     "+relationships.getTo().getGroupIds().getGroupId());
+line("to  :"+relationships.getTo().getGroupIds().getGroupId()+"."+relationships.getTo().getName());
+line("from:"+relationships.getFrom().getGroupIds().getGroupId()+"."+relationships.getFrom().getName());
+line(".***********");
+*/
+
+        if (groupIdFrom.equals(groupIdTo)){
+           return true;
+        }
+        else{
+            if (groupIdFrom.indexOf (groupIdModel) != -1){ // Si se encuentra la cadena
+               return true;
+            }
+            else{
+               return false;
+            }
+        }
+
+    } // isRelationModel();
+
     public AttributesProperties findAttributesProperties(String name) {
 
         AttributesProperties attributesProperties = new AttributesProperties();
@@ -267,6 +297,8 @@ line("****:");
         }
         return attributesProperties;
     }
+    
+
 
     public void war(Developments developments) throws IOException {
     try {

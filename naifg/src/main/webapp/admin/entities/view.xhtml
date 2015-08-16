@@ -26,27 +26,37 @@
 
 	<ui:define name="main">
 		<h:panelGrid columnClasses="label,component,required" columns="3">
+
 			<h:outputLabel for="entitiesBeanEntitiesOrden" value="Orden:"/>
 			<h:outputText id="entitiesBeanEntitiesOrden" value="#{entitiesBean.entities.orden}"/>
 			<h:outputText/>
-			<h:outputLabel for="entitiesBeanEntitiesObservations" value="Observations:"/>
-			<h:inputTextarea id="entitiesBeanEntitiesObservations" value="#{entitiesBean.entities.observations}"/>
+			
+			<h:outputLabel for="entitiesBeanEntitiesGroupIds" value="Group Ids:"/>
+			<h:link id="entitiesBeanEntitiesGroupIds" outcome="/admin/groupIds/view" rendered="#{!empty entitiesBean.entities.groupIds}" value="#{entitiesBean.entities.groupIds.artifactId}">
+				<f:param name="id" value="#{entitiesBean.entities.groupIds.id}"/>
+			</h:link>
 			<h:outputText/>
+
 			<h:outputLabel for="entitiesBeanEntitiesName" value="Name:"/>
 			<h:outputText id="entitiesBeanEntitiesName" value="#{entitiesBean.entities.name}"/>
 			<h:outputText/>
+
 			<h:outputLabel for="entitiesBeanEntitiesTable" value="Table:"/>
 			<h:outputText id="entitiesBeanEntitiesTable" value="#{entitiesBean.entities.table}"/>
 			<h:outputText/>
+
 			<h:outputLabel for="entitiesBeanEntitiesSerialID" value="Serial ID:"/>
 			<h:outputText id="entitiesBeanEntitiesSerialID" value="#{entitiesBean.entities.serialID}"/>
 			<h:outputText/>
+
 			<h:outputLabel for="entitiesBeanEntitiesDescription" value="Description:"/>
 			<h:outputText id="entitiesBeanEntitiesDescription" value="#{entitiesBean.entities.description}"/>
 			<h:outputText/>
+
 			<h:outputLabel for="entitiesBeanEntitiesIsSimplified" value="Is Simplified:"/>
 			<h:outputText id="entitiesBeanEntitiesIsSimplified" value="#{entitiesBean.entities.isSimplified}"/>
 			<h:outputText/>
+
 			<h:outputLabel for="entitiesBeanEntitiesAttributes" value="Attributes:"/>
 			<h:dataTable id="entitiesBeanEntitiesAttributes" styleClass="data-table" value="#{forgeview:asList(entitiesBean.entities.attributes)}" var="_item">
 				<h:column>
@@ -60,6 +70,7 @@
 				</h:column>
 			</h:dataTable>
 			<h:outputText/>
+
 			<h:outputLabel for="entitiesBeanEntitiesSites" value="Sites:"/>
 			<h:dataTable id="entitiesBeanEntitiesSites" styleClass="data-table" value="#{forgeview:asList(entitiesBean.entities.sites)}" var="_item">
 				<h:column>
@@ -73,6 +84,7 @@
 				</h:column>
 			</h:dataTable>
 			<h:outputText/>
+
 			<h:outputLabel for="entitiesBeanEntitiesAttributesProperties" value="Attributes Properties:"/>
 			<h:dataTable id="entitiesBeanEntitiesAttributesProperties" styleClass="data-table" value="#{forgeview:asList(entitiesBean.entities.attributesProperties)}" var="_item">
 				<h:column>
@@ -86,6 +98,7 @@
 				</h:column>
 			</h:dataTable>
 			<h:outputText/>
+
 			<h:outputLabel for="entitiesBeanEntitiesNameQueries" value="Name Queries:"/>
 			<h:dataTable id="entitiesBeanEntitiesNameQueries" styleClass="data-table" value="#{forgeview:asList(entitiesBean.entities.nameQueries)}" var="_item">
 				<h:column>
@@ -108,6 +121,7 @@
 				</h:column>
 			</h:dataTable>
 			<h:outputText/>
+
 			<h:outputLabel for="entitiesBeanEntitiesFrom" value="From:"/>
 			<h:dataTable id="entitiesBeanEntitiesFrom" styleClass="data-table" value="#{forgeview:asList(entitiesBean.entities.from)}" var="_item">
 
@@ -192,14 +206,13 @@
 						<h:outputText id="itemAnnotationsMethod" value="#{_item.cardinalities.name}"/>
 					</h:link>
 				</h:column>
-S
 
 			</h:dataTable>
 			<h:outputText/>
 
 			<h:outputLabel for="entitiesBeanEntitiesTo" value="To:"/>
 			<h:dataTable id="entitiesBeanEntitiesTo" styleClass="data-table" value="#{forgeview:asList(entitiesBean.entities.to)}" var="_item">
-			
+
 				<h:column>
 					<f:facet name="header">
 						<h:outputText value="Orden"/>
@@ -297,15 +310,16 @@ S
 				</h:column>
 			</h:dataTable>
 			<h:outputText/>
-			<h:outputLabel for="entitiesBeanEntitiesGroupIds" value="Group Ids:"/>
-			<h:link id="entitiesBeanEntitiesGroupIds" outcome="/admin/groupIds/view" rendered="#{!empty entitiesBean.entities.groupIds}" value="#{entitiesBean.entities.groupIds.artifactId}">
-				<f:param name="id" value="#{entitiesBean.entities.groupIds.id}"/>
-			</h:link>
+
+			<h:outputLabel for="entitiesBeanEntitiesObservations" value="Observations:"/>
+                        <h:outputText id="entitiesBeanEntitiesObservations" value="#{entitiesBean.entities.observations}" escape="false" />
 			<h:outputText/>
+
+
 		</h:panelGrid>
 
 		<div class="buttons">
-			<h:link value="View All" outcome="search" styleClass="btn btn-primary"/> 
+			<h:link value="View All" outcome="search" styleClass="btn btn-primary"/>
 			<h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
 			<h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
 		</div>

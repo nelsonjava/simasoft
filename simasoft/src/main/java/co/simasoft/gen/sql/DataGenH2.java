@@ -113,7 +113,6 @@ line("//      ---------------------- GroupIds ------------------------\n");
 
 line("        GroupIds groupIds"+String.valueOf(++i)+" = new GroupIds();");
 line("        groupIds"+String.valueOf(i)+".setGroupId(\""+impor+"\");");
-line("        groupIds"+String.valueOf(i)+".setName(\""+impor+"\");");
 line("        groupIds"+String.valueOf(i)+".setArtifactId(\""+impor+"\");");
 line("        em.persist(groupIds"+String.valueOf(i)+");");
 line("        em.flush();\n");
@@ -126,7 +125,6 @@ line("        Models models = new Models();");
 line("        models.setGroupId(\""+domain.getGroupId()+"."+domain.getArtifactId()+"\");");
 line("        models.setArtifactId(\""+domain.getArtifactId()+"\");");
 line("        models.setVersion(\""+domain.getVersion()+"\");");
-line("        models.setName(\""+domain.getArtifactId()+"\");\n");
 line("        em.persist(models);");
 line("        em.flush();\n");
 
@@ -136,7 +134,6 @@ line("        Developments dev = new Developments();");
 line("        dev.setGroupId(\""+domain.getGroupId()+"\");");
 line("        dev.setArtifactId(\""+domain.getArtifactId()+"\");");
 line("        dev.setVersion(\""+domain.getVersion()+"\");");
-line("        dev.setName(\""+domain.getArtifactId()+"\");");
 line("        Set<Models> models1 = new HashSet<Models>();");
 line("        Models model1 = findBean.artifactIdModels(\""+domain.getArtifactId()+"\",em);");
 line("        models1.add(model1);");

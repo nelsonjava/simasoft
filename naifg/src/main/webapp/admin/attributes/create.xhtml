@@ -4,6 +4,7 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
 	xmlns:c="http://java.sun.com/jsp/jstl/core"
 	xmlns:forgeview="http://jboss.org/forge/view"
 	template="/resources/scaffold/pageTemplate.xhtml">
@@ -37,24 +38,21 @@
 			<h:messages globalOnly="true" styleClass="error"/>
 
 			<h:panelGrid columnClasses="label,component,required" columns="3">
+
 				<h:outputLabel for="attributesBeanAttributesOrden" value="Orden:"/>
 				<h:panelGroup>
 					<h:inputText id="attributesBeanAttributesOrden" value="#{attributesBean.attributes.orden}"/>
 					<h:message for="attributesBeanAttributesOrden" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
-				<h:outputLabel for="attributesBeanAttributesObservations" value="Observations:"/>
-				<h:panelGroup>
-					<h:inputTextarea id="attributesBeanAttributesObservations" value="#{attributesBean.attributes.observations}"/>
-					<h:message for="attributesBeanAttributesObservations" styleClass="error"/>
-				</h:panelGroup>
-				<h:outputText/>
+
 				<h:outputLabel for="attributesBeanAttributesDescription" value="Description:"/>
 				<h:panelGroup>
 					<h:inputText id="attributesBeanAttributesDescription" value="#{attributesBean.attributes.description}"/>
 					<h:message for="attributesBeanAttributesDescription" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
+
 				<h:outputLabel for="attributesBeanAttributesIsSimplified" value="Is Simplified:"/>
 				<h:panelGroup>
 					<h:selectOneMenu id="attributesBeanAttributesIsSimplified" value="#{attributesBean.attributes.isSimplified}">
@@ -65,6 +63,7 @@
 					<h:message for="attributesBeanAttributesIsSimplified" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
+
 				<h:outputLabel for="attributesBeanAttributesIsUnique" value="Is Unique:"/>
 				<h:panelGroup>
 					<h:selectOneMenu id="attributesBeanAttributesIsUnique" value="#{attributesBean.attributes.isUnique}">
@@ -75,6 +74,7 @@
 					<h:message for="attributesBeanAttributesIsUnique" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
+
 				<h:outputLabel for="attributesBeanAttributesIsNullable" value="Is Nullable:"/>
 				<h:panelGroup>
 					<h:selectOneMenu id="attributesBeanAttributesIsNullable" value="#{attributesBean.attributes.isNullable}">
@@ -85,24 +85,28 @@
 					<h:message for="attributesBeanAttributesIsNullable" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
+
 				<h:outputLabel for="attributesBeanAttributesPrecision" value="Precision:"/>
 				<h:panelGroup>
 					<h:inputText id="attributesBeanAttributesPrecision" value="#{attributesBean.attributes.precision}"/>
 					<h:message for="attributesBeanAttributesPrecision" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
+
 				<h:outputLabel for="attributesBeanAttributesLength" value="Length:"/>
 				<h:panelGroup>
 					<h:inputText id="attributesBeanAttributesLength" value="#{attributesBean.attributes.length}"/>
 					<h:message for="attributesBeanAttributesLength" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
+
 				<h:outputLabel for="attributesBeanAttributesName" value="Name:"/>
 				<h:panelGroup>
 					<h:inputText id="attributesBeanAttributesName" required="true" value="#{attributesBean.attributes.name}"/>
 					<h:message for="attributesBeanAttributesName" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText value="*"/>
+
 				<h:outputLabel for="attributesBeanAttributesAttributesProperties" value="Attributes Properties:"/>
 				<h:panelGroup>
 					<ui:param name="_collection" value="#{attributesBean.attributes.attributesProperties}"/>
@@ -126,6 +130,7 @@
 					</h:panelGrid>
 				</h:panelGroup>
 				<h:outputText/>
+
 				<h:outputLabel for="attributesBeanAttributesSites" value="Sites:"/>
 				<h:panelGroup>
 					<ui:param name="_collection" value="#{attributesBean.attributes.sites}"/>
@@ -152,7 +157,7 @@
 
 				<h:outputLabel for="attributesBeanAttributesAttributesTypes" value="Attributes Types:"/>
 				<h:panelGroup>
-					<h:selectOneMenu converter="#{attributesTypesBean.converter}" 
+					<h:selectOneMenu converter="#{attributesTypesBean.converter}"
                                                                 id="attributesBeanAttributesAttributesTypes"
                                                                 value="#{attributesBean.attributes.attributesTypes}">
 						<f:selectItem/>
@@ -171,6 +176,13 @@
 						<f:selectItems itemLabel="#{forgeview:display(_item.name)}" itemValue="#{_item}" value="#{entitiesBean.all}" var="_item"/>
 					</h:selectOneMenu>
 					<h:message for="attributesBeanAttributesEntities" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				
+				<h:outputLabel for="attributesBeanAttributesObservations" value="Observations:"/>
+				<h:panelGroup>
+					<p:editor id="attributesBeanAttributesObservations"  value="#{attributesBean.attributes.observations}"/>
+					<h:message for="attributesBeanAttributesObservations" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
 

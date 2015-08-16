@@ -5,6 +5,7 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:p="http://primefaces.org/ui"
 	xmlns:forgeview="http://jboss.org/forge/view"
 	template="/resources/scaffold/pageTemplate.xhtml">
 
@@ -37,42 +38,42 @@
 			<h:messages globalOnly="true" styleClass="error"/>
 
 			<h:panelGrid columnClasses="label,component,required" columns="3">
+
 				<h:outputLabel for="entitiesBeanEntitiesOrden" value="Orden:"/>
 				<h:panelGroup>
 					<h:inputText id="entitiesBeanEntitiesOrden" value="#{entitiesBean.entities.orden}"/>
 					<h:message for="entitiesBeanEntitiesOrden" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
-				<h:outputLabel for="entitiesBeanEntitiesObservations" value="Observations:"/>
-				<h:panelGroup>
-					<h:inputTextarea id="entitiesBeanEntitiesObservations" value="#{entitiesBean.entities.observations}"/>
-					<h:message for="entitiesBeanEntitiesObservations" styleClass="error"/>
-				</h:panelGroup>
-				<h:outputText/>
+
 				<h:outputLabel for="entitiesBeanEntitiesName" value="Name:"/>
 				<h:panelGroup>
 					<h:inputText id="entitiesBeanEntitiesName" required="true" value="#{entitiesBean.entities.name}"/>
 					<h:message for="entitiesBeanEntitiesName" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText value="*"/>
+
 				<h:outputLabel for="entitiesBeanEntitiesTable" value="Table:"/>
 				<h:panelGroup>
 					<h:inputText id="entitiesBeanEntitiesTable" value="#{entitiesBean.entities.table}"/>
 					<h:message for="entitiesBeanEntitiesTable" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
+
 				<h:outputLabel for="entitiesBeanEntitiesSerialID" value="Serial ID:"/>
 				<h:panelGroup>
 					<h:inputText id="entitiesBeanEntitiesSerialID" value="#{entitiesBean.entities.serialID}"/>
 					<h:message for="entitiesBeanEntitiesSerialID" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
+
 				<h:outputLabel for="entitiesBeanEntitiesDescription" value="Description:"/>
 				<h:panelGroup>
 					<h:inputText id="entitiesBeanEntitiesDescription" value="#{entitiesBean.entities.description}"/>
 					<h:message for="entitiesBeanEntitiesDescription" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
+
 				<h:outputLabel for="entitiesBeanEntitiesIsSimplified" value="Is Simplified:"/>
 				<h:panelGroup>
 					<h:selectOneMenu id="entitiesBeanEntitiesIsSimplified" value="#{entitiesBean.entities.isSimplified}">
@@ -83,6 +84,7 @@
 					<h:message for="entitiesBeanEntitiesIsSimplified" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
+
 				<h:outputLabel for="entitiesBeanEntitiesAttributes" value="Attributes:"/>
 				<h:panelGroup>
 					<ui:param name="_collection" value="#{entitiesBean.entities.attributes}"/>
@@ -111,6 +113,7 @@
 					</h:dataTable>
 				</h:panelGroup>
 				<h:outputText/>
+
 				<h:outputLabel for="entitiesBeanEntitiesSites" value="Sites:"/>
 				<h:panelGroup>
 					<ui:param name="_collection" value="#{entitiesBean.entities.sites}"/>
@@ -134,6 +137,7 @@
 					</h:panelGrid>
 				</h:panelGroup>
 				<h:outputText/>
+
 				<h:outputLabel for="entitiesBeanEntitiesAttributesProperties" value="Attributes Properties:"/>
 				<h:panelGroup>
 					<ui:param name="_collection" value="#{entitiesBean.entities.attributesProperties}"/>
@@ -157,6 +161,7 @@
 					</h:panelGrid>
 				</h:panelGroup>
 				<h:outputText/>
+
 				<h:outputLabel for="entitiesBeanEntitiesNameQueries" value="Name Queries:"/>
 				<h:panelGroup>
 					<ui:param name="_collection" value="#{entitiesBean.entities.nameQueries}"/>
@@ -198,6 +203,7 @@
 					</h:dataTable>
 				</h:panelGroup>
 				<h:outputText/>
+
 				<h:outputLabel for="entitiesBeanEntitiesFrom" value="From:"/>
 				<h:panelGroup>
 					<ui:param name="_collection" value="#{entitiesBean.entities.from}"/>
@@ -286,6 +292,7 @@
 					</h:dataTable>
 				</h:panelGroup>
 				<h:outputText/>
+
 				<h:outputLabel for="entitiesBeanEntitiesTo" value="To:"/>
 				<h:panelGroup>
 					<ui:param name="_collection" value="#{entitiesBean.entities.to}"/>
@@ -374,6 +381,7 @@
 					</h:dataTable>
 				</h:panelGroup>
 				<h:outputText/>
+
 				<h:outputLabel for="entitiesBeanEntitiesImports" value="Imports:"/>
 				<h:panelGroup>
 					<ui:param name="_collection" value="#{entitiesBean.entities.imports}"/>
@@ -397,15 +405,24 @@
 					</h:panelGrid>
 				</h:panelGroup>
 				<h:outputText/>
+
 				<h:outputLabel for="entitiesBeanEntitiesGroupIds" value="Group Ids:"/>
 				<h:panelGroup>
 					<h:selectOneMenu converter="#{groupIdsBean.converter}" id="entitiesBeanEntitiesGroupIds" value="#{entitiesBean.entities.groupIds}">
 						<f:selectItem/>
-						<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{groupIdsBean.all}" var="_item"/>
+						<f:selectItems itemLabel="#{forgeview:display(_item.artifactId)}" itemValue="#{_item}" value="#{groupIdsBean.all}" var="_item"/>
 					</h:selectOneMenu>
 					<h:message for="entitiesBeanEntitiesGroupIds" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
+				
+				<h:outputLabel for="entitiesBeanEntitiesObservations" value="Observations:"/>
+				<h:panelGroup>
+				        <p:editor id="entitiesBeanEntitiesObservations"  value="#{entitiesBean.entities.observations}"/>
+					<h:message for="entitiesBeanEntitiesObservations" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+
 			</h:panelGrid>
 
 			<div class="buttons">
