@@ -78,8 +78,9 @@
 					</h:panelGroup>
 				</h:panelGroup>
 			</f:validateBean>
-			
+
 			<h:dataTable id="modelsGroupIdsBeanPageItems" styleClass="data-table" value="#{modelsGroupIdsBean.pageItems}" var="_item">
+
 				<h:column>
 					<f:facet name="header">
 						<h:outputText value="Orden"/>
@@ -89,15 +90,27 @@
 						<h:outputText id="itemOrden" value="#{_item.orden}"/>
 					</h:link>
 				</h:column>
+
 				<h:column>
 					<f:facet name="header">
-						<h:outputText value="Observations"/>
+						<h:outputText value="Model"/>
 					</f:facet>
 					<h:link outcome="/admin/modelsGroupIds/view">
 						<f:param name="id" value="#{_item.id}"/>
-						<h:inputTextarea id="itemObservations" value="#{_item.observations}"/>
+						<h:outputText id="itemModel" value="#{_item.models.artifactId}"/>
 					</h:link>
 				</h:column>
+
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="GroupId"/>
+					</f:facet>
+					<h:link outcome="/admin/modelsGroupIds/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemGroupIdTem" value="#{_item.groupIds.artifactId}"/>
+					</h:link>
+				</h:column>
+
 				<h:column>
 					<f:facet name="header">
 						<h:outputText value="Is Simplified"/>
@@ -107,6 +120,7 @@
 						<h:outputText id="itemIsSimplified" value="#{_item.isSimplified}"/>
 					</h:link>
 				</h:column>
+
 				<h:column>
 					<f:facet name="header">
 						<h:outputText value="Is Single"/>
@@ -116,6 +130,7 @@
 						<h:outputText id="itemIsSingle" value="#{_item.isSingle}"/>
 					</h:link>
 				</h:column>
+
 				<h:column>
 					<f:facet name="header">
 						<h:outputText value="Group Id"/>
@@ -125,12 +140,13 @@
 						<h:outputText id="itemGroupId" value="#{_item.groupId}"/>
 					</h:link>
 				</h:column>
+
 			</h:dataTable>
 			<ui:include src="/resources/scaffold/paginator.xhtml">
 				<ui:param name="paginatorBean" value='#{modelsGroupIdsBean}'/>
 			</ui:include>
 		</h:form>
-			
+
 	</ui:define>
 
 </ui:composition>

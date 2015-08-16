@@ -319,6 +319,9 @@ line("//      ---------------------- GroupIds ------------------------\n");
 line("        GroupIds groupIds"+String.valueOf(++i)+" = new GroupIds();");
 line("        groupIds"+String.valueOf(i)+".setArtifactId(\""+modelsGroupIds.getGroupIds().getArtifactId()+"\");");
 line("        groupIds"+String.valueOf(i)+".setGroupId(\""+modelsGroupIds.getGroupIds().getGroupId()+"\");");
+line("        groupIds"+String.valueOf(i)+".setVersion(\""+modelsGroupIds.getGroupIds().getVersion()+"\");");
+line("        groupIds"+String.valueOf(i)+".setCode(\""+modelsGroupIds.getGroupIds().getCode()+"\");");
+// line("        groupIds"+String.valueOf(i)+".setDate("+modelsGroupIds.getGroupIds().getDate()+");");
 line("        em.persist(groupIds"+String.valueOf(i)+");");
 line("        em.flush();\n");
 
@@ -332,10 +335,34 @@ line("//      ---------------------- Models ------------------------\n");
 
 line("        Models models = new Models();");
 line("        models.setArtifactId(\""+models.getArtifactId()+"\");");
-line("        models.setGroupId(\""+models.getGroupId()+"."+models.getArtifactId()+"\");");
+line("        models.setGroupId(\""+models.getGroupId()+"\");");
 line("        models.setVersion(\""+models.getVersion()+"\");");
+line("        models.setCode(\""+models.getCode()+"\");");
+// line("        models.setDate("+models.getDate()+");");
 line("        em.persist(models);");
 line("        em.flush();\n");
+
+    } // for: developments.getModels()
+
+line("//      ---------------------- ModelsGroupIds ----------------------\n");
+
+    i=0;
+    for (Models models : developments.getModels()) {
+
+        for(ModelsGroupIds modelsGroupIds : models.getModelsGroupIds()){
+
+line("        ModelsGroupIds modelsGroupIds"+String.valueOf(++i)+" = new ModelsGroupIds();");
+line("        Models modelss"+String.valueOf(i)+" = findBean.artifactIdModels(\""+modelsGroupIds.getModels().getArtifactId()+"\",em);");
+line("        GroupIds groupIdd"+String.valueOf(i)+" = findBean.artifactIdGroupIds(\""+modelsGroupIds.getGroupIds().getArtifactId()+"\",em);");
+line("        modelsGroupIds"+String.valueOf(i)+".setModels(modelss"+String.valueOf(i)+");");
+line("        modelsGroupIds"+String.valueOf(i)+".setGroupIds(groupIdd"+String.valueOf(i)+");");
+line("        modelsGroupIds"+String.valueOf(i)+".setGroupId(\""+modelsGroupIds.getGroupId()+"\");");
+line("        modelsGroupIds"+String.valueOf(i)+".setIsSingle("+modelsGroupIds.getIsSingle()+");");
+line("        modelsGroupIds"+String.valueOf(i)+".setIsSimplified("+modelsGroupIds.getIsSimplified()+");");
+line("        em.persist(modelsGroupIds"+String.valueOf(i)+");");
+line("        em.flush();\n");
+
+        } // for: models.getModelsGroupIds()
 
     } // for: developments.getModels()
 
@@ -350,6 +377,10 @@ line("        Set<Models> models1 = new HashSet<Models>();");
 line("        Models model1 = findBean.artifactIdModels(\""+developments.getArtifactId()+"\",em);");
 line("        models1.add(model1);");
 line("        dev.setModels(models1);");
+// line("        dev.setObservations(\""+developments.getObservations()+"\");");
+line("        dev.setVersion(\""+developments.getVersion()+"\");");
+line("        dev.setCode(\""+developments.getCode()+"\");");
+// line("        dev.setDate("+developments.getDate()+");");
 line("        em.persist(dev);");
 line("        em.flush();\n");
 

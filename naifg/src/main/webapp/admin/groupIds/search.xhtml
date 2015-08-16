@@ -66,8 +66,9 @@
 					</h:panelGroup>
 				</h:panelGroup>
 			</f:validateBean>
-			
+
 			<h:dataTable id="groupIdsBeanPageItems" styleClass="data-table" value="#{groupIdsBean.pageItems}" var="_item">
+
 				<h:column>
 					<f:facet name="header">
 						<h:outputText value="Group Id"/>
@@ -77,6 +78,7 @@
 						<h:outputText id="itemGroupId" value="#{_item.groupId}"/>
 					</h:link>
 				</h:column>
+
 				<h:column>
 					<f:facet name="header">
 						<h:outputText value="Artifact Id"/>
@@ -86,6 +88,7 @@
 						<h:outputText id="itemArtifactId" value="#{_item.artifactId}"/>
 					</h:link>
 				</h:column>
+				
 			</h:dataTable>
 			<ui:include src="/resources/scaffold/paginator.xhtml">
 				<ui:param name="paginatorBean" value='#{groupIdsBean}'/>
