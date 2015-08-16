@@ -1,8 +1,7 @@
-package co.simasoft.naifg.setup;
+package co.simasoft.setup;
 
 import co.simasoft.beans.*;
 import co.simasoft.utils.*;
-
 import co.simasoft.models.dev.naifg.*;
 import co.simasoft.models.dev.naifg.dependencies.*;
 
@@ -34,27 +33,19 @@ public class naifgSetup {
 //      ---------------------- GroupIds ------------------------
 
         GroupIds groupIds1 = new GroupIds();
-        groupIds1.setArtifactId("co.simasoft.models.core.sites");
-        groupIds1.setGroupId("co.simasoft.models.core.sites");
+        groupIds1.setArtifactId("co.simasoft.models.dev.naifg");
+        groupIds1.setGroupId("co.simasoft.models.dev.naifg");
         groupIds1.setVersion("null");
         groupIds1.setCode("null");
         em.persist(groupIds1);
         em.flush();
 
         GroupIds groupIds2 = new GroupIds();
-        groupIds2.setArtifactId("co.simasoft.models.dev.naifg");
-        groupIds2.setGroupId("co.simasoft.models.dev.naifg");
+        groupIds2.setArtifactId("co.simasoft.models.dev.naifg.dependencies");
+        groupIds2.setGroupId("co.simasoft.models.dev.naifg.dependencies");
         groupIds2.setVersion("null");
         groupIds2.setCode("null");
         em.persist(groupIds2);
-        em.flush();
-
-        GroupIds groupIds3 = new GroupIds();
-        groupIds3.setArtifactId("co.simasoft.models.dev.naifg.dependencies");
-        groupIds3.setGroupId("co.simasoft.models.dev.naifg.dependencies");
-        groupIds3.setVersion("null");
-        groupIds3.setCode("null");
-        em.persist(groupIds3);
         em.flush();
 
 //      ---------------------- Models ------------------------
@@ -102,7 +93,7 @@ public class naifgSetup {
 //      ---------------------- Developments ------------------------
 
         Developments dev = new Developments();
-        dev.setGroupId("co.simasoft.naifg");
+        dev.setGroupId("co.simasoft");
         dev.setArtifactId("naifg");
         dev.setVersion("1.0-SNAPSHOT");
         dev.setCode("null");
@@ -118,7 +109,7 @@ public class naifgSetup {
 //      ---------------------- Entities ------------------------
 
         Entities entities1 = new Entities();
-        entities1.setName("Attributes");
+        entities1.setName("ModelsGroupIds");
 //      ...................... co.simasoft.models.dev.naifg ........................
         GroupIds groupId1 = new GroupIds();
         groupId1 = findBean.groupIdGroupIds("co.simasoft.models.dev.naifg",em);
@@ -129,184 +120,184 @@ public class naifgSetup {
 //      ---------------------- Attributes ------------------------
 
         Attributes attributes2 = new Attributes();
-        attributes2.setName("description");
+        attributes2.setName("isSimplified");
         attributes2.setIsNullable(true);
         attributes2.setIsUnique(false);
-//      ...................... Attributes ........................
+//      ...................... ModelsGroupIds ........................
         Entities entity2 = new Entities();
-        entity2 = findBean.nameEntities("Attributes",em);
+        entity2 = findBean.nameEntities("ModelsGroupIds",em);
         attributes2.setEntities(entity2);
-//      ...................... String ........................
+//      ...................... Boolean ........................
         AttributesTypes attributesTypes3 = new AttributesTypes();
-        attributesTypes3 = findBean.nameAttributesTypes("String",em);
+        attributesTypes3 = findBean.nameAttributesTypes("Boolean",em);
         attributes2.setAttributesTypes(attributesTypes3);
         em.persist(attributes2);
         em.flush();
 
         Attributes attributes3 = new Attributes();
-        attributes3.setName("length");
+        attributes3.setName("isSingle");
         attributes3.setIsNullable(true);
         attributes3.setIsUnique(false);
-//      ...................... Attributes ........................
+//      ...................... ModelsGroupIds ........................
         Entities entity4 = new Entities();
-        entity4 = findBean.nameEntities("Attributes",em);
+        entity4 = findBean.nameEntities("ModelsGroupIds",em);
         attributes3.setEntities(entity4);
-//      ...................... Integer ........................
+//      ...................... Boolean ........................
         AttributesTypes attributesTypes5 = new AttributesTypes();
-        attributesTypes5 = findBean.nameAttributesTypes("Integer",em);
+        attributesTypes5 = findBean.nameAttributesTypes("Boolean",em);
         attributes3.setAttributesTypes(attributesTypes5);
         em.persist(attributes3);
         em.flush();
 
-        Attributes attributes4 = new Attributes();
-        attributes4.setName("name");
-        attributes4.setIsNullable(false);
-        attributes4.setIsUnique(false);
-//      ...................... Attributes ........................
-        Entities entity6 = new Entities();
-        entity6 = findBean.nameEntities("Attributes",em);
-        attributes4.setEntities(entity6);
-//      ...................... String ........................
-        AttributesTypes attributesTypes7 = new AttributesTypes();
-        attributesTypes7 = findBean.nameAttributesTypes("String",em);
-        attributes4.setAttributesTypes(attributesTypes7);
-        em.persist(attributes4);
+        Entities entities4 = new Entities();
+        entities4.setName("Models");
+//      ...................... co.simasoft.models.dev.naifg ........................
+        GroupIds groupId6 = new GroupIds();
+        groupId6 = findBean.groupIdGroupIds("co.simasoft.models.dev.naifg",em);
+        entities4.setGroupIds(groupId6);
+        em.persist(entities4);
         em.flush();
 
+//      ---------------------- Attributes ------------------------
+
         Attributes attributes5 = new Attributes();
-        attributes5.setName("isNullable");
+        attributes5.setName("version");
         attributes5.setIsNullable(true);
         attributes5.setIsUnique(false);
-//      ...................... Attributes ........................
-        Entities entity8 = new Entities();
-        entity8 = findBean.nameEntities("Attributes",em);
-        attributes5.setEntities(entity8);
-//      ...................... Boolean ........................
-        AttributesTypes attributesTypes9 = new AttributesTypes();
-        attributesTypes9 = findBean.nameAttributesTypes("Boolean",em);
-        attributes5.setAttributesTypes(attributesTypes9);
+//      ...................... Models ........................
+        Entities entity7 = new Entities();
+        entity7 = findBean.nameEntities("Models",em);
+        attributes5.setEntities(entity7);
+//      ...................... String ........................
+        AttributesTypes attributesTypes8 = new AttributesTypes();
+        attributesTypes8 = findBean.nameAttributesTypes("String",em);
+        attributes5.setAttributesTypes(attributesTypes8);
         em.persist(attributes5);
         em.flush();
 
         Attributes attributes6 = new Attributes();
-        attributes6.setName("precision");
+        attributes6.setName("date");
         attributes6.setIsNullable(true);
         attributes6.setIsUnique(false);
-//      ...................... Attributes ........................
-        Entities entity10 = new Entities();
-        entity10 = findBean.nameEntities("Attributes",em);
-        attributes6.setEntities(entity10);
-//      ...................... Integer ........................
-        AttributesTypes attributesTypes11 = new AttributesTypes();
-        attributesTypes11 = findBean.nameAttributesTypes("Integer",em);
-        attributes6.setAttributesTypes(attributesTypes11);
+//      ...................... Models ........................
+        Entities entity9 = new Entities();
+        entity9 = findBean.nameEntities("Models",em);
+        attributes6.setEntities(entity9);
+//      ...................... Date ........................
+        AttributesTypes attributesTypes10 = new AttributesTypes();
+        attributesTypes10 = findBean.nameAttributesTypes("Date",em);
+        attributes6.setAttributesTypes(attributesTypes10);
         em.persist(attributes6);
         em.flush();
 
         Attributes attributes7 = new Attributes();
-        attributes7.setName("isSimplified");
-        attributes7.setIsNullable(true);
-        attributes7.setIsUnique(false);
-//      ...................... Attributes ........................
-        Entities entity12 = new Entities();
-        entity12 = findBean.nameEntities("Attributes",em);
-        attributes7.setEntities(entity12);
-//      ...................... Boolean ........................
-        AttributesTypes attributesTypes13 = new AttributesTypes();
-        attributesTypes13 = findBean.nameAttributesTypes("Boolean",em);
-        attributes7.setAttributesTypes(attributesTypes13);
+        attributes7.setName("groupId");
+        attributes7.setIsNullable(false);
+        attributes7.setIsUnique(true);
+//      ...................... Models ........................
+        Entities entity11 = new Entities();
+        entity11 = findBean.nameEntities("Models",em);
+        attributes7.setEntities(entity11);
+//      ...................... String ........................
+        AttributesTypes attributesTypes12 = new AttributesTypes();
+        attributesTypes12 = findBean.nameAttributesTypes("String",em);
+        attributes7.setAttributesTypes(attributesTypes12);
         em.persist(attributes7);
         em.flush();
 
         Attributes attributes8 = new Attributes();
-        attributes8.setName("isUnique");
+        attributes8.setName("code");
         attributes8.setIsNullable(true);
         attributes8.setIsUnique(false);
-//      ...................... Attributes ........................
-        Entities entity14 = new Entities();
-        entity14 = findBean.nameEntities("Attributes",em);
-        attributes8.setEntities(entity14);
-//      ...................... Boolean ........................
-        AttributesTypes attributesTypes15 = new AttributesTypes();
-        attributesTypes15 = findBean.nameAttributesTypes("Boolean",em);
-        attributes8.setAttributesTypes(attributesTypes15);
+//      ...................... Models ........................
+        Entities entity13 = new Entities();
+        entity13 = findBean.nameEntities("Models",em);
+        attributes8.setEntities(entity13);
+//      ...................... String ........................
+        AttributesTypes attributesTypes14 = new AttributesTypes();
+        attributesTypes14 = findBean.nameAttributesTypes("String",em);
+        attributes8.setAttributesTypes(attributesTypes14);
         em.persist(attributes8);
         em.flush();
 
-        Entities entities9 = new Entities();
-        entities9.setName("ModelsGroupIds");
+        Attributes attributes9 = new Attributes();
+        attributes9.setName("artifactId");
+        attributes9.setIsNullable(false);
+        attributes9.setIsUnique(true);
+//      ...................... Models ........................
+        Entities entity15 = new Entities();
+        entity15 = findBean.nameEntities("Models",em);
+        attributes9.setEntities(entity15);
+//      ...................... String ........................
+        AttributesTypes attributesTypes16 = new AttributesTypes();
+        attributesTypes16 = findBean.nameAttributesTypes("String",em);
+        attributes9.setAttributesTypes(attributesTypes16);
+        em.persist(attributes9);
+        em.flush();
+
+        Entities entities10 = new Entities();
+        entities10.setName("GroupIds");
 //      ...................... co.simasoft.models.dev.naifg ........................
-        GroupIds groupId16 = new GroupIds();
-        groupId16 = findBean.groupIdGroupIds("co.simasoft.models.dev.naifg",em);
-        entities9.setGroupIds(groupId16);
-        em.persist(entities9);
+        GroupIds groupId17 = new GroupIds();
+        groupId17 = findBean.groupIdGroupIds("co.simasoft.models.dev.naifg",em);
+        entities10.setGroupIds(groupId17);
+        em.persist(entities10);
         em.flush();
 
 //      ---------------------- Attributes ------------------------
 
-        Attributes attributes10 = new Attributes();
-        attributes10.setName("isSimplified");
-        attributes10.setIsNullable(true);
-        attributes10.setIsUnique(false);
-//      ...................... ModelsGroupIds ........................
-        Entities entity17 = new Entities();
-        entity17 = findBean.nameEntities("ModelsGroupIds",em);
-        attributes10.setEntities(entity17);
-//      ...................... Boolean ........................
-        AttributesTypes attributesTypes18 = new AttributesTypes();
-        attributesTypes18 = findBean.nameAttributesTypes("Boolean",em);
-        attributes10.setAttributesTypes(attributesTypes18);
-        em.persist(attributes10);
-        em.flush();
-
         Attributes attributes11 = new Attributes();
-        attributes11.setName("isSingle");
+        attributes11.setName("version");
         attributes11.setIsNullable(true);
         attributes11.setIsUnique(false);
-//      ...................... ModelsGroupIds ........................
-        Entities entity19 = new Entities();
-        entity19 = findBean.nameEntities("ModelsGroupIds",em);
-        attributes11.setEntities(entity19);
-//      ...................... Boolean ........................
-        AttributesTypes attributesTypes20 = new AttributesTypes();
-        attributesTypes20 = findBean.nameAttributesTypes("Boolean",em);
-        attributes11.setAttributesTypes(attributesTypes20);
+//      ...................... GroupIds ........................
+        Entities entity18 = new Entities();
+        entity18 = findBean.nameEntities("GroupIds",em);
+        attributes11.setEntities(entity18);
+//      ...................... String ........................
+        AttributesTypes attributesTypes19 = new AttributesTypes();
+        attributesTypes19 = findBean.nameAttributesTypes("String",em);
+        attributes11.setAttributesTypes(attributesTypes19);
         em.persist(attributes11);
         em.flush();
 
-        Entities entities12 = new Entities();
-        entities12.setName("Developments");
-//      ...................... co.simasoft.models.dev.naifg ........................
-        GroupIds groupId21 = new GroupIds();
-        groupId21 = findBean.groupIdGroupIds("co.simasoft.models.dev.naifg",em);
-        entities12.setGroupIds(groupId21);
-        em.persist(entities12);
+        Attributes attributes12 = new Attributes();
+        attributes12.setName("code");
+        attributes12.setIsNullable(true);
+        attributes12.setIsUnique(false);
+//      ...................... GroupIds ........................
+        Entities entity20 = new Entities();
+        entity20 = findBean.nameEntities("GroupIds",em);
+        attributes12.setEntities(entity20);
+//      ...................... String ........................
+        AttributesTypes attributesTypes21 = new AttributesTypes();
+        attributesTypes21 = findBean.nameAttributesTypes("String",em);
+        attributes12.setAttributesTypes(attributesTypes21);
+        em.persist(attributes12);
         em.flush();
 
-//      ---------------------- Attributes ------------------------
-
         Attributes attributes13 = new Attributes();
-        attributes13.setName("version");
+        attributes13.setName("date");
         attributes13.setIsNullable(true);
         attributes13.setIsUnique(false);
-//      ...................... Developments ........................
+//      ...................... GroupIds ........................
         Entities entity22 = new Entities();
-        entity22 = findBean.nameEntities("Developments",em);
+        entity22 = findBean.nameEntities("GroupIds",em);
         attributes13.setEntities(entity22);
-//      ...................... String ........................
+//      ...................... Date ........................
         AttributesTypes attributesTypes23 = new AttributesTypes();
-        attributesTypes23 = findBean.nameAttributesTypes("String",em);
+        attributesTypes23 = findBean.nameAttributesTypes("Date",em);
         attributes13.setAttributesTypes(attributesTypes23);
         em.persist(attributes13);
         em.flush();
 
         Attributes attributes14 = new Attributes();
-        attributes14.setName("code");
-        attributes14.setIsNullable(true);
-        attributes14.setIsUnique(false);
-//      ...................... Developments ........................
+        attributes14.setName("artifactId");
+        attributes14.setIsNullable(false);
+        attributes14.setIsUnique(true);
+//      ...................... GroupIds ........................
         Entities entity24 = new Entities();
-        entity24 = findBean.nameEntities("Developments",em);
+        entity24 = findBean.nameEntities("GroupIds",em);
         attributes14.setEntities(entity24);
 //      ...................... String ........................
         AttributesTypes attributesTypes25 = new AttributesTypes();
@@ -316,12 +307,12 @@ public class naifgSetup {
         em.flush();
 
         Attributes attributes15 = new Attributes();
-        attributes15.setName("artifactId");
+        attributes15.setName("groupId");
         attributes15.setIsNullable(false);
         attributes15.setIsUnique(true);
-//      ...................... Developments ........................
+//      ...................... GroupIds ........................
         Entities entity26 = new Entities();
-        entity26 = findBean.nameEntities("Developments",em);
+        entity26 = findBean.nameEntities("GroupIds",em);
         attributes15.setEntities(entity26);
 //      ...................... String ........................
         AttributesTypes attributesTypes27 = new AttributesTypes();
@@ -330,54 +321,54 @@ public class naifgSetup {
         em.persist(attributes15);
         em.flush();
 
-        Attributes attributes16 = new Attributes();
-        attributes16.setName("date");
-        attributes16.setIsNullable(true);
-        attributes16.setIsUnique(false);
-//      ...................... Developments ........................
-        Entities entity28 = new Entities();
-        entity28 = findBean.nameEntities("Developments",em);
-        attributes16.setEntities(entity28);
-//      ...................... Date ........................
-        AttributesTypes attributesTypes29 = new AttributesTypes();
-        attributesTypes29 = findBean.nameAttributesTypes("Date",em);
-        attributes16.setAttributesTypes(attributesTypes29);
-        em.persist(attributes16);
-        em.flush();
-
-        Attributes attributes17 = new Attributes();
-        attributes17.setName("groupId");
-        attributes17.setIsNullable(true);
-        attributes17.setIsUnique(false);
-//      ...................... Developments ........................
-        Entities entity30 = new Entities();
-        entity30 = findBean.nameEntities("Developments",em);
-        attributes17.setEntities(entity30);
-//      ...................... String ........................
-        AttributesTypes attributesTypes31 = new AttributesTypes();
-        attributesTypes31 = findBean.nameAttributesTypes("String",em);
-        attributes17.setAttributesTypes(attributesTypes31);
-        em.persist(attributes17);
-        em.flush();
-
-        Entities entities18 = new Entities();
-        entities18.setName("NameQueries");
+        Entities entities16 = new Entities();
+        entities16.setName("Developments");
 //      ...................... co.simasoft.models.dev.naifg ........................
-        GroupIds groupId32 = new GroupIds();
-        groupId32 = findBean.groupIdGroupIds("co.simasoft.models.dev.naifg",em);
-        entities18.setGroupIds(groupId32);
-        em.persist(entities18);
+        GroupIds groupId28 = new GroupIds();
+        groupId28 = findBean.groupIdGroupIds("co.simasoft.models.dev.naifg",em);
+        entities16.setGroupIds(groupId28);
+        em.persist(entities16);
         em.flush();
 
 //      ---------------------- Attributes ------------------------
 
+        Attributes attributes17 = new Attributes();
+        attributes17.setName("code");
+        attributes17.setIsNullable(true);
+        attributes17.setIsUnique(false);
+//      ...................... Developments ........................
+        Entities entity29 = new Entities();
+        entity29 = findBean.nameEntities("Developments",em);
+        attributes17.setEntities(entity29);
+//      ...................... String ........................
+        AttributesTypes attributesTypes30 = new AttributesTypes();
+        attributesTypes30 = findBean.nameAttributesTypes("String",em);
+        attributes17.setAttributesTypes(attributesTypes30);
+        em.persist(attributes17);
+        em.flush();
+
+        Attributes attributes18 = new Attributes();
+        attributes18.setName("version");
+        attributes18.setIsNullable(true);
+        attributes18.setIsUnique(false);
+//      ...................... Developments ........................
+        Entities entity31 = new Entities();
+        entity31 = findBean.nameEntities("Developments",em);
+        attributes18.setEntities(entity31);
+//      ...................... String ........................
+        AttributesTypes attributesTypes32 = new AttributesTypes();
+        attributesTypes32 = findBean.nameAttributesTypes("String",em);
+        attributes18.setAttributesTypes(attributesTypes32);
+        em.persist(attributes18);
+        em.flush();
+
         Attributes attributes19 = new Attributes();
-        attributes19.setName("query");
-        attributes19.setIsNullable(false);
-        attributes19.setIsUnique(true);
-//      ...................... NameQueries ........................
+        attributes19.setName("groupId");
+        attributes19.setIsNullable(true);
+        attributes19.setIsUnique(false);
+//      ...................... Developments ........................
         Entities entity33 = new Entities();
-        entity33 = findBean.nameEntities("NameQueries",em);
+        entity33 = findBean.nameEntities("Developments",em);
         attributes19.setEntities(entity33);
 //      ...................... String ........................
         AttributesTypes attributesTypes34 = new AttributesTypes();
@@ -387,124 +378,124 @@ public class naifgSetup {
         em.flush();
 
         Attributes attributes20 = new Attributes();
-        attributes20.setName("name");
-        attributes20.setIsNullable(false);
-        attributes20.setIsUnique(true);
-//      ...................... NameQueries ........................
+        attributes20.setName("date");
+        attributes20.setIsNullable(true);
+        attributes20.setIsUnique(false);
+//      ...................... Developments ........................
         Entities entity35 = new Entities();
-        entity35 = findBean.nameEntities("NameQueries",em);
+        entity35 = findBean.nameEntities("Developments",em);
         attributes20.setEntities(entity35);
-//      ...................... String ........................
+//      ...................... Date ........................
         AttributesTypes attributesTypes36 = new AttributesTypes();
-        attributesTypes36 = findBean.nameAttributesTypes("String",em);
+        attributesTypes36 = findBean.nameAttributesTypes("Date",em);
         attributes20.setAttributesTypes(attributesTypes36);
         em.persist(attributes20);
         em.flush();
 
-        Entities entities21 = new Entities();
-        entities21.setName("Relationships");
+        Attributes attributes21 = new Attributes();
+        attributes21.setName("artifactId");
+        attributes21.setIsNullable(false);
+        attributes21.setIsUnique(true);
+//      ...................... Developments ........................
+        Entities entity37 = new Entities();
+        entity37 = findBean.nameEntities("Developments",em);
+        attributes21.setEntities(entity37);
+//      ...................... String ........................
+        AttributesTypes attributesTypes38 = new AttributesTypes();
+        attributesTypes38 = findBean.nameAttributesTypes("String",em);
+        attributes21.setAttributesTypes(attributesTypes38);
+        em.persist(attributes21);
+        em.flush();
+
+        Entities entities22 = new Entities();
+        entities22.setName("NameQueries");
 //      ...................... co.simasoft.models.dev.naifg ........................
-        GroupIds groupId37 = new GroupIds();
-        groupId37 = findBean.groupIdGroupIds("co.simasoft.models.dev.naifg",em);
-        entities21.setGroupIds(groupId37);
-        em.persist(entities21);
+        GroupIds groupId39 = new GroupIds();
+        groupId39 = findBean.groupIdGroupIds("co.simasoft.models.dev.naifg",em);
+        entities22.setGroupIds(groupId39);
+        em.persist(entities22);
         em.flush();
 
 //      ---------------------- Attributes ------------------------
 
-        Attributes attributes22 = new Attributes();
-        attributes22.setName("name");
-        attributes22.setIsNullable(true);
-        attributes22.setIsUnique(false);
-//      ...................... Relationships ........................
-        Entities entity38 = new Entities();
-        entity38 = findBean.nameEntities("Relationships",em);
-        attributes22.setEntities(entity38);
-//      ...................... String ........................
-        AttributesTypes attributesTypes39 = new AttributesTypes();
-        attributesTypes39 = findBean.nameAttributesTypes("String",em);
-        attributes22.setAttributesTypes(attributesTypes39);
-        em.persist(attributes22);
-        em.flush();
-
         Attributes attributes23 = new Attributes();
-        attributes23.setName("isOptionality");
-        attributes23.setIsNullable(true);
-        attributes23.setIsUnique(false);
-//      ...................... Relationships ........................
+        attributes23.setName("name");
+        attributes23.setIsNullable(false);
+        attributes23.setIsUnique(true);
+//      ...................... NameQueries ........................
         Entities entity40 = new Entities();
-        entity40 = findBean.nameEntities("Relationships",em);
+        entity40 = findBean.nameEntities("NameQueries",em);
         attributes23.setEntities(entity40);
-//      ...................... Boolean ........................
+//      ...................... String ........................
         AttributesTypes attributesTypes41 = new AttributesTypes();
-        attributesTypes41 = findBean.nameAttributesTypes("Boolean",em);
+        attributesTypes41 = findBean.nameAttributesTypes("String",em);
         attributes23.setAttributesTypes(attributesTypes41);
         em.persist(attributes23);
         em.flush();
 
         Attributes attributes24 = new Attributes();
-        attributes24.setName("isEmbedded");
-        attributes24.setIsNullable(true);
-        attributes24.setIsUnique(false);
-//      ...................... Relationships ........................
+        attributes24.setName("query");
+        attributes24.setIsNullable(false);
+        attributes24.setIsUnique(true);
+//      ...................... NameQueries ........................
         Entities entity42 = new Entities();
-        entity42 = findBean.nameEntities("Relationships",em);
+        entity42 = findBean.nameEntities("NameQueries",em);
         attributes24.setEntities(entity42);
-//      ...................... Boolean ........................
+//      ...................... String ........................
         AttributesTypes attributesTypes43 = new AttributesTypes();
-        attributesTypes43 = findBean.nameAttributesTypes("Boolean",em);
+        attributesTypes43 = findBean.nameAttributesTypes("String",em);
         attributes24.setAttributesTypes(attributesTypes43);
         em.persist(attributes24);
         em.flush();
 
-        Attributes attributes25 = new Attributes();
-        attributes25.setName("isSimplified");
-        attributes25.setIsNullable(true);
-        attributes25.setIsUnique(false);
-//      ...................... Relationships ........................
-        Entities entity44 = new Entities();
-        entity44 = findBean.nameEntities("Relationships",em);
-        attributes25.setEntities(entity44);
-//      ...................... Boolean ........................
-        AttributesTypes attributesTypes45 = new AttributesTypes();
-        attributesTypes45 = findBean.nameAttributesTypes("Boolean",em);
-        attributes25.setAttributesTypes(attributesTypes45);
-        em.persist(attributes25);
-        em.flush();
-
-        Entities entities26 = new Entities();
-        entities26.setName("GroupIds");
+        Entities entities25 = new Entities();
+        entities25.setName("Attributes");
 //      ...................... co.simasoft.models.dev.naifg ........................
-        GroupIds groupId46 = new GroupIds();
-        groupId46 = findBean.groupIdGroupIds("co.simasoft.models.dev.naifg",em);
-        entities26.setGroupIds(groupId46);
-        em.persist(entities26);
+        GroupIds groupId44 = new GroupIds();
+        groupId44 = findBean.groupIdGroupIds("co.simasoft.models.dev.naifg",em);
+        entities25.setGroupIds(groupId44);
+        em.persist(entities25);
         em.flush();
 
 //      ---------------------- Attributes ------------------------
 
+        Attributes attributes26 = new Attributes();
+        attributes26.setName("isUnique");
+        attributes26.setIsNullable(true);
+        attributes26.setIsUnique(false);
+//      ...................... Attributes ........................
+        Entities entity45 = new Entities();
+        entity45 = findBean.nameEntities("Attributes",em);
+        attributes26.setEntities(entity45);
+//      ...................... Boolean ........................
+        AttributesTypes attributesTypes46 = new AttributesTypes();
+        attributesTypes46 = findBean.nameAttributesTypes("Boolean",em);
+        attributes26.setAttributesTypes(attributesTypes46);
+        em.persist(attributes26);
+        em.flush();
+
         Attributes attributes27 = new Attributes();
-        attributes27.setName("version");
+        attributes27.setName("isSimplified");
         attributes27.setIsNullable(true);
         attributes27.setIsUnique(false);
-//      ...................... GroupIds ........................
+//      ...................... Attributes ........................
         Entities entity47 = new Entities();
-        entity47 = findBean.nameEntities("GroupIds",em);
+        entity47 = findBean.nameEntities("Attributes",em);
         attributes27.setEntities(entity47);
-//      ...................... String ........................
+//      ...................... Boolean ........................
         AttributesTypes attributesTypes48 = new AttributesTypes();
-        attributesTypes48 = findBean.nameAttributesTypes("String",em);
+        attributesTypes48 = findBean.nameAttributesTypes("Boolean",em);
         attributes27.setAttributesTypes(attributesTypes48);
         em.persist(attributes27);
         em.flush();
 
         Attributes attributes28 = new Attributes();
-        attributes28.setName("code");
+        attributes28.setName("description");
         attributes28.setIsNullable(true);
         attributes28.setIsUnique(false);
-//      ...................... GroupIds ........................
+//      ...................... Attributes ........................
         Entities entity49 = new Entities();
-        entity49 = findBean.nameEntities("GroupIds",em);
+        entity49 = findBean.nameEntities("Attributes",em);
         attributes28.setEntities(entity49);
 //      ...................... String ........................
         AttributesTypes attributesTypes50 = new AttributesTypes();
@@ -514,80 +505,80 @@ public class naifgSetup {
         em.flush();
 
         Attributes attributes29 = new Attributes();
-        attributes29.setName("date");
+        attributes29.setName("isNullable");
         attributes29.setIsNullable(true);
         attributes29.setIsUnique(false);
-//      ...................... GroupIds ........................
+//      ...................... Attributes ........................
         Entities entity51 = new Entities();
-        entity51 = findBean.nameEntities("GroupIds",em);
+        entity51 = findBean.nameEntities("Attributes",em);
         attributes29.setEntities(entity51);
-//      ...................... Date ........................
+//      ...................... Boolean ........................
         AttributesTypes attributesTypes52 = new AttributesTypes();
-        attributesTypes52 = findBean.nameAttributesTypes("Date",em);
+        attributesTypes52 = findBean.nameAttributesTypes("Boolean",em);
         attributes29.setAttributesTypes(attributesTypes52);
         em.persist(attributes29);
         em.flush();
 
         Attributes attributes30 = new Attributes();
-        attributes30.setName("artifactId");
-        attributes30.setIsNullable(false);
-        attributes30.setIsUnique(true);
-//      ...................... GroupIds ........................
+        attributes30.setName("precision");
+        attributes30.setIsNullable(true);
+        attributes30.setIsUnique(false);
+//      ...................... Attributes ........................
         Entities entity53 = new Entities();
-        entity53 = findBean.nameEntities("GroupIds",em);
+        entity53 = findBean.nameEntities("Attributes",em);
         attributes30.setEntities(entity53);
-//      ...................... String ........................
+//      ...................... Integer ........................
         AttributesTypes attributesTypes54 = new AttributesTypes();
-        attributesTypes54 = findBean.nameAttributesTypes("String",em);
+        attributesTypes54 = findBean.nameAttributesTypes("Integer",em);
         attributes30.setAttributesTypes(attributesTypes54);
         em.persist(attributes30);
         em.flush();
 
         Attributes attributes31 = new Attributes();
-        attributes31.setName("groupId");
-        attributes31.setIsNullable(false);
-        attributes31.setIsUnique(true);
-//      ...................... GroupIds ........................
+        attributes31.setName("length");
+        attributes31.setIsNullable(true);
+        attributes31.setIsUnique(false);
+//      ...................... Attributes ........................
         Entities entity55 = new Entities();
-        entity55 = findBean.nameEntities("GroupIds",em);
+        entity55 = findBean.nameEntities("Attributes",em);
         attributes31.setEntities(entity55);
-//      ...................... String ........................
+//      ...................... Integer ........................
         AttributesTypes attributesTypes56 = new AttributesTypes();
-        attributesTypes56 = findBean.nameAttributesTypes("String",em);
+        attributesTypes56 = findBean.nameAttributesTypes("Integer",em);
         attributes31.setAttributesTypes(attributesTypes56);
         em.persist(attributes31);
         em.flush();
 
-        Entities entities32 = new Entities();
-        entities32.setName("Cardinalities");
+        Attributes attributes32 = new Attributes();
+        attributes32.setName("name");
+        attributes32.setIsNullable(false);
+        attributes32.setIsUnique(false);
+//      ...................... Attributes ........................
+        Entities entity57 = new Entities();
+        entity57 = findBean.nameEntities("Attributes",em);
+        attributes32.setEntities(entity57);
+//      ...................... String ........................
+        AttributesTypes attributesTypes58 = new AttributesTypes();
+        attributesTypes58 = findBean.nameAttributesTypes("String",em);
+        attributes32.setAttributesTypes(attributesTypes58);
+        em.persist(attributes32);
+        em.flush();
+
+        Entities entities33 = new Entities();
+        entities33.setName("Cardinalities");
 //      ...................... co.simasoft.models.dev.naifg ........................
-        GroupIds groupId57 = new GroupIds();
-        groupId57 = findBean.groupIdGroupIds("co.simasoft.models.dev.naifg",em);
-        entities32.setGroupIds(groupId57);
-        em.persist(entities32);
+        GroupIds groupId59 = new GroupIds();
+        groupId59 = findBean.groupIdGroupIds("co.simasoft.models.dev.naifg",em);
+        entities33.setGroupIds(groupId59);
+        em.persist(entities33);
         em.flush();
 
 //      ---------------------- Attributes ------------------------
 
-        Attributes attributes33 = new Attributes();
-        attributes33.setName("name");
-        attributes33.setIsNullable(false);
-        attributes33.setIsUnique(true);
-//      ...................... Cardinalities ........................
-        Entities entity58 = new Entities();
-        entity58 = findBean.nameEntities("Cardinalities",em);
-        attributes33.setEntities(entity58);
-//      ...................... String ........................
-        AttributesTypes attributesTypes59 = new AttributesTypes();
-        attributesTypes59 = findBean.nameAttributesTypes("String",em);
-        attributes33.setAttributesTypes(attributesTypes59);
-        em.persist(attributes33);
-        em.flush();
-
         Attributes attributes34 = new Attributes();
-        attributes34.setName("cardinality");
+        attributes34.setName("name");
         attributes34.setIsNullable(false);
-        attributes34.setIsUnique(false);
+        attributes34.setIsUnique(true);
 //      ...................... Cardinalities ........................
         Entities entity60 = new Entities();
         entity60 = findBean.nameEntities("Cardinalities",em);
@@ -600,57 +591,57 @@ public class naifgSetup {
         em.flush();
 
         Attributes attributes35 = new Attributes();
-        attributes35.setName("isUnidirectional");
-        attributes35.setIsNullable(true);
+        attributes35.setName("cardinality");
+        attributes35.setIsNullable(false);
         attributes35.setIsUnique(false);
 //      ...................... Cardinalities ........................
         Entities entity62 = new Entities();
         entity62 = findBean.nameEntities("Cardinalities",em);
         attributes35.setEntities(entity62);
-//      ...................... Boolean ........................
+//      ...................... String ........................
         AttributesTypes attributesTypes63 = new AttributesTypes();
-        attributesTypes63 = findBean.nameAttributesTypes("Boolean",em);
+        attributesTypes63 = findBean.nameAttributesTypes("String",em);
         attributes35.setAttributesTypes(attributesTypes63);
         em.persist(attributes35);
         em.flush();
 
-        Entities entities36 = new Entities();
-        entities36.setName("Entities");
+        Attributes attributes36 = new Attributes();
+        attributes36.setName("isUnidirectional");
+        attributes36.setIsNullable(true);
+        attributes36.setIsUnique(false);
+//      ...................... Cardinalities ........................
+        Entities entity64 = new Entities();
+        entity64 = findBean.nameEntities("Cardinalities",em);
+        attributes36.setEntities(entity64);
+//      ...................... Boolean ........................
+        AttributesTypes attributesTypes65 = new AttributesTypes();
+        attributesTypes65 = findBean.nameAttributesTypes("Boolean",em);
+        attributes36.setAttributesTypes(attributesTypes65);
+        em.persist(attributes36);
+        em.flush();
+
+        Entities entities37 = new Entities();
+        entities37.setName("Entities");
 //      ...................... co.simasoft.models.dev.naifg ........................
-        GroupIds groupId64 = new GroupIds();
-        groupId64 = findBean.groupIdGroupIds("co.simasoft.models.dev.naifg",em);
-        entities36.setGroupIds(groupId64);
-        em.persist(entities36);
+        GroupIds groupId66 = new GroupIds();
+        groupId66 = findBean.groupIdGroupIds("co.simasoft.models.dev.naifg",em);
+        entities37.setGroupIds(groupId66);
+        em.persist(entities37);
         em.flush();
 
 //      ---------------------- Attributes ------------------------
 
-        Attributes attributes37 = new Attributes();
-        attributes37.setName("table");
-        attributes37.setIsNullable(true);
-        attributes37.setIsUnique(false);
-//      ...................... Entities ........................
-        Entities entity65 = new Entities();
-        entity65 = findBean.nameEntities("Entities",em);
-        attributes37.setEntities(entity65);
-//      ...................... String ........................
-        AttributesTypes attributesTypes66 = new AttributesTypes();
-        attributesTypes66 = findBean.nameAttributesTypes("String",em);
-        attributes37.setAttributesTypes(attributesTypes66);
-        em.persist(attributes37);
-        em.flush();
-
         Attributes attributes38 = new Attributes();
-        attributes38.setName("isSimplified");
-        attributes38.setIsNullable(true);
-        attributes38.setIsUnique(false);
+        attributes38.setName("name");
+        attributes38.setIsNullable(false);
+        attributes38.setIsUnique(true);
 //      ...................... Entities ........................
         Entities entity67 = new Entities();
         entity67 = findBean.nameEntities("Entities",em);
         attributes38.setEntities(entity67);
-//      ...................... Boolean ........................
+//      ...................... String ........................
         AttributesTypes attributesTypes68 = new AttributesTypes();
-        attributesTypes68 = findBean.nameAttributesTypes("Boolean",em);
+        attributesTypes68 = findBean.nameAttributesTypes("String",em);
         attributes38.setAttributesTypes(attributesTypes68);
         em.persist(attributes38);
         em.flush();
@@ -671,9 +662,9 @@ public class naifgSetup {
         em.flush();
 
         Attributes attributes40 = new Attributes();
-        attributes40.setName("name");
-        attributes40.setIsNullable(false);
-        attributes40.setIsUnique(true);
+        attributes40.setName("description");
+        attributes40.setIsNullable(true);
+        attributes40.setIsUnique(false);
 //      ...................... Entities ........................
         Entities entity71 = new Entities();
         entity71 = findBean.nameEntities("Entities",em);
@@ -686,7 +677,7 @@ public class naifgSetup {
         em.flush();
 
         Attributes attributes41 = new Attributes();
-        attributes41.setName("description");
+        attributes41.setName("table");
         attributes41.setIsNullable(true);
         attributes41.setIsUnique(false);
 //      ...................... Entities ........................
@@ -700,84 +691,84 @@ public class naifgSetup {
         em.persist(attributes41);
         em.flush();
 
-        Entities entities42 = new Entities();
-        entities42.setName("Models");
+        Attributes attributes42 = new Attributes();
+        attributes42.setName("isSimplified");
+        attributes42.setIsNullable(true);
+        attributes42.setIsUnique(false);
+//      ...................... Entities ........................
+        Entities entity75 = new Entities();
+        entity75 = findBean.nameEntities("Entities",em);
+        attributes42.setEntities(entity75);
+//      ...................... Boolean ........................
+        AttributesTypes attributesTypes76 = new AttributesTypes();
+        attributesTypes76 = findBean.nameAttributesTypes("Boolean",em);
+        attributes42.setAttributesTypes(attributesTypes76);
+        em.persist(attributes42);
+        em.flush();
+
+        Entities entities43 = new Entities();
+        entities43.setName("Relationships");
 //      ...................... co.simasoft.models.dev.naifg ........................
-        GroupIds groupId75 = new GroupIds();
-        groupId75 = findBean.groupIdGroupIds("co.simasoft.models.dev.naifg",em);
-        entities42.setGroupIds(groupId75);
-        em.persist(entities42);
+        GroupIds groupId77 = new GroupIds();
+        groupId77 = findBean.groupIdGroupIds("co.simasoft.models.dev.naifg",em);
+        entities43.setGroupIds(groupId77);
+        em.persist(entities43);
         em.flush();
 
 //      ---------------------- Attributes ------------------------
 
-        Attributes attributes43 = new Attributes();
-        attributes43.setName("date");
-        attributes43.setIsNullable(true);
-        attributes43.setIsUnique(false);
-//      ...................... Models ........................
-        Entities entity76 = new Entities();
-        entity76 = findBean.nameEntities("Models",em);
-        attributes43.setEntities(entity76);
-//      ...................... Date ........................
-        AttributesTypes attributesTypes77 = new AttributesTypes();
-        attributesTypes77 = findBean.nameAttributesTypes("Date",em);
-        attributes43.setAttributesTypes(attributesTypes77);
-        em.persist(attributes43);
-        em.flush();
-
         Attributes attributes44 = new Attributes();
-        attributes44.setName("version");
+        attributes44.setName("isOptionality");
         attributes44.setIsNullable(true);
         attributes44.setIsUnique(false);
-//      ...................... Models ........................
+//      ...................... Relationships ........................
         Entities entity78 = new Entities();
-        entity78 = findBean.nameEntities("Models",em);
+        entity78 = findBean.nameEntities("Relationships",em);
         attributes44.setEntities(entity78);
-//      ...................... String ........................
+//      ...................... Boolean ........................
         AttributesTypes attributesTypes79 = new AttributesTypes();
-        attributesTypes79 = findBean.nameAttributesTypes("String",em);
+        attributesTypes79 = findBean.nameAttributesTypes("Boolean",em);
         attributes44.setAttributesTypes(attributesTypes79);
         em.persist(attributes44);
         em.flush();
 
         Attributes attributes45 = new Attributes();
-        attributes45.setName("code");
+        attributes45.setName("isEmbedded");
         attributes45.setIsNullable(true);
         attributes45.setIsUnique(false);
-//      ...................... Models ........................
+//      ...................... Relationships ........................
         Entities entity80 = new Entities();
-        entity80 = findBean.nameEntities("Models",em);
+        entity80 = findBean.nameEntities("Relationships",em);
         attributes45.setEntities(entity80);
-//      ...................... String ........................
+//      ...................... Boolean ........................
         AttributesTypes attributesTypes81 = new AttributesTypes();
-        attributesTypes81 = findBean.nameAttributesTypes("String",em);
+        attributesTypes81 = findBean.nameAttributesTypes("Boolean",em);
         attributes45.setAttributesTypes(attributesTypes81);
         em.persist(attributes45);
         em.flush();
 
         Attributes attributes46 = new Attributes();
-        attributes46.setName("groupId");
-        attributes46.setIsNullable(false);
-        attributes46.setIsUnique(true);
-//      ...................... Models ........................
+        attributes46.setName("isSimplified");
+        attributes46.setIsNullable(true);
+        attributes46.setIsUnique(false);
+//      ...................... Relationships ........................
         Entities entity82 = new Entities();
-        entity82 = findBean.nameEntities("Models",em);
+        entity82 = findBean.nameEntities("Relationships",em);
         attributes46.setEntities(entity82);
-//      ...................... String ........................
+//      ...................... Boolean ........................
         AttributesTypes attributesTypes83 = new AttributesTypes();
-        attributesTypes83 = findBean.nameAttributesTypes("String",em);
+        attributesTypes83 = findBean.nameAttributesTypes("Boolean",em);
         attributes46.setAttributesTypes(attributesTypes83);
         em.persist(attributes46);
         em.flush();
 
         Attributes attributes47 = new Attributes();
-        attributes47.setName("artifactId");
-        attributes47.setIsNullable(false);
-        attributes47.setIsUnique(true);
-//      ...................... Models ........................
+        attributes47.setName("name");
+        attributes47.setIsNullable(true);
+        attributes47.setIsUnique(false);
+//      ...................... Relationships ........................
         Entities entity84 = new Entities();
-        entity84 = findBean.nameEntities("Models",em);
+        entity84 = findBean.nameEntities("Relationships",em);
         attributes47.setEntities(entity84);
 //      ...................... String ........................
         AttributesTypes attributesTypes85 = new AttributesTypes();
@@ -787,7 +778,7 @@ public class naifgSetup {
         em.flush();
 
         Entities entities48 = new Entities();
-        entities48.setName("AttributesTypes");
+        entities48.setName("Dependencies");
 //      ...................... co.simasoft.models.dev.naifg.dependencies ........................
         GroupIds groupId86 = new GroupIds();
         groupId86 = findBean.groupIdGroupIds("co.simasoft.models.dev.naifg.dependencies",em);
@@ -798,12 +789,12 @@ public class naifgSetup {
 //      ---------------------- Attributes ------------------------
 
         Attributes attributes49 = new Attributes();
-        attributes49.setName("annotations");
+        attributes49.setName("scope");
         attributes49.setIsNullable(true);
         attributes49.setIsUnique(false);
-//      ...................... AttributesTypes ........................
+//      ...................... Dependencies ........................
         Entities entity87 = new Entities();
-        entity87 = findBean.nameEntities("AttributesTypes",em);
+        entity87 = findBean.nameEntities("Dependencies",em);
         attributes49.setEntities(entity87);
 //      ...................... String ........................
         AttributesTypes attributesTypes88 = new AttributesTypes();
@@ -813,27 +804,27 @@ public class naifgSetup {
         em.flush();
 
         Attributes attributes50 = new Attributes();
-        attributes50.setName("precision");
+        attributes50.setName("version");
         attributes50.setIsNullable(true);
         attributes50.setIsUnique(false);
-//      ...................... AttributesTypes ........................
+//      ...................... Dependencies ........................
         Entities entity89 = new Entities();
-        entity89 = findBean.nameEntities("AttributesTypes",em);
+        entity89 = findBean.nameEntities("Dependencies",em);
         attributes50.setEntities(entity89);
-//      ...................... Integer ........................
+//      ...................... String ........................
         AttributesTypes attributesTypes90 = new AttributesTypes();
-        attributesTypes90 = findBean.nameAttributesTypes("Integer",em);
+        attributesTypes90 = findBean.nameAttributesTypes("String",em);
         attributes50.setAttributesTypes(attributesTypes90);
         em.persist(attributes50);
         em.flush();
 
         Attributes attributes51 = new Attributes();
-        attributes51.setName("name");
-        attributes51.setIsNullable(false);
-        attributes51.setIsUnique(true);
-//      ...................... AttributesTypes ........................
+        attributes51.setName("type");
+        attributes51.setIsNullable(true);
+        attributes51.setIsUnique(false);
+//      ...................... Dependencies ........................
         Entities entity91 = new Entities();
-        entity91 = findBean.nameEntities("AttributesTypes",em);
+        entity91 = findBean.nameEntities("Dependencies",em);
         attributes51.setEntities(entity91);
 //      ...................... String ........................
         AttributesTypes attributesTypes92 = new AttributesTypes();
@@ -843,27 +834,27 @@ public class naifgSetup {
         em.flush();
 
         Attributes attributes52 = new Attributes();
-        attributes52.setName("length");
-        attributes52.setIsNullable(true);
+        attributes52.setName("groupId");
+        attributes52.setIsNullable(false);
         attributes52.setIsUnique(false);
-//      ...................... AttributesTypes ........................
+//      ...................... Dependencies ........................
         Entities entity93 = new Entities();
-        entity93 = findBean.nameEntities("AttributesTypes",em);
+        entity93 = findBean.nameEntities("Dependencies",em);
         attributes52.setEntities(entity93);
-//      ...................... Integer ........................
+//      ...................... String ........................
         AttributesTypes attributesTypes94 = new AttributesTypes();
-        attributesTypes94 = findBean.nameAttributesTypes("Integer",em);
+        attributesTypes94 = findBean.nameAttributesTypes("String",em);
         attributes52.setAttributesTypes(attributesTypes94);
         em.persist(attributes52);
         em.flush();
 
         Attributes attributes53 = new Attributes();
-        attributes53.setName("type");
+        attributes53.setName("artifactId");
         attributes53.setIsNullable(false);
         attributes53.setIsUnique(false);
-//      ...................... AttributesTypes ........................
+//      ...................... Dependencies ........................
         Entities entity95 = new Entities();
-        entity95 = findBean.nameEntities("AttributesTypes",em);
+        entity95 = findBean.nameEntities("Dependencies",em);
         attributes53.setEntities(entity95);
 //      ...................... String ........................
         AttributesTypes attributesTypes96 = new AttributesTypes();
@@ -872,39 +863,39 @@ public class naifgSetup {
         em.persist(attributes53);
         em.flush();
 
-        Entities entities54 = new Entities();
-        entities54.setName("AttributesProperties");
+        Attributes attributes54 = new Attributes();
+        attributes54.setName("maven");
+        attributes54.setIsNullable(false);
+        attributes54.setIsUnique(true);
+//      ...................... Dependencies ........................
+        Entities entity97 = new Entities();
+        entity97 = findBean.nameEntities("Dependencies",em);
+        attributes54.setEntities(entity97);
+//      ...................... String ........................
+        AttributesTypes attributesTypes98 = new AttributesTypes();
+        attributesTypes98 = findBean.nameAttributesTypes("String",em);
+        attributes54.setAttributesTypes(attributesTypes98);
+        em.persist(attributes54);
+        em.flush();
+
+        Entities entities55 = new Entities();
+        entities55.setName("Imports");
 //      ...................... co.simasoft.models.dev.naifg.dependencies ........................
-        GroupIds groupId97 = new GroupIds();
-        groupId97 = findBean.groupIdGroupIds("co.simasoft.models.dev.naifg.dependencies",em);
-        entities54.setGroupIds(groupId97);
-        em.persist(entities54);
+        GroupIds groupId99 = new GroupIds();
+        groupId99 = findBean.groupIdGroupIds("co.simasoft.models.dev.naifg.dependencies",em);
+        entities55.setGroupIds(groupId99);
+        em.persist(entities55);
         em.flush();
 
 //      ---------------------- Attributes ------------------------
-
-        Attributes attributes55 = new Attributes();
-        attributes55.setName("value");
-        attributes55.setIsNullable(false);
-        attributes55.setIsUnique(true);
-//      ...................... AttributesProperties ........................
-        Entities entity98 = new Entities();
-        entity98 = findBean.nameEntities("AttributesProperties",em);
-        attributes55.setEntities(entity98);
-//      ...................... String ........................
-        AttributesTypes attributesTypes99 = new AttributesTypes();
-        attributesTypes99 = findBean.nameAttributesTypes("String",em);
-        attributes55.setAttributesTypes(attributesTypes99);
-        em.persist(attributes55);
-        em.flush();
 
         Attributes attributes56 = new Attributes();
         attributes56.setName("name");
         attributes56.setIsNullable(false);
         attributes56.setIsUnique(true);
-//      ...................... AttributesProperties ........................
+//      ...................... Imports ........................
         Entities entity100 = new Entities();
-        entity100 = findBean.nameEntities("AttributesProperties",em);
+        entity100 = findBean.nameEntities("Imports",em);
         attributes56.setEntities(entity100);
 //      ...................... String ........................
         AttributesTypes attributesTypes101 = new AttributesTypes();
@@ -914,7 +905,7 @@ public class naifgSetup {
         em.flush();
 
         Entities entities57 = new Entities();
-        entities57.setName("Imports");
+        entities57.setName("AttributesTypes");
 //      ...................... co.simasoft.models.dev.naifg.dependencies ........................
         GroupIds groupId102 = new GroupIds();
         groupId102 = findBean.groupIdGroupIds("co.simasoft.models.dev.naifg.dependencies",em);
@@ -925,98 +916,98 @@ public class naifgSetup {
 //      ---------------------- Attributes ------------------------
 
         Attributes attributes58 = new Attributes();
-        attributes58.setName("name");
-        attributes58.setIsNullable(false);
-        attributes58.setIsUnique(true);
-//      ...................... Imports ........................
+        attributes58.setName("precision");
+        attributes58.setIsNullable(true);
+        attributes58.setIsUnique(false);
+//      ...................... AttributesTypes ........................
         Entities entity103 = new Entities();
-        entity103 = findBean.nameEntities("Imports",em);
+        entity103 = findBean.nameEntities("AttributesTypes",em);
         attributes58.setEntities(entity103);
-//      ...................... String ........................
+//      ...................... Integer ........................
         AttributesTypes attributesTypes104 = new AttributesTypes();
-        attributesTypes104 = findBean.nameAttributesTypes("String",em);
+        attributesTypes104 = findBean.nameAttributesTypes("Integer",em);
         attributes58.setAttributesTypes(attributesTypes104);
         em.persist(attributes58);
         em.flush();
 
-        Entities entities59 = new Entities();
-        entities59.setName("Dependencies");
-//      ...................... co.simasoft.models.dev.naifg.dependencies ........................
-        GroupIds groupId105 = new GroupIds();
-        groupId105 = findBean.groupIdGroupIds("co.simasoft.models.dev.naifg.dependencies",em);
-        entities59.setGroupIds(groupId105);
-        em.persist(entities59);
+        Attributes attributes59 = new Attributes();
+        attributes59.setName("annotations");
+        attributes59.setIsNullable(true);
+        attributes59.setIsUnique(false);
+//      ...................... AttributesTypes ........................
+        Entities entity105 = new Entities();
+        entity105 = findBean.nameEntities("AttributesTypes",em);
+        attributes59.setEntities(entity105);
+//      ...................... String ........................
+        AttributesTypes attributesTypes106 = new AttributesTypes();
+        attributesTypes106 = findBean.nameAttributesTypes("String",em);
+        attributes59.setAttributesTypes(attributesTypes106);
+        em.persist(attributes59);
         em.flush();
 
-//      ---------------------- Attributes ------------------------
-
         Attributes attributes60 = new Attributes();
-        attributes60.setName("type");
+        attributes60.setName("length");
         attributes60.setIsNullable(true);
         attributes60.setIsUnique(false);
-//      ...................... Dependencies ........................
-        Entities entity106 = new Entities();
-        entity106 = findBean.nameEntities("Dependencies",em);
-        attributes60.setEntities(entity106);
-//      ...................... String ........................
-        AttributesTypes attributesTypes107 = new AttributesTypes();
-        attributesTypes107 = findBean.nameAttributesTypes("String",em);
-        attributes60.setAttributesTypes(attributesTypes107);
+//      ...................... AttributesTypes ........................
+        Entities entity107 = new Entities();
+        entity107 = findBean.nameEntities("AttributesTypes",em);
+        attributes60.setEntities(entity107);
+//      ...................... Integer ........................
+        AttributesTypes attributesTypes108 = new AttributesTypes();
+        attributesTypes108 = findBean.nameAttributesTypes("Integer",em);
+        attributes60.setAttributesTypes(attributesTypes108);
         em.persist(attributes60);
         em.flush();
 
         Attributes attributes61 = new Attributes();
-        attributes61.setName("scope");
-        attributes61.setIsNullable(true);
-        attributes61.setIsUnique(false);
-//      ...................... Dependencies ........................
-        Entities entity108 = new Entities();
-        entity108 = findBean.nameEntities("Dependencies",em);
-        attributes61.setEntities(entity108);
+        attributes61.setName("name");
+        attributes61.setIsNullable(false);
+        attributes61.setIsUnique(true);
+//      ...................... AttributesTypes ........................
+        Entities entity109 = new Entities();
+        entity109 = findBean.nameEntities("AttributesTypes",em);
+        attributes61.setEntities(entity109);
 //      ...................... String ........................
-        AttributesTypes attributesTypes109 = new AttributesTypes();
-        attributesTypes109 = findBean.nameAttributesTypes("String",em);
-        attributes61.setAttributesTypes(attributesTypes109);
+        AttributesTypes attributesTypes110 = new AttributesTypes();
+        attributesTypes110 = findBean.nameAttributesTypes("String",em);
+        attributes61.setAttributesTypes(attributesTypes110);
         em.persist(attributes61);
         em.flush();
 
         Attributes attributes62 = new Attributes();
-        attributes62.setName("version");
-        attributes62.setIsNullable(true);
+        attributes62.setName("type");
+        attributes62.setIsNullable(false);
         attributes62.setIsUnique(false);
-//      ...................... Dependencies ........................
-        Entities entity110 = new Entities();
-        entity110 = findBean.nameEntities("Dependencies",em);
-        attributes62.setEntities(entity110);
+//      ...................... AttributesTypes ........................
+        Entities entity111 = new Entities();
+        entity111 = findBean.nameEntities("AttributesTypes",em);
+        attributes62.setEntities(entity111);
 //      ...................... String ........................
-        AttributesTypes attributesTypes111 = new AttributesTypes();
-        attributesTypes111 = findBean.nameAttributesTypes("String",em);
-        attributes62.setAttributesTypes(attributesTypes111);
+        AttributesTypes attributesTypes112 = new AttributesTypes();
+        attributesTypes112 = findBean.nameAttributesTypes("String",em);
+        attributes62.setAttributesTypes(attributesTypes112);
         em.persist(attributes62);
         em.flush();
 
-        Attributes attributes63 = new Attributes();
-        attributes63.setName("artifactId");
-        attributes63.setIsNullable(false);
-        attributes63.setIsUnique(false);
-//      ...................... Dependencies ........................
-        Entities entity112 = new Entities();
-        entity112 = findBean.nameEntities("Dependencies",em);
-        attributes63.setEntities(entity112);
-//      ...................... String ........................
-        AttributesTypes attributesTypes113 = new AttributesTypes();
-        attributesTypes113 = findBean.nameAttributesTypes("String",em);
-        attributes63.setAttributesTypes(attributesTypes113);
-        em.persist(attributes63);
+        Entities entities63 = new Entities();
+        entities63.setName("AttributesProperties");
+//      ...................... co.simasoft.models.dev.naifg.dependencies ........................
+        GroupIds groupId113 = new GroupIds();
+        groupId113 = findBean.groupIdGroupIds("co.simasoft.models.dev.naifg.dependencies",em);
+        entities63.setGroupIds(groupId113);
+        em.persist(entities63);
         em.flush();
 
+//      ---------------------- Attributes ------------------------
+
         Attributes attributes64 = new Attributes();
-        attributes64.setName("maven");
+        attributes64.setName("value");
         attributes64.setIsNullable(false);
         attributes64.setIsUnique(true);
-//      ...................... Dependencies ........................
+//      ...................... AttributesProperties ........................
         Entities entity114 = new Entities();
-        entity114 = findBean.nameEntities("Dependencies",em);
+        entity114 = findBean.nameEntities("AttributesProperties",em);
         attributes64.setEntities(entity114);
 //      ...................... String ........................
         AttributesTypes attributesTypes115 = new AttributesTypes();
@@ -1026,12 +1017,12 @@ public class naifgSetup {
         em.flush();
 
         Attributes attributes65 = new Attributes();
-        attributes65.setName("groupId");
+        attributes65.setName("name");
         attributes65.setIsNullable(false);
-        attributes65.setIsUnique(false);
-//      ...................... Dependencies ........................
+        attributes65.setIsUnique(true);
+//      ...................... AttributesProperties ........................
         Entities entity116 = new Entities();
-        entity116 = findBean.nameEntities("Dependencies",em);
+        entity116 = findBean.nameEntities("AttributesProperties",em);
         attributes65.setEntities(entity116);
 //      ...................... String ........................
         AttributesTypes attributesTypes117 = new AttributesTypes();
@@ -1045,33 +1036,35 @@ public class naifgSetup {
 /*
 . SitesTypes . 1..* SitesTypes
 . SitesTypes . *..* Sites
-. Attributes . *..* Sites
-. Attributes . *..* AttributesProperties
-. Developments . *..* Models
-. Developments . *..* Sites
-. Relationships . *..* AttributesProperties
-. GroupIds . 1..* Entities
-. GroupIds . 1..* ModelsGroupIds
-. Cardinalities . *..* Imports
-. Cardinalities . *..* Sites
-. Cardinalities . 1..* Relationships
-. Entities . 1..* Relationships
-. Entities . *..* Sites
-. Entities . 1..* NameQueries
-. Entities . *..* Imports
-. Entities . *..* AttributesProperties
-. Entities . 1..* Attributes
-. Entities . 1..* Relationships
-. Models . *..* Sites
+. SitesTypes . *..* Sites
+. SitesTypes . 1..* SitesTypes
 . Models . 1..* ModelsGroupIds
+. Models . *..* Sites
+. GroupIds . 1..* ModelsGroupIds
+. GroupIds . 1..* Entities
+. Developments . *..* Sites
+. Developments . *..* Models
+. Attributes . *..* AttributesProperties
+. Attributes . *..* Sites
+. Cardinalities . 1..* Relationships
+. Cardinalities . *..* Sites
+. Cardinalities . *..* Imports
+. Entities . 1..* Relationships
+. Entities . 1..* Relationships
+. Entities . 1..* Attributes
+. Entities . *..* AttributesProperties
+. Entities . *..* Imports
+. Entities . 1..* NameQueries
+. Entities . *..* Sites
+. Relationships . *..* AttributesProperties
+. Dependencies . *..* Sites
+. Dependencies . 1..* Imports
+. Imports . *..* Sites
 . AttributesTypes . *..* AttributesProperties
 . AttributesTypes . *..* Sites
 . AttributesTypes . 1..* Attributes
-. AttributesProperties . *..* Imports
 . AttributesProperties . *..* Sites
-. Imports . *..* Sites
-. Dependencies . *..* Sites
-. Dependencies . 1..* Imports
+. AttributesProperties . *..* Imports
 */
         Relationships relationships1 = new Relationships();
         relationships1.setIsOptionality(true);
@@ -1115,9 +1108,9 @@ public class naifgSetup {
         relationships3.setIsOptionality(true);
         relationships3.setIsEmbedded(false);
         relationships3.setName("");
-//      ...................... Attributes ........................
+//      ...................... SitesTypes ........................
         Entities entities124 = new Entities();
-        entities124 = findBean.nameEntities("Attributes",em);
+        entities124 = findBean.nameEntities("SitesTypes",em);
         relationships3.setFrom(entities124);
 //      ...................... Sites ........................
         Entities entities125 = new Entities();
@@ -1134,17 +1127,17 @@ public class naifgSetup {
         relationships4.setIsOptionality(true);
         relationships4.setIsEmbedded(false);
         relationships4.setName("");
-//      ...................... Attributes ........................
+//      ...................... SitesTypes ........................
         Entities entities127 = new Entities();
-        entities127 = findBean.nameEntities("Attributes",em);
+        entities127 = findBean.nameEntities("SitesTypes",em);
         relationships4.setFrom(entities127);
-//      ...................... AttributesProperties ........................
+//      ...................... SitesTypes ........................
         Entities entities128 = new Entities();
-        entities128 = findBean.nameEntities("AttributesProperties",em);
+        entities128 = findBean.nameEntities("SitesTypes",em);
         relationships4.setTo(entities128);
-//      ...................... Muchos a Muchos Bidirecccional No.7 ........................
+//      ...................... Uno a Muchos Bidirecccional No.5 ........................
         Cardinalities cardinalities129 = new Cardinalities();
-        cardinalities129 = findBean.nameCardinalities("Muchos a Muchos Bidirecccional No.7",em);
+        cardinalities129 = findBean.nameCardinalities("Uno a Muchos Bidirecccional No.5",em);
         relationships4.setCardinalities(cardinalities129);
         em.persist(relationships4);
         em.flush();
@@ -1153,17 +1146,17 @@ public class naifgSetup {
         relationships5.setIsOptionality(true);
         relationships5.setIsEmbedded(false);
         relationships5.setName("");
-//      ...................... Developments ........................
-        Entities entities130 = new Entities();
-        entities130 = findBean.nameEntities("Developments",em);
-        relationships5.setFrom(entities130);
 //      ...................... Models ........................
+        Entities entities130 = new Entities();
+        entities130 = findBean.nameEntities("Models",em);
+        relationships5.setFrom(entities130);
+//      ...................... ModelsGroupIds ........................
         Entities entities131 = new Entities();
-        entities131 = findBean.nameEntities("Models",em);
+        entities131 = findBean.nameEntities("ModelsGroupIds",em);
         relationships5.setTo(entities131);
-//      ...................... Muchos a Muchos Bidirecccional No.7 ........................
+//      ...................... Uno a Muchos Bidirecccional No.5 ........................
         Cardinalities cardinalities132 = new Cardinalities();
-        cardinalities132 = findBean.nameCardinalities("Muchos a Muchos Bidirecccional No.7",em);
+        cardinalities132 = findBean.nameCardinalities("Uno a Muchos Bidirecccional No.5",em);
         relationships5.setCardinalities(cardinalities132);
         em.persist(relationships5);
         em.flush();
@@ -1172,9 +1165,9 @@ public class naifgSetup {
         relationships6.setIsOptionality(true);
         relationships6.setIsEmbedded(false);
         relationships6.setName("");
-//      ...................... Developments ........................
+//      ...................... Models ........................
         Entities entities133 = new Entities();
-        entities133 = findBean.nameEntities("Developments",em);
+        entities133 = findBean.nameEntities("Models",em);
         relationships6.setFrom(entities133);
 //      ...................... Sites ........................
         Entities entities134 = new Entities();
@@ -1191,17 +1184,17 @@ public class naifgSetup {
         relationships7.setIsOptionality(true);
         relationships7.setIsEmbedded(false);
         relationships7.setName("");
-//      ...................... Relationships ........................
+//      ...................... GroupIds ........................
         Entities entities136 = new Entities();
-        entities136 = findBean.nameEntities("Relationships",em);
+        entities136 = findBean.nameEntities("GroupIds",em);
         relationships7.setFrom(entities136);
-//      ...................... AttributesProperties ........................
+//      ...................... ModelsGroupIds ........................
         Entities entities137 = new Entities();
-        entities137 = findBean.nameEntities("AttributesProperties",em);
+        entities137 = findBean.nameEntities("ModelsGroupIds",em);
         relationships7.setTo(entities137);
-//      ...................... Muchos a Muchos Bidirecccional No.7 ........................
+//      ...................... Uno a Muchos Bidirecccional No.5 ........................
         Cardinalities cardinalities138 = new Cardinalities();
-        cardinalities138 = findBean.nameCardinalities("Muchos a Muchos Bidirecccional No.7",em);
+        cardinalities138 = findBean.nameCardinalities("Uno a Muchos Bidirecccional No.5",em);
         relationships7.setCardinalities(cardinalities138);
         em.persist(relationships7);
         em.flush();
@@ -1229,17 +1222,17 @@ public class naifgSetup {
         relationships9.setIsOptionality(true);
         relationships9.setIsEmbedded(false);
         relationships9.setName("");
-//      ...................... GroupIds ........................
+//      ...................... Developments ........................
         Entities entities142 = new Entities();
-        entities142 = findBean.nameEntities("GroupIds",em);
+        entities142 = findBean.nameEntities("Developments",em);
         relationships9.setFrom(entities142);
-//      ...................... ModelsGroupIds ........................
+//      ...................... Sites ........................
         Entities entities143 = new Entities();
-        entities143 = findBean.nameEntities("ModelsGroupIds",em);
+        entities143 = findBean.nameEntities("Sites",em);
         relationships9.setTo(entities143);
-//      ...................... Uno a Muchos Bidirecccional No.5 ........................
+//      ...................... Muchos a Muchos Bidirecccional No.7 ........................
         Cardinalities cardinalities144 = new Cardinalities();
-        cardinalities144 = findBean.nameCardinalities("Uno a Muchos Bidirecccional No.5",em);
+        cardinalities144 = findBean.nameCardinalities("Muchos a Muchos Bidirecccional No.7",em);
         relationships9.setCardinalities(cardinalities144);
         em.persist(relationships9);
         em.flush();
@@ -1248,13 +1241,13 @@ public class naifgSetup {
         relationships10.setIsOptionality(true);
         relationships10.setIsEmbedded(false);
         relationships10.setName("");
-//      ...................... Cardinalities ........................
+//      ...................... Developments ........................
         Entities entities145 = new Entities();
-        entities145 = findBean.nameEntities("Cardinalities",em);
+        entities145 = findBean.nameEntities("Developments",em);
         relationships10.setFrom(entities145);
-//      ...................... Imports ........................
+//      ...................... Models ........................
         Entities entities146 = new Entities();
-        entities146 = findBean.nameEntities("Imports",em);
+        entities146 = findBean.nameEntities("Models",em);
         relationships10.setTo(entities146);
 //      ...................... Muchos a Muchos Bidirecccional No.7 ........................
         Cardinalities cardinalities147 = new Cardinalities();
@@ -1267,13 +1260,13 @@ public class naifgSetup {
         relationships11.setIsOptionality(true);
         relationships11.setIsEmbedded(false);
         relationships11.setName("");
-//      ...................... Cardinalities ........................
+//      ...................... Attributes ........................
         Entities entities148 = new Entities();
-        entities148 = findBean.nameEntities("Cardinalities",em);
+        entities148 = findBean.nameEntities("Attributes",em);
         relationships11.setFrom(entities148);
-//      ...................... Sites ........................
+//      ...................... AttributesProperties ........................
         Entities entities149 = new Entities();
-        entities149 = findBean.nameEntities("Sites",em);
+        entities149 = findBean.nameEntities("AttributesProperties",em);
         relationships11.setTo(entities149);
 //      ...................... Muchos a Muchos Bidirecccional No.7 ........................
         Cardinalities cardinalities150 = new Cardinalities();
@@ -1286,17 +1279,17 @@ public class naifgSetup {
         relationships12.setIsOptionality(true);
         relationships12.setIsEmbedded(false);
         relationships12.setName("");
-//      ...................... Cardinalities ........................
+//      ...................... Attributes ........................
         Entities entities151 = new Entities();
-        entities151 = findBean.nameEntities("Cardinalities",em);
+        entities151 = findBean.nameEntities("Attributes",em);
         relationships12.setFrom(entities151);
-//      ...................... Relationships ........................
+//      ...................... Sites ........................
         Entities entities152 = new Entities();
-        entities152 = findBean.nameEntities("Relationships",em);
+        entities152 = findBean.nameEntities("Sites",em);
         relationships12.setTo(entities152);
-//      ...................... Uno a Muchos Bidirecccional No.5 ........................
+//      ...................... Muchos a Muchos Bidirecccional No.7 ........................
         Cardinalities cardinalities153 = new Cardinalities();
-        cardinalities153 = findBean.nameCardinalities("Uno a Muchos Bidirecccional No.5",em);
+        cardinalities153 = findBean.nameCardinalities("Muchos a Muchos Bidirecccional No.7",em);
         relationships12.setCardinalities(cardinalities153);
         em.persist(relationships12);
         em.flush();
@@ -1304,10 +1297,10 @@ public class naifgSetup {
         Relationships relationships13 = new Relationships();
         relationships13.setIsOptionality(true);
         relationships13.setIsEmbedded(false);
-        relationships13.setName("from");
-//      ...................... Entities ........................
+        relationships13.setName("");
+//      ...................... Cardinalities ........................
         Entities entities154 = new Entities();
-        entities154 = findBean.nameEntities("Entities",em);
+        entities154 = findBean.nameEntities("Cardinalities",em);
         relationships13.setFrom(entities154);
 //      ...................... Relationships ........................
         Entities entities155 = new Entities();
@@ -1324,9 +1317,9 @@ public class naifgSetup {
         relationships14.setIsOptionality(true);
         relationships14.setIsEmbedded(false);
         relationships14.setName("");
-//      ...................... Entities ........................
+//      ...................... Cardinalities ........................
         Entities entities157 = new Entities();
-        entities157 = findBean.nameEntities("Entities",em);
+        entities157 = findBean.nameEntities("Cardinalities",em);
         relationships14.setFrom(entities157);
 //      ...................... Sites ........................
         Entities entities158 = new Entities();
@@ -1343,17 +1336,17 @@ public class naifgSetup {
         relationships15.setIsOptionality(true);
         relationships15.setIsEmbedded(false);
         relationships15.setName("");
-//      ...................... Entities ........................
+//      ...................... Cardinalities ........................
         Entities entities160 = new Entities();
-        entities160 = findBean.nameEntities("Entities",em);
+        entities160 = findBean.nameEntities("Cardinalities",em);
         relationships15.setFrom(entities160);
-//      ...................... NameQueries ........................
+//      ...................... Imports ........................
         Entities entities161 = new Entities();
-        entities161 = findBean.nameEntities("NameQueries",em);
+        entities161 = findBean.nameEntities("Imports",em);
         relationships15.setTo(entities161);
-//      ...................... Uno a Muchos Bidirecccional No.5 ........................
+//      ...................... Muchos a Muchos Bidirecccional No.7 ........................
         Cardinalities cardinalities162 = new Cardinalities();
-        cardinalities162 = findBean.nameCardinalities("Uno a Muchos Bidirecccional No.5",em);
+        cardinalities162 = findBean.nameCardinalities("Muchos a Muchos Bidirecccional No.7",em);
         relationships15.setCardinalities(cardinalities162);
         em.persist(relationships15);
         em.flush();
@@ -1361,18 +1354,18 @@ public class naifgSetup {
         Relationships relationships16 = new Relationships();
         relationships16.setIsOptionality(true);
         relationships16.setIsEmbedded(false);
-        relationships16.setName("");
+        relationships16.setName("from");
 //      ...................... Entities ........................
         Entities entities163 = new Entities();
         entities163 = findBean.nameEntities("Entities",em);
         relationships16.setFrom(entities163);
-//      ...................... Imports ........................
+//      ...................... Relationships ........................
         Entities entities164 = new Entities();
-        entities164 = findBean.nameEntities("Imports",em);
+        entities164 = findBean.nameEntities("Relationships",em);
         relationships16.setTo(entities164);
-//      ...................... Muchos a Muchos Bidirecccional No.7 ........................
+//      ...................... Uno a Muchos Bidirecccional No.5 ........................
         Cardinalities cardinalities165 = new Cardinalities();
-        cardinalities165 = findBean.nameCardinalities("Muchos a Muchos Bidirecccional No.7",em);
+        cardinalities165 = findBean.nameCardinalities("Uno a Muchos Bidirecccional No.5",em);
         relationships16.setCardinalities(cardinalities165);
         em.persist(relationships16);
         em.flush();
@@ -1380,18 +1373,18 @@ public class naifgSetup {
         Relationships relationships17 = new Relationships();
         relationships17.setIsOptionality(true);
         relationships17.setIsEmbedded(false);
-        relationships17.setName("");
+        relationships17.setName("to");
 //      ...................... Entities ........................
         Entities entities166 = new Entities();
         entities166 = findBean.nameEntities("Entities",em);
         relationships17.setFrom(entities166);
-//      ...................... AttributesProperties ........................
+//      ...................... Relationships ........................
         Entities entities167 = new Entities();
-        entities167 = findBean.nameEntities("AttributesProperties",em);
+        entities167 = findBean.nameEntities("Relationships",em);
         relationships17.setTo(entities167);
-//      ...................... Muchos a Muchos Bidirecccional No.7 ........................
+//      ...................... Uno a Muchos Bidirecccional No.5 ........................
         Cardinalities cardinalities168 = new Cardinalities();
-        cardinalities168 = findBean.nameCardinalities("Muchos a Muchos Bidirecccional No.7",em);
+        cardinalities168 = findBean.nameCardinalities("Uno a Muchos Bidirecccional No.5",em);
         relationships17.setCardinalities(cardinalities168);
         em.persist(relationships17);
         em.flush();
@@ -1418,18 +1411,18 @@ public class naifgSetup {
         Relationships relationships19 = new Relationships();
         relationships19.setIsOptionality(true);
         relationships19.setIsEmbedded(false);
-        relationships19.setName("to");
+        relationships19.setName("");
 //      ...................... Entities ........................
         Entities entities172 = new Entities();
         entities172 = findBean.nameEntities("Entities",em);
         relationships19.setFrom(entities172);
-//      ...................... Relationships ........................
+//      ...................... AttributesProperties ........................
         Entities entities173 = new Entities();
-        entities173 = findBean.nameEntities("Relationships",em);
+        entities173 = findBean.nameEntities("AttributesProperties",em);
         relationships19.setTo(entities173);
-//      ...................... Uno a Muchos Bidirecccional No.5 ........................
+//      ...................... Muchos a Muchos Bidirecccional No.7 ........................
         Cardinalities cardinalities174 = new Cardinalities();
-        cardinalities174 = findBean.nameCardinalities("Uno a Muchos Bidirecccional No.5",em);
+        cardinalities174 = findBean.nameCardinalities("Muchos a Muchos Bidirecccional No.7",em);
         relationships19.setCardinalities(cardinalities174);
         em.persist(relationships19);
         em.flush();
@@ -1438,13 +1431,13 @@ public class naifgSetup {
         relationships20.setIsOptionality(true);
         relationships20.setIsEmbedded(false);
         relationships20.setName("");
-//      ...................... Models ........................
+//      ...................... Entities ........................
         Entities entities175 = new Entities();
-        entities175 = findBean.nameEntities("Models",em);
+        entities175 = findBean.nameEntities("Entities",em);
         relationships20.setFrom(entities175);
-//      ...................... Sites ........................
+//      ...................... Imports ........................
         Entities entities176 = new Entities();
-        entities176 = findBean.nameEntities("Sites",em);
+        entities176 = findBean.nameEntities("Imports",em);
         relationships20.setTo(entities176);
 //      ...................... Muchos a Muchos Bidirecccional No.7 ........................
         Cardinalities cardinalities177 = new Cardinalities();
@@ -1457,13 +1450,13 @@ public class naifgSetup {
         relationships21.setIsOptionality(true);
         relationships21.setIsEmbedded(false);
         relationships21.setName("");
-//      ...................... Models ........................
+//      ...................... Entities ........................
         Entities entities178 = new Entities();
-        entities178 = findBean.nameEntities("Models",em);
+        entities178 = findBean.nameEntities("Entities",em);
         relationships21.setFrom(entities178);
-//      ...................... ModelsGroupIds ........................
+//      ...................... NameQueries ........................
         Entities entities179 = new Entities();
-        entities179 = findBean.nameEntities("ModelsGroupIds",em);
+        entities179 = findBean.nameEntities("NameQueries",em);
         relationships21.setTo(entities179);
 //      ...................... Uno a Muchos Bidirecccional No.5 ........................
         Cardinalities cardinalities180 = new Cardinalities();
@@ -1476,13 +1469,13 @@ public class naifgSetup {
         relationships22.setIsOptionality(true);
         relationships22.setIsEmbedded(false);
         relationships22.setName("");
-//      ...................... AttributesTypes ........................
+//      ...................... Entities ........................
         Entities entities181 = new Entities();
-        entities181 = findBean.nameEntities("AttributesTypes",em);
+        entities181 = findBean.nameEntities("Entities",em);
         relationships22.setFrom(entities181);
-//      ...................... AttributesProperties ........................
+//      ...................... Sites ........................
         Entities entities182 = new Entities();
-        entities182 = findBean.nameEntities("AttributesProperties",em);
+        entities182 = findBean.nameEntities("Sites",em);
         relationships22.setTo(entities182);
 //      ...................... Muchos a Muchos Bidirecccional No.7 ........................
         Cardinalities cardinalities183 = new Cardinalities();
@@ -1495,13 +1488,13 @@ public class naifgSetup {
         relationships23.setIsOptionality(true);
         relationships23.setIsEmbedded(false);
         relationships23.setName("");
-//      ...................... AttributesTypes ........................
+//      ...................... Relationships ........................
         Entities entities184 = new Entities();
-        entities184 = findBean.nameEntities("AttributesTypes",em);
+        entities184 = findBean.nameEntities("Relationships",em);
         relationships23.setFrom(entities184);
-//      ...................... Sites ........................
+//      ...................... AttributesProperties ........................
         Entities entities185 = new Entities();
-        entities185 = findBean.nameEntities("Sites",em);
+        entities185 = findBean.nameEntities("AttributesProperties",em);
         relationships23.setTo(entities185);
 //      ...................... Muchos a Muchos Bidirecccional No.7 ........................
         Cardinalities cardinalities186 = new Cardinalities();
@@ -1514,17 +1507,17 @@ public class naifgSetup {
         relationships24.setIsOptionality(true);
         relationships24.setIsEmbedded(false);
         relationships24.setName("");
-//      ...................... AttributesTypes ........................
+//      ...................... Dependencies ........................
         Entities entities187 = new Entities();
-        entities187 = findBean.nameEntities("AttributesTypes",em);
+        entities187 = findBean.nameEntities("Dependencies",em);
         relationships24.setFrom(entities187);
-//      ...................... Attributes ........................
+//      ...................... Sites ........................
         Entities entities188 = new Entities();
-        entities188 = findBean.nameEntities("Attributes",em);
+        entities188 = findBean.nameEntities("Sites",em);
         relationships24.setTo(entities188);
-//      ...................... Uno a Muchos Bidirecccional No.5 ........................
+//      ...................... Muchos a Muchos Bidirecccional No.7 ........................
         Cardinalities cardinalities189 = new Cardinalities();
-        cardinalities189 = findBean.nameCardinalities("Uno a Muchos Bidirecccional No.5",em);
+        cardinalities189 = findBean.nameCardinalities("Muchos a Muchos Bidirecccional No.7",em);
         relationships24.setCardinalities(cardinalities189);
         em.persist(relationships24);
         em.flush();
@@ -1533,17 +1526,17 @@ public class naifgSetup {
         relationships25.setIsOptionality(true);
         relationships25.setIsEmbedded(false);
         relationships25.setName("");
-//      ...................... AttributesProperties ........................
+//      ...................... Dependencies ........................
         Entities entities190 = new Entities();
-        entities190 = findBean.nameEntities("AttributesProperties",em);
+        entities190 = findBean.nameEntities("Dependencies",em);
         relationships25.setFrom(entities190);
 //      ...................... Imports ........................
         Entities entities191 = new Entities();
         entities191 = findBean.nameEntities("Imports",em);
         relationships25.setTo(entities191);
-//      ...................... Muchos a Muchos Bidirecccional No.7 ........................
+//      ...................... Uno a Muchos Bidirecccional No.5 ........................
         Cardinalities cardinalities192 = new Cardinalities();
-        cardinalities192 = findBean.nameCardinalities("Muchos a Muchos Bidirecccional No.7",em);
+        cardinalities192 = findBean.nameCardinalities("Uno a Muchos Bidirecccional No.5",em);
         relationships25.setCardinalities(cardinalities192);
         em.persist(relationships25);
         em.flush();
@@ -1552,9 +1545,9 @@ public class naifgSetup {
         relationships26.setIsOptionality(true);
         relationships26.setIsEmbedded(false);
         relationships26.setName("");
-//      ...................... AttributesProperties ........................
+//      ...................... Imports ........................
         Entities entities193 = new Entities();
-        entities193 = findBean.nameEntities("AttributesProperties",em);
+        entities193 = findBean.nameEntities("Imports",em);
         relationships26.setFrom(entities193);
 //      ...................... Sites ........................
         Entities entities194 = new Entities();
@@ -1571,13 +1564,13 @@ public class naifgSetup {
         relationships27.setIsOptionality(true);
         relationships27.setIsEmbedded(false);
         relationships27.setName("");
-//      ...................... Imports ........................
+//      ...................... AttributesTypes ........................
         Entities entities196 = new Entities();
-        entities196 = findBean.nameEntities("Imports",em);
+        entities196 = findBean.nameEntities("AttributesTypes",em);
         relationships27.setFrom(entities196);
-//      ...................... Sites ........................
+//      ...................... AttributesProperties ........................
         Entities entities197 = new Entities();
-        entities197 = findBean.nameEntities("Sites",em);
+        entities197 = findBean.nameEntities("AttributesProperties",em);
         relationships27.setTo(entities197);
 //      ...................... Muchos a Muchos Bidirecccional No.7 ........................
         Cardinalities cardinalities198 = new Cardinalities();
@@ -1590,9 +1583,9 @@ public class naifgSetup {
         relationships28.setIsOptionality(true);
         relationships28.setIsEmbedded(false);
         relationships28.setName("");
-//      ...................... Dependencies ........................
+//      ...................... AttributesTypes ........................
         Entities entities199 = new Entities();
-        entities199 = findBean.nameEntities("Dependencies",em);
+        entities199 = findBean.nameEntities("AttributesTypes",em);
         relationships28.setFrom(entities199);
 //      ...................... Sites ........................
         Entities entities200 = new Entities();
@@ -1609,19 +1602,57 @@ public class naifgSetup {
         relationships29.setIsOptionality(true);
         relationships29.setIsEmbedded(false);
         relationships29.setName("");
-//      ...................... Dependencies ........................
+//      ...................... AttributesTypes ........................
         Entities entities202 = new Entities();
-        entities202 = findBean.nameEntities("Dependencies",em);
+        entities202 = findBean.nameEntities("AttributesTypes",em);
         relationships29.setFrom(entities202);
-//      ...................... Imports ........................
+//      ...................... Attributes ........................
         Entities entities203 = new Entities();
-        entities203 = findBean.nameEntities("Imports",em);
+        entities203 = findBean.nameEntities("Attributes",em);
         relationships29.setTo(entities203);
 //      ...................... Uno a Muchos Bidirecccional No.5 ........................
         Cardinalities cardinalities204 = new Cardinalities();
         cardinalities204 = findBean.nameCardinalities("Uno a Muchos Bidirecccional No.5",em);
         relationships29.setCardinalities(cardinalities204);
         em.persist(relationships29);
+        em.flush();
+
+        Relationships relationships30 = new Relationships();
+        relationships30.setIsOptionality(true);
+        relationships30.setIsEmbedded(false);
+        relationships30.setName("");
+//      ...................... AttributesProperties ........................
+        Entities entities205 = new Entities();
+        entities205 = findBean.nameEntities("AttributesProperties",em);
+        relationships30.setFrom(entities205);
+//      ...................... Sites ........................
+        Entities entities206 = new Entities();
+        entities206 = findBean.nameEntities("Sites",em);
+        relationships30.setTo(entities206);
+//      ...................... Muchos a Muchos Bidirecccional No.7 ........................
+        Cardinalities cardinalities207 = new Cardinalities();
+        cardinalities207 = findBean.nameCardinalities("Muchos a Muchos Bidirecccional No.7",em);
+        relationships30.setCardinalities(cardinalities207);
+        em.persist(relationships30);
+        em.flush();
+
+        Relationships relationships31 = new Relationships();
+        relationships31.setIsOptionality(true);
+        relationships31.setIsEmbedded(false);
+        relationships31.setName("");
+//      ...................... AttributesProperties ........................
+        Entities entities208 = new Entities();
+        entities208 = findBean.nameEntities("AttributesProperties",em);
+        relationships31.setFrom(entities208);
+//      ...................... Imports ........................
+        Entities entities209 = new Entities();
+        entities209 = findBean.nameEntities("Imports",em);
+        relationships31.setTo(entities209);
+//      ...................... Muchos a Muchos Bidirecccional No.7 ........................
+        Cardinalities cardinalities210 = new Cardinalities();
+        cardinalities210 = findBean.nameCardinalities("Muchos a Muchos Bidirecccional No.7",em);
+        relationships31.setCardinalities(cardinalities210);
+        em.persist(relationships31);
         em.flush();
 
     } // data()

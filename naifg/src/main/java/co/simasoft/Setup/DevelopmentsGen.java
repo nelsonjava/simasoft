@@ -347,6 +347,12 @@ line("//      ---------------------- GroupIds ------------------------\n");
     for (Models models : developments.getModels()) {
 
         for (ModelsGroupIds modelsGroupIds : models.getModelsGroupIds()){
+          
+            if (modelsGroupIds.getGroupIds().getGroupId().indexOf (models.getGroupId()) != -1){ // Si se encuentra la cadena
+            }
+            else{
+               continue; // Descarta el modelo externo
+            }
 
 line("        GroupIds groupIds"+String.valueOf(++i)+" = new GroupIds();");
 line("        groupIds"+String.valueOf(i)+".setArtifactId(\""+modelsGroupIds.getGroupIds().getArtifactId()+"\");");
