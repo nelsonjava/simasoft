@@ -297,7 +297,7 @@ line(".***********");
         }
         return attributesProperties;
     }
-    
+
 
 
     public void war(Developments developments) throws IOException {
@@ -388,7 +388,6 @@ line("        Models modelss"+String.valueOf(i)+" = findBean.artifactIdModels(\"
 line("        GroupIds groupIdd"+String.valueOf(i)+" = findBean.artifactIdGroupIds(\""+modelsGroupIds.getGroupIds().getArtifactId()+"\",em);");
 line("        modelsGroupIds"+String.valueOf(i)+".setModels(modelss"+String.valueOf(i)+");");
 line("        modelsGroupIds"+String.valueOf(i)+".setGroupIds(groupIdd"+String.valueOf(i)+");");
-line("        modelsGroupIds"+String.valueOf(i)+".setGroupId(\""+modelsGroupIds.getGroupId()+"\");");
 line("        modelsGroupIds"+String.valueOf(i)+".setIsSingle("+modelsGroupIds.getIsSingle()+");");
 line("        modelsGroupIds"+String.valueOf(i)+".setIsSimplified("+modelsGroupIds.getIsSimplified()+");");
 line("        em.persist(modelsGroupIds"+String.valueOf(i)+");");
@@ -423,6 +422,12 @@ line("//      ---------------------- Entities ------------------------\n");
     for (Models models : developments.getModels()) {
 
         for (ModelsGroupIds modelsGroupIds : models.getModelsGroupIds()){
+          
+            if (modelsGroupIds.getGroupIds().getGroupId().indexOf (models.getGroupId()) != -1){ // Si se encuentra la cadena
+            }
+            else{
+               continue; // Descarta el modelo externo
+            }
 
             for (Entities entities : modelsGroupIds.getGroupIds().getEntities()){
 
@@ -438,7 +443,7 @@ line("        em.flush();\n");
 line("//      ---------------------- Attributes ------------------------\n");
 
               for (Attributes attributes: entities.getAttributes()) {
-                
+
 line("        Attributes attributes"+String.valueOf(++i)+" = new Attributes();");
 line("        attributes"+String.valueOf(i)+".setName(\""+attributes.getName()+"\");");
 line("        attributes"+String.valueOf(i)+".setIsNullable("+attributes.getIsNullable()+");");
@@ -574,4 +579,3 @@ line("} // "+developments.getArtifactId()+"Setup");
 
 
 } // DevelopmentsGen
-
