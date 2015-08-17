@@ -52,7 +52,7 @@
 			<h:outputLabel for="modelsBeanModelsModelsGroupIds" value="Models Group Ids:"/>
 			<h:dataTable id="modelsBeanModelsModelsGroupIds" styleClass="data-table" value="#{forgeview:asList(modelsBean.models.modelsGroupIds)}" var="_item">
 			
-			
+
 				<h:column>
 					<f:facet name="header">
 						<h:outputText value="GroupIds"/>
@@ -60,6 +60,26 @@
 					<h:link outcome="/admin/modelsGroupIds/view">
 						<f:param name="id" value="#{_item.id}"/>
 						<h:outputText id="forgeviewdisplayitemGroupIds" value="#{forgeview:display(_item.groupIds.artifactId)}"/>
+					</h:link>
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Is Simplified"/>
+					</f:facet>
+					<h:link outcome="/admin/modelsGroupIds/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemIsSimplified" value="#{_item.isSimplified}"/>
+					</h:link>
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Is Single"/>
+					</f:facet>
+					<h:link outcome="/admin/modelsGroupIds/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemIsSingle" value="#{_item.isSingle}"/>
 					</h:link>
 				</h:column>
 
@@ -82,26 +102,7 @@
 						<h:inputTextarea id="itemObservations" value="#{_item.observations}"/>
 					</h:link>
 				</h:column>
-				<h:column>
-					<f:facet name="header">
-						<h:outputText value="Is Simplified"/>
-					</f:facet>
-					<h:link outcome="/admin/modelsGroupIds/view">
-						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemIsSimplified" value="#{_item.isSimplified}"/>
-					</h:link>
-				</h:column>
-				<h:column>
-					<f:facet name="header">
-						<h:outputText value="Is Single"/>
-					</f:facet>
-					<h:link outcome="/admin/modelsGroupIds/view">
-						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemIsSingle" value="#{_item.isSingle}"/>
-					</h:link>
-				</h:column>
-				
--->				
+-->
 
 
 			</h:dataTable>
