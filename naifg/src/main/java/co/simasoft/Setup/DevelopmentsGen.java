@@ -178,6 +178,7 @@ public class DevelopmentsGen extends FileTxt {
 
                       } // for: entity.getFrom()
 
+
                       for (Relationships relationships : entity.getTo()) {
 
                           if (!isRelationModel(relationships.getFrom().getGroupIds().getGroupId(),
@@ -187,7 +188,6 @@ public class DevelopmentsGen extends FileTxt {
                              if (modelsGroupIds.getIsSingle()){
                                 continue;
                              }
-
                           }
 
 line("************");
