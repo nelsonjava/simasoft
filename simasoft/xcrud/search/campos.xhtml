@@ -1,0 +1,62 @@
+
+						<h:outputLabel for="cardinalitiesBeanExampleObservations" value="Observations:"/>
+						<h:panelGroup>
+							<h:inputTextarea id="cardinalitiesBeanExampleObservations" value="#{cardinalitiesBean.example.observations}"/>
+							<h:message for="cardinalitiesBeanExampleObservations" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+
+						<h:outputLabel for="cardinalitiesBeanExampleIsUnidirectional" value="Is Unidirectional:"/>
+						<h:panelGroup>
+							<h:selectOneMenu id="cardinalitiesBeanExampleIsUnidirectional" value="#{cardinalitiesBean.example.isUnidirectional}">
+								<f:selectItem/>
+								<f:selectItem itemLabel="Yes" itemValue="true"/>
+								<f:selectItem itemLabel="No" itemValue="false"/>
+							</h:selectOneMenu>
+							<h:message for="cardinalitiesBeanExampleIsUnidirectional" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+
+						<h:outputLabel for="cardinalitiesBeanExampleCardinality" value="Cardinality:"/>
+						<h:panelGroup>
+							<h:inputText id="cardinalitiesBeanExampleCardinality" value="#{cardinalitiesBean.example.cardinality}"/>
+							<h:message for="cardinalitiesBeanExampleCardinality" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+
+						<h:outputLabel for="cardinalitiesBeanExampleName" value="Name:"/>
+						<h:panelGroup>
+							<h:inputText id="cardinalitiesBeanExampleName" value="#{cardinalitiesBean.example.name}"/>
+							<h:message for="cardinalitiesBeanExampleName" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+
+
+			<h:dataTable id="cardinalitiesBeanPageItems" styleClass="data-table" value="#{cardinalitiesBean.pageItems}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Cardinality"/>
+					</f:facet>
+					<h:link outcome="/admin/cardinalities/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemCardinality" value="#{_item.cardinality}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Name"/>
+					</f:facet>
+					<h:link outcome="/admin/cardinalities/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemName" value="#{_item.name}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<ui:include src="/resources/scaffold/paginator.xhtml">
+				<ui:param name="paginatorBean" value='#{cardinalitiesBean}'/>
+			</ui:include>
+		</h:form>
+			
+	</ui:define>
+
+</ui:composition>

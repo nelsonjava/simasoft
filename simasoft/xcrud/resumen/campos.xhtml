@@ -1,0 +1,96 @@
+-------------------------------------------------------------------
+create
+				<h:outputLabel for="cardinalitiesBeanCardinalitiesOrden" value="Orden:"/>
+				<h:panelGroup>
+					<h:inputText id="cardinalitiesBeanCardinalitiesOrden" value="#{cardinalitiesBean.cardinalities.orden}"/>
+					<h:message for="cardinalitiesBeanCardinalitiesOrden" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+
+view:
+			<h:outputLabel for="cardinalitiesBeanCardinalitiesOrden" value="Orden:"/>
+			<h:outputText id="cardinalitiesBeanCardinalitiesOrden" value="#{cardinalitiesBean.cardinalities.orden}"/>
+			<h:outputText/>
+
+-------------------------------------------------------------------
+create
+				<h:outputLabel for="cardinalitiesBeanCardinalitiesObservations" value="Observations:"/>
+				<h:panelGroup>
+					<h:inputTextarea id="cardinalitiesBeanCardinalitiesObservations" value="#{cardinalitiesBean.cardinalities.observations}"/>
+					<h:message for="cardinalitiesBeanCardinalitiesObservations" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+
+Search:
+						<h:outputLabel for="cardinalitiesBeanExampleObservations" value="Observations:"/>
+						<h:panelGroup>
+							<h:inputTextarea id="cardinalitiesBeanExampleObservations" value="#{cardinalitiesBean.example.observations}"/>
+							<h:message for="cardinalitiesBeanExampleObservations" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+
+view:
+			<h:outputLabel for="cardinalitiesBeanCardinalitiesObservations" value="Observations:"/>
+			<h:inputTextarea id="cardinalitiesBeanCardinalitiesObservations" value="#{cardinalitiesBean.cardinalities.observations}"/>
+			<h:outputText/>
+
+
+-------------------------------------------------------------------
+create
+				<h:outputLabel for="cardinalitiesBeanCardinalitiesIsUnidirectional" value="Is Unidirectional:"/>
+				<h:panelGroup>
+					<h:selectOneMenu id="cardinalitiesBeanCardinalitiesIsUnidirectional" value="#{cardinalitiesBean.cardinalities.isUnidirectional}">
+						<f:selectItem/>
+						<f:selectItem itemLabel="Yes" itemValue="true"/>
+						<f:selectItem itemLabel="No" itemValue="false"/>
+					</h:selectOneMenu>
+					<h:message for="cardinalitiesBeanCardinalitiesIsUnidirectional" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+
+Search:
+						<h:outputLabel for="cardinalitiesBeanExampleIsUnidirectional" value="Is Unidirectional:"/>
+						<h:panelGroup>
+							<h:selectOneMenu id="cardinalitiesBeanExampleIsUnidirectional" value="#{cardinalitiesBean.example.isUnidirectional}">
+								<f:selectItem/>
+								<f:selectItem itemLabel="Yes" itemValue="true"/>
+								<f:selectItem itemLabel="No" itemValue="false"/>
+							</h:selectOneMenu>
+							<h:message for="cardinalitiesBeanExampleIsUnidirectional" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+
+---------------------------------------------------------------------
+create
+				<h:outputLabel for="cardinalitiesBeanCardinalitiesCardinality" value="Cardinality:"/>
+				<h:panelGroup>
+					<h:inputText id="cardinalitiesBeanCardinalitiesCardinality" required="true" value="#{cardinalitiesBean.cardinalities.cardinality}"/>
+					<h:message for="cardinalitiesBeanCardinalitiesCardinality" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText value="*"/>
+
+Search:
+						<h:outputLabel for="cardinalitiesBeanExampleCardinality" value="Cardinality:"/>
+						<h:panelGroup>
+							<h:inputText id="cardinalitiesBeanExampleCardinality" value="#{cardinalitiesBean.example.cardinality}"/>
+							<h:message for="cardinalitiesBeanExampleCardinality" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+
+-------------------------------------------------------------------
+create
+				<h:outputLabel for="cardinalitiesBeanCardinalitiesName" value="Name:"/>
+				<h:panelGroup>
+					<h:inputText id="cardinalitiesBeanCardinalitiesName" required="true" value="#{cardinalitiesBean.cardinalities.name}"/>
+					<h:message for="cardinalitiesBeanCardinalitiesName" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText value="*"/>
+
+Search:
+						<h:outputLabel for="cardinalitiesBeanExampleName" value="Name:"/>
+						<h:panelGroup>
+							<h:inputText id="cardinalitiesBeanExampleName" value="#{cardinalitiesBean.example.name}"/>
+							<h:message for="cardinalitiesBeanExampleName" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+

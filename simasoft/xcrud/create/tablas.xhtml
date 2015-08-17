@@ -1,0 +1,119 @@
+					<ui:param name="_collection" value="#{cardinalitiesBean.cardinalities.sites}"/>
+					<h:dataTable id="cardinalitiesBeanCardinalitiesSites" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Sites"/>
+							</f:facet>
+							<h:link outcome="/admin/sites/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText value="#{_item}"/>
+							</h:link>
+						</h:column>
+					</h:dataTable>
+
+
+					<ui:param name="_collection" value="#{cardinalitiesBean.cardinalities.imports}"/>
+					<h:dataTable id="cardinalitiesBeanCardinalitiesImports" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Imports"/>
+							</f:facet>
+							<h:link outcome="/admin/imports/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText value="#{_item}"/>
+							</h:link>
+						</h:column>
+					</h:dataTable>
+
+					<ui:param name="_collection" value="#{cardinalitiesBean.cardinalities.relationships}"/>
+					<h:dataTable id="cardinalitiesBeanCardinalitiesRelationships" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
+
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Orden"/>
+							</f:facet>
+							<h:link outcome="/admin/relationships/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemOrden" value="#{_item.orden}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="relationshipsBeanAddOrden" value="#{relationshipsBean.add.orden}"/>
+								<h:message for="relationshipsBeanAddOrden" styleClass="error"/>
+							</f:facet>
+						</h:column>
+
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Observations"/>
+							</f:facet>
+							<h:link outcome="/admin/relationships/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:inputTextarea id="itemObservations" value="#{_item.observations}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputTextarea id="relationshipsBeanAddObservations" value="#{relationshipsBean.add.observations}"/>
+								<h:message for="relationshipsBeanAddObservations" styleClass="error"/>
+							</f:facet>
+						</h:column>
+
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Name"/>
+							</f:facet>
+							<h:link outcome="/admin/relationships/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemName" value="#{_item.name}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="relationshipsBeanAddName" value="#{relationshipsBean.add.name}"/>
+								<h:message for="relationshipsBeanAddName" styleClass="error"/>
+							</f:facet>
+						</h:column>
+
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Is Optionality"/>
+							</f:facet>
+							<h:link outcome="/admin/relationships/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemIsOptionality" value="#{_item.isOptionality}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:selectOneMenu id="relationshipsBeanAddIsOptionality" value="#{relationshipsBean.add.isOptionality}">
+									<f:selectItem/>
+									<f:selectItem itemLabel="Yes" itemValue="true"/>
+									<f:selectItem itemLabel="No" itemValue="false"/>
+								</h:selectOneMenu>
+								<h:message for="relationshipsBeanAddIsOptionality" styleClass="error"/>
+							</f:facet>
+						</h:column>
+
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Is Embedded"/>
+							</f:facet>
+							<h:link outcome="/admin/relationships/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemIsEmbedded" value="#{_item.isEmbedded}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:selectOneMenu id="relationshipsBeanAddIsEmbedded" value="#{relationshipsBean.add.isEmbedded}">
+									<f:selectItem/>
+									<f:selectItem itemLabel="Yes" itemValue="true"/>
+									<f:selectItem itemLabel="No" itemValue="false"/>
+								</h:selectOneMenu>
+								<h:message for="relationshipsBeanAddIsEmbedded" styleClass="error"/>
+							</f:facet>
+						</h:column>
+
+						<h:column footerClass="remove-column" headerClass="remove-column">
+							<h:commandLink action="#{_collection.remove(_item)}" styleClass="remove-button"/>
+							<f:facet name="footer">
+								<h:commandLink action="#{_collection.add(relationshipsBean.added)}" id="cardinalitiesBeanCardinalitiesRelationshipsAdd" styleClass="add-button">
+									<f:setPropertyActionListener target="#{relationshipsBean.add.cardinalities}" value="#{cardinalitiesBean.cardinalities}"/>
+								</h:commandLink>
+							</f:facet>
+						</h:column>
+						
+					</h:dataTable>
+
