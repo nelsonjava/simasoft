@@ -69,61 +69,58 @@ public ViewH2(Entidad entity) throws IOException {
 line("<?xml version='1.0' encoding='UTF-8' ?>");
 line("<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">");
 line("<ui:composition xmlns=\"http://www.w3.org/1999/xhtml\"");
-line("    xmlns:h=\"http://java.sun.com/jsf/html\"");
-line("    xmlns:f=\"http://java.sun.com/jsf/core\"");
-line("    xmlns:ui=\"http://java.sun.com/jsf/facelets\"");
-line("    xmlns:forgeview=\"http://jboss.org/forge/view\"");
-line("    template=\"/resources/scaffold/pageTemplate.xhtml\">\n");
+line("        xmlns:h=\"http://java.sun.com/jsf/html\"");
+line("        xmlns:f=\"http://java.sun.com/jsf/core\"");
+line("        xmlns:ui=\"http://java.sun.com/jsf/facelets\"");
+line("        xmlns:forgeview=\"http://jboss.org/forge/view\"");
+line("        template=\"/resources/scaffold/pageTemplate.xhtml\">\n");
 
-line("    <f:metadata>");
-line("        <f:viewParam name=\"id\" value='#{"+Utils._1raMin(entity.getName())+"Bean.id}'/>");
-line("        <f:event type=\"preRenderView\" listener='#{"+Utils._1raMin(entity.getName())+"Bean.retrieve}'/>");
-line("    </f:metadata>\n");
+line("        <f:metadata>");
+line("                <f:viewParam name=\"id\" value='#{"+Utils._1raMin(entity.getName())+"Bean.id}'/>");
+line("                <f:event type=\"preRenderView\" listener='#{"+Utils._1raMin(entity.getName())+"Bean.retrieve}'/>");
+line("        </f:metadata>\n");
 
-line("    <ui:param name=\"pageTitle\" value=\"View "+entity.getName()+"\"/>\n");
+line("        <ui:param name=\"pageTitle\" value=\"View "+entity.getName()+"\"/>\n");
 
-line("    <ui:define name=\"header\">");
-line("        "+entity.getName());
-line("    </ui:define>\n");
+line("        <ui:define name=\"header\">");
+line("                "+entity.getName());
+line("        </ui:define>\n");
 
-line("    <ui:define name=\"subheader\">");
-line("        View existing "+entity.getName());
-line("    </ui:define>\n");
+line("        <ui:define name=\"subheader\">");
+line("                View existing "+entity.getName());
+line("        </ui:define>\n");
 
-line("    <ui:define name=\"footer\"/>\n");
+line("        <ui:define name=\"footer\"/>\n");
 
-line("    <ui:define name=\"main\">");
-line("        <h:panelGrid columnClasses=\"label,component,required\" columns=\"3\">");
+line("        <ui:define name=\"main\">");
+line("                <h:panelGrid columnClasses=\"label,component,required\" columns=\"3\">\n");
+
+line(entity.attributeView("orden","double"));
 
           for(int x = 0; x < atributos.size(); x++) {
 
               Atributos atributo = atributos.get(x);
 
-              if (atributo.getType().equals("String")) {
-line("            <h:outputLabel for=\""+Utils._1raMin(entity.getName())+"Bean"+entity.getName()+Utils._1raMay(atributo.getField())+"\" value=\""+Utils._1raMin(atributo.getField())+":\"/>");
-line("            <h:outputText id=\""+Utils._1raMin(entity.getName())+"Bean"+entity.getName()+Utils._1raMay(atributo.getField())+"\" value=\"#{"+Utils._1raMin(entity.getName())+"Bean."+Utils._1raMin(entity.getName())+"."+Utils._1raMin(atributo.getField())+"}\"/>");
-line("            <h:outputText/>");
-              }
-              if (atributo.getType().equals("Date")) {
-
-              }
-              if (atributo.getType().equals("float")) {
-
-              }
-              if (atributo.getType().equals("boolean")) {
-
-              }
+line(entity.attributeView(atributo.getField(),atributo.getType()));
 
           } // for atributos
 
-line("        </h:panelGrid>\n");
+line(entity.attributeView("observations","Text"));
 
-line("        <div class=\"buttons\">");
-line("            <h:link value=\"View All\" outcome=\"search\" styleClass=\"btn btn-primary\"/>");
-line("            <h:link value=\"Edit\" outcome=\"create\" includeViewParams=\"true\" styleClass=\"btn btn-primary\"/>");
-line("            <h:link value=\"Create New\" outcome=\"create\" styleClass=\"btn btn-primary\"/>");
-line("        </div>");
-line("    </ui:define>");
+          for(Relation relation : relations) {
+
+line(entity.relationView(relation));
+
+          } // relations
+
+line("                </h:panelGrid>\n");
+
+line("                <div class=\"buttons\">");
+line("                        <h:link value=\"View All\" outcome=\"search\" styleClass=\"btn btn-primary\"/>");
+line("                        <h:link value=\"Edit\" outcome=\"create\" includeViewParams=\"true\" styleClass=\"btn btn-primary\"/>");
+line("                        <h:link value=\"Create New\" outcome=\"create\" styleClass=\"btn btn-primary\"/>");
+line("                </div>");
+line("        </ui:define>");
 line("</ui:composition>");
 
     } // Constructor

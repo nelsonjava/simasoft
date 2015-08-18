@@ -1,7 +1,5 @@
 --------------------------------------------------------------------
 create:
-					<ui:param name="_collection" value="#{cardinalitiesBean.cardinalities.sites}"/>
-					<h:dataTable id="cardinalitiesBeanCardinalitiesSites" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
 						<h:column>
 							<f:facet name="header">
 								<h:outputText value="Sites"/>
@@ -11,11 +9,8 @@ create:
 								<h:outputText value="#{_item}"/>
 							</h:link>
 						</h:column>
-					</h:dataTable>
 
 view:
-			<h:outputLabel for="cardinalitiesBeanCardinalitiesSites" value="Sites:"/>
-			<h:dataTable id="cardinalitiesBeanCardinalitiesSites" styleClass="data-table" value="#{forgeview:asList(cardinalitiesBean.cardinalities.sites)}" var="_item">
 				<h:column>
 					<f:facet name="header">
 						<h:outputText value="Sites"/>
@@ -25,13 +20,10 @@ view:
 						<h:outputText value="#{_item}"/>
 					</h:link>
 				</h:column>
-			</h:dataTable>
-			<h:outputText/>
+
 
 --------------------------------------------------------------------
 create:
-					<ui:param name="_collection" value="#{cardinalitiesBean.cardinalities.imports}"/>
-					<h:dataTable id="cardinalitiesBeanCardinalitiesImports" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
 						<h:column>
 							<f:facet name="header">
 								<h:outputText value="Imports"/>
@@ -41,11 +33,9 @@ create:
 								<h:outputText value="#{_item}"/>
 							</h:link>
 						</h:column>
-					</h:dataTable>
+
 
 view:
-			<h:outputLabel for="cardinalitiesBeanCardinalitiesImports" value="Imports:"/>
-			<h:dataTable id="cardinalitiesBeanCardinalitiesImports" styleClass="data-table" value="#{forgeview:asList(cardinalitiesBean.cardinalities.imports)}" var="_item">
 				<h:column>
 					<f:facet name="header">
 						<h:outputText value="Imports"/>
@@ -55,15 +45,9 @@ view:
 						<h:outputText value="#{_item}"/>
 					</h:link>
 				</h:column>
-			</h:dataTable>
-			<h:outputText/>
-
 
 --------------------------------------------------------------------
 create:
-					<ui:param name="_collection" value="#{cardinalitiesBean.cardinalities.relationships}"/>
-					<h:dataTable id="cardinalitiesBeanCardinalitiesRelationships" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
-
 						<h:column>
 							<f:facet name="header">
 								<h:outputText value="Orden"/>
@@ -151,11 +135,8 @@ create:
 							</f:facet>
 						</h:column>
 
-					</h:dataTable>
 
 view:
-			<h:outputLabel for="cardinalitiesBeanCardinalitiesRelationships" value="Relationships:"/>
-			<h:dataTable id="cardinalitiesBeanCardinalitiesRelationships" styleClass="data-table" value="#{forgeview:asList(cardinalitiesBean.cardinalities.relationships)}" var="_item">
 				<h:column>
 					<f:facet name="header">
 						<h:outputText value="Orden"/>
@@ -201,14 +182,12 @@ view:
 						<h:outputText id="itemIsEmbedded" value="#{_item.isEmbedded}"/>
 					</h:link>
 				</h:column>
-			</h:dataTable>
-			<h:outputText/>
 
 
 --------------------------------------------------------------------
 search:
 
-			<h:dataTable id="cardinalitiesBeanPageItems" styleClass="data-table" value="#{cardinalitiesBean.pageItems}" var="_item">
+
 				<h:column>
 					<f:facet name="header">
 						<h:outputText value="Cardinality"/>
@@ -227,6 +206,6 @@ search:
 						<h:outputText id="itemName" value="#{_item.name}"/>
 					</h:link>
 				</h:column>
-			</h:dataTable>
+
 
 

@@ -9,7 +9,7 @@ public class Relation{
 
     private String to = "";                 // Movimientos
     private String from = "";               // Pucs
-    
+
     private String rolA = "";               // RolA = from o to
     private String rolB = "";               // RolB = from o to
 
@@ -29,6 +29,8 @@ public class Relation{
     private boolean navigabilityB = false;
 
     private boolean unidireccional;
+
+    private Entidad entityTo = new Entidad();
 
     public Relation() {
     }
@@ -93,7 +95,7 @@ public class Relation{
     public void setRolA(String rolA){
         this.rolA = rolA;
     }
-    
+
     public String getRolB(){
         return rolB;
     }
@@ -194,6 +196,13 @@ public class Relation{
     }
     public void setUnidireccional(boolean unidireccional) {
         this.unidireccional = unidireccional;
+    }
+
+    public Entidad getEntityTo() {
+        return entityTo;
+    }
+    public void setEntityTo(Entidad entityTo) {
+        this.entityTo = entityTo;
     }
 
     public void setNavigabilityFrom(){

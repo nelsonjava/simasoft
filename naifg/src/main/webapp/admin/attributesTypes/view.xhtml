@@ -26,40 +26,73 @@
 
 	<ui:define name="main">
 		<h:panelGrid columnClasses="label,component,required" columns="3">
+
 			<h:outputLabel for="attributesTypesBeanAttributesTypesOrden" value="Orden:"/>
 			<h:outputText id="attributesTypesBeanAttributesTypesOrden" value="#{attributesTypesBean.attributesTypes.orden}"/>
 			<h:outputText/>
+
 			<h:outputLabel for="attributesTypesBeanAttributesTypesObservations" value="Observations:"/>
 			<h:inputTextarea id="attributesTypesBeanAttributesTypesObservations" value="#{attributesTypesBean.attributesTypes.observations}"/>
 			<h:outputText/>
+
 			<h:outputLabel for="attributesTypesBeanAttributesTypesType" value="Type:"/>
 			<h:outputText id="attributesTypesBeanAttributesTypesType" value="#{attributesTypesBean.attributesTypes.type}"/>
 			<h:outputText/>
+
 			<h:outputLabel for="attributesTypesBeanAttributesTypesLength" value="Length:"/>
 			<h:outputText id="attributesTypesBeanAttributesTypesLength" value="#{attributesTypesBean.attributesTypes.length}"/>
 			<h:outputText/>
+
 			<h:outputLabel for="attributesTypesBeanAttributesTypesName" value="Name:"/>
 			<h:outputText id="attributesTypesBeanAttributesTypesName" value="#{attributesTypesBean.attributesTypes.name}"/>
 			<h:outputText/>
+
 			<h:outputLabel for="attributesTypesBeanAttributesTypesPrecision" value="Precision:"/>
 			<h:outputText id="attributesTypesBeanAttributesTypesPrecision" value="#{attributesTypesBean.attributesTypes.precision}"/>
 			<h:outputText/>
+
 			<h:outputLabel for="attributesTypesBeanAttributesTypesAnnotations" value="Annotations:"/>
 			<h:outputText id="attributesTypesBeanAttributesTypesAnnotations" value="#{attributesTypesBean.attributesTypes.annotations}"/>
 			<h:outputText/>
+
 			<h:outputLabel for="attributesTypesBeanAttributesTypesAttributes" value="Attributes:"/>
 			<h:dataTable id="attributesTypesBeanAttributesTypesAttributes" styleClass="data-table" value="#{forgeview:asList(attributesTypesBean.attributesTypes.attributes)}" var="_item">
+
 				<h:column>
 					<f:facet name="header">
 						<h:outputText value="Attributes"/>
 					</f:facet>
 					<h:link outcome="/admin/attributes/view">
 						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText value="#{_item}"/>
+						<h:outputText value="#{_item.name}"/>
 					</h:link>
 				</h:column>
+
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Entity"/>
+					</f:facet>
+					<h:link outcome="/admin/attributes/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText value="#{_item.entities.name}"/>
+					</h:link>
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="GroupId"/>
+					</f:facet>
+					<h:link outcome="/admin/attributes/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText value="#{_item.entities.groupIds.groupId}"/>
+					</h:link>
+				</h:column>
+
+
+
 			</h:dataTable>
 			<h:outputText/>
+
 			<h:outputLabel for="attributesTypesBeanAttributesTypesSites" value="Sites:"/>
 			<h:dataTable id="attributesTypesBeanAttributesTypesSites" styleClass="data-table" value="#{forgeview:asList(attributesTypesBean.attributesTypes.sites)}" var="_item">
 				<h:column>
@@ -73,6 +106,7 @@
 				</h:column>
 			</h:dataTable>
 			<h:outputText/>
+
 			<h:outputLabel for="attributesTypesBeanAttributesTypesAttributesProperties" value="Attributes Properties:"/>
 			<h:dataTable id="attributesTypesBeanAttributesTypesAttributesProperties" styleClass="data-table" value="#{forgeview:asList(attributesTypesBean.attributesTypes.attributesProperties)}" var="_item">
 				<h:column>
@@ -95,10 +129,11 @@
 				</h:column>
 			</h:dataTable>
 			<h:outputText/>
+
 		</h:panelGrid>
 
 		<div class="buttons">
-			<h:link value="View All" outcome="search" styleClass="btn btn-primary"/> 
+			<h:link value="View All" outcome="search" styleClass="btn btn-primary"/>
 			<h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
 			<h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
 		</div>

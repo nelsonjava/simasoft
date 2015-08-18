@@ -77,7 +77,46 @@ public class ModelsGen{
         this.packages = packages;
     }
 
+    private void relationTo(){
+
+        for(Packages groupIds : packages) {
+
+            for(Entidad entidad : groupIds.getEntities()) {
+
+               for(Relation relation : entidad.getRelations()) {
+
+                   relation.setEntityTo(seekEntidad(relation.getTo()));
+
+               } // entidad.getRelations()
+
+            } // for: groupIds.getEntities()
+
+        } // for: packages
+
+    } // relationTo()
+
+    private Entidad seekEntidad(String name){
+
+        for(Packages groupIds : packages) {
+
+            for(Entidad entidad : groupIds.getEntities()) {
+
+                if (entidad.getName().equals(name)){
+                   return entidad;
+                }
+
+            } // for: groupIds.getEntities()
+
+        } // for: packages
+
+        return null;
+
+    } // seekEntidad()
+
+
     public void WarH2() throws IOException {
+      
+        relationTo();
 
         H2Pom filePom = new H2Pom(artifactId,groupId);
         Utils.fileMake(pathDocs+".h2.war."+artifactId, "pom.xml", filePom);
@@ -127,9 +166,11 @@ public class ModelsGen{
                H2Find h2Find = new H2Find(artifactId,groupIds.getGroupId(),groupIds.getEntities());
                Utils.fileMake(pathDocs+".h2.war."+artifactId+".src.main.java."+groupId+".Beans","FindBean.java", h2Find);
 
-
                H2Setup h2Setup = new H2Setup(artifactId,groupIds.getGroupId());
                Utils.fileMake(pathDocs+".h2.war."+artifactId+".src.main.java."+groupId+".Setup","Setup.java", h2Setup);
+
+               ViewH2 viewH2 = new ViewH2(entidad);
+               Utils.fileMake(pathDocs+".h2.war."+artifactId+".admin."+Utils._1raMin(entidad.getName()),"view.xhtml", viewH2);
 
 
 /*

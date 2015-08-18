@@ -90,34 +90,34 @@
 						<h:outputText id="itemName" value="#{_item.name}"/>
 					</h:link>
 				</h:column>
-				
+
 				<h:column>
 					<f:facet name="header">
 						<h:outputText value="Type"/>
 					</f:facet>
 					<h:link outcome="/admin/attributes/view">
 						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemName" value="#{_item.attributesTypes.type}"/>
+						<h:outputText id="itemType" value="#{_item.attributesTypes.type}"/>
 					</h:link>
 				</h:column>
-				
+
 				<h:column>
 					<f:facet name="header">
 						<h:outputText value="Entity"/>
 					</f:facet>
 					<h:link outcome="/admin/attributes/view">
 						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemName" value="#{_item.entities.name}"/>
+						<h:outputText id="itemEntity" value="#{_item.entities.name}"/>
 					</h:link>
 				</h:column>
-				
+
 				<h:column>
 					<f:facet name="header">
 						<h:outputText value="groupIds"/>
 					</f:facet>
 					<h:link outcome="/admin/attributes/view">
 						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemName" value="#{_item.entities.groupIds.artifactId}"/>
+						<h:outputText id="itemgroupIds" value="#{_item.entities.groupIds.artifactId}"/>
 					</h:link>
 				</h:column>
 

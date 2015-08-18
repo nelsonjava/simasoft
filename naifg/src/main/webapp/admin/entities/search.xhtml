@@ -29,18 +29,21 @@
 				<h:panelGroup styleClass="search">
 
 					<h:panelGrid columnClasses="label,component,required" columns="3">
+
 						<h:outputLabel for="entitiesBeanExampleObservations" value="Observations:"/>
 						<h:panelGroup>
 							<h:inputTextarea id="entitiesBeanExampleObservations" value="#{entitiesBean.example.observations}"/>
 							<h:message for="entitiesBeanExampleObservations" styleClass="error"/>
 						</h:panelGroup>
 						<h:outputText/>
+
 						<h:outputLabel for="entitiesBeanExampleName" value="Name:"/>
 						<h:panelGroup>
 							<h:inputText id="entitiesBeanExampleName" value="#{entitiesBean.example.name}"/>
 							<h:message for="entitiesBeanExampleName" styleClass="error"/>
 						</h:panelGroup>
 						<h:outputText/>
+						
 						<h:outputLabel for="entitiesBeanExampleTable" value="Table:"/>
 						<h:panelGroup>
 							<h:inputText id="entitiesBeanExampleTable" value="#{entitiesBean.example.table}"/>
