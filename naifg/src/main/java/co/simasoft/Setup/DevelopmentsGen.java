@@ -81,8 +81,21 @@ public class DevelopmentsGen extends FileTxt {
                       Entidad entidad = new Entidad(entity.getName());
 
                       for (Attributes attribute : entity.getAttributes()) {
+                        
+//                           Atributos atributos = new Atributos(attribute.getName(),attribute.getAttributesTypes().getType());
 
-                           Atributos atributos = new Atributos(attribute.getName(), attribute.getAttributesTypes().getType());
+                           Atributos atributos = new Atributos(attribute.getName(),attribute.getAttributesTypes().getType(),attribute.getIsNullable());
+
+/*
+                           Atributos atributos = new Atributos(attribute.getName(),
+                                                               attribute.getDescription(),
+                                                               attribute.getAttributesTypes().getType(),
+                                                               Integer.toString(attribute.getLength()),
+                                                               attribute.getIsNullable(),
+                                                               attribute.getIsUnique());
+*/
+
+
 
                            String annotations = "";
 

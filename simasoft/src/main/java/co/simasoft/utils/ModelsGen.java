@@ -172,6 +172,8 @@ public class ModelsGen{
                ViewH2 viewH2 = new ViewH2(entidad);
                Utils.fileMake(pathDocs+".h2.war."+artifactId+".admin."+Utils._1raMin(entidad.getName()),"view.xhtml", viewH2);
 
+               CreateH2 createH2 = new CreateH2(entidad);
+               Utils.fileMake(pathDocs+".h2.war."+artifactId+".admin."+Utils._1raMin(entidad.getName()),"create.xhtml", createH2);
 
 /*
                BeanH2 beanH2 = new BeanH2(artifactId,groupId,entidad,imports);

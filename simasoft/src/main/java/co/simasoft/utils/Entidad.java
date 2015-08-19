@@ -309,6 +309,165 @@ public class Entidad {
 
     }  // attributeView
 
+    public String attributeEdit(String attri,String type, boolean isNullable){
+
+        String xhtml = "";
+        String space = "                                ";
+
+        String attribute = attri;
+        String Attribute = Utils._1raMay(attri);
+
+
+        String Entity = name;
+        String entity = Utils._1raMin(name);
+
+
+        switch (type) {
+
+            case "double":
+
+                 xhtml =  space+"<h:outputLabel for=\""+entity+"Bean"+Entity+Attribute+"\" value=\""+Attribute+":\"/>"+"\n";
+                 xhtml += space+"<h:panelGroup>\n";
+                 if (isNullable){
+                 xhtml += space+"        <h:inputText id=\""+entity+"Bean"+Entity+Attribute+"\" value=\"#{"+entity+"Bean."+entity+"."+attribute+"}\"/>\n";
+                 }
+                 else{
+                 xhtml += space+"        <h:inputText id=\""+entity+"Bean"+Entity+Attribute+"\" required=\"true\" value=\"#{"+entity+"Bean."+entity+"."+attribute+"}\"/>\n";
+                 }
+                 xhtml += space+"        <h:message for=\""+entity+"Bean"+Entity+Attribute+"\" styleClass=\"error\"/>\n";
+                 xhtml += space+"</h:panelGroup>\n";
+                 if (isNullable){
+                     xhtml += space+"<h:outputText/>\n";
+                 }
+                 else{
+                     xhtml += space+"<h:outputText value=\"*\"/>";
+                 }
+                 break;
+
+            case "String":
+
+                 xhtml =  space+"<h:outputLabel for=\""+entity+"Bean"+Entity+Attribute+"\" value=\""+Attribute+":\"/>"+"\n";
+                 xhtml += space+"<h:panelGroup>\n";
+                 if (isNullable){
+                 xhtml += space+"        <h:inputText id=\""+entity+"Bean"+Entity+Attribute+"\" value=\"#{"+entity+"Bean."+entity+"."+attribute+"}\"/>\n";
+                 }
+                 else{
+                 xhtml += space+"        <h:inputText id=\""+entity+"Bean"+Entity+Attribute+"\" required=\"true\" value=\"#{"+entity+"Bean."+entity+"."+attribute+"}\"/>\n";
+                 }
+                 xhtml += space+"        <h:message for=\""+entity+"Bean"+Entity+Attribute+"\" styleClass=\"error\"/>\n";
+                 xhtml += space+"</h:panelGroup>\n";
+                 if (isNullable){
+                     xhtml += space+"<h:outputText/>\n";
+                 }
+                 else{
+                     xhtml += space+"<h:outputText value=\"*\"/>";
+                 }
+                 break;
+
+            case "Text":
+
+                 xhtml =  space+"<h:outputLabel for=\""+entity+"Bean"+Entity+Attribute+"\" value=\""+Attribute+":\"/>"+"\n";
+                 xhtml += space+"<h:panelGroup>\n";
+                 if (isNullable){
+                 xhtml += space+"        <p:editor id=\""+entity+"Bean"+Entity+Attribute+"\" value=\"#{"+entity+"Bean."+entity+"."+attribute+"}\"/>\n";
+                 }
+                 else{
+                 xhtml += space+"        <p:editor id=\""+entity+"Bean"+Entity+Attribute+"\" required=\"true\" value=\"#{"+entity+"Bean."+entity+"."+attribute+"}\"/>\n";
+                 }
+                 xhtml += space+"        <h:message for=\""+entity+"Bean"+Entity+Attribute+"\" styleClass=\"error\"/>\n";
+                 xhtml += space+"</h:panelGroup>\n";
+                 if (isNullable){
+                     xhtml += space+"<h:outputText/>\n";
+                 }
+                 else{
+                     xhtml += space+"<h:outputText value=\"*\"/>";
+                 }
+                 break;
+
+            case "Integer":
+
+                 xhtml =  space+"<h:outputLabel for=\""+entity+"Bean"+Entity+Attribute+"\" value=\""+Attribute+":\"/>"+"\n";
+                 xhtml += space+"<h:panelGroup>\n";
+                 if (isNullable){
+                 xhtml += space+"        <h:inputText id=\""+entity+"Bean"+Entity+Attribute+"\" value=\"#{"+entity+"Bean."+entity+"."+attribute+"}\"/>\n";
+                 }
+                 else{
+                 xhtml += space+"        <h:inputText id=\""+entity+"Bean"+Entity+Attribute+"\" required=\"true\" value=\"#{"+entity+"Bean."+entity+"."+attribute+"}\"/>\n";
+                 }
+                 xhtml += space+"        <h:message for=\""+entity+"Bean"+Entity+Attribute+"\" styleClass=\"error\"/>\n";
+                 xhtml += space+"</h:panelGroup>\n";
+                 if (isNullable){
+                     xhtml += space+"<h:outputText/>\n";
+                 }
+                 else{
+                     xhtml += space+"<h:outputText value=\"*\"/>";
+                 }
+                 break;
+
+            case "Date":
+
+                 xhtml =  space+"<h:outputLabel for=\""+entity+"Bean"+Entity+Attribute+"\" value=\""+Attribute+":\"/>"+"\n";
+                 xhtml += space+"<h:panelGroup>\n";
+                 if (isNullable){
+                 xhtml += space+"<p:calendar id=\"developmentsBeanDevelopmentsDate\"\n";
+                 xhtml += space+"            showButtonPanel=\"true\"\n";
+                 xhtml += space+"            pattern=\"dd/MM/yyyy HH:mm a\"\n";
+                 xhtml += space+"            value=\"#{"+entity+"Bean."+entity+"."+attribute+"}\"/>\n";
+                 }
+                 else{
+                 xhtml += space+"<p:calendar id=\"developmentsBeanDevelopmentsDate\"\n";
+                 xhtml += space+"            required=\"true\" showButtonPanel=\"true\"\n";
+                 xhtml += space+"            pattern=\"dd/MM/yyyy HH:mm a\"\n";
+                 xhtml += space+"            value=\"#{"+entity+"Bean."+entity+"."+attribute+"}\"/>\n";
+                 }
+                 xhtml += space+"</h:panelGroup>\n";
+                 if (isNullable){
+                     xhtml += space+"<h:outputText/>\n";
+                 }
+                 else{
+                     xhtml += space+"<h:outputText value=\"*\"/>";
+                 }
+                 break;
+
+
+            case "Boolean":
+
+                 xhtml =  space+"<h:outputLabel for=\""+entity+"Bean"+Entity+Attribute+"\" value=\""+Attribute+":\"/>"+"\n";
+                 xhtml += space+"<h:panelGroup>\n";
+                 if (isNullable){
+                 xhtml += space+"        <h:selectOneMenu id=\""+entity+"Bean"+Entity+Attribute+"\" value=\"#{"+entity+"Bean."+entity+"."+attribute+"}\">\n";
+                 xhtml += space+"                <f:selectItem/>\n";
+                 xhtml += space+"                <f:selectItem itemLabel=\"Yes\" itemValue=\"true\"/>\n";
+                 xhtml += space+"                <f:selectItem itemLabel=\"No\" itemValue=\"false\"/>\n";
+                 xhtml += space+"        </h:selectOneMenu>\n";
+                 }
+                 else{
+                 xhtml += space+"        <h:selectOneMenu id=\""+entity+"Bean"+Entity+Attribute+"\" required=\"true\" value=\"#{"+entity+"Bean."+entity+"."+attribute+"}\">\n";
+                 xhtml += space+"                <f:selectItem/>\n";
+                 xhtml += space+"                <f:selectItem itemLabel=\"Yes\" itemValue=\"true\"/>\n";
+                 xhtml += space+"                <f:selectItem itemLabel=\"No\" itemValue=\"false\"/>\n";
+                 xhtml += space+"        </h:selectOneMenu>\n";
+                 }
+                 xhtml += space+"        <h:message for=\"entitiesBeanEntitiesIsSimplified\" styleClass=\"error\"/>\n";
+                 xhtml += space+"</h:panelGroup>\n";
+                 xhtml += space+"<h:outputText/>\n";
+                 if (isNullable){
+                     xhtml += space+"<h:outputText/>\n";
+                 }
+                 else{
+                     xhtml += space+"<h:outputText value=\"*\"/>";
+                 }
+                 break;
+
+            default:
+                 break;
+
+        } // switch
+
+        return xhtml;
+
+    }  // attributeView
+
 
 
 } // Entidad

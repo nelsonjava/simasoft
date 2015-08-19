@@ -18,6 +18,12 @@ public class Atributos{
          this.type = type;
     }
 
+     public Atributos(String field, String type,boolean nulo) {
+         this.field = field;
+         this.type = type;
+         this.nulo = nulo;
+    }
+
      public Atributos(String field,String description,String type,String length,boolean nulo,boolean unique ) {
          this.field = field;
          this.description = description;
