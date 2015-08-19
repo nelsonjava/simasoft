@@ -111,6 +111,7 @@ line("                                        <h:panelGroup styleClass=\"buttons
 line("                                                <h:commandLink value=\"Search\" action='#{"+Utils._1raMin(entity.getName())+"Bean.search}' styleClass=\"btn btn-primary\"/>");
 line("                                                <h:commandLink value=\"Create New\" action='#{"+Utils._1raMin(entity.getName())+"Bean.create}' styleClass=\"btn btn-primary\"/>");
 line("                                        </h:panelGroup>");
+line("                                </h:panelGroup>");
 line("                        </f:validateBean>\n");
 
 line("                        <h:dataTable id=\""+Utils._1raMin(entity.getName())+"BeanPageItems\" styleClass=\"data-table\" value=\"#{"+Utils._1raMin(entity.getName())+"Bean.pageItems}\" var=\"_item\">\n");
