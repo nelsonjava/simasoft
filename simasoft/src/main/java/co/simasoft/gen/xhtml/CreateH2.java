@@ -107,7 +107,7 @@ line("        <ui:define name=\"main\">");
 line("                <h:form id=\"create\">");
 line("                        <h:messages globalOnly=\"true\" styleClass=\"error\"/>\n");
 
-line("                        <h:panelGrid columnClasses=\"label,component,required\" columns=\"3\">");
+line("                        <h:panelGrid columnClasses=\"label,component,required\" columns=\"3\">\n");
 
 line(entity.attributeEdit("orden","double",true));
 
@@ -117,7 +117,14 @@ line(entity.attributeEdit(atributo.getField(),atributo.getType(),atributo.getNul
 
       } // for: atributos
 
+          for(Relation relation : relations) {
+
+line(entity.relationEdit(relation));
+
+          } // relations
+          
 line(entity.attributeEdit("observations","Text",true));
+          
 
 line("                        </h:panelGrid>\n");
 

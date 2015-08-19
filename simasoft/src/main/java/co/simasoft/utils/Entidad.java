@@ -204,7 +204,7 @@ public class Entidad {
 
         } // for: relation.getEntityTo().getAtributos()
 
-        xhtml += space+"</hh:dataTable>"+"\n";
+        xhtml += space+"</h:dataTable>"+"\n";
         xhtml += space+"<h:outputText/>\n";
 
         return xhtml;
@@ -340,7 +340,7 @@ public class Entidad {
                      xhtml += space+"<h:outputText/>\n";
                  }
                  else{
-                     xhtml += space+"<h:outputText value=\"*\"/>";
+                     xhtml += space+"<h:outputText value=\"*\"/>\n";
                  }
                  break;
 
@@ -360,7 +360,7 @@ public class Entidad {
                      xhtml += space+"<h:outputText/>\n";
                  }
                  else{
-                     xhtml += space+"<h:outputText value=\"*\"/>";
+                     xhtml += space+"<h:outputText value=\"*\"/>\n";
                  }
                  break;
 
@@ -380,7 +380,7 @@ public class Entidad {
                      xhtml += space+"<h:outputText/>\n";
                  }
                  else{
-                     xhtml += space+"<h:outputText value=\"*\"/>";
+                     xhtml += space+"<h:outputText value=\"*\"/>\n";
                  }
                  break;
 
@@ -400,7 +400,7 @@ public class Entidad {
                      xhtml += space+"<h:outputText/>\n";
                  }
                  else{
-                     xhtml += space+"<h:outputText value=\"*\"/>";
+                     xhtml += space+"<h:outputText value=\"*\"/>\n";
                  }
                  break;
 
@@ -425,7 +425,7 @@ public class Entidad {
                      xhtml += space+"<h:outputText/>\n";
                  }
                  else{
-                     xhtml += space+"<h:outputText value=\"*\"/>";
+                     xhtml += space+"<h:outputText value=\"*\"/>\n";
                  }
                  break;
 
@@ -450,12 +450,11 @@ public class Entidad {
                  }
                  xhtml += space+"        <h:message for=\"entitiesBeanEntitiesIsSimplified\" styleClass=\"error\"/>\n";
                  xhtml += space+"</h:panelGroup>\n";
-                 xhtml += space+"<h:outputText/>\n";
                  if (isNullable){
                      xhtml += space+"<h:outputText/>\n";
                  }
                  else{
-                     xhtml += space+"<h:outputText value=\"*\"/>";
+                     xhtml += space+"<h:outputText value=\"*\"/>\n";
                  }
                  break;
 
@@ -468,6 +467,55 @@ public class Entidad {
 
     }  // attributeView
 
+    public String relationEdit(Relation relation ){
+
+        String xhtml = "";
+        String space = "                                ";
+
+        String From = relation.getFrom();
+        String from = Utils._1raMin(relation.getFrom());
+
+        String To = relation.getTo();
+        String to = Utils._1raMin(relation.getTo());
+
+        switch (relation.getCardinality()) {
+
+            case "1..1":
+
+                 xhtml =  space+"<!-- "+From+" "+relation.getCardinality()+"  "+To+" -->\n";
+                 break;
+
+            case "1..*":
+
+                 xhtml =  space+"<!-- "+From+" "+relation.getCardinality()+"  "+To+" -->\n";
+                 break;
+
+            case "*..*":
+
+                 xhtml =  space+"<!-- "+From+" "+relation.getCardinality()+"  "+To+" -->\n";
+                 break;
+                 
+            case "*..1":
+
+                 xhtml =  space+"<h:outputLabel for=\""+from+"Bean"+from+To+"\" value=\""+To+":\"/>"+"\n";
+                 xhtml += space+"<h:panelGroup>\n";
+                 xhtml += space+"         <h:selectOneMenu converter=\"#{"+to+"Bean.converter}\" id=\""+from+"Bean"+From+To+"\" value=\"#{"+from+"Bean."+from+"."+to+"}\">\n";
+                 xhtml += space+"                <f:selectItem/>\n";
+                 xhtml += space+"                <f:selectItems itemLabel=\"#{forgeview:display(_item)}\" itemValue=\"#{_item}\" value=\"#{"+to+"Bean.all}\" var=\"_item\"/>\n";
+                 xhtml += space+"        </h:selectOneMenu>\n";
+                 xhtml += space+"        <h:message for=\"entitiesBeanEntitiesIsSimplified\" styleClass=\"error\"/>\n";
+                 xhtml += space+"</h:panelGroup>\n";
+                 xhtml += space+"<h:outputText/>\n";
+                 break;
+
+            default:
+                 break;
+
+        } // switch
+
+        return xhtml;
+
+    } // relationEdit
 
 
 } // Entidad
