@@ -465,7 +465,7 @@ public class Entidad {
 
         return xhtml;
 
-    }  // attributeView
+    }  // attributeEdit
 
     public String relationEdit(Relation relation ){
 
@@ -516,6 +516,199 @@ public class Entidad {
         return xhtml;
 
     } // relationEdit
+    
+    public String attributeSearch(String attri,String type, boolean isNullable){
+
+        String xhtml = "";
+        String space = "                                                ";
+
+        String attribute = attri;
+        String Attribute = Utils._1raMay(attri);
+
+
+        String Entity = name;
+        String entity = Utils._1raMin(name);
+
+
+        switch (type) {
+
+            case "double":
+
+                 xhtml =  space+"<h:outputLabel for=\""+entity+"BeanExample"+Attribute+"\" value=\""+Attribute+":\"/>"+"\n";
+                 xhtml += space+"<h:panelGroup>\n";
+                 xhtml += space+"        <h:inputText id=\""+entity+"BeanExample"+Attribute+"\" value=\"#{"+entity+"Bean.example."+attribute+"}\"/>\n";
+                 xhtml += space+"        <h:message for=\""+entity+"BeanExample"+Attribute+"\" styleClass=\"error\"/>\n";
+                 xhtml += space+"</h:panelGroup>\n";
+                 xhtml += space+"<h:outputText/>\n";
+                 break;
+
+            case "String":
+
+                 xhtml =  space+"<h:outputLabel for=\""+entity+"BeanExample"+Attribute+"\" value=\""+Attribute+":\"/>"+"\n";
+                 xhtml += space+"<h:panelGroup>\n";
+                 xhtml += space+"        <h:inputText id=\""+entity+"BeanExample"+Attribute+"\" value=\"#{"+entity+"Bean.example."+attribute+"}\"/>\n";
+                 xhtml += space+"        <h:message for=\""+entity+"BeanExample"+Attribute+"\" styleClass=\"error\"/>\n";
+                 xhtml += space+"</h:panelGroup>\n";
+                 xhtml += space+"<h:outputText/>\n";
+                 break;
+
+            case "Text":
+
+                 xhtml =  space+"<h:outputLabel for=\""+entity+"BeanExample"+Attribute+"\" value=\""+Attribute+":\"/>"+"\n";
+                 xhtml += space+"<h:panelGroup>\n";
+                 xhtml += space+"        <p:editor id=\""+entity+"BeanExample"+Attribute+"\" value=\"#{"+entity+"Bean.example."+attribute+"}\"/>\n";
+                 xhtml += space+"        <h:message for=\""+entity+"BeanExample"+Attribute+"\" styleClass=\"error\"/>\n";
+                 xhtml += space+"</h:panelGroup>\n";
+                 xhtml += space+"<h:outputText/>\n";
+                 break;
+
+            case "Integer":
+
+                 xhtml =  space+"<h:outputLabel for=\""+entity+"BeanExample"+Attribute+"\" value=\""+Attribute+":\"/>"+"\n";
+                 xhtml += space+"<h:panelGroup>\n";
+                 xhtml += space+"        <h:inputText id=\""+entity+"BeanExample"+Attribute+"\" value=\"#{"+entity+"Bean.example."+attribute+"}\"/>\n";
+                 xhtml += space+"        <h:message for=\""+entity+"BeanExample"+Attribute+"\" styleClass=\"error\"/>\n";
+                 xhtml += space+"</h:panelGroup>\n";
+                 xhtml += space+"<h:outputText/>\n";
+                 break;
+
+            case "Date":
+
+                 xhtml =  space+"<h:outputLabel for=\""+entity+"Bean"+Entity+Attribute+"\" value=\""+Attribute+":\"/>"+"\n";
+                 xhtml += space+"<h:panelGroup>\n";
+                 xhtml += space+"<p:calendar id=\"developmentsBeanDevelopmentsDate\"\n";
+                 xhtml += space+"            showButtonPanel=\"true\"\n";
+                 xhtml += space+"            pattern=\"dd/MM/yyyy HH:mm a\"\n";
+                 xhtml += space+"            value=\"#{"+entity+"Bean."+entity+"."+attribute+"}\"/>\n";
+                 xhtml += space+"</h:panelGroup>\n";
+                 xhtml += space+"<h:outputText/>\n";
+                 break;
+
+
+            case "Boolean":
+
+                 xhtml =  space+"<h:outputLabel for=\""+entity+"BeanExample"+Attribute+"\" value=\""+Attribute+":\"/>"+"\n";
+                 xhtml += space+"<h:panelGroup>\n";
+                 xhtml += space+"        <h:selectOneMenu id=\""+entity+"BeanExample"+Attribute+"\" value=\"#{"+entity+"Bean.example."+attribute+"}\">\n";
+                 xhtml += space+"                <f:selectItem/>\n";
+                 xhtml += space+"                <f:selectItem itemLabel=\"Yes\" itemValue=\"true\"/>\n";
+                 xhtml += space+"                <f:selectItem itemLabel=\"No\" itemValue=\"false\"/>\n";
+                 xhtml += space+"        </h:selectOneMenu>\n";
+                 xhtml += space+"        <h:message for=\"entitiesBeanExampleIsSimplified\" styleClass=\"error\"/>\n";
+                                                          // ojo hay constante revisar
+                 xhtml += space+"</h:panelGroup>\n";
+                 xhtml += space+"<h:outputText/>\n";
+                 break;
+
+
+            default:
+                 break;
+
+        } // switch
+
+        return xhtml;
+
+    }  // attributeSearch
+
+    public String columnSearch(String attri,String type){
+
+        String xhtml = "";
+        String space = "                                ";
+
+        String attribute = attri;
+        String Attribute = Utils._1raMay(attri);
+
+
+        String Entity = name;
+        String entity = Utils._1raMin(name);
+
+        switch (type) {
+
+            case "double":
+
+                 xhtml = space+"<h:column>\n";
+                 xhtml +=space+"        <f:facet name=\"header\">\n";
+                 xhtml +=space+"                <h:outputText value=\""+Attribute+"\"/>\n";
+                 xhtml +=space+"        </f:facet>\n";
+                 xhtml +=space+"        <h:link outcome=\"/admin/"+Utils._1raMin(entity)+"/view\">\n";
+                 xhtml +=space+"                <f:param name=\"id\" value=\"#{_item.id}\"/>\n";
+                 xhtml +=space+"                <h:outputText id=\"item"+Attribute+"\" value=\"#{_item."+attribute+"}\"/>\n";
+                 xhtml +=space+"        </h:link>\n";
+                 xhtml +=space+"</h:column>\n\n";
+                 break;
+
+            case "String":
+
+                 xhtml = space+"<h:column>\n";
+                 xhtml +=space+"        <f:facet name=\"header\">\n";
+                 xhtml +=space+"                <h:outputText value=\""+Attribute+"\"/>\n";
+                 xhtml +=space+"        </f:facet>\n";
+                 xhtml +=space+"        <h:link outcome=\"/admin/"+Utils._1raMin(entity)+"/view\">\n";
+                 xhtml +=space+"                <f:param name=\"id\" value=\"#{_item.id}\"/>\n";
+                 xhtml +=space+"                <h:outputText id=\"item"+Attribute+"\" value=\"#{_item."+attribute+"}\"/>\n";
+                 xhtml +=space+"        </h:link>\n";
+                 xhtml +=space+"</h:column>\n\n";
+                 break;
+
+            case "Text":
+
+                 break;
+
+            case "Integer":
+
+                 xhtml = space+"<h:column>\n";
+                 xhtml +=space+"        <f:facet name=\"header\">\n";
+                 xhtml +=space+"                <h:outputText value=\""+Attribute+"\"/>\n";
+                 xhtml +=space+"        </f:facet>\n";
+                 xhtml +=space+"        <h:link outcome=\"/admin/"+Utils._1raMin(entity)+"/view\">\n";
+                 xhtml +=space+"                <f:param name=\"id\" value=\"#{_item.id}\"/>\n";
+                 xhtml +=space+"                <h:outputText id=\"item"+Attribute+"\" value=\"#{_item."+attribute+"}\"/>\n";
+                 xhtml +=space+"        </h:link>\n";
+                 xhtml +=space+"</h:column>\n\n";
+                 break;
+
+
+            case "Date":
+
+                 xhtml = space+"<h:column>\n";
+                 xhtml +=space+"        <f:facet name=\"header\">\n";
+                 xhtml +=space+"                <h:outputText value=\""+Attribute+"\"/>\n";
+                 xhtml +=space+"        </f:facet>\n";
+                 xhtml +=space+"        <h:link outcome=\"/admin/"+Utils._1raMin(entity)+"/view\">\n";
+                 xhtml +=space+"                <f:param name=\"id\" value=\"#{_item.id}\"/>\n";
+                 xhtml +=space+"                <h:outputText id=\"item"+Attribute+"\" value=\"#{_item."+attribute+"}\"/>\n";
+                 xhtml +=space+"                        <f:convertDateTime type=\"date\"/>\n";
+                 xhtml +=space+"               <h:outputText/>\n";
+                 xhtml +=space+"        </h:link>\n";
+                 xhtml +=space+"</h:column>\n\n";
+
+                 break;
+
+
+            case "Boolean":
+
+                 xhtml = space+"<h:column>\n";
+                 xhtml +=space+"        <f:facet name=\"header\">\n";
+                 xhtml +=space+"                <h:outputText value=\""+Attribute+"\"/>\n";
+                 xhtml +=space+"        </f:facet>\n";
+                 xhtml +=space+"        <h:link outcome=\"/admin/"+Utils._1raMin(entity)+"/view\">\n";
+                 xhtml +=space+"                <f:param name=\"id\" value=\"#{_item.id}\"/>\n";
+                 xhtml +=space+"                <h:outputText id=\"item"+Attribute+"\" value=\"#{_item."+attribute+"}\"/>\n";
+                 xhtml +=space+"        </h:link>\n";
+                 xhtml +=space+"</h:column>\n\n";
+                 break;
+
+            default:
+                 break;
+
+        } // switch
+
+
+        return xhtml;
+
+    }  // columnSearch
+
+
 
 
 } // Entidad

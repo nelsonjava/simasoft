@@ -72,6 +72,7 @@ line("<ui:composition xmlns=\"http://www.w3.org/1999/xhtml\"");
 line("        xmlns:h=\"http://java.sun.com/jsf/html\"");
 line("        xmlns:f=\"http://java.sun.com/jsf/core\"");
 line("        xmlns:ui=\"http://java.sun.com/jsf/facelets\"");
+line("        xmlns:p=\"http://primefaces.org/ui\"");
 line("        xmlns:forgeview=\"http://jboss.org/forge/view\"");
 line("        template=\"/resources/scaffold/pageTemplate.xhtml\">\n");
 
