@@ -147,12 +147,12 @@ public class Entidad {
 
             case "Date":
 
-                 xhtml = space+"<h:outputLabel for=\""+entity+"Bean"+Entity+Attribute+"\" value=\""+Attribute+":\"/>"+"\n"+
-                         space+"<h:outputText id=\""+entity+"Bean"+Entity+Attribute+"\" value=\"#{"+entity+"Bean."+entity+"."+attribute+"}\"/>\n"+
-                         space+"  <f:convertDateTime type=\"date\"/>"+
-                         space+"<h:outputText/>\n";
+                 xhtml = space+"<h:outputLabel for=\""+entity+"Bean"+Entity+Attribute+"\" value=\""+Attribute+":\"/>"+"\n";
+                 xhtml +=space+"<h:outputText id=\""+entity+"Bean"+Entity+Attribute+"\" value=\"#{"+entity+"Bean."+entity+"."+attribute+"}\"/>\n";
+                 xhtml +=space+"        <f:convertDateTime type=\"date\"/>\n";
+                 xhtml +=space+"</h:outputText>\n";
+                 xhtml +=space+"<h:outputText/>\n";
                  break;
-
 
             case "Boolean":
 
@@ -192,9 +192,9 @@ public class Entidad {
 
 
 
-        xhtml =  space+"<h:outputLabel for=\"entitiesBeanEntities"+To+"\" value=\""+To+":\"/>"+"\n";
-        xhtml += space+"<h:dataTable id=\"entitiesBeanEntities"+to+
-                                 "\" styleClass=\"data-table\" value=\"#{forgeview:asList(entitiesBean.entities."+to+")}\" var=\"_item\">"+"\n\n";
+        xhtml =  space+"<h:outputLabel for=\""+from+"Bean"+From+To+"\" value=\""+To+":\"/>"+"\n";
+        xhtml += space+"<h:dataTable id=\""+from+"Bean"+From+to+
+                                 "\" styleClass=\"data-table\" value=\"#{forgeview:asList("+from+"Bean."+from+"."+to+")}\" var=\"_item\">"+"\n\n";
 
         xhtml += columnView(relation.getEntityTo().getName(),"orden","double");
 
