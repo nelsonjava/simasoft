@@ -148,10 +148,13 @@ public class Entidad {
             case "Date":
 
                  xhtml = space+"<h:outputLabel for=\""+entity+"Bean"+Entity+Attribute+"\" value=\""+Attribute+":\"/>"+"\n";
+/*
                  xhtml +=space+"<h:outputText id=\""+entity+"Bean"+Entity+Attribute+"\" value=\"#{"+entity+"Bean."+entity+"."+attribute+"}\"/>\n";
                  xhtml +=space+"        <f:convertDateTime type=\"date\"/>\n";
                  xhtml +=space+"</h:outputText>\n";
+*/
                  xhtml +=space+"<h:outputText/>\n";
+
                  break;
 
             case "Boolean":

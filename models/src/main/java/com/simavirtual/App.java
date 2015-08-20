@@ -572,6 +572,7 @@ public class App extends FileTxt{
         modelos.add(new Modelos("core/sites/sitesModel.oom","co.simasoft.models.core.sites"));
         Domains domains = new Domains("co.simasoft","core","1.0-SNAPSHOT",modelos);
         DataGenH2 dataGenH2 = new DataGenH2(domains);
+        JsonGenH2 jsonGenH2 = new JsonGenH2(domains);
 
         modelos.clear();
         modelos.add(new Modelos("dev/naifg/dependencies/dependenciesEntities.oom","co.simasoft.models.dev.naifg.dependencies"));
@@ -581,7 +582,7 @@ public class App extends FileTxt{
 /*
         modelos.add(new Modelos("dev/naifg/sites/sitesEntities.oom","co.simasoft.models.dev.naifg.sites"));
         modelos.add(new Modelos("dev/naifg/sites/sitesModel.oom","co.simasoft.models.dev.naifg.sites"));
-*/        
+*/
 
         modelos.add(new Modelos("dev/naifg/naifgEntities.oom","co.simasoft.models.dev.naifg"));
         modelos.add(new Modelos("dev/naifg/naifgModel.oom","co.simasoft.models.dev.naifg"));
@@ -589,10 +590,7 @@ public class App extends FileTxt{
 //        modelos.add(new Modelos("dev/naifg/naifgModelExt.oom","co.simasoft.models.dev.naifg"));
         domains = new Domains("co.simasoft","naifg","1.0-SNAPSHOT",modelos);
         dataGenH2 = new DataGenH2(domains);
-
-
-
-
+        jsonGenH2 = new JsonGenH2(domains);
 
 
     } // main

@@ -141,8 +141,6 @@ line("        dev.setModels(models1);");
 line("        em.persist(dev);");
 line("        em.flush();\n");
 
-line("//      ---------------------- Entities ------------------------\n");
-
     i=0;
     j=0;
     for (Packages groupId : domain.getPackages()){
