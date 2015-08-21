@@ -148,12 +148,15 @@ public class Entidad {
             case "Date":
 
                  xhtml = space+"<h:outputLabel for=\""+entity+"Bean"+Entity+Attribute+"\" value=\""+Attribute+":\"/>"+"\n";
+                 xhtml +=space+"<h:outputText id=\""+entity+"Bean"+Entity+Attribute+"\" value=\"Pendiente\"/>\n";
+                 xhtml +=space+"<h:outputText/>\n";
 /*
                  xhtml +=space+"<h:outputText id=\""+entity+"Bean"+Entity+Attribute+"\" value=\"#{"+entity+"Bean."+entity+"."+attribute+"}\"/>\n";
                  xhtml +=space+"        <f:convertDateTime type=\"date\"/>\n";
                  xhtml +=space+"</h:outputText>\n";
-*/
                  xhtml +=space+"<h:outputText/>\n";
+*/
+
 
                  break;
 
@@ -186,6 +189,8 @@ public class Entidad {
         String To = relation.getTo();
         String to = Utils._1raMin(relation.getTo());
 
+        String relationName = "";
+        String RelationName = "";
 
 /*
         xhtml += space+relation.getEntityTo().getName()+":"+atributos.getField()+"\n";
@@ -193,22 +198,118 @@ public class Entidad {
         xhtml += relation.getEntityTo().getName()+"\n";
 */
 
+        switch (relation.getNameCardinality()) {
+
+            case "Uno a Uno Unidireccional No.1":
+
+                 xhtml =  space+relation.getNameCardinality()+"\n";
+
+                 break;
+
+            case "Uno a Uno Bidirecccional No.2":
+
+                 xhtml =  space+relation.getNameCardinality()+"\n";
+                 break;
+
+            case "Muchos a Uno Unidireccional No.3":
+
+                 xhtml =  space+relation.getNameCardinality()+"\n";
+
+                 break;
+
+            case "Uno a Muchos Unidireccional No.4":
+
+                 xhtml =  space+relation.getNameCardinality()+"\n";
+
+                 break;
 
 
-        xhtml =  space+"<h:outputLabel for=\""+from+"Bean"+From+To+"\" value=\""+To+":\"/>"+"\n";
-        xhtml += space+"<h:dataTable id=\""+from+"Bean"+From+to+
-                                 "\" styleClass=\"data-table\" value=\"#{forgeview:asList("+from+"Bean."+from+"."+to+")}\" var=\"_item\">"+"\n\n";
+            case "Uno a Muchos Bidirecccional No.5":
 
-        xhtml += columnView(relation.getEntityTo().getName(),"orden","double");
+                 if (name.equals(From)){
 
-        for (Atributos atributos : relation.getEntityTo().getAtributos()) {
+                    if (relation.getName().isEmpty()){
+                       relationName = to;
+                       RelationName = Utils._1raMay(relationName);
 
-            xhtml += columnView(relation.getEntityTo().getName(),atributos.getField(),atributos.getType());
+                    }
+                    else {
+                       relationName = relation.getName();
+                       RelationName = Utils._1raMay(relationName);
+                    }
 
-        } // for: relation.getEntityTo().getAtributos()
+                    xhtml =  space+"<h:outputLabel for=\""+From+"Bean"+From+To+"\" value=\""+To+":\"/>"+"\n";
+                    xhtml += space+"<h:dataTable id=\""+from+"Bean"+From+to+
+                                             "\" styleClass=\"data-table\" value=\"#{forgeview:asList("+from+"Bean."+from+"."+relationName+")}\" var=\"_item\">"+"\n\n";
+                    xhtml += columnView(relation.getEntityTo().getName(),"orden","double");
+                    for (Atributos atributos : relation.getEntityTo().getAtributos()) {
+                        xhtml += columnView(relation.getEntityTo().getName(),atributos.getField(),atributos.getType());
+                    } // for: relation.getEntityTo().getAtributos()
+                    xhtml += space+"</h:dataTable>"+"\n";
+                    xhtml += space+"<h:outputText/>\n";
+                 }
+                 else{
 
-        xhtml += space+"</h:dataTable>"+"\n";
-        xhtml += space+"<h:outputText/>\n";
+                    if (relation.getName().isEmpty()){
+                       relationName = from;
+                       RelationName = Utils._1raMay(relationName);
+                    }
+                    else {
+                       relationName = relation.getName();
+                       RelationName = Utils._1raMay(relationName);
+                    }
+
+                    xhtml  = space+"<h:outputLabel for=\""+to+"Bean"+To+RelationName+"\" value=\""+relationName+":\"/>\n";
+                    xhtml += space+"<h:link id=\""+to+"Bean"+To+RelationName+"\" outcome=\"/admin/"+from+"/view\" rendered=\"#{!empty "+to+"Bean."+to+"."+relationName+"}\" value=\"#{"+to+"Bean."+to+"."+relationName+"}\">\n";
+                    xhtml += space+"        <f:param name=\"id\" value=\"#{"+to+"Bean."+to+"."+relationName+".id}\"/>\n";
+                    xhtml += space+"</h:link>\n";
+                    xhtml += space+"<h:outputText/>\n";
+                 }
+
+/*
+xhtml +=  space+"<!-- "+relation.getNameCardinality()+" -->\n";
+xhtml +=  space+"<!-- entity:"+name+" -->\n";
+xhtml +=  space+"<!-- from:"+from+" -->\n";
+xhtml +=  space+"<!-- to:"+to+" -->\n";
+*/
+
+                 break;
+
+            case "Muchos a Muchos Unidireccional No.6":
+
+                 xhtml =  space+relation.getNameCardinality()+"\n";
+
+                 break;
+
+            case "Muchos a Muchos Bidirecccional No.7":
+
+                 xhtml =  space+"<h:outputLabel for=\""+from+"Bean"+From+To+"\" value=\""+To+":\"/>"+"\n";
+                 xhtml += space+"<h:dataTable id=\""+from+"Bean"+From+to+
+                                          "\" styleClass=\"data-table\" value=\"#{forgeview:asList("+from+"Bean."+from+"."+to+")}\" var=\"_item\">"+"\n\n";
+
+                 xhtml += columnView(relation.getEntityTo().getName(),"orden","double");
+
+                 for (Atributos atributos : relation.getEntityTo().getAtributos()) {
+                      xhtml += columnView(relation.getEntityTo().getName(),atributos.getField(),atributos.getType());
+                 } // for: relation.getEntityTo().getAtributos()
+
+                 xhtml += space+"</h:dataTable>"+"\n";
+                 xhtml += space+"<h:outputText/>\n";
+                 
+/*
+xhtml +=  space+"<!-- "+relation.getNameCardinality()+"-->\n";
+*/
+                 break;
+
+
+            default:
+                 break;
+
+        } // switch
+
+
+
+
 
         return xhtml;
 

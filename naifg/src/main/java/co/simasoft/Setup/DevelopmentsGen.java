@@ -4,6 +4,8 @@ line(Integer.toString(developments.getModels().size()));
 
 package co.simasoft.setup;
 
+import co.simasoft.gen.jpa.*;
+
 import co.simasoft.utils.*;
 import co.simasoft.beans.*;
 import co.simasoft.models.dev.naifg.*;
@@ -81,11 +83,10 @@ public class DevelopmentsGen extends FileTxt {
                       Entidad entidad = new Entidad(entity.getName());
 
                       for (Attributes attribute : entity.getAttributes()) {
-                        
+
 //                           Atributos atributos = new Atributos(attribute.getName(),attribute.getAttributesTypes().getType());
 
                            Atributos atributos = new Atributos(attribute.getName(),attribute.getAttributesTypes().getType(),attribute.getIsNullable());
-
 /*
                            Atributos atributos = new Atributos(attribute.getName(),
                                                                attribute.getDescription(),
@@ -154,6 +155,7 @@ public class DevelopmentsGen extends FileTxt {
                                    entidad.addRelations(new Relation(relationships.getFrom().getName(),
                                                                      relationships.getTo().getName(),
                                                                      relationships.getCardinalities().getCardinality(),
+                                                                     relationships.getCardinalities().getName(),
                                                                      relationships.getName(),true));
                                    break;
 
@@ -161,6 +163,7 @@ public class DevelopmentsGen extends FileTxt {
                                    entidad.addRelations(new Relation(relationships.getFrom().getName(),
                                                                      relationships.getTo().getName(),
                                                                      relationships.getCardinalities().getCardinality(),
+                                                                     relationships.getCardinalities().getName(),
                                                                      relationships.getName(),true));
                                    break;
 
@@ -169,6 +172,7 @@ public class DevelopmentsGen extends FileTxt {
                                    entidad.addRelations(new Relation(relationships.getFrom().getName(),
                                                                      relationships.getTo().getName(),
                                                                      relationships.getCardinalities().getCardinality(),
+                                                                     relationships.getCardinalities().getName(),
                                                                      relationships.getName(),true));
                                    break;
 
@@ -176,6 +180,7 @@ public class DevelopmentsGen extends FileTxt {
                                    entidad.addRelations(new Relation(relationships.getFrom().getName(),
                                                                      relationships.getTo().getName(),
                                                                      relationships.getCardinalities().getCardinality(),
+                                                                     relationships.getCardinalities().getName(),
                                                                      relationships.getName(),true));
                                    break;
 
@@ -183,6 +188,7 @@ public class DevelopmentsGen extends FileTxt {
                                    entidad.addRelations(new Relation(relationships.getFrom().getName(),
                                                                      relationships.getTo().getName(),
                                                                      relationships.getCardinalities().getCardinality(),
+                                                                     relationships.getCardinalities().getName(),
                                                                      relationships.getName(),true));
                                    break;
 
@@ -203,11 +209,13 @@ public class DevelopmentsGen extends FileTxt {
                              }
                           }
 
+/*
 line("************");
 line("     "+relationships.getTo().getGroupIds().getGroupId());
 line("to  :"+relationships.getTo().getGroupIds().getGroupId()+"."+relationships.getTo().getName());
 line("from:"+relationships.getFrom().getGroupIds().getGroupId()+"."+relationships.getFrom().getName());
 line(".***********");
+*/
 
 
                           switch (relationships.getCardinalities().getName()) {
@@ -229,9 +237,10 @@ line(".***********");
                                    break;
 
                               case "Uno a Muchos Bidirecccional No.5":
-                                   entidad.addRelations(new Relation(relationships.getTo().getName(),
-                                                                     relationships.getFrom().getName(),
+                                   entidad.addRelations(new Relation(relationships.getFrom().getName(),
+                                                                     relationships.getTo().getName(),
                                                                      "*..1",
+                                                                     "Uno a Muchos Bidirecccional No.5",
                                                                      relationships.getName(),false));
                                    break;
 
@@ -240,9 +249,10 @@ line(".***********");
                                    break;
 
                               case "Muchos a Muchos Bidirecccional No.7":
-                                    entidad.addRelations(new Relation(relationships.getTo().getName(),
-                                                                      relationships.getFrom().getName(),
+                                    entidad.addRelations(new Relation(relationships.getFrom().getName(),
+                                                                      relationships.getTo().getName(),
                                                                       relationships.getCardinalities().getCardinality(),
+                                                                      relationships.getCardinalities().getName(),
                                                                       relationships.getName(),false));
                                     break;
 
@@ -254,6 +264,13 @@ line(".***********");
                       entidades.add(entidad);
 
                  } // for: modelsGroupIds.getGroupIds().getEntities()
+
+for (Entidad entidad : entidades) {
+    EntityH2 entityH2 = new EntityH2(modelsGroupIds.getGroupIds().getGroupId(),modelsGroupIds.getGroupIds().getGroupId(),entidad,imports);
+    Utils.fileMake("\\docs.h2.war."+developments.getArtifactId()+".src.main.java."+modelsGroupIds.getGroupIds().getGroupId(),entidad.getName()+".java", entityH2);
+    line(entidad.getName());
+} // for: groupIds.getEntities()
+
 
                  packages.add(new Packages(modelsGroupIds.getGroupIds().getGroupId(),entidades));
 

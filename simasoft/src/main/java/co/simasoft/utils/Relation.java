@@ -16,6 +16,7 @@ public class Relation{
     private String multiplicityA = "";      // 0..1
     private String multiplicityB = "";      // 0..*
 
+    private String nameCardinality = "";
     private String cardinality = "";
     private String cardinalityA = "";       // 1..*
     private String cardinalityB = "";       // *..1
@@ -46,6 +47,15 @@ public class Relation{
        this.from = from;
        this.to = to;
        this.cardinality = cardinality;
+       this.name = name;
+       this.unidireccional = unidireccional;
+    }
+
+    public Relation(String from,String to,String cardinality,String nameCardinality,String name,boolean unidireccional) {
+       this.from = from;
+       this.to = to;
+       this.cardinality = cardinality;
+       this.nameCardinality = nameCardinality;
        this.name = name;
        this.unidireccional = unidireccional;
     }
@@ -122,10 +132,17 @@ public class Relation{
     public String getCardinality(){
         return cardinality;
     }
-
     public void setCardinality(String cardinality){
         this.cardinality = cardinality;
     }
+    
+    public String getNameCardinality(){
+        return nameCardinality;
+    }
+    public void setNameCardinality(String nameCardinality){
+        this.nameCardinality = nameCardinality;
+    }
+
 
     public String getCardinalityA(){
         return cardinalityA;

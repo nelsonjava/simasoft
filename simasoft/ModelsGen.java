@@ -12,7 +12,7 @@ import co.simasoft.gen.war.h2.*;
 import java.io.*;
 import java.util.*;
 
-public class ModelsGen extends FileTxt {
+public class ModelsGen{
 
     private String name;
     private String groupId;
@@ -115,10 +115,7 @@ public class ModelsGen extends FileTxt {
 
 
     public void WarH2() throws IOException {
-    try {
-
-        clearFileTxt();
-
+      
         relationTo();
 
         H2Pom filePom = new H2Pom(artifactId,groupId);
@@ -127,90 +124,77 @@ public class ModelsGen extends FileTxt {
         Build build = new Build(artifactId,groupId);
         Utils.fileMake(pathDocs+".h2.war."+artifactId, "build.xml", build);
 
-// Prueba verificar
-for (Packages groupIds : packages) {
-    for (Entidad entidad : groupIds.getEntities()) {
-         EntityH2 entityH2 = new EntityH2(groupIds.getGroupId(),groupIds.getGroupId(),entidad,imports);
-         Utils.fileMake(pathDocs+".h2.war."+artifactId+".src.main.java."+groupIds.getGroupId(),entidad.getName()+".java", entityH2);
-         line(entidad.getName());
-    } // for: groupIds.getEntities()
-} // for: packages
+        for(Packages groupIds : packages) {
 
-        for (Packages groupIds : packages) {
+            for(Entidad entidad : groupIds.getEntities()) {
 
-            for (Entidad entidad : groupIds.getEntities()) {
+               LinkedHashSet<String> cardinalityImports = new LinkedHashSet<String>();
 
-                LinkedHashSet<String> cardinalityImports = new LinkedHashSet<String>();
+               for(Relation relation : entidad.getRelations()) {
 
-                for (Relation relation : entidad.getRelations()) {
+                   switch (relation.getCardinality()) {
+                       case "1..1":
+                            cardinalityImports.add("import javax.persistence.OneToOne;");
+                            break;
 
-                     switch (relation.getCardinality()) {
-                         case "1..1":
-                              cardinalityImports.add("import javax.persistence.OneToOne;");
-                              break;
+                       case "*..1":
+                            cardinalityImports.add("import javax.persistence.ManyToOne;");
+                            break;
 
-                         case "*..1":
-                              cardinalityImports.add("import javax.persistence.ManyToOne;");
-                              break;
+                       case "1..*":
+                            cardinalityImports.add("import javax.persistence.OneToMany;");
+                            break;
 
-                         case "1..*":
-                              cardinalityImports.add("import javax.persistence.OneToMany;");
-                              break;
-
-                         case "*..*":
-                              cardinalityImports.add("import javax.persistence.ManyToMany;");
-                              break;
+                       case "*..*":
+                            cardinalityImports.add("import javax.persistence.ManyToMany;");
+                            break;
 
                    } // switch
 
-                } // for: entidad.getRelations()
+               }
 
-                for (String impor : cardinalityImports) {
-                    imports.add(impor);
-                } // for: cardinalityImports)
+               for (String impor : cardinalityImports) {
+                   imports.add(impor);
+               }
 
-line(entidad.getName());
-saveFile("\\docs", "ModelsGen.txt");
+               EntityH2 entityH2 = new EntityH2(groupIds.getGroupId(),groupIds.getGroupId(),entidad,imports);
+               Utils.fileMake(pathDocs+".h2.war."+artifactId+".src.main.java."+groupIds.getGroupId(),entidad.getName()+".java", entityH2);
 
-                EntityH2 entityH2 = new EntityH2(groupIds.getGroupId(),groupIds.getGroupId(),entidad,imports);
-                Utils.fileMake(pathDocs+".h2.war."+artifactId+".src.main.java."+groupIds.getGroupId(),entidad.getName()+".java", entityH2);
+               H2Search h2Search = new H2Search(artifactId,groupIds.getGroupId(),groupIds.getEntities());
+               Utils.fileMake(pathDocs+".h2.war."+artifactId+".src.main.java."+groupId+".Beans","SearchBean.java", h2Search);
 
-                H2Search h2Search = new H2Search(artifactId,groupIds.getGroupId(),groupIds.getEntities());
-                Utils.fileMake(pathDocs+".h2.war."+artifactId+".src.main.java."+groupId+".Beans","SearchBean.java", h2Search);
+               H2Find h2Find = new H2Find(artifactId,groupIds.getGroupId(),groupIds.getEntities());
+               Utils.fileMake(pathDocs+".h2.war."+artifactId+".src.main.java."+groupId+".Beans","FindBean.java", h2Find);
 
-                H2Find h2Find = new H2Find(artifactId,groupIds.getGroupId(),groupIds.getEntities());
-                Utils.fileMake(pathDocs+".h2.war."+artifactId+".src.main.java."+groupId+".Beans","FindBean.java", h2Find);
+               H2Setup h2Setup = new H2Setup(artifactId,groupIds.getGroupId());
+               Utils.fileMake(pathDocs+".h2.war."+artifactId+".src.main.java."+groupId+".Setup","Setup.java", h2Setup);
 
-                H2Setup h2Setup = new H2Setup(artifactId,groupIds.getGroupId());
-                Utils.fileMake(pathDocs+".h2.war."+artifactId+".src.main.java."+groupId+".Setup","Setup.java", h2Setup);
+               ViewH2 viewH2 = new ViewH2(entidad);
+               Utils.fileMake(pathDocs+".h2.war."+artifactId+".admin."+Utils._1raMin(entidad.getName()),"view.xhtml", viewH2);
 
-                ViewH2 viewH2 = new ViewH2(entidad);
-                Utils.fileMake(pathDocs+".h2.war."+artifactId+".admin."+Utils._1raMin(entidad.getName()),"view.xhtml", viewH2);
+               CreateH2 createH2 = new CreateH2(entidad);
+               Utils.fileMake(pathDocs+".h2.war."+artifactId+".admin."+Utils._1raMin(entidad.getName()),"create.xhtml", createH2);
 
-                CreateH2 createH2 = new CreateH2(entidad);
-                Utils.fileMake(pathDocs+".h2.war."+artifactId+".admin."+Utils._1raMin(entidad.getName()),"create.xhtml", createH2);
-
-                SearchH2 searchH2 = new SearchH2(entidad);
-                Utils.fileMake(pathDocs+".h2.war."+artifactId+".admin."+Utils._1raMin(entidad.getName()),"search.xhtml", searchH2);
+               SearchH2 searchH2 = new SearchH2(entidad);
+               Utils.fileMake(pathDocs+".h2.war."+artifactId+".admin."+Utils._1raMin(entidad.getName()),"search.xhtml", searchH2);
 
 /*
-                BeanH2 beanH2 = new BeanH2(artifactId,groupId,entidad,imports);
-                Utils.fileMake(pathDocs+"."+artifactId+".h2.war.src.main.java."+groupId+".view",entidad.getName()+"Bean.java", beanH2);
+               BeanH2 beanH2 = new BeanH2(artifactId,groupId,entidad,imports);
+               Utils.fileMake(pathDocs+"."+artifactId+".h2.war.src.main.java."+groupId+".view",entidad.getName()+"Bean.java", beanH2);
 
-                CreateH2 createH2 = new CreateH2(entidad);
-                Utils.fileMake(pathDocs+"."+artifactId+".h2.war.src.main.webapp.admin."+Utils._1raMin(entidad.getName()),"create.xhtml", createH2);
+               CreateH2 createH2 = new CreateH2(entidad);
+               Utils.fileMake(pathDocs+"."+artifactId+".h2.war.src.main.webapp.admin."+Utils._1raMin(entidad.getName()),"create.xhtml", createH2);
 
-                SearchH2 searchH2 = new SearchH2(entidad);
-                Utils.fileMake(pathDocs+"."+artifactId+".h2.war.src.main.webapp.admin."+Utils._1raMin(entidad.getName()),"search.xhtml", searchH2);
+               SearchH2 searchH2 = new SearchH2(entidad);
+               Utils.fileMake(pathDocs+"."+artifactId+".h2.war.src.main.webapp.admin."+Utils._1raMin(entidad.getName()),"search.xhtml", searchH2);
 
-                ViewH2 viewH2 = new ViewH2(entidad);
-                Utils.fileMake(pathDocs+"."+artifactId+".h2.war.src.main.webapp.admin."+Utils._1raMin(entidad.getName()),"view.xhtml", viewH2);
+               ViewH2 viewH2 = new ViewH2(entidad);
+               Utils.fileMake(pathDocs+"."+artifactId+".h2.war.src.main.webapp.admin."+Utils._1raMin(entidad.getName()),"view.xhtml", viewH2);
 */
 
+            } // for package.getEntities()
 
-            } // for: groupIds.getEntities()
-
-        } // for: packages
+        } // for packages
 
 /*
         BeanUtils beanUtils = new BeanUtils(artifactId,groupId,imports);
@@ -268,14 +252,7 @@ saveFile("\\docs", "ModelsGen.txt");
         Utils.fileJar("webH2/webapp","index.html",pathDocs+"\\h2\\war\\"+artifactId+"\\src\\main\\webapp\\",fileJar);
         Utils.fileJar("webH2/webapp","error.xhtml",pathDocs+"\\h2\\war\\"+artifactId+"\\src\\main\\webapp\\",fileJar);
 
-        saveFile("\\docs", "ModelsGen.txt");
-
     }
-    catch(Exception ioe) {
-      ioe.printStackTrace();
-    }
-
-    } // WarH2()
 
 
 } // ModelsGen
