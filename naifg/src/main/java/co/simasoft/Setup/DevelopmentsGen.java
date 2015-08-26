@@ -60,6 +60,7 @@ public class DevelopmentsGen extends FileTxt {
         clearFileTxt();
 
         LinkedHashSet<String> imports = new LinkedHashSet<String>();
+        Set<Entidad> entidades = new HashSet<Entidad>(0);
 
         System.out.println("Hello World!" + developments.getArtifactId());
 
@@ -77,7 +78,7 @@ public class DevelopmentsGen extends FileTxt {
 
              for (ModelsGroupIds modelsGroupIds : models.getModelsGroupIds()){
 
-                 Set<Entidad> entidades = new HashSet<Entidad>(0);
+//                 Set<Entidad> entidades = new HashSet<Entidad>(0);
                  for (Entities entity : modelsGroupIds.getGroupIds().getEntities()){
 
                       Entidad entidad = new Entidad(entity.getName());
@@ -276,11 +277,13 @@ line(".***********");
 
                  } // for: modelsGroupIds.getGroupIds().getEntities()
 
+/*
 for (Entidad entidad : entidades) {
     EntityH2 entityH2 = new EntityH2(modelsGroupIds.getGroupIds().getGroupId(),modelsGroupIds.getGroupIds().getGroupId(),entidad,imports);
     Utils.fileMake("\\docs.h2.war."+developments.getArtifactId()+".src.main.java."+modelsGroupIds.getGroupIds().getGroupId(),entidad.getName()+".java", entityH2);
     line(entidad.getName());
 } // for: groupIds.getEntities()
+*/
 
 
                  packages.add(new Packages(modelsGroupIds.getGroupIds().getGroupId(),entidades));
@@ -294,6 +297,7 @@ for (Entidad entidad : entidades) {
         ModelsGen modelsGen = new ModelsGen(developments.getGroupId(),developments.getArtifactId());
         modelsGen.setImports(imports);
         modelsGen.setPackages(packages);
+        modelsGen.setEntities(entidades);
         modelsGen.WarH2();
         war(developments);
 
