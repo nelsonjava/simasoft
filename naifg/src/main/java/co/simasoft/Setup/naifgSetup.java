@@ -903,21 +903,6 @@ public class naifgSetup {
         em.persist(attributes60);
         em.flush();
 
-        Attributes attributes61 = new Attributes();
-        attributes61.setName("nameAttribute");
-        attributes61.setIsNullable(true);
-        attributes61.setIsUnique(false);
-//      ...................... Relationships ........................
-        Entities entity109 = new Entities();
-        entity109 = findBean.nameEntities("Relationships",em);
-        attributes61.setEntities(entity109);
-//      ...................... String ........................
-        AttributesTypes attributesTypes110 = new AttributesTypes();
-        attributesTypes110 = findBean.nameAttributesTypes("String",em);
-        attributes61.setAttributesTypes(attributesTypes110);
-        em.persist(attributes61);
-        em.flush();
-
         Attributes attributes62 = new Attributes();
         attributes62.setName("isOptionality");
         attributes62.setIsNullable(true);

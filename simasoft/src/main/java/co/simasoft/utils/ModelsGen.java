@@ -155,6 +155,7 @@ for (Packages groupIds : packages) {
 
                          case "1..*":
                               cardinalityImports.add("import javax.persistence.OneToMany;");
+                              cardinalityImports.add("import javax.persistence.ManyToOne;");
                               break;
 
                          case "*..*":

@@ -144,10 +144,12 @@ public class DevelopmentsGen extends FileTxt {
                           switch (relationships.getCardinalities().getName()) {
 
                               case "Uno a Uno Unidireccional No.1":
+                                   imports.add("import javax.persistence.OneToOne;");
                                    // Pendiente
                                    break;
 
                               case "Uno a Uno Bidirecccional No.2":
+                                   imports.add("import javax.persistence.OneToOne;");
                                    // Pendiente
                                    break;
 
@@ -157,6 +159,7 @@ public class DevelopmentsGen extends FileTxt {
                                                                      relationships.getCardinalities().getCardinality(),
                                                                      relationships.getCardinalities().getName(),
                                                                      relationships.getName(),true));
+                                   imports.add("import javax.persistence.ManyToOne;");
                                    break;
 
                               case "Uno a Muchos Unidireccional No.4":
@@ -165,6 +168,7 @@ public class DevelopmentsGen extends FileTxt {
                                                                      relationships.getCardinalities().getCardinality(),
                                                                      relationships.getCardinalities().getName(),
                                                                      relationships.getName(),true));
+                                   imports.add("import javax.persistence.ManyToOne;");
                                    break;
 
 
@@ -174,6 +178,8 @@ public class DevelopmentsGen extends FileTxt {
                                                                      relationships.getCardinalities().getCardinality(),
                                                                      relationships.getCardinalities().getName(),
                                                                      relationships.getName(),true));
+                                   imports.add("import javax.persistence.OneToMany;");
+                                   imports.add("import javax.persistence.ManyToOne;");
                                    break;
 
                               case "Muchos a Muchos Unidireccional No.6":
@@ -182,6 +188,7 @@ public class DevelopmentsGen extends FileTxt {
                                                                      relationships.getCardinalities().getCardinality(),
                                                                      relationships.getCardinalities().getName(),
                                                                      relationships.getName(),true));
+                                   imports.add("import javax.persistence.ManyToMany;");
                                    break;
 
                               case "Muchos a Muchos Bidirecccional No.7":
@@ -190,6 +197,7 @@ public class DevelopmentsGen extends FileTxt {
                                                                      relationships.getCardinalities().getCardinality(),
                                                                      relationships.getCardinalities().getName(),
                                                                      relationships.getName(),true));
+                                   imports.add("import javax.persistence.ManyToMany;");
                                    break;
 
 
@@ -237,11 +245,13 @@ line(".***********");
                                    break;
 
                               case "Uno a Muchos Bidirecccional No.5":
-                                   entidad.addRelations(new Relation(relationships.getFrom().getName(),
-                                                                     relationships.getTo().getName(),
+
+                                   entidad.addRelations(new Relation(relationships.getTo().getName(),
+                                                                     relationships.getFrom().getName(),
                                                                      "*..1",
                                                                      "Uno a Muchos Bidirecccional No.5",
                                                                      relationships.getName(),false));
+
                                    break;
 
                               case "Muchos a Muchos Unidireccional No.6":
@@ -249,11 +259,12 @@ line(".***********");
                                    break;
 
                               case "Muchos a Muchos Bidirecccional No.7":
-                                    entidad.addRelations(new Relation(relationships.getFrom().getName(),
-                                                                      relationships.getTo().getName(),
+                                    entidad.addRelations(new Relation(relationships.getTo().getName(),
+                                                                      relationships.getFrom().getName(),
                                                                       relationships.getCardinalities().getCardinality(),
                                                                       relationships.getCardinalities().getName(),
                                                                       relationships.getName(),false));
+
                                     break;
 
                           } // switch
@@ -377,7 +388,7 @@ line("//      ---------------------- GroupIds ------------------------\n");
     for (Models models : developments.getModels()) {
 
         for (ModelsGroupIds modelsGroupIds : models.getModelsGroupIds()){
-          
+
             if (modelsGroupIds.getGroupIds().getGroupId().indexOf (models.getGroupId()) != -1){ // Si se encuentra la cadena
             }
             else{
@@ -458,7 +469,7 @@ line("//      ---------------------- Entities ------------------------\n");
     for (Models models : developments.getModels()) {
 
         for (ModelsGroupIds modelsGroupIds : models.getModelsGroupIds()){
-          
+
             if (modelsGroupIds.getGroupIds().getGroupId().indexOf (models.getGroupId()) != -1){ // Si se encuentra la cadena
             }
             else{

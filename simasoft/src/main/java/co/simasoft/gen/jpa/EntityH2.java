@@ -93,7 +93,6 @@ public EntityH2(String artifactId,String groupId,Entidad entity,LinkedHashSet<St
       line("\n");
 //>>FIN IMPORTS DE LA CLASE
 
-
 //>>DOCUMENTACION DE LA CLASE
 //>>FIN DOCUMENTACION DE LA CLASE
 
@@ -173,7 +172,6 @@ public EntityH2(String artifactId,String groupId,Entidad entity,LinkedHashSet<St
                  else{
                    line("    private "+ relation.getTo() +" "+ relation.getName()+";\n");
                  }
-
               }
             }
 //********RELACION MUCHOS A UNO
