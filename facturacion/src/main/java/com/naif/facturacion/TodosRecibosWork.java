@@ -6,17 +6,17 @@ import javafx.concurrent.Task;
 import com.naif.facturacion.util.GeneratorEngine;
 
 public class TodosRecibosWork extends Service<Boolean> {
-	
+
 	private String month;
 	private String year;
-	
+
 	public TodosRecibosWork() {}
-	
+
 	public TodosRecibosWork(String month, String year) {
 		this.month 	= month;
 		this.year 	= year;
 	}
-	
+
 	@Override
 	protected Task<Boolean> createTask() {
 		return new TodosRecibosTask(month, year);
@@ -35,7 +35,6 @@ public class TodosRecibosWork extends Service<Boolean> {
 	/**
 	 * Todos los recibos generation Task.
 	 * 
-	 * @author Nelson Ivan Fernandez Suarez
 	 */
 	private class TodosRecibosTask extends Task<Boolean> {
 		
