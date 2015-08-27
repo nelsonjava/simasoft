@@ -8,7 +8,7 @@ import co.simasoft.gen.jpa.*;
 
 public class H2Persistence extends FileTxt {
 
-  public H2Persistence(String artifactId,ArrayList<Packages> packages) {
+  public H2Persistence(String artifactId,Set<Entidad> entities) {
 
 line("<persistence xmlns=\"http://java.sun.com/xml/ns/persistence\"");
 line("             xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"");
@@ -21,13 +21,9 @@ line("  <persistence-unit name=\""+artifactId+"PU-JTA"+"\" transaction-type=\"JT
 
 line("    <provider>org.hibernate.ejb.HibernatePersistence</provider>\n");
 
-        for(Packages groupId : packages) {
-
-            for(Entidad entidad : groupId.getEntities()) {
-line("    <class>"+groupId.getGroupId()+"."+entidad.getName()+"</class>");
-            } // for package.getEntities()
-
-        } // for packages
+         for(Entidad entidad : entities) {
+line("    <class>"+entidad.getGroupId()+"."+entidad.getName()+"</class>");
+         } // for package.getEntities()
 
 line("");
 

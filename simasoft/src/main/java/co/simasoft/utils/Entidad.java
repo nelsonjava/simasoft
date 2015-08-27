@@ -228,7 +228,7 @@ public class Entidad {
 
                  if (name.equals(From)){
 
-                    if (relation.getName().isEmpty()){
+                    if (relation.getName() == null || relation.getName().isEmpty()){
                        relationName = to;
                        RelationName = Utils._1raMay(relationName);
 
@@ -250,7 +250,7 @@ public class Entidad {
                  }
                  else{
 
-                    if (relation.getName().isEmpty()){
+                    if (relation.getName() == null || relation.getName().isEmpty()){
                        relationName = from;
                        RelationName = Utils._1raMay(relationName);
                     }
@@ -295,7 +295,7 @@ xhtml +=  space+"<!-- to:"+to+" -->\n";
 
                  xhtml += space+"</h:dataTable>"+"\n";
                  xhtml += space+"<h:outputText/>\n";
-                 
+
 /*
 xhtml +=  space+"<!-- "+relation.getNameCardinality()+"-->\n";
 */
@@ -598,7 +598,7 @@ xhtml +=  space+"<!-- "+relation.getNameCardinality()+"-->\n";
 
                  xhtml =  space+"<!-- "+From+" "+relation.getCardinality()+"  "+To+" -->\n";
                  break;
-                 
+
             case "*..1":
 
                  xhtml =  space+"<h:outputLabel for=\""+from+"Bean"+from+To+"\" value=\""+To+":\"/>"+"\n";
@@ -620,7 +620,7 @@ xhtml +=  space+"<!-- "+relation.getNameCardinality()+"-->\n";
         return xhtml;
 
     } // relationEdit
-    
+
     public String attributeSearch(String attri,String type, boolean isNullable){
 
         String xhtml = "";
