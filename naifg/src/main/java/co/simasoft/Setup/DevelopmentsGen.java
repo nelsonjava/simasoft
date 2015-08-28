@@ -247,11 +247,20 @@ line(".***********");
 
                               case "Uno a Muchos Bidirecccional No.5":
 
+                                   entidad.addRelations(new Relation(relationships.getFrom().getName(),
+                                                                     relationships.getTo().getName(),
+                                                                     "*..1",
+                                                                     "Uno a Muchos Bidirecccional No.5",
+                                                                     relationships.getName(),false));
+
+
+/*
                                    entidad.addRelations(new Relation(relationships.getTo().getName(),
                                                                      relationships.getFrom().getName(),
                                                                      "*..1",
                                                                      "Uno a Muchos Bidirecccional No.5",
                                                                      relationships.getName(),false));
+*/
 
                                    break;
 
@@ -260,11 +269,20 @@ line(".***********");
                                    break;
 
                               case "Muchos a Muchos Bidirecccional No.7":
+
+                                    entidad.addRelations(new Relation(relationships.getFrom().getName(),
+                                                                      relationships.getTo().getName(),
+                                                                      relationships.getCardinalities().getCardinality(),
+                                                                      relationships.getCardinalities().getName(),
+                                                                      relationships.getName(),false));
+
+/*
                                     entidad.addRelations(new Relation(relationships.getTo().getName(),
                                                                       relationships.getFrom().getName(),
                                                                       relationships.getCardinalities().getCardinality(),
                                                                       relationships.getCardinalities().getName(),
                                                                       relationships.getName(),false));
+*/
 
                                     break;
 

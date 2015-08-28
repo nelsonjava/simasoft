@@ -167,10 +167,22 @@ public EntityH2(String artifactId,String groupId,Entidad entity,LinkedHashSet<St
               else{
                  line("    @ManyToOne");
                  if(relation.getName() == null || relation.getName() == ""){
-                   line("    private "+relation.getTo()+" "+Utils._1raMin(relation.getTo())+";\n");
+                   if (entity.getName().equals(relation.getFrom())){
+                      line("    private "+relation.getTo()+" "+Utils._1raMin(relation.getTo())+";\n");
+                   }
+                   else{
+                      line("    private "+relation.getFrom()+" "+Utils._1raMin(relation.getFrom())+";\n");
+                      // relación inversa.
+                   }
                  }
                  else{
-                   line("    private "+ relation.getTo() +" "+ relation.getName()+";\n");
+                   if (entity.getName().equals(relation.getFrom())){
+                      line("    private "+ relation.getTo() +" "+ relation.getName()+";\n");
+                   }
+                   else{
+                      line("    private "+ relation.getFrom() +" "+ relation.getName()+";\n");
+                      // relación inversa.
+                   }
                  }
               }
             }
@@ -209,16 +221,31 @@ public EntityH2(String artifactId,String groupId,Entidad entity,LinkedHashSet<St
                    else{
                      line("    @ManyToMany(mappedBy = \""+Utils._1raMin(entity.getName())+"\")");
                    }
-                  line("    private Set<"+relation.getTo()+"> "+Utils._1raMin(relation.getTo())+" = new HashSet<"+relation.getTo()+">();\n");
+
+                   if (entity.getName().equals(relation.getFrom())){
+                      line("    private Set<"+relation.getTo()+"> "+Utils._1raMin(relation.getTo())+" = new HashSet<"+relation.getTo()+">();\n");
+                   }
+                   else{ // relación inversa
+                     line("    private Set<"+relation.getFrom()+"> "+Utils._1raMin(relation.getFrom())+" = new HashSet<"+relation.getFrom()+">();\n");
+                   }
                 }
                 else{
+
                    if(relation.getUnidireccional()){
                      line("    @ManyToMany()");
                    }
                    else{
                      line("    @ManyToMany(mappedBy = \""+Utils._1raMin(entity.getName())+"\")");
                    }
-                  line("    private Set<"+relation.getTo()+"> "+relation.getName()+" = new HashSet<"+relation.getTo()+">();\n");
+
+                   if (entity.getName().equals(relation.getFrom())){
+                      line("    private Set<"+relation.getTo()+"> "+relation.getName()+" = new HashSet<"+relation.getTo()+">();\n");
+                   }
+                   else{
+                      line("    private Set<"+relation.getFrom()+"> "+relation.getName()+" = new HashSet<"+relation.getFrom()+">();\n");
+                      // Relación inversa.
+                   }
+
                 }
               }
             }
@@ -302,20 +329,42 @@ public EntityH2(String artifactId,String groupId,Entidad entity,LinkedHashSet<St
               }
               else{
                  if(relation.getName() == null || relation.getName() == "" ){
-                    line("    public " + relation.getTo() + " get" + Utils._1raMay(relation.getTo()) + "() {");
-                    line("        return " + Utils._1raMin(relation.getTo()) + ";");
-                    line("    }");
-                    line("    public void set" + Utils._1raMay(relation.getTo()) + "(" + Utils._1raMay(relation.getTo()) + " " + Utils._1raMin(relation.getTo()) + ") {");
-                    line("        this." + Utils._1raMin(relation.getTo()) + " = " + Utils._1raMin(relation.getTo()) + ";");
-                    line("    }\n");
+
+                   if (entity.getName().equals(relation.getFrom())){
+                      line("    public " + relation.getTo() + " get" + Utils._1raMay(relation.getTo()) + "() {");
+                      line("        return " + Utils._1raMin(relation.getTo()) + ";");
+                      line("    }");
+                      line("    public void set" + Utils._1raMay(relation.getTo()) + "(" + Utils._1raMay(relation.getTo()) + " " + Utils._1raMin(relation.getTo()) + ") {");
+                      line("        this." + Utils._1raMin(relation.getTo()) + " = " + Utils._1raMin(relation.getTo()) + ";");
+                      line("    }\n");
+                   }
+                   else{ // relación inversa
+                      line("    public " + relation.getFrom() + " get" + Utils._1raMay(relation.getFrom()) + "() {");
+                      line("        return " + Utils._1raMin(relation.getFrom()) + ";");
+                      line("    }");
+                      line("    public void set" + Utils._1raMay(relation.getFrom()) + "(" + Utils._1raMay(relation.getFrom()) + " " + Utils._1raMin(relation.getFrom()) + ") {");
+                      line("        this." + Utils._1raMin(relation.getFrom()) + " = " + Utils._1raMin(relation.getFrom()) + ";");
+                      line("    }\n");
+                   }
+
                  }
                  else{
-                    line("    public " + relation.getTo() + " get" + Utils._1raMay(relation.getName()) + "() {");
-                    line("        return " + relation.getName() + ";");
-                    line("    }");
-                    line("    public void set" + Utils._1raMay(relation.getName()) + "(" + Utils._1raMay(relation.getTo()) + " " + relation.getName() + ") {");
-                    line("        this." + relation.getName() + " = " + relation.getName() + ";");
-                    line("    }\n");
+                     if (entity.getName().equals(relation.getFrom())){
+                        line("    public " + relation.getTo() + " get" + Utils._1raMay(relation.getName()) + "() {");
+                        line("        return " + relation.getName() + ";");
+                        line("    }");
+                        line("    public void set" + Utils._1raMay(relation.getName()) + "(" + Utils._1raMay(relation.getTo()) + " " + relation.getName() + ") {");
+                        line("        this." + relation.getName() + " = " + relation.getName() + ";");
+                        line("    }\n");
+                     }
+                     else{ // Relación inversa.
+                        line("    public " + relation.getFrom() + " get" + Utils._1raMay(relation.getName()) + "() {");
+                        line("        return " + relation.getName() + ";");
+                        line("    }");
+                        line("    public void set" + Utils._1raMay(relation.getName()) + "(" + Utils._1raMay(relation.getFrom()) + " " + relation.getName() + ") {");
+                        line("        this." + relation.getName() + " = " + relation.getName() + ";");
+                        line("    }\n");
+                     }
                  }
               }
 
@@ -369,20 +418,42 @@ public EntityH2(String artifactId,String groupId,Entidad entity,LinkedHashSet<St
               }
               else{
                  if(relation.getName() == null || relation.getName() == "") {
-                   line("    public Set<" + relation.getTo() + "> get" + Utils._1raMay(relation.getTo()) + "() {");
-                   line("        return " + Utils._1raMin(relation.getTo()) + ";");
-                   line("    }");
-                   line("    public void set" + Utils._1raMay(relation.getTo()) + "(Set<" + Utils._1raMay(relation.getTo()) + "> " + Utils._1raMin(relation.getTo()) + ") {");
-                   line("        this." + Utils._1raMin(relation.getTo()) + " = " + Utils._1raMin(relation.getTo()) + ";");
-                   line("    }\n");
+
+                   if (entity.getName().equals(relation.getFrom())){
+                      line("    public Set<" + relation.getTo() + "> get" + Utils._1raMay(relation.getTo()) + "() {");
+                      line("        return " + Utils._1raMin(relation.getTo()) + ";");
+                      line("    }");
+                      line("    public void set" + Utils._1raMay(relation.getTo()) + "(Set<" + Utils._1raMay(relation.getTo()) + "> " + Utils._1raMin(relation.getTo()) + ") {");
+                      line("        this." + Utils._1raMin(relation.getTo()) + " = " + Utils._1raMin(relation.getTo()) + ";");
+                      line("    }\n");
+                   }
+                   else{ // relación inversa
+                      line("    public Set<" + relation.getFrom() + "> get" + Utils._1raMay(relation.getFrom()) + "() {");
+                      line("        return " + Utils._1raMin(relation.getFrom()) + ";");
+                      line("    }");
+                      line("    public void set" + Utils._1raMay(relation.getFrom()) + "(Set<" + Utils._1raMay(relation.getFrom()) + "> " + Utils._1raMin(relation.getFrom()) + ") {");
+                      line("        this." + Utils._1raMin(relation.getFrom()) + " = " + Utils._1raMin(relation.getFrom()) + ";");
+                      line("    }\n");
+                   }
+
                  }
                  else{
-                   line("    public Set<" + relation.getTo() + "> get" + Utils._1raMay(relation.getName()) + "() {");
-                   line("        return " + relation.getName() + ";");
-                   line("    }");
-                   line("    public void set" + Utils._1raMay(relation.getName()) + "(Set<" + Utils._1raMay(relation.getTo()) + "> " + relation.getName() + ") {");
-                   line("        this." + relation.getName() + " = " + relation.getName() + ";");
-                   line("    }\n");
+                   if (entity.getName().equals(relation.getFrom())){
+                      line("    public Set<" + relation.getTo() + "> get" + Utils._1raMay(relation.getName()) + "() {");
+                      line("        return " + relation.getName() + ";");
+                      line("    }");
+                      line("    public void set" + Utils._1raMay(relation.getName()) + "(Set<" + Utils._1raMay(relation.getTo()) + "> " + relation.getName() + ") {");
+                      line("        this." + relation.getName() + " = " + relation.getName() + ";");
+                      line("    }\n");
+                   }
+                   else{ // relación inversa
+                      line("    public Set<" + relation.getFrom() + "> get" + Utils._1raMay(relation.getName()) + "() {");
+                      line("        return " + relation.getName() + ";");
+                      line("    }");
+                      line("    public void set" + Utils._1raMay(relation.getName()) + "(Set<" + Utils._1raMay(relation.getFrom()) + "> " + relation.getName() + ") {");
+                      line("        this." + relation.getName() + " = " + relation.getName() + ";");
+                      line("    }\n");
+                   }
                  }
 
               }

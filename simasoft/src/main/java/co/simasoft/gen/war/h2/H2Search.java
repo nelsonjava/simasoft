@@ -10,12 +10,22 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class H2Search extends FileTxt {
+  
+  private LinkedHashSet<String> imports = new LinkedHashSet<String>();
 
   public H2Search(String artifactId,String groupId,Set<Entidad> entities) {
 
-line("package co.simasoft.beans;\n");
+         for(Entidad entidad : entities) {
+            imports.add(entidad.getGroupId());
+         } // for entities
 
-line("import "+groupId+".*;\n");
+
+line("package "+groupId+".beans;\n");
+
+         for (String impor : imports) {
+line("import "+impor+".*;");
+         }
+line("");
 
 line("import java.util.Calendar;");
 line("import java.util.HashMap;");

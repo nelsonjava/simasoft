@@ -678,6 +678,8 @@ xhtml +=  space+"<!-- "+relation.getNameCardinality()+"-->\n";
 
             case "Date":
 
+                 xhtml =  "";
+/*
                  xhtml =  space+"<h:outputLabel for=\""+entity+"Bean"+Entity+Attribute+"\" value=\""+Attribute+":\"/>"+"\n";
                  xhtml += space+"<h:panelGroup>\n";
                  xhtml += space+"<p:calendar id=\"developmentsBeanDevelopmentsDate\"\n";
@@ -686,6 +688,7 @@ xhtml +=  space+"<!-- "+relation.getNameCardinality()+"-->\n";
                  xhtml += space+"            value=\"#{"+entity+"Bean."+entity+"."+attribute+"}\"/>\n";
                  xhtml += space+"</h:panelGroup>\n";
                  xhtml += space+"<h:outputText/>\n";
+*/
                  break;
 
 
