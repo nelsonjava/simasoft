@@ -14,10 +14,10 @@ import java.util.*;
 
 public class War {
 
-    private ArrayList<Entidad> entidades       = new ArrayList<Entidad>();
+    private ArrayList<Entidad> entidades = new ArrayList<Entidad>(0);
     private Set<Relation> relationsPower = new HashSet<Relation>(0);
-    private Set<Relation> relations            = new HashSet<Relation>(0);
-    private ArrayList<Modelos> modelos         = new ArrayList<Modelos>();
+    private Set<Relation> relations = new HashSet<Relation>(0);
+    private ArrayList<Modelos> modelos = new ArrayList<Modelos>();
 
     private String fileJar = "../g.jar";
     private String filePowerDesigner = "";

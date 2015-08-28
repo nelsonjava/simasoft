@@ -8,7 +8,7 @@ import co.simasoft.gen.jpa.*;
 
 public class H2Persistence extends FileTxt {
 
-  public H2Persistence(String artifactId,Set<Entidad> entities) {
+  public H2Persistence(String artifactId,ArrayList<Entidad> entities) {
 
 line("<persistence xmlns=\"http://java.sun.com/xml/ns/persistence\"");
 line("             xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"");

@@ -5,14 +5,14 @@ import java.util.*;
 public class Packages{
 
     private String groupId    = "";
-    private Set<Entidad> entities = new HashSet<Entidad>();
+    private ArrayList<Entidad> entities = new ArrayList<Entidad>();
     private Set<Relation> relations = new HashSet<Relation>(0);
     private Set<Relation> relationsPower = new HashSet<Relation>();
 
     public Packages(){
     }
 
-    public Packages(String groupId,Set<Entidad> entities){
+    public Packages(String groupId,ArrayList<Entidad> entities){
        this.groupId = groupId;
        this.entities = entities;
     }
@@ -24,10 +24,10 @@ public class Packages{
         this.groupId = groupId;
     }
 
-    public Set<Entidad> getEntities(){
+    public ArrayList<Entidad> getEntities(){
         return entities;
     }
-    public void setEntities(Set<Entidad> entities){
+    public void setEntities(ArrayList<Entidad> entities){
         this.entities = entities;
     }
 

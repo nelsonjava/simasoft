@@ -13,7 +13,7 @@ public class H2Find extends FileTxt {
   
   private LinkedHashSet<String> imports = new LinkedHashSet<String>();
 
-  public H2Find(String artifactId,String groupId,Set<Entidad> entities) {
+  public H2Find(String artifactId,String groupId,ArrayList<Entidad> entities) {
 
          for(Entidad entidad : entities) {
             imports.add(entidad.getGroupId());

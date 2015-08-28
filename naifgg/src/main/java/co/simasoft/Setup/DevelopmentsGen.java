@@ -60,7 +60,7 @@ public class DevelopmentsGen extends FileTxt {
         clearFileTxt();
 
         LinkedHashSet<String> imports = new LinkedHashSet<String>();
-        Set<Entidad> entidades = new HashSet<Entidad>(0);
+        ArrayList<Entidad> entidades = new ArrayList<Entidad>(0);
 
         System.out.println("Hello World!" + developments.getArtifactId());
 
@@ -78,7 +78,7 @@ public class DevelopmentsGen extends FileTxt {
 
              for (ModelsGroupIds modelsGroupIds : models.getModelsGroupIds()){
 
-//                 Set<Entidad> entidades = new HashSet<Entidad>(0);
+//                 ArrayList<Entidad> entidades = new ArrayList<Entidad>(0);
                  for (Entities entity : modelsGroupIds.getGroupIds().getEntities()){
 
                       Entidad entidad = new Entidad(entity.getName());

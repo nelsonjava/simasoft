@@ -66,7 +66,7 @@ line("package "+domain.getGroupId()+".setup;\n");
 line("import "+domain.getGroupId()+".beans.*;");
 line("import "+domain.getGroupId()+".utils.*;\n");
 
-line("import co.simasoft.models.dev.naifg.sites.*;");
+line("import co.simasoft.models.core.sites.*;");
 line("import co.simasoft.models.dev.naifg.*;");
 line("import co.simasoft.models.dev.naifg.dependencies.*;");
 
@@ -152,6 +152,7 @@ line("//      ---------------------- Entities ------------------------\n");
 
 line("        Entities entities"+String.valueOf(++i)+" = new Entities();");
 line("        entities"+String.valueOf(i)+".setName(\""+entidad.getName()+"\");");
+line("        entities"+String.valueOf(i)+".setIsSimplified(false);");
 line("//      ...................... "+groupId.getGroupId()+" ........................");
 line("        GroupIds groupId"+String.valueOf(++j)+" = new GroupIds();");
 line("        groupId"+String.valueOf(j)+" = findBean.groupIdGroupIds(\""+groupId.getGroupId()+"\",em);");
@@ -165,6 +166,12 @@ line("        Attributes attributes"+String.valueOf(++i)+" = new Attributes();")
 line("        attributes"+String.valueOf(i)+".setName(\""+attri.getField()+"\");");
 line("        attributes"+String.valueOf(i)+".setIsNullable("+attri.getNulo()+");");
 line("        attributes"+String.valueOf(i)+".setIsUnique("+attri.getUnique()+");");
+line("        attributes"+String.valueOf(i)+".setIsSimplified(false);");
+line("        attributes"+String.valueOf(i)+".setIsCreate(true);");
+line("        attributes"+String.valueOf(i)+".setIsSearch(true);");
+line("        attributes"+String.valueOf(i)+".setIsView(true);");
+// line("        attributes"+String.valueOf(i)+".setIsViewColumn(true);");
+line("        attributes"+String.valueOf(i)+".setIsViewRelation(true);");
 line("//      ...................... "+entidad.getName()+" ........................");
 line("        Entities entity"+String.valueOf(++j)+" = new Entities();");
 line("        entity"+String.valueOf(j)+" = findBean.nameEntities(\""+entidad.getName()+"\",em);");
@@ -214,6 +221,10 @@ line("*/");
 line("        Relationships relationships"+String.valueOf(++i)+" = new Relationships();");
 line("        relationships"+String.valueOf(i)+".setIsOptionality("+relation.getOptionality()+");");
 line("        relationships"+String.valueOf(i)+".setIsEmbedded(false);");
+line("        relationships"+String.valueOf(i)+".setIsSimplified(false);");
+line("        relationships"+String.valueOf(i)+".setIsCreate(true);");
+line("        relationships"+String.valueOf(i)+".setIsSearch(true);");
+line("        relationships"+String.valueOf(i)+".setIsView(true);");
 line("//      ...................... "+relation.getFrom()+" ........................");
 line("        Entities entities"+String.valueOf(++j)+" = new Entities();");
 line("        entities"+String.valueOf(j)+" = findBean.nameEntities(\""+relation.getFrom()+"\",em);");

@@ -12,7 +12,7 @@ public class Domains{
     private String version = "";
     private ArrayList<Modelos> modelos = new ArrayList<Modelos>();
 
-    private Set<Entidad> entities = new HashSet<Entidad>(0);
+    private ArrayList<Entidad> entities = new ArrayList<Entidad>(0);
     private Set<Packages> packages = new HashSet<Packages>(0);
 
 
@@ -30,7 +30,7 @@ public class Domains{
 
            FilePowerDesigner filePowerDesigner = new FilePowerDesigner(modelo.getFilePower());
 
-           entities = new HashSet<Entidad>(0);
+           entities = new ArrayList<Entidad>(0);
 
            for(Entidad entidad : filePowerDesigner.getEntidades()) {
               if (!entidad.isEntity()){

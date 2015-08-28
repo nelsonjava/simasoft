@@ -7,7 +7,7 @@ import java.util.*;
 
 public class Asciidoc extends FileTxt {
 
-    private ArrayList<Entidad> entidades = new ArrayList<Entidad>();
+    private ArrayList<Entidad> entidades = new ArrayList<Entidad>(0);
     private ArrayList<Atributos> atributos = new ArrayList<Atributos>();
     private ArrayList<Relation> relations = new ArrayList<Relation>();
 

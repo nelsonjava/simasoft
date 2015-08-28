@@ -18,7 +18,7 @@ public class ModelsGen extends FileTxt {
     private String groupId;
     private String artifactId;
     private ArrayList<Packages> packages = new ArrayList<Packages>();
-    private Set<Entidad> entities = new HashSet<Entidad>(0);
+    private ArrayList<Entidad> entities = new ArrayList<Entidad>(0);
 
 
     private LinkedHashSet<String> imports = new LinkedHashSet<String>();
@@ -59,10 +59,10 @@ public class ModelsGen extends FileTxt {
         this.imports = imports;
     }
 
-    public Set<Entidad> getEntities(){
+    public ArrayList<Entidad> getEntities(){
         return entities;
     }
-    public void setEntities(Set<Entidad> entities){
+    public void setEntities(ArrayList<Entidad> entities){
         this.entities = entities;
     }
 

@@ -18,11 +18,11 @@ import co.simasoft.gen.war.h2.*;
 
 public class App extends FileTxt{
 
-    private static ArrayList<Packages> groupIds       = new ArrayList<Packages>();
-    private static ArrayList<Entidad> entidades       = new ArrayList<Entidad>();
-    private static Set<Relation> relations            = new HashSet<Relation>(0);
-    private static ArrayList<Modelos> modelos         = new ArrayList<Modelos>();
-    private static Set<Relation> relationsPower       = new HashSet<Relation>(0);
+    private static ArrayList<Packages> groupIds = new ArrayList<Packages>();
+    private static ArrayList<Entidad> entidades = new ArrayList<Entidad>(0);
+    private static Set<Relation> relations = new HashSet<Relation>(0);
+    private static ArrayList<Modelos> modelos = new ArrayList<Modelos>();
+    private static Set<Relation> relationsPower = new HashSet<Relation>(0);
 
     private static String fileJar = "../g.jar";
     private static String filePowerDesigner = "";

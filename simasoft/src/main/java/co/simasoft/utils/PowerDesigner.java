@@ -14,7 +14,7 @@ import org.w3c.dom.Element;
 public class PowerDesigner {
 
     private static String fileOob;
-    private static ArrayList<Entidad> entidades = new ArrayList<Entidad>();
+    private static ArrayList<Entidad> entidades = new ArrayList<Entidad>(0);
     private static Set<Relation> relationsPower = new HashSet<Relation>(0);
     private static Set<Relation> relations = new HashSet<Relation>(0);
 
