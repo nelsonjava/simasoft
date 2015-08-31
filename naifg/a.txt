@@ -22,7 +22,7 @@
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ naifg ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 36 source files to d:\dev\njava\simasoft\naifg\target\classes
+[INFO] Compiling 37 source files to d:\dev\njava\simasoft\naifg\target\classes
 [WARNING] /d:/dev/njava/simasoft/naifg/src/main/java/co/simasoft/Beans/FindBean.java: Some input files use unchecked or unsafe operations.
 [WARNING] /d:/dev/njava/simasoft/naifg/src/main/java/co/simasoft/Beans/FindBean.java: Recompile with -Xlint:unchecked for details.
 [INFO] 
@@ -41,14 +41,14 @@
 [INFO] Assembling webapp [naifg] in [d:\dev\njava\simasoft\naifg\target\naifg]
 [INFO] Processing war project
 [INFO] Copying webapp resources [d:\dev\njava\simasoft\naifg\src\main\webapp]
-[INFO] Webapp assembled in [597 msecs]
+[INFO] Webapp assembled in [382 msecs]
 [INFO] Building war: d:\dev\njava\simasoft\naifg\target\naifg.war
 [WARNING] Warning: selected war files include a WEB-INF/web.xml which will be ignored 
 (webxml attribute is missing from war task, or ignoreWebxml attribute is specified as 'true')
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 5.979s
-[INFO] Finished at: Fri Aug 28 15:30:46 COT 2015
-[INFO] Final Memory: 18M/45M
+[INFO] Total time: 5.089s
+[INFO] Finished at: Mon Aug 31 09:51:21 COT 2015
+[INFO] Final Memory: 19M/51M
 [INFO] ------------------------------------------------------------------------

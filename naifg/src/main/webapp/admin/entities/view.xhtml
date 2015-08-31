@@ -77,6 +77,7 @@
                                         </h:link>
                                 </h:column>
 
+<!--
                                 <h:column>
                                         <f:facet name="header">
                                                 <h:outputText value="IsCreate"/>
@@ -116,6 +117,20 @@
                                                 <h:outputText id="itemIsViewRelation" value="#{_item.isViewRelation}"/>
                                         </h:link>
                                 </h:column>
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Description"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/attributes/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemDescription" value="#{_item.description}"/>
+                                        </h:link>
+                                </h:column>
+
+
+-->
+
 
                                 <h:column>
                                         <f:facet name="header">
@@ -166,14 +181,14 @@
                                                 <h:outputText id="itemIsUnique" value="#{_item.isUnique}"/>
                                         </h:link>
                                 </h:column>
-
+                                
                                 <h:column>
                                         <f:facet name="header">
-                                                <h:outputText value="Description"/>
+                                                <h:outputText value="IsViewRelation"/>
                                         </f:facet>
                                         <h:link outcome="/admin/attributes/view">
                                                 <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemDescription" value="#{_item.description}"/>
+                                                <h:outputText id="itemIsViewRelation" value="#{_item.isViewRelation}"/>
                                         </h:link>
                                 </h:column>
 

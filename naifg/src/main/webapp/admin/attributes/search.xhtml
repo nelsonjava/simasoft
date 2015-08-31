@@ -144,58 +144,14 @@
                         </f:validateBean>
 
                         <h:dataTable id="attributesBeanPageItems" styleClass="data-table" value="#{attributesBean.pageItems}" var="_item">
-
+                        
                                 <h:column>
                                         <f:facet name="header">
-                                                <h:outputText value="IsSimplified"/>
+                                                <h:outputText value="Entity"/>
                                         </f:facet>
                                         <h:link outcome="/admin/attributes/view">
                                                 <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemIsSimplified" value="#{_item.isSimplified}"/>
-                                        </h:link>
-                                </h:column>
-
-
-                                <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="IsCreate"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/attributes/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemIsCreate" value="#{_item.isCreate}"/>
-                                        </h:link>
-                                </h:column>
-
-
-                                <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="IsSearch"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/attributes/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemIsSearch" value="#{_item.isSearch}"/>
-                                        </h:link>
-                                </h:column>
-
-
-                                <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="IsView"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/attributes/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemIsView" value="#{_item.isView}"/>
-                                        </h:link>
-                                </h:column>
-
-
-                                <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="IsViewRelation"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/attributes/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemIsViewRelation" value="#{_item.isViewRelation}"/>
+                                                <h:outputText id="itemName" value="#{_item.entities.name}"/>
                                         </h:link>
                                 </h:column>
 
@@ -209,7 +165,6 @@
                                                 <h:outputText id="itemName" value="#{_item.name}"/>
                                         </h:link>
                                 </h:column>
-
 
                                 <h:column>
                                         <f:facet name="header">
@@ -254,6 +209,60 @@
                                         </h:link>
                                 </h:column>
 
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="IsViewRelation"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/attributes/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemIsViewRelation" value="#{_item.isViewRelation}"/>
+                                        </h:link>
+                                </h:column>
+
+
+<!--
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="IsSimplified"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/attributes/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemIsSimplified" value="#{_item.isSimplified}"/>
+                                        </h:link>
+                                </h:column>
+
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="IsCreate"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/attributes/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemIsCreate" value="#{_item.isCreate}"/>
+                                        </h:link>
+                                </h:column>
+
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="IsSearch"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/attributes/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemIsSearch" value="#{_item.isSearch}"/>
+                                        </h:link>
+                                </h:column>
+
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="IsView"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/attributes/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemIsView" value="#{_item.isView}"/>
+                                        </h:link>
+                                </h:column>
 
                                 <h:column>
                                         <f:facet name="header">
@@ -264,6 +273,7 @@
                                                 <h:outputText id="itemDescription" value="#{_item.description}"/>
                                         </h:link>
                                 </h:column>
+-->
 
 
                         </h:dataTable>

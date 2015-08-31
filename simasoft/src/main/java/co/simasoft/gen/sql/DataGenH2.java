@@ -171,7 +171,7 @@ line("        attributes"+String.valueOf(i)+".setIsCreate(true);");
 line("        attributes"+String.valueOf(i)+".setIsSearch(true);");
 line("        attributes"+String.valueOf(i)+".setIsView(true);");
 // line("        attributes"+String.valueOf(i)+".setIsViewColumn(true);");
-line("        attributes"+String.valueOf(i)+".setIsViewRelation(true);");
+line("        attributes"+String.valueOf(i)+".setIsViewRelation(false);");
 line("//      ...................... "+entidad.getName()+" ........................");
 line("        Entities entity"+String.valueOf(++j)+" = new Entities();");
 line("        entity"+String.valueOf(j)+" = findBean.nameEntities(\""+entidad.getName()+"\",em);");

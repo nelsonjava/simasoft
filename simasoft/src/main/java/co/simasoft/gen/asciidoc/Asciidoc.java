@@ -35,7 +35,7 @@ line("== ENTITY:"+entidad.getName());
 line("*ATRIBUTES:*");
 line("[options=\"header\"]");
 line("|===");
-line("|Atribute      |Type               |Length       |Null  |Unique ");
+line("|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView  |isViewRelation  |observations");
 
           atributos = entidad.getAtributos();
 
@@ -52,11 +52,11 @@ line("|===");
 line("*RELATIONS:* "+relations.size());
 line("[options=\"header\"]");
 line("|===");
-line("|From | multiplicityA | multiplicityB | Cardinality | To | Optionality | Navigability ");
+line("|From | Cardinality | To | Optionality | Navigability | Atribute ");
           }
 
           for(Relation relation : relations) {
-line("|"+relation.getFrom()+"|"+relation.getMultiplicityA()+"|"+relation.getMultiplicityB()+"|"+relation.getCardinality()+"|"+relation.getTo()+"|"+relation.getOptionality()+"|"+relation.getNavigability());
+line("|"+relation.getFrom()+"|"+relation.getCardinality()+"|"+relation.getTo()+"|"+relation.getOptionality()+"|"+relation.getNavigability()+"|"+relation.getAttribute());
           } // for Relation
           if (relations.size() > 0){
 line("|===");

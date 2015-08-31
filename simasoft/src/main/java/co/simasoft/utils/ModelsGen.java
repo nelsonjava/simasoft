@@ -85,7 +85,9 @@ public class ModelsGen extends FileTxt {
 
                for(Relation relation : entidad.getRelations()) {
 
-                   relation.setEntityTo(seekEntidad(relation.getTo()));
+                   Entidad entityTo = seekEntidad(relation.getTo());
+                   relation.setEntityTo(entityTo);
+                   relation.setAttribute(entityTo.getViewRelation());
 
                } // entidad.getRelations()
 
@@ -124,6 +126,9 @@ public class ModelsGen extends FileTxt {
 
         entiyWarH2();
 
+line("OJOOOO");
+saveFile("\\docs", "OjoGen.txt");
+
 
     }
     catch(Exception ioe) {
@@ -132,6 +137,27 @@ public class ModelsGen extends FileTxt {
 
     } // WarH2()
 
+
+    public void jdocbook() throws IOException {
+    try {
+
+        clearFileTxt();
+
+        relationTo();
+
+        Utils.fileJar("jdocbook","pom.xml",pathDocs+"\\h2\\war\\"+artifactId+"\\jdocbook\\",fileJar);
+        Utils.fileJar("jdocbook","master.asciidoc",pathDocs+"\\h2\\war\\"+artifactId+"\\jdocbook\\src\\main\\asciidoc\\en-US\\",fileJar);
+        Utils.fileJar("jdocbook","master-docinfo.xml",pathDocs+"\\h2\\war\\"+artifactId+"\\jdocbook\\src\\main\\asciidoc\\en-US\\",fileJar);
+
+        Asciidoc fileAsciidoc = new Asciidoc(artifactId,groupId,entities);
+        Utils.fileMake(pathDocs+".h2.war."+artifactId+".jdocbook.src.main.asciidoc.en-US.modules", "modelo.asciidoc", fileAsciidoc);
+
+    }
+    catch(Exception ioe) {
+      ioe.printStackTrace();
+    }
+
+    } // Jdocbook()
 
 
     public void WarH22() throws IOException {

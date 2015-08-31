@@ -32,6 +32,7 @@ public class Relation{
     private boolean unidireccional;
 
     private Entidad entityTo = new Entidad();
+    private String attribute = "";            // isViewRelation
 
     public Relation() {
     }
@@ -134,7 +135,7 @@ public class Relation{
     public void setCardinality(String cardinality){
         this.cardinality = cardinality;
     }
-    
+
     public String getNameCardinality(){
         return nameCardinality;
     }
@@ -219,6 +220,13 @@ public class Relation{
     }
     public void setEntityTo(Entidad entityTo) {
         this.entityTo = entityTo;
+    }
+
+    public String getAttribute(){
+        return attribute;
+    }
+    public void setAttribute(String attribute){
+        this.attribute = attribute;
     }
 
     public void setNavigabilityFrom(){

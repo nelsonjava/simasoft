@@ -9,6 +9,7 @@ public class Atributos{
      private boolean nulo = true;
      private boolean unique = false;
      private String annotations = "";
+     private Boolean isViewRelation = false;
 
      public Atributos() {
      }
@@ -55,6 +56,13 @@ public class Atributos{
 
     public boolean getUnique(){
         return unique;
+    }
+
+    public Boolean getIsViewRelation(){
+        return isViewRelation;
+    }
+    public void setIsViewRelation(Boolean isViewRelation ){
+        this.isViewRelation = isViewRelation;
     }
 
     public void setField(String field){
