@@ -391,7 +391,7 @@ saveFile("\\docs", "ModelsGen.txt");
 
             EntityH2 entityH2 = new EntityH2(entidad.getGroupId(),entidad.getGroupId(),entidad,imports);
             Utils.fileMake(pathDocs+".h2.war."+artifactId+".src.main.java."+entidad.getGroupId(),entidad.getName()+".java", entityH2);
-            
+
             H2Find h2Find = new H2Find(artifactId,groupId,entities);
             Utils.fileMake(pathDocs+".h2.war."+artifactId+".src.main.java."+groupId+".Beans","FindBean.java", h2Find);
 
@@ -409,6 +409,9 @@ saveFile("\\docs", "ModelsGen.txt");
 
             SearchH2 searchH2 = new SearchH2(entidad);
             Utils.fileMake(pathDocs+".h2.war."+artifactId+".admin."+Utils._1raMin(entidad.getName()),"search.xhtml", searchH2);
+
+            BeanH2 beanH2 = new BeanH2(artifactId,groupId,entidad,imports);
+            Utils.fileMake(pathDocs+".h2.war."+artifactId+".view",entidad.getName()+"Bean.java", beanH2);
 
         } // groupIds.getEntities()
 

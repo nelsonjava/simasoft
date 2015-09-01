@@ -16,7 +16,7 @@
 [INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ simasoft ---
 [INFO] Changes detected - recompiling the module!
 [WARNING] File encoding has not been set, using platform encoding Cp1252, i.e. build is platform dependent!
-[INFO] Compiling 51 source files to d:\dev\njava\simasoft\simasoft\target\classes
+[INFO] Compiling 54 source files to d:\dev\njava\simasoft\simasoft\target\classes
 [WARNING] /d:/dev/njava/simasoft/simasoft/src/main/java/co/simasoft/dbf/file/DBFFile.java: d:\dev\njava\simasoft\simasoft\src\main\java\co\simasoft\dbf\file\DBFFile.java uses unchecked or unsafe operations.
 [WARNING] /d:/dev/njava/simasoft/simasoft/src/main/java/co/simasoft/dbf/file/DBFFile.java: Recompile with -Xlint:unchecked for details.
 [INFO] 
@@ -36,7 +36,7 @@
  T E S T S
 -------------------------------------------------------
 Running co.simasoft.AppTest
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec
 
 Results :
 
@@ -52,7 +52,7 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 2.399 s
-[INFO] Finished at: 2015-07-05T16:25:02-05:00
+[INFO] Total time: 3.303 s
+[INFO] Finished at: 2015-08-31T21:02:14-05:00
 [INFO] Final Memory: 13M/35M
 [INFO] ------------------------------------------------------------------------
