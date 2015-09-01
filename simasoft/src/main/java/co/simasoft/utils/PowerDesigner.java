@@ -106,7 +106,7 @@ public class PowerDesigner {
                                       if (atri.getField().equals(null)) {}
                                       else {
                                            atri.setType(Utils.typeField(type));
-                                           atri.setLength(Utils.lenField(type));
+//                                           atri.setLength(Utils.lenField(type));
                                            atri.setUnique(Utils.isFieldNull(type));
                                            atr.add(atri);
                                       } // else

@@ -175,7 +175,7 @@ public class RelationshipsBean implements Serializable {
 	}
 
 	public int getPageSize() {
-		return 100;
+		return 10;
 	}
 
 	public Relationships getExample() {
@@ -234,6 +234,12 @@ public class RelationshipsBean implements Serializable {
 					builder.lower(root.<String> get("name")),
 					'%' + name.toLowerCase() + '%'));
 		}
+		String nameAttribute = this.example.getNameAttribute();
+		if (nameAttribute != null && !"".equals(nameAttribute)) {
+			predicatesList.add(builder.like(
+					builder.lower(root.<String> get("nameAttribute")),
+					'%' + nameAttribute.toLowerCase() + '%'));
+		}
 		Boolean isOptionality = this.example.getIsOptionality();
 		if (isOptionality != null) {
 			predicatesList.add(builder.equal(root.get("isOptionality"),
@@ -243,11 +249,6 @@ public class RelationshipsBean implements Serializable {
 		if (isEmbedded != null) {
 			predicatesList
 					.add(builder.equal(root.get("isEmbedded"), isEmbedded));
-		}
-		Boolean isSimplified = this.example.getIsSimplified();
-		if (isSimplified != null) {
-			predicatesList.add(builder.equal(root.get("isSimplified"),
-					isSimplified));
 		}
 
 		return predicatesList.toArray(new Predicate[predicatesList.size()]);

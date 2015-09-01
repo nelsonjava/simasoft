@@ -5,10 +5,17 @@ public class Atributos{
      private String field = "";
      private String description = "";
      private String type = "";
-     private String length = "";
+     private Integer length = 0;
+     private Integer precision = 0;
      private boolean nulo = true;
      private boolean unique = false;
      private String annotations = "";
+
+     private Boolean isSimplified = false;
+     private Boolean isCreate = true;
+     private Boolean isSearch = false;
+     private Boolean isView = false;
+     private Boolean isViewColumn = false;
      private Boolean isViewRelation = false;
 
      public Atributos() {
@@ -25,7 +32,7 @@ public class Atributos{
          this.nulo = nulo;
     }
 
-     public Atributos(String field,String description,String type,String length,boolean nulo,boolean unique ) {
+     public Atributos(String field,String description,String type,Integer length,boolean nulo,boolean unique ) {
          this.field = field;
          this.description = description;
          this.type = type;
@@ -37,54 +44,42 @@ public class Atributos{
     public String getField(){
         return field;
     }
+    public void setField(String field){
+        this.field = field;
+    }
+
 
     public String getDescription(){
         return description;
+    }
+    public void setDescription(String description){
+        this.description = description;
     }
 
     public String getType(){
         return typeField(type);
     }
+    public void setType(String type){
+        this.type = type;
+    }
 
-    public String getLength(){
+    public Integer getLength(){
         return length ;
+    }
+    public void setLength(Integer length){
+        this.length = length;
     }
 
     public boolean getNulo(){
         return nulo;
     }
-
-    public boolean getUnique(){
-        return unique;
-    }
-
-    public Boolean getIsViewRelation(){
-        return isViewRelation;
-    }
-    public void setIsViewRelation(Boolean isViewRelation ){
-        this.isViewRelation = isViewRelation;
-    }
-
-    public void setField(String field){
-        this.field = field;
-    }
-
-    public void setDescription(String description){
-        this.description = description;
-    }
-
-    public void setType(String type){
-        this.type = type;
-    }
-
-    public void setLength(String length){
-        this.length = length;
-    }
-
     public void setNulo(boolean nulo ){
         this.nulo = nulo;
     }
 
+    public boolean getUnique(){
+        return unique;
+    }
     public void setUnique(boolean unique ){
         this.unique = unique;
     }
@@ -92,9 +87,57 @@ public class Atributos{
     public String getAnnotations() {
         return annotations;
     }
-
     public void setAnnotations(String annotations) {
         this.annotations = annotations;
+    }
+
+    public Integer getPrecision() {
+        return precision;
+    }
+    public void setPrecision(Integer precision) {
+        this.precision = precision;
+    }
+
+    public Boolean getIsSimplified() {
+        return isSimplified;
+    }
+    public void setIsSimplified(Boolean isSimplified) {
+        this.isSimplified = isSimplified;
+    }
+
+    public Boolean getIsCreate() {
+        return isCreate;
+    }
+    public void setIsCreate(Boolean isCreate) {
+        this.isCreate = isCreate;
+    }
+
+    public Boolean getIsSearch() {
+        return isSearch;
+    }
+    public void setIsSearch(Boolean isSearch) {
+        this.isSearch = isSearch;
+    }
+
+    public Boolean getIsView() {
+        return isView;
+    }
+    public void setIsView(Boolean isView) {
+        this.isView = isView;
+    }
+
+    public Boolean getIsViewColumn() {
+        return isViewColumn;
+    }
+    public void setIsViewColumn(Boolean isViewColumn) {
+        this.isViewColumn = isViewColumn;
+    }
+
+    public Boolean getIsViewRelation() {
+        return isViewRelation;
+    }
+    public void setIsViewRelation(Boolean isViewRelation) {
+        this.isViewRelation = isViewRelation;
     }
 
     public String typeField(String type){

@@ -85,19 +85,25 @@ public class DevelopmentsGen extends FileTxt {
 
                       for (Attributes attribute : entity.getAttributes()) {
 
-//                           Atributos atributos = new Atributos(attribute.getName(),attribute.getAttributesTypes().getType());
-
-                           Atributos atributos = new Atributos(attribute.getName(),attribute.getAttributesTypes().getType(),attribute.getIsNullable());
-/*
-                           Atributos atributos = new Atributos(attribute.getName(),
-                                                               attribute.getDescription(),
-                                                               attribute.getAttributesTypes().getType(),
-                                                               Integer.toString(attribute.getLength()),
-                                                               attribute.getIsNullable(),
-                                                               attribute.getIsUnique());
-*/
-
-
+                           Atributos atributos = new Atributos();
+                           atributos.setField(attribute.getName());
+                           atributos.setDescription(attribute.getDescription());
+                           atributos.setType(attribute.getAttributesTypes().getType());
+                           atributos.setLength(attribute.getLength());
+                           atributos.setPrecision(attribute.getPrecision());
+                           atributos.setNulo(attribute.getIsNullable());
+                           atributos.setUnique(attribute.getIsUnique());
+                           atributos.setIsSimplified(attribute.getIsSimplified());
+                           atributos.setIsCreate(attribute.getIsCreate());
+                           atributos.setIsSearch(attribute.getIsSearch());
+                           atributos.setIsView(attribute.getIsView());
+//                           atributos.setIsViewColumn(attribute.getIsViewColumn());
+                           if (Utils.isEmpty(attribute.getIsViewRelation())){
+                              atributos.setIsViewRelation(false);
+                           }
+                           else{
+                               atributos.setIsViewRelation(attribute.getIsViewRelation());
+                           }
 
                            String annotations = "";
 
@@ -213,7 +219,7 @@ public class DevelopmentsGen extends FileTxt {
                                               relationships.getTo().getGroupIds().getGroupId(),
                                               models.getGroupId())){
 
-                             if (modelsGroupIds.getIsSingle()){
+                             if (modelsGroupIds.getIsIsolated()){
                                 continue;
                              }
                           }
@@ -317,7 +323,9 @@ for (Entidad entidad : entidades) {
         modelsGen.setPackages(packages);
         modelsGen.setEntities(entidades);
         modelsGen.WarH2();
+        modelsGen.jdocbook();
         war(developments);
+
 
     }
     catch(Exception ioe) {
@@ -457,7 +465,7 @@ line("        Models modelss"+String.valueOf(i)+" = findBean.artifactIdModels(\"
 line("        GroupIds groupIdd"+String.valueOf(i)+" = findBean.artifactIdGroupIds(\""+modelsGroupIds.getGroupIds().getArtifactId()+"\",em);");
 line("        modelsGroupIds"+String.valueOf(i)+".setModels(modelss"+String.valueOf(i)+");");
 line("        modelsGroupIds"+String.valueOf(i)+".setGroupIds(groupIdd"+String.valueOf(i)+");");
-line("        modelsGroupIds"+String.valueOf(i)+".setIsSingle("+modelsGroupIds.getIsSingle()+");");
+line("        modelsGroupIds"+String.valueOf(i)+".setIsSingle("+modelsGroupIds.getIsIsolated()+");");
 line("        modelsGroupIds"+String.valueOf(i)+".setIsSimplified("+modelsGroupIds.getIsSimplified()+");");
 line("        em.persist(modelsGroupIds"+String.valueOf(i)+");");
 line("        em.flush();\n");
@@ -645,6 +653,15 @@ line("} // "+developments.getArtifactId()+"Setup");
         return "";
 
     } // Cardinaly
+    
+    public void jdocbook(Developments developments) throws IOException {
+    try {
 
+    }
+    catch(Exception ioe) {
+      ioe.printStackTrace();
+    }
+
+    } // jdocbook
 
 } // DevelopmentsGen

@@ -17,20 +17,20 @@ import javax.persistence.Lob;
 
 import co.simasoft.models.dev.naifg.*;
 import co.simasoft.models.dev.naifg.dependencies.*;
-import co.simasoft.models.dev.naifg.sites.*;
+import co.simasoft.models.core.sites.*;
 import org.hibernate.search.annotations.Analyze;
-import org.hibernate.search.annotations.Index;
-import org.hibernate.search.annotations.Field;
 import org.hibernate.search.annotations.DocumentId;
-import org.hibernate.search.annotations.Store;
+import org.hibernate.search.annotations.Field;
+import org.hibernate.search.annotations.Index;
 import org.hibernate.search.annotations.Indexed;
-import javax.persistence.TemporalType;
-import javax.persistence.Temporal;
-import org.hibernate.search.annotations.DateBridge;
-import org.hibernate.search.annotations.Resolution;
+import org.hibernate.search.annotations.Store;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.ManyToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import org.hibernate.search.annotations.DateBridge;
+import org.hibernate.search.annotations.Resolution;
 
 @Indexed
 @Entity
@@ -53,22 +53,22 @@ public class Cardinalities implements Serializable {
 	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
 	private String observations;
 
-	@Column(nullable = true, unique = false)
-	private Boolean isUnidirectional;
+	@Column(nullable = false, unique = true)
+	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+	private String name;
 
 	@Column(nullable = false, unique = false)
 	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
 	private String cardinality;
 
-	@Column(nullable = false, unique = true)
-	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-	private String name;
-
-	@ManyToMany
-	private Set<Sites> sites = new HashSet<Sites>();
+	@Column(nullable = true, unique = false)
+	private Boolean isUnidirectional;
 
 	@ManyToMany
 	private Set<Imports> imports = new HashSet<Imports>();
+
+	@ManyToMany
+	private Set<Sites> sites = new HashSet<Sites>();
 
 	@OneToMany(mappedBy = "cardinalities")
 	private Set<Relationships> relationships = new HashSet<Relationships>();
@@ -76,11 +76,11 @@ public class Cardinalities implements Serializable {
 	public Cardinalities() {
 	}
 
-	public Cardinalities(Boolean isUnidirectional, String cardinality,
-			String name) {
-		this.isUnidirectional = isUnidirectional;
-		this.cardinality = cardinality;
+	public Cardinalities(String name, String cardinality,
+			Boolean isUnidirectional) {
 		this.name = name;
+		this.cardinality = cardinality;
+		this.isUnidirectional = isUnidirectional;
 	}
 
 	public Long getId() {
@@ -110,11 +110,11 @@ public class Cardinalities implements Serializable {
 	public void setObservations(String observations) {
 		this.observations = observations;
 	}
-	public Boolean getIsUnidirectional() {
-		return isUnidirectional;
+	public String getName() {
+		return name;
 	}
-	public void setIsUnidirectional(Boolean isUnidirectional) {
-		this.isUnidirectional = isUnidirectional;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public String getCardinality() {
@@ -124,18 +124,11 @@ public class Cardinalities implements Serializable {
 		this.cardinality = cardinality;
 	}
 
-	public String getName() {
-		return name;
+	public Boolean getIsUnidirectional() {
+		return isUnidirectional;
 	}
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public Set<Sites> getSites() {
-		return sites;
-	}
-	public void setSites(Set<Sites> sites) {
-		this.sites = sites;
+	public void setIsUnidirectional(Boolean isUnidirectional) {
+		this.isUnidirectional = isUnidirectional;
 	}
 
 	public Set<Imports> getImports() {
@@ -143,6 +136,13 @@ public class Cardinalities implements Serializable {
 	}
 	public void setImports(Set<Imports> imports) {
 		this.imports = imports;
+	}
+
+	public Set<Sites> getSites() {
+		return sites;
+	}
+	public void setSites(Set<Sites> sites) {
+		this.sites = sites;
 	}
 
 	public Set<Relationships> getRelationships() {

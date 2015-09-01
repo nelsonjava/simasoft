@@ -170,7 +170,7 @@ public class DevelopmentsBean implements Serializable {
 	}
 
 	public int getPageSize() {
-		return 100;
+		return 10;
 	}
 
 	public Developments getExample() {
@@ -223,17 +223,17 @@ public class DevelopmentsBean implements Serializable {
 					builder.lower(root.<String> get("observations")),
 					'%' + observations.toLowerCase() + '%'));
 		}
-		String groupId = this.example.getGroupId();
-		if (groupId != null && !"".equals(groupId)) {
-			predicatesList.add(builder.like(
-					builder.lower(root.<String> get("groupId")),
-					'%' + groupId.toLowerCase() + '%'));
-		}
 		String artifactId = this.example.getArtifactId();
 		if (artifactId != null && !"".equals(artifactId)) {
 			predicatesList.add(builder.like(
 					builder.lower(root.<String> get("artifactId")),
 					'%' + artifactId.toLowerCase() + '%'));
+		}
+		String groupId = this.example.getGroupId();
+		if (groupId != null && !"".equals(groupId)) {
+			predicatesList.add(builder.like(
+					builder.lower(root.<String> get("groupId")),
+					'%' + groupId.toLowerCase() + '%'));
 		}
 		String version = this.example.getVersion();
 		if (version != null && !"".equals(version)) {

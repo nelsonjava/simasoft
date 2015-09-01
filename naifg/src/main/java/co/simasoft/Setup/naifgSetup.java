@@ -120,6 +120,7 @@ public class naifgSetup {
         attributes2.setIsSearch(true);
         attributes2.setIsView(true);
         attributes2.setIsViewRelation(true);
+        attributes2.setIsViewColumn(true);
 //      ...................... AttributesProperties ........................
         Entities entity2 = new Entities();
         entity2 = findBean.nameEntities("AttributesProperties",em);
@@ -140,6 +141,7 @@ public class naifgSetup {
         attributes3.setIsSearch(true);
         attributes3.setIsView(true);
         attributes3.setIsViewRelation(false);
+        attributes3.setIsViewColumn(true);
 //      ...................... AttributesProperties ........................
         Entities entity4 = new Entities();
         entity4 = findBean.nameEntities("AttributesProperties",em);
@@ -170,6 +172,7 @@ public class naifgSetup {
         attributes5.setIsSearch(true);
         attributes5.setIsView(true);
         attributes5.setIsViewRelation(true);
+        attributes5.setIsViewColumn(true);        
 //      ...................... AttributesTypes ........................
         Entities entity7 = new Entities();
         entity7 = findBean.nameEntities("AttributesTypes",em);
@@ -190,6 +193,7 @@ public class naifgSetup {
         attributes6.setIsSearch(true);
         attributes6.setIsView(true);
         attributes6.setIsViewRelation(true);
+        attributes6.setIsViewColumn(true);
 //      ...................... AttributesTypes ........................
         Entities entity9 = new Entities();
         entity9 = findBean.nameEntities("AttributesTypes",em);
@@ -210,6 +214,7 @@ public class naifgSetup {
         attributes7.setIsSearch(true);
         attributes7.setIsView(true);
         attributes7.setIsViewRelation(false);
+        attributes7.setIsViewColumn(true);        
 //      ...................... AttributesTypes ........................
         Entities entity11 = new Entities();
         entity11 = findBean.nameEntities("AttributesTypes",em);
@@ -230,6 +235,7 @@ public class naifgSetup {
         attributes8.setIsSearch(true);
         attributes8.setIsView(true);
         attributes8.setIsViewRelation(false);
+        attributes8.setIsViewColumn(true);
 //      ...................... AttributesTypes ........................
         Entities entity13 = new Entities();
         entity13 = findBean.nameEntities("AttributesTypes",em);
@@ -250,6 +256,7 @@ public class naifgSetup {
         attributes9.setIsSearch(true);
         attributes9.setIsView(true);
         attributes9.setIsViewRelation(false);
+        attributes9.setIsViewColumn(true);        
 //      ...................... AttributesTypes ........................
         Entities entity15 = new Entities();
         entity15 = findBean.nameEntities("AttributesTypes",em);
@@ -280,6 +287,7 @@ public class naifgSetup {
         attributes11.setIsSearch(true);
         attributes11.setIsView(true);
         attributes11.setIsViewRelation(true);
+        attributes11.setIsViewColumn(true);
 //      ...................... Imports ........................
         Entities entity18 = new Entities();
         entity18 = findBean.nameEntities("Imports",em);
@@ -310,6 +318,7 @@ public class naifgSetup {
         attributes13.setIsSearch(true);
         attributes13.setIsView(true);
         attributes13.setIsViewRelation(false);
+        attributes13.setIsViewColumn(true);
 //      ...................... Dependencies ........................
         Entities entity21 = new Entities();
         entity21 = findBean.nameEntities("Dependencies",em);
@@ -330,6 +339,7 @@ public class naifgSetup {
         attributes14.setIsSearch(true);
         attributes14.setIsView(true);
         attributes14.setIsViewRelation(true);
+        attributes14.setIsViewColumn(true);        
 //      ...................... Dependencies ........................
         Entities entity23 = new Entities();
         entity23 = findBean.nameEntities("Dependencies",em);
@@ -350,6 +360,7 @@ public class naifgSetup {
         attributes15.setIsSearch(true);
         attributes15.setIsView(true);
         attributes15.setIsViewRelation(false);
+        attributes15.setIsViewColumn(true);
 //      ...................... Dependencies ........................
         Entities entity25 = new Entities();
         entity25 = findBean.nameEntities("Dependencies",em);
@@ -370,6 +381,7 @@ public class naifgSetup {
         attributes16.setIsSearch(true);
         attributes16.setIsView(true);
         attributes16.setIsViewRelation(false);
+        attributes16.setIsViewColumn(true);        
 //      ...................... Dependencies ........................
         Entities entity27 = new Entities();
         entity27 = findBean.nameEntities("Dependencies",em);
@@ -390,6 +402,7 @@ public class naifgSetup {
         attributes17.setIsSearch(true);
         attributes17.setIsView(true);
         attributes17.setIsViewRelation(false);
+        attributes17.setIsViewColumn(true);        
 //      ...................... Dependencies ........................
         Entities entity29 = new Entities();
         entity29 = findBean.nameEntities("Dependencies",em);
@@ -410,6 +423,7 @@ public class naifgSetup {
         attributes18.setIsSearch(true);
         attributes18.setIsView(true);
         attributes18.setIsViewRelation(false);
+        attributes18.setIsViewColumn(true);        
 //      ...................... Dependencies ........................
         Entities entity31 = new Entities();
         entity31 = findBean.nameEntities("Dependencies",em);
@@ -450,6 +464,7 @@ public class naifgSetup {
         attributes20.setIsSearch(true);
         attributes20.setIsView(true);
         attributes20.setIsViewRelation(true);
+        attributes20.setIsViewColumn(true);        
 //      ...................... Entities ........................
         Entities entity34 = new Entities();
         entity34 = findBean.nameEntities("Entities",em);
@@ -470,6 +485,7 @@ public class naifgSetup {
         attributes21.setIsSearch(true);
         attributes21.setIsView(true);
         attributes21.setIsViewRelation(false);
+        attributes21.setIsViewColumn(true);        
 //      ...................... Entities ........................
         Entities entity36 = new Entities();
         entity36 = findBean.nameEntities("Entities",em);
@@ -490,6 +506,7 @@ public class naifgSetup {
         attributes22.setIsSearch(true);
         attributes22.setIsView(true);
         attributes22.setIsViewRelation(false);
+        attributes22.setIsViewColumn(true);        
 //      ...................... Entities ........................
         Entities entity38 = new Entities();
         entity38 = findBean.nameEntities("Entities",em);
@@ -510,6 +527,7 @@ public class naifgSetup {
         attributes23.setIsSearch(true);
         attributes23.setIsView(true);
         attributes23.setIsViewRelation(false);
+        attributes23.setIsViewColumn(true);        
 //      ...................... Entities ........................
         Entities entity40 = new Entities();
         entity40 = findBean.nameEntities("Entities",em);
@@ -530,6 +548,7 @@ public class naifgSetup {
         attributes24.setIsSearch(true);
         attributes24.setIsView(true);
         attributes24.setIsViewRelation(false);
+        attributes24.setIsViewColumn(true);        
 //      ...................... Entities ........................
         Entities entity42 = new Entities();
         entity42 = findBean.nameEntities("Entities",em);
@@ -560,6 +579,7 @@ public class naifgSetup {
         attributes26.setIsSearch(true);
         attributes26.setIsView(true);
         attributes26.setIsViewRelation(true);
+        attributes26.setIsViewColumn(true);        
 //      ...................... Attributes ........................
         Entities entity45 = new Entities();
         entity45 = findBean.nameEntities("Attributes",em);
@@ -580,6 +600,7 @@ public class naifgSetup {
         attributes27.setIsSearch(true);
         attributes27.setIsView(true);
         attributes27.setIsViewRelation(false);
+        attributes27.setIsViewColumn(true);        
 //      ...................... Attributes ........................
         Entities entity47 = new Entities();
         entity47 = findBean.nameEntities("Attributes",em);
@@ -600,6 +621,7 @@ public class naifgSetup {
         attributes28.setIsSearch(true);
         attributes28.setIsView(true);
         attributes28.setIsViewRelation(false);
+        attributes28.setIsViewColumn(true);        
 //      ...................... Attributes ........................
         Entities entity49 = new Entities();
         entity49 = findBean.nameEntities("Attributes",em);
@@ -620,6 +642,7 @@ public class naifgSetup {
         attributes29.setIsSearch(true);
         attributes29.setIsView(true);
         attributes29.setIsViewRelation(false);
+        attributes29.setIsViewColumn(true);        
 //      ...................... Attributes ........................
         Entities entity51 = new Entities();
         entity51 = findBean.nameEntities("Attributes",em);
@@ -640,6 +663,7 @@ public class naifgSetup {
         attributes30.setIsSearch(true);
         attributes30.setIsView(true);
         attributes30.setIsViewRelation(false);
+        attributes30.setIsViewColumn(true);        
 //      ...................... Attributes ........................
         Entities entity53 = new Entities();
         entity53 = findBean.nameEntities("Attributes",em);
@@ -660,6 +684,7 @@ public class naifgSetup {
         attributes31.setIsSearch(true);
         attributes31.setIsView(true);
         attributes31.setIsViewRelation(false);
+        attributes31.setIsViewColumn(true);        
 //      ...................... Attributes ........................
         Entities entity55 = new Entities();
         entity55 = findBean.nameEntities("Attributes",em);
@@ -680,6 +705,7 @@ public class naifgSetup {
         attributes32.setIsSearch(true);
         attributes32.setIsView(true);
         attributes32.setIsViewRelation(false);
+        attributes32.setIsViewColumn(true);        
 //      ...................... Attributes ........................
         Entities entity57 = new Entities();
         entity57 = findBean.nameEntities("Attributes",em);
@@ -700,6 +726,7 @@ public class naifgSetup {
         attributes33.setIsSearch(true);
         attributes33.setIsView(true);
         attributes33.setIsViewRelation(false);
+        attributes33.setIsViewColumn(true);        
 //      ...................... Attributes ........................
         Entities entity59 = new Entities();
         entity59 = findBean.nameEntities("Attributes",em);
@@ -720,6 +747,7 @@ public class naifgSetup {
         attributes34.setIsSearch(true);
         attributes34.setIsView(true);
         attributes34.setIsViewRelation(false);
+        attributes34.setIsViewColumn(true);        
 //      ...................... Attributes ........................
         Entities entity61 = new Entities();
         entity61 = findBean.nameEntities("Attributes",em);
@@ -740,6 +768,7 @@ public class naifgSetup {
         attributes35.setIsSearch(true);
         attributes35.setIsView(true);
         attributes35.setIsViewRelation(false);
+        attributes35.setIsViewColumn(true);
 //      ...................... Attributes ........................
         Entities entity63 = new Entities();
         entity63 = findBean.nameEntities("Attributes",em);
@@ -760,6 +789,7 @@ public class naifgSetup {
         attributes36.setIsSearch(true);
         attributes36.setIsView(true);
         attributes36.setIsViewRelation(false);
+        attributes36.setIsViewColumn(true);        
 //      ...................... Attributes ........................
         Entities entity65 = new Entities();
         entity65 = findBean.nameEntities("Attributes",em);
@@ -780,6 +810,7 @@ public class naifgSetup {
         attributes37.setIsSearch(true);
         attributes37.setIsView(true);
         attributes37.setIsViewRelation(false);
+        attributes37.setIsViewColumn(true);        
 //      ...................... Attributes ........................
         Entities entity67 = new Entities();
         entity67 = findBean.nameEntities("Attributes",em);
@@ -810,6 +841,7 @@ public class naifgSetup {
         attributes39.setIsSearch(true);
         attributes39.setIsView(true);
         attributes39.setIsViewRelation(true);
+        attributes39.setIsViewColumn(true);        
 //      ...................... Cardinalities ........................
         Entities entity70 = new Entities();
         entity70 = findBean.nameEntities("Cardinalities",em);
@@ -830,6 +862,7 @@ public class naifgSetup {
         attributes40.setIsSearch(true);
         attributes40.setIsView(true);
         attributes40.setIsViewRelation(false);
+        attributes40.setIsViewColumn(true);
 //      ...................... Cardinalities ........................
         Entities entity72 = new Entities();
         entity72 = findBean.nameEntities("Cardinalities",em);
@@ -850,6 +883,7 @@ public class naifgSetup {
         attributes41.setIsSearch(true);
         attributes41.setIsView(true);
         attributes41.setIsViewRelation(false);
+        attributes41.setIsViewColumn(true);        
 //      ...................... Cardinalities ........................
         Entities entity74 = new Entities();
         entity74 = findBean.nameEntities("Cardinalities",em);
@@ -880,6 +914,7 @@ public class naifgSetup {
         attributes43.setIsSearch(true);
         attributes43.setIsView(true);
         attributes43.setIsViewRelation(true);
+        attributes43.setIsViewColumn(true);        
 //      ...................... NameQueries ........................
         Entities entity77 = new Entities();
         entity77 = findBean.nameEntities("NameQueries",em);
@@ -900,6 +935,7 @@ public class naifgSetup {
         attributes44.setIsSearch(true);
         attributes44.setIsView(true);
         attributes44.setIsViewRelation(false);
+        attributes44.setIsViewColumn(true);        
 //      ...................... NameQueries ........................
         Entities entity79 = new Entities();
         entity79 = findBean.nameEntities("NameQueries",em);
@@ -930,6 +966,7 @@ public class naifgSetup {
         attributes46.setIsSearch(true);
         attributes46.setIsView(true);
         attributes46.setIsViewRelation(true);
+        
 //      ...................... Relationships ........................
         Entities entity82 = new Entities();
         entity82 = findBean.nameEntities("Relationships",em);
@@ -950,6 +987,7 @@ public class naifgSetup {
         attributes47.setIsSearch(true);
         attributes47.setIsView(true);
         attributes47.setIsViewRelation(false);
+        attributes47.setIsViewColumn(true);        
 //      ...................... Relationships ........................
         Entities entity84 = new Entities();
         entity84 = findBean.nameEntities("Relationships",em);
@@ -970,6 +1008,7 @@ public class naifgSetup {
         attributes48.setIsSearch(true);
         attributes48.setIsView(true);
         attributes48.setIsViewRelation(false);
+        attributes48.setIsViewColumn(true);        
 //      ...................... Relationships ........................
         Entities entity86 = new Entities();
         entity86 = findBean.nameEntities("Relationships",em);
@@ -990,6 +1029,7 @@ public class naifgSetup {
         attributes49.setIsSearch(true);
         attributes49.setIsView(true);
         attributes49.setIsViewRelation(false);
+        attributes49.setIsViewColumn(true);        
 //      ...................... Relationships ........................
         Entities entity88 = new Entities();
         entity88 = findBean.nameEntities("Relationships",em);
@@ -1010,6 +1050,7 @@ public class naifgSetup {
         attributes50.setIsSearch(true);
         attributes50.setIsView(true);
         attributes50.setIsViewRelation(false);
+        attributes50.setIsViewColumn(true);        
 //      ...................... Relationships ........................
         Entities entity90 = new Entities();
         entity90 = findBean.nameEntities("Relationships",em);
@@ -1030,6 +1071,7 @@ public class naifgSetup {
         attributes51.setIsSearch(true);
         attributes51.setIsView(true);
         attributes51.setIsViewRelation(false);
+        attributes51.setIsViewColumn(true);        
 //      ...................... Relationships ........................
         Entities entity92 = new Entities();
         entity92 = findBean.nameEntities("Relationships",em);
@@ -1050,6 +1092,7 @@ public class naifgSetup {
         attributes52.setIsSearch(true);
         attributes52.setIsView(true);
         attributes52.setIsViewRelation(false);
+        attributes52.setIsViewColumn(true);        
 //      ...................... Relationships ........................
         Entities entity94 = new Entities();
         entity94 = findBean.nameEntities("Relationships",em);
@@ -1080,6 +1123,7 @@ public class naifgSetup {
         attributes54.setIsSearch(true);
         attributes54.setIsView(true);
         attributes54.setIsViewRelation(true);
+        attributes54.setIsViewColumn(true);        
 //      ...................... GroupIds ........................
         Entities entity97 = new Entities();
         entity97 = findBean.nameEntities("GroupIds",em);
@@ -1100,6 +1144,7 @@ public class naifgSetup {
         attributes55.setIsSearch(true);
         attributes55.setIsView(true);
         attributes55.setIsViewRelation(false);
+        attributes55.setIsViewColumn(true);        
 //      ...................... GroupIds ........................
         Entities entity99 = new Entities();
         entity99 = findBean.nameEntities("GroupIds",em);
@@ -1120,6 +1165,7 @@ public class naifgSetup {
         attributes56.setIsSearch(true);
         attributes56.setIsView(true);
         attributes56.setIsViewRelation(false);
+        attributes56.setIsViewColumn(true);        
 //      ...................... GroupIds ........................
         Entities entity101 = new Entities();
         entity101 = findBean.nameEntities("GroupIds",em);
@@ -1140,6 +1186,7 @@ public class naifgSetup {
         attributes57.setIsSearch(true);
         attributes57.setIsView(true);
         attributes57.setIsViewRelation(false);
+        attributes57.setIsViewColumn(true);        
 //      ...................... GroupIds ........................
         Entities entity103 = new Entities();
         entity103 = findBean.nameEntities("GroupIds",em);
@@ -1160,6 +1207,7 @@ public class naifgSetup {
         attributes58.setIsSearch(true);
         attributes58.setIsView(true);
         attributes58.setIsViewRelation(false);
+        attributes58.setIsViewColumn(true);        
 //      ...................... GroupIds ........................
         Entities entity105 = new Entities();
         entity105 = findBean.nameEntities("GroupIds",em);
@@ -1190,6 +1238,7 @@ public class naifgSetup {
         attributes60.setIsSearch(true);
         attributes60.setIsView(true);
         attributes60.setIsViewRelation(true);
+        attributes60.setIsViewColumn(true);        
 //      ...................... Models ........................
         Entities entity108 = new Entities();
         entity108 = findBean.nameEntities("Models",em);
@@ -1210,6 +1259,7 @@ public class naifgSetup {
         attributes61.setIsSearch(true);
         attributes61.setIsView(true);
         attributes61.setIsViewRelation(false);
+        attributes61.setIsViewColumn(true);        
 //      ...................... Models ........................
         Entities entity110 = new Entities();
         entity110 = findBean.nameEntities("Models",em);
@@ -1230,6 +1280,7 @@ public class naifgSetup {
         attributes62.setIsSearch(true);
         attributes62.setIsView(true);
         attributes62.setIsViewRelation(false);
+        attributes62.setIsViewColumn(true);
 //      ...................... Models ........................
         Entities entity112 = new Entities();
         entity112 = findBean.nameEntities("Models",em);
@@ -1250,6 +1301,7 @@ public class naifgSetup {
         attributes63.setIsSearch(true);
         attributes63.setIsView(true);
         attributes63.setIsViewRelation(false);
+        attributes63.setIsViewColumn(true);        
 //      ...................... Models ........................
         Entities entity114 = new Entities();
         entity114 = findBean.nameEntities("Models",em);
@@ -1270,6 +1322,7 @@ public class naifgSetup {
         attributes64.setIsSearch(true);
         attributes64.setIsView(true);
         attributes64.setIsViewRelation(false);
+        attributes64.setIsViewColumn(true);        
 //      ...................... Models ........................
         Entities entity116 = new Entities();
         entity116 = findBean.nameEntities("Models",em);
@@ -1300,6 +1353,7 @@ public class naifgSetup {
         attributes66.setIsSearch(true);
         attributes66.setIsView(true);
         attributes66.setIsViewRelation(true);
+        attributes66.setIsViewColumn(true);        
 //      ...................... Developments ........................
         Entities entity119 = new Entities();
         entity119 = findBean.nameEntities("Developments",em);
@@ -1320,6 +1374,7 @@ public class naifgSetup {
         attributes67.setIsSearch(true);
         attributes67.setIsView(true);
         attributes67.setIsViewRelation(false);
+        attributes67.setIsViewColumn(true);        
 //      ...................... Developments ........................
         Entities entity121 = new Entities();
         entity121 = findBean.nameEntities("Developments",em);
@@ -1340,6 +1395,7 @@ public class naifgSetup {
         attributes68.setIsSearch(true);
         attributes68.setIsView(true);
         attributes68.setIsViewRelation(false);
+        attributes68.setIsViewColumn(true);        
 //      ...................... Developments ........................
         Entities entity123 = new Entities();
         entity123 = findBean.nameEntities("Developments",em);
@@ -1360,6 +1416,7 @@ public class naifgSetup {
         attributes69.setIsSearch(true);
         attributes69.setIsView(true);
         attributes69.setIsViewRelation(false);
+        attributes69.setIsViewColumn(true);        
 //      ...................... Developments ........................
         Entities entity125 = new Entities();
         entity125 = findBean.nameEntities("Developments",em);
@@ -1380,6 +1437,7 @@ public class naifgSetup {
         attributes70.setIsSearch(true);
         attributes70.setIsView(true);
         attributes70.setIsViewRelation(false);
+        attributes70.setIsViewColumn(true);        
 //      ...................... Developments ........................
         Entities entity127 = new Entities();
         entity127 = findBean.nameEntities("Developments",em);
@@ -1410,6 +1468,7 @@ public class naifgSetup {
         attributes72.setIsSearch(true);
         attributes72.setIsView(true);
         attributes72.setIsViewRelation(false);
+        attributes72.setIsViewColumn(true);        
 //      ...................... ModelsGroupIds ........................
         Entities entity130 = new Entities();
         entity130 = findBean.nameEntities("ModelsGroupIds",em);
@@ -1430,6 +1489,7 @@ public class naifgSetup {
         attributes73.setIsSearch(true);
         attributes73.setIsView(true);
         attributes73.setIsViewRelation(false);
+        attributes73.setIsViewColumn(true);
 //      ...................... ModelsGroupIds ........................
         Entities entity132 = new Entities();
         entity132 = findBean.nameEntities("ModelsGroupIds",em);

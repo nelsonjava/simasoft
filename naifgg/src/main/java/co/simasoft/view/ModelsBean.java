@@ -178,7 +178,7 @@ public class ModelsBean implements Serializable {
 	}
 
 	public int getPageSize() {
-		return 100;
+		return 10;
 	}
 
 	public Models getExample() {
@@ -241,17 +241,17 @@ public class ModelsBean implements Serializable {
 					builder.lower(root.<String> get("groupId")),
 					'%' + groupId.toLowerCase() + '%'));
 		}
-		String code = this.example.getCode();
-		if (code != null && !"".equals(code)) {
-			predicatesList.add(builder.like(
-					builder.lower(root.<String> get("code")),
-					'%' + code.toLowerCase() + '%'));
-		}
 		String version = this.example.getVersion();
 		if (version != null && !"".equals(version)) {
 			predicatesList.add(builder.like(
 					builder.lower(root.<String> get("version")),
 					'%' + version.toLowerCase() + '%'));
+		}
+		String code = this.example.getCode();
+		if (code != null && !"".equals(code)) {
+			predicatesList.add(builder.like(
+					builder.lower(root.<String> get("code")),
+					'%' + code.toLowerCase() + '%'));
 		}
 
 		return predicatesList.toArray(new Predicate[predicatesList.size()]);

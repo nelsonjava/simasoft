@@ -17,20 +17,20 @@ import javax.persistence.Lob;
 
 import co.simasoft.models.dev.naifg.*;
 import co.simasoft.models.dev.naifg.dependencies.*;
-import co.simasoft.models.dev.naifg.sites.*;
+import co.simasoft.models.core.sites.*;
 import org.hibernate.search.annotations.Analyze;
-import org.hibernate.search.annotations.Index;
-import org.hibernate.search.annotations.Field;
 import org.hibernate.search.annotations.DocumentId;
-import org.hibernate.search.annotations.Store;
+import org.hibernate.search.annotations.Field;
+import org.hibernate.search.annotations.Index;
 import org.hibernate.search.annotations.Indexed;
-import javax.persistence.TemporalType;
-import javax.persistence.Temporal;
-import org.hibernate.search.annotations.DateBridge;
-import org.hibernate.search.annotations.Resolution;
+import org.hibernate.search.annotations.Store;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.ManyToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import org.hibernate.search.annotations.DateBridge;
+import org.hibernate.search.annotations.Resolution;
 
 @Indexed
 @Entity
@@ -53,16 +53,16 @@ public class AttributesTypes implements Serializable {
 	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
 	private String observations;
 
+	@Column(nullable = false, unique = true)
+	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+	private String name;
+
 	@Column(nullable = false, unique = false)
 	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
 	private String type;
 
 	@Column(nullable = true, unique = false)
 	private Integer length;
-
-	@Column(nullable = false, unique = true)
-	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-	private String name;
 
 	@Column(nullable = true, unique = false)
 	private Integer precision;
@@ -83,11 +83,11 @@ public class AttributesTypes implements Serializable {
 	public AttributesTypes() {
 	}
 
-	public AttributesTypes(String type, Integer length, String name,
+	public AttributesTypes(String name, String type, Integer length,
 			Integer precision, String annotations) {
+		this.name = name;
 		this.type = type;
 		this.length = length;
-		this.name = name;
 		this.precision = precision;
 		this.annotations = annotations;
 	}
@@ -119,6 +119,13 @@ public class AttributesTypes implements Serializable {
 	public void setObservations(String observations) {
 		this.observations = observations;
 	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+
 	public String getType() {
 		return type;
 	}
@@ -131,13 +138,6 @@ public class AttributesTypes implements Serializable {
 	}
 	public void setLength(Integer length) {
 		this.length = length;
-	}
-
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
 	}
 
 	public Integer getPrecision() {

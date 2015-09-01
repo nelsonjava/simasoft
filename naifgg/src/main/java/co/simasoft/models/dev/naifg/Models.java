@@ -17,20 +17,20 @@ import javax.persistence.Lob;
 
 import co.simasoft.models.dev.naifg.*;
 import co.simasoft.models.dev.naifg.dependencies.*;
-import co.simasoft.models.dev.naifg.sites.*;
+import co.simasoft.models.core.sites.*;
 import org.hibernate.search.annotations.Analyze;
-import org.hibernate.search.annotations.Index;
-import org.hibernate.search.annotations.Field;
 import org.hibernate.search.annotations.DocumentId;
-import org.hibernate.search.annotations.Store;
+import org.hibernate.search.annotations.Field;
+import org.hibernate.search.annotations.Index;
 import org.hibernate.search.annotations.Indexed;
-import javax.persistence.TemporalType;
-import javax.persistence.Temporal;
-import org.hibernate.search.annotations.DateBridge;
-import org.hibernate.search.annotations.Resolution;
+import org.hibernate.search.annotations.Store;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.ManyToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import org.hibernate.search.annotations.DateBridge;
+import org.hibernate.search.annotations.Resolution;
 
 @Indexed
 @Entity
@@ -63,22 +63,22 @@ public class Models implements Serializable {
 
 	@Column(nullable = true, unique = false)
 	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-	private String code;
+	private String version;
 
 	@Column(nullable = true, unique = false)
 	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-	private String version;
+	private String code;
 
 	@Column(nullable = true, unique = false)
 	@Temporal(TemporalType.DATE)
 	@DateBridge(resolution = Resolution.YEAR)
 	private Date date;
 
-	@OneToMany(mappedBy = "models")
-	private Set<ModelsGroupIds> modelsGroupIds = new HashSet<ModelsGroupIds>();
-
 	@ManyToMany
 	private Set<Sites> sites = new HashSet<Sites>();
+
+	@OneToMany(mappedBy = "models")
+	private Set<ModelsGroupIds> modelsGroupIds = new HashSet<ModelsGroupIds>();
 
 	@ManyToMany(mappedBy = "models")
 	private Set<Developments> developments = new HashSet<Developments>();
@@ -86,12 +86,12 @@ public class Models implements Serializable {
 	public Models() {
 	}
 
-	public Models(String artifactId, String groupId, String code,
-			String version, Date date) {
+	public Models(String artifactId, String groupId, String version,
+			String code, Date date) {
 		this.artifactId = artifactId;
 		this.groupId = groupId;
-		this.code = code;
 		this.version = version;
+		this.code = code;
 		this.date = date;
 	}
 
@@ -136,18 +136,18 @@ public class Models implements Serializable {
 		this.groupId = groupId;
 	}
 
-	public String getCode() {
-		return code;
-	}
-	public void setCode(String code) {
-		this.code = code;
-	}
-
 	public String getVersion() {
 		return version;
 	}
 	public void setVersion(String version) {
 		this.version = version;
+	}
+
+	public String getCode() {
+		return code;
+	}
+	public void setCode(String code) {
+		this.code = code;
 	}
 
 	public Date getDate() {
@@ -157,18 +157,18 @@ public class Models implements Serializable {
 		this.date = date;
 	}
 
-	public Set<ModelsGroupIds> getModelsGroupIds() {
-		return modelsGroupIds;
-	}
-	public void setModelsGroupIds(Set<ModelsGroupIds> modelsGroupIds) {
-		this.modelsGroupIds = modelsGroupIds;
-	}
-
 	public Set<Sites> getSites() {
 		return sites;
 	}
 	public void setSites(Set<Sites> sites) {
 		this.sites = sites;
+	}
+
+	public Set<ModelsGroupIds> getModelsGroupIds() {
+		return modelsGroupIds;
+	}
+	public void setModelsGroupIds(Set<ModelsGroupIds> modelsGroupIds) {
+		this.modelsGroupIds = modelsGroupIds;
 	}
 
 	public Set<Developments> getDevelopments() {

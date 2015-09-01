@@ -90,9 +90,8 @@ public class coreSetup {
         GroupIds groupIdd1 = findBean.artifactIdGroupIds("co.simasoft.models.core.books",em);
         modelsGroupIds1.setModels(modelss1);
         modelsGroupIds1.setGroupIds(groupIdd1);
-        modelsGroupIds1.setGroupId("");
-        modelsGroupIds1.setIsSingle(null);
-        modelsGroupIds1.setIsSimplified(null);
+        modelsGroupIds1.setIsIsolated(false);
+        modelsGroupIds1.setIsSimplified(false);
         em.persist(modelsGroupIds1);
         em.flush();
 
@@ -101,9 +100,8 @@ public class coreSetup {
         GroupIds groupIdd2 = findBean.artifactIdGroupIds("co.simasoft.models.core.archival",em);
         modelsGroupIds2.setModels(modelss2);
         modelsGroupIds2.setGroupIds(groupIdd2);
-        modelsGroupIds2.setGroupId("");
-        modelsGroupIds2.setIsSingle(null);
-        modelsGroupIds2.setIsSimplified(null);
+        modelsGroupIds2.setIsIsolated(false);
+        modelsGroupIds2.setIsSimplified(false);
         em.persist(modelsGroupIds2);
         em.flush();
 
@@ -112,9 +110,8 @@ public class coreSetup {
         GroupIds groupIdd3 = findBean.artifactIdGroupIds("co.simasoft.models.core.companies",em);
         modelsGroupIds3.setModels(modelss3);
         modelsGroupIds3.setGroupIds(groupIdd3);
-        modelsGroupIds3.setGroupId("");
-        modelsGroupIds3.setIsSingle(null);
-        modelsGroupIds3.setIsSimplified(null);
+        modelsGroupIds3.setIsIsolated(false);
+        modelsGroupIds3.setIsSimplified(false);
         em.persist(modelsGroupIds3);
         em.flush();
 
@@ -123,9 +120,8 @@ public class coreSetup {
         GroupIds groupIdd4 = findBean.artifactIdGroupIds("co.simasoft.models.core.regulations",em);
         modelsGroupIds4.setModels(modelss4);
         modelsGroupIds4.setGroupIds(groupIdd4);
-        modelsGroupIds4.setGroupId("");
-        modelsGroupIds4.setIsSingle(null);
-        modelsGroupIds4.setIsSimplified(null);
+        modelsGroupIds4.setIsIsolated(false);
+        modelsGroupIds4.setIsSimplified(false);
         em.persist(modelsGroupIds4);
         em.flush();
 
@@ -134,9 +130,8 @@ public class coreSetup {
         GroupIds groupIdd5 = findBean.artifactIdGroupIds("co.simasoft.models.core.sites",em);
         modelsGroupIds5.setModels(modelss5);
         modelsGroupIds5.setGroupIds(groupIdd5);
-        modelsGroupIds5.setGroupId("");
-        modelsGroupIds5.setIsSingle(null);
-        modelsGroupIds5.setIsSimplified(null);
+        modelsGroupIds5.setIsIsolated(false);
+        modelsGroupIds5.setIsSimplified(false);
         em.persist(modelsGroupIds5);
         em.flush();
 

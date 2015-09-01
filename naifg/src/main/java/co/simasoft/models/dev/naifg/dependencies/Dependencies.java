@@ -25,12 +25,12 @@ import org.hibernate.search.annotations.Index;
 import org.hibernate.search.annotations.Indexed;
 import org.hibernate.search.annotations.Store;
 import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
-import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import org.hibernate.search.annotations.DateBridge;
 import org.hibernate.search.annotations.Resolution;
+import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 
 @Indexed
 @Entity
@@ -77,11 +77,11 @@ public class Dependencies implements Serializable {
 	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
 	private String maven;
 
-	@OneToMany(mappedBy = "dependencies")
-	private Set<Imports> imports = new HashSet<Imports>();
-
 	@ManyToMany
 	private Set<Sites> sites = new HashSet<Sites>();
+
+	@OneToMany(mappedBy = "dependencies")
+	private Set<Imports> imports = new HashSet<Imports>();
 
 	public Dependencies() {
 	}
@@ -165,18 +165,18 @@ public class Dependencies implements Serializable {
 		this.maven = maven;
 	}
 
-	public Set<Imports> getImports() {
-		return imports;
-	}
-	public void setImports(Set<Imports> imports) {
-		this.imports = imports;
-	}
-
 	public Set<Sites> getSites() {
 		return sites;
 	}
 	public void setSites(Set<Sites> sites) {
 		this.sites = sites;
+	}
+
+	public Set<Imports> getImports() {
+		return imports;
+	}
+	public void setImports(Set<Imports> imports) {
+		this.imports = imports;
 	}
 
 	@Override

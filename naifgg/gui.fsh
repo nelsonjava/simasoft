@@ -1,6 +1,6 @@
 clear;
 echo "Generating the scaffold.";
-scaffold-generate --webRoot /admin --targets co.simasoft.models.dev.naifg.*;
+scaffold-generate --webRoot /admin --targets co.simasoft.models.*;
 
 
 

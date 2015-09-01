@@ -170,7 +170,7 @@ public class DependenciesBean implements Serializable {
 	}
 
 	public int getPageSize() {
-		return 100;
+		return 10;
 	}
 
 	public Dependencies getExample() {
@@ -223,17 +223,11 @@ public class DependenciesBean implements Serializable {
 					builder.lower(root.<String> get("observations")),
 					'%' + observations.toLowerCase() + '%'));
 		}
-		String type = this.example.getType();
-		if (type != null && !"".equals(type)) {
+		String groupId = this.example.getGroupId();
+		if (groupId != null && !"".equals(groupId)) {
 			predicatesList.add(builder.like(
-					builder.lower(root.<String> get("type")),
-					'%' + type.toLowerCase() + '%'));
-		}
-		String scope = this.example.getScope();
-		if (scope != null && !"".equals(scope)) {
-			predicatesList.add(builder.like(
-					builder.lower(root.<String> get("scope")),
-					'%' + scope.toLowerCase() + '%'));
+					builder.lower(root.<String> get("groupId")),
+					'%' + groupId.toLowerCase() + '%'));
 		}
 		String artifactId = this.example.getArtifactId();
 		if (artifactId != null && !"".equals(artifactId)) {
@@ -246,6 +240,12 @@ public class DependenciesBean implements Serializable {
 			predicatesList.add(builder.like(
 					builder.lower(root.<String> get("version")),
 					'%' + version.toLowerCase() + '%'));
+		}
+		String type = this.example.getType();
+		if (type != null && !"".equals(type)) {
+			predicatesList.add(builder.like(
+					builder.lower(root.<String> get("type")),
+					'%' + type.toLowerCase() + '%'));
 		}
 
 		return predicatesList.toArray(new Predicate[predicatesList.size()]);

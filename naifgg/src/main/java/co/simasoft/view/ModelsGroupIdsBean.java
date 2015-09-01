@@ -171,7 +171,7 @@ public class ModelsGroupIdsBean implements Serializable {
 	}
 
 	public int getPageSize() {
-		return 100;
+		return 10;
 	}
 
 	public ModelsGroupIds getExample() {
@@ -224,24 +224,23 @@ public class ModelsGroupIdsBean implements Serializable {
 					builder.lower(root.<String> get("observations")),
 					'%' + observations.toLowerCase() + '%'));
 		}
+		Boolean isIsolated = this.example.getIsIsolated();
+		if (isIsolated != null) {
+			predicatesList
+					.add(builder.equal(root.get("isIsolated"), isIsolated));
+		}
 		Boolean isSimplified = this.example.getIsSimplified();
 		if (isSimplified != null) {
 			predicatesList.add(builder.equal(root.get("isSimplified"),
 					isSimplified));
 		}
-		Boolean isSingle = this.example.getIsSingle();
-		if (isSingle != null) {
-			predicatesList.add(builder.equal(root.get("isSingle"), isSingle));
-		}
-		String groupId = this.example.getGroupId();
-		if (groupId != null && !"".equals(groupId)) {
-			predicatesList.add(builder.like(
-					builder.lower(root.<String> get("groupId")),
-					'%' + groupId.toLowerCase() + '%'));
-		}
 		Models models = this.example.getModels();
 		if (models != null) {
 			predicatesList.add(builder.equal(root.get("models"), models));
+		}
+		GroupIds groupIds = this.example.getGroupIds();
+		if (groupIds != null) {
+			predicatesList.add(builder.equal(root.get("groupIds"), groupIds));
 		}
 
 		return predicatesList.toArray(new Predicate[predicatesList.size()]);

@@ -60,32 +60,6 @@
                         <h:outputText id="dependenciesBeanDependenciesObservations" value="#{dependenciesBean.dependencies.observations}" escape="false" />
                         <h:outputText/>
 
-                        <h:outputLabel for="DependenciesBeanDependenciesImports" value="Imports:"/>
-                        <h:dataTable id="dependenciesBeanDependenciesimports" styleClass="data-table" value="#{forgeview:asList(dependenciesBean.dependencies.imports)}" var="_item">
-
-                                <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="Orden"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/imports/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemOrden" value="#{_item.orden}"/>
-                                        </h:link>
-                                </h:column>
-
-                                <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="Name"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/imports/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemName" value="#{_item.name}"/>
-                                        </h:link>
-                                </h:column>
-
-                        </h:dataTable>
-                        <h:outputText/>
-
                         <h:outputLabel for="dependenciesBeanDependenciesSites" value="Sites:"/>
                         <h:dataTable id="dependenciesBeanDependenciessites" styleClass="data-table" value="#{forgeview:asList(dependenciesBean.dependencies.sites)}" var="_item">
 
@@ -126,6 +100,32 @@
                                         <h:link outcome="/admin/sites/view">
                                                 <f:param name="id" value="#{_item.id}"/>
                                                 <h:outputText id="itemTitle" value="#{_item.title}"/>
+                                        </h:link>
+                                </h:column>
+
+                        </h:dataTable>
+                        <h:outputText/>
+
+                        <h:outputLabel for="DependenciesBeanDependenciesImports" value="Imports:"/>
+                        <h:dataTable id="dependenciesBeanDependenciesimports" styleClass="data-table" value="#{forgeview:asList(dependenciesBean.dependencies.imports)}" var="_item">
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Orden"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/imports/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemOrden" value="#{_item.orden}"/>
+                                        </h:link>
+                                </h:column>
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Name"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/imports/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemName" value="#{_item.name}"/>
                                         </h:link>
                                 </h:column>
 

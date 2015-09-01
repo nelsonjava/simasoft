@@ -25,12 +25,12 @@ import org.hibernate.search.annotations.Index;
 import org.hibernate.search.annotations.Indexed;
 import org.hibernate.search.annotations.Store;
 import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
-import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import org.hibernate.search.annotations.DateBridge;
 import org.hibernate.search.annotations.Resolution;
+import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 
 @Indexed
 @Entity
@@ -55,11 +55,11 @@ public class NameQueries implements Serializable {
 
 	@Column(nullable = false, unique = true)
 	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-	private String query;
+	private String name;
 
 	@Column(nullable = false, unique = true)
 	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-	private String name;
+	private String query;
 
 	@ManyToOne
 	private Entities entities;
@@ -67,9 +67,9 @@ public class NameQueries implements Serializable {
 	public NameQueries() {
 	}
 
-	public NameQueries(String query, String name) {
-		this.query = query;
+	public NameQueries(String name, String query) {
 		this.name = name;
+		this.query = query;
 	}
 
 	public Long getId() {
@@ -99,18 +99,18 @@ public class NameQueries implements Serializable {
 	public void setObservations(String observations) {
 		this.observations = observations;
 	}
-	public String getQuery() {
-		return query;
-	}
-	public void setQuery(String query) {
-		this.query = query;
-	}
-
 	public String getName() {
 		return name;
 	}
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public String getQuery() {
+		return query;
+	}
+	public void setQuery(String query) {
+		this.query = query;
 	}
 
 	public Entities getEntities() {

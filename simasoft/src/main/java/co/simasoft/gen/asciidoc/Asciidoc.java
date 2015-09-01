@@ -35,14 +35,13 @@ line("== ENTITY:"+entidad.getName());
 line("*ATRIBUTES:*");
 line("[options=\"header\"]");
 line("|===");
-line("|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView  |isViewRelation  |observations");
+line("|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation ");
 
           atributos = entidad.getAtributos();
 
           for(Atributos atributo : atributos) {
 
-line("|"+atributo.getField()+"|"+atributo.getType()+"|"+atributo.getLength()+"|"+atributo.getNulo()+"|"+atributo.getUnique());
-
+line("|"+atributo.getField()+"|"+atributo.getDescription()+"|"+atributo.getType()+"|"+atributo.getLength()+"|"+atributo.getPrecision()+"|"+atributo.getNulo()+"|"+atributo.getUnique()+"|"+atributo.getIsSimplified()+"|"+atributo.getIsCreate()+"|"+atributo.getIsSearch()+"|"+atributo.getIsView()+"|"+atributo.getIsViewColumn()+"|"+atributo.getIsViewRelation());
           } // for atributos
 line("|===");
 

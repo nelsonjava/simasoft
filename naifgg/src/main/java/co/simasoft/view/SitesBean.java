@@ -24,8 +24,8 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
-import co.simasoft.models.dev.naifg.sites.Sites;
-import co.simasoft.models.dev.naifg.sites.SitesTypes;
+import co.simasoft.models.core.sites.Sites;
+import co.simasoft.models.core.sites.SitesTypes;
 import java.util.Iterator;
 
 /**
@@ -169,7 +169,7 @@ public class SitesBean implements Serializable {
 	}
 
 	public int getPageSize() {
-		return 100;
+		return 10;
 	}
 
 	public Sites getExample() {
@@ -220,6 +220,12 @@ public class SitesBean implements Serializable {
 					builder.lower(root.<String> get("observations")),
 					'%' + observations.toLowerCase() + '%'));
 		}
+		String abc = this.example.getAbc();
+		if (abc != null && !"".equals(abc)) {
+			predicatesList.add(builder.like(
+					builder.lower(root.<String> get("abc")),
+					'%' + abc.toLowerCase() + '%'));
+		}
 		String link = this.example.getLink();
 		if (link != null && !"".equals(link)) {
 			predicatesList.add(builder.like(
@@ -231,12 +237,6 @@ public class SitesBean implements Serializable {
 			predicatesList.add(builder.like(
 					builder.lower(root.<String> get("title")),
 					'%' + title.toLowerCase() + '%'));
-		}
-		String abc = this.example.getAbc();
-		if (abc != null && !"".equals(abc)) {
-			predicatesList.add(builder.like(
-					builder.lower(root.<String> get("abc")),
-					'%' + abc.toLowerCase() + '%'));
 		}
 
 		return predicatesList.toArray(new Predicate[predicatesList.size()]);

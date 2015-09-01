@@ -24,8 +24,8 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
-import co.simasoft.models.dev.naifg.sites.SitesTypes;
-import co.simasoft.models.dev.naifg.sites.Sites;
+import co.simasoft.models.core.sites.SitesTypes;
+import co.simasoft.models.core.sites.Sites;
 import java.util.Iterator;
 
 /**
@@ -180,7 +180,7 @@ public class SitesTypesBean implements Serializable {
 	}
 
 	public int getPageSize() {
-		return 100;
+		return 10;
 	}
 
 	public SitesTypes getExample() {

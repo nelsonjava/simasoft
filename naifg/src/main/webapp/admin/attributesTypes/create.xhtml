@@ -46,20 +46,6 @@
                                 </h:panelGroup>
                                 <h:outputText/>
 
-                                <h:outputLabel for="attributesTypesBeanAttributesTypesName" value="Name:"/>
-                                <h:panelGroup>
-                                        <h:inputText id="attributesTypesBeanAttributesTypesName" required="true" value="#{attributesTypesBean.attributesTypes.name}"/>
-                                        <h:message for="attributesTypesBeanAttributesTypesName" styleClass="error"/>
-                                </h:panelGroup>
-                                <h:outputText value="*"/>
-
-                                <h:outputLabel for="attributesTypesBeanAttributesTypesType" value="Type:"/>
-                                <h:panelGroup>
-                                        <h:inputText id="attributesTypesBeanAttributesTypesType" required="true" value="#{attributesTypesBean.attributesTypes.type}"/>
-                                        <h:message for="attributesTypesBeanAttributesTypesType" styleClass="error"/>
-                                </h:panelGroup>
-                                <h:outputText value="*"/>
-
                                 <h:outputLabel for="attributesTypesBeanAttributesTypesLength" value="Length:"/>
                                 <h:panelGroup>
                                         <h:inputText id="attributesTypesBeanAttributesTypesLength" value="#{attributesTypesBean.attributesTypes.length}"/>
@@ -80,6 +66,20 @@
                                         <h:message for="attributesTypesBeanAttributesTypesAnnotations" styleClass="error"/>
                                 </h:panelGroup>
                                 <h:outputText/>
+
+                                <h:outputLabel for="attributesTypesBeanAttributesTypesName" value="Name:"/>
+                                <h:panelGroup>
+                                        <h:inputText id="attributesTypesBeanAttributesTypesName" required="true" value="#{attributesTypesBean.attributesTypes.name}"/>
+                                        <h:message for="attributesTypesBeanAttributesTypesName" styleClass="error"/>
+                                </h:panelGroup>
+                                <h:outputText value="*"/>
+
+                                <h:outputLabel for="attributesTypesBeanAttributesTypesType" value="Type:"/>
+                                <h:panelGroup>
+                                        <h:inputText id="attributesTypesBeanAttributesTypesType" required="true" value="#{attributesTypesBean.attributesTypes.type}"/>
+                                        <h:message for="attributesTypesBeanAttributesTypesType" styleClass="error"/>
+                                </h:panelGroup>
+                                <h:outputText value="*"/>
 
                                 <!-- AttributesTypes 1..*  Attributes -->
 

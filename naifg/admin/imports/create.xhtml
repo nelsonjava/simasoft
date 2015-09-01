@@ -57,19 +57,19 @@
 
                                 <!-- AttributesProperties *..*  Imports -->
 
-                                <h:outputLabel for="dependenciesBeandependenciesImports" value="Imports:"/>
+                                <!-- Entities *..*  Imports -->
+
+                                <!-- Cardinalities *..*  Imports -->
+
+                                <h:outputLabel for="importsBeanimportsDependencies" value="Dependencies:"/>
                                 <h:panelGroup>
-                                         <h:selectOneMenu converter="#{importsBean.converter}" id="dependenciesBeanDependenciesImports" value="#{dependenciesBean.dependencies.imports}">
+                                         <h:selectOneMenu converter="#{dependenciesBean.converter}" id="importsBeanImportsDependencies" value="#{importsBean.imports.dependencies}">
                                                 <f:selectItem/>
-                                                <f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{importsBean.all}" var="_item"/>
+                                                <f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{dependenciesBean.all}" var="_item"/>
                                         </h:selectOneMenu>
                                         <h:message for="entitiesBeanEntitiesIsSimplified" styleClass="error"/>
                                 </h:panelGroup>
                                 <h:outputText/>
-
-                                <!-- Cardinalities *..*  Imports -->
-
-                                <!-- Entities *..*  Imports -->
 
                                 <h:outputLabel for="importsBeanImportsObservations" value="Observations:"/>
                                 <h:panelGroup>

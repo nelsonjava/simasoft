@@ -29,6 +29,7 @@ import co.simasoft.models.dev.naifg.Attributes;
 import co.simasoft.models.dev.naifg.GroupIds;
 import co.simasoft.models.dev.naifg.NameQueries;
 import co.simasoft.models.dev.naifg.Relationships;
+import java.lang.Boolean;
 import java.util.Iterator;
 
 /**
@@ -135,6 +136,14 @@ public class EntitiesBean implements Serializable {
 
 		try {
 			Entities deletableEntity = findById(getId());
+			Iterator<Attributes> iterAttributes = deletableEntity
+					.getAttributes().iterator();
+			for (; iterAttributes.hasNext();) {
+				Attributes nextInAttributes = iterAttributes.next();
+				nextInAttributes.setEntities(null);
+				iterAttributes.remove();
+				this.entityManager.merge(nextInAttributes);
+			}
 			Iterator<NameQueries> iterNameQueries = deletableEntity
 					.getNameQueries().iterator();
 			for (; iterNameQueries.hasNext();) {
@@ -157,14 +166,6 @@ public class EntitiesBean implements Serializable {
 				nextInTo.setTo(null);
 				iterTo.remove();
 				this.entityManager.merge(nextInTo);
-			}
-			Iterator<Attributes> iterAttributes = deletableEntity
-					.getAttributes().iterator();
-			for (; iterAttributes.hasNext();) {
-				Attributes nextInAttributes = iterAttributes.next();
-				nextInAttributes.setEntities(null);
-				iterAttributes.remove();
-				this.entityManager.merge(nextInAttributes);
 			}
 			GroupIds groupIds = deletableEntity.getGroupIds();
 			groupIds.getEntities().remove(deletableEntity);
@@ -250,6 +251,17 @@ public class EntitiesBean implements Serializable {
 					builder.lower(root.<String> get("observations")),
 					'%' + observations.toLowerCase() + '%'));
 		}
+		String description = this.example.getDescription();
+		if (description != null && !"".equals(description)) {
+			predicatesList.add(builder.like(
+					builder.lower(root.<String> get("description")),
+					'%' + description.toLowerCase() + '%'));
+		}
+		Boolean isSimplified = this.example.getIsSimplified();
+		if (isSimplified != null) {
+			predicatesList.add(builder.equal(root.get("isSimplified"),
+					isSimplified));
+		}
 		String name = this.example.getName();
 		if (name != null && !"".equals(name)) {
 			predicatesList.add(builder.like(
@@ -261,18 +273,6 @@ public class EntitiesBean implements Serializable {
 			predicatesList.add(builder.like(
 					builder.lower(root.<String> get("serialID")),
 					'%' + serialID.toLowerCase() + '%'));
-		}
-		String table = this.example.getTable();
-		if (table != null && !"".equals(table)) {
-			predicatesList.add(builder.like(
-					builder.lower(root.<String> get("table")),
-					'%' + table.toLowerCase() + '%'));
-		}
-		String description = this.example.getDescription();
-		if (description != null && !"".equals(description)) {
-			predicatesList.add(builder.like(
-					builder.lower(root.<String> get("description")),
-					'%' + description.toLowerCase() + '%'));
 		}
 
 		return predicatesList.toArray(new Predicate[predicatesList.size()]);

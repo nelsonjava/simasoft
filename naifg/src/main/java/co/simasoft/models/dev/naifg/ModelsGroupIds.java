@@ -25,12 +25,12 @@ import org.hibernate.search.annotations.Index;
 import org.hibernate.search.annotations.Indexed;
 import org.hibernate.search.annotations.Store;
 import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
-import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import org.hibernate.search.annotations.DateBridge;
 import org.hibernate.search.annotations.Resolution;
+import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 
 @Indexed
 @Entity
@@ -60,10 +60,10 @@ public class ModelsGroupIds implements Serializable {
 	private Boolean isSimplified;
 
 	@ManyToOne
-	private Models models;
+	private GroupIds groupIds;
 
 	@ManyToOne
-	private GroupIds groupIds;
+	private Models models;
 
 	public ModelsGroupIds() {
 	}
@@ -114,18 +114,18 @@ public class ModelsGroupIds implements Serializable {
 		this.isSimplified = isSimplified;
 	}
 
-	public Models getModels() {
-		return models;
-	}
-	public void setModels(Models models) {
-		this.models = models;
-	}
-
 	public GroupIds getGroupIds() {
 		return groupIds;
 	}
 	public void setGroupIds(GroupIds groupIds) {
 		this.groupIds = groupIds;
+	}
+
+	public Models getModels() {
+		return models;
+	}
+	public void setModels(Models models) {
+		this.models = models;
 	}
 
 	@Override

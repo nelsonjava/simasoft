@@ -25,12 +25,12 @@ import org.hibernate.search.annotations.Index;
 import org.hibernate.search.annotations.Indexed;
 import org.hibernate.search.annotations.Store;
 import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
-import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import org.hibernate.search.annotations.DateBridge;
 import org.hibernate.search.annotations.Resolution;
+import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 
 @Indexed
 @Entity
@@ -64,14 +64,14 @@ public class Cardinalities implements Serializable {
 	@Column(nullable = true, unique = false)
 	private Boolean isUnidirectional;
 
+	@OneToMany(mappedBy = "cardinalities")
+	private Set<Relationships> relationships = new HashSet<Relationships>();
+
 	@ManyToMany
 	private Set<Imports> imports = new HashSet<Imports>();
 
 	@ManyToMany
 	private Set<Sites> sites = new HashSet<Sites>();
-
-	@OneToMany(mappedBy = "cardinalities")
-	private Set<Relationships> relationships = new HashSet<Relationships>();
 
 	public Cardinalities() {
 	}
@@ -131,6 +131,13 @@ public class Cardinalities implements Serializable {
 		this.isUnidirectional = isUnidirectional;
 	}
 
+	public Set<Relationships> getRelationships() {
+		return relationships;
+	}
+	public void setRelationships(Set<Relationships> relationships) {
+		this.relationships = relationships;
+	}
+
 	public Set<Imports> getImports() {
 		return imports;
 	}
@@ -143,13 +150,6 @@ public class Cardinalities implements Serializable {
 	}
 	public void setSites(Set<Sites> sites) {
 		this.sites = sites;
-	}
-
-	public Set<Relationships> getRelationships() {
-		return relationships;
-	}
-	public void setRelationships(Set<Relationships> relationships) {
-		this.relationships = relationships;
 	}
 
 	@Override

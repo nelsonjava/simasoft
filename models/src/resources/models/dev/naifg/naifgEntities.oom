@@ -1592,7 +1592,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Code>Attributes</a:Code>
 <a:CreationDate>1237650765</a:CreationDate>
 <a:Creator>nelson</a:Creator>
-<a:ModificationDate>1440788848</a:ModificationDate>
+<a:ModificationDate>1441115629</a:ModificationDate>
 <a:Modifier>admin</a:Modifier>
 <a:UseParentNamespace>0</a:UseParentNamespace>
 <c:Attributes>
@@ -1608,6 +1608,17 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Attribute.Visibility>-</a:Attribute.Visibility>
 </o:Attribute>
 <o:Attribute Id="o31">
+<a:ObjectID>CF0C2CCF-333E-413D-A6EF-0F45D741781A</a:ObjectID>
+<a:Name>description</a:Name>
+<a:Code>description</a:Code>
+<a:CreationDate>1300843546</a:CreationDate>
+<a:Creator>admin</a:Creator>
+<a:ModificationDate>1439520629</a:ModificationDate>
+<a:Modifier>admin</a:Modifier>
+<a:DataType>String</a:DataType>
+<a:Attribute.Visibility>-</a:Attribute.Visibility>
+</o:Attribute>
+<o:Attribute Id="o32">
 <a:ObjectID>C47AD59C-870D-4051-8281-B51D0A514286</a:ObjectID>
 <a:Name>length</a:Name>
 <a:Code>length</a:Code>
@@ -1618,7 +1629,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:DataType>Integer</a:DataType>
 <a:Attribute.Visibility>-</a:Attribute.Visibility>
 </o:Attribute>
-<o:Attribute Id="o32">
+<o:Attribute Id="o33">
 <a:ObjectID>825FCC68-DD51-4D09-A51C-C813B5138B87</a:ObjectID>
 <a:Name>precision</a:Name>
 <a:Code>precision</a:Code>
@@ -1629,7 +1640,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:DataType>Integer</a:DataType>
 <a:Attribute.Visibility>-</a:Attribute.Visibility>
 </o:Attribute>
-<o:Attribute Id="o33">
+<o:Attribute Id="o34">
 <a:ObjectID>490F3B00-1552-4322-8DF8-4C46B040710E</a:ObjectID>
 <a:Name>isNullable</a:Name>
 <a:Code>isNullable</a:Code>
@@ -1640,7 +1651,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:DataType>Boolean</a:DataType>
 <a:Attribute.Visibility>-</a:Attribute.Visibility>
 </o:Attribute>
-<o:Attribute Id="o34">
+<o:Attribute Id="o35">
 <a:ObjectID>53D04C0D-87A4-4F6A-8D71-79844EBE3DE4</a:ObjectID>
 <a:Name>isUnique</a:Name>
 <a:Code>isUnique</a:Code>
@@ -1649,17 +1660,6 @@ LABL 0 Arial,8,N</a:FontList>
 <a:ModificationDate>1439520088</a:ModificationDate>
 <a:Modifier>admin</a:Modifier>
 <a:DataType>Boolean</a:DataType>
-<a:Attribute.Visibility>-</a:Attribute.Visibility>
-</o:Attribute>
-<o:Attribute Id="o35">
-<a:ObjectID>CF0C2CCF-333E-413D-A6EF-0F45D741781A</a:ObjectID>
-<a:Name>description</a:Name>
-<a:Code>description</a:Code>
-<a:CreationDate>1300843546</a:CreationDate>
-<a:Creator>admin</a:Creator>
-<a:ModificationDate>1439520629</a:ModificationDate>
-<a:Modifier>admin</a:Modifier>
-<a:DataType>String</a:DataType>
 <a:Attribute.Visibility>-</a:Attribute.Visibility>
 </o:Attribute>
 <o:Attribute Id="o36">

@@ -30,20 +30,6 @@
                                 <h:panelGroup styleClass="search">
 
                                         <h:panelGrid columnClasses="label,component,required" columns="3">
-                                                <h:outputLabel for="attributesTypesBeanExampleName" value="Name:"/>
-                                                <h:panelGroup>
-                                                        <h:inputText id="attributesTypesBeanExampleName" value="#{attributesTypesBean.example.name}"/>
-                                                        <h:message for="attributesTypesBeanExampleName" styleClass="error"/>
-                                                </h:panelGroup>
-                                                <h:outputText/>
-
-                                                <h:outputLabel for="attributesTypesBeanExampleType" value="Type:"/>
-                                                <h:panelGroup>
-                                                        <h:inputText id="attributesTypesBeanExampleType" value="#{attributesTypesBean.example.type}"/>
-                                                        <h:message for="attributesTypesBeanExampleType" styleClass="error"/>
-                                                </h:panelGroup>
-                                                <h:outputText/>
-
                                                 <h:outputLabel for="attributesTypesBeanExampleLength" value="Length:"/>
                                                 <h:panelGroup>
                                                         <h:inputText id="attributesTypesBeanExampleLength" value="#{attributesTypesBean.example.length}"/>
@@ -65,6 +51,20 @@
                                                 </h:panelGroup>
                                                 <h:outputText/>
 
+                                                <h:outputLabel for="attributesTypesBeanExampleName" value="Name:"/>
+                                                <h:panelGroup>
+                                                        <h:inputText id="attributesTypesBeanExampleName" value="#{attributesTypesBean.example.name}"/>
+                                                        <h:message for="attributesTypesBeanExampleName" styleClass="error"/>
+                                                </h:panelGroup>
+                                                <h:outputText/>
+
+                                                <h:outputLabel for="attributesTypesBeanExampleType" value="Type:"/>
+                                                <h:panelGroup>
+                                                        <h:inputText id="attributesTypesBeanExampleType" value="#{attributesTypesBean.example.type}"/>
+                                                        <h:message for="attributesTypesBeanExampleType" styleClass="error"/>
+                                                </h:panelGroup>
+                                                <h:outputText/>
+
                                         </h:panelGrid>
                                         <h:panelGroup styleClass="buttons">
                                                 <h:commandLink value="Search" action='#{attributesTypesBean.search}' styleClass="btn btn-primary"/>
@@ -74,28 +74,6 @@
                         </f:validateBean>
 
                         <h:dataTable id="attributesTypesBeanPageItems" styleClass="data-table" value="#{attributesTypesBean.pageItems}" var="_item">
-
-                                <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="Name"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/attributesTypes/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemName" value="#{_item.name}"/>
-                                        </h:link>
-                                </h:column>
-
-
-                                <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="Type"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/attributesTypes/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemType" value="#{_item.type}"/>
-                                        </h:link>
-                                </h:column>
-
 
                                 <h:column>
                                         <f:facet name="header">
@@ -126,6 +104,28 @@
                                         <h:link outcome="/admin/attributesTypes/view">
                                                 <f:param name="id" value="#{_item.id}"/>
                                                 <h:outputText id="itemAnnotations" value="#{_item.annotations}"/>
+                                        </h:link>
+                                </h:column>
+
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Name"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/attributesTypes/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemName" value="#{_item.name}"/>
+                                        </h:link>
+                                </h:column>
+
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Type"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/attributesTypes/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemType" value="#{_item.type}"/>
                                         </h:link>
                                 </h:column>
 

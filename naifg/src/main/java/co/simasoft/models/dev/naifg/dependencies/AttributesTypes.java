@@ -25,12 +25,12 @@ import org.hibernate.search.annotations.Index;
 import org.hibernate.search.annotations.Indexed;
 import org.hibernate.search.annotations.Store;
 import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
-import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import org.hibernate.search.annotations.DateBridge;
 import org.hibernate.search.annotations.Resolution;
+import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 
 @Indexed
 @Entity
@@ -53,14 +53,6 @@ public class AttributesTypes implements Serializable {
 	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
 	private String observations;
 
-	@Column(nullable = false, unique = true)
-	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-	private String name;
-
-	@Column(nullable = false, unique = false)
-	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-	private String type;
-
 	@Column(nullable = true, unique = false)
 	private Integer length;
 
@@ -70,6 +62,14 @@ public class AttributesTypes implements Serializable {
 	@Column(nullable = true, unique = false)
 	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
 	private String annotations;
+
+	@Column(nullable = false, unique = true)
+	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+	private String name;
+
+	@Column(nullable = false, unique = false)
+	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+	private String type;
 
 	@OneToMany(mappedBy = "attributesTypes")
 	private Set<Attributes> attributes = new HashSet<Attributes>();
@@ -83,13 +83,13 @@ public class AttributesTypes implements Serializable {
 	public AttributesTypes() {
 	}
 
-	public AttributesTypes(String name, String type, Integer length,
-			Integer precision, String annotations) {
-		this.name = name;
-		this.type = type;
+	public AttributesTypes(Integer length, Integer precision,
+			String annotations, String name, String type) {
 		this.length = length;
 		this.precision = precision;
 		this.annotations = annotations;
+		this.name = name;
+		this.type = type;
 	}
 
 	public Long getId() {
@@ -119,20 +119,6 @@ public class AttributesTypes implements Serializable {
 	public void setObservations(String observations) {
 		this.observations = observations;
 	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getType() {
-		return type;
-	}
-	public void setType(String type) {
-		this.type = type;
-	}
-
 	public Integer getLength() {
 		return length;
 	}
@@ -152,6 +138,20 @@ public class AttributesTypes implements Serializable {
 	}
 	public void setAnnotations(String annotations) {
 		this.annotations = annotations;
+	}
+
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
 	}
 
 	public Set<Attributes> getAttributes() {

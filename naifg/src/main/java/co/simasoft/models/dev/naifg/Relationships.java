@@ -25,12 +25,12 @@ import org.hibernate.search.annotations.Index;
 import org.hibernate.search.annotations.Indexed;
 import org.hibernate.search.annotations.Store;
 import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
-import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import org.hibernate.search.annotations.DateBridge;
 import org.hibernate.search.annotations.Resolution;
+import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 
 @Indexed
 @Entity
@@ -58,10 +58,6 @@ public class Relationships implements Serializable {
 	private String name;
 
 	@Column(nullable = true, unique = false)
-	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-	private String nameAttribute;
-
-	@Column(nullable = true, unique = false)
 	private Boolean isOptionality;
 
 	@Column(nullable = true, unique = false)
@@ -83,22 +79,21 @@ public class Relationships implements Serializable {
 	private Set<AttributesProperties> attributesProperties = new HashSet<AttributesProperties>();
 
 	@ManyToOne
+	private Cardinalities cardinalities;
+
+	@ManyToOne
 	private Entities from;
 
 	@ManyToOne
 	private Entities to;
 
-	@ManyToOne
-	private Cardinalities cardinalities;
-
 	public Relationships() {
 	}
 
-	public Relationships(String name, String nameAttribute,
-			Boolean isOptionality, Boolean isEmbedded, Boolean isSimplified,
-			Boolean isCreate, Boolean isSearch, Boolean isView) {
+	public Relationships(String name, Boolean isOptionality,
+			Boolean isEmbedded, Boolean isSimplified, Boolean isCreate,
+			Boolean isSearch, Boolean isView) {
 		this.name = name;
-		this.nameAttribute = nameAttribute;
 		this.isOptionality = isOptionality;
 		this.isEmbedded = isEmbedded;
 		this.isSimplified = isSimplified;
@@ -139,13 +134,6 @@ public class Relationships implements Serializable {
 	}
 	public void setName(String name) {
 		this.name = name;
-	}
-
-	public String getNameAttribute() {
-		return nameAttribute;
-	}
-	public void setNameAttribute(String nameAttribute) {
-		this.nameAttribute = nameAttribute;
 	}
 
 	public Boolean getIsOptionality() {
@@ -198,6 +186,13 @@ public class Relationships implements Serializable {
 		this.attributesProperties = attributesProperties;
 	}
 
+	public Cardinalities getCardinalities() {
+		return cardinalities;
+	}
+	public void setCardinalities(Cardinalities cardinalities) {
+		this.cardinalities = cardinalities;
+	}
+
 	public Entities getFrom() {
 		return from;
 	}
@@ -210,13 +205,6 @@ public class Relationships implements Serializable {
 	}
 	public void setTo(Entities to) {
 		this.to = to;
-	}
-
-	public Cardinalities getCardinalities() {
-		return cardinalities;
-	}
-	public void setCardinalities(Cardinalities cardinalities) {
-		this.cardinalities = cardinalities;
 	}
 
 	@Override

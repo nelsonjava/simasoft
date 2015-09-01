@@ -17,20 +17,20 @@ import javax.persistence.Lob;
 
 import co.simasoft.models.dev.naifg.*;
 import co.simasoft.models.dev.naifg.dependencies.*;
-import co.simasoft.models.dev.naifg.sites.*;
+import co.simasoft.models.core.sites.*;
 import org.hibernate.search.annotations.Analyze;
-import org.hibernate.search.annotations.Index;
-import org.hibernate.search.annotations.Field;
 import org.hibernate.search.annotations.DocumentId;
-import org.hibernate.search.annotations.Store;
+import org.hibernate.search.annotations.Field;
+import org.hibernate.search.annotations.Index;
 import org.hibernate.search.annotations.Indexed;
-import javax.persistence.TemporalType;
-import javax.persistence.Temporal;
-import org.hibernate.search.annotations.DateBridge;
-import org.hibernate.search.annotations.Resolution;
+import org.hibernate.search.annotations.Store;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.ManyToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import org.hibernate.search.annotations.DateBridge;
+import org.hibernate.search.annotations.Resolution;
 
 @Indexed
 @Entity
@@ -55,11 +55,11 @@ public class Developments implements Serializable {
 
 	@Column(nullable = false, unique = true)
 	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-	private String groupId;
-
-	@Column(nullable = false, unique = true)
-	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
 	private String artifactId;
+
+	@Column(nullable = true, unique = false)
+	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+	private String groupId;
 
 	@Column(nullable = true, unique = false)
 	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
@@ -75,18 +75,18 @@ public class Developments implements Serializable {
 	private Date date;
 
 	@ManyToMany
-	private Set<Sites> sites = new HashSet<Sites>();
+	private Set<Models> models = new HashSet<Models>();
 
 	@ManyToMany
-	private Set<Models> models = new HashSet<Models>();
+	private Set<Sites> sites = new HashSet<Sites>();
 
 	public Developments() {
 	}
 
-	public Developments(String groupId, String artifactId, String version,
+	public Developments(String artifactId, String groupId, String version,
 			String code, Date date) {
-		this.groupId = groupId;
 		this.artifactId = artifactId;
+		this.groupId = groupId;
 		this.version = version;
 		this.code = code;
 		this.date = date;
@@ -119,18 +119,18 @@ public class Developments implements Serializable {
 	public void setObservations(String observations) {
 		this.observations = observations;
 	}
-	public String getGroupId() {
-		return groupId;
-	}
-	public void setGroupId(String groupId) {
-		this.groupId = groupId;
-	}
-
 	public String getArtifactId() {
 		return artifactId;
 	}
 	public void setArtifactId(String artifactId) {
 		this.artifactId = artifactId;
+	}
+
+	public String getGroupId() {
+		return groupId;
+	}
+	public void setGroupId(String groupId) {
+		this.groupId = groupId;
 	}
 
 	public String getVersion() {
@@ -154,18 +154,18 @@ public class Developments implements Serializable {
 		this.date = date;
 	}
 
-	public Set<Sites> getSites() {
-		return sites;
-	}
-	public void setSites(Set<Sites> sites) {
-		this.sites = sites;
-	}
-
 	public Set<Models> getModels() {
 		return models;
 	}
 	public void setModels(Set<Models> models) {
 		this.models = models;
+	}
+
+	public Set<Sites> getSites() {
+		return sites;
+	}
+	public void setSites(Set<Sites> sites) {
+		this.sites = sites;
 	}
 
 	@Override

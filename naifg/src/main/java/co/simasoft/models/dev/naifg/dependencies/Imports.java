@@ -25,12 +25,12 @@ import org.hibernate.search.annotations.Index;
 import org.hibernate.search.annotations.Indexed;
 import org.hibernate.search.annotations.Store;
 import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
-import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import org.hibernate.search.annotations.DateBridge;
 import org.hibernate.search.annotations.Resolution;
+import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 
 @Indexed
 @Entity
@@ -63,14 +63,14 @@ public class Imports implements Serializable {
 	@ManyToMany(mappedBy = "imports")
 	private Set<AttributesProperties> attributesProperties = new HashSet<AttributesProperties>();
 
-	@ManyToOne
-	private Dependencies dependencies;
+	@ManyToMany(mappedBy = "imports")
+	private Set<Entities> entities = new HashSet<Entities>();
 
 	@ManyToMany(mappedBy = "imports")
 	private Set<Cardinalities> cardinalities = new HashSet<Cardinalities>();
 
-	@ManyToMany(mappedBy = "imports")
-	private Set<Entities> entities = new HashSet<Entities>();
+	@ManyToOne
+	private Dependencies dependencies;
 
 	public Imports() {
 	}
@@ -128,11 +128,11 @@ public class Imports implements Serializable {
 		this.attributesProperties = attributesProperties;
 	}
 
-	public Dependencies getDependencies() {
-		return dependencies;
+	public Set<Entities> getEntities() {
+		return entities;
 	}
-	public void setDependencies(Dependencies dependencies) {
-		this.dependencies = dependencies;
+	public void setEntities(Set<Entities> entities) {
+		this.entities = entities;
 	}
 
 	public Set<Cardinalities> getCardinalities() {
@@ -142,11 +142,11 @@ public class Imports implements Serializable {
 		this.cardinalities = cardinalities;
 	}
 
-	public Set<Entities> getEntities() {
-		return entities;
+	public Dependencies getDependencies() {
+		return dependencies;
 	}
-	public void setEntities(Set<Entities> entities) {
-		this.entities = entities;
+	public void setDependencies(Dependencies dependencies) {
+		this.dependencies = dependencies;
 	}
 
 	@Override

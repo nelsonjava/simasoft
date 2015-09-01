@@ -134,6 +134,10 @@ public class RelationshipsBean implements Serializable {
 
 		try {
 			Relationships deletableEntity = findById(getId());
+			Cardinalities cardinalities = deletableEntity.getCardinalities();
+			cardinalities.getRelationships().remove(deletableEntity);
+			deletableEntity.setCardinalities(null);
+			this.entityManager.merge(cardinalities);
 			Entities from = deletableEntity.getFrom();
 			from.getFrom().remove(deletableEntity);
 			deletableEntity.setFrom(null);
@@ -142,10 +146,6 @@ public class RelationshipsBean implements Serializable {
 			to.getTo().remove(deletableEntity);
 			deletableEntity.setTo(null);
 			this.entityManager.merge(to);
-			Cardinalities cardinalities = deletableEntity.getCardinalities();
-			cardinalities.getRelationships().remove(deletableEntity);
-			deletableEntity.setCardinalities(null);
-			this.entityManager.merge(cardinalities);
 			this.entityManager.remove(deletableEntity);
 			this.entityManager.flush();
 			return "search?faces-redirect=true";
@@ -234,12 +234,6 @@ public class RelationshipsBean implements Serializable {
 					builder.lower(root.<String> get("name")),
 					'%' + name.toLowerCase() + '%'));
 		}
-		String nameAttribute = this.example.getNameAttribute();
-		if (nameAttribute != null && !"".equals(nameAttribute)) {
-			predicatesList.add(builder.like(
-					builder.lower(root.<String> get("nameAttribute")),
-					'%' + nameAttribute.toLowerCase() + '%'));
-		}
 		Boolean isOptionality = this.example.getIsOptionality();
 		if (isOptionality != null) {
 			predicatesList.add(builder.equal(root.get("isOptionality"),
@@ -249,6 +243,11 @@ public class RelationshipsBean implements Serializable {
 		if (isEmbedded != null) {
 			predicatesList
 					.add(builder.equal(root.get("isEmbedded"), isEmbedded));
+		}
+		Boolean isSimplified = this.example.getIsSimplified();
+		if (isSimplified != null) {
+			predicatesList.add(builder.equal(root.get("isSimplified"),
+					isSimplified));
 		}
 
 		return predicatesList.toArray(new Predicate[predicatesList.size()]);

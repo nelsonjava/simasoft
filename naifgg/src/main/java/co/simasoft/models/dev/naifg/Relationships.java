@@ -17,20 +17,20 @@ import javax.persistence.Lob;
 
 import co.simasoft.models.dev.naifg.*;
 import co.simasoft.models.dev.naifg.dependencies.*;
-import co.simasoft.models.dev.naifg.sites.*;
+import co.simasoft.models.core.sites.*;
 import org.hibernate.search.annotations.Analyze;
-import org.hibernate.search.annotations.Index;
-import org.hibernate.search.annotations.Field;
 import org.hibernate.search.annotations.DocumentId;
-import org.hibernate.search.annotations.Store;
+import org.hibernate.search.annotations.Field;
+import org.hibernate.search.annotations.Index;
 import org.hibernate.search.annotations.Indexed;
-import javax.persistence.TemporalType;
-import javax.persistence.Temporal;
-import org.hibernate.search.annotations.DateBridge;
-import org.hibernate.search.annotations.Resolution;
+import org.hibernate.search.annotations.Store;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.ManyToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import org.hibernate.search.annotations.DateBridge;
+import org.hibernate.search.annotations.Resolution;
 
 @Indexed
 @Entity
@@ -58,6 +58,10 @@ public class Relationships implements Serializable {
 	private String name;
 
 	@Column(nullable = true, unique = false)
+	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+	private String nameAttribute;
+
+	@Column(nullable = true, unique = false)
 	private Boolean isOptionality;
 
 	@Column(nullable = true, unique = false)
@@ -65,6 +69,15 @@ public class Relationships implements Serializable {
 
 	@Column(nullable = true, unique = false)
 	private Boolean isSimplified;
+
+	@Column(nullable = true, unique = false)
+	private Boolean isCreate;
+
+	@Column(nullable = true, unique = false)
+	private Boolean isSearch;
+
+	@Column(nullable = true, unique = false)
+	private Boolean isView;
 
 	@ManyToMany
 	private Set<AttributesProperties> attributesProperties = new HashSet<AttributesProperties>();
@@ -81,12 +94,17 @@ public class Relationships implements Serializable {
 	public Relationships() {
 	}
 
-	public Relationships(String name, Boolean isOptionality,
-			Boolean isEmbedded, Boolean isSimplified) {
+	public Relationships(String name, String nameAttribute,
+			Boolean isOptionality, Boolean isEmbedded, Boolean isSimplified,
+			Boolean isCreate, Boolean isSearch, Boolean isView) {
 		this.name = name;
+		this.nameAttribute = nameAttribute;
 		this.isOptionality = isOptionality;
 		this.isEmbedded = isEmbedded;
 		this.isSimplified = isSimplified;
+		this.isCreate = isCreate;
+		this.isSearch = isSearch;
+		this.isView = isView;
 	}
 
 	public Long getId() {
@@ -123,6 +141,13 @@ public class Relationships implements Serializable {
 		this.name = name;
 	}
 
+	public String getNameAttribute() {
+		return nameAttribute;
+	}
+	public void setNameAttribute(String nameAttribute) {
+		this.nameAttribute = nameAttribute;
+	}
+
 	public Boolean getIsOptionality() {
 		return isOptionality;
 	}
@@ -142,6 +167,27 @@ public class Relationships implements Serializable {
 	}
 	public void setIsSimplified(Boolean isSimplified) {
 		this.isSimplified = isSimplified;
+	}
+
+	public Boolean getIsCreate() {
+		return isCreate;
+	}
+	public void setIsCreate(Boolean isCreate) {
+		this.isCreate = isCreate;
+	}
+
+	public Boolean getIsSearch() {
+		return isSearch;
+	}
+	public void setIsSearch(Boolean isSearch) {
+		this.isSearch = isSearch;
+	}
+
+	public Boolean getIsView() {
+		return isView;
+	}
+	public void setIsView(Boolean isView) {
+		this.isView = isView;
 	}
 
 	public Set<AttributesProperties> getAttributesProperties() {

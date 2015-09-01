@@ -256,7 +256,9 @@ public class Entidad {
                                              "\" styleClass=\"data-table\" value=\"#{forgeview:asList("+from+"Bean."+from+"."+relationName+")}\" var=\"_item\">"+"\n\n";
                     xhtml += columnView(relation.getEntityTo().getName(),"orden","double");
                     for (Atributos atributos : relation.getEntityTo().getAtributos()) {
-                        xhtml += columnView(relation.getEntityTo().getName(),atributos.getField(),atributos.getType());
+                        if (atributos.getIsViewColumn() == null || atributos.getIsViewColumn()){
+                           xhtml += columnView(relation.getEntityTo().getName(),atributos.getField(),atributos.getType());
+                        }
                     } // for: relation.getEntityTo().getAtributos()
                     xhtml += space+"</h:dataTable>"+"\n";
                     xhtml += space+"<h:outputText/>\n";
@@ -308,10 +310,13 @@ xhtml +=  space+"<!-- to:"+to+" -->\n";
                  xhtml += space+"<h:dataTable id=\""+from+"Bean"+From+to+
                                           "\" styleClass=\"data-table\" value=\"#{forgeview:asList("+from+"Bean."+from+"."+to+")}\" var=\"_item\">"+"\n\n";
 
+
                  xhtml += columnView(relation.getEntityTo().getName(),"orden","double");
 
                  for (Atributos atributos : relation.getEntityTo().getAtributos()) {
-                      xhtml += columnView(relation.getEntityTo().getName(),atributos.getField(),atributos.getType());
+                      if (atributos.getIsViewColumn() == null || atributos.getIsViewColumn()){
+                         xhtml += columnView(relation.getEntityTo().getName(),atributos.getField(),atributos.getType());
+                      }
                  } // for: relation.getEntityTo().getAtributos()
 
                  xhtml += space+"</h:dataTable>"+"\n";
@@ -419,10 +424,12 @@ xhtml +=  space+"<!-- "+relation.getNameCardinality()+"-->\n";
                  xhtml +=space+"        </f:facet>\n";
                  xhtml +=space+"        <h:link outcome=\"/admin/"+Utils._1raMin(to)+"/view\">\n";
                  xhtml +=space+"                <f:param name=\"id\" value=\"#{_item.id}\"/>\n";
-                 xhtml +=space+"                <h:outputText id=\"item"+Attribute+"\" value=\"#{_item."+attribute+"}\"/>\n";
+                 xhtml +=space+"                <h:outputText styleClass=\"#{_item."+attribute+" ? 'boolean-true' : 'boolean-false'}\" value=\"\"/>";
                  xhtml +=space+"        </h:link>\n";
                  xhtml +=space+"</h:column>\n\n";
                  break;
+
+
 
             default:
                  break;

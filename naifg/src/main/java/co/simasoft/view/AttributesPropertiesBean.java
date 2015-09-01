@@ -236,17 +236,17 @@ public class AttributesPropertiesBean implements Serializable {
 					builder.lower(root.<String> get("observations")),
 					'%' + observations.toLowerCase() + '%'));
 		}
-		String value = this.example.getValue();
-		if (value != null && !"".equals(value)) {
-			predicatesList.add(builder.like(
-					builder.lower(root.<String> get("value")),
-					'%' + value.toLowerCase() + '%'));
-		}
 		String name = this.example.getName();
 		if (name != null && !"".equals(name)) {
 			predicatesList.add(builder.like(
 					builder.lower(root.<String> get("name")),
 					'%' + name.toLowerCase() + '%'));
+		}
+		String value = this.example.getValue();
+		if (value != null && !"".equals(value)) {
+			predicatesList.add(builder.like(
+					builder.lower(root.<String> get("value")),
+					'%' + value.toLowerCase() + '%'));
 		}
 
 		return predicatesList.toArray(new Predicate[predicatesList.size()]);

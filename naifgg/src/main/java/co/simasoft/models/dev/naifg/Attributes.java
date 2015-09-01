@@ -17,20 +17,20 @@ import javax.persistence.Lob;
 
 import co.simasoft.models.dev.naifg.*;
 import co.simasoft.models.dev.naifg.dependencies.*;
-import co.simasoft.models.dev.naifg.sites.*;
+import co.simasoft.models.core.sites.*;
 import org.hibernate.search.annotations.Analyze;
-import org.hibernate.search.annotations.Index;
-import org.hibernate.search.annotations.Field;
 import org.hibernate.search.annotations.DocumentId;
-import org.hibernate.search.annotations.Store;
+import org.hibernate.search.annotations.Field;
+import org.hibernate.search.annotations.Index;
 import org.hibernate.search.annotations.Indexed;
-import javax.persistence.TemporalType;
-import javax.persistence.Temporal;
-import org.hibernate.search.annotations.DateBridge;
-import org.hibernate.search.annotations.Resolution;
+import org.hibernate.search.annotations.Store;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.ManyToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import org.hibernate.search.annotations.DateBridge;
+import org.hibernate.search.annotations.Resolution;
 
 @Indexed
 @Entity
@@ -54,27 +54,39 @@ public class Attributes implements Serializable {
 	private String observations;
 
 	@Column(nullable = true, unique = false)
-	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-	private String description;
-
-	@Column(nullable = true, unique = false)
 	private Boolean isSimplified;
 
 	@Column(nullable = true, unique = false)
-	private Boolean isUnique;
+	private Boolean isCreate;
 
 	@Column(nullable = true, unique = false)
-	private Boolean isNullable;
+	private Boolean isSearch;
+
+	@Column(nullable = true, unique = false)
+	private Boolean isView;
+
+	@Column(nullable = true, unique = false)
+	private Boolean isViewRelation;
+
+	@Column(nullable = false, unique = false)
+	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+	private String name;
+
+	@Column(nullable = true, unique = false)
+	private Integer length;
 
 	@Column(nullable = true, unique = false)
 	private Integer precision;
 
 	@Column(nullable = true, unique = false)
-	private Integer length;
+	private Boolean isNullable;
 
-	@Column(nullable = false, unique = false)
+	@Column(nullable = true, unique = false)
+	private Boolean isUnique;
+
+	@Column(nullable = true, unique = false)
 	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-	private String name;
+	private String description;
 
 	@ManyToMany
 	private Set<AttributesProperties> attributesProperties = new HashSet<AttributesProperties>();
@@ -91,16 +103,21 @@ public class Attributes implements Serializable {
 	public Attributes() {
 	}
 
-	public Attributes(String description, Boolean isSimplified,
-			Boolean isUnique, Boolean isNullable, Integer precision,
-			Integer length, String name) {
-		this.description = description;
+	public Attributes(Boolean isSimplified, Boolean isCreate, Boolean isSearch,
+			Boolean isView, Boolean isViewRelation, String name,
+			Integer length, Integer precision, Boolean isNullable,
+			Boolean isUnique, String description) {
 		this.isSimplified = isSimplified;
-		this.isUnique = isUnique;
-		this.isNullable = isNullable;
-		this.precision = precision;
-		this.length = length;
+		this.isCreate = isCreate;
+		this.isSearch = isSearch;
+		this.isView = isView;
+		this.isViewRelation = isViewRelation;
 		this.name = name;
+		this.length = length;
+		this.precision = precision;
+		this.isNullable = isNullable;
+		this.isUnique = isUnique;
+		this.description = description;
 	}
 
 	public Long getId() {
@@ -130,13 +147,6 @@ public class Attributes implements Serializable {
 	public void setObservations(String observations) {
 		this.observations = observations;
 	}
-	public String getDescription() {
-		return description;
-	}
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
 	public Boolean getIsSimplified() {
 		return isSimplified;
 	}
@@ -144,25 +154,39 @@ public class Attributes implements Serializable {
 		this.isSimplified = isSimplified;
 	}
 
-	public Boolean getIsUnique() {
-		return isUnique;
+	public Boolean getIsCreate() {
+		return isCreate;
 	}
-	public void setIsUnique(Boolean isUnique) {
-		this.isUnique = isUnique;
-	}
-
-	public Boolean getIsNullable() {
-		return isNullable;
-	}
-	public void setIsNullable(Boolean isNullable) {
-		this.isNullable = isNullable;
+	public void setIsCreate(Boolean isCreate) {
+		this.isCreate = isCreate;
 	}
 
-	public Integer getPrecision() {
-		return precision;
+	public Boolean getIsSearch() {
+		return isSearch;
 	}
-	public void setPrecision(Integer precision) {
-		this.precision = precision;
+	public void setIsSearch(Boolean isSearch) {
+		this.isSearch = isSearch;
+	}
+
+	public Boolean getIsView() {
+		return isView;
+	}
+	public void setIsView(Boolean isView) {
+		this.isView = isView;
+	}
+
+	public Boolean getIsViewRelation() {
+		return isViewRelation;
+	}
+	public void setIsViewRelation(Boolean isViewRelation) {
+		this.isViewRelation = isViewRelation;
+	}
+
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public Integer getLength() {
@@ -172,11 +196,32 @@ public class Attributes implements Serializable {
 		this.length = length;
 	}
 
-	public String getName() {
-		return name;
+	public Integer getPrecision() {
+		return precision;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setPrecision(Integer precision) {
+		this.precision = precision;
+	}
+
+	public Boolean getIsNullable() {
+		return isNullable;
+	}
+	public void setIsNullable(Boolean isNullable) {
+		this.isNullable = isNullable;
+	}
+
+	public Boolean getIsUnique() {
+		return isUnique;
+	}
+	public void setIsUnique(Boolean isUnique) {
+		this.isUnique = isUnique;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	public Set<AttributesProperties> getAttributesProperties() {

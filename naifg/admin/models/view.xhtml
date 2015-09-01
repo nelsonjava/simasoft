@@ -56,6 +56,42 @@
                         <h:outputText id="modelsBeanModelsObservations" value="#{modelsBean.models.observations}" escape="false" />
                         <h:outputText/>
 
+                        <h:outputLabel for="ModelsBeanModelsModelsGroupIds" value="ModelsGroupIds:"/>
+                        <h:dataTable id="modelsBeanModelsmodelsGroupIds" styleClass="data-table" value="#{forgeview:asList(modelsBean.models.modelsGroupIds)}" var="_item">
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Orden"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/modelsGroupIds/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemOrden" value="#{_item.orden}"/>
+                                        </h:link>
+                                </h:column>
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="IsIsolated"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/modelsGroupIds/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemIsIsolated" value="#{_item.isIsolated}"/>
+                                        </h:link>
+                                </h:column>
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="IsSimplified"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/modelsGroupIds/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemIsSimplified" value="#{_item.isSimplified}"/>
+                                        </h:link>
+                                </h:column>
+
+                        </h:dataTable>
+                        <h:outputText/>
+
                         <h:outputLabel for="modelsBeanModelsSites" value="Sites:"/>
                         <h:dataTable id="modelsBeanModelssites" styleClass="data-table" value="#{forgeview:asList(modelsBean.models.sites)}" var="_item">
 
@@ -96,42 +132,6 @@
                                         <h:link outcome="/admin/sites/view">
                                                 <f:param name="id" value="#{_item.id}"/>
                                                 <h:outputText id="itemTitle" value="#{_item.title}"/>
-                                        </h:link>
-                                </h:column>
-
-                        </h:dataTable>
-                        <h:outputText/>
-
-                        <h:outputLabel for="ModelsBeanModelsModelsGroupIds" value="ModelsGroupIds:"/>
-                        <h:dataTable id="modelsBeanModelsmodelsGroupIds" styleClass="data-table" value="#{forgeview:asList(modelsBean.models.modelsGroupIds)}" var="_item">
-
-                                <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="Orden"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/modelsGroupIds/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemOrden" value="#{_item.orden}"/>
-                                        </h:link>
-                                </h:column>
-
-                                <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="IsIsolated"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/modelsGroupIds/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemIsIsolated" value="#{_item.isIsolated}"/>
-                                        </h:link>
-                                </h:column>
-
-                                <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="IsSimplified"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/modelsGroupIds/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemIsSimplified" value="#{_item.isSimplified}"/>
                                         </h:link>
                                 </h:column>
 

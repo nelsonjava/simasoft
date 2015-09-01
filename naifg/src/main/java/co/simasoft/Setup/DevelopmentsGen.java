@@ -85,26 +85,25 @@ public class DevelopmentsGen extends FileTxt {
 
                       for (Attributes attribute : entity.getAttributes()) {
 
-                           Atributos atributos = new Atributos(attribute.getName(),attribute.getAttributesTypes().getType());
+                           Atributos atributos = new Atributos();
+                           atributos.setField(attribute.getName());
+                           atributos.setDescription(attribute.getDescription());
+                           atributos.setType(attribute.getAttributesTypes().getType());
+                           atributos.setLength(attribute.getLength());
+                           atributos.setPrecision(attribute.getPrecision());
+                           atributos.setNulo(attribute.getIsNullable());
+                           atributos.setUnique(attribute.getIsUnique());
+                           atributos.setIsSimplified(attribute.getIsSimplified());
+                           atributos.setIsCreate(attribute.getIsCreate());
+                           atributos.setIsSearch(attribute.getIsSearch());
+                           atributos.setIsView(attribute.getIsView());
+                           atributos.setIsViewColumn(attribute.getIsViewColumn());
                            if (Utils.isEmpty(attribute.getIsViewRelation())){
                               atributos.setIsViewRelation(false);
                            }
                            else{
                                atributos.setIsViewRelation(attribute.getIsViewRelation());
                            }
-
-
-//                           Atributos atributos = new Atributos(attribute.getName(),attribute.getAttributesTypes().getType(),attribute.getIsNullable(),attribute.getIsViewRelation());
-/*
-                           Atributos atributos = new Atributos(attribute.getName(),
-                                                               attribute.getDescription(),
-                                                               attribute.getAttributesTypes().getType(),
-                                                               Integer.toString(attribute.getLength()),
-                                                               attribute.getIsNullable(),
-                                                               attribute.getIsUnique());
-*/
-
-
 
                            String annotations = "";
 

@@ -133,14 +133,6 @@ public class GroupIdsBean implements Serializable {
 
 		try {
 			GroupIds deletableEntity = findById(getId());
-			Iterator<ModelsGroupIds> iterModelsGroupIds = deletableEntity
-					.getModelsGroupIds().iterator();
-			for (; iterModelsGroupIds.hasNext();) {
-				ModelsGroupIds nextInModelsGroupIds = iterModelsGroupIds.next();
-				nextInModelsGroupIds.setGroupIds(null);
-				iterModelsGroupIds.remove();
-				this.entityManager.merge(nextInModelsGroupIds);
-			}
 			Iterator<Entities> iterEntities = deletableEntity.getEntities()
 					.iterator();
 			for (; iterEntities.hasNext();) {
@@ -148,6 +140,14 @@ public class GroupIdsBean implements Serializable {
 				nextInEntities.setGroupIds(null);
 				iterEntities.remove();
 				this.entityManager.merge(nextInEntities);
+			}
+			Iterator<ModelsGroupIds> iterModelsGroupIds = deletableEntity
+					.getModelsGroupIds().iterator();
+			for (; iterModelsGroupIds.hasNext();) {
+				ModelsGroupIds nextInModelsGroupIds = iterModelsGroupIds.next();
+				nextInModelsGroupIds.setGroupIds(null);
+				iterModelsGroupIds.remove();
+				this.entityManager.merge(nextInModelsGroupIds);
 			}
 			this.entityManager.remove(deletableEntity);
 			this.entityManager.flush();
@@ -178,7 +178,7 @@ public class GroupIdsBean implements Serializable {
 	}
 
 	public int getPageSize() {
-		return 100;
+		return 10;
 	}
 
 	public GroupIds getExample() {
@@ -229,17 +229,17 @@ public class GroupIdsBean implements Serializable {
 					builder.lower(root.<String> get("observations")),
 					'%' + observations.toLowerCase() + '%'));
 		}
+		String artifactId = this.example.getArtifactId();
+		if (artifactId != null && !"".equals(artifactId)) {
+			predicatesList.add(builder.like(
+					builder.lower(root.<String> get("artifactId")),
+					'%' + artifactId.toLowerCase() + '%'));
+		}
 		String groupId = this.example.getGroupId();
 		if (groupId != null && !"".equals(groupId)) {
 			predicatesList.add(builder.like(
 					builder.lower(root.<String> get("groupId")),
 					'%' + groupId.toLowerCase() + '%'));
-		}
-		String code = this.example.getCode();
-		if (code != null && !"".equals(code)) {
-			predicatesList.add(builder.like(
-					builder.lower(root.<String> get("code")),
-					'%' + code.toLowerCase() + '%'));
 		}
 		String version = this.example.getVersion();
 		if (version != null && !"".equals(version)) {
@@ -247,11 +247,11 @@ public class GroupIdsBean implements Serializable {
 					builder.lower(root.<String> get("version")),
 					'%' + version.toLowerCase() + '%'));
 		}
-		String artifactId = this.example.getArtifactId();
-		if (artifactId != null && !"".equals(artifactId)) {
+		String code = this.example.getCode();
+		if (code != null && !"".equals(code)) {
 			predicatesList.add(builder.like(
-					builder.lower(root.<String> get("artifactId")),
-					'%' + artifactId.toLowerCase() + '%'));
+					builder.lower(root.<String> get("code")),
+					'%' + code.toLowerCase() + '%'));
 		}
 
 		return predicatesList.toArray(new Predicate[predicatesList.size()]);

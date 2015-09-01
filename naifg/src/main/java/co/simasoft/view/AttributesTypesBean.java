@@ -225,18 +225,6 @@ public class AttributesTypesBean implements Serializable {
 					builder.lower(root.<String> get("observations")),
 					'%' + observations.toLowerCase() + '%'));
 		}
-		String name = this.example.getName();
-		if (name != null && !"".equals(name)) {
-			predicatesList.add(builder.like(
-					builder.lower(root.<String> get("name")),
-					'%' + name.toLowerCase() + '%'));
-		}
-		String type = this.example.getType();
-		if (type != null && !"".equals(type)) {
-			predicatesList.add(builder.like(
-					builder.lower(root.<String> get("type")),
-					'%' + type.toLowerCase() + '%'));
-		}
 		Integer length = this.example.getLength();
 		if (length != null && length.intValue() != 0) {
 			predicatesList.add(builder.equal(root.get("length"), length));
@@ -244,6 +232,18 @@ public class AttributesTypesBean implements Serializable {
 		Integer precision = this.example.getPrecision();
 		if (precision != null && precision.intValue() != 0) {
 			predicatesList.add(builder.equal(root.get("precision"), precision));
+		}
+		String annotations = this.example.getAnnotations();
+		if (annotations != null && !"".equals(annotations)) {
+			predicatesList.add(builder.like(
+					builder.lower(root.<String> get("annotations")),
+					'%' + annotations.toLowerCase() + '%'));
+		}
+		String name = this.example.getName();
+		if (name != null && !"".equals(name)) {
+			predicatesList.add(builder.like(
+					builder.lower(root.<String> get("name")),
+					'%' + name.toLowerCase() + '%'));
 		}
 
 		return predicatesList.toArray(new Predicate[predicatesList.size()]);

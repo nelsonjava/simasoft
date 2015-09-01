@@ -1,6 +1,4 @@
 [INFO] Scanning for projects...
-[INFO] 
-[INFO] Using the builder org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder with a thread count of 1
 [INFO]                                                                         
 [INFO] ------------------------------------------------------------------------
 [INFO] Building simasoft 1.0-SNAPSHOT
@@ -36,7 +34,7 @@
  T E S T S
 -------------------------------------------------------
 Running co.simasoft.AppTest
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec
 
 Results :
 
@@ -52,7 +50,7 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 3.303 s
-[INFO] Finished at: 2015-08-31T21:02:14-05:00
-[INFO] Final Memory: 13M/35M
+[INFO] Total time: 2.394s
+[INFO] Finished at: Tue Sep 01 09:03:08 COT 2015
+[INFO] Final Memory: 14M/35M
 [INFO] ------------------------------------------------------------------------

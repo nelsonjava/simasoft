@@ -217,17 +217,17 @@ public class NameQueriesBean implements Serializable {
 					builder.lower(root.<String> get("observations")),
 					'%' + observations.toLowerCase() + '%'));
 		}
-		String query = this.example.getQuery();
-		if (query != null && !"".equals(query)) {
-			predicatesList.add(builder.like(
-					builder.lower(root.<String> get("query")),
-					'%' + query.toLowerCase() + '%'));
-		}
 		String name = this.example.getName();
 		if (name != null && !"".equals(name)) {
 			predicatesList.add(builder.like(
 					builder.lower(root.<String> get("name")),
 					'%' + name.toLowerCase() + '%'));
+		}
+		String query = this.example.getQuery();
+		if (query != null && !"".equals(query)) {
+			predicatesList.add(builder.like(
+					builder.lower(root.<String> get("query")),
+					'%' + query.toLowerCase() + '%'));
 		}
 		Entities entities = this.example.getEntities();
 		if (entities != null) {

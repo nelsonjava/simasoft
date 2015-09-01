@@ -17,19 +17,20 @@ import javax.persistence.Lob;
 
 import co.simasoft.models.dev.naifg.*;
 import co.simasoft.models.dev.naifg.dependencies.*;
-import co.simasoft.models.dev.naifg.sites.*;
+import co.simasoft.models.core.sites.*;
 import org.hibernate.search.annotations.Analyze;
-import org.hibernate.search.annotations.Index;
-import org.hibernate.search.annotations.Field;
 import org.hibernate.search.annotations.DocumentId;
-import org.hibernate.search.annotations.Store;
+import org.hibernate.search.annotations.Field;
+import org.hibernate.search.annotations.Index;
 import org.hibernate.search.annotations.Indexed;
-import javax.persistence.TemporalType;
-import javax.persistence.Temporal;
-import org.hibernate.search.annotations.DateBridge;
-import org.hibernate.search.annotations.Resolution;
+import org.hibernate.search.annotations.Store;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import org.hibernate.search.annotations.DateBridge;
+import org.hibernate.search.annotations.Resolution;
 
 @Indexed
 @Entity
@@ -53,14 +54,10 @@ public class ModelsGroupIds implements Serializable {
 	private String observations;
 
 	@Column(nullable = true, unique = false)
+	private Boolean isIsolated;
+
+	@Column(nullable = true, unique = false)
 	private Boolean isSimplified;
-
-	@Column(nullable = true, unique = false)
-	private Boolean isSingle;
-
-	@Column(nullable = true, unique = false)
-	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-	private String groupId;
 
 	@ManyToOne
 	private Models models;
@@ -71,10 +68,9 @@ public class ModelsGroupIds implements Serializable {
 	public ModelsGroupIds() {
 	}
 
-	public ModelsGroupIds(Boolean isSimplified, Boolean isSingle, String groupId) {
+	public ModelsGroupIds(Boolean isIsolated, Boolean isSimplified) {
+		this.isIsolated = isIsolated;
 		this.isSimplified = isSimplified;
-		this.isSingle = isSingle;
-		this.groupId = groupId;
 	}
 
 	public Long getId() {
@@ -104,25 +100,18 @@ public class ModelsGroupIds implements Serializable {
 	public void setObservations(String observations) {
 		this.observations = observations;
 	}
+	public Boolean getIsIsolated() {
+		return isIsolated;
+	}
+	public void setIsIsolated(Boolean isIsolated) {
+		this.isIsolated = isIsolated;
+	}
+
 	public Boolean getIsSimplified() {
 		return isSimplified;
 	}
 	public void setIsSimplified(Boolean isSimplified) {
 		this.isSimplified = isSimplified;
-	}
-
-	public Boolean getIsSingle() {
-		return isSingle;
-	}
-	public void setIsSingle(Boolean isSingle) {
-		this.isSingle = isSingle;
-	}
-
-	public String getGroupId() {
-		return groupId;
-	}
-	public void setGroupId(String groupId) {
-		this.groupId = groupId;
 	}
 
 	public Models getModels() {

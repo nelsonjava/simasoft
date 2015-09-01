@@ -46,13 +46,6 @@
                                 </h:panelGroup>
                                 <h:outputText/>
 
-                                <h:outputLabel for="nameQueriesBeanNameQueriesQuery" value="Query:"/>
-                                <h:panelGroup>
-                                        <h:inputText id="nameQueriesBeanNameQueriesQuery" required="true" value="#{nameQueriesBean.nameQueries.query}"/>
-                                        <h:message for="nameQueriesBeanNameQueriesQuery" styleClass="error"/>
-                                </h:panelGroup>
-                                <h:outputText value="*"/>
-
                                 <h:outputLabel for="nameQueriesBeanNameQueriesName" value="Name:"/>
                                 <h:panelGroup>
                                         <h:inputText id="nameQueriesBeanNameQueriesName" required="true" value="#{nameQueriesBean.nameQueries.name}"/>
@@ -60,11 +53,18 @@
                                 </h:panelGroup>
                                 <h:outputText value="*"/>
 
-                                <h:outputLabel for="entitiesBeanentitiesNameQueries" value="NameQueries:"/>
+                                <h:outputLabel for="nameQueriesBeanNameQueriesQuery" value="Query:"/>
                                 <h:panelGroup>
-                                         <h:selectOneMenu converter="#{nameQueriesBean.converter}" id="entitiesBeanEntitiesNameQueries" value="#{entitiesBean.entities.nameQueries}">
+                                        <h:inputText id="nameQueriesBeanNameQueriesQuery" required="true" value="#{nameQueriesBean.nameQueries.query}"/>
+                                        <h:message for="nameQueriesBeanNameQueriesQuery" styleClass="error"/>
+                                </h:panelGroup>
+                                <h:outputText value="*"/>
+
+                                <h:outputLabel for="nameQueriesBeannameQueriesEntities" value="Entities:"/>
+                                <h:panelGroup>
+                                         <h:selectOneMenu converter="#{entitiesBean.converter}" id="nameQueriesBeanNameQueriesEntities" value="#{nameQueriesBean.nameQueries.entities}">
                                                 <f:selectItem/>
-                                                <f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{nameQueriesBean.all}" var="_item"/>
+                                                <f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{entitiesBean.all}" var="_item"/>
                                         </h:selectOneMenu>
                                         <h:message for="entitiesBeanEntitiesIsSimplified" styleClass="error"/>
                                 </h:panelGroup>

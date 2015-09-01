@@ -68,21 +68,21 @@
                                 </h:panelGroup>
                                 <h:outputText/>
 
-                                <h:outputLabel for="modelsBeanmodelsModelsGroupIds" value="ModelsGroupIds:"/>
+                                <h:outputLabel for="modelsGroupIdsBeanmodelsGroupIdsGroupIds" value="GroupIds:"/>
                                 <h:panelGroup>
-                                         <h:selectOneMenu converter="#{modelsGroupIdsBean.converter}" id="modelsBeanModelsModelsGroupIds" value="#{modelsBean.models.modelsGroupIds}">
+                                         <h:selectOneMenu converter="#{groupIdsBean.converter}" id="modelsGroupIdsBeanModelsGroupIdsGroupIds" value="#{modelsGroupIdsBean.modelsGroupIds.groupIds}">
                                                 <f:selectItem/>
-                                                <f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{modelsGroupIdsBean.all}" var="_item"/>
+                                                <f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{groupIdsBean.all}" var="_item"/>
                                         </h:selectOneMenu>
                                         <h:message for="entitiesBeanEntitiesIsSimplified" styleClass="error"/>
                                 </h:panelGroup>
                                 <h:outputText/>
 
-                                <h:outputLabel for="groupIdsBeangroupIdsModelsGroupIds" value="ModelsGroupIds:"/>
+                                <h:outputLabel for="modelsGroupIdsBeanmodelsGroupIdsModels" value="Models:"/>
                                 <h:panelGroup>
-                                         <h:selectOneMenu converter="#{modelsGroupIdsBean.converter}" id="groupIdsBeanGroupIdsModelsGroupIds" value="#{groupIdsBean.groupIds.modelsGroupIds}">
+                                         <h:selectOneMenu converter="#{modelsBean.converter}" id="modelsGroupIdsBeanModelsGroupIdsModels" value="#{modelsGroupIdsBean.modelsGroupIds.models}">
                                                 <f:selectItem/>
-                                                <f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{modelsGroupIdsBean.all}" var="_item"/>
+                                                <f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{modelsBean.all}" var="_item"/>
                                         </h:selectOneMenu>
                                         <h:message for="entitiesBeanEntitiesIsSimplified" styleClass="error"/>
                                 </h:panelGroup>

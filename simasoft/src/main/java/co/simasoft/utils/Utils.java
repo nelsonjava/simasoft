@@ -16,7 +16,7 @@ import java.io.ObjectStreamClass;
 // Dic 13/2014 Hora:09:45 Sabado
 
 public class Utils {
-  
+
     public static Boolean isEmpty(String text) {
         if (text == null || text.isEmpty()){
            return true;

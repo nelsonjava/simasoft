@@ -1301,7 +1301,7 @@ Shadow=0</a:DisplayPreferences>
 <a:CreationDate>1438634352</a:CreationDate>
 <a:ModificationDate>1439347479</a:ModificationDate>
 <a:DestinationTextOffset>(1163, -75)</a:DestinationTextOffset>
-<a:Rect>((-1125,20700), (1125,27300))</a:Rect>
+<a:Rect>((-1087,20700), (1163,27300))</a:Rect>
 <a:ListOfPoints>((-1087,27300),(-1087,20700))</a:ListOfPoints>
 <a:CornerStyle>1</a:CornerStyle>
 <a:ArrowStyle>0</a:ArrowStyle>

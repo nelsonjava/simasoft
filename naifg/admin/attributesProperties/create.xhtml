@@ -46,13 +46,6 @@
                                 </h:panelGroup>
                                 <h:outputText/>
 
-                                <h:outputLabel for="attributesPropertiesBeanAttributesPropertiesValue" value="Value:"/>
-                                <h:panelGroup>
-                                        <h:inputText id="attributesPropertiesBeanAttributesPropertiesValue" required="true" value="#{attributesPropertiesBean.attributesProperties.value}"/>
-                                        <h:message for="attributesPropertiesBeanAttributesPropertiesValue" styleClass="error"/>
-                                </h:panelGroup>
-                                <h:outputText value="*"/>
-
                                 <h:outputLabel for="attributesPropertiesBeanAttributesPropertiesName" value="Name:"/>
                                 <h:panelGroup>
                                         <h:inputText id="attributesPropertiesBeanAttributesPropertiesName" required="true" value="#{attributesPropertiesBean.attributesProperties.name}"/>
@@ -60,15 +53,22 @@
                                 </h:panelGroup>
                                 <h:outputText value="*"/>
 
+                                <h:outputLabel for="attributesPropertiesBeanAttributesPropertiesValue" value="Value:"/>
+                                <h:panelGroup>
+                                        <h:inputText id="attributesPropertiesBeanAttributesPropertiesValue" required="true" value="#{attributesPropertiesBean.attributesProperties.value}"/>
+                                        <h:message for="attributesPropertiesBeanAttributesPropertiesValue" styleClass="error"/>
+                                </h:panelGroup>
+                                <h:outputText value="*"/>
+
                                 <!-- AttributesProperties *..*  Imports -->
 
                                 <!-- AttributesProperties *..*  Sites -->
 
-                                <!-- Relationships *..*  AttributesProperties -->
-
                                 <!-- Attributes *..*  AttributesProperties -->
 
                                 <!-- Entities *..*  AttributesProperties -->
+
+                                <!-- Relationships *..*  AttributesProperties -->
 
                                 <!-- AttributesTypes *..*  AttributesProperties -->
 

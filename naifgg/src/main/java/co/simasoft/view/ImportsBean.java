@@ -133,10 +133,6 @@ public class ImportsBean implements Serializable {
 
 		try {
 			Imports deletableEntity = findById(getId());
-			Dependencies dependencies = deletableEntity.getDependencies();
-			dependencies.getImports().remove(deletableEntity);
-			deletableEntity.setDependencies(null);
-			this.entityManager.merge(dependencies);
 			Iterator<AttributesProperties> iterAttributesProperties = deletableEntity
 					.getAttributesProperties().iterator();
 			for (; iterAttributesProperties.hasNext();) {
@@ -146,6 +142,10 @@ public class ImportsBean implements Serializable {
 				iterAttributesProperties.remove();
 				this.entityManager.merge(nextInAttributesProperties);
 			}
+			Dependencies dependencies = deletableEntity.getDependencies();
+			dependencies.getImports().remove(deletableEntity);
+			deletableEntity.setDependencies(null);
+			this.entityManager.merge(dependencies);
 			this.entityManager.remove(deletableEntity);
 			this.entityManager.flush();
 			return "search?faces-redirect=true";
@@ -175,7 +175,7 @@ public class ImportsBean implements Serializable {
 	}
 
 	public int getPageSize() {
-		return 100;
+		return 10;
 	}
 
 	public Imports getExample() {

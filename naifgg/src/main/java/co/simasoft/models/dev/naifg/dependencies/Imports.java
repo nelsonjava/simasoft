@@ -17,20 +17,20 @@ import javax.persistence.Lob;
 
 import co.simasoft.models.dev.naifg.*;
 import co.simasoft.models.dev.naifg.dependencies.*;
-import co.simasoft.models.dev.naifg.sites.*;
+import co.simasoft.models.core.sites.*;
 import org.hibernate.search.annotations.Analyze;
-import org.hibernate.search.annotations.Index;
-import org.hibernate.search.annotations.Field;
 import org.hibernate.search.annotations.DocumentId;
-import org.hibernate.search.annotations.Store;
+import org.hibernate.search.annotations.Field;
+import org.hibernate.search.annotations.Index;
 import org.hibernate.search.annotations.Indexed;
-import javax.persistence.TemporalType;
-import javax.persistence.Temporal;
-import org.hibernate.search.annotations.DateBridge;
-import org.hibernate.search.annotations.Resolution;
+import org.hibernate.search.annotations.Store;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.ManyToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import org.hibernate.search.annotations.DateBridge;
+import org.hibernate.search.annotations.Resolution;
 
 @Indexed
 @Entity
@@ -61,16 +61,16 @@ public class Imports implements Serializable {
 	private Set<Sites> sites = new HashSet<Sites>();
 
 	@ManyToMany(mappedBy = "imports")
-	private Set<Cardinalities> cardinalities = new HashSet<Cardinalities>();
-
-	@ManyToMany(mappedBy = "imports")
-	private Set<Entities> entities = new HashSet<Entities>();
+	private Set<AttributesProperties> attributesProperties = new HashSet<AttributesProperties>();
 
 	@ManyToOne
 	private Dependencies dependencies;
 
 	@ManyToMany(mappedBy = "imports")
-	private Set<AttributesProperties> attributesProperties = new HashSet<AttributesProperties>();
+	private Set<Cardinalities> cardinalities = new HashSet<Cardinalities>();
+
+	@ManyToMany(mappedBy = "imports")
+	private Set<Entities> entities = new HashSet<Entities>();
 
 	public Imports() {
 	}
@@ -120,6 +120,21 @@ public class Imports implements Serializable {
 		this.sites = sites;
 	}
 
+	public Set<AttributesProperties> getAttributesProperties() {
+		return attributesProperties;
+	}
+	public void setAttributesProperties(
+			Set<AttributesProperties> attributesProperties) {
+		this.attributesProperties = attributesProperties;
+	}
+
+	public Dependencies getDependencies() {
+		return dependencies;
+	}
+	public void setDependencies(Dependencies dependencies) {
+		this.dependencies = dependencies;
+	}
+
 	public Set<Cardinalities> getCardinalities() {
 		return cardinalities;
 	}
@@ -132,21 +147,6 @@ public class Imports implements Serializable {
 	}
 	public void setEntities(Set<Entities> entities) {
 		this.entities = entities;
-	}
-
-	public Dependencies getDependencies() {
-		return dependencies;
-	}
-	public void setDependencies(Dependencies dependencies) {
-		this.dependencies = dependencies;
-	}
-
-	public Set<AttributesProperties> getAttributesProperties() {
-		return attributesProperties;
-	}
-	public void setAttributesProperties(
-			Set<AttributesProperties> attributesProperties) {
-		this.attributesProperties = attributesProperties;
 	}
 
 	@Override

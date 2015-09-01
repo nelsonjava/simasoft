@@ -30,13 +30,6 @@
                                 <h:panelGroup styleClass="search">
 
                                         <h:panelGrid columnClasses="label,component,required" columns="3">
-                                                <h:outputLabel for="groupIdsBeanExampleArtifactId" value="ArtifactId:"/>
-                                                <h:panelGroup>
-                                                        <h:inputText id="groupIdsBeanExampleArtifactId" value="#{groupIdsBean.example.artifactId}"/>
-                                                        <h:message for="groupIdsBeanExampleArtifactId" styleClass="error"/>
-                                                </h:panelGroup>
-                                                <h:outputText/>
-
                                                 <h:outputLabel for="groupIdsBeanExampleGroupId" value="GroupId:"/>
                                                 <h:panelGroup>
                                                         <h:inputText id="groupIdsBeanExampleGroupId" value="#{groupIdsBean.example.groupId}"/>
@@ -59,6 +52,13 @@
                                                 <h:outputText/>
 
 
+                                                <h:outputLabel for="groupIdsBeanExampleArtifactId" value="ArtifactId:"/>
+                                                <h:panelGroup>
+                                                        <h:inputText id="groupIdsBeanExampleArtifactId" value="#{groupIdsBean.example.artifactId}"/>
+                                                        <h:message for="groupIdsBeanExampleArtifactId" styleClass="error"/>
+                                                </h:panelGroup>
+                                                <h:outputText/>
+
                                         </h:panelGrid>
                                         <h:panelGroup styleClass="buttons">
                                                 <h:commandLink value="Search" action='#{groupIdsBean.search}' styleClass="btn btn-primary"/>
@@ -68,17 +68,6 @@
                         </f:validateBean>
 
                         <h:dataTable id="groupIdsBeanPageItems" styleClass="data-table" value="#{groupIdsBean.pageItems}" var="_item">
-
-                                <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="ArtifactId"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/groupIds/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemArtifactId" value="#{_item.artifactId}"/>
-                                        </h:link>
-                                </h:column>
-
 
                                 <h:column>
                                         <f:facet name="header">
@@ -122,6 +111,17 @@
                                                 <h:outputText id="itemDate" value="#{_item.date}"/>
                                                         <f:convertDateTime type="date"/>
                                                <h:outputText/>
+                                        </h:link>
+                                </h:column>
+
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="ArtifactId"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/groupIds/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemArtifactId" value="#{_item.artifactId}"/>
                                         </h:link>
                                 </h:column>
 

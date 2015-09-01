@@ -25,12 +25,12 @@ import org.hibernate.search.annotations.Index;
 import org.hibernate.search.annotations.Indexed;
 import org.hibernate.search.annotations.Store;
 import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
-import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import org.hibernate.search.annotations.DateBridge;
 import org.hibernate.search.annotations.Resolution;
+import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 
 @Indexed
 @Entity
@@ -55,10 +55,6 @@ public class GroupIds implements Serializable {
 
 	@Column(nullable = false, unique = true)
 	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-	private String artifactId;
-
-	@Column(nullable = false, unique = true)
-	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
 	private String groupId;
 
 	@Column(nullable = true, unique = false)
@@ -74,22 +70,26 @@ public class GroupIds implements Serializable {
 	@DateBridge(resolution = Resolution.YEAR)
 	private Date date;
 
-	@OneToMany(mappedBy = "groupIds")
-	private Set<Entities> entities = new HashSet<Entities>();
+	@Column(nullable = false, unique = true)
+	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+	private String artifactId;
 
 	@OneToMany(mappedBy = "groupIds")
 	private Set<ModelsGroupIds> modelsGroupIds = new HashSet<ModelsGroupIds>();
 
+	@OneToMany(mappedBy = "groupIds")
+	private Set<Entities> entities = new HashSet<Entities>();
+
 	public GroupIds() {
 	}
 
-	public GroupIds(String artifactId, String groupId, String version,
-			String code, Date date) {
-		this.artifactId = artifactId;
+	public GroupIds(String groupId, String version, String code, Date date,
+			String artifactId) {
 		this.groupId = groupId;
 		this.version = version;
 		this.code = code;
 		this.date = date;
+		this.artifactId = artifactId;
 	}
 
 	public Long getId() {
@@ -119,13 +119,6 @@ public class GroupIds implements Serializable {
 	public void setObservations(String observations) {
 		this.observations = observations;
 	}
-	public String getArtifactId() {
-		return artifactId;
-	}
-	public void setArtifactId(String artifactId) {
-		this.artifactId = artifactId;
-	}
-
 	public String getGroupId() {
 		return groupId;
 	}
@@ -154,11 +147,11 @@ public class GroupIds implements Serializable {
 		this.date = date;
 	}
 
-	public Set<Entities> getEntities() {
-		return entities;
+	public String getArtifactId() {
+		return artifactId;
 	}
-	public void setEntities(Set<Entities> entities) {
-		this.entities = entities;
+	public void setArtifactId(String artifactId) {
+		this.artifactId = artifactId;
 	}
 
 	public Set<ModelsGroupIds> getModelsGroupIds() {
@@ -166,6 +159,13 @@ public class GroupIds implements Serializable {
 	}
 	public void setModelsGroupIds(Set<ModelsGroupIds> modelsGroupIds) {
 		this.modelsGroupIds = modelsGroupIds;
+	}
+
+	public Set<Entities> getEntities() {
+		return entities;
+	}
+	public void setEntities(Set<Entities> entities) {
+		this.entities = entities;
 	}
 
 	@Override

@@ -25,12 +25,12 @@ import org.hibernate.search.annotations.Index;
 import org.hibernate.search.annotations.Indexed;
 import org.hibernate.search.annotations.Store;
 import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
-import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import org.hibernate.search.annotations.DateBridge;
 import org.hibernate.search.annotations.Resolution;
+import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 
 @Indexed
 @Entity
@@ -55,11 +55,11 @@ public class AttributesProperties implements Serializable {
 
 	@Column(nullable = false, unique = true)
 	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-	private String value;
+	private String name;
 
 	@Column(nullable = false, unique = true)
 	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-	private String name;
+	private String value;
 
 	@ManyToMany
 	private Set<Imports> imports = new HashSet<Imports>();
@@ -68,13 +68,13 @@ public class AttributesProperties implements Serializable {
 	private Set<Sites> sites = new HashSet<Sites>();
 
 	@ManyToMany(mappedBy = "attributesProperties")
-	private Set<Relationships> relationships = new HashSet<Relationships>();
-
-	@ManyToMany(mappedBy = "attributesProperties")
 	private Set<Attributes> attributes = new HashSet<Attributes>();
 
 	@ManyToMany(mappedBy = "attributesProperties")
 	private Set<Entities> entities = new HashSet<Entities>();
+
+	@ManyToMany(mappedBy = "attributesProperties")
+	private Set<Relationships> relationships = new HashSet<Relationships>();
 
 	@ManyToMany(mappedBy = "attributesProperties")
 	private Set<AttributesTypes> attributesTypes = new HashSet<AttributesTypes>();
@@ -82,9 +82,9 @@ public class AttributesProperties implements Serializable {
 	public AttributesProperties() {
 	}
 
-	public AttributesProperties(String value, String name) {
-		this.value = value;
+	public AttributesProperties(String name, String value) {
 		this.name = name;
+		this.value = value;
 	}
 
 	public Long getId() {
@@ -114,18 +114,18 @@ public class AttributesProperties implements Serializable {
 	public void setObservations(String observations) {
 		this.observations = observations;
 	}
-	public String getValue() {
-		return value;
-	}
-	public void setValue(String value) {
-		this.value = value;
-	}
-
 	public String getName() {
 		return name;
 	}
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public String getValue() {
+		return value;
+	}
+	public void setValue(String value) {
+		this.value = value;
 	}
 
 	public Set<Imports> getImports() {
@@ -142,13 +142,6 @@ public class AttributesProperties implements Serializable {
 		this.sites = sites;
 	}
 
-	public Set<Relationships> getRelationships() {
-		return relationships;
-	}
-	public void setRelationships(Set<Relationships> relationships) {
-		this.relationships = relationships;
-	}
-
 	public Set<Attributes> getAttributes() {
 		return attributes;
 	}
@@ -161,6 +154,13 @@ public class AttributesProperties implements Serializable {
 	}
 	public void setEntities(Set<Entities> entities) {
 		this.entities = entities;
+	}
+
+	public Set<Relationships> getRelationships() {
+		return relationships;
+	}
+	public void setRelationships(Set<Relationships> relationships) {
+		this.relationships = relationships;
 	}
 
 	public Set<AttributesTypes> getAttributesTypes() {

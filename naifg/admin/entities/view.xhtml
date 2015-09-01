@@ -32,6 +32,14 @@
                         <h:outputText id="entitiesBeanEntitiesOrden" value="#{entitiesBean.entities.orden}"/>
                         <h:outputText/>
 
+                        <h:outputLabel for="entitiesBeanEntitiesDescription" value="Description:"/>
+                        <h:outputText id="entitiesBeanEntitiesDescription" value="#{entitiesBean.entities.description}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="entitiesBeanEntitiesIsSimplified" value="IsSimplified:"/>
+                        <h:outputText id="entitiesBeanEntitiesIsSimplified" value="#{entitiesBean.entities.isSimplified}"/>
+                        <h:outputText/>
+
                         <h:outputLabel for="entitiesBeanEntitiesName" value="Name:"/>
                         <h:outputText id="entitiesBeanEntitiesName" value="#{entitiesBean.entities.name}"/>
                         <h:outputText/>
@@ -44,52 +52,8 @@
                         <h:outputText id="entitiesBeanEntitiesTable" value="#{entitiesBean.entities.table}"/>
                         <h:outputText/>
 
-                        <h:outputLabel for="entitiesBeanEntitiesDescription" value="Description:"/>
-                        <h:outputText id="entitiesBeanEntitiesDescription" value="#{entitiesBean.entities.description}"/>
-                        <h:outputText/>
-
-                        <h:outputLabel for="entitiesBeanEntitiesIsSimplified" value="IsSimplified:"/>
-                        <h:outputText id="entitiesBeanEntitiesIsSimplified" value="#{entitiesBean.entities.isSimplified}"/>
-                        <h:outputText/>
-
                         <h:outputLabel for="entitiesBeanEntitiesObservations" value="Observations:"/>
                         <h:outputText id="entitiesBeanEntitiesObservations" value="#{entitiesBean.entities.observations}" escape="false" />
-                        <h:outputText/>
-
-                        <h:outputLabel for="EntitiesBeanEntitiesNameQueries" value="NameQueries:"/>
-                        <h:dataTable id="entitiesBeanEntitiesnameQueries" styleClass="data-table" value="#{forgeview:asList(entitiesBean.entities.nameQueries)}" var="_item">
-
-                                <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="Orden"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/nameQueries/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemOrden" value="#{_item.orden}"/>
-                                        </h:link>
-                                </h:column>
-
-                                <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="Query"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/nameQueries/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemQuery" value="#{_item.query}"/>
-                                        </h:link>
-                                </h:column>
-
-                                <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="Name"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/nameQueries/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemName" value="#{_item.name}"/>
-                                        </h:link>
-                                </h:column>
-
-                        </h:dataTable>
                         <h:outputText/>
 
                         <h:outputLabel for="entitiesBeanEntitiesSites" value="Sites:"/>
@@ -138,234 +102,6 @@
                         </h:dataTable>
                         <h:outputText/>
 
-                        <h:outputLabel for="EntitiesBeanEntitiesRelationships" value="Relationships:"/>
-                        <h:dataTable id="entitiesBeanEntitiesrelationships" styleClass="data-table" value="#{forgeview:asList(entitiesBean.entities.from)}" var="_item">
-
-                                <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="Orden"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/relationships/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemOrden" value="#{_item.orden}"/>
-                                        </h:link>
-                                </h:column>
-
-                                <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="Name"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/relationships/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemName" value="#{_item.name}"/>
-                                        </h:link>
-                                </h:column>
-
-                                <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="NameAttribute"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/relationships/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemNameAttribute" value="#{_item.nameAttribute}"/>
-                                        </h:link>
-                                </h:column>
-
-                                <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="IsOptionality"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/relationships/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemIsOptionality" value="#{_item.isOptionality}"/>
-                                        </h:link>
-                                </h:column>
-
-                                <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="IsEmbedded"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/relationships/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemIsEmbedded" value="#{_item.isEmbedded}"/>
-                                        </h:link>
-                                </h:column>
-
-                                <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="IsSimplified"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/relationships/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemIsSimplified" value="#{_item.isSimplified}"/>
-                                        </h:link>
-                                </h:column>
-
-                                <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="IsCreate"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/relationships/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemIsCreate" value="#{_item.isCreate}"/>
-                                        </h:link>
-                                </h:column>
-
-                                <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="IsSearch"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/relationships/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemIsSearch" value="#{_item.isSearch}"/>
-                                        </h:link>
-                                </h:column>
-
-                                <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="IsView"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/relationships/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemIsView" value="#{_item.isView}"/>
-                                        </h:link>
-                                </h:column>
-
-                        </h:dataTable>
-                        <h:outputText/>
-
-                        <h:outputLabel for="entitiesBeanEntitiesAttributesProperties" value="AttributesProperties:"/>
-                        <h:dataTable id="entitiesBeanEntitiesattributesProperties" styleClass="data-table" value="#{forgeview:asList(entitiesBean.entities.attributesProperties)}" var="_item">
-
-                                <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="Orden"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/attributesProperties/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemOrden" value="#{_item.orden}"/>
-                                        </h:link>
-                                </h:column>
-
-                                <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="Value"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/attributesProperties/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemValue" value="#{_item.value}"/>
-                                        </h:link>
-                                </h:column>
-
-                                <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="Name"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/attributesProperties/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemName" value="#{_item.name}"/>
-                                        </h:link>
-                                </h:column>
-
-                        </h:dataTable>
-                        <h:outputText/>
-
-                        <h:outputLabel for="EntitiesBeanEntitiesRelationships" value="Relationships:"/>
-                        <h:dataTable id="entitiesBeanEntitiesrelationships" styleClass="data-table" value="#{forgeview:asList(entitiesBean.entities.to)}" var="_item">
-
-                                <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="Orden"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/relationships/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemOrden" value="#{_item.orden}"/>
-                                        </h:link>
-                                </h:column>
-
-                                <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="Name"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/relationships/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemName" value="#{_item.name}"/>
-                                        </h:link>
-                                </h:column>
-
-                                <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="NameAttribute"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/relationships/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemNameAttribute" value="#{_item.nameAttribute}"/>
-                                        </h:link>
-                                </h:column>
-
-                                <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="IsOptionality"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/relationships/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemIsOptionality" value="#{_item.isOptionality}"/>
-                                        </h:link>
-                                </h:column>
-
-                                <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="IsEmbedded"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/relationships/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemIsEmbedded" value="#{_item.isEmbedded}"/>
-                                        </h:link>
-                                </h:column>
-
-                                <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="IsSimplified"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/relationships/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemIsSimplified" value="#{_item.isSimplified}"/>
-                                        </h:link>
-                                </h:column>
-
-                                <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="IsCreate"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/relationships/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemIsCreate" value="#{_item.isCreate}"/>
-                                        </h:link>
-                                </h:column>
-
-                                <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="IsSearch"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/relationships/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemIsSearch" value="#{_item.isSearch}"/>
-                                        </h:link>
-                                </h:column>
-
-                                <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="IsView"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/relationships/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemIsView" value="#{_item.isView}"/>
-                                        </h:link>
-                                </h:column>
-
-                        </h:dataTable>
-                        <h:outputText/>
-
                         <h:outputLabel for="EntitiesBeanEntitiesAttributes" value="Attributes:"/>
                         <h:dataTable id="entitiesBeanEntitiesattributes" styleClass="data-table" value="#{forgeview:asList(entitiesBean.entities.attributes)}" var="_item">
 
@@ -376,56 +112,6 @@
                                         <h:link outcome="/admin/attributes/view">
                                                 <f:param name="id" value="#{_item.id}"/>
                                                 <h:outputText id="itemOrden" value="#{_item.orden}"/>
-                                        </h:link>
-                                </h:column>
-
-                                <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="IsSimplified"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/attributes/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemIsSimplified" value="#{_item.isSimplified}"/>
-                                        </h:link>
-                                </h:column>
-
-                                <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="IsCreate"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/attributes/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemIsCreate" value="#{_item.isCreate}"/>
-                                        </h:link>
-                                </h:column>
-
-                                <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="IsSearch"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/attributes/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemIsSearch" value="#{_item.isSearch}"/>
-                                        </h:link>
-                                </h:column>
-
-                                <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="IsView"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/attributes/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemIsView" value="#{_item.isView}"/>
-                                        </h:link>
-                                </h:column>
-
-                                <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="IsViewRelation"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/attributes/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemIsViewRelation" value="#{_item.isViewRelation}"/>
                                         </h:link>
                                 </h:column>
 
@@ -489,6 +175,138 @@
                                         </h:link>
                                 </h:column>
 
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="IsSimplified"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/attributes/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemIsSimplified" value="#{_item.isSimplified}"/>
+                                        </h:link>
+                                </h:column>
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="IsCreate"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/attributes/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemIsCreate" value="#{_item.isCreate}"/>
+                                        </h:link>
+                                </h:column>
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="IsSearch"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/attributes/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemIsSearch" value="#{_item.isSearch}"/>
+                                        </h:link>
+                                </h:column>
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="IsView"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/attributes/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemIsView" value="#{_item.isView}"/>
+                                        </h:link>
+                                </h:column>
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="IsViewColumn"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/attributes/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemIsViewColumn" value="#{_item.isViewColumn}"/>
+                                        </h:link>
+                                </h:column>
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="IsViewRelation"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/attributes/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemIsViewRelation" value="#{_item.isViewRelation}"/>
+                                        </h:link>
+                                </h:column>
+
+                        </h:dataTable>
+                        <h:outputText/>
+
+                        <h:outputLabel for="entitiesBeanEntitiesAttributesProperties" value="AttributesProperties:"/>
+                        <h:dataTable id="entitiesBeanEntitiesattributesProperties" styleClass="data-table" value="#{forgeview:asList(entitiesBean.entities.attributesProperties)}" var="_item">
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Orden"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/attributesProperties/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemOrden" value="#{_item.orden}"/>
+                                        </h:link>
+                                </h:column>
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Name"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/attributesProperties/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemName" value="#{_item.name}"/>
+                                        </h:link>
+                                </h:column>
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Value"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/attributesProperties/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemValue" value="#{_item.value}"/>
+                                        </h:link>
+                                </h:column>
+
+                        </h:dataTable>
+                        <h:outputText/>
+
+                        <h:outputLabel for="EntitiesBeanEntitiesNameQueries" value="NameQueries:"/>
+                        <h:dataTable id="entitiesBeanEntitiesnameQueries" styleClass="data-table" value="#{forgeview:asList(entitiesBean.entities.nameQueries)}" var="_item">
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Orden"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/nameQueries/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemOrden" value="#{_item.orden}"/>
+                                        </h:link>
+                                </h:column>
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Name"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/nameQueries/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemName" value="#{_item.name}"/>
+                                        </h:link>
+                                </h:column>
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Query"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/nameQueries/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemQuery" value="#{_item.query}"/>
+                                        </h:link>
+                                </h:column>
+
                         </h:dataTable>
                         <h:outputText/>
 
@@ -518,8 +336,180 @@
                         </h:dataTable>
                         <h:outputText/>
 
+                        <h:outputLabel for="EntitiesBeanEntitiesRelationships" value="Relationships:"/>
+                        <h:dataTable id="entitiesBeanEntitiesrelationships" styleClass="data-table" value="#{forgeview:asList(entitiesBean.entities.from)}" var="_item">
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Orden"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/relationships/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemOrden" value="#{_item.orden}"/>
+                                        </h:link>
+                                </h:column>
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Name"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/relationships/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemName" value="#{_item.name}"/>
+                                        </h:link>
+                                </h:column>
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="IsOptionality"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/relationships/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemIsOptionality" value="#{_item.isOptionality}"/>
+                                        </h:link>
+                                </h:column>
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="IsEmbedded"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/relationships/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemIsEmbedded" value="#{_item.isEmbedded}"/>
+                                        </h:link>
+                                </h:column>
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="IsSimplified"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/relationships/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemIsSimplified" value="#{_item.isSimplified}"/>
+                                        </h:link>
+                                </h:column>
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="IsCreate"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/relationships/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemIsCreate" value="#{_item.isCreate}"/>
+                                        </h:link>
+                                </h:column>
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="IsSearch"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/relationships/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemIsSearch" value="#{_item.isSearch}"/>
+                                        </h:link>
+                                </h:column>
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="IsView"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/relationships/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemIsView" value="#{_item.isView}"/>
+                                        </h:link>
+                                </h:column>
+
+                        </h:dataTable>
+                        <h:outputText/>
+
+                        <h:outputLabel for="EntitiesBeanEntitiesRelationships" value="Relationships:"/>
+                        <h:dataTable id="entitiesBeanEntitiesrelationships" styleClass="data-table" value="#{forgeview:asList(entitiesBean.entities.to)}" var="_item">
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Orden"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/relationships/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemOrden" value="#{_item.orden}"/>
+                                        </h:link>
+                                </h:column>
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Name"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/relationships/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemName" value="#{_item.name}"/>
+                                        </h:link>
+                                </h:column>
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="IsOptionality"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/relationships/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemIsOptionality" value="#{_item.isOptionality}"/>
+                                        </h:link>
+                                </h:column>
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="IsEmbedded"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/relationships/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemIsEmbedded" value="#{_item.isEmbedded}"/>
+                                        </h:link>
+                                </h:column>
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="IsSimplified"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/relationships/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemIsSimplified" value="#{_item.isSimplified}"/>
+                                        </h:link>
+                                </h:column>
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="IsCreate"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/relationships/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemIsCreate" value="#{_item.isCreate}"/>
+                                        </h:link>
+                                </h:column>
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="IsSearch"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/relationships/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemIsSearch" value="#{_item.isSearch}"/>
+                                        </h:link>
+                                </h:column>
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="IsView"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/relationships/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemIsView" value="#{_item.isView}"/>
+                                        </h:link>
+                                </h:column>
+
+                        </h:dataTable>
+                        <h:outputText/>
+
                         <h:outputLabel for="entitiesBeanEntitiesGroupIds" value="groupIds:"/>
-                        <h:link id="entitiesBeanEntitiesGroupIds" outcome="/admin/groupIds/view" rendered="#{!empty entitiesBean.entities.groupIds}" value="#{entitiesBean.entities.groupIds}">
+                        <h:link id="entitiesBeanEntitiesGroupIds" outcome="/admin/groupIds/view" rendered="#{!empty entitiesBean.entities.groupIds}" value="#{entitiesBean.entities.groupIds.name}">
                                 <f:param name="id" value="#{entitiesBean.entities.groupIds.id}"/>
                         </h:link>
                         <h:outputText/>

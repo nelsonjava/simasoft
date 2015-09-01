@@ -36,10 +36,6 @@
                         <h:outputText id="relationshipsBeanRelationshipsName" value="#{relationshipsBean.relationships.name}"/>
                         <h:outputText/>
 
-                        <h:outputLabel for="relationshipsBeanRelationshipsNameAttribute" value="NameAttribute:"/>
-                        <h:outputText id="relationshipsBeanRelationshipsNameAttribute" value="#{relationshipsBean.relationships.nameAttribute}"/>
-                        <h:outputText/>
-
                         <h:outputLabel for="relationshipsBeanRelationshipsIsOptionality" value="IsOptionality:"/>
                         <h:outputText id="relationshipsBeanRelationshipsIsOptionality" value="#{relationshipsBean.relationships.isOptionality}"/>
                         <h:outputText/>
@@ -83,16 +79,6 @@
 
                                 <h:column>
                                         <f:facet name="header">
-                                                <h:outputText value="Value"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/attributesProperties/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemValue" value="#{_item.value}"/>
-                                        </h:link>
-                                </h:column>
-
-                                <h:column>
-                                        <f:facet name="header">
                                                 <h:outputText value="Name"/>
                                         </f:facet>
                                         <h:link outcome="/admin/attributesProperties/view">
@@ -101,24 +87,34 @@
                                         </h:link>
                                 </h:column>
 
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Value"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/attributesProperties/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemValue" value="#{_item.value}"/>
+                                        </h:link>
+                                </h:column>
+
                         </h:dataTable>
                         <h:outputText/>
 
+                        <h:outputLabel for="relationshipsBeanRelationshipsCardinalities" value="cardinalities:"/>
+                        <h:link id="relationshipsBeanRelationshipsCardinalities" outcome="/admin/cardinalities/view" rendered="#{!empty relationshipsBean.relationships.cardinalities}" value="#{relationshipsBean.relationships.cardinalities.name}">
+                                <f:param name="id" value="#{relationshipsBean.relationships.cardinalities.id}"/>
+                        </h:link>
+                        <h:outputText/>
+
                         <h:outputLabel for="relationshipsBeanRelationshipsFrom" value="from:"/>
-                        <h:link id="relationshipsBeanRelationshipsFrom" outcome="/admin/entities/view" rendered="#{!empty relationshipsBean.relationships.from}" value="#{relationshipsBean.relationships.from}">
+                        <h:link id="relationshipsBeanRelationshipsFrom" outcome="/admin/entities/view" rendered="#{!empty relationshipsBean.relationships.from}" value="#{relationshipsBean.relationships.from.name}">
                                 <f:param name="id" value="#{relationshipsBean.relationships.from.id}"/>
                         </h:link>
                         <h:outputText/>
 
                         <h:outputLabel for="relationshipsBeanRelationshipsTo" value="to:"/>
-                        <h:link id="relationshipsBeanRelationshipsTo" outcome="/admin/entities/view" rendered="#{!empty relationshipsBean.relationships.to}" value="#{relationshipsBean.relationships.to}">
+                        <h:link id="relationshipsBeanRelationshipsTo" outcome="/admin/entities/view" rendered="#{!empty relationshipsBean.relationships.to}" value="#{relationshipsBean.relationships.to.name}">
                                 <f:param name="id" value="#{relationshipsBean.relationships.to.id}"/>
-                        </h:link>
-                        <h:outputText/>
-
-                        <h:outputLabel for="relationshipsBeanRelationshipsCardinalities" value="cardinalities:"/>
-                        <h:link id="relationshipsBeanRelationshipsCardinalities" outcome="/admin/cardinalities/view" rendered="#{!empty relationshipsBean.relationships.cardinalities}" value="#{relationshipsBean.relationships.cardinalities}">
-                                <f:param name="id" value="#{relationshipsBean.relationships.cardinalities.id}"/>
                         </h:link>
                         <h:outputText/>
 

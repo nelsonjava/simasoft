@@ -171,7 +171,7 @@ public class CardinalitiesBean implements Serializable {
 	}
 
 	public int getPageSize() {
-		return 100;
+		return 10;
 	}
 
 	public Cardinalities getExample() {
@@ -224,10 +224,11 @@ public class CardinalitiesBean implements Serializable {
 					builder.lower(root.<String> get("observations")),
 					'%' + observations.toLowerCase() + '%'));
 		}
-		Boolean isUnidirectional = this.example.getIsUnidirectional();
-		if (isUnidirectional != null) {
-			predicatesList.add(builder.equal(root.get("isUnidirectional"),
-					isUnidirectional));
+		String name = this.example.getName();
+		if (name != null && !"".equals(name)) {
+			predicatesList.add(builder.like(
+					builder.lower(root.<String> get("name")),
+					'%' + name.toLowerCase() + '%'));
 		}
 		String cardinality = this.example.getCardinality();
 		if (cardinality != null && !"".equals(cardinality)) {
@@ -235,11 +236,10 @@ public class CardinalitiesBean implements Serializable {
 					builder.lower(root.<String> get("cardinality")),
 					'%' + cardinality.toLowerCase() + '%'));
 		}
-		String name = this.example.getName();
-		if (name != null && !"".equals(name)) {
-			predicatesList.add(builder.like(
-					builder.lower(root.<String> get("name")),
-					'%' + name.toLowerCase() + '%'));
+		Boolean isUnidirectional = this.example.getIsUnidirectional();
+		if (isUnidirectional != null) {
+			predicatesList.add(builder.equal(root.get("isUnidirectional"),
+					isUnidirectional));
 		}
 
 		return predicatesList.toArray(new Predicate[predicatesList.size()]);

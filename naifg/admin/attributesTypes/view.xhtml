@@ -32,14 +32,6 @@
                         <h:outputText id="attributesTypesBeanAttributesTypesOrden" value="#{attributesTypesBean.attributesTypes.orden}"/>
                         <h:outputText/>
 
-                        <h:outputLabel for="attributesTypesBeanAttributesTypesName" value="Name:"/>
-                        <h:outputText id="attributesTypesBeanAttributesTypesName" value="#{attributesTypesBean.attributesTypes.name}"/>
-                        <h:outputText/>
-
-                        <h:outputLabel for="attributesTypesBeanAttributesTypesType" value="Type:"/>
-                        <h:outputText id="attributesTypesBeanAttributesTypesType" value="#{attributesTypesBean.attributesTypes.type}"/>
-                        <h:outputText/>
-
                         <h:outputLabel for="attributesTypesBeanAttributesTypesLength" value="Length:"/>
                         <h:outputText id="attributesTypesBeanAttributesTypesLength" value="#{attributesTypesBean.attributesTypes.length}"/>
                         <h:outputText/>
@@ -50,6 +42,14 @@
 
                         <h:outputLabel for="attributesTypesBeanAttributesTypesAnnotations" value="Annotations:"/>
                         <h:outputText id="attributesTypesBeanAttributesTypesAnnotations" value="#{attributesTypesBean.attributesTypes.annotations}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="attributesTypesBeanAttributesTypesName" value="Name:"/>
+                        <h:outputText id="attributesTypesBeanAttributesTypesName" value="#{attributesTypesBean.attributesTypes.name}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="attributesTypesBeanAttributesTypesType" value="Type:"/>
+                        <h:outputText id="attributesTypesBeanAttributesTypesType" value="#{attributesTypesBean.attributesTypes.type}"/>
                         <h:outputText/>
 
                         <h:outputLabel for="attributesTypesBeanAttributesTypesObservations" value="Observations:"/>
@@ -66,56 +66,6 @@
                                         <h:link outcome="/admin/attributes/view">
                                                 <f:param name="id" value="#{_item.id}"/>
                                                 <h:outputText id="itemOrden" value="#{_item.orden}"/>
-                                        </h:link>
-                                </h:column>
-
-                                <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="IsSimplified"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/attributes/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemIsSimplified" value="#{_item.isSimplified}"/>
-                                        </h:link>
-                                </h:column>
-
-                                <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="IsCreate"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/attributes/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemIsCreate" value="#{_item.isCreate}"/>
-                                        </h:link>
-                                </h:column>
-
-                                <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="IsSearch"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/attributes/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemIsSearch" value="#{_item.isSearch}"/>
-                                        </h:link>
-                                </h:column>
-
-                                <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="IsView"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/attributes/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemIsView" value="#{_item.isView}"/>
-                                        </h:link>
-                                </h:column>
-
-                                <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="IsViewRelation"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/attributes/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemIsViewRelation" value="#{_item.isViewRelation}"/>
                                         </h:link>
                                 </h:column>
 
@@ -176,6 +126,66 @@
                                         <h:link outcome="/admin/attributes/view">
                                                 <f:param name="id" value="#{_item.id}"/>
                                                 <h:outputText id="itemDescription" value="#{_item.description}"/>
+                                        </h:link>
+                                </h:column>
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="IsSimplified"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/attributes/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemIsSimplified" value="#{_item.isSimplified}"/>
+                                        </h:link>
+                                </h:column>
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="IsCreate"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/attributes/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemIsCreate" value="#{_item.isCreate}"/>
+                                        </h:link>
+                                </h:column>
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="IsSearch"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/attributes/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemIsSearch" value="#{_item.isSearch}"/>
+                                        </h:link>
+                                </h:column>
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="IsView"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/attributes/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemIsView" value="#{_item.isView}"/>
+                                        </h:link>
+                                </h:column>
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="IsViewColumn"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/attributes/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemIsViewColumn" value="#{_item.isViewColumn}"/>
+                                        </h:link>
+                                </h:column>
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="IsViewRelation"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/attributes/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemIsViewRelation" value="#{_item.isViewRelation}"/>
                                         </h:link>
                                 </h:column>
 
@@ -243,21 +253,21 @@
 
                                 <h:column>
                                         <f:facet name="header">
-                                                <h:outputText value="Value"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/attributesProperties/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemValue" value="#{_item.value}"/>
-                                        </h:link>
-                                </h:column>
-
-                                <h:column>
-                                        <f:facet name="header">
                                                 <h:outputText value="Name"/>
                                         </f:facet>
                                         <h:link outcome="/admin/attributesProperties/view">
                                                 <f:param name="id" value="#{_item.id}"/>
                                                 <h:outputText id="itemName" value="#{_item.name}"/>
+                                        </h:link>
+                                </h:column>
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Value"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/attributesProperties/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemValue" value="#{_item.value}"/>
                                         </h:link>
                                 </h:column>
 

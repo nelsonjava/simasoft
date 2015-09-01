@@ -1,0 +1,113 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:forgeview="http://jboss.org/forge/view"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="id" value='#{developmentsBean.id}'/>
+		<f:event type="preRenderView" listener='#{developmentsBean.retrieve}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="View Developments"/>
+
+	<ui:define name="header">
+		Developments
+	</ui:define>
+
+	<ui:define name="subheader">
+		View existing Developments
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:panelGrid columnClasses="label,component,required" columns="3">
+
+			<h:outputLabel for="developmentsBeanDevelopmentsOrden" value="Orden:"/>
+			<h:outputText id="developmentsBeanDevelopmentsOrden" value="#{developmentsBean.developments.orden}"/>
+			<h:outputText/>
+
+			<h:outputLabel for="developmentsBeanDevelopmentsGroupId" value="Group Id:"/>
+			<h:outputText id="developmentsBeanDevelopmentsGroupId" value="#{developmentsBean.developments.groupId}"/>
+			<h:outputText/>
+
+			<h:outputLabel for="developmentsBeanDevelopmentsArtifactId" value="Artifact Id:"/>
+			<h:outputText id="developmentsBeanDevelopmentsArtifactId" value="#{developmentsBean.developments.artifactId}"/>
+			<h:outputText/>
+
+			<h:outputLabel for="developmentsBeanDevelopmentsVersion" value="Version:"/>
+			<h:outputText id="developmentsBeanDevelopmentsVersion" value="#{developmentsBean.developments.version}"/>
+			<h:outputText/>
+
+			<h:outputLabel for="developmentsBeanDevelopmentsCode" value="Code:"/>
+			<h:outputText id="developmentsBeanDevelopmentsCode" value="#{developmentsBean.developments.code}"/>
+			<h:outputText/>
+
+			<h:outputLabel for="developmentsBeanDevelopmentsDate" value="Date:"/>
+			<h:outputText id="developmentsBeanDevelopmentsDate" value="#{developmentsBean.developments.date}">
+				<f:convertDateTime type="date"/>
+			</h:outputText>
+			<h:outputText/>
+
+			<h:outputLabel for="developmentsBeanDevelopmentsSites" value="Sites:"/>
+			<h:dataTable id="developmentsBeanDevelopmentsSites" styleClass="data-table" value="#{forgeview:asList(developmentsBean.developments.sites)}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Sites"/>
+					</f:facet>
+					<h:link outcome="/admin/sites/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText value="#{_item}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<h:outputText/>
+
+			<h:outputLabel for="developmentsBeanDevelopmentsModels" value="Models:"/>
+			<h:dataTable id="developmentsBeanDevelopmentsModels" styleClass="data-table" value="#{forgeview:asList(developmentsBean.developments.models)}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Artifact Id"/>
+					</f:facet>
+					<h:link outcome="/admin/models/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemArtifactId" value="#{_item.artifactId}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Group Id"/>
+					</f:facet>
+					<h:link outcome="/admin/models/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemGroupId" value="#{_item.groupId}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<h:outputText/>
+
+			<h:outputLabel for="DevelopmentsGenerate" value="Generate:"/>
+                        <h:form>
+                          <h:commandButton value="Code" action="#{DevelopmentsGen.data(developmentsBean.developments)}" />
+                        </h:form>
+			<h:outputText/>
+			
+			<h:outputLabel for="developmentsBeanDevelopmentsObservations" value="Observations:"/>
+			<h:outputText id="developmentsBeanDevelopmentsObservations" value="#{developmentsBean.developments.observations}" escape="false" />
+			<h:outputText/>
+
+
+		</h:panelGrid>
+
+		<div class="buttons">
+			<h:link value="View All" outcome="search" styleClass="btn btn-primary"/>
+			<h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
+			<h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
+		</div>
+	</ui:define>
+
+</ui:composition>

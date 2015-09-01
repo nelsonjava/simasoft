@@ -1,0 +1,152 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:forgeview="http://jboss.org/forge/view"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="page" value='#{modelsGroupIdsBean.page}'/>
+		<f:event type="preRenderView" listener='#{modelsGroupIdsBean.paginate}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="Search Models Group Ids entities"/>
+
+	<ui:define name="header">
+		Models Group Ids
+	</ui:define>
+
+	<ui:define name="subheader">
+		Search Models Group Ids entities
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:form id="search">
+			<f:validateBean disabled="true">
+				<h:panelGroup styleClass="search">
+
+					<h:panelGrid columnClasses="label,component,required" columns="3">
+						<h:outputLabel for="modelsGroupIdsBeanExampleObservations" value="Observations:"/>
+						<h:panelGroup>
+							<h:inputTextarea id="modelsGroupIdsBeanExampleObservations" value="#{modelsGroupIdsBean.example.observations}"/>
+							<h:message for="modelsGroupIdsBeanExampleObservations" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="modelsGroupIdsBeanExampleIsSimplified" value="Is Simplified:"/>
+						<h:panelGroup>
+							<h:selectOneMenu id="modelsGroupIdsBeanExampleIsSimplified" value="#{modelsGroupIdsBean.example.isSimplified}">
+								<f:selectItem/>
+								<f:selectItem itemLabel="Yes" itemValue="true"/>
+								<f:selectItem itemLabel="No" itemValue="false"/>
+							</h:selectOneMenu>
+							<h:message for="modelsGroupIdsBeanExampleIsSimplified" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="modelsGroupIdsBeanExampleIsSingle" value="Is Single:"/>
+						<h:panelGroup>
+							<h:selectOneMenu id="modelsGroupIdsBeanExampleIsSingle" value="#{modelsGroupIdsBean.example.isSingle}">
+								<f:selectItem/>
+								<f:selectItem itemLabel="Yes" itemValue="true"/>
+								<f:selectItem itemLabel="No" itemValue="false"/>
+							</h:selectOneMenu>
+							<h:message for="modelsGroupIdsBeanExampleIsSingle" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="modelsGroupIdsBeanExampleGroupId" value="Group Id:"/>
+						<h:panelGroup>
+							<h:inputText id="modelsGroupIdsBeanExampleGroupId" value="#{modelsGroupIdsBean.example.groupId}"/>
+							<h:message for="modelsGroupIdsBeanExampleGroupId" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="modelsGroupIdsBeanExampleModels" value="Models:"/>
+						<h:panelGroup>
+							<h:selectOneMenu converter="#{modelsBean.converter}" id="modelsGroupIdsBeanExampleModels" value="#{modelsGroupIdsBean.example.models}">
+								<f:selectItem/>
+								<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{modelsBean.all}" var="_item"/>
+							</h:selectOneMenu>
+							<h:message for="modelsGroupIdsBeanExampleModels" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+					</h:panelGrid>
+					<h:panelGroup styleClass="buttons">
+						<h:commandLink value="Search" action='#{modelsGroupIdsBean.search}' styleClass="btn btn-primary"/>
+						<h:commandLink value="Create New" action='#{modelsGroupIdsBean.create}' styleClass="btn btn-primary"/>
+					</h:panelGroup>
+				</h:panelGroup>
+			</f:validateBean>
+
+			<h:dataTable id="modelsGroupIdsBeanPageItems" styleClass="data-table" value="#{modelsGroupIdsBean.pageItems}" var="_item">
+
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Orden"/>
+					</f:facet>
+					<h:link outcome="/admin/modelsGroupIds/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemOrden" value="#{_item.orden}"/>
+					</h:link>
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Model"/>
+					</f:facet>
+					<h:link outcome="/admin/modelsGroupIds/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemModel" value="#{_item.models.artifactId}"/>
+					</h:link>
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="GroupId"/>
+					</f:facet>
+					<h:link outcome="/admin/modelsGroupIds/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemGroupIdTem" value="#{_item.groupIds.artifactId}"/>
+					</h:link>
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Is Simplified"/>
+					</f:facet>
+					<h:link outcome="/admin/modelsGroupIds/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemIsSimplified" value="#{_item.isSimplified}"/>
+					</h:link>
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Is Single"/>
+					</f:facet>
+					<h:link outcome="/admin/modelsGroupIds/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemIsSingle" value="#{_item.isSingle}"/>
+					</h:link>
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Group Id"/>
+					</f:facet>
+					<h:link outcome="/admin/modelsGroupIds/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemGroupId" value="#{_item.groupId}"/>
+					</h:link>
+				</h:column>
+
+			</h:dataTable>
+			<ui:include src="/resources/scaffold/paginator.xhtml">
+				<ui:param name="paginatorBean" value='#{modelsGroupIdsBean}'/>
+			</ui:include>
+		</h:form>
+
+	</ui:define>
+
+</ui:composition>

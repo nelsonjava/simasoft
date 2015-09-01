@@ -30,6 +30,24 @@
                                 <h:panelGroup styleClass="search">
 
                                         <h:panelGrid columnClasses="label,component,required" columns="3">
+                                                <h:outputLabel for="entitiesBeanExampleDescription" value="Description:"/>
+                                                <h:panelGroup>
+                                                        <h:inputText id="entitiesBeanExampleDescription" value="#{entitiesBean.example.description}"/>
+                                                        <h:message for="entitiesBeanExampleDescription" styleClass="error"/>
+                                                </h:panelGroup>
+                                                <h:outputText/>
+
+                                                <h:outputLabel for="entitiesBeanExampleIsSimplified" value="IsSimplified:"/>
+                                                <h:panelGroup>
+                                                        <h:selectOneMenu id="entitiesBeanExampleIsSimplified" value="#{entitiesBean.example.isSimplified}">
+                                                                <f:selectItem/>
+                                                                <f:selectItem itemLabel="Yes" itemValue="true"/>
+                                                                <f:selectItem itemLabel="No" itemValue="false"/>
+                                                        </h:selectOneMenu>
+                                                        <h:message for="entitiesBeanExampleIsSimplified" styleClass="error"/>
+                                                </h:panelGroup>
+                                                <h:outputText/>
+
                                                 <h:outputLabel for="entitiesBeanExampleName" value="Name:"/>
                                                 <h:panelGroup>
                                                         <h:inputText id="entitiesBeanExampleName" value="#{entitiesBean.example.name}"/>
@@ -51,24 +69,6 @@
                                                 </h:panelGroup>
                                                 <h:outputText/>
 
-                                                <h:outputLabel for="entitiesBeanExampleDescription" value="Description:"/>
-                                                <h:panelGroup>
-                                                        <h:inputText id="entitiesBeanExampleDescription" value="#{entitiesBean.example.description}"/>
-                                                        <h:message for="entitiesBeanExampleDescription" styleClass="error"/>
-                                                </h:panelGroup>
-                                                <h:outputText/>
-
-                                                <h:outputLabel for="entitiesBeanExampleIsSimplified" value="IsSimplified:"/>
-                                                <h:panelGroup>
-                                                        <h:selectOneMenu id="entitiesBeanExampleIsSimplified" value="#{entitiesBean.example.isSimplified}">
-                                                                <f:selectItem/>
-                                                                <f:selectItem itemLabel="Yes" itemValue="true"/>
-                                                                <f:selectItem itemLabel="No" itemValue="false"/>
-                                                        </h:selectOneMenu>
-                                                        <h:message for="entitiesBeanExampleIsSimplified" styleClass="error"/>
-                                                </h:panelGroup>
-                                                <h:outputText/>
-
                                         </h:panelGrid>
                                         <h:panelGroup styleClass="buttons">
                                                 <h:commandLink value="Search" action='#{entitiesBean.search}' styleClass="btn btn-primary"/>
@@ -78,6 +78,28 @@
                         </f:validateBean>
 
                         <h:dataTable id="entitiesBeanPageItems" styleClass="data-table" value="#{entitiesBean.pageItems}" var="_item">
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Description"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/entities/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemDescription" value="#{_item.description}"/>
+                                        </h:link>
+                                </h:column>
+
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="IsSimplified"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/entities/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemIsSimplified" value="#{_item.isSimplified}"/>
+                                        </h:link>
+                                </h:column>
+
 
                                 <h:column>
                                         <f:facet name="header">
@@ -108,28 +130,6 @@
                                         <h:link outcome="/admin/entities/view">
                                                 <f:param name="id" value="#{_item.id}"/>
                                                 <h:outputText id="itemTable" value="#{_item.table}"/>
-                                        </h:link>
-                                </h:column>
-
-
-                                <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="Description"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/entities/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemDescription" value="#{_item.description}"/>
-                                        </h:link>
-                                </h:column>
-
-
-                                <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="IsSimplified"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/entities/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemIsSimplified" value="#{_item.isSimplified}"/>
                                         </h:link>
                                 </h:column>
 

@@ -25,12 +25,12 @@ import org.hibernate.search.annotations.Index;
 import org.hibernate.search.annotations.Indexed;
 import org.hibernate.search.annotations.Store;
 import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
-import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import org.hibernate.search.annotations.DateBridge;
 import org.hibernate.search.annotations.Resolution;
+import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 
 @Indexed
 @Entity
@@ -74,11 +74,11 @@ public class Models implements Serializable {
 	@DateBridge(resolution = Resolution.YEAR)
 	private Date date;
 
-	@ManyToMany
-	private Set<Sites> sites = new HashSet<Sites>();
-
 	@OneToMany(mappedBy = "models")
 	private Set<ModelsGroupIds> modelsGroupIds = new HashSet<ModelsGroupIds>();
+
+	@ManyToMany
+	private Set<Sites> sites = new HashSet<Sites>();
 
 	@ManyToMany(mappedBy = "models")
 	private Set<Developments> developments = new HashSet<Developments>();
@@ -157,18 +157,18 @@ public class Models implements Serializable {
 		this.date = date;
 	}
 
-	public Set<Sites> getSites() {
-		return sites;
-	}
-	public void setSites(Set<Sites> sites) {
-		this.sites = sites;
-	}
-
 	public Set<ModelsGroupIds> getModelsGroupIds() {
 		return modelsGroupIds;
 	}
 	public void setModelsGroupIds(Set<ModelsGroupIds> modelsGroupIds) {
 		this.modelsGroupIds = modelsGroupIds;
+	}
+
+	public Set<Sites> getSites() {
+		return sites;
+	}
+	public void setSites(Set<Sites> sites) {
+		this.sites = sites;
 	}
 
 	public Set<Developments> getDevelopments() {

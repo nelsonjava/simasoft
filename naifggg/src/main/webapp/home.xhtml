@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    template="/resources/templates/default.xhtml">
+
+    <ui:define name="content">
+
+        <h1>>Hello World!</h1>
+
+        <div>
+            <p>Version: 1.0.0-Beta</p>
+        </div>
+
+        <div>
+            <h:link outcome="/admin/index.html" value="Admin"/>
+        </div>
+
+        <div>
+            <h:link outcome="/setup/index.html" value="Setup"/>
+        </div>
+
+    </ui:define>
+</ui:composition>

@@ -17,20 +17,20 @@ import javax.persistence.Lob;
 
 import co.simasoft.models.dev.naifg.*;
 import co.simasoft.models.dev.naifg.dependencies.*;
-import co.simasoft.models.dev.naifg.sites.*;
+import co.simasoft.models.core.sites.*;
 import org.hibernate.search.annotations.Analyze;
-import org.hibernate.search.annotations.Index;
-import org.hibernate.search.annotations.Field;
 import org.hibernate.search.annotations.DocumentId;
-import org.hibernate.search.annotations.Store;
+import org.hibernate.search.annotations.Field;
+import org.hibernate.search.annotations.Index;
 import org.hibernate.search.annotations.Indexed;
-import javax.persistence.TemporalType;
-import javax.persistence.Temporal;
-import org.hibernate.search.annotations.DateBridge;
-import org.hibernate.search.annotations.Resolution;
+import org.hibernate.search.annotations.Store;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.ManyToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import org.hibernate.search.annotations.DateBridge;
+import org.hibernate.search.annotations.Resolution;
 
 @Indexed
 @Entity
@@ -62,16 +62,16 @@ public class AttributesProperties implements Serializable {
 	private String name;
 
 	@ManyToMany
-	private Set<Sites> sites = new HashSet<Sites>();
-
-	@ManyToMany
 	private Set<Imports> imports = new HashSet<Imports>();
 
-	@ManyToMany(mappedBy = "attributesProperties")
-	private Set<Attributes> attributes = new HashSet<Attributes>();
+	@ManyToMany
+	private Set<Sites> sites = new HashSet<Sites>();
 
 	@ManyToMany(mappedBy = "attributesProperties")
 	private Set<Relationships> relationships = new HashSet<Relationships>();
+
+	@ManyToMany(mappedBy = "attributesProperties")
+	private Set<Attributes> attributes = new HashSet<Attributes>();
 
 	@ManyToMany(mappedBy = "attributesProperties")
 	private Set<Entities> entities = new HashSet<Entities>();
@@ -128,13 +128,6 @@ public class AttributesProperties implements Serializable {
 		this.name = name;
 	}
 
-	public Set<Sites> getSites() {
-		return sites;
-	}
-	public void setSites(Set<Sites> sites) {
-		this.sites = sites;
-	}
-
 	public Set<Imports> getImports() {
 		return imports;
 	}
@@ -142,11 +135,11 @@ public class AttributesProperties implements Serializable {
 		this.imports = imports;
 	}
 
-	public Set<Attributes> getAttributes() {
-		return attributes;
+	public Set<Sites> getSites() {
+		return sites;
 	}
-	public void setAttributes(Set<Attributes> attributes) {
-		this.attributes = attributes;
+	public void setSites(Set<Sites> sites) {
+		this.sites = sites;
 	}
 
 	public Set<Relationships> getRelationships() {
@@ -154,6 +147,13 @@ public class AttributesProperties implements Serializable {
 	}
 	public void setRelationships(Set<Relationships> relationships) {
 		this.relationships = relationships;
+	}
+
+	public Set<Attributes> getAttributes() {
+		return attributes;
+	}
+	public void setAttributes(Set<Attributes> attributes) {
+		this.attributes = attributes;
 	}
 
 	public Set<Entities> getEntities() {

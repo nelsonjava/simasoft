@@ -1,0 +1,133 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="page" value='#{attributesBean.page}'/>
+		<f:event type="preRenderView" listener='#{attributesBean.paginate}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="Search Attributes entities"/>
+
+	<ui:define name="header">
+		Attributes
+	</ui:define>
+
+	<ui:define name="subheader">
+		Search Attributes entities
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:form id="search">
+			<f:validateBean disabled="true">
+				<h:panelGroup styleClass="search">
+
+					<h:panelGrid columnClasses="label,component,required" columns="3">
+						<h:outputLabel for="attributesBeanExampleObservations" value="Observations:"/>
+						<h:panelGroup>
+							<h:inputTextarea id="attributesBeanExampleObservations" value="#{attributesBean.example.observations}"/>
+							<h:message for="attributesBeanExampleObservations" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="attributesBeanExampleDescription" value="Description:"/>
+						<h:panelGroup>
+							<h:inputText id="attributesBeanExampleDescription" value="#{attributesBean.example.description}"/>
+							<h:message for="attributesBeanExampleDescription" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="attributesBeanExampleIsSimplified" value="Is Simplified:"/>
+						<h:panelGroup>
+							<h:selectOneMenu id="attributesBeanExampleIsSimplified" value="#{attributesBean.example.isSimplified}">
+								<f:selectItem/>
+								<f:selectItem itemLabel="Yes" itemValue="true"/>
+								<f:selectItem itemLabel="No" itemValue="false"/>
+							</h:selectOneMenu>
+							<h:message for="attributesBeanExampleIsSimplified" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="attributesBeanExampleIsUnique" value="Is Unique:"/>
+						<h:panelGroup>
+							<h:selectOneMenu id="attributesBeanExampleIsUnique" value="#{attributesBean.example.isUnique}">
+								<f:selectItem/>
+								<f:selectItem itemLabel="Yes" itemValue="true"/>
+								<f:selectItem itemLabel="No" itemValue="false"/>
+							</h:selectOneMenu>
+							<h:message for="attributesBeanExampleIsUnique" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="attributesBeanExampleIsNullable" value="Is Nullable:"/>
+						<h:panelGroup>
+							<h:selectOneMenu id="attributesBeanExampleIsNullable" value="#{attributesBean.example.isNullable}">
+								<f:selectItem/>
+								<f:selectItem itemLabel="Yes" itemValue="true"/>
+								<f:selectItem itemLabel="No" itemValue="false"/>
+							</h:selectOneMenu>
+							<h:message for="attributesBeanExampleIsNullable" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+					</h:panelGrid>
+					<h:panelGroup styleClass="buttons">
+						<h:commandLink value="Search" action='#{attributesBean.search}' styleClass="btn btn-primary"/>
+						<h:commandLink value="Create New" action='#{attributesBean.create}' styleClass="btn btn-primary"/>
+					</h:panelGroup>
+				</h:panelGroup>
+			</f:validateBean>
+
+			<h:dataTable id="attributesBeanPageItems" styleClass="data-table" value="#{attributesBean.pageItems}" var="_item">
+
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Name"/>
+					</f:facet>
+					<h:link outcome="/admin/attributes/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemName" value="#{_item.name}"/>
+					</h:link>
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Type"/>
+					</f:facet>
+					<h:link outcome="/admin/attributes/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemType" value="#{_item.attributesTypes.type}"/>
+					</h:link>
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Entity"/>
+					</f:facet>
+					<h:link outcome="/admin/attributes/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemEntity" value="#{_item.entities.name}"/>
+					</h:link>
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="groupIds"/>
+					</f:facet>
+					<h:link outcome="/admin/attributes/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemgroupIds" value="#{_item.entities.groupIds.artifactId}"/>
+					</h:link>
+				</h:column>
+
+
+			</h:dataTable>
+			<ui:include src="/resources/scaffold/paginator.xhtml">
+				<ui:param name="paginatorBean" value='#{attributesBean}'/>
+			</ui:include>
+		</h:form>
+			
+	</ui:define>
+
+</ui:composition>
