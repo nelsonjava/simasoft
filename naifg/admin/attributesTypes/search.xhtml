@@ -30,10 +30,10 @@
                                 <h:panelGroup styleClass="search">
 
                                         <h:panelGrid columnClasses="label,component,required" columns="3">
-                                                <h:outputLabel for="attributesTypesBeanExampleLength" value="Length:"/>
+                                                <h:outputLabel for="attributesTypesBeanExampleAnnotations" value="Annotations:"/>
                                                 <h:panelGroup>
-                                                        <h:inputText id="attributesTypesBeanExampleLength" value="#{attributesTypesBean.example.length}"/>
-                                                        <h:message for="attributesTypesBeanExampleLength" styleClass="error"/>
+                                                        <h:inputText id="attributesTypesBeanExampleAnnotations" value="#{attributesTypesBean.example.annotations}"/>
+                                                        <h:message for="attributesTypesBeanExampleAnnotations" styleClass="error"/>
                                                 </h:panelGroup>
                                                 <h:outputText/>
 
@@ -44,10 +44,10 @@
                                                 </h:panelGroup>
                                                 <h:outputText/>
 
-                                                <h:outputLabel for="attributesTypesBeanExampleAnnotations" value="Annotations:"/>
+                                                <h:outputLabel for="attributesTypesBeanExampleLength" value="Length:"/>
                                                 <h:panelGroup>
-                                                        <h:inputText id="attributesTypesBeanExampleAnnotations" value="#{attributesTypesBean.example.annotations}"/>
-                                                        <h:message for="attributesTypesBeanExampleAnnotations" styleClass="error"/>
+                                                        <h:inputText id="attributesTypesBeanExampleLength" value="#{attributesTypesBean.example.length}"/>
+                                                        <h:message for="attributesTypesBeanExampleLength" styleClass="error"/>
                                                 </h:panelGroup>
                                                 <h:outputText/>
 
@@ -77,11 +77,11 @@
 
                                 <h:column>
                                         <f:facet name="header">
-                                                <h:outputText value="Length"/>
+                                                <h:outputText value="Annotations"/>
                                         </f:facet>
                                         <h:link outcome="/admin/attributesTypes/view">
                                                 <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemLength" value="#{_item.length}"/>
+                                                <h:outputText id="itemAnnotations" value="#{_item.annotations}"/>
                                         </h:link>
                                 </h:column>
 
@@ -99,11 +99,11 @@
 
                                 <h:column>
                                         <f:facet name="header">
-                                                <h:outputText value="Annotations"/>
+                                                <h:outputText value="Length"/>
                                         </f:facet>
                                         <h:link outcome="/admin/attributesTypes/view">
                                                 <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemAnnotations" value="#{_item.annotations}"/>
+                                                <h:outputText id="itemLength" value="#{_item.length}"/>
                                         </h:link>
                                 </h:column>
 

@@ -32,8 +32,12 @@
                         <h:outputText id="developmentsBeanDevelopmentsOrden" value="#{developmentsBean.developments.orden}"/>
                         <h:outputText/>
 
-                        <h:outputLabel for="developmentsBeanDevelopmentsArtifactId" value="ArtifactId:"/>
-                        <h:outputText id="developmentsBeanDevelopmentsArtifactId" value="#{developmentsBean.developments.artifactId}"/>
+                        <h:outputLabel for="developmentsBeanDevelopmentsCode" value="Code:"/>
+                        <h:outputText id="developmentsBeanDevelopmentsCode" value="#{developmentsBean.developments.code}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="developmentsBeanDevelopmentsDate" value="Date:"/>
+                        <h:outputText id="developmentsBeanDevelopmentsDate" value="Pendiente"/>
                         <h:outputText/>
 
                         <h:outputLabel for="developmentsBeanDevelopmentsGroupId" value="GroupId:"/>
@@ -44,12 +48,8 @@
                         <h:outputText id="developmentsBeanDevelopmentsVersion" value="#{developmentsBean.developments.version}"/>
                         <h:outputText/>
 
-                        <h:outputLabel for="developmentsBeanDevelopmentsCode" value="Code:"/>
-                        <h:outputText id="developmentsBeanDevelopmentsCode" value="#{developmentsBean.developments.code}"/>
-                        <h:outputText/>
-
-                        <h:outputLabel for="developmentsBeanDevelopmentsDate" value="Date:"/>
-                        <h:outputText id="developmentsBeanDevelopmentsDate" value="Pendiente"/>
+                        <h:outputLabel for="developmentsBeanDevelopmentsArtifactId" value="ArtifactId:"/>
+                        <h:outputText id="developmentsBeanDevelopmentsArtifactId" value="#{developmentsBean.developments.artifactId}"/>
                         <h:outputText/>
 
                         <h:outputLabel for="developmentsBeanDevelopmentsObservations" value="Observations:"/>
@@ -71,16 +71,6 @@
 
                                 <h:column>
                                         <f:facet name="header">
-                                                <h:outputText value="ArtifactId"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/models/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemArtifactId" value="#{_item.artifactId}"/>
-                                        </h:link>
-                                </h:column>
-
-                                <h:column>
-                                        <f:facet name="header">
                                                 <h:outputText value="GroupId"/>
                                         </f:facet>
                                         <h:link outcome="/admin/models/view">
@@ -96,6 +86,16 @@
                                         <h:link outcome="/admin/models/view">
                                                 <f:param name="id" value="#{_item.id}"/>
                                                 <h:outputText id="itemVersion" value="#{_item.version}"/>
+                                        </h:link>
+                                </h:column>
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="ArtifactId"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/models/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemArtifactId" value="#{_item.artifactId}"/>
                                         </h:link>
                                 </h:column>
 

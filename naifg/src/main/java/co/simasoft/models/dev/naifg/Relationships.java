@@ -19,18 +19,18 @@ import co.simasoft.models.dev.naifg.*;
 import co.simasoft.models.dev.naifg.dependencies.*;
 import co.simasoft.models.core.sites.*;
 import org.hibernate.search.annotations.Analyze;
-import org.hibernate.search.annotations.DocumentId;
-import org.hibernate.search.annotations.Field;
 import org.hibernate.search.annotations.Index;
-import org.hibernate.search.annotations.Indexed;
+import org.hibernate.search.annotations.Field;
+import org.hibernate.search.annotations.DocumentId;
 import org.hibernate.search.annotations.Store;
-import javax.persistence.ManyToMany;
-import javax.persistence.Temporal;
+import org.hibernate.search.annotations.Indexed;
 import javax.persistence.TemporalType;
+import javax.persistence.Temporal;
 import org.hibernate.search.annotations.DateBridge;
 import org.hibernate.search.annotations.Resolution;
 import javax.persistence.OneToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.ManyToMany;
 
 @Indexed
 @Entity
@@ -58,22 +58,22 @@ public class Relationships implements Serializable {
 	private String name;
 
 	@Column(nullable = true, unique = false)
-	private Boolean isOptionality;
-
-	@Column(nullable = true, unique = false)
 	private Boolean isEmbedded;
 
 	@Column(nullable = true, unique = false)
-	private Boolean isSimplified;
+	private Boolean isOptionality;
 
 	@Column(nullable = true, unique = false)
 	private Boolean isCreate;
 
 	@Column(nullable = true, unique = false)
-	private Boolean isSearch;
+	private Boolean isSimplified;
 
 	@Column(nullable = true, unique = false)
 	private Boolean isView;
+
+	@Column(nullable = true, unique = false)
+	private Boolean isSearch;
 
 	@ManyToMany
 	private Set<AttributesProperties> attributesProperties = new HashSet<AttributesProperties>();
@@ -90,16 +90,16 @@ public class Relationships implements Serializable {
 	public Relationships() {
 	}
 
-	public Relationships(String name, Boolean isOptionality,
-			Boolean isEmbedded, Boolean isSimplified, Boolean isCreate,
-			Boolean isSearch, Boolean isView) {
+	public Relationships(String name, Boolean isEmbedded,
+			Boolean isOptionality, Boolean isCreate, Boolean isSimplified,
+			Boolean isView, Boolean isSearch) {
 		this.name = name;
-		this.isOptionality = isOptionality;
 		this.isEmbedded = isEmbedded;
-		this.isSimplified = isSimplified;
+		this.isOptionality = isOptionality;
 		this.isCreate = isCreate;
-		this.isSearch = isSearch;
+		this.isSimplified = isSimplified;
 		this.isView = isView;
+		this.isSearch = isSearch;
 	}
 
 	public Long getId() {
@@ -136,13 +136,6 @@ public class Relationships implements Serializable {
 		this.name = name;
 	}
 
-	public Boolean getIsOptionality() {
-		return isOptionality;
-	}
-	public void setIsOptionality(Boolean isOptionality) {
-		this.isOptionality = isOptionality;
-	}
-
 	public Boolean getIsEmbedded() {
 		return isEmbedded;
 	}
@@ -150,11 +143,11 @@ public class Relationships implements Serializable {
 		this.isEmbedded = isEmbedded;
 	}
 
-	public Boolean getIsSimplified() {
-		return isSimplified;
+	public Boolean getIsOptionality() {
+		return isOptionality;
 	}
-	public void setIsSimplified(Boolean isSimplified) {
-		this.isSimplified = isSimplified;
+	public void setIsOptionality(Boolean isOptionality) {
+		this.isOptionality = isOptionality;
 	}
 
 	public Boolean getIsCreate() {
@@ -164,11 +157,11 @@ public class Relationships implements Serializable {
 		this.isCreate = isCreate;
 	}
 
-	public Boolean getIsSearch() {
-		return isSearch;
+	public Boolean getIsSimplified() {
+		return isSimplified;
 	}
-	public void setIsSearch(Boolean isSearch) {
-		this.isSearch = isSearch;
+	public void setIsSimplified(Boolean isSimplified) {
+		this.isSimplified = isSimplified;
 	}
 
 	public Boolean getIsView() {
@@ -176,6 +169,13 @@ public class Relationships implements Serializable {
 	}
 	public void setIsView(Boolean isView) {
 		this.isView = isView;
+	}
+
+	public Boolean getIsSearch() {
+		return isSearch;
+	}
+	public void setIsSearch(Boolean isSearch) {
+		this.isSearch = isSearch;
 	}
 
 	public Set<AttributesProperties> getAttributesProperties() {

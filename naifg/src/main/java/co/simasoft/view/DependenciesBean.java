@@ -223,29 +223,29 @@ public class DependenciesBean implements Serializable {
 					builder.lower(root.<String> get("observations")),
 					'%' + observations.toLowerCase() + '%'));
 		}
-		String groupId = this.example.getGroupId();
-		if (groupId != null && !"".equals(groupId)) {
-			predicatesList.add(builder.like(
-					builder.lower(root.<String> get("groupId")),
-					'%' + groupId.toLowerCase() + '%'));
-		}
 		String artifactId = this.example.getArtifactId();
 		if (artifactId != null && !"".equals(artifactId)) {
 			predicatesList.add(builder.like(
 					builder.lower(root.<String> get("artifactId")),
 					'%' + artifactId.toLowerCase() + '%'));
 		}
-		String version = this.example.getVersion();
-		if (version != null && !"".equals(version)) {
+		String groupId = this.example.getGroupId();
+		if (groupId != null && !"".equals(groupId)) {
 			predicatesList.add(builder.like(
-					builder.lower(root.<String> get("version")),
-					'%' + version.toLowerCase() + '%'));
+					builder.lower(root.<String> get("groupId")),
+					'%' + groupId.toLowerCase() + '%'));
 		}
-		String type = this.example.getType();
-		if (type != null && !"".equals(type)) {
+		String maven = this.example.getMaven();
+		if (maven != null && !"".equals(maven)) {
 			predicatesList.add(builder.like(
-					builder.lower(root.<String> get("type")),
-					'%' + type.toLowerCase() + '%'));
+					builder.lower(root.<String> get("maven")),
+					'%' + maven.toLowerCase() + '%'));
+		}
+		String scope = this.example.getScope();
+		if (scope != null && !"".equals(scope)) {
+			predicatesList.add(builder.like(
+					builder.lower(root.<String> get("scope")),
+					'%' + scope.toLowerCase() + '%'));
 		}
 
 		return predicatesList.toArray(new Predicate[predicatesList.size()]);

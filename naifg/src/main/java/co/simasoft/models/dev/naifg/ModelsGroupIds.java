@@ -19,18 +19,18 @@ import co.simasoft.models.dev.naifg.*;
 import co.simasoft.models.dev.naifg.dependencies.*;
 import co.simasoft.models.core.sites.*;
 import org.hibernate.search.annotations.Analyze;
-import org.hibernate.search.annotations.DocumentId;
-import org.hibernate.search.annotations.Field;
 import org.hibernate.search.annotations.Index;
-import org.hibernate.search.annotations.Indexed;
+import org.hibernate.search.annotations.Field;
+import org.hibernate.search.annotations.DocumentId;
 import org.hibernate.search.annotations.Store;
-import javax.persistence.ManyToMany;
-import javax.persistence.Temporal;
+import org.hibernate.search.annotations.Indexed;
 import javax.persistence.TemporalType;
+import javax.persistence.Temporal;
 import org.hibernate.search.annotations.DateBridge;
 import org.hibernate.search.annotations.Resolution;
 import javax.persistence.OneToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.ManyToMany;
 
 @Indexed
 @Entity
@@ -54,10 +54,10 @@ public class ModelsGroupIds implements Serializable {
 	private String observations;
 
 	@Column(nullable = true, unique = false)
-	private Boolean isIsolated;
+	private Boolean isSimplified;
 
 	@Column(nullable = true, unique = false)
-	private Boolean isSimplified;
+	private Boolean isIsolated;
 
 	@ManyToOne
 	private GroupIds groupIds;
@@ -68,9 +68,9 @@ public class ModelsGroupIds implements Serializable {
 	public ModelsGroupIds() {
 	}
 
-	public ModelsGroupIds(Boolean isIsolated, Boolean isSimplified) {
-		this.isIsolated = isIsolated;
+	public ModelsGroupIds(Boolean isSimplified, Boolean isIsolated) {
 		this.isSimplified = isSimplified;
+		this.isIsolated = isIsolated;
 	}
 
 	public Long getId() {
@@ -100,18 +100,18 @@ public class ModelsGroupIds implements Serializable {
 	public void setObservations(String observations) {
 		this.observations = observations;
 	}
-	public Boolean getIsIsolated() {
-		return isIsolated;
-	}
-	public void setIsIsolated(Boolean isIsolated) {
-		this.isIsolated = isIsolated;
-	}
-
 	public Boolean getIsSimplified() {
 		return isSimplified;
 	}
 	public void setIsSimplified(Boolean isSimplified) {
 		this.isSimplified = isSimplified;
+	}
+
+	public Boolean getIsIsolated() {
+		return isIsolated;
+	}
+	public void setIsIsolated(Boolean isIsolated) {
+		this.isIsolated = isIsolated;
 	}
 
 	public GroupIds getGroupIds() {

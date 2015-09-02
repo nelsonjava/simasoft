@@ -224,15 +224,15 @@ public class ModelsGroupIdsBean implements Serializable {
 					builder.lower(root.<String> get("observations")),
 					'%' + observations.toLowerCase() + '%'));
 		}
-		Boolean isIsolated = this.example.getIsIsolated();
-		if (isIsolated != null) {
-			predicatesList
-					.add(builder.equal(root.get("isIsolated"), isIsolated));
-		}
 		Boolean isSimplified = this.example.getIsSimplified();
 		if (isSimplified != null) {
 			predicatesList.add(builder.equal(root.get("isSimplified"),
 					isSimplified));
+		}
+		Boolean isIsolated = this.example.getIsIsolated();
+		if (isIsolated != null) {
+			predicatesList
+					.add(builder.equal(root.get("isIsolated"), isIsolated));
 		}
 		GroupIds groupIds = this.example.getGroupIds();
 		if (groupIds != null) {

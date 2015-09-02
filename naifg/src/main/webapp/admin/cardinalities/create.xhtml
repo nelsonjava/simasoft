@@ -46,17 +46,17 @@
                                 </h:panelGroup>
                                 <h:outputText/>
 
-                                <h:outputLabel for="cardinalitiesBeanCardinalitiesName" value="Name:"/>
-                                <h:panelGroup>
-                                        <h:inputText id="cardinalitiesBeanCardinalitiesName" required="true" value="#{cardinalitiesBean.cardinalities.name}"/>
-                                        <h:message for="cardinalitiesBeanCardinalitiesName" styleClass="error"/>
-                                </h:panelGroup>
-                                <h:outputText value="*"/>
-
                                 <h:outputLabel for="cardinalitiesBeanCardinalitiesCardinality" value="Cardinality:"/>
                                 <h:panelGroup>
                                         <h:inputText id="cardinalitiesBeanCardinalitiesCardinality" required="true" value="#{cardinalitiesBean.cardinalities.cardinality}"/>
                                         <h:message for="cardinalitiesBeanCardinalitiesCardinality" styleClass="error"/>
+                                </h:panelGroup>
+                                <h:outputText value="*"/>
+
+                                <h:outputLabel for="cardinalitiesBeanCardinalitiesName" value="Name:"/>
+                                <h:panelGroup>
+                                        <h:inputText id="cardinalitiesBeanCardinalitiesName" required="true" value="#{cardinalitiesBean.cardinalities.name}"/>
+                                        <h:message for="cardinalitiesBeanCardinalitiesName" styleClass="error"/>
                                 </h:panelGroup>
                                 <h:outputText value="*"/>
 
@@ -71,9 +71,9 @@
                                 </h:panelGroup>
                                 <h:outputText/>
 
-                                <!-- Cardinalities 1..*  Relationships -->
-
                                 <!-- Cardinalities *..*  Imports -->
+
+                                <!-- Cardinalities 1..*  Relationships -->
 
                                 <!-- Cardinalities *..*  Sites -->
 

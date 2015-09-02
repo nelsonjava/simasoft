@@ -46,20 +46,6 @@
                                 </h:panelGroup>
                                 <h:outputText/>
 
-                                <h:outputLabel for="groupIdsBeanGroupIdsGroupId" value="GroupId:"/>
-                                <h:panelGroup>
-                                        <h:inputText id="groupIdsBeanGroupIdsGroupId" required="true" value="#{groupIdsBean.groupIds.groupId}"/>
-                                        <h:message for="groupIdsBeanGroupIdsGroupId" styleClass="error"/>
-                                </h:panelGroup>
-                                <h:outputText value="*"/>
-
-                                <h:outputLabel for="groupIdsBeanGroupIdsVersion" value="Version:"/>
-                                <h:panelGroup>
-                                        <h:inputText id="groupIdsBeanGroupIdsVersion" value="#{groupIdsBean.groupIds.version}"/>
-                                        <h:message for="groupIdsBeanGroupIdsVersion" styleClass="error"/>
-                                </h:panelGroup>
-                                <h:outputText/>
-
                                 <h:outputLabel for="groupIdsBeanGroupIdsCode" value="Code:"/>
                                 <h:panelGroup>
                                         <h:inputText id="groupIdsBeanGroupIdsCode" value="#{groupIdsBean.groupIds.code}"/>
@@ -76,6 +62,20 @@
                                 </h:panelGroup>
                                 <h:outputText/>
 
+                                <h:outputLabel for="groupIdsBeanGroupIdsGroupId" value="GroupId:"/>
+                                <h:panelGroup>
+                                        <h:inputText id="groupIdsBeanGroupIdsGroupId" required="true" value="#{groupIdsBean.groupIds.groupId}"/>
+                                        <h:message for="groupIdsBeanGroupIdsGroupId" styleClass="error"/>
+                                </h:panelGroup>
+                                <h:outputText value="*"/>
+
+                                <h:outputLabel for="groupIdsBeanGroupIdsVersion" value="Version:"/>
+                                <h:panelGroup>
+                                        <h:inputText id="groupIdsBeanGroupIdsVersion" value="#{groupIdsBean.groupIds.version}"/>
+                                        <h:message for="groupIdsBeanGroupIdsVersion" styleClass="error"/>
+                                </h:panelGroup>
+                                <h:outputText/>
+
                                 <h:outputLabel for="groupIdsBeanGroupIdsArtifactId" value="ArtifactId:"/>
                                 <h:panelGroup>
                                         <h:inputText id="groupIdsBeanGroupIdsArtifactId" required="true" value="#{groupIdsBean.groupIds.artifactId}"/>
@@ -83,9 +83,9 @@
                                 </h:panelGroup>
                                 <h:outputText value="*"/>
 
-                                <!-- GroupIds 1..*  ModelsGroupIds -->
-
                                 <!-- GroupIds 1..*  Entities -->
+
+                                <!-- GroupIds 1..*  ModelsGroupIds -->
 
                                 <h:outputLabel for="groupIdsBeanGroupIdsObservations" value="Observations:"/>
                                 <h:panelGroup>

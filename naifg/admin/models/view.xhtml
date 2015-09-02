@@ -32,16 +32,16 @@
                         <h:outputText id="modelsBeanModelsOrden" value="#{modelsBean.models.orden}"/>
                         <h:outputText/>
 
-                        <h:outputLabel for="modelsBeanModelsArtifactId" value="ArtifactId:"/>
-                        <h:outputText id="modelsBeanModelsArtifactId" value="#{modelsBean.models.artifactId}"/>
-                        <h:outputText/>
-
                         <h:outputLabel for="modelsBeanModelsGroupId" value="GroupId:"/>
                         <h:outputText id="modelsBeanModelsGroupId" value="#{modelsBean.models.groupId}"/>
                         <h:outputText/>
 
                         <h:outputLabel for="modelsBeanModelsVersion" value="Version:"/>
                         <h:outputText id="modelsBeanModelsVersion" value="#{modelsBean.models.version}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="modelsBeanModelsArtifactId" value="ArtifactId:"/>
+                        <h:outputText id="modelsBeanModelsArtifactId" value="#{modelsBean.models.artifactId}"/>
                         <h:outputText/>
 
                         <h:outputLabel for="modelsBeanModelsCode" value="Code:"/>
@@ -71,22 +71,20 @@
 
                                 <h:column>
                                         <f:facet name="header">
-                                                <h:outputText value="IsIsolated"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/modelsGroupIds/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemIsIsolated" value="#{_item.isIsolated}"/>
-                                        </h:link>
-                                </h:column>
-
-                                <h:column>
-                                        <f:facet name="header">
                                                 <h:outputText value="IsSimplified"/>
                                         </f:facet>
                                         <h:link outcome="/admin/modelsGroupIds/view">
                                                 <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemIsSimplified" value="#{_item.isSimplified}"/>
-                                        </h:link>
+                                                <h:outputText styleClass="#{_item.isSimplified ? 'boolean-true' : 'boolean-false'}" value=""/>                                        </h:link>
+                                </h:column>
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="IsIsolated"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/modelsGroupIds/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText styleClass="#{_item.isIsolated ? 'boolean-true' : 'boolean-false'}" value=""/>                                        </h:link>
                                 </h:column>
 
                         </h:dataTable>
@@ -153,16 +151,6 @@
 
                                 <h:column>
                                         <f:facet name="header">
-                                                <h:outputText value="ArtifactId"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/models/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemArtifactId" value="#{_item.artifactId}"/>
-                                        </h:link>
-                                </h:column>
-
-                                <h:column>
-                                        <f:facet name="header">
                                                 <h:outputText value="GroupId"/>
                                         </f:facet>
                                         <h:link outcome="/admin/models/view">
@@ -178,6 +166,16 @@
                                         <h:link outcome="/admin/models/view">
                                                 <f:param name="id" value="#{_item.id}"/>
                                                 <h:outputText id="itemVersion" value="#{_item.version}"/>
+                                        </h:link>
+                                </h:column>
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="ArtifactId"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/models/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemArtifactId" value="#{_item.artifactId}"/>
                                         </h:link>
                                 </h:column>
 

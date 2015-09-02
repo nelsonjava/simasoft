@@ -28,18 +28,18 @@ import import co.simasoft.models.dev.naifg.*;
 import import co.simasoft.models.dev.naifg.dependencies.*;
 import import co.simasoft.models.core.sites.*;
 import import org.hibernate.search.annotations.Analyze;
-import import org.hibernate.search.annotations.DocumentId;
-import import org.hibernate.search.annotations.Field;
 import import org.hibernate.search.annotations.Index;
-import import org.hibernate.search.annotations.Indexed;
+import import org.hibernate.search.annotations.Field;
+import import org.hibernate.search.annotations.DocumentId;
 import import org.hibernate.search.annotations.Store;
-import import javax.persistence.ManyToMany;
-import import javax.persistence.Temporal;
+import import org.hibernate.search.annotations.Indexed;
 import import javax.persistence.TemporalType;
+import import javax.persistence.Temporal;
 import import org.hibernate.search.annotations.DateBridge;
 import import org.hibernate.search.annotations.Resolution;
 import import javax.persistence.OneToMany;
 import import javax.persistence.ManyToOne;
+import import javax.persistence.ManyToMany;
 import java.util.Iterator;
 
 @Named
@@ -136,19 +136,19 @@ public class GroupIdsBean implements Serializable{
 
                 try {
                         GroupIds deletableEntity = findById(getId());
-                        Iterator<ModelsGroupIds> iterModelsGroupIds = deletableEntity.getModelsGroupIds().iterator();
-                        for (; iterModelsGroupIds.hasNext();){
-                               ModelsGroupIds nextInModelsGroupIds = iterModelsGroupIds.next();
-                                nextInModelsGroupIds.setGroupIds(null);
-                               iterModelsGroupIds.remove();
-                               this.entityManager.merge(nextInModelsGroupIds);
-                        }
                         Iterator<Entities> iterEntities = deletableEntity.getEntities().iterator();
                         for (; iterEntities.hasNext();){
                                Entities nextInEntities = iterEntities.next();
                                 nextInEntities.setGroupIds(null);
                                iterEntities.remove();
                                this.entityManager.merge(nextInEntities);
+                        }
+                        Iterator<ModelsGroupIds> iterModelsGroupIds = deletableEntity.getModelsGroupIds().iterator();
+                        for (; iterModelsGroupIds.hasNext();){
+                               ModelsGroupIds nextInModelsGroupIds = iterModelsGroupIds.next();
+                                nextInModelsGroupIds.setGroupIds(null);
+                               iterModelsGroupIds.remove();
+                               this.entityManager.merge(nextInModelsGroupIds);
                         }
                         this.entityManager.remove(deletableEntity);
                         this.entityManager.flush();

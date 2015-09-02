@@ -30,17 +30,17 @@
                                 <h:panelGroup styleClass="search">
 
                                         <h:panelGrid columnClasses="label,component,required" columns="3">
-                                                <h:outputLabel for="cardinalitiesBeanExampleName" value="Name:"/>
-                                                <h:panelGroup>
-                                                        <h:inputText id="cardinalitiesBeanExampleName" value="#{cardinalitiesBean.example.name}"/>
-                                                        <h:message for="cardinalitiesBeanExampleName" styleClass="error"/>
-                                                </h:panelGroup>
-                                                <h:outputText/>
-
                                                 <h:outputLabel for="cardinalitiesBeanExampleCardinality" value="Cardinality:"/>
                                                 <h:panelGroup>
                                                         <h:inputText id="cardinalitiesBeanExampleCardinality" value="#{cardinalitiesBean.example.cardinality}"/>
                                                         <h:message for="cardinalitiesBeanExampleCardinality" styleClass="error"/>
+                                                </h:panelGroup>
+                                                <h:outputText/>
+
+                                                <h:outputLabel for="cardinalitiesBeanExampleName" value="Name:"/>
+                                                <h:panelGroup>
+                                                        <h:inputText id="cardinalitiesBeanExampleName" value="#{cardinalitiesBean.example.name}"/>
+                                                        <h:message for="cardinalitiesBeanExampleName" styleClass="error"/>
                                                 </h:panelGroup>
                                                 <h:outputText/>
 
@@ -67,22 +67,22 @@
 
                                 <h:column>
                                         <f:facet name="header">
-                                                <h:outputText value="Name"/>
+                                                <h:outputText value="Cardinality"/>
                                         </f:facet>
                                         <h:link outcome="/admin/cardinalities/view">
                                                 <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemName" value="#{_item.name}"/>
+                                                <h:outputText id="itemCardinality" value="#{_item.cardinality}"/>
                                         </h:link>
                                 </h:column>
 
 
                                 <h:column>
                                         <f:facet name="header">
-                                                <h:outputText value="Cardinality"/>
+                                                <h:outputText value="Name"/>
                                         </f:facet>
                                         <h:link outcome="/admin/cardinalities/view">
                                                 <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemCardinality" value="#{_item.cardinality}"/>
+                                                <h:outputText id="itemName" value="#{_item.name}"/>
                                         </h:link>
                                 </h:column>
 

@@ -262,11 +262,11 @@ public class EntitiesBean implements Serializable {
 			predicatesList.add(builder.equal(root.get("isSimplified"),
 					isSimplified));
 		}
-		String name = this.example.getName();
-		if (name != null && !"".equals(name)) {
+		String table = this.example.getTable();
+		if (table != null && !"".equals(table)) {
 			predicatesList.add(builder.like(
-					builder.lower(root.<String> get("name")),
-					'%' + name.toLowerCase() + '%'));
+					builder.lower(root.<String> get("table")),
+					'%' + table.toLowerCase() + '%'));
 		}
 		String serialID = this.example.getSerialID();
 		if (serialID != null && !"".equals(serialID)) {

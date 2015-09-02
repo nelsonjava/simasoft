@@ -225,19 +225,19 @@ public class AttributesTypesBean implements Serializable {
 					builder.lower(root.<String> get("observations")),
 					'%' + observations.toLowerCase() + '%'));
 		}
-		Integer length = this.example.getLength();
-		if (length != null && length.intValue() != 0) {
-			predicatesList.add(builder.equal(root.get("length"), length));
-		}
-		Integer precision = this.example.getPrecision();
-		if (precision != null && precision.intValue() != 0) {
-			predicatesList.add(builder.equal(root.get("precision"), precision));
-		}
 		String annotations = this.example.getAnnotations();
 		if (annotations != null && !"".equals(annotations)) {
 			predicatesList.add(builder.like(
 					builder.lower(root.<String> get("annotations")),
 					'%' + annotations.toLowerCase() + '%'));
+		}
+		Integer precision = this.example.getPrecision();
+		if (precision != null && precision.intValue() != 0) {
+			predicatesList.add(builder.equal(root.get("precision"), precision));
+		}
+		Integer length = this.example.getLength();
+		if (length != null && length.intValue() != 0) {
+			predicatesList.add(builder.equal(root.get("length"), length));
 		}
 		String name = this.example.getName();
 		if (name != null && !"".equals(name)) {

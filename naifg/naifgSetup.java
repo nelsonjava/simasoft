@@ -95,51 +95,51 @@ public class naifgSetup {
 //      ---------------------- Relationships ------------------------
 
 /*
-. Attributes . *..* AttributesProperties
-. Attributes . *..* Sites
 . Models . 1..* ModelsGroupIds
 . Models . *..* Sites
+. Attributes . *..* AttributesProperties
+. Attributes . *..* Sites
 . Relationships . *..* AttributesProperties
 . Developments . *..* Models
 . Developments . *..* Sites
-. Entities . *..* Sites
+. GroupIds . 1..* Entities
+. GroupIds . 1..* ModelsGroupIds
+. Cardinalities . *..* Imports
+. Cardinalities . 1..* Relationships
+. Cardinalities . *..* Sites
 . Entities . 1..* Attributes
-. Entities . *..* AttributesProperties
 . Entities . 1..* NameQueries
 . Entities . *..* Imports
+. Entities . *..* AttributesProperties
+. Entities . *..* Sites
 . Entities . 1..* Relationships
 . Entities . 1..* Relationships
-. GroupIds . 1..* ModelsGroupIds
-. GroupIds . 1..* Entities
-. Cardinalities . 1..* Relationships
-. Cardinalities . *..* Imports
-. Cardinalities . *..* Sites
 . Imports . *..* Sites
-. Dependencies . *..* Sites
 . Dependencies . 1..* Imports
+. Dependencies . *..* Sites
 . AttributesProperties . *..* Imports
 . AttributesProperties . *..* Sites
-. AttributesTypes . 1..* Attributes
 . AttributesTypes . *..* Sites
 . AttributesTypes . *..* AttributesProperties
-. SitesTypes . *..* Sites
+. AttributesTypes . 1..* Attributes
 . SitesTypes . 1..* SitesTypes
+. SitesTypes . *..* Sites
 */
         Relationships relationships1 = new Relationships();
         relationships1.setIsOptionality(true);
         relationships1.setIsEmbedded(false);
         relationships1.setName("");
-//      ...................... Attributes ........................
+//      ...................... Models ........................
         Entities entities1 = new Entities();
-        entities1 = findBean.nameEntities("Attributes",em);
+        entities1 = findBean.nameEntities("Models",em);
         relationships1.setFrom(entities1);
-//      ...................... AttributesProperties ........................
+//      ...................... ModelsGroupIds ........................
         Entities entities2 = new Entities();
-        entities2 = findBean.nameEntities("AttributesProperties",em);
+        entities2 = findBean.nameEntities("ModelsGroupIds",em);
         relationships1.setTo(entities2);
-//      ...................... Muchos a Muchos Bidirecccional No.7 ........................
+//      ...................... Uno a Muchos Bidirecccional No.5 ........................
         Cardinalities cardinalities3 = new Cardinalities();
-        cardinalities3 = findBean.nameCardinalities("Muchos a Muchos Bidirecccional No.7",em);
+        cardinalities3 = findBean.nameCardinalities("Uno a Muchos Bidirecccional No.5",em);
         relationships1.setCardinalities(cardinalities3);
         em.persist(relationships1);
         em.flush();
@@ -148,9 +148,9 @@ public class naifgSetup {
         relationships2.setIsOptionality(true);
         relationships2.setIsEmbedded(false);
         relationships2.setName("");
-//      ...................... Attributes ........................
+//      ...................... Models ........................
         Entities entities4 = new Entities();
-        entities4 = findBean.nameEntities("Attributes",em);
+        entities4 = findBean.nameEntities("Models",em);
         relationships2.setFrom(entities4);
 //      ...................... Sites ........................
         Entities entities5 = new Entities();
@@ -167,17 +167,17 @@ public class naifgSetup {
         relationships3.setIsOptionality(true);
         relationships3.setIsEmbedded(false);
         relationships3.setName("");
-//      ...................... Models ........................
+//      ...................... Attributes ........................
         Entities entities7 = new Entities();
-        entities7 = findBean.nameEntities("Models",em);
+        entities7 = findBean.nameEntities("Attributes",em);
         relationships3.setFrom(entities7);
-//      ...................... ModelsGroupIds ........................
+//      ...................... AttributesProperties ........................
         Entities entities8 = new Entities();
-        entities8 = findBean.nameEntities("ModelsGroupIds",em);
+        entities8 = findBean.nameEntities("AttributesProperties",em);
         relationships3.setTo(entities8);
-//      ...................... Uno a Muchos Bidirecccional No.5 ........................
+//      ...................... Muchos a Muchos Bidirecccional No.7 ........................
         Cardinalities cardinalities9 = new Cardinalities();
-        cardinalities9 = findBean.nameCardinalities("Uno a Muchos Bidirecccional No.5",em);
+        cardinalities9 = findBean.nameCardinalities("Muchos a Muchos Bidirecccional No.7",em);
         relationships3.setCardinalities(cardinalities9);
         em.persist(relationships3);
         em.flush();
@@ -186,9 +186,9 @@ public class naifgSetup {
         relationships4.setIsOptionality(true);
         relationships4.setIsEmbedded(false);
         relationships4.setName("");
-//      ...................... Models ........................
+//      ...................... Attributes ........................
         Entities entities10 = new Entities();
-        entities10 = findBean.nameEntities("Models",em);
+        entities10 = findBean.nameEntities("Attributes",em);
         relationships4.setFrom(entities10);
 //      ...................... Sites ........................
         Entities entities11 = new Entities();
@@ -262,17 +262,17 @@ public class naifgSetup {
         relationships8.setIsOptionality(true);
         relationships8.setIsEmbedded(false);
         relationships8.setName("");
-//      ...................... Entities ........................
+//      ...................... GroupIds ........................
         Entities entities22 = new Entities();
-        entities22 = findBean.nameEntities("Entities",em);
+        entities22 = findBean.nameEntities("GroupIds",em);
         relationships8.setFrom(entities22);
-//      ...................... Sites ........................
+//      ...................... Entities ........................
         Entities entities23 = new Entities();
-        entities23 = findBean.nameEntities("Sites",em);
+        entities23 = findBean.nameEntities("Entities",em);
         relationships8.setTo(entities23);
-//      ...................... Muchos a Muchos Bidirecccional No.7 ........................
+//      ...................... Uno a Muchos Bidirecccional No.5 ........................
         Cardinalities cardinalities24 = new Cardinalities();
-        cardinalities24 = findBean.nameCardinalities("Muchos a Muchos Bidirecccional No.7",em);
+        cardinalities24 = findBean.nameCardinalities("Uno a Muchos Bidirecccional No.5",em);
         relationships8.setCardinalities(cardinalities24);
         em.persist(relationships8);
         em.flush();
@@ -281,13 +281,13 @@ public class naifgSetup {
         relationships9.setIsOptionality(true);
         relationships9.setIsEmbedded(false);
         relationships9.setName("");
-//      ...................... Entities ........................
+//      ...................... GroupIds ........................
         Entities entities25 = new Entities();
-        entities25 = findBean.nameEntities("Entities",em);
+        entities25 = findBean.nameEntities("GroupIds",em);
         relationships9.setFrom(entities25);
-//      ...................... Attributes ........................
+//      ...................... ModelsGroupIds ........................
         Entities entities26 = new Entities();
-        entities26 = findBean.nameEntities("Attributes",em);
+        entities26 = findBean.nameEntities("ModelsGroupIds",em);
         relationships9.setTo(entities26);
 //      ...................... Uno a Muchos Bidirecccional No.5 ........................
         Cardinalities cardinalities27 = new Cardinalities();
@@ -300,13 +300,13 @@ public class naifgSetup {
         relationships10.setIsOptionality(true);
         relationships10.setIsEmbedded(false);
         relationships10.setName("");
-//      ...................... Entities ........................
+//      ...................... Cardinalities ........................
         Entities entities28 = new Entities();
-        entities28 = findBean.nameEntities("Entities",em);
+        entities28 = findBean.nameEntities("Cardinalities",em);
         relationships10.setFrom(entities28);
-//      ...................... AttributesProperties ........................
+//      ...................... Imports ........................
         Entities entities29 = new Entities();
-        entities29 = findBean.nameEntities("AttributesProperties",em);
+        entities29 = findBean.nameEntities("Imports",em);
         relationships10.setTo(entities29);
 //      ...................... Muchos a Muchos Bidirecccional No.7 ........................
         Cardinalities cardinalities30 = new Cardinalities();
@@ -319,13 +319,13 @@ public class naifgSetup {
         relationships11.setIsOptionality(true);
         relationships11.setIsEmbedded(false);
         relationships11.setName("");
-//      ...................... Entities ........................
+//      ...................... Cardinalities ........................
         Entities entities31 = new Entities();
-        entities31 = findBean.nameEntities("Entities",em);
+        entities31 = findBean.nameEntities("Cardinalities",em);
         relationships11.setFrom(entities31);
-//      ...................... NameQueries ........................
+//      ...................... Relationships ........................
         Entities entities32 = new Entities();
-        entities32 = findBean.nameEntities("NameQueries",em);
+        entities32 = findBean.nameEntities("Relationships",em);
         relationships11.setTo(entities32);
 //      ...................... Uno a Muchos Bidirecccional No.5 ........................
         Cardinalities cardinalities33 = new Cardinalities();
@@ -338,13 +338,13 @@ public class naifgSetup {
         relationships12.setIsOptionality(true);
         relationships12.setIsEmbedded(false);
         relationships12.setName("");
-//      ...................... Entities ........................
+//      ...................... Cardinalities ........................
         Entities entities34 = new Entities();
-        entities34 = findBean.nameEntities("Entities",em);
+        entities34 = findBean.nameEntities("Cardinalities",em);
         relationships12.setFrom(entities34);
-//      ...................... Imports ........................
+//      ...................... Sites ........................
         Entities entities35 = new Entities();
-        entities35 = findBean.nameEntities("Imports",em);
+        entities35 = findBean.nameEntities("Sites",em);
         relationships12.setTo(entities35);
 //      ...................... Muchos a Muchos Bidirecccional No.7 ........................
         Cardinalities cardinalities36 = new Cardinalities();
@@ -356,14 +356,14 @@ public class naifgSetup {
         Relationships relationships13 = new Relationships();
         relationships13.setIsOptionality(true);
         relationships13.setIsEmbedded(false);
-        relationships13.setName("from");
+        relationships13.setName("");
 //      ...................... Entities ........................
         Entities entities37 = new Entities();
         entities37 = findBean.nameEntities("Entities",em);
         relationships13.setFrom(entities37);
-//      ...................... Relationships ........................
+//      ...................... Attributes ........................
         Entities entities38 = new Entities();
-        entities38 = findBean.nameEntities("Relationships",em);
+        entities38 = findBean.nameEntities("Attributes",em);
         relationships13.setTo(entities38);
 //      ...................... Uno a Muchos Bidirecccional No.5 ........................
         Cardinalities cardinalities39 = new Cardinalities();
@@ -375,14 +375,14 @@ public class naifgSetup {
         Relationships relationships14 = new Relationships();
         relationships14.setIsOptionality(true);
         relationships14.setIsEmbedded(false);
-        relationships14.setName("to");
+        relationships14.setName("");
 //      ...................... Entities ........................
         Entities entities40 = new Entities();
         entities40 = findBean.nameEntities("Entities",em);
         relationships14.setFrom(entities40);
-//      ...................... Relationships ........................
+//      ...................... NameQueries ........................
         Entities entities41 = new Entities();
-        entities41 = findBean.nameEntities("Relationships",em);
+        entities41 = findBean.nameEntities("NameQueries",em);
         relationships14.setTo(entities41);
 //      ...................... Uno a Muchos Bidirecccional No.5 ........................
         Cardinalities cardinalities42 = new Cardinalities();
@@ -395,17 +395,17 @@ public class naifgSetup {
         relationships15.setIsOptionality(true);
         relationships15.setIsEmbedded(false);
         relationships15.setName("");
-//      ...................... GroupIds ........................
+//      ...................... Entities ........................
         Entities entities43 = new Entities();
-        entities43 = findBean.nameEntities("GroupIds",em);
+        entities43 = findBean.nameEntities("Entities",em);
         relationships15.setFrom(entities43);
-//      ...................... ModelsGroupIds ........................
+//      ...................... Imports ........................
         Entities entities44 = new Entities();
-        entities44 = findBean.nameEntities("ModelsGroupIds",em);
+        entities44 = findBean.nameEntities("Imports",em);
         relationships15.setTo(entities44);
-//      ...................... Uno a Muchos Bidirecccional No.5 ........................
+//      ...................... Muchos a Muchos Bidirecccional No.7 ........................
         Cardinalities cardinalities45 = new Cardinalities();
-        cardinalities45 = findBean.nameCardinalities("Uno a Muchos Bidirecccional No.5",em);
+        cardinalities45 = findBean.nameCardinalities("Muchos a Muchos Bidirecccional No.7",em);
         relationships15.setCardinalities(cardinalities45);
         em.persist(relationships15);
         em.flush();
@@ -414,17 +414,17 @@ public class naifgSetup {
         relationships16.setIsOptionality(true);
         relationships16.setIsEmbedded(false);
         relationships16.setName("");
-//      ...................... GroupIds ........................
-        Entities entities46 = new Entities();
-        entities46 = findBean.nameEntities("GroupIds",em);
-        relationships16.setFrom(entities46);
 //      ...................... Entities ........................
+        Entities entities46 = new Entities();
+        entities46 = findBean.nameEntities("Entities",em);
+        relationships16.setFrom(entities46);
+//      ...................... AttributesProperties ........................
         Entities entities47 = new Entities();
-        entities47 = findBean.nameEntities("Entities",em);
+        entities47 = findBean.nameEntities("AttributesProperties",em);
         relationships16.setTo(entities47);
-//      ...................... Uno a Muchos Bidirecccional No.5 ........................
+//      ...................... Muchos a Muchos Bidirecccional No.7 ........................
         Cardinalities cardinalities48 = new Cardinalities();
-        cardinalities48 = findBean.nameCardinalities("Uno a Muchos Bidirecccional No.5",em);
+        cardinalities48 = findBean.nameCardinalities("Muchos a Muchos Bidirecccional No.7",em);
         relationships16.setCardinalities(cardinalities48);
         em.persist(relationships16);
         em.flush();
@@ -433,17 +433,17 @@ public class naifgSetup {
         relationships17.setIsOptionality(true);
         relationships17.setIsEmbedded(false);
         relationships17.setName("");
-//      ...................... Cardinalities ........................
+//      ...................... Entities ........................
         Entities entities49 = new Entities();
-        entities49 = findBean.nameEntities("Cardinalities",em);
+        entities49 = findBean.nameEntities("Entities",em);
         relationships17.setFrom(entities49);
-//      ...................... Relationships ........................
+//      ...................... Sites ........................
         Entities entities50 = new Entities();
-        entities50 = findBean.nameEntities("Relationships",em);
+        entities50 = findBean.nameEntities("Sites",em);
         relationships17.setTo(entities50);
-//      ...................... Uno a Muchos Bidirecccional No.5 ........................
+//      ...................... Muchos a Muchos Bidirecccional No.7 ........................
         Cardinalities cardinalities51 = new Cardinalities();
-        cardinalities51 = findBean.nameCardinalities("Uno a Muchos Bidirecccional No.5",em);
+        cardinalities51 = findBean.nameCardinalities("Muchos a Muchos Bidirecccional No.7",em);
         relationships17.setCardinalities(cardinalities51);
         em.persist(relationships17);
         em.flush();
@@ -451,18 +451,18 @@ public class naifgSetup {
         Relationships relationships18 = new Relationships();
         relationships18.setIsOptionality(true);
         relationships18.setIsEmbedded(false);
-        relationships18.setName("");
-//      ...................... Cardinalities ........................
+        relationships18.setName("from");
+//      ...................... Entities ........................
         Entities entities52 = new Entities();
-        entities52 = findBean.nameEntities("Cardinalities",em);
+        entities52 = findBean.nameEntities("Entities",em);
         relationships18.setFrom(entities52);
-//      ...................... Imports ........................
+//      ...................... Relationships ........................
         Entities entities53 = new Entities();
-        entities53 = findBean.nameEntities("Imports",em);
+        entities53 = findBean.nameEntities("Relationships",em);
         relationships18.setTo(entities53);
-//      ...................... Muchos a Muchos Bidirecccional No.7 ........................
+//      ...................... Uno a Muchos Bidirecccional No.5 ........................
         Cardinalities cardinalities54 = new Cardinalities();
-        cardinalities54 = findBean.nameCardinalities("Muchos a Muchos Bidirecccional No.7",em);
+        cardinalities54 = findBean.nameCardinalities("Uno a Muchos Bidirecccional No.5",em);
         relationships18.setCardinalities(cardinalities54);
         em.persist(relationships18);
         em.flush();
@@ -470,18 +470,18 @@ public class naifgSetup {
         Relationships relationships19 = new Relationships();
         relationships19.setIsOptionality(true);
         relationships19.setIsEmbedded(false);
-        relationships19.setName("");
-//      ...................... Cardinalities ........................
+        relationships19.setName("to");
+//      ...................... Entities ........................
         Entities entities55 = new Entities();
-        entities55 = findBean.nameEntities("Cardinalities",em);
+        entities55 = findBean.nameEntities("Entities",em);
         relationships19.setFrom(entities55);
-//      ...................... Sites ........................
+//      ...................... Relationships ........................
         Entities entities56 = new Entities();
-        entities56 = findBean.nameEntities("Sites",em);
+        entities56 = findBean.nameEntities("Relationships",em);
         relationships19.setTo(entities56);
-//      ...................... Muchos a Muchos Bidirecccional No.7 ........................
+//      ...................... Uno a Muchos Bidirecccional No.5 ........................
         Cardinalities cardinalities57 = new Cardinalities();
-        cardinalities57 = findBean.nameCardinalities("Muchos a Muchos Bidirecccional No.7",em);
+        cardinalities57 = findBean.nameCardinalities("Uno a Muchos Bidirecccional No.5",em);
         relationships19.setCardinalities(cardinalities57);
         em.persist(relationships19);
         em.flush();
@@ -513,13 +513,13 @@ public class naifgSetup {
         Entities entities61 = new Entities();
         entities61 = findBean.nameEntities("Dependencies",em);
         relationships21.setFrom(entities61);
-//      ...................... Sites ........................
+//      ...................... Imports ........................
         Entities entities62 = new Entities();
-        entities62 = findBean.nameEntities("Sites",em);
+        entities62 = findBean.nameEntities("Imports",em);
         relationships21.setTo(entities62);
-//      ...................... Muchos a Muchos Bidirecccional No.7 ........................
+//      ...................... Uno a Muchos Bidirecccional No.5 ........................
         Cardinalities cardinalities63 = new Cardinalities();
-        cardinalities63 = findBean.nameCardinalities("Muchos a Muchos Bidirecccional No.7",em);
+        cardinalities63 = findBean.nameCardinalities("Uno a Muchos Bidirecccional No.5",em);
         relationships21.setCardinalities(cardinalities63);
         em.persist(relationships21);
         em.flush();
@@ -532,13 +532,13 @@ public class naifgSetup {
         Entities entities64 = new Entities();
         entities64 = findBean.nameEntities("Dependencies",em);
         relationships22.setFrom(entities64);
-//      ...................... Imports ........................
+//      ...................... Sites ........................
         Entities entities65 = new Entities();
-        entities65 = findBean.nameEntities("Imports",em);
+        entities65 = findBean.nameEntities("Sites",em);
         relationships22.setTo(entities65);
-//      ...................... Uno a Muchos Bidirecccional No.5 ........................
+//      ...................... Muchos a Muchos Bidirecccional No.7 ........................
         Cardinalities cardinalities66 = new Cardinalities();
-        cardinalities66 = findBean.nameCardinalities("Uno a Muchos Bidirecccional No.5",em);
+        cardinalities66 = findBean.nameCardinalities("Muchos a Muchos Bidirecccional No.7",em);
         relationships22.setCardinalities(cardinalities66);
         em.persist(relationships22);
         em.flush();
@@ -589,13 +589,13 @@ public class naifgSetup {
         Entities entities73 = new Entities();
         entities73 = findBean.nameEntities("AttributesTypes",em);
         relationships25.setFrom(entities73);
-//      ...................... Attributes ........................
+//      ...................... Sites ........................
         Entities entities74 = new Entities();
-        entities74 = findBean.nameEntities("Attributes",em);
+        entities74 = findBean.nameEntities("Sites",em);
         relationships25.setTo(entities74);
-//      ...................... Uno a Muchos Bidirecccional No.5 ........................
+//      ...................... Muchos a Muchos Bidirecccional No.7 ........................
         Cardinalities cardinalities75 = new Cardinalities();
-        cardinalities75 = findBean.nameCardinalities("Uno a Muchos Bidirecccional No.5",em);
+        cardinalities75 = findBean.nameCardinalities("Muchos a Muchos Bidirecccional No.7",em);
         relationships25.setCardinalities(cardinalities75);
         em.persist(relationships25);
         em.flush();
@@ -608,9 +608,9 @@ public class naifgSetup {
         Entities entities76 = new Entities();
         entities76 = findBean.nameEntities("AttributesTypes",em);
         relationships26.setFrom(entities76);
-//      ...................... Sites ........................
+//      ...................... AttributesProperties ........................
         Entities entities77 = new Entities();
-        entities77 = findBean.nameEntities("Sites",em);
+        entities77 = findBean.nameEntities("AttributesProperties",em);
         relationships26.setTo(entities77);
 //      ...................... Muchos a Muchos Bidirecccional No.7 ........................
         Cardinalities cardinalities78 = new Cardinalities();
@@ -627,13 +627,13 @@ public class naifgSetup {
         Entities entities79 = new Entities();
         entities79 = findBean.nameEntities("AttributesTypes",em);
         relationships27.setFrom(entities79);
-//      ...................... AttributesProperties ........................
+//      ...................... Attributes ........................
         Entities entities80 = new Entities();
-        entities80 = findBean.nameEntities("AttributesProperties",em);
+        entities80 = findBean.nameEntities("Attributes",em);
         relationships27.setTo(entities80);
-//      ...................... Muchos a Muchos Bidirecccional No.7 ........................
+//      ...................... Uno a Muchos Bidirecccional No.5 ........................
         Cardinalities cardinalities81 = new Cardinalities();
-        cardinalities81 = findBean.nameCardinalities("Muchos a Muchos Bidirecccional No.7",em);
+        cardinalities81 = findBean.nameCardinalities("Uno a Muchos Bidirecccional No.5",em);
         relationships27.setCardinalities(cardinalities81);
         em.persist(relationships27);
         em.flush();
@@ -646,13 +646,13 @@ public class naifgSetup {
         Entities entities82 = new Entities();
         entities82 = findBean.nameEntities("SitesTypes",em);
         relationships28.setFrom(entities82);
-//      ...................... Sites ........................
+//      ...................... SitesTypes ........................
         Entities entities83 = new Entities();
-        entities83 = findBean.nameEntities("Sites",em);
+        entities83 = findBean.nameEntities("SitesTypes",em);
         relationships28.setTo(entities83);
-//      ...................... Muchos a Muchos Bidirecccional No.7 ........................
+//      ...................... Uno a Muchos Bidirecccional No.5 ........................
         Cardinalities cardinalities84 = new Cardinalities();
-        cardinalities84 = findBean.nameCardinalities("Muchos a Muchos Bidirecccional No.7",em);
+        cardinalities84 = findBean.nameCardinalities("Uno a Muchos Bidirecccional No.5",em);
         relationships28.setCardinalities(cardinalities84);
         em.persist(relationships28);
         em.flush();
@@ -665,13 +665,13 @@ public class naifgSetup {
         Entities entities85 = new Entities();
         entities85 = findBean.nameEntities("SitesTypes",em);
         relationships29.setFrom(entities85);
-//      ...................... SitesTypes ........................
+//      ...................... Sites ........................
         Entities entities86 = new Entities();
-        entities86 = findBean.nameEntities("SitesTypes",em);
+        entities86 = findBean.nameEntities("Sites",em);
         relationships29.setTo(entities86);
-//      ...................... Uno a Muchos Bidirecccional No.5 ........................
+//      ...................... Muchos a Muchos Bidirecccional No.7 ........................
         Cardinalities cardinalities87 = new Cardinalities();
-        cardinalities87 = findBean.nameCardinalities("Uno a Muchos Bidirecccional No.5",em);
+        cardinalities87 = findBean.nameCardinalities("Muchos a Muchos Bidirecccional No.7",em);
         relationships29.setCardinalities(cardinalities87);
         em.persist(relationships29);
         em.flush();

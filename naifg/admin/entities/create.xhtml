@@ -64,12 +64,12 @@
                                 </h:panelGroup>
                                 <h:outputText/>
 
-                                <h:outputLabel for="entitiesBeanEntitiesName" value="Name:"/>
+                                <h:outputLabel for="entitiesBeanEntitiesTable" value="Table:"/>
                                 <h:panelGroup>
-                                        <h:inputText id="entitiesBeanEntitiesName" required="true" value="#{entitiesBean.entities.name}"/>
-                                        <h:message for="entitiesBeanEntitiesName" styleClass="error"/>
+                                        <h:inputText id="entitiesBeanEntitiesTable" value="#{entitiesBean.entities.table}"/>
+                                        <h:message for="entitiesBeanEntitiesTable" styleClass="error"/>
                                 </h:panelGroup>
-                                <h:outputText value="*"/>
+                                <h:outputText/>
 
                                 <h:outputLabel for="entitiesBeanEntitiesSerialID" value="SerialID:"/>
                                 <h:panelGroup>
@@ -78,22 +78,22 @@
                                 </h:panelGroup>
                                 <h:outputText/>
 
-                                <h:outputLabel for="entitiesBeanEntitiesTable" value="Table:"/>
+                                <h:outputLabel for="entitiesBeanEntitiesName" value="Name:"/>
                                 <h:panelGroup>
-                                        <h:inputText id="entitiesBeanEntitiesTable" value="#{entitiesBean.entities.table}"/>
-                                        <h:message for="entitiesBeanEntitiesTable" styleClass="error"/>
+                                        <h:inputText id="entitiesBeanEntitiesName" required="true" value="#{entitiesBean.entities.name}"/>
+                                        <h:message for="entitiesBeanEntitiesName" styleClass="error"/>
                                 </h:panelGroup>
-                                <h:outputText/>
-
-                                <!-- Entities *..*  Sites -->
+                                <h:outputText value="*"/>
 
                                 <!-- Entities 1..*  Attributes -->
-
-                                <!-- Entities *..*  AttributesProperties -->
 
                                 <!-- Entities 1..*  NameQueries -->
 
                                 <!-- Entities *..*  Imports -->
+
+                                <!-- Entities *..*  AttributesProperties -->
+
+                                <!-- Entities *..*  Sites -->
 
                                 <!-- Entities 1..*  Relationships -->
 

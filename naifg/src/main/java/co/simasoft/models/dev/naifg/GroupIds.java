@@ -19,18 +19,18 @@ import co.simasoft.models.dev.naifg.*;
 import co.simasoft.models.dev.naifg.dependencies.*;
 import co.simasoft.models.core.sites.*;
 import org.hibernate.search.annotations.Analyze;
-import org.hibernate.search.annotations.DocumentId;
-import org.hibernate.search.annotations.Field;
 import org.hibernate.search.annotations.Index;
-import org.hibernate.search.annotations.Indexed;
+import org.hibernate.search.annotations.Field;
+import org.hibernate.search.annotations.DocumentId;
 import org.hibernate.search.annotations.Store;
-import javax.persistence.ManyToMany;
-import javax.persistence.Temporal;
+import org.hibernate.search.annotations.Indexed;
 import javax.persistence.TemporalType;
+import javax.persistence.Temporal;
 import org.hibernate.search.annotations.DateBridge;
 import org.hibernate.search.annotations.Resolution;
 import javax.persistence.OneToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.ManyToMany;
 
 @Indexed
 @Entity
@@ -53,14 +53,6 @@ public class GroupIds implements Serializable {
 	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
 	private String observations;
 
-	@Column(nullable = false, unique = true)
-	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-	private String groupId;
-
-	@Column(nullable = true, unique = false)
-	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-	private String version;
-
 	@Column(nullable = true, unique = false)
 	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
 	private String code;
@@ -72,23 +64,31 @@ public class GroupIds implements Serializable {
 
 	@Column(nullable = false, unique = true)
 	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-	private String artifactId;
+	private String groupId;
 
-	@OneToMany(mappedBy = "groupIds")
-	private Set<ModelsGroupIds> modelsGroupIds = new HashSet<ModelsGroupIds>();
+	@Column(nullable = true, unique = false)
+	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+	private String version;
+
+	@Column(nullable = false, unique = true)
+	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+	private String artifactId;
 
 	@OneToMany(mappedBy = "groupIds")
 	private Set<Entities> entities = new HashSet<Entities>();
 
+	@OneToMany(mappedBy = "groupIds")
+	private Set<ModelsGroupIds> modelsGroupIds = new HashSet<ModelsGroupIds>();
+
 	public GroupIds() {
 	}
 
-	public GroupIds(String groupId, String version, String code, Date date,
+	public GroupIds(String code, Date date, String groupId, String version,
 			String artifactId) {
-		this.groupId = groupId;
-		this.version = version;
 		this.code = code;
 		this.date = date;
+		this.groupId = groupId;
+		this.version = version;
 		this.artifactId = artifactId;
 	}
 
@@ -119,20 +119,6 @@ public class GroupIds implements Serializable {
 	public void setObservations(String observations) {
 		this.observations = observations;
 	}
-	public String getGroupId() {
-		return groupId;
-	}
-	public void setGroupId(String groupId) {
-		this.groupId = groupId;
-	}
-
-	public String getVersion() {
-		return version;
-	}
-	public void setVersion(String version) {
-		this.version = version;
-	}
-
 	public String getCode() {
 		return code;
 	}
@@ -147,6 +133,20 @@ public class GroupIds implements Serializable {
 		this.date = date;
 	}
 
+	public String getGroupId() {
+		return groupId;
+	}
+	public void setGroupId(String groupId) {
+		this.groupId = groupId;
+	}
+
+	public String getVersion() {
+		return version;
+	}
+	public void setVersion(String version) {
+		this.version = version;
+	}
+
 	public String getArtifactId() {
 		return artifactId;
 	}
@@ -154,18 +154,18 @@ public class GroupIds implements Serializable {
 		this.artifactId = artifactId;
 	}
 
-	public Set<ModelsGroupIds> getModelsGroupIds() {
-		return modelsGroupIds;
-	}
-	public void setModelsGroupIds(Set<ModelsGroupIds> modelsGroupIds) {
-		this.modelsGroupIds = modelsGroupIds;
-	}
-
 	public Set<Entities> getEntities() {
 		return entities;
 	}
 	public void setEntities(Set<Entities> entities) {
 		this.entities = entities;
+	}
+
+	public Set<ModelsGroupIds> getModelsGroupIds() {
+		return modelsGroupIds;
+	}
+	public void setModelsGroupIds(Set<ModelsGroupIds> modelsGroupIds) {
+		this.modelsGroupIds = modelsGroupIds;
 	}
 
 	@Override

@@ -32,12 +32,12 @@
                         <h:outputText id="modelsGroupIdsBeanModelsGroupIdsOrden" value="#{modelsGroupIdsBean.modelsGroupIds.orden}"/>
                         <h:outputText/>
 
-                        <h:outputLabel for="modelsGroupIdsBeanModelsGroupIdsIsIsolated" value="IsIsolated:"/>
-                        <h:outputText id="modelsGroupIdsBeanModelsGroupIdsIsIsolated" value="#{modelsGroupIdsBean.modelsGroupIds.isIsolated}"/>
-                        <h:outputText/>
-
                         <h:outputLabel for="modelsGroupIdsBeanModelsGroupIdsIsSimplified" value="IsSimplified:"/>
                         <h:outputText id="modelsGroupIdsBeanModelsGroupIdsIsSimplified" value="#{modelsGroupIdsBean.modelsGroupIds.isSimplified}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="modelsGroupIdsBeanModelsGroupIdsIsIsolated" value="IsIsolated:"/>
+                        <h:outputText id="modelsGroupIdsBeanModelsGroupIdsIsIsolated" value="#{modelsGroupIdsBean.modelsGroupIds.isIsolated}"/>
                         <h:outputText/>
 
                         <h:outputLabel for="modelsGroupIdsBeanModelsGroupIdsObservations" value="Observations:"/>
@@ -45,13 +45,13 @@
                         <h:outputText/>
 
                         <h:outputLabel for="modelsGroupIdsBeanModelsGroupIdsGroupIds" value="groupIds:"/>
-                        <h:link id="modelsGroupIdsBeanModelsGroupIdsGroupIds" outcome="/admin/groupIds/view" rendered="#{!empty modelsGroupIdsBean.modelsGroupIds.groupIds}" value="#{modelsGroupIdsBean.modelsGroupIds.groupIds}">
+                        <h:link id="modelsGroupIdsBeanModelsGroupIdsGroupIds" outcome="/admin/groupIds/view" rendered="#{!empty modelsGroupIdsBean.modelsGroupIds.groupIds}" value="#{modelsGroupIdsBean.modelsGroupIds.groupIds.artifactId}">
                                 <f:param name="id" value="#{modelsGroupIdsBean.modelsGroupIds.groupIds.id}"/>
                         </h:link>
                         <h:outputText/>
 
                         <h:outputLabel for="modelsGroupIdsBeanModelsGroupIdsModels" value="models:"/>
-                        <h:link id="modelsGroupIdsBeanModelsGroupIdsModels" outcome="/admin/models/view" rendered="#{!empty modelsGroupIdsBean.modelsGroupIds.models}" value="#{modelsGroupIdsBean.modelsGroupIds.models}">
+                        <h:link id="modelsGroupIdsBeanModelsGroupIdsModels" outcome="/admin/models/view" rendered="#{!empty modelsGroupIdsBean.modelsGroupIds.models}" value="#{modelsGroupIdsBean.modelsGroupIds.models.artifactId}">
                                 <f:param name="id" value="#{modelsGroupIdsBean.modelsGroupIds.models.id}"/>
                         </h:link>
                         <h:outputText/>

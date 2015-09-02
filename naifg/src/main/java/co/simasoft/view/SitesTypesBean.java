@@ -132,13 +132,6 @@ public class SitesTypesBean implements Serializable {
 
 		try {
 			SitesTypes deletableEntity = findById(getId());
-			Iterator<Sites> iterSites = deletableEntity.getSites().iterator();
-			for (; iterSites.hasNext();) {
-				Sites nextInSites = iterSites.next();
-				nextInSites.getSitesTypes().remove(deletableEntity);
-				iterSites.remove();
-				this.entityManager.merge(nextInSites);
-			}
 			Iterator<SitesTypes> iterObjHijos = deletableEntity.getObjHijos()
 					.iterator();
 			for (; iterObjHijos.hasNext();) {
@@ -146,6 +139,13 @@ public class SitesTypesBean implements Serializable {
 				nextInObjHijos.setObjPadre(null);
 				iterObjHijos.remove();
 				this.entityManager.merge(nextInObjHijos);
+			}
+			Iterator<Sites> iterSites = deletableEntity.getSites().iterator();
+			for (; iterSites.hasNext();) {
+				Sites nextInSites = iterSites.next();
+				nextInSites.getSitesTypes().remove(deletableEntity);
+				iterSites.remove();
+				this.entityManager.merge(nextInSites);
 			}
 			SitesTypes objPadre = deletableEntity.getObjPadre();
 			objPadre.getObjHijos().remove(deletableEntity);

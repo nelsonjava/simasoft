@@ -234,20 +234,19 @@ public class RelationshipsBean implements Serializable {
 					builder.lower(root.<String> get("name")),
 					'%' + name.toLowerCase() + '%'));
 		}
-		Boolean isOptionality = this.example.getIsOptionality();
-		if (isOptionality != null) {
-			predicatesList.add(builder.equal(root.get("isOptionality"),
-					isOptionality));
-		}
 		Boolean isEmbedded = this.example.getIsEmbedded();
 		if (isEmbedded != null) {
 			predicatesList
 					.add(builder.equal(root.get("isEmbedded"), isEmbedded));
 		}
-		Boolean isSimplified = this.example.getIsSimplified();
-		if (isSimplified != null) {
-			predicatesList.add(builder.equal(root.get("isSimplified"),
-					isSimplified));
+		Boolean isOptionality = this.example.getIsOptionality();
+		if (isOptionality != null) {
+			predicatesList.add(builder.equal(root.get("isOptionality"),
+					isOptionality));
+		}
+		Boolean isCreate = this.example.getIsCreate();
+		if (isCreate != null) {
+			predicatesList.add(builder.equal(root.get("isCreate"), isCreate));
 		}
 
 		return predicatesList.toArray(new Predicate[predicatesList.size()]);

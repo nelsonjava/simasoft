@@ -19,18 +19,18 @@ import co.simasoft.models.dev.naifg.*;
 import co.simasoft.models.dev.naifg.dependencies.*;
 import co.simasoft.models.core.sites.*;
 import org.hibernate.search.annotations.Analyze;
-import org.hibernate.search.annotations.DocumentId;
-import org.hibernate.search.annotations.Field;
 import org.hibernate.search.annotations.Index;
-import org.hibernate.search.annotations.Indexed;
+import org.hibernate.search.annotations.Field;
+import org.hibernate.search.annotations.DocumentId;
 import org.hibernate.search.annotations.Store;
-import javax.persistence.ManyToMany;
-import javax.persistence.Temporal;
+import org.hibernate.search.annotations.Indexed;
 import javax.persistence.TemporalType;
+import javax.persistence.Temporal;
 import org.hibernate.search.annotations.DateBridge;
 import org.hibernate.search.annotations.Resolution;
 import javax.persistence.OneToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.ManyToMany;
 
 @Indexed
 @Entity
@@ -57,11 +57,11 @@ public class SitesTypes implements Serializable {
 	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
 	private String name;
 
-	@ManyToMany
-	private Set<Sites> sites = new HashSet<Sites>();
-
 	@OneToMany(mappedBy = "objPadre")
 	private Set<SitesTypes> objHijos = new HashSet<SitesTypes>();
+
+	@ManyToMany
+	private Set<Sites> sites = new HashSet<Sites>();
 
 	@ManyToOne
 	private SitesTypes objPadre;
@@ -107,18 +107,18 @@ public class SitesTypes implements Serializable {
 		this.name = name;
 	}
 
-	public Set<Sites> getSites() {
-		return sites;
-	}
-	public void setSites(Set<Sites> sites) {
-		this.sites = sites;
-	}
-
 	public Set<SitesTypes> getObjHijos() {
 		return this.objHijos;
 	}
 	public void setObjHijos(Set<SitesTypes> objHijos) {
 		this.objHijos = objHijos;
+	}
+
+	public Set<Sites> getSites() {
+		return sites;
+	}
+	public void setSites(Set<Sites> sites) {
+		this.sites = sites;
 	}
 
 	public SitesTypes getObjPadre() {

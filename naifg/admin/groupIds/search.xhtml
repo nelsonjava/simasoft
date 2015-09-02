@@ -30,6 +30,14 @@
                                 <h:panelGroup styleClass="search">
 
                                         <h:panelGrid columnClasses="label,component,required" columns="3">
+                                                <h:outputLabel for="groupIdsBeanExampleCode" value="Code:"/>
+                                                <h:panelGroup>
+                                                        <h:inputText id="groupIdsBeanExampleCode" value="#{groupIdsBean.example.code}"/>
+                                                        <h:message for="groupIdsBeanExampleCode" styleClass="error"/>
+                                                </h:panelGroup>
+                                                <h:outputText/>
+
+
                                                 <h:outputLabel for="groupIdsBeanExampleGroupId" value="GroupId:"/>
                                                 <h:panelGroup>
                                                         <h:inputText id="groupIdsBeanExampleGroupId" value="#{groupIdsBean.example.groupId}"/>
@@ -43,14 +51,6 @@
                                                         <h:message for="groupIdsBeanExampleVersion" styleClass="error"/>
                                                 </h:panelGroup>
                                                 <h:outputText/>
-
-                                                <h:outputLabel for="groupIdsBeanExampleCode" value="Code:"/>
-                                                <h:panelGroup>
-                                                        <h:inputText id="groupIdsBeanExampleCode" value="#{groupIdsBean.example.code}"/>
-                                                        <h:message for="groupIdsBeanExampleCode" styleClass="error"/>
-                                                </h:panelGroup>
-                                                <h:outputText/>
-
 
                                                 <h:outputLabel for="groupIdsBeanExampleArtifactId" value="ArtifactId:"/>
                                                 <h:panelGroup>
@@ -68,28 +68,6 @@
                         </f:validateBean>
 
                         <h:dataTable id="groupIdsBeanPageItems" styleClass="data-table" value="#{groupIdsBean.pageItems}" var="_item">
-
-                                <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="GroupId"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/groupIds/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemGroupId" value="#{_item.groupId}"/>
-                                        </h:link>
-                                </h:column>
-
-
-                                <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="Version"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/groupIds/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemVersion" value="#{_item.version}"/>
-                                        </h:link>
-                                </h:column>
-
 
                                 <h:column>
                                         <f:facet name="header">
@@ -111,6 +89,28 @@
                                                 <h:outputText id="itemDate" value="#{_item.date}"/>
                                                         <f:convertDateTime type="date"/>
                                                <h:outputText/>
+                                        </h:link>
+                                </h:column>
+
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="GroupId"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/groupIds/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemGroupId" value="#{_item.groupId}"/>
+                                        </h:link>
+                                </h:column>
+
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Version"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/groupIds/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemVersion" value="#{_item.version}"/>
                                         </h:link>
                                 </h:column>
 

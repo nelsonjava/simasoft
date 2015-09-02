@@ -48,10 +48,10 @@
                                                 </h:panelGroup>
                                                 <h:outputText/>
 
-                                                <h:outputLabel for="entitiesBeanExampleName" value="Name:"/>
+                                                <h:outputLabel for="entitiesBeanExampleTable" value="Table:"/>
                                                 <h:panelGroup>
-                                                        <h:inputText id="entitiesBeanExampleName" value="#{entitiesBean.example.name}"/>
-                                                        <h:message for="entitiesBeanExampleName" styleClass="error"/>
+                                                        <h:inputText id="entitiesBeanExampleTable" value="#{entitiesBean.example.table}"/>
+                                                        <h:message for="entitiesBeanExampleTable" styleClass="error"/>
                                                 </h:panelGroup>
                                                 <h:outputText/>
 
@@ -62,10 +62,10 @@
                                                 </h:panelGroup>
                                                 <h:outputText/>
 
-                                                <h:outputLabel for="entitiesBeanExampleTable" value="Table:"/>
+                                                <h:outputLabel for="entitiesBeanExampleName" value="Name:"/>
                                                 <h:panelGroup>
-                                                        <h:inputText id="entitiesBeanExampleTable" value="#{entitiesBean.example.table}"/>
-                                                        <h:message for="entitiesBeanExampleTable" styleClass="error"/>
+                                                        <h:inputText id="entitiesBeanExampleName" value="#{entitiesBean.example.name}"/>
+                                                        <h:message for="entitiesBeanExampleName" styleClass="error"/>
                                                 </h:panelGroup>
                                                 <h:outputText/>
 
@@ -103,11 +103,11 @@
 
                                 <h:column>
                                         <f:facet name="header">
-                                                <h:outputText value="Name"/>
+                                                <h:outputText value="Table"/>
                                         </f:facet>
                                         <h:link outcome="/admin/entities/view">
                                                 <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemName" value="#{_item.name}"/>
+                                                <h:outputText id="itemTable" value="#{_item.table}"/>
                                         </h:link>
                                 </h:column>
 
@@ -125,11 +125,11 @@
 
                                 <h:column>
                                         <f:facet name="header">
-                                                <h:outputText value="Table"/>
+                                                <h:outputText value="Name"/>
                                         </f:facet>
                                         <h:link outcome="/admin/entities/view">
                                                 <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemTable" value="#{_item.table}"/>
+                                                <h:outputText id="itemName" value="#{_item.name}"/>
                                         </h:link>
                                 </h:column>
 

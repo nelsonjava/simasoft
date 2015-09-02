@@ -46,27 +46,6 @@
                                 </h:panelGroup>
                                 <h:outputText/>
 
-                                <h:outputLabel for="entitiesBeanEntitiesName" value="Name:"/>
-                                <h:panelGroup>
-                                        <h:inputText id="entitiesBeanEntitiesName" required="true" value="#{entitiesBean.entities.name}"/>
-                                        <h:message for="entitiesBeanEntitiesName" styleClass="error"/>
-                                </h:panelGroup>
-                                <h:outputText value="*"/>
-
-                                <h:outputLabel for="entitiesBeanEntitiesSerialID" value="SerialID:"/>
-                                <h:panelGroup>
-                                        <h:inputText id="entitiesBeanEntitiesSerialID" value="#{entitiesBean.entities.serialID}"/>
-                                        <h:message for="entitiesBeanEntitiesSerialID" styleClass="error"/>
-                                </h:panelGroup>
-                                <h:outputText/>
-
-                                <h:outputLabel for="entitiesBeanEntitiesTable" value="Table:"/>
-                                <h:panelGroup>
-                                        <h:inputText id="entitiesBeanEntitiesTable" value="#{entitiesBean.entities.table}"/>
-                                        <h:message for="entitiesBeanEntitiesTable" styleClass="error"/>
-                                </h:panelGroup>
-                                <h:outputText/>
-
                                 <h:outputLabel for="entitiesBeanEntitiesDescription" value="Description:"/>
                                 <h:panelGroup>
                                         <h:inputText id="entitiesBeanEntitiesDescription" value="#{entitiesBean.entities.description}"/>
@@ -85,25 +64,46 @@
                                 </h:panelGroup>
                                 <h:outputText/>
 
+                                <h:outputLabel for="entitiesBeanEntitiesTable" value="Table:"/>
+                                <h:panelGroup>
+                                        <h:inputText id="entitiesBeanEntitiesTable" value="#{entitiesBean.entities.table}"/>
+                                        <h:message for="entitiesBeanEntitiesTable" styleClass="error"/>
+                                </h:panelGroup>
+                                <h:outputText/>
+
+                                <h:outputLabel for="entitiesBeanEntitiesSerialID" value="SerialID:"/>
+                                <h:panelGroup>
+                                        <h:inputText id="entitiesBeanEntitiesSerialID" value="#{entitiesBean.entities.serialID}"/>
+                                        <h:message for="entitiesBeanEntitiesSerialID" styleClass="error"/>
+                                </h:panelGroup>
+                                <h:outputText/>
+
+                                <h:outputLabel for="entitiesBeanEntitiesName" value="Name:"/>
+                                <h:panelGroup>
+                                        <h:inputText id="entitiesBeanEntitiesName" required="true" value="#{entitiesBean.entities.name}"/>
+                                        <h:message for="entitiesBeanEntitiesName" styleClass="error"/>
+                                </h:panelGroup>
+                                <h:outputText value="*"/>
+
+                                <!-- Entities 1..*  Attributes -->
+
                                 <!-- Entities 1..*  NameQueries -->
+
+                                <!-- Entities *..*  Imports -->
+
+                                <!-- Entities *..*  AttributesProperties -->
 
                                 <!-- Entities *..*  Sites -->
 
                                 <!-- Entities 1..*  Relationships -->
 
-                                <!-- Entities *..*  AttributesProperties -->
-
                                 <!-- Entities 1..*  Relationships -->
 
-                                <!-- Entities 1..*  Attributes -->
-
-                                <!-- Entities *..*  Imports -->
-
-                                <h:outputLabel for="groupIdsBeangroupIdsEntities" value="Entities:"/>
+                                <h:outputLabel for="entitiesBeanentitiesGroupIds" value="GroupIds:"/>
                                 <h:panelGroup>
-                                         <h:selectOneMenu converter="#{entitiesBean.converter}" id="groupIdsBeanGroupIdsEntities" value="#{groupIdsBean.groupIds.entities}">
+                                         <h:selectOneMenu converter="#{groupIdsBean.converter}" id="entitiesBeanEntitiesGroupIds" value="#{entitiesBean.entities.groupIds}">
                                                 <f:selectItem/>
-                                                <f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{entitiesBean.all}" var="_item"/>
+                                                <f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{groupIdsBean.all}" var="_item"/>
                                         </h:selectOneMenu>
                                         <h:message for="entitiesBeanEntitiesIsSimplified" styleClass="error"/>
                                 </h:panelGroup>

@@ -19,18 +19,18 @@ import co.simasoft.models.dev.naifg.*;
 import co.simasoft.models.dev.naifg.dependencies.*;
 import co.simasoft.models.core.sites.*;
 import org.hibernate.search.annotations.Analyze;
-import org.hibernate.search.annotations.DocumentId;
-import org.hibernate.search.annotations.Field;
 import org.hibernate.search.annotations.Index;
-import org.hibernate.search.annotations.Indexed;
+import org.hibernate.search.annotations.Field;
+import org.hibernate.search.annotations.DocumentId;
 import org.hibernate.search.annotations.Store;
-import javax.persistence.ManyToMany;
-import javax.persistence.Temporal;
+import org.hibernate.search.annotations.Indexed;
 import javax.persistence.TemporalType;
+import javax.persistence.Temporal;
 import org.hibernate.search.annotations.DateBridge;
 import org.hibernate.search.annotations.Resolution;
 import javax.persistence.OneToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.ManyToMany;
 
 @Indexed
 @Entity
@@ -54,14 +54,14 @@ public class AttributesTypes implements Serializable {
 	private String observations;
 
 	@Column(nullable = true, unique = false)
-	private Integer length;
+	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+	private String annotations;
 
 	@Column(nullable = true, unique = false)
 	private Integer precision;
 
 	@Column(nullable = true, unique = false)
-	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-	private String annotations;
+	private Integer length;
 
 	@Column(nullable = false, unique = true)
 	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
@@ -71,23 +71,23 @@ public class AttributesTypes implements Serializable {
 	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
 	private String type;
 
-	@OneToMany(mappedBy = "attributesTypes")
-	private Set<Attributes> attributes = new HashSet<Attributes>();
-
 	@ManyToMany
 	private Set<Sites> sites = new HashSet<Sites>();
 
 	@ManyToMany
 	private Set<AttributesProperties> attributesProperties = new HashSet<AttributesProperties>();
 
+	@OneToMany(mappedBy = "attributesTypes")
+	private Set<Attributes> attributes = new HashSet<Attributes>();
+
 	public AttributesTypes() {
 	}
 
-	public AttributesTypes(Integer length, Integer precision,
-			String annotations, String name, String type) {
-		this.length = length;
-		this.precision = precision;
+	public AttributesTypes(String annotations, Integer precision,
+			Integer length, String name, String type) {
 		this.annotations = annotations;
+		this.precision = precision;
+		this.length = length;
 		this.name = name;
 		this.type = type;
 	}
@@ -119,11 +119,11 @@ public class AttributesTypes implements Serializable {
 	public void setObservations(String observations) {
 		this.observations = observations;
 	}
-	public Integer getLength() {
-		return length;
+	public String getAnnotations() {
+		return annotations;
 	}
-	public void setLength(Integer length) {
-		this.length = length;
+	public void setAnnotations(String annotations) {
+		this.annotations = annotations;
 	}
 
 	public Integer getPrecision() {
@@ -133,11 +133,11 @@ public class AttributesTypes implements Serializable {
 		this.precision = precision;
 	}
 
-	public String getAnnotations() {
-		return annotations;
+	public Integer getLength() {
+		return length;
 	}
-	public void setAnnotations(String annotations) {
-		this.annotations = annotations;
+	public void setLength(Integer length) {
+		this.length = length;
 	}
 
 	public String getName() {
@@ -154,13 +154,6 @@ public class AttributesTypes implements Serializable {
 		this.type = type;
 	}
 
-	public Set<Attributes> getAttributes() {
-		return attributes;
-	}
-	public void setAttributes(Set<Attributes> attributes) {
-		this.attributes = attributes;
-	}
-
 	public Set<Sites> getSites() {
 		return sites;
 	}
@@ -174,6 +167,13 @@ public class AttributesTypes implements Serializable {
 	public void setAttributesProperties(
 			Set<AttributesProperties> attributesProperties) {
 		this.attributesProperties = attributesProperties;
+	}
+
+	public Set<Attributes> getAttributes() {
+		return attributes;
+	}
+	public void setAttributes(Set<Attributes> attributes) {
+		this.attributes = attributes;
 	}
 
 	@Override

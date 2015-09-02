@@ -19,18 +19,18 @@ import co.simasoft.models.dev.naifg.*;
 import co.simasoft.models.dev.naifg.dependencies.*;
 import co.simasoft.models.core.sites.*;
 import org.hibernate.search.annotations.Analyze;
-import org.hibernate.search.annotations.DocumentId;
-import org.hibernate.search.annotations.Field;
 import org.hibernate.search.annotations.Index;
-import org.hibernate.search.annotations.Indexed;
+import org.hibernate.search.annotations.Field;
+import org.hibernate.search.annotations.DocumentId;
 import org.hibernate.search.annotations.Store;
-import javax.persistence.ManyToMany;
-import javax.persistence.Temporal;
+import org.hibernate.search.annotations.Indexed;
 import javax.persistence.TemporalType;
+import javax.persistence.Temporal;
 import org.hibernate.search.annotations.DateBridge;
 import org.hibernate.search.annotations.Resolution;
 import javax.persistence.OneToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.ManyToMany;
 
 @Indexed
 @Entity
@@ -55,15 +55,19 @@ public class Dependencies implements Serializable {
 
 	@Column(nullable = false, unique = false)
 	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-	private String groupId;
+	private String artifactId;
 
 	@Column(nullable = false, unique = false)
 	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-	private String artifactId;
+	private String groupId;
+
+	@Column(nullable = false, unique = true)
+	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+	private String maven;
 
 	@Column(nullable = true, unique = false)
 	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-	private String version;
+	private String scope;
 
 	@Column(nullable = true, unique = false)
 	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
@@ -71,29 +75,25 @@ public class Dependencies implements Serializable {
 
 	@Column(nullable = true, unique = false)
 	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-	private String scope;
-
-	@Column(nullable = false, unique = true)
-	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-	private String maven;
-
-	@ManyToMany
-	private Set<Sites> sites = new HashSet<Sites>();
+	private String version;
 
 	@OneToMany(mappedBy = "dependencies")
 	private Set<Imports> imports = new HashSet<Imports>();
 
+	@ManyToMany
+	private Set<Sites> sites = new HashSet<Sites>();
+
 	public Dependencies() {
 	}
 
-	public Dependencies(String groupId, String artifactId, String version,
-			String type, String scope, String maven) {
-		this.groupId = groupId;
+	public Dependencies(String artifactId, String groupId, String maven,
+			String scope, String type, String version) {
 		this.artifactId = artifactId;
-		this.version = version;
-		this.type = type;
-		this.scope = scope;
+		this.groupId = groupId;
 		this.maven = maven;
+		this.scope = scope;
+		this.type = type;
+		this.version = version;
 	}
 
 	public Long getId() {
@@ -123,13 +123,6 @@ public class Dependencies implements Serializable {
 	public void setObservations(String observations) {
 		this.observations = observations;
 	}
-	public String getGroupId() {
-		return groupId;
-	}
-	public void setGroupId(String groupId) {
-		this.groupId = groupId;
-	}
-
 	public String getArtifactId() {
 		return artifactId;
 	}
@@ -137,25 +130,11 @@ public class Dependencies implements Serializable {
 		this.artifactId = artifactId;
 	}
 
-	public String getVersion() {
-		return version;
+	public String getGroupId() {
+		return groupId;
 	}
-	public void setVersion(String version) {
-		this.version = version;
-	}
-
-	public String getType() {
-		return type;
-	}
-	public void setType(String type) {
-		this.type = type;
-	}
-
-	public String getScope() {
-		return scope;
-	}
-	public void setScope(String scope) {
-		this.scope = scope;
+	public void setGroupId(String groupId) {
+		this.groupId = groupId;
 	}
 
 	public String getMaven() {
@@ -165,11 +144,25 @@ public class Dependencies implements Serializable {
 		this.maven = maven;
 	}
 
-	public Set<Sites> getSites() {
-		return sites;
+	public String getScope() {
+		return scope;
 	}
-	public void setSites(Set<Sites> sites) {
-		this.sites = sites;
+	public void setScope(String scope) {
+		this.scope = scope;
+	}
+
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public String getVersion() {
+		return version;
+	}
+	public void setVersion(String version) {
+		this.version = version;
 	}
 
 	public Set<Imports> getImports() {
@@ -177,6 +170,13 @@ public class Dependencies implements Serializable {
 	}
 	public void setImports(Set<Imports> imports) {
 		this.imports = imports;
+	}
+
+	public Set<Sites> getSites() {
+		return sites;
+	}
+	public void setSites(Set<Sites> sites) {
+		this.sites = sites;
 	}
 
 	@Override

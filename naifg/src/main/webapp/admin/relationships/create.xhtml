@@ -53,17 +53,6 @@
                                 </h:panelGroup>
                                 <h:outputText/>
 
-                                <h:outputLabel for="relationshipsBeanRelationshipsIsOptionality" value="IsOptionality:"/>
-                                <h:panelGroup>
-                                        <h:selectOneMenu id="relationshipsBeanRelationshipsIsOptionality" value="#{relationshipsBean.relationships.isOptionality}">
-                                                <f:selectItem/>
-                                                <f:selectItem itemLabel="Yes" itemValue="true"/>
-                                                <f:selectItem itemLabel="No" itemValue="false"/>
-                                        </h:selectOneMenu>
-                                        <h:message for="entitiesBeanEntitiesIsSimplified" styleClass="error"/>
-                                </h:panelGroup>
-                                <h:outputText/>
-
                                 <h:outputLabel for="relationshipsBeanRelationshipsIsEmbedded" value="IsEmbedded:"/>
                                 <h:panelGroup>
                                         <h:selectOneMenu id="relationshipsBeanRelationshipsIsEmbedded" value="#{relationshipsBean.relationships.isEmbedded}">
@@ -75,9 +64,9 @@
                                 </h:panelGroup>
                                 <h:outputText/>
 
-                                <h:outputLabel for="relationshipsBeanRelationshipsIsSimplified" value="IsSimplified:"/>
+                                <h:outputLabel for="relationshipsBeanRelationshipsIsOptionality" value="IsOptionality:"/>
                                 <h:panelGroup>
-                                        <h:selectOneMenu id="relationshipsBeanRelationshipsIsSimplified" value="#{relationshipsBean.relationships.isSimplified}">
+                                        <h:selectOneMenu id="relationshipsBeanRelationshipsIsOptionality" value="#{relationshipsBean.relationships.isOptionality}">
                                                 <f:selectItem/>
                                                 <f:selectItem itemLabel="Yes" itemValue="true"/>
                                                 <f:selectItem itemLabel="No" itemValue="false"/>
@@ -97,9 +86,9 @@
                                 </h:panelGroup>
                                 <h:outputText/>
 
-                                <h:outputLabel for="relationshipsBeanRelationshipsIsSearch" value="IsSearch:"/>
+                                <h:outputLabel for="relationshipsBeanRelationshipsIsSimplified" value="IsSimplified:"/>
                                 <h:panelGroup>
-                                        <h:selectOneMenu id="relationshipsBeanRelationshipsIsSearch" value="#{relationshipsBean.relationships.isSearch}">
+                                        <h:selectOneMenu id="relationshipsBeanRelationshipsIsSimplified" value="#{relationshipsBean.relationships.isSimplified}">
                                                 <f:selectItem/>
                                                 <f:selectItem itemLabel="Yes" itemValue="true"/>
                                                 <f:selectItem itemLabel="No" itemValue="false"/>
@@ -119,35 +108,48 @@
                                 </h:panelGroup>
                                 <h:outputText/>
 
-				<h:outputLabel for="relationshipsBeanRelationshipsFrom" value="From:"/>
-				<h:panelGroup>
-					<h:selectOneMenu converter="#{entitiesBean.converter}" id="relationshipsBeanRelationshipsFrom" value="#{relationshipsBean.relationships.from}">
-						<f:selectItem/>
-						<f:selectItems itemLabel="#{forgeview:display(_item.name)}" itemValue="#{_item}" value="#{entitiesBean.all}" var="_item"/>
-					</h:selectOneMenu>
-					<h:message for="relationshipsBeanRelationshipsFrom" styleClass="error"/>
-				</h:panelGroup>
-				<h:outputText/>
+                                <h:outputLabel for="relationshipsBeanRelationshipsIsSearch" value="IsSearch:"/>
+                                <h:panelGroup>
+                                        <h:selectOneMenu id="relationshipsBeanRelationshipsIsSearch" value="#{relationshipsBean.relationships.isSearch}">
+                                                <f:selectItem/>
+                                                <f:selectItem itemLabel="Yes" itemValue="true"/>
+                                                <f:selectItem itemLabel="No" itemValue="false"/>
+                                        </h:selectOneMenu>
+                                        <h:message for="entitiesBeanEntitiesIsSimplified" styleClass="error"/>
+                                </h:panelGroup>
+                                <h:outputText/>
 
-				<h:outputLabel for="relationshipsBeanRelationshipsTo" value="To:"/>
-				<h:panelGroup>
-					<h:selectOneMenu converter="#{entitiesBean.converter}" id="relationshipsBeanRelationshipsTo" value="#{relationshipsBean.relationships.to}">
-						<f:selectItem/>
-						<f:selectItems itemLabel="#{forgeview:display(_item.name)}" itemValue="#{_item}" value="#{entitiesBean.all}" var="_item"/>
-					</h:selectOneMenu>
-					<h:message for="relationshipsBeanRelationshipsTo" styleClass="error"/>
-				</h:panelGroup>
-				<h:outputText/>
+                                <!-- Relationships *..*  AttributesProperties -->
 
-				<h:outputLabel for="relationshipsBeanRelationshipsCardinalities" value="Cardinalities:"/>
-				<h:panelGroup>
-					<h:selectOneMenu converter="#{cardinalitiesBean.converter}" id="relationshipsBeanRelationshipsCardinalities" value="#{relationshipsBean.relationships.cardinalities}">
-						<f:selectItem/>
-						<f:selectItems itemLabel="#{forgeview:display(_item.name)}" itemValue="#{_item}" value="#{cardinalitiesBean.all}" var="_item"/>
-					</h:selectOneMenu>
-					<h:message for="relationshipsBeanRelationshipsCardinalities" styleClass="error"/>
-				</h:panelGroup>
-				<h:outputText/>
+                                <h:outputLabel for="relationshipsBeanrelationshipsCardinalities" value="Cardinalities:"/>
+                                <h:panelGroup>
+                                         <h:selectOneMenu converter="#{cardinalitiesBean.converter}" id="relationshipsBeanRelationshipsCardinalities" value="#{relationshipsBean.relationships.cardinalities}">
+                                                <f:selectItem/>
+                                                <f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{cardinalitiesBean.all}" var="_item"/>
+                                        </h:selectOneMenu>
+                                        <h:message for="entitiesBeanEntitiesIsSimplified" styleClass="error"/>
+                                </h:panelGroup>
+                                <h:outputText/>
+
+                                <h:outputLabel for="relationshipsBeanrelationshipsEntities" value="Entities:"/>
+                                <h:panelGroup>
+                                         <h:selectOneMenu converter="#{entitiesBean.converter}" id="relationshipsBeanRelationshipsEntities" value="#{relationshipsBean.relationships.entities}">
+                                                <f:selectItem/>
+                                                <f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{entitiesBean.all}" var="_item"/>
+                                        </h:selectOneMenu>
+                                        <h:message for="entitiesBeanEntitiesIsSimplified" styleClass="error"/>
+                                </h:panelGroup>
+                                <h:outputText/>
+
+                                <h:outputLabel for="relationshipsBeanrelationshipsEntities" value="Entities:"/>
+                                <h:panelGroup>
+                                         <h:selectOneMenu converter="#{entitiesBean.converter}" id="relationshipsBeanRelationshipsEntities" value="#{relationshipsBean.relationships.entities}">
+                                                <f:selectItem/>
+                                                <f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{entitiesBean.all}" var="_item"/>
+                                        </h:selectOneMenu>
+                                        <h:message for="entitiesBeanEntitiesIsSimplified" styleClass="error"/>
+                                </h:panelGroup>
+                                <h:outputText/>
 
                                 <h:outputLabel for="relationshipsBeanRelationshipsObservations" value="Observations:"/>
                                 <h:panelGroup>

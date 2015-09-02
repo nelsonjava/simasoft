@@ -19,18 +19,18 @@ import co.simasoft.models.dev.naifg.*;
 import co.simasoft.models.dev.naifg.dependencies.*;
 import co.simasoft.models.core.sites.*;
 import org.hibernate.search.annotations.Analyze;
-import org.hibernate.search.annotations.DocumentId;
-import org.hibernate.search.annotations.Field;
 import org.hibernate.search.annotations.Index;
-import org.hibernate.search.annotations.Indexed;
+import org.hibernate.search.annotations.Field;
+import org.hibernate.search.annotations.DocumentId;
 import org.hibernate.search.annotations.Store;
-import javax.persistence.ManyToMany;
-import javax.persistence.Temporal;
+import org.hibernate.search.annotations.Indexed;
 import javax.persistence.TemporalType;
+import javax.persistence.Temporal;
 import org.hibernate.search.annotations.DateBridge;
 import org.hibernate.search.annotations.Resolution;
 import javax.persistence.OneToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.ManyToMany;
 
 @Indexed
 @Entity
@@ -53,22 +53,22 @@ public class Cardinalities implements Serializable {
 	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
 	private String observations;
 
-	@Column(nullable = false, unique = true)
-	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-	private String name;
-
 	@Column(nullable = false, unique = false)
 	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
 	private String cardinality;
 
+	@Column(nullable = false, unique = true)
+	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+	private String name;
+
 	@Column(nullable = true, unique = false)
 	private Boolean isUnidirectional;
 
-	@OneToMany(mappedBy = "cardinalities")
-	private Set<Relationships> relationships = new HashSet<Relationships>();
-
 	@ManyToMany
 	private Set<Imports> imports = new HashSet<Imports>();
+
+	@OneToMany(mappedBy = "cardinalities")
+	private Set<Relationships> relationships = new HashSet<Relationships>();
 
 	@ManyToMany
 	private Set<Sites> sites = new HashSet<Sites>();
@@ -76,10 +76,10 @@ public class Cardinalities implements Serializable {
 	public Cardinalities() {
 	}
 
-	public Cardinalities(String name, String cardinality,
+	public Cardinalities(String cardinality, String name,
 			Boolean isUnidirectional) {
-		this.name = name;
 		this.cardinality = cardinality;
+		this.name = name;
 		this.isUnidirectional = isUnidirectional;
 	}
 
@@ -110,18 +110,18 @@ public class Cardinalities implements Serializable {
 	public void setObservations(String observations) {
 		this.observations = observations;
 	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-
 	public String getCardinality() {
 		return cardinality;
 	}
 	public void setCardinality(String cardinality) {
 		this.cardinality = cardinality;
+	}
+
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public Boolean getIsUnidirectional() {
@@ -131,18 +131,18 @@ public class Cardinalities implements Serializable {
 		this.isUnidirectional = isUnidirectional;
 	}
 
-	public Set<Relationships> getRelationships() {
-		return relationships;
-	}
-	public void setRelationships(Set<Relationships> relationships) {
-		this.relationships = relationships;
-	}
-
 	public Set<Imports> getImports() {
 		return imports;
 	}
 	public void setImports(Set<Imports> imports) {
 		this.imports = imports;
+	}
+
+	public Set<Relationships> getRelationships() {
+		return relationships;
+	}
+	public void setRelationships(Set<Relationships> relationships) {
+		this.relationships = relationships;
 	}
 
 	public Set<Sites> getSites() {

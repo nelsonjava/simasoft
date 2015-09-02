@@ -46,10 +46,10 @@
                                 </h:panelGroup>
                                 <h:outputText/>
 
-                                <h:outputLabel for="attributesTypesBeanAttributesTypesLength" value="Length:"/>
+                                <h:outputLabel for="attributesTypesBeanAttributesTypesAnnotations" value="Annotations:"/>
                                 <h:panelGroup>
-                                        <h:inputText id="attributesTypesBeanAttributesTypesLength" value="#{attributesTypesBean.attributesTypes.length}"/>
-                                        <h:message for="attributesTypesBeanAttributesTypesLength" styleClass="error"/>
+                                        <h:inputText id="attributesTypesBeanAttributesTypesAnnotations" value="#{attributesTypesBean.attributesTypes.annotations}"/>
+                                        <h:message for="attributesTypesBeanAttributesTypesAnnotations" styleClass="error"/>
                                 </h:panelGroup>
                                 <h:outputText/>
 
@@ -60,10 +60,10 @@
                                 </h:panelGroup>
                                 <h:outputText/>
 
-                                <h:outputLabel for="attributesTypesBeanAttributesTypesAnnotations" value="Annotations:"/>
+                                <h:outputLabel for="attributesTypesBeanAttributesTypesLength" value="Length:"/>
                                 <h:panelGroup>
-                                        <h:inputText id="attributesTypesBeanAttributesTypesAnnotations" value="#{attributesTypesBean.attributesTypes.annotations}"/>
-                                        <h:message for="attributesTypesBeanAttributesTypesAnnotations" styleClass="error"/>
+                                        <h:inputText id="attributesTypesBeanAttributesTypesLength" value="#{attributesTypesBean.attributesTypes.length}"/>
+                                        <h:message for="attributesTypesBeanAttributesTypesLength" styleClass="error"/>
                                 </h:panelGroup>
                                 <h:outputText/>
 
@@ -81,11 +81,11 @@
                                 </h:panelGroup>
                                 <h:outputText value="*"/>
 
-                                <!-- AttributesTypes 1..*  Attributes -->
-
                                 <!-- AttributesTypes *..*  Sites -->
 
                                 <!-- AttributesTypes *..*  AttributesProperties -->
+
+                                <!-- AttributesTypes 1..*  Attributes -->
 
                                 <h:outputLabel for="attributesTypesBeanAttributesTypesObservations" value="Observations:"/>
                                 <h:panelGroup>

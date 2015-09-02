@@ -46,13 +46,6 @@
                                 </h:panelGroup>
                                 <h:outputText/>
 
-                                <h:outputLabel for="modelsBeanModelsArtifactId" value="ArtifactId:"/>
-                                <h:panelGroup>
-                                        <h:inputText id="modelsBeanModelsArtifactId" required="true" value="#{modelsBean.models.artifactId}"/>
-                                        <h:message for="modelsBeanModelsArtifactId" styleClass="error"/>
-                                </h:panelGroup>
-                                <h:outputText value="*"/>
-
                                 <h:outputLabel for="modelsBeanModelsGroupId" value="GroupId:"/>
                                 <h:panelGroup>
                                         <h:inputText id="modelsBeanModelsGroupId" required="true" value="#{modelsBean.models.groupId}"/>
@@ -66,6 +59,13 @@
                                         <h:message for="modelsBeanModelsVersion" styleClass="error"/>
                                 </h:panelGroup>
                                 <h:outputText/>
+
+                                <h:outputLabel for="modelsBeanModelsArtifactId" value="ArtifactId:"/>
+                                <h:panelGroup>
+                                        <h:inputText id="modelsBeanModelsArtifactId" required="true" value="#{modelsBean.models.artifactId}"/>
+                                        <h:message for="modelsBeanModelsArtifactId" styleClass="error"/>
+                                </h:panelGroup>
+                                <h:outputText value="*"/>
 
                                 <h:outputLabel for="modelsBeanModelsCode" value="Code:"/>
                                 <h:panelGroup>

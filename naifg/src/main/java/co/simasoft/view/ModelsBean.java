@@ -229,12 +229,6 @@ public class ModelsBean implements Serializable {
 					builder.lower(root.<String> get("observations")),
 					'%' + observations.toLowerCase() + '%'));
 		}
-		String artifactId = this.example.getArtifactId();
-		if (artifactId != null && !"".equals(artifactId)) {
-			predicatesList.add(builder.like(
-					builder.lower(root.<String> get("artifactId")),
-					'%' + artifactId.toLowerCase() + '%'));
-		}
 		String groupId = this.example.getGroupId();
 		if (groupId != null && !"".equals(groupId)) {
 			predicatesList.add(builder.like(
@@ -246,6 +240,12 @@ public class ModelsBean implements Serializable {
 			predicatesList.add(builder.like(
 					builder.lower(root.<String> get("version")),
 					'%' + version.toLowerCase() + '%'));
+		}
+		String artifactId = this.example.getArtifactId();
+		if (artifactId != null && !"".equals(artifactId)) {
+			predicatesList.add(builder.like(
+					builder.lower(root.<String> get("artifactId")),
+					'%' + artifactId.toLowerCase() + '%'));
 		}
 		String code = this.example.getCode();
 		if (code != null && !"".equals(code)) {

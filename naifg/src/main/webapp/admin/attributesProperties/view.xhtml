@@ -116,42 +116,6 @@
                         </h:dataTable>
                         <h:outputText/>
 
-                        <h:outputLabel for="attributesBeanAttributesAttributesProperties" value="AttributesProperties:"/>
-                        <h:dataTable id="attributesBeanAttributesattributesProperties" styleClass="data-table" value="#{forgeview:asList(attributesBean.attributes.attributesProperties)}" var="_item">
-
-                                <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="Orden"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/attributesProperties/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemOrden" value="#{_item.orden}"/>
-                                        </h:link>
-                                </h:column>
-
-                                <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="Name"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/attributesProperties/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemName" value="#{_item.name}"/>
-                                        </h:link>
-                                </h:column>
-
-                                <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="Value"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/attributesProperties/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemValue" value="#{_item.value}"/>
-                                        </h:link>
-                                </h:column>
-
-                        </h:dataTable>
-                        <h:outputText/>
-
                         <h:outputLabel for="entitiesBeanEntitiesAttributesProperties" value="AttributesProperties:"/>
                         <h:dataTable id="entitiesBeanEntitiesattributesProperties" styleClass="data-table" value="#{forgeview:asList(entitiesBean.entities.attributesProperties)}" var="_item">
 
@@ -188,8 +152,8 @@
                         </h:dataTable>
                         <h:outputText/>
 
-                        <h:outputLabel for="relationshipsBeanRelationshipsAttributesProperties" value="AttributesProperties:"/>
-                        <h:dataTable id="relationshipsBeanRelationshipsattributesProperties" styleClass="data-table" value="#{forgeview:asList(relationshipsBean.relationships.attributesProperties)}" var="_item">
+                        <h:outputLabel for="attributesBeanAttributesAttributesProperties" value="AttributesProperties:"/>
+                        <h:dataTable id="attributesBeanAttributesattributesProperties" styleClass="data-table" value="#{forgeview:asList(attributesBean.attributes.attributesProperties)}" var="_item">
 
                                 <h:column>
                                         <f:facet name="header">
@@ -226,6 +190,42 @@
 
                         <h:outputLabel for="attributesTypesBeanAttributesTypesAttributesProperties" value="AttributesProperties:"/>
                         <h:dataTable id="attributesTypesBeanAttributesTypesattributesProperties" styleClass="data-table" value="#{forgeview:asList(attributesTypesBean.attributesTypes.attributesProperties)}" var="_item">
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Orden"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/attributesProperties/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemOrden" value="#{_item.orden}"/>
+                                        </h:link>
+                                </h:column>
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Name"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/attributesProperties/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemName" value="#{_item.name}"/>
+                                        </h:link>
+                                </h:column>
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Value"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/attributesProperties/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemValue" value="#{_item.value}"/>
+                                        </h:link>
+                                </h:column>
+
+                        </h:dataTable>
+                        <h:outputText/>
+
+                        <h:outputLabel for="relationshipsBeanRelationshipsAttributesProperties" value="AttributesProperties:"/>
+                        <h:dataTable id="relationshipsBeanRelationshipsattributesProperties" styleClass="data-table" value="#{forgeview:asList(relationshipsBean.relationships.attributesProperties)}" var="_item">
 
                                 <h:column>
                                         <f:facet name="header">
