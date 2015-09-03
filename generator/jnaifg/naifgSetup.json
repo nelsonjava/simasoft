@@ -1,0 +1,31 @@
+{
+  "id": 1,
+  "firstname": "Katerina",
+  "GroupIds": [
+    {
+      "groupId": "co.simasoft.models.dev.naifg.dependencies",
+      "artifactId": "co.simasoft.models.dev.naifg.dependencies"
+    },
+    {
+      "groupId": "co.simasoft.models.dev.naifg",
+      "artifactId": "co.simasoft.models.dev.naifg"
+    },
+  ],
+  "Models": [
+    {
+      "groupId": "co.simasoft.naifg",
+      "artifactId": "naifg",
+      "version": "1.0-SNAPSHOT"
+    },
+  ],
+  "Entities": [
+    {
+     "name": "AttributesProperties",
+     "groupIds": "co.simasoft.models.dev.naifg.dependencies"
+    },
+    {
+     "name": "AttributesTypes",
+     "groupIds": "co.simasoft.models.dev.naifg.dependencies"
+    },
+  ],
+}
