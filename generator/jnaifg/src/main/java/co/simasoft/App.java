@@ -39,18 +39,10 @@ public class App {
 			// get an array from the JSON object
 			JSONArray lang= (JSONArray) jsonObject.get("GroupIds");
 
-			// take the elements of the json array
-			for(int i=0; i<lang.size(); i++){
-				System.out.println("The " + i + " element of the array: "+lang.get(i));
-			        f.line(lang.get(i)+"\n");
-			}
 			Iterator i = lang.iterator();
-
 			// take each value from the json array separately
 			while (i.hasNext()) {
 				JSONObject innerObj = (JSONObject) i.next();
-				System.out.println("language "+ innerObj.get("groupId") +
-						" with level " + innerObj.get("artifactId"));
 			        f.line("groupId:"+innerObj.get("groupId"));
 			        f.line("artifactId:"+innerObj.get("artifactId"));
 			        f.line("");
@@ -71,7 +63,6 @@ public class App {
 			// get an array from the JSON object
 			JSONArray entities = (JSONArray) jsonObject.get("Entities");
 			Iterator entity = entities.iterator();
-
 			while (entity.hasNext()) {
 				JSONObject entityObj = (JSONObject) entity.next();
 			        f.line("name:"+entityObj.get("name"));
@@ -79,6 +70,18 @@ public class App {
 			        f.line("");
 			}
 
+			// get an array from the JSON object
+			JSONArray attributes = (JSONArray) jsonObject.get("Attributes");
+			Iterator attribute = attributes.iterator();
+			while (entity.hasNext()) {
+				JSONObject attributeObj = (JSONObject) attribute.next();
+			        f.line("entity:"+attributeObj.get("entity"));
+			        f.line("name:"+attributeObj.get("name"));
+			        f.line("isNullable:"+attributeObj.get("isNullable"));
+			        f.line("isUnique:"+attributeObj.get("isUnique"));
+			        f.line("AttributesTypes:"+attributeObj.get("AttributesTypes"));
+			        f.line("");
+			}
 
                         f.saveFile("\\docs", "Prueba.txt");
 

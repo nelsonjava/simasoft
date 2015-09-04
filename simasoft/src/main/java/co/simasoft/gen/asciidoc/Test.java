@@ -7,14 +7,14 @@ import java.util.*;
 
 public class Test extends FileTxt {
 
-    private Set<Relation> relations = new HashSet<Relation>(0);
+    private ArrayList<Relation> relations = new ArrayList<Relation>(0);
 
-    public void setRelations(Set<Relation> relations){
+    public void setRelations(ArrayList<Relation> relations){
         this.relations = relations;
     }
 
 
-    public Test(String artifactId,String groupId,Set<Relation> relations,Set<Relation> relationsPower) throws IOException {
+    public Test(String artifactId,String groupId,ArrayList<Relation> relations,Set<Relation> relationsPower) throws IOException {
 
         this.relations = relations;
 

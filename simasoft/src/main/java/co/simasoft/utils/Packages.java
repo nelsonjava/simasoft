@@ -6,7 +6,7 @@ public class Packages{
 
     private String groupId    = "";
     private ArrayList<Entidad> entities = new ArrayList<Entidad>();
-    private Set<Relation> relations = new HashSet<Relation>(0);
+    private ArrayList<Relation> relations = new ArrayList<Relation>(0);
     private Set<Relation> relationsPower = new HashSet<Relation>();
 
     public Packages(){
@@ -31,13 +31,13 @@ public class Packages{
         this.entities = entities;
     }
 
-    public Set<Relation> getRelations(){
+    public ArrayList<Relation> getRelations(){
         return relations;
     }
-    public void setRelations(Set<Relation> relations){
+    public void setRelations(ArrayList<Relation> relations){
         this.relations = relations;
     }
-    
+
     public Set<Relation> getRelationsPower(){
         return relationsPower;
     }

@@ -16,7 +16,7 @@ public class PowerDesigner {
     private static String fileOob;
     private static ArrayList<Entidad> entidades = new ArrayList<Entidad>(0);
     private static Set<Relation> relationsPower = new HashSet<Relation>(0);
-    private static Set<Relation> relations = new HashSet<Relation>(0);
+    private static ArrayList<Relation> relations = new ArrayList<Relation>(0);
 
     String ref = "";
     String multiplicity = "";
@@ -45,7 +45,7 @@ public class PowerDesigner {
 
             entidades = new ArrayList<Entidad>();
             relationsPower = new HashSet<Relation>(0);
-            relations = new HashSet<Relation>(0);
+            relations = new ArrayList<Relation>(0);
 
             String field = "";
             String type = "";
@@ -251,10 +251,10 @@ public class PowerDesigner {
     }
 
 
-    public Set<Relation> getRelations(){
+    public ArrayList<Relation> getRelations(){
         return relations;
     }
-    private void setRelations(Set<Relation> relations){
+    private void setRelations(ArrayList<Relation> relations){
         this.relations = relations ;
     }
 
@@ -459,7 +459,7 @@ public class PowerDesigner {
 
     public void validarRelations(){
 
-        Set<Relation> relationships = new HashSet<Relation>(0);
+        ArrayList<Relation> relationships = new ArrayList<Relation>(0);
 
         for (Relation relation : relations) {
 

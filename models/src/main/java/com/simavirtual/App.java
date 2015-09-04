@@ -20,7 +20,7 @@ public class App extends FileTxt{
 
     private static ArrayList<Packages> groupIds = new ArrayList<Packages>();
     private static ArrayList<Entidad> entidades = new ArrayList<Entidad>(0);
-    private static Set<Relation> relations = new HashSet<Relation>(0);
+    private static ArrayList<Relation> relations = new ArrayList<Relation>(0);
     private static ArrayList<Modelos> modelos = new ArrayList<Modelos>();
     private static Set<Relation> relationsPower = new HashSet<Relation>(0);
 
