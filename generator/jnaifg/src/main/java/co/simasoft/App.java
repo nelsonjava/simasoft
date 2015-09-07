@@ -36,22 +36,22 @@ public class App {
 			long id =  (long) jsonObject.get("id");
 			System.out.println("id: " + id);
 
-			// get an array from the JSON object
-			JSONArray lang= (JSONArray) jsonObject.get("GroupIds");
+///*
 
-			Iterator i = lang.iterator();
-			// take each value from the json array separately
-			while (i.hasNext()) {
-				JSONObject innerObj = (JSONObject) i.next();
-			        f.line("groupId:"+innerObj.get("groupId"));
-			        f.line("artifactId:"+innerObj.get("artifactId"));
-			        f.line("");
+			JSONArray groupIds = (JSONArray) jsonObject.get("GroupIds");
+			Iterator groupId = groupIds.iterator();
+			while (groupId.hasNext()) {
+                              JSONObject groupIdObj = (JSONObject) groupId.next();
+			      f.line("groupId:"+groupIdObj.get("groupId"));
+			      f.line("artifactId:"+groupIdObj.get("artifactId"));
+			      f.line("");
 			}
+//*/
 
+///*
 			// get an array from the JSON object
 			JSONArray models = (JSONArray) jsonObject.get("Models");
 			Iterator model = models.iterator();
-
 			while (model.hasNext()) {
 				JSONObject modelObj = (JSONObject) model.next();
 			        f.line("groupId:"+modelObj.get("groupId"));
@@ -59,7 +59,9 @@ public class App {
 			        f.line("version:"+modelObj.get("version"));
 			        f.line("");
 			}
+//*/
 
+///*
 			// get an array from the JSON object
 			JSONArray entities = (JSONArray) jsonObject.get("Entities");
 			Iterator entity = entities.iterator();
@@ -70,10 +72,13 @@ public class App {
 			        f.line("");
 			}
 
+//*/
+
+///*
 			// get an array from the JSON object
 			JSONArray attributes = (JSONArray) jsonObject.get("Attributes");
 			Iterator attribute = attributes.iterator();
-			while (entity.hasNext()) {
+			while (attribute.hasNext()) {
 				JSONObject attributeObj = (JSONObject) attribute.next();
 			        f.line("entity:"+attributeObj.get("entity"));
 			        f.line("name:"+attributeObj.get("name"));
@@ -82,6 +87,23 @@ public class App {
 			        f.line("AttributesTypes:"+attributeObj.get("AttributesTypes"));
 			        f.line("");
 			}
+//*/
+
+//*
+			// get an array from the JSON object
+			JSONArray relationships = (JSONArray) jsonObject.get("Relationships");
+			Iterator relation = relationships.iterator();
+			while (relation.hasNext()) {
+				JSONObject relationObj = (JSONObject) relation.next();
+			        f.line("From:"+relationObj.get("From"));
+			        f.line("To:"+relationObj.get("To"));
+			        f.line("isOptionality:"+relationObj.get("isOptionality"));
+			        f.line("isEmbedded:"+relationObj.get("isEmbedded"));
+			        f.line("isSimplified:"+relationObj.get("isSimplified"));
+			        f.line("Cardinalities:"+relationObj.get("Cardinalities"));
+			        f.line("");
+			}
+//*/
 
                         f.saveFile("\\docs", "Prueba.txt");
 

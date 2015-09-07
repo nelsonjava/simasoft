@@ -65,15 +65,15 @@ line("  \"GroupIds\": [");
 line("    {");
 line("      \"groupId\": \""+impor+"\",");
        if(iImpor.hasNext()){
-line("      \"artifactId\": \""+impor+"\",");
+line("      \"artifactId\": \""+impor+"\"");
        }
        else {
 line("      \"artifactId\": \""+impor+"\"");
        }
 
-line("    }");
+line("    },");
     }
-line("  ]");
+line("  ],");
 
 line("  \"Models\": [");
 line("    {");
@@ -81,7 +81,7 @@ line("      \"groupId\": \""+domain.getGroupId()+"."+domain.getArtifactId()+"\",
 line("      \"artifactId\": \""+domain.getArtifactId()+"\",");
 line("      \"version\": \""+domain.getVersion()+"\"");
 line("    }");
-line("  ]");
+line("  ],");
 
 //      ---------------------- Developments ------------------------
 
@@ -92,26 +92,32 @@ line("      \"artifactId\": \""+domain.getArtifactId()+"\",");
 line("      \"version\": \""+domain.getVersion()+"\",");
 line("      \"models\": \""+domain.getArtifactId()+"\"");
 line("    }");
-line("  ]");
+line("  ],");
 
 //      ---------------------- Entities ------------------------
+//      line(" paso1     x="+Integer.toString(x));
+//      line("      xsize="+Integer.toString(domain.getPackages().size()));
+//      line(" paso2     x="+Integer.toString(x));
+//       line("      j="+Integer.toString(j)+" size="+Integer.toString(groupId.getEntities().size()));
 
+    int x=0;
 line("  \"Entities\": [");
     for (Packages groupId : domain.getPackages()){
-          for(int i=0; i<groupId.getEntities().size(); i++){
-              Entidad entidad = groupId.getEntities().get(i);
+          for(int j=0; j<groupId.getEntities().size(); j++){
+              Entidad entidad = groupId.getEntities().get(j);
 line("    {");
 line("      \"name\": \""+entidad.getName()+"\",");
-              if(i<groupId.getEntities().size()){
-line("      \"groupIds\": \""+groupId.getGroupId()+"\",");
+              if(x == domain.getPackages().size()-2 && j<groupId.getEntities().size()-1){
+line("      \"groupIds\": \""+groupId.getGroupId()+"\"");
        }
               else {
 line("      \"groupIds\": \""+groupId.getGroupId()+"\"");
        }
 line("    },");
         } // for: groupId.getEntities()
+        x++;
     } // for: domain.getPackages()
-line("  ]");
+line("  ],");
 
 
 
@@ -128,7 +134,7 @@ line("      \"name\": \""+attri.getField()+"\",");
 line("      \"isNullable\": \""+attri.getNulo()+"\",");
 line("      \"isUnique\": \""+attri.getUnique()+"\",");
               if(i<entidad.getAtributos().size()){
-line("      \"AttributesTypes\": \""+attri.getType()+"\",");
+line("      \"AttributesTypes\": \""+attri.getType()+"\"");
        }
               else {
 line("      \"AttributesTypes\": \""+attri.getType()+"\"");
@@ -137,7 +143,7 @@ line("    },");
             } // for: entidad.getAtributos()
         } // for: groupId.getEntities()
     } // for: domain.getPackages()
-line("  ]");
+line("  ],");
 
 //      ---------------------- Relationships ------------------------
 
@@ -154,7 +160,7 @@ line("      \"isOptionality\": "+relation.getOptionality()+",");
 line("      \"isEmbedded\": false,");
 line("      \"isSimplified\": false,");
               if(i<groupId.getRelations().size()){
-line("      \"Cardinalities\": \""+Cardinaly(relation.getCardinality())+"\",");
+line("      \"Cardinalities\": \""+Cardinaly(relation.getCardinality())+"\"");
        }
               else {
 line("      \"Cardinalities\": \""+Cardinaly(relation.getCardinality())+"\"");
