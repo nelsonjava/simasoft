@@ -653,8 +653,18 @@ line("} // "+developments.getArtifactId()+"Setup");
         return "";
 
     } // Cardinaly
-    
+
     public void jdocbook(Developments developments) throws IOException {
+    try {
+
+    }
+    catch(Exception ioe) {
+      ioe.printStackTrace();
+    }
+
+    } // jdocbook
+    
+    public void jsonRead(Developments developments) throws IOException {
     try {
 
     }
