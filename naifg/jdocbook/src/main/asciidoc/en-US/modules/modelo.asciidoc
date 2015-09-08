@@ -5,7 +5,9 @@ A=&#193; E=&#201; I=&#205; O=&#211; U=&#218;
 n=&#241; N=&#209;
 ////
 == MODELO
-image::images/modelo.jpg[]
+image::images/modelo1.jpg[]
+image::images/modelo2.jpg[]
+image::images/modelo3.jpg[]
 == ENTITY:Models
 *ATRIBUTES:*
 [options="header"]

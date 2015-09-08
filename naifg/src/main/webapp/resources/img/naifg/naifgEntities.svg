@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="165mm" xmlns="http://www.w3.org/2000/svg" height="128mm" version="1.1" viewBox="0 0 626 487" xmlns:xlink="http://www.w3.org/1999/xlink">
+   <defs>
+      <linearGradient id="Gradient1" x1="0%" x2="100%" y1="0%" y2="100%" gradientUnits="objectBoundingBox">
+         <stop offset="5%" stop-color="#ffffff"/>
+         <stop offset="95%" stop-color="#aee4ff"/>
+      </linearGradient>
+   </defs>
+   <rect x="219" y="167" fill="url(#Gradient1)" width="136" height="106" stroke="#0080ff" stroke-width="1"/>
+   <text x="286" y="178" fill="#000000" font-size="10" font-family="Arial" text-anchor="middle">Entities</text>
+   <line x1="219" x2="355" y1="186" y2="186" stroke="#0080ff" stroke-width="1"/>
+   <text x="223" y="196" fill="#000000" font-size="10" font-family="Arial">-</text>
+   <text x="223" y="209" fill="#000000" font-size="10" font-family="Arial">-</text>
+   <text x="223" y="222" fill="#000000" font-size="10" font-family="Arial">-</text>
+   <text x="223" y="234" fill="#000000" font-size="10" font-family="Arial">-</text>
+   <text x="223" y="247" fill="#000000" font-size="10" font-family="Arial">-</text>
+   <text x="234" y="196" fill="#000000" font-size="10" font-family="Arial">*name</text>
+   <text x="234" y="209" fill="#000000" font-size="10" font-family="Arial">serialID</text>
+   <text x="234" y="222" fill="#000000" font-size="10" font-family="Arial">table</text>
+   <text x="234" y="234" fill="#000000" font-size="10" font-family="Arial">description</text>
+   <text x="234" y="247" fill="#000000" font-size="10" font-family="Arial">isSimplified</text>
+   <text x="298" y="196" fill="#000000" font-size="10" font-family="Arial">: *String</text>
+   <text x="298" y="209" fill="#000000" font-size="10" font-family="Arial">: String</text>
+   <text x="298" y="222" fill="#000000" font-size="10" font-family="Arial">: String</text>
+   <text x="298" y="234" fill="#000000" font-size="10" font-family="Arial">: String</text>
+   <text x="298" y="247" fill="#000000" font-size="10" font-family="Arial">: Boolean</text>
+   <line x1="219" x2="355" y1="254" y2="254" stroke="#0080ff" stroke-width="1"/>
+   <defs>
+      <linearGradient id="Gradient2" x1="0%" x2="100%" y1="0%" y2="100%" gradientUnits="objectBoundingBox">
+         <stop offset="5%" stop-color="#ffffff"/>
+         <stop offset="95%" stop-color="#aee4ff"/>
+      </linearGradient>
+   </defs>
+   <rect x="454" y="167" fill="url(#Gradient2)" width="164" height="198" stroke="#0080ff" stroke-width="1"/>
+   <text x="535" y="178" fill="#000000" font-size="10" font-family="Arial" text-anchor="middle">Attributes</text>
+   <line x1="454" x2="618" y1="186" y2="186" stroke="#0080ff" stroke-width="1"/>
+   <text x="458" y="196" fill="#000000" font-size="10" font-family="Arial">-</text>
+   <text x="458" y="209" fill="#000000" font-size="10" font-family="Arial">-</text>
+   <text x="458" y="222" fill="#000000" font-size="10" font-family="Arial">-</text>
+   <text x="458" y="235" fill="#000000" font-size="10" font-family="Arial">-</text>
+   <text x="458" y="248" fill="#000000" font-size="10" font-family="Arial">-</text>
+   <text x="458" y="261" fill="#000000" font-size="10" font-family="Arial">-</text>
+   <text x="458" y="274" fill="#000000" font-size="10" font-family="Arial">-</text>
+   <text x="458" y="287" fill="#000000" font-size="10" font-family="Arial">-</text>
+   <text x="458" y="300" fill="#000000" font-size="10" font-family="Arial">-</text>
+   <text x="458" y="313" fill="#000000" font-size="10" font-family="Arial">-</text>
+   <text x="458" y="326" fill="#000000" font-size="10" font-family="Arial">-</text>
+   <text x="458" y="339" fill="#000000" font-size="10" font-family="Arial">-</text>
+   <text x="469" y="196" fill="#000000" font-size="10" font-family="Arial">*name</text>
+   <text x="469" y="209" fill="#000000" font-size="10" font-family="Arial">description</text>
+   <text x="469" y="222" fill="#000000" font-size="10" font-family="Arial">length</text>
+   <text x="469" y="235" fill="#000000" font-size="10" font-family="Arial">precision</text>
+   <text x="469" y="248" fill="#000000" font-size="10" font-family="Arial">isNullable</text>
+   <text x="469" y="261" fill="#000000" font-size="10" font-family="Arial">isUnique</text>
+   <text x="469" y="274" fill="#000000" font-size="10" font-family="Arial">isSimplified</text>
+   <text x="469" y="287" fill="#000000" font-size="10" font-family="Arial">isCreate</text>
+   <text x="469" y="300" fill="#000000" font-size="10" font-family="Arial">isSearch</text>
+   <text x="469" y="313" fill="#000000" font-size="10" font-family="Arial">isView</text>
+   <text x="469" y="326" fill="#000000" font-size="10" font-family="Arial">isViewColumn</text>
+   <text x="469" y="339" fill="#000000" font-size="10" font-family="Arial">isViewRelation</text>
+   <text x="547" y="196" fill="#000000" font-size="10" font-family="Arial">: String</text>
+   <text x="547" y="209" fill="#000000" font-size="10" font-family="Arial">: String</text>
+   <text x="547" y="222" fill="#000000" font-size="10" font-family="Arial">: Integer</text>
+   <text x="547" y="235" fill="#000000" font-size="10" font-family="Arial">: Integer</text>
+   <text x="547" y="248" fill="#000000" font-size="10" font-family="Arial">: Boolean</text>
+   <text x="547" y="261" fill="#000000" font-size="10" font-family="Arial">: Boolean</text>
+   <text x="547" y="274" fill="#000000" font-size="10" font-family="Arial">: Boolean</text>
+   <text x="547" y="287" fill="#000000" font-size="10" font-family="Arial">: Boolean</text>
+   <text x="547" y="300" fill="#000000" font-size="10" font-family="Arial">: Boolean</text>
+   <text x="547" y="313" fill="#000000" font-size="10" font-family="Arial">: Boolean</text>
+   <text x="547" y="326" fill="#000000" font-size="10" font-family="Arial">: Boolean</text>
+   <text x="547" y="339" fill="#000000" font-size="10" font-family="Arial">: Boolean</text>
+   <line x1="454" x2="618" y1="346" y2="346" stroke="#0080ff" stroke-width="1"/>
+   <defs>
+      <linearGradient id="Gradient3" x1="0%" x2="100%" y1="0%" y2="100%" gradientUnits="objectBoundingBox">
+         <stop offset="5%" stop-color="#ffffff"/>
+         <stop offset="95%" stop-color="#aee4ff"/>
+      </linearGradient>
+   </defs>
+   <rect x="454" y="401" fill="url(#Gradient3)" width="170" height="84" stroke="#0080ff" stroke-width="1"/>
+   <text x="538" y="412" fill="#000000" font-size="10" font-family="Arial" text-anchor="middle">Cardinalities</text>
+   <line x1="454" x2="624" y1="420" y2="420" stroke="#0080ff" stroke-width="1"/>
+   <text x="458" y="430" fill="#000000" font-size="10" font-family="Arial">-</text>
+   <text x="458" y="443" fill="#000000" font-size="10" font-family="Arial">-</text>
+   <text x="458" y="456" fill="#000000" font-size="10" font-family="Arial">-</text>
+   <text x="469" y="430" fill="#000000" font-size="10" font-family="Arial">*name</text>
+   <text x="469" y="443" fill="#000000" font-size="10" font-family="Arial">*cardinality</text>
+   <text x="469" y="456" fill="#000000" font-size="10" font-family="Arial">isUnidirectional</text>
+   <text x="550" y="430" fill="#000000" font-size="10" font-family="Arial">: *String</text>
+   <text x="550" y="443" fill="#000000" font-size="10" font-family="Arial">: String</text>
+   <text x="550" y="456" fill="#000000" font-size="10" font-family="Arial">: Boolean</text>
+   <line x1="454" x2="624" y1="462" y2="462" stroke="#0080ff" stroke-width="1"/>
+   <defs>
+      <linearGradient id="Gradient4" x1="0%" x2="100%" y1="0%" y2="100%" gradientUnits="objectBoundingBox">
+         <stop offset="5%" stop-color="#ffffff"/>
+         <stop offset="95%" stop-color="#aee4ff"/>
+      </linearGradient>
+   </defs>
+   <rect x="2" y="341" fill="url(#Gradient4)" width="144" height="70" stroke="#0080ff" stroke-width="1"/>
+   <text x="73" y="352" fill="#000000" font-size="10" font-family="Arial" text-anchor="middle">NameQueries</text>
+   <line x1="2" x2="146" y1="360" y2="360" stroke="#0080ff" stroke-width="1"/>
+   <text x="6" y="370" fill="#000000" font-size="10" font-family="Arial">-</text>
+   <text x="6" y="383" fill="#000000" font-size="10" font-family="Arial">-</text>
+   <text x="17" y="370" fill="#000000" font-size="10" font-family="Arial">*name</text>
+   <text x="17" y="383" fill="#000000" font-size="10" font-family="Arial">*query</text>
+   <text x="56" y="370" fill="#000000" font-size="10" font-family="Arial">: *String</text>
+   <text x="56" y="383" fill="#000000" font-size="10" font-family="Arial">: *Text</text>
+   <line x1="2" x2="146" y1="390" y2="390" stroke="#0080ff" stroke-width="1"/>
+   <defs>
+      <linearGradient id="Gradient5" x1="0%" x2="100%" y1="0%" y2="100%" gradientUnits="objectBoundingBox">
+         <stop offset="5%" stop-color="#ffffff"/>
+         <stop offset="95%" stop-color="#aee4ff"/>
+      </linearGradient>
+   </defs>
+   <rect x="218" y="321" fill="url(#Gradient5)" width="139" height="132" stroke="#0080ff" stroke-width="1"/>
+   <text x="286" y="332" fill="#000000" font-size="10" font-family="Arial" text-anchor="middle">Relationships</text>
+   <line x1="218" x2="357" y1="340" y2="340" stroke="#0080ff" stroke-width="1"/>
+   <text x="222" y="350" fill="#000000" font-size="10" font-family="Arial">-</text>
+   <text x="222" y="363" fill="#000000" font-size="10" font-family="Arial">-</text>
+   <text x="222" y="376" fill="#000000" font-size="10" font-family="Arial">-</text>
+   <text x="222" y="389" fill="#000000" font-size="10" font-family="Arial">-</text>
+   <text x="222" y="402" fill="#000000" font-size="10" font-family="Arial">-</text>
+   <text x="222" y="415" fill="#000000" font-size="10" font-family="Arial">-</text>
+   <text x="222" y="428" fill="#000000" font-size="10" font-family="Arial">-</text>
+   <text x="233" y="350" fill="#000000" font-size="10" font-family="Arial">name</text>
+   <text x="233" y="363" fill="#000000" font-size="10" font-family="Arial">isOptionality</text>
+   <text x="233" y="376" fill="#000000" font-size="10" font-family="Arial">isEmbedded</text>
+   <text x="233" y="389" fill="#000000" font-size="10" font-family="Arial">isSimplified</text>
+   <text x="233" y="402" fill="#000000" font-size="10" font-family="Arial">isCreate</text>
+   <text x="233" y="415" fill="#000000" font-size="10" font-family="Arial">isSearch</text>
+   <text x="233" y="428" fill="#000000" font-size="10" font-family="Arial">isView</text>
+   <text x="300" y="350" fill="#000000" font-size="10" font-family="Arial">: String</text>
+   <text x="300" y="363" fill="#000000" font-size="10" font-family="Arial">: Boolean</text>
+   <text x="300" y="376" fill="#000000" font-size="10" font-family="Arial">: Boolean</text>
+   <text x="300" y="389" fill="#000000" font-size="10" font-family="Arial">: Boolean</text>
+   <text x="300" y="402" fill="#000000" font-size="10" font-family="Arial">: Boolean</text>
+   <text x="300" y="415" fill="#000000" font-size="10" font-family="Arial">: Boolean</text>
+   <text x="300" y="428" fill="#000000" font-size="10" font-family="Arial">: Boolean</text>
+   <line x1="218" x2="357" y1="435" y2="435" stroke="#0080ff" stroke-width="1"/>
+   <defs>
+      <linearGradient id="Gradient6" x1="0%" x2="100%" y1="0%" y2="100%" gradientUnits="objectBoundingBox">
+         <stop offset="5%" stop-color="#ffffff"/>
+         <stop offset="95%" stop-color="#aee4ff"/>
+      </linearGradient>
+   </defs>
+   <rect x="4" y="169" fill="url(#Gradient6)" width="139" height="128" stroke="#0080ff" stroke-width="1"/>
+   <text x="73" y="180" fill="#000000" font-size="10" font-family="Arial" text-anchor="middle">GroupIds</text>
+   <line x1="4" x2="143" y1="188" y2="188" stroke="#0080ff" stroke-width="1"/>
+   <text x="8" y="198" fill="#000000" font-size="10" font-family="Arial">-</text>
+   <text x="8" y="211" fill="#000000" font-size="10" font-family="Arial">-</text>
+   <text x="8" y="224" fill="#000000" font-size="10" font-family="Arial">-</text>
+   <text x="8" y="237" fill="#000000" font-size="10" font-family="Arial">-</text>
+   <text x="8" y="250" fill="#000000" font-size="10" font-family="Arial">-</text>
+   <text x="19" y="198" fill="#000000" font-size="10" font-family="Arial">*artifactId</text>
+   <text x="19" y="211" fill="#000000" font-size="10" font-family="Arial">*groupId</text>
+   <text x="19" y="224" fill="#000000" font-size="10" font-family="Arial">version</text>
+   <text x="19" y="237" fill="#000000" font-size="10" font-family="Arial">code</text>
+   <text x="19" y="250" fill="#000000" font-size="10" font-family="Arial">date</text>
+   <text x="72" y="198" fill="#000000" font-size="10" font-family="Arial">: *String</text>
+   <text x="72" y="211" fill="#000000" font-size="10" font-family="Arial">: *String</text>
+   <text x="72" y="224" fill="#000000" font-size="10" font-family="Arial">: String</text>
+   <text x="72" y="237" fill="#000000" font-size="10" font-family="Arial">: String</text>
+   <text x="72" y="250" fill="#000000" font-size="10" font-family="Arial">: Date</text>
+   <line x1="4" x2="143" y1="257" y2="257" stroke="#0080ff" stroke-width="1"/>
+   <defs>
+      <linearGradient id="Gradient7" x1="0%" x2="100%" y1="0%" y2="100%" gradientUnits="objectBoundingBox">
+         <stop offset="5%" stop-color="#ffffff"/>
+         <stop offset="95%" stop-color="#aee4ff"/>
+      </linearGradient>
+   </defs>
+   <rect x="219" y="5" fill="url(#Gradient7)" width="156" height="124" stroke="#0080ff" stroke-width="1"/>
+   <text x="296" y="16" fill="#000000" font-size="10" font-family="Arial" text-anchor="middle">Models</text>
+   <line x1="219" x2="375" y1="24" y2="24" stroke="#0080ff" stroke-width="1"/>
+   <text x="223" y="34" fill="#000000" font-size="10" font-family="Arial">-</text>
+   <text x="223" y="47" fill="#000000" font-size="10" font-family="Arial">-</text>
+   <text x="223" y="60" fill="#000000" font-size="10" font-family="Arial">-</text>
+   <text x="223" y="73" fill="#000000" font-size="10" font-family="Arial">-</text>
+   <text x="223" y="86" fill="#000000" font-size="10" font-family="Arial">-</text>
+   <text x="234" y="34" fill="#000000" font-size="10" font-family="Arial">*artifactId</text>
+   <text x="234" y="47" fill="#000000" font-size="10" font-family="Arial">*groupId</text>
+   <text x="234" y="60" fill="#000000" font-size="10" font-family="Arial">version</text>
+   <text x="234" y="73" fill="#000000" font-size="10" font-family="Arial">code</text>
+   <text x="234" y="86" fill="#000000" font-size="10" font-family="Arial">date</text>
+   <text x="287" y="34" fill="#000000" font-size="10" font-family="Arial">: *String</text>
+   <text x="287" y="47" fill="#000000" font-size="10" font-family="Arial">: *String</text>
+   <text x="287" y="60" fill="#000000" font-size="10" font-family="Arial">: String</text>
+   <text x="287" y="73" fill="#000000" font-size="10" font-family="Arial">: String</text>
+   <text x="287" y="86" fill="#000000" font-size="10" font-family="Arial">: Date</text>
+   <line x1="219" x2="375" y1="93" y2="93" stroke="#0080ff" stroke-width="1"/>
+   <defs>
+      <linearGradient id="Gradient8" x1="0%" x2="100%" y1="0%" y2="100%" gradientUnits="objectBoundingBox">
+         <stop offset="5%" stop-color="#ffffff"/>
+         <stop offset="95%" stop-color="#aee4ff"/>
+      </linearGradient>
+   </defs>
+   <rect x="4" y="2" fill="url(#Gradient8)" width="140" height="124" stroke="#0080ff" stroke-width="1"/>
+   <text x="73" y="13" fill="#000000" font-size="10" font-family="Arial" text-anchor="middle">Developments</text>
+   <line x1="4" x2="144" y1="21" y2="21" stroke="#0080ff" stroke-width="1"/>
+   <text x="8" y="31" fill="#000000" font-size="10" font-family="Arial">-</text>
+   <text x="8" y="44" fill="#000000" font-size="10" font-family="Arial">-</text>
+   <text x="8" y="57" fill="#000000" font-size="10" font-family="Arial">-</text>
+   <text x="8" y="70" fill="#000000" font-size="10" font-family="Arial">-</text>
+   <text x="8" y="83" fill="#000000" font-size="10" font-family="Arial">-</text>
+   <text x="19" y="31" fill="#000000" font-size="10" font-family="Arial">*artifactId</text>
+   <text x="19" y="44" fill="#000000" font-size="10" font-family="Arial">groupId</text>
+   <text x="19" y="57" fill="#000000" font-size="10" font-family="Arial">version</text>
+   <text x="19" y="70" fill="#000000" font-size="10" font-family="Arial">code</text>
+   <text x="19" y="83" fill="#000000" font-size="10" font-family="Arial">date</text>
+   <text x="72" y="31" fill="#000000" font-size="10" font-family="Arial">: *String</text>
+   <text x="72" y="44" fill="#000000" font-size="10" font-family="Arial">: String</text>
+   <text x="72" y="57" fill="#000000" font-size="10" font-family="Arial">: String</text>
+   <text x="72" y="70" fill="#000000" font-size="10" font-family="Arial">: String</text>
+   <text x="72" y="83" fill="#000000" font-size="10" font-family="Arial">: Date</text>
+   <line x1="4" x2="144" y1="90" y2="90" stroke="#0080ff" stroke-width="1"/>
+   <defs>
+      <linearGradient id="Gradient9" x1="0%" x2="100%" y1="0%" y2="100%" gradientUnits="objectBoundingBox">
+         <stop offset="5%" stop-color="#ffffff"/>
+         <stop offset="95%" stop-color="#aee4ff"/>
+      </linearGradient>
+   </defs>
+   <rect x="454" y="10" fill="url(#Gradient9)" width="135" height="68" stroke="#0080ff" stroke-width="1"/>
+   <text x="521" y="21" fill="#000000" font-size="10" font-family="Arial" text-anchor="middle">ModelsGroupIds</text>
+   <line x1="454" x2="589" y1="29" y2="29" stroke="#0080ff" stroke-width="1"/>
+   <text x="458" y="39" fill="#000000" font-size="10" font-family="Arial">-</text>
+   <text x="458" y="52" fill="#000000" font-size="10" font-family="Arial">-</text>
+   <text x="469" y="39" fill="#000000" font-size="10" font-family="Arial">isIsolated</text>
+   <text x="469" y="52" fill="#000000" font-size="10" font-family="Arial">isSimplified</text>
+   <text x="533" y="39" fill="#000000" font-size="10" font-family="Arial">: Boolean</text>
+   <text x="533" y="52" fill="#000000" font-size="10" font-family="Arial">: Boolean</text>
+   <line x1="454" x2="589" y1="59" y2="59" stroke="#0080ff" stroke-width="1"/>
+</svg>

@@ -62,6 +62,26 @@
 
                         <h:dataTable id="modelsGroupIdsBeanPageItems" styleClass="data-table" value="#{modelsGroupIdsBean.pageItems}" var="_item">
 
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Model"/>
+					</f:facet>
+					<h:link outcome="/admin/modelsGroupIds/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemModel" value="#{_item.models.artifactId}"/>
+					</h:link>
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="GroupId"/>
+					</f:facet>
+					<h:link outcome="/admin/modelsGroupIds/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemGroupIdTem" value="#{_item.groupIds.artifactId}"/>
+					</h:link>
+				</h:column>
+
                                 <h:column>
                                         <f:facet name="header">
                                                 <h:outputText value="IsSimplified"/>

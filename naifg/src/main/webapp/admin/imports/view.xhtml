@@ -165,7 +165,7 @@
                         <h:outputText/>
 
                         <h:outputLabel for="importsBeanImportsDependencies" value="dependencies:"/>
-                        <h:link id="importsBeanImportsDependencies" outcome="/admin/dependencies/view" rendered="#{!empty importsBean.imports.dependencies}" value="#{importsBean.imports.dependencies.name}">
+                        <h:link id="importsBeanImportsDependencies" outcome="/admin/dependencies/view" rendered="#{!empty importsBean.imports.dependencies}" value="#{importsBean.imports.dependencies.artifactId}">
                                 <f:param name="id" value="#{importsBean.imports.dependencies.id}"/>
                         </h:link>
                         <h:outputText/>

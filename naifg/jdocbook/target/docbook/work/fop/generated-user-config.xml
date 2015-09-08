@@ -1,0 +1,99 @@
+<fop version="1.0">
+  <strict-configuration>true</strict-configuration>
+  <renderers>
+    <renderer mime="application/pdf">
+      <fonts>
+        <font embed-url="file:/d:/dev/njava/simasoft/naifg/jdocbook/target/docbook/staging/fonts/batang.ttf">
+          <font-triplet name="Baekmuk Batang" style="normal" weight="normal" />
+          <font-triplet name="Baekmuk Batang" style="normal" weight="bold" />
+          <font-triplet name="Baekmuk Batang" style="italic" weight="bold" />
+          <font-triplet name="Baekmuk Batang" style="italic" weight="normal" />
+        </font>
+        <font embed-url="file:/d:/dev/njava/simasoft/naifg/jdocbook/target/docbook/staging/fonts/lohit_bn.ttf">
+          <font-triplet name="Lohit Bengali" style="normal" weight="normal" />
+          <font-triplet name="Lohit Bengali" style="normal" weight="bold" />
+          <font-triplet name="Lohit Bengali" style="italic" weight="bold" />
+          <font-triplet name="Lohit Bengali" style="italic" weight="normal" />
+        </font>
+        <font embed-url="file:/d:/dev/njava/simasoft/naifg/jdocbook/target/docbook/staging/fonts/lohit_gu.ttf">
+          <font-triplet name="Lohit Gujarati" style="normal" weight="normal" />
+          <font-triplet name="Lohit Gujarati" style="normal" weight="bold" />
+          <font-triplet name="Lohit Gujarati" style="italic" weight="bold" />
+          <font-triplet name="Lohit Gujarati" style="italic" weight="normal" />
+        </font>
+        <font embed-url="file:/d:/dev/njava/simasoft/naifg/jdocbook/target/docbook/staging/fonts/lohit_hi.ttf">
+          <font-triplet name="Lohit Hindi" style="normal" weight="normal" />
+          <font-triplet name="Lohit Hindi" style="normal" weight="bold" />
+          <font-triplet name="Lohit Hindi" style="italic" weight="bold" />
+          <font-triplet name="Lohit Hindi" style="italic" weight="normal" />
+        </font>
+        <font embed-url="file:/d:/dev/njava/simasoft/naifg/jdocbook/target/docbook/staging/fonts/lohit_kn.ttf">
+          <font-triplet name="Lohit Kannada" style="normal" weight="normal" />
+          <font-triplet name="Lohit Kannada" style="normal" weight="bold" />
+          <font-triplet name="Lohit Kannada" style="italic" weight="bold" />
+          <font-triplet name="Lohit Kannada" style="italic" weight="normal" />
+        </font>
+        <font embed-url="file:/d:/dev/njava/simasoft/naifg/jdocbook/target/docbook/staging/fonts/lohit_ml.ttf">
+          <font-triplet name="Lohit Malayalam" style="normal" weight="normal" />
+          <font-triplet name="Lohit Malayalam" style="normal" weight="bold" />
+          <font-triplet name="Lohit Malayalam" style="italic" weight="bold" />
+          <font-triplet name="Lohit Malayalam" style="italic" weight="normal" />
+        </font>
+        <font embed-url="file:/d:/dev/njava/simasoft/naifg/jdocbook/target/docbook/staging/fonts/lohit_or.ttf">
+          <font-triplet name="Lohit Oriya" style="normal" weight="normal" />
+          <font-triplet name="Lohit Oriya" style="normal" weight="bold" />
+          <font-triplet name="Lohit Oriya" style="italic" weight="bold" />
+          <font-triplet name="Lohit Oriya" style="italic" weight="normal" />
+        </font>
+        <font embed-url="file:/d:/dev/njava/simasoft/naifg/jdocbook/target/docbook/staging/fonts/lohit_pa.ttf">
+          <font-triplet name="Lohit Punjabi" style="normal" weight="normal" />
+          <font-triplet name="Lohit Punjabi" style="normal" weight="bold" />
+          <font-triplet name="Lohit Punjabi" style="italic" weight="bold" />
+          <font-triplet name="Lohit Punjabi" style="italic" weight="normal" />
+        </font>
+        <font embed-url="file:/d:/dev/njava/simasoft/naifg/jdocbook/target/docbook/staging/fonts/lohit_ta.ttf">
+          <font-triplet name="Lohit Tamil" style="normal" weight="normal" />
+          <font-triplet name="Lohit Tamil" style="normal" weight="bold" />
+          <font-triplet name="Lohit Tamil" style="italic" weight="bold" />
+          <font-triplet name="Lohit Tamil" style="italic" weight="normal" />
+        </font>
+        <font embed-url="file:/d:/dev/njava/simasoft/naifg/jdocbook/target/docbook/staging/fonts/lohit_te.ttf">
+          <font-triplet name="Lohit Telugu" style="normal" weight="normal" />
+          <font-triplet name="Lohit Telugu" style="normal" weight="bold" />
+          <font-triplet name="Lohit Telugu" style="italic" weight="bold" />
+          <font-triplet name="Lohit Telugu" style="italic" weight="normal" />
+        </font>
+        <font embed-url="file:/d:/dev/njava/simasoft/naifg/jdocbook/target/docbook/staging/fonts/sazanami-gothic.ttf">
+          <font-triplet name="Sazanami Gothic Regular" style="normal" weight="normal" />
+          <font-triplet name="Sazanami Gothic Regular" style="normal" weight="bold" />
+          <font-triplet name="Sazanami Gothic Regular" style="italic" weight="bold" />
+          <font-triplet name="Sazanami Gothic Regular" style="italic" weight="normal" />
+        </font>
+        <font embed-url="file:/d:/dev/njava/simasoft/naifg/jdocbook/target/docbook/staging/fonts/uming.ttc" sub-font="AR PL UMing CN">
+          <font-triplet name="AR PL UMing CN" style="normal" weight="normal" />
+          <font-triplet name="AR PL UMing CN" style="normal" weight="bold" />
+          <font-triplet name="AR PL UMing CN" style="italic" weight="bold" />
+          <font-triplet name="AR PL UMing CN" style="italic" weight="normal" />
+        </font>
+        <font embed-url="file:/d:/dev/njava/simasoft/naifg/jdocbook/target/docbook/staging/fonts/uming.ttc" sub-font="AR PL UMing HK">
+          <font-triplet name="AR PL UMing HK" style="normal" weight="normal" />
+          <font-triplet name="AR PL UMing HK" style="normal" weight="bold" />
+          <font-triplet name="AR PL UMing HK" style="italic" weight="bold" />
+          <font-triplet name="AR PL UMing HK" style="italic" weight="normal" />
+        </font>
+        <font embed-url="file:/d:/dev/njava/simasoft/naifg/jdocbook/target/docbook/staging/fonts/uming.ttc" sub-font="AR PL UMing TW">
+          <font-triplet name="AR PL UMing TW" style="normal" weight="normal" />
+          <font-triplet name="AR PL UMing TW" style="normal" weight="bold" />
+          <font-triplet name="AR PL UMing TW" style="italic" weight="bold" />
+          <font-triplet name="AR PL UMing TW" style="italic" weight="normal" />
+        </font>
+        <font embed-url="file:/d:/dev/njava/simasoft/naifg/jdocbook/target/docbook/staging/fonts/uming.ttc" sub-font="AR PL UMing TW MBE">
+          <font-triplet name="AR PL UMing TW MBE" style="normal" weight="normal" />
+          <font-triplet name="AR PL UMing TW MBE" style="normal" weight="bold" />
+          <font-triplet name="AR PL UMing TW MBE" style="italic" weight="bold" />
+          <font-triplet name="AR PL UMing TW MBE" style="italic" weight="normal" />
+        </font>
+      </fonts>
+    </renderer>
+  </renderers>
+</fop>
