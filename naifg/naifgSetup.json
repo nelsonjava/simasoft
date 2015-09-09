@@ -1,6 +1,4 @@
 {
-  "id": 1,
-  "firstname": "Katerina",
   "GroupIds": [
     {
       "groupId": "co.simasoft.models.dev.naifg",

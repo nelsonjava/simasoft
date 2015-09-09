@@ -325,6 +325,7 @@ for (Entidad entidad : entidades) {
         modelsGen.WarH2();
         modelsGen.jdocbook();
         war(developments);
+        json(developments);
 
 
     }
@@ -663,7 +664,7 @@ line("} // "+developments.getArtifactId()+"Setup");
     }
 
     } // jdocbook
-    
+
     public void jsonRead(Developments developments) throws IOException {
     try {
 
@@ -673,5 +674,205 @@ line("} // "+developments.getArtifactId()+"Setup");
     }
 
     } // jdocbook
+
+    public void json(Developments developments) throws IOException {
+    try {
+
+        clearFileTxt();
+        int i=1;
+        int j=1;
+        int k=1;
+        int y=1;
+        LinkedHashSet<String> imports = new LinkedHashSet<String>();
+
+line("{");
+line("  \"GroupIds\": [");
+
+    for (Models models : developments.getModels()) {
+        for (ModelsGroupIds modelsGroupIds : models.getModelsGroupIds()){
+            if (modelsGroupIds.getGroupIds().getGroupId().indexOf (models.getGroupId()) != -1){ // Si se encuentra la cadena
+            }
+            else{
+               continue; // Descarta el modelo externo
+            }
+line("    {");
+line("      \"artifactId\": \""+modelsGroupIds.getGroupIds().getArtifactId()+"\"");
+line("      \"groupId\": \""+modelsGroupIds.getGroupIds().getGroupId()+"\",");
+line("      \"version\": \""+modelsGroupIds.getGroupIds().getVersion()+"\",");
+line("      \"code\": \""+modelsGroupIds.getGroupIds().getCode()+"\"");
+line("    },i="+String.valueOf(j)+" models.getModelsGroupIds().size="+String.valueOf(models.getModelsGroupIds().size()));
+line("    },j="+String.valueOf(i)+" developments.getModels().size().size="+String.valueOf(developments.getModels().size()));
+            j++;
+        } // for: models.getModelsGroupIds()
+        i++;
+    } // for: developments.getModels()
+line("  ],");
+
+line("  \"Models\": [");
+    for (Models models : developments.getModels()) {
+
+line("    {");
+line("      \"artifactId\": \""+models.getArtifactId()+"\"");
+line("      \"groupId\": \""+models.getGroupId()+"\",");
+line("      \"version\": \""+models.getVersion()+"\",");
+line("      \"code\": \""+models.getCode()+"\"");
+line("    },size="+String.valueOf(developments.getModels().size()));
+    } // for: developments.getModels()
+line("  ],");
+
+line("  \"ModelsGroupIds\": [");
+    i=1;
+    j=1;
+    for (Models models : developments.getModels()) {
+
+        for(ModelsGroupIds modelsGroupIds : models.getModelsGroupIds()){
+
+line("    {");
+line("      \"isSimplified\": "+modelsGroupIds.getIsSimplified()+",");
+line("      \"isIsolated\": \""+modelsGroupIds.getIsIsolated()+",");
+line("      \"GroupIds.groupId\": \""+modelsGroupIds.getGroupIds().getArtifactId()+"\",");
+line("      \"Models.artifactId\": \""+modelsGroupIds.getModels().getArtifactId()+"\"");
+line("    },j="+String.valueOf(j)+"models.getModelsGroupIds().size()="+String.valueOf(models.getModelsGroupIds().size()));
+line("    },i="+String.valueOf(i)+"developments.getModels().size()="+String.valueOf(developments.getModels().size()));
+          j++;
+        } // for: models.getModelsGroupIds()
+        i++;
+    } // for: developments.getModels()
+line("  ],");
+
+line("  \"Developments\": [");
+line("    {");
+line("      \"artifactId\": \""+developments.getArtifactId()+"\"");
+line("      \"groupId\": \""+developments.getGroupId()+"\",");
+line("      \"version\": \""+developments.getVersion()+"\",");
+line("      \"code\": \""+developments.getCode()+"\"");
+line("      \"Models.artifactId\": \""+developments.getArtifactId()+"\"");
+line("    }");
+line("  ],");
+
+line("  \"Entities\": [");
+    i=1;
+    j=1;
+    k=1;
+    for (Models models : developments.getModels()) {
+
+        for (ModelsGroupIds modelsGroupIds : models.getModelsGroupIds()){
+
+            if (modelsGroupIds.getGroupIds().getGroupId().indexOf (models.getGroupId()) != -1){ // Si se encuentra la cadena
+            }
+            else{
+               continue; // Descarta el modelo externo
+            }
+
+            for (Entities entities : modelsGroupIds.getGroupIds().getEntities()){
+
+line("    {");
+line("      \"name\": \""+entities.getName()+"\",");
+line("      \"groupIds\": \""+modelsGroupIds.getGroupIds().getGroupId()+"\"");
+line("    },k="+String.valueOf(k)+"modelsGroupIds.getGroupIds().getEntities().size()="+String.valueOf(modelsGroupIds.getGroupIds().getEntities().size()));
+line("    },j="+String.valueOf(j)+"models.getModelsGroupIds().size()="+String.valueOf(models.getModelsGroupIds().size()));
+line("    },i="+String.valueOf(i)+"developments.getModels().size()="+String.valueOf(developments.getModels().size()));
+            k++;
+            } // for: modelsGroupIds.getGroupIds().getEntities()
+            j++;
+        } // for: models.getModelsGroupIds()
+        i++;
+    } // for: developments.getModels()
+line("  ],");
+
+
+line("  \"Attributes\": [");
+    i=0;
+    j=0;
+    k=0;
+    y=0;
+    for (Models models : developments.getModels()) {
+
+        for (ModelsGroupIds modelsGroupIds : models.getModelsGroupIds()){
+
+            if (modelsGroupIds.getGroupIds().getGroupId().indexOf (models.getGroupId()) != -1){ // Si se encuentra la cadena
+            }
+            else{
+               continue; // Descarta el modelo externo
+            }
+
+            for (Entities entities : modelsGroupIds.getGroupIds().getEntities()){
+
+                for (Attributes attributes: entities.getAttributes()) {
+
+line("    {");
+line("      \"entity\": \""+entities.getName()+"\",");
+line("      \"name\": \""+attributes.getName()+"\",");
+line("      \"isNullable\": "+attributes.getIsNullable()+",");
+line("      \"isUnique\": "+attributes.getIsUnique()+",");
+line("      \"AttributesTypes\": \""+attributes.getAttributesTypes().getName()+"\"");
+line("    },y="+String.valueOf(y)+"entities.getAttributes().size()="+String.valueOf(entities.getAttributes().size()));
+line("    },k="+String.valueOf(k)+"modelsGroupIds.getGroupIds().getEntities().size()="+String.valueOf(modelsGroupIds.getGroupIds().getEntities().size()));
+line("    },j="+String.valueOf(j)+"developments.getModels().size()="+String.valueOf(models.getModelsGroupIds().size()));
+line("    },i="+String.valueOf(i)+"developments.getModels().size()="+String.valueOf(developments.getModels().size()));
+                y++;
+                } // for: entities.getAttributes()
+                k++;
+            } // for: modelsGroupIds.getGroupIds().getEntities()
+            j++;
+        } // for: models.getModelsGroupIds()
+        i++;
+    } // for: developments.getModels()
+line("  ],");
+
+line("  \"Relationships\": [");
+    i=0;
+    j=0;
+    k=0;
+    y=0;
+    for (Models models : developments.getModels()) {
+
+        for (ModelsGroupIds modelsGroupIds : models.getModelsGroupIds()){
+
+            for (Entities entities : modelsGroupIds.getGroupIds().getEntities()){
+
+                for (Relationships relationships: entities.getFrom() ) {
+
+                    switch (relationships.getCardinalities().getCardinality()) {
+                        case "1..1":
+                        case "1..*":
+                        case "*..*":
+
+line("    {");
+line("      \"From\": \""+relationships.getFrom().getName()+"\",");
+line("      \"To\": \""+relationships.getTo().getName()+"\",");
+line("      \"isOptionality\": "+relationships.getIsOptionality()+",");
+line("      \"isEmbedded\": "+relationships.getIsEmbedded()+",");
+line("      \"isSimplified\": "+relationships.getIsSimplified()+",");
+line("      \"Cardinalities\": "+Cardinaly(relationships.getCardinalities().getCardinality()));
+line("    },y="+String.valueOf(y)+"size="+String.valueOf(entities.getFrom().size()));
+line("    },k="+String.valueOf(k)+"size="+String.valueOf(modelsGroupIds.getGroupIds().getEntities().size()));
+line("    },j="+String.valueOf(j)+"size="+String.valueOf(models.getModelsGroupIds().size()));
+line("    },i="+String.valueOf(i)+"developments.getModels().size()="+String.valueOf(developments.getModels().size()));
+
+                    } // switch
+
+                   y++;
+                } // for: entities.getFrom()
+                k++;
+            } // for: modelsGroupIds.getGroupIds().getEntities()
+            j++;
+        } // for: models.getModelsGroupIds()
+        i++;
+    } // for: developments.getModels()
+
+line("    } // data()\n");
+
+line("} // "+developments.getArtifactId()+"Setup");
+
+    saveFile("\\docs.h2.war."+developments.getArtifactId(),developments.getArtifactId()+"Setup.json");
+
+    }
+    catch(Exception ioe) {
+      ioe.printStackTrace();
+    }
+
+    } // json
+
 
 } // DevelopmentsGen
