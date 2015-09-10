@@ -1323,7 +1323,7 @@ Multiplicity 0 Arial,8,N</a:FontList>
 <a:CreationDate>1438231418</a:CreationDate>
 <a:ModificationDate>1439253887</a:ModificationDate>
 <a:SourceTextOffset>(187, -1288)</a:SourceTextOffset>
-<a:Rect>((-2137,19125), (10650,27750))</a:Rect>
+<a:Rect>((-2137,19125), (10613,27750))</a:Rect>
 <a:ListOfPoints>((-2137,27750),(10613,27750),(10613,19125))</a:ListOfPoints>
 <a:CornerStyle>1</a:CornerStyle>
 <a:ArrowStyle>0</a:ArrowStyle>
@@ -1346,8 +1346,8 @@ Multiplicity 0 Arial,8,N</a:FontList>
 <a:ModificationDate>1439253936</a:ModificationDate>
 <a:SourceTextOffset>(75, -1313)</a:SourceTextOffset>
 <a:DestinationTextOffset>(1050, -37)</a:DestinationTextOffset>
-<a:Rect>((-1912,5788), (10200,16125))</a:Rect>
-<a:ListOfPoints>((-1912,8175),(8213,8175),(8213,16125))</a:ListOfPoints>
+<a:Rect>((-2070,5788), (10200,16125))</a:Rect>
+<a:ListOfPoints>((-2070,8175),(8213,8175),(8213,16125))</a:ListOfPoints>
 <a:CornerStyle>1</a:CornerStyle>
 <a:ArrowStyle>0</a:ArrowStyle>
 <a:LineColor>16744448</a:LineColor>
@@ -1436,7 +1436,7 @@ LABL 0 Arial,8,N</a:FontList>
 <o:ClassSymbol Id="o14">
 <a:CreationDate>1438230798</a:CreationDate>
 <a:ModificationDate>1439247010</a:ModificationDate>
-<a:Rect>((-9286,6277), (-1510,10398))</a:Rect>
+<a:Rect>((-9110,6277), (-1686,10398))</a:Rect>
 <a:LineColor>16744448</a:LineColor>
 <a:FillColor>16770222</a:FillColor>
 <a:ShadowColor>12632256</a:ShadowColor>
@@ -1513,22 +1513,9 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Code>Imports</a:Code>
 <a:CreationDate>1438230798</a:CreationDate>
 <a:Creator>admin</a:Creator>
-<a:ModificationDate>1439253902</a:ModificationDate>
+<a:ModificationDate>1441910461</a:ModificationDate>
 <a:Modifier>admin</a:Modifier>
 <a:UseParentNamespace>0</a:UseParentNamespace>
-<c:Operations>
-<o:Operation Id="o24">
-<a:ObjectID>FE6A96D3-7458-4F8F-BA47-60129400FD75</a:ObjectID>
-<a:Name>Dependencies</a:Name>
-<a:Code>dependencies</a:Code>
-<a:CreationDate>1438230861</a:CreationDate>
-<a:Creator>admin</a:Creator>
-<a:ModificationDate>1438230861</a:ModificationDate>
-<a:Modifier>admin</a:Modifier>
-<a:ReturnType>int</a:ReturnType>
-<a:TemplateBody>%DefaultBody%</a:TemplateBody>
-</o:Operation>
-</c:Operations>
 </o:Class>
 <o:Class Id="o20">
 <a:ObjectID>703597C3-AEED-4B56-9B2E-C4A862D5BB99</a:ObjectID>
@@ -1536,21 +1523,9 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Code>Dependencies</a:Code>
 <a:CreationDate>1438230798</a:CreationDate>
 <a:Creator>admin</a:Creator>
-<a:ModificationDate>1439253881</a:ModificationDate>
+<a:ModificationDate>1441910450</a:ModificationDate>
 <a:Modifier>admin</a:Modifier>
 <a:UseParentNamespace>0</a:UseParentNamespace>
-<c:Operations>
-<o:Operation Id="o25">
-<a:ObjectID>0EA63F7A-91E3-4A6F-BB39-F6F5FCB9D3B5</a:ObjectID>
-<a:Name>Dependencies</a:Name>
-<a:Code>dependencies</a:Code>
-<a:CreationDate>1438230850</a:CreationDate>
-<a:Creator>admin</a:Creator>
-<a:ModificationDate>1438230850</a:ModificationDate>
-<a:Modifier>admin</a:Modifier>
-<a:TemplateBody>%DefaultBody%</a:TemplateBody>
-</o:Operation>
-</c:Operations>
 </o:Class>
 <o:Class Id="o21">
 <a:ObjectID>6F379B2D-6AA5-40A7-AF91-D9934F64A9AA</a:ObjectID>
@@ -1558,21 +1533,9 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Code>AttributesProperties</a:Code>
 <a:CreationDate>1438230798</a:CreationDate>
 <a:Creator>admin</a:Creator>
-<a:ModificationDate>1439253927</a:ModificationDate>
+<a:ModificationDate>1441910474</a:ModificationDate>
 <a:Modifier>admin</a:Modifier>
 <a:UseParentNamespace>0</a:UseParentNamespace>
-<c:Operations>
-<o:Operation Id="o26">
-<a:ObjectID>4A958AD2-7F96-4651-8ADF-B5F703EC6D16</a:ObjectID>
-<a:Name>Dependencies</a:Name>
-<a:Code>dependencies</a:Code>
-<a:CreationDate>1438230891</a:CreationDate>
-<a:Creator>admin</a:Creator>
-<a:ModificationDate>1438230911</a:ModificationDate>
-<a:Modifier>admin</a:Modifier>
-<a:TemplateBody>%DefaultBody%</a:TemplateBody>
-</o:Operation>
-</c:Operations>
 </o:Class>
 <o:Class Id="o22">
 <a:ObjectID>49E97B7B-C253-41FC-AF46-6AE4387C15F4</a:ObjectID>
@@ -1580,21 +1543,9 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Code>AttributesTypes</a:Code>
 <a:CreationDate>1438230798</a:CreationDate>
 <a:Creator>admin</a:Creator>
-<a:ModificationDate>1439253953</a:ModificationDate>
+<a:ModificationDate>1441910493</a:ModificationDate>
 <a:Modifier>admin</a:Modifier>
 <a:UseParentNamespace>0</a:UseParentNamespace>
-<c:Operations>
-<o:Operation Id="o27">
-<a:ObjectID>EB81EE67-DAE9-415B-A680-5C3A458017AD</a:ObjectID>
-<a:Name>Dependencies</a:Name>
-<a:Code>dependencies</a:Code>
-<a:CreationDate>1438230923</a:CreationDate>
-<a:Creator>admin</a:Creator>
-<a:ModificationDate>1438230923</a:ModificationDate>
-<a:Modifier>admin</a:Modifier>
-<a:TemplateBody>%DefaultBody%</a:TemplateBody>
-</o:Operation>
-</c:Operations>
 </o:Class>
 <o:Class Id="o23">
 <a:ObjectID>1B22621F-F40F-49C7-890F-15C0AE385791</a:ObjectID>
@@ -1606,7 +1557,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Modifier>admin</a:Modifier>
 <a:UseParentNamespace>0</a:UseParentNamespace>
 <c:Operations>
-<o:Operation Id="o28">
+<o:Operation Id="o24">
 <a:ObjectID>AE624451-9D4E-4486-80D9-586CF0F93678</a:ObjectID>
 <a:Name>Sites</a:Name>
 <a:Code>sites</a:Code>
@@ -1722,7 +1673,7 @@ LABL 0 Arial,8,N</a:FontList>
 </o:Association>
 </c:Associations>
 <c:TargetModels>
-<o:TargetModel Id="o29">
+<o:TargetModel Id="o25">
 <a:ObjectID>379A4BCF-F960-450E-8E0E-F9697B70C946</a:ObjectID>
 <a:Name>Java</a:Name>
 <a:Code>Java</a:Code>
@@ -1737,7 +1688,7 @@ LABL 0 Arial,8,N</a:FontList>
 <o:Shortcut Ref="o3"/>
 </c:SessionShortcuts>
 </o:TargetModel>
-<o:TargetModel Id="o30">
+<o:TargetModel Id="o26">
 <a:ObjectID>AD29AB7C-CBA5-46C5-8BC9-0903F1A82C53</a:ObjectID>
 <a:Name>WSDL for Java</a:Name>
 <a:Code>WSDLJava</a:Code>

@@ -98,6 +98,70 @@ public class naifgSetupJson {
 
          }
 
+         JSONArray arrayModelsGroupIds = (JSONArray) jsonObject.get("ModelsGroupIds");
+         Iterator iteModelsGroupIds = arrayModelsGroupIds.iterator();
+         while (iteModelsGroupIds.hasNext()) {
+
+                JSONObject modelsGroupIdsObj = (JSONObject) iteModelsGroupIds.next();
+
+                Boolean modelsGroupIdsIsSimplified = (Boolean)modelsGroupIdsObj.get("isSimplified");
+                Boolean modelsGroupIdsIsIsolated = (Boolean)modelsGroupIdsObj.get("isIsolated");
+                String modelsArtifactId = (String)modelsGroupIdsObj.get("Models.artifactId");
+                String groupIdsGroupId = (String)modelsGroupIdsObj.get("GroupIds.groupId");
+
+                f.line("Models.artifactId:"+modelsArtifactId);
+                f.line("GroupIds.groupId:"+groupIdsGroupId);
+                f.line("");
+
+                ModelsGroupIds modelsGroupIds1 = new ModelsGroupIds();
+                modelsGroupIds1.setIsSimplified(modelsGroupIdsIsSimplified);
+                modelsGroupIds1.setIsIsolated(modelsGroupIdsIsIsolated);
+
+                Models modelss1 = findBean.artifactIdModels(modelsArtifactId,em);
+                modelsGroupIds1.setModels(modelss1);
+
+                GroupIds groupIdd1 = findBean.artifactIdGroupIds(groupIdsGroupId,em);
+                modelsGroupIds1.setGroupIds(groupIdd1);
+
+                em.persist(modelsGroupIds1);
+                em.flush();
+
+         }
+
+         JSONArray arrayDevelopments = (JSONArray) jsonObject.get("Developments");
+         Iterator iteDevelopments = arrayDevelopments.iterator();
+         while (iteDevelopments.hasNext()) {
+
+                JSONObject developmentsObj = (JSONObject) iteDevelopments.next();
+
+                String developmentsArtifactId = (String)developmentsObj.get("artifactId");
+                String developmentsGroupId = (String)developmentsObj.get("groupId");
+                String developmentsVersion = (String)developmentsObj.get("version");
+                String developmentsCode = (String)developmentsObj.get("code");
+                String developmentsModelsArtifactId = (String)developmentsObj.get("Models.artifactId");
+
+                f.line("artifactId:"+developmentsArtifactId);
+                f.line("groupId:"+developmentsGroupId);
+                f.line("version:"+developmentsVersion);
+                f.line("");
+
+                Developments dev = new Developments();
+                dev.setArtifactId(developmentsArtifactId);
+                dev.setGroupId(developmentsGroupId);
+                dev.setVersion(developmentsVersion);
+                dev.setCode(developmentsCode);
+
+                Set<Models> devModels = new HashSet<Models>();
+                Models model1 = findBean.artifactIdModels(developmentsModelsArtifactId,em);
+                devModels.add(model1);
+                dev.setModels(devModels);
+
+                em.persist(dev);
+                em.flush();
+
+         }
+
+
          // get an array from the JSON object
          JSONArray arrayEntities = (JSONArray) jsonObject.get("Entities");
          Iterator iteEntities = arrayEntities.iterator();

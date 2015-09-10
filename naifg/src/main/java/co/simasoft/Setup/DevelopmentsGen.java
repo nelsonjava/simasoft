@@ -50,7 +50,7 @@ public class DevelopmentsGen extends FileTxt {
     private static final Logger log = Logger.getLogger(DevelopmentsGen.class.getName());
 
     private static final String QUERYA = "SELECT c FROM AttributesProperties c WHERE c.name LIKE :custName";
-    
+
     private int i=0;
     private int j=0;
     private int k=0;
@@ -58,6 +58,8 @@ public class DevelopmentsGen extends FileTxt {
 
     @PersistenceContext(unitName = "naifgPU-JTA")
     private EntityManager em;
+    
+    FindBean findBean = new FindBean();
 
     public void data(Developments developments) throws IOException {
     try {
@@ -330,9 +332,7 @@ for (Entidad entidad : entidades) {
         modelsGen.WarH2();
         modelsGen.jdocbook();
         war(developments);
-        json(developments);
-
-
+        jsonNaifg(developments);
     }
     catch(Exception ioe) {
       ioe.printStackTrace();
@@ -680,7 +680,7 @@ line("} // "+developments.getArtifactId()+"Setup");
 
     } // jdocbook
 
-    public void json(Developments developments) throws IOException {
+    public void jsonNaifg(Developments developments) throws IOException {
     try {
 
         clearFileTxt();
@@ -942,6 +942,102 @@ line("  ]");
 line("}");
 
     saveFile("\\docs.h2.war."+developments.getArtifactId(),developments.getArtifactId()+"Setup.json");
+
+    }
+    catch(Exception ioe) {
+      ioe.printStackTrace();
+    }
+
+    jsonDependencies(developments);
+
+    } // json
+
+    public void jsonDependencies(Developments developments) throws IOException {
+    try {
+
+        clearFileTxt();
+
+line("{");
+
+line("  \"Dependencies\": [");
+        List<Dependencies> dependencies = findBean.AllDependencies(em);
+        i=1;
+        for (Dependencies dependency : dependencies) {
+line("    {");
+line("      \"artifactId\": \""+dependency.getArtifactId()+"\",");
+line("      \"groupId\": \""+dependency.getGroupId()+"\",");
+line("      \"version\": \""+dependency.getVersion()+"\",");
+line("      \"type\": \""+dependency.getType()+"\",");
+line("      \"scope\": \""+dependency.getScope()+"\",");
+line("      \"maven\": \""+dependency.getMaven()+"\"");
+          if (i == dependencies.size()){
+line("    }");
+          }
+          else{
+line("    },");
+          }
+          i++;
+        } // for: dependencies
+line("  ],");
+
+line("  \"Imports\": [");
+        List<Imports> imports = findBean.AllImports(em);
+        i=1;
+        for (Imports impor : imports) {
+line("    {");
+line("      \"name\": \""+impor.getName()+"\",");
+line("      \"dependencies.artifactId\": \""+impor.getName()+"\"");
+// System.out.println(impor.getDependencies().getGroupId());
+          if (i == imports.size()){
+line("    }");
+          }
+          else{
+line("    },");
+          }
+          i++;
+        } // for:imports
+line("  ],");
+
+line("  \"AttributesProperties\": [");
+        List<AttributesProperties> attributesProperties = findBean.AllAttributesProperties(em);
+        i=1;
+        for (AttributesProperties attributesProperty : attributesProperties ){
+line("    {");
+line("      \"name\": \""+attributesProperty.getName()+"\",");
+line("      \"value\": \""+attributesProperty.getValue()+"\"");
+          if (i == attributesProperties.size()){
+line("    }");
+          }
+          else{
+line("    },");
+          }
+          i++;
+        } // for:
+line("  ],");
+
+line("  \"AttributesTypes\": [");
+        List<AttributesTypes> attributesTypes = findBean.AllAttributesTypes(em);
+        i=1;
+        for (AttributesTypes attributesType : attributesTypes ) {
+
+line("    {");
+line("      \"name\": \""+attributesType.getName()+"\",");
+line("      \"type\": \""+attributesType.getType()+"\",");
+line("      \"length\": \""+String.valueOf(attributesType.getLength())+"\",");
+line("      \"precision\": \""+String.valueOf(attributesType.getPrecision())+"\",");
+line("      \"annotations\": \""+attributesType.getAnnotations()+"\"");
+          if (i == attributesTypes.size()){
+line("    }");
+          }
+          else{
+line("    },");
+          }
+          i++;
+        } // for: attributesTypes
+line("  ]");
+line("}");
+
+    saveFile("\\docs.h2.war."+developments.getArtifactId(),"DependenciesSetup.json");
 
     }
     catch(Exception ioe) {

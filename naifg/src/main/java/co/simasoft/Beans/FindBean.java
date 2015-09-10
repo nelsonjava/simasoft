@@ -41,7 +41,7 @@ public class FindBean {
 
 //      ---------------------- Models ------------------------
 
-    public List<Models> AllModels() {
+    public List<Models> AllModels(EntityManager em) {
         List<Models> results = em.createQuery("SELECT o FROM Models o").getResultList();
         if (results.isEmpty()) {
             return new ArrayList<Models>();
@@ -75,7 +75,7 @@ public class FindBean {
 
 //      ---------------------- Entities ------------------------
 
-    public List<Entities> AllEntities() {
+    public List<Entities> AllEntities(EntityManager em) {
         List<Entities> results = em.createQuery("SELECT o FROM Entities o").getResultList();
         if (results.isEmpty()) {
             return new ArrayList<Entities>();
@@ -97,7 +97,7 @@ public class FindBean {
 
 //      ---------------------- AttributesProperties ------------------------
 
-    public List<AttributesProperties> AllAttributesProperties() {
+    public List<AttributesProperties> AllAttributesProperties(EntityManager em) {
         List<AttributesProperties> results = em.createQuery("SELECT o FROM AttributesProperties o").getResultList();
         if (results.isEmpty()) {
             return new ArrayList<AttributesProperties>();
@@ -119,7 +119,7 @@ public class FindBean {
 
 //      ---------------------- GroupIds ------------------------
 
-    public List<GroupIds> AllGroupIds() {
+    public List<GroupIds> AllGroupIds(EntityManager em) {
         List<GroupIds> results = em.createQuery("SELECT o FROM GroupIds o").getResultList();
         if (results.isEmpty()) {
             return new ArrayList<GroupIds>();
@@ -164,7 +164,7 @@ public class FindBean {
 
 //      ---------------------- AttributesTypes ------------------------
 
-    public List<AttributesTypes> AllAttributesTypes() {
+    public List<AttributesTypes> AllAttributesTypes(EntityManager em) {
         List<AttributesTypes> results = em.createQuery("SELECT o FROM AttributesTypes o").getResultList();
         if (results.isEmpty()) {
             return new ArrayList<AttributesTypes>();
@@ -186,7 +186,7 @@ public class FindBean {
 
 //      ---------------------- Dependency ------------------------
 
-    public List<Dependencies> AllDependencies() {
+    public List<Dependencies> AllDependencies(EntityManager em) {
         List<Dependencies> results = em.createQuery("SELECT o FROM Dependencies o").getResultList();
         if (results.isEmpty()) {
             return new ArrayList<Dependencies>();
@@ -219,7 +219,7 @@ public class FindBean {
 
 //      ---------------------- NameQueries ------------------------
 
-    public List<NameQueries> AllNameQueries() {
+    public List<NameQueries> AllNameQueries(EntityManager em) {
         List<NameQueries> results = em.createQuery("SELECT o FROM NameQueries o").getResultList();
         if (results.isEmpty()) {
             return new ArrayList<NameQueries>();
@@ -241,7 +241,7 @@ public class FindBean {
 
 //      ---------------------- Attributes ------------------------
 
-    public List<Attributes> AllAttributes() {
+    public List<Attributes> AllAttributes(EntityManager em) {
         List<Attributes> results = em.createQuery("SELECT o FROM Attributes o").getResultList();
         if (results.isEmpty()) {
             return new ArrayList<Attributes>();
@@ -263,7 +263,7 @@ public class FindBean {
 
 //      ---------------------- Cardinalities ------------------------
 
-    public List<Cardinalities> AllCardinalities() {
+    public List<Cardinalities> AllCardinalities(EntityManager em) {
         List<Cardinalities> results = em.createQuery("SELECT o FROM Cardinalities o").getResultList();
         if (results.isEmpty()) {
             return new ArrayList<Cardinalities>();
@@ -293,7 +293,7 @@ public class FindBean {
         }
         return cardinalities;
     }
-    
+
     public Cardinalities cardinalityCardinalities(String search,EntityManager em) {
 
         Cardinalities cardinalities = new Cardinalities();
@@ -307,7 +307,7 @@ public class FindBean {
 
 //      ---------------------- Relationships ------------------------
 
-    public List<Relationships> AllRelationships() {
+    public List<Relationships> AllRelationships(EntityManager em) {
         List<Relationships> results = em.createQuery("SELECT o FROM Relationships o").getResultList();
         if (results.isEmpty()) {
             return new ArrayList<Relationships>();
@@ -329,7 +329,7 @@ public class FindBean {
 
 //      ---------------------- Imports ------------------------
 
-    public List<Imports> AllImports() {
+    public List<Imports> AllImports(EntityManager em) {
         List<Imports> results = em.createQuery("SELECT o FROM Imports o").getResultList();
         if (results.isEmpty()) {
             return new ArrayList<Imports>();
@@ -348,7 +348,7 @@ public class FindBean {
         }
         return imports;
     }
-    
+
     public Imports nameImports(String search,EntityManager em) {
 
         Imports imports = new Imports();

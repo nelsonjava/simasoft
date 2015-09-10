@@ -920,7 +920,7 @@ NameToCode=No</a:ModelOptionsText>
 <a:Code>ClassDiagram_1</a:Code>
 <a:CreationDate>1237650591</a:CreationDate>
 <a:Creator>nelson</a:Creator>
-<a:ModificationDate>1438230180</a:ModificationDate>
+<a:ModificationDate>1441910287</a:ModificationDate>
 <a:Modifier>admin</a:Modifier>
 <a:DisplayPreferences>[DisplayPreferences]
 
@@ -1315,24 +1315,7 @@ Shadow=0</a:DisplayPreferences>
 <a:FontName>Arial,8,N</a:FontName>
 <a:ManuallyResized>1</a:ManuallyResized>
 </o:TextSymbol>
-<o:TextSymbol Id="o7">
-<a:Text>{\rtf1\ansi\ansicpg1252\deff0\deflang9226{\fonttbl{\f0\fnil\fcharset0 Arial;}}
-\viewkind4\uc1\pard\b\fs41 ENTITIES\par
-}
-</a:Text>
-<a:CreationDate>1237655414</a:CreationDate>
-<a:ModificationDate>1438230194</a:ModificationDate>
-<a:Rect>((-6543,31199), (8963,34875))</a:Rect>
-<a:TextStyle>4130</a:TextStyle>
-<a:AutoAdjustToText>0</a:AutoAdjustToText>
-<a:LineColor>0</a:LineColor>
-<a:DashStyle>7</a:DashStyle>
-<a:FillColor>0</a:FillColor>
-<a:ShadowColor>12632256</a:ShadowColor>
-<a:FontName>Arial,8,N</a:FontName>
-<a:ManuallyResized>1</a:ManuallyResized>
-</o:TextSymbol>
-<o:ClassSymbol Id="o8">
+<o:ClassSymbol Id="o7">
 <a:CreationDate>1238074405</a:CreationDate>
 <a:ModificationDate>1438230376</a:ModificationDate>
 <a:Rect>((-7611,4374), (4013,9554))</a:Rect>
@@ -1352,10 +1335,10 @@ LABL 0 Arial,8,N</a:FontList>
 <a:GradientEndColor>16777215</a:GradientEndColor>
 <a:ManuallyResized>1</a:ManuallyResized>
 <c:Object>
-<o:Class Ref="o9"/>
+<o:Class Ref="o8"/>
 </c:Object>
 </o:ClassSymbol>
-<o:ClassSymbol Id="o10">
+<o:ClassSymbol Id="o9">
 <a:CreationDate>1426883815</a:CreationDate>
 <a:ModificationDate>1438230371</a:ModificationDate>
 <a:Rect>((-7687,-5900), (4163,2108))</a:Rect>
@@ -1375,10 +1358,10 @@ LABL 0 Arial,8,N</a:FontList>
 <a:GradientEndColor>16777215</a:GradientEndColor>
 <a:ManuallyResized>1</a:ManuallyResized>
 <c:Object>
-<o:Class Ref="o11"/>
+<o:Class Ref="o10"/>
 </c:Object>
 </o:ClassSymbol>
-<o:ClassSymbol Id="o12">
+<o:ClassSymbol Id="o11">
 <a:CreationDate>1431091851</a:CreationDate>
 <a:ModificationDate>1438231820</a:ModificationDate>
 <a:Rect>((-7687,12974), (4013,17286))</a:Rect>
@@ -1398,10 +1381,10 @@ LABL 0 Arial,8,N</a:FontList>
 <a:GradientEndColor>16777215</a:GradientEndColor>
 <a:ManuallyResized>1</a:ManuallyResized>
 <c:Object>
-<o:Class Ref="o13"/>
+<o:Class Ref="o12"/>
 </c:Object>
 </o:ClassSymbol>
-<o:ClassSymbol Id="o14">
+<o:ClassSymbol Id="o13">
 <a:CreationDate>1431096552</a:CreationDate>
 <a:ModificationDate>1438230352</a:ModificationDate>
 <a:Rect>((-7722,19949), (4024,29211))</a:Rect>
@@ -1421,7 +1404,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:GradientEndColor>16777215</a:GradientEndColor>
 <a:ManuallyResized>1</a:ManuallyResized>
 <c:Object>
-<o:Class Ref="o15"/>
+<o:Class Ref="o14"/>
 </c:Object>
 </o:ClassSymbol>
 </c:Symbols>
@@ -1431,7 +1414,7 @@ LABL 0 Arial,8,N</a:FontList>
 <o:ClassDiagram Ref="o5"/>
 </c:DefaultDiagram>
 <c:Classes>
-<o:Class Id="o9">
+<o:Class Id="o8">
 <a:ObjectID>27E7E20D-BEE0-41BF-B3F5-DEDBC4087BB2</a:ObjectID>
 <a:Name>AttributesProperties</a:Name>
 <a:Code>AttributesProperties</a:Code>
@@ -1441,7 +1424,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Modifier>admin</a:Modifier>
 <a:UseParentNamespace>0</a:UseParentNamespace>
 <c:Attributes>
-<o:Attribute Id="o16">
+<o:Attribute Id="o15">
 <a:ObjectID>9D5B9300-0AC2-43CF-AA48-218629D34814</a:ObjectID>
 <a:Name>*name</a:Name>
 <a:Code>_name</a:Code>
@@ -1452,7 +1435,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:DataType>*String</a:DataType>
 <a:Attribute.Visibility>-</a:Attribute.Visibility>
 </o:Attribute>
-<o:Attribute Id="o17">
+<o:Attribute Id="o16">
 <a:ObjectID>AE377787-19AF-4D23-9461-ADF48AAB1241</a:ObjectID>
 <a:Name>*value</a:Name>
 <a:Code>_value</a:Code>
@@ -1465,7 +1448,7 @@ LABL 0 Arial,8,N</a:FontList>
 </o:Attribute>
 </c:Attributes>
 <c:Identifiers>
-<o:Identifier Id="o18">
+<o:Identifier Id="o17">
 <a:ObjectID>F7A4294B-D98E-4381-81AE-463DB6B1EF04</a:ObjectID>
 <a:Name>Identifier_1</a:Name>
 <a:Code>Identifier_1</a:Code>
@@ -1476,10 +1459,10 @@ LABL 0 Arial,8,N</a:FontList>
 </o:Identifier>
 </c:Identifiers>
 <c:PrimaryIdentifier>
-<o:Identifier Ref="o18"/>
+<o:Identifier Ref="o17"/>
 </c:PrimaryIdentifier>
 </o:Class>
-<o:Class Id="o11">
+<o:Class Id="o10">
 <a:ObjectID>2CA98345-0CC7-4096-82E1-618E055E448A</a:ObjectID>
 <a:Name>AttributesTypes</a:Name>
 <a:Code>AttributesTypes</a:Code>
@@ -1489,7 +1472,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Modifier>admin</a:Modifier>
 <a:UseParentNamespace>0</a:UseParentNamespace>
 <c:Attributes>
-<o:Attribute Id="o19">
+<o:Attribute Id="o18">
 <a:ObjectID>152223AA-69D7-42A7-9E6B-A80F615F7016</a:ObjectID>
 <a:Name>*name</a:Name>
 <a:Code>_name</a:Code>
@@ -1500,7 +1483,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:DataType>*String</a:DataType>
 <a:Attribute.Visibility>-</a:Attribute.Visibility>
 </o:Attribute>
-<o:Attribute Id="o20">
+<o:Attribute Id="o19">
 <a:ObjectID>08F2B4EA-5203-4695-8772-9DBA72F5A44C</a:ObjectID>
 <a:Name>*type</a:Name>
 <a:Code>_type</a:Code>
@@ -1511,7 +1494,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:DataType>String</a:DataType>
 <a:Attribute.Visibility>-</a:Attribute.Visibility>
 </o:Attribute>
-<o:Attribute Id="o21">
+<o:Attribute Id="o20">
 <a:ObjectID>333836A1-AC88-4595-BF42-332744394191</a:ObjectID>
 <a:Name>length</a:Name>
 <a:Code>length</a:Code>
@@ -1522,7 +1505,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:DataType>Integer</a:DataType>
 <a:Attribute.Visibility>-</a:Attribute.Visibility>
 </o:Attribute>
-<o:Attribute Id="o22">
+<o:Attribute Id="o21">
 <a:ObjectID>45885588-3E2F-4DC3-A1A6-1B4843596A3F</a:ObjectID>
 <a:Name>precision</a:Name>
 <a:Code>precision</a:Code>
@@ -1533,7 +1516,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:DataType>Integer</a:DataType>
 <a:Attribute.Visibility>-</a:Attribute.Visibility>
 </o:Attribute>
-<o:Attribute Id="o23">
+<o:Attribute Id="o22">
 <a:ObjectID>B4056481-60FE-43F3-A191-6DEB14898C0B</a:ObjectID>
 <a:Name>annotations</a:Name>
 <a:Code>annotations</a:Code>
@@ -1546,7 +1529,7 @@ LABL 0 Arial,8,N</a:FontList>
 </o:Attribute>
 </c:Attributes>
 </o:Class>
-<o:Class Id="o13">
+<o:Class Id="o12">
 <a:ObjectID>32507D71-7DCC-4092-90D1-3D7FA6E09003</a:ObjectID>
 <a:Name>Imports</a:Name>
 <a:Code>Imports</a:Code>
@@ -1556,7 +1539,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Modifier>admin</a:Modifier>
 <a:UseParentNamespace>0</a:UseParentNamespace>
 <c:Attributes>
-<o:Attribute Id="o24">
+<o:Attribute Id="o23">
 <a:ObjectID>859A0119-E180-4B7E-8B44-7EA31C43E82B</a:ObjectID>
 <a:Name>*name</a:Name>
 <a:Code>_name</a:Code>
@@ -1569,7 +1552,7 @@ LABL 0 Arial,8,N</a:FontList>
 </o:Attribute>
 </c:Attributes>
 </o:Class>
-<o:Class Id="o15">
+<o:Class Id="o14">
 <a:ObjectID>CF127FB8-CF22-47CC-AD8E-C245A77A44E2</a:ObjectID>
 <a:Name>Dependencies</a:Name>
 <a:Code>Dependencies</a:Code>
@@ -1579,7 +1562,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Modifier>admin</a:Modifier>
 <a:UseParentNamespace>0</a:UseParentNamespace>
 <c:Attributes>
-<o:Attribute Id="o25">
+<o:Attribute Id="o24">
 <a:ObjectID>6BCFEE6A-5F90-4AF8-9F6A-0662597DF3F2</a:ObjectID>
 <a:Name>*groupId</a:Name>
 <a:Code>_groupId</a:Code>
@@ -1590,7 +1573,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:DataType>String</a:DataType>
 <a:Attribute.Visibility>-</a:Attribute.Visibility>
 </o:Attribute>
-<o:Attribute Id="o26">
+<o:Attribute Id="o25">
 <a:ObjectID>AA91BDC4-96A9-4E65-B915-B2B830BAE908</a:ObjectID>
 <a:Name>*artifactId</a:Name>
 <a:Code>_artifactId</a:Code>
@@ -1601,7 +1584,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:DataType>String</a:DataType>
 <a:Attribute.Visibility>-</a:Attribute.Visibility>
 </o:Attribute>
-<o:Attribute Id="o27">
+<o:Attribute Id="o26">
 <a:ObjectID>0023E9E1-40DA-4298-8FB4-7E15ADA30FFE</a:ObjectID>
 <a:Name>version</a:Name>
 <a:Code>version</a:Code>
@@ -1612,7 +1595,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:DataType>String</a:DataType>
 <a:Attribute.Visibility>-</a:Attribute.Visibility>
 </o:Attribute>
-<o:Attribute Id="o28">
+<o:Attribute Id="o27">
 <a:ObjectID>9539D19B-D2DE-4AC5-8008-2E89251675D8</a:ObjectID>
 <a:Name>type</a:Name>
 <a:Code>type</a:Code>
@@ -1623,7 +1606,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:DataType>String</a:DataType>
 <a:Attribute.Visibility>-</a:Attribute.Visibility>
 </o:Attribute>
-<o:Attribute Id="o29">
+<o:Attribute Id="o28">
 <a:ObjectID>D1FF589C-E300-4314-9EA9-5C5D939EF711</a:ObjectID>
 <a:Name>scope</a:Name>
 <a:Code>scope</a:Code>
@@ -1634,7 +1617,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:DataType>String</a:DataType>
 <a:Attribute.Visibility>-</a:Attribute.Visibility>
 </o:Attribute>
-<o:Attribute Id="o30">
+<o:Attribute Id="o29">
 <a:ObjectID>05184CAE-C52D-4051-AEFB-44689A0BA031</a:ObjectID>
 <a:Name>*maven</a:Name>
 <a:Code>_maven</a:Code>
@@ -1649,7 +1632,7 @@ LABL 0 Arial,8,N</a:FontList>
 </o:Class>
 </c:Classes>
 <c:TargetModels>
-<o:TargetModel Id="o31">
+<o:TargetModel Id="o30">
 <a:ObjectID>5009287E-3025-450A-BEA6-90F562F6884B</a:ObjectID>
 <a:Name>Java 5.0</a:Name>
 <a:Code>Java</a:Code>
@@ -1664,7 +1647,7 @@ LABL 0 Arial,8,N</a:FontList>
 <o:Shortcut Ref="o3"/>
 </c:SessionShortcuts>
 </o:TargetModel>
-<o:TargetModel Id="o32">
+<o:TargetModel Id="o31">
 <a:ObjectID>420CE7B6-892A-41D3-83DC-16F17BFE4022</a:ObjectID>
 <a:Name>WSDL for Java</a:Name>
 <a:Code>WSDLJava</a:Code>
