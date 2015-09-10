@@ -53,10 +53,6 @@ public class naifgSetupJson {
          JSONParser jsonParser = new JSONParser();
          JSONObject jsonObject = (JSONObject) jsonParser.parse(reader);
 
-         // get a String from the JSON object
-         String firstName =  (String) jsonObject.get("firstname");
-         f.line("firstname:"+firstName);
-
          JSONArray arrayGroupIds = (JSONArray) jsonObject.get("GroupIds");
          Iterator iteGroupId = arrayGroupIds.iterator();
          while (iteGroupId.hasNext()) {
@@ -141,7 +137,7 @@ public class naifgSetupJson {
                 Boolean attributeIsUnique = (Boolean)attributeObj.get("isUnique");
                 String attributeAttributesTypes = (String)attributeObj.get("AttributesTypes");
 
-                f.line("OJOentity:"+attributeEntity);
+                f.line("entity:"+attributeEntity);
                 f.line("name:"+attributeName);
                 f.line("isNullable:"+String.valueOf(attributeIsNullable));
                 f.line("isUnique:"+String.valueOf(attributeIsUnique));
@@ -169,9 +165,6 @@ public class naifgSetupJson {
 
                 em.persist(attributes);
                 em.flush();
-
-
-
 
          }
 

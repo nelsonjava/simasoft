@@ -50,6 +50,11 @@ public class DevelopmentsGen extends FileTxt {
     private static final Logger log = Logger.getLogger(DevelopmentsGen.class.getName());
 
     private static final String QUERYA = "SELECT c FROM AttributesProperties c WHERE c.name LIKE :custName";
+    
+    private int i=0;
+    private int j=0;
+    private int k=0;
+    private int y=0;
 
     @PersistenceContext(unitName = "naifgPU-JTA")
     private EntityManager em;
@@ -376,8 +381,8 @@ line(".***********");
     try {
 
         clearFileTxt();
-        int i=0;
-        int j=0;
+        i=0;
+        j=0;
         LinkedHashSet<String> imports = new LinkedHashSet<String>();
 
 line("package "+developments.getGroupId()+".setup;\n");
@@ -679,29 +684,40 @@ line("} // "+developments.getArtifactId()+"Setup");
     try {
 
         clearFileTxt();
-        int i=1;
-        int j=1;
-        int k=1;
-        int y=1;
         LinkedHashSet<String> imports = new LinkedHashSet<String>();
 
 line("{");
 line("  \"GroupIds\": [");
 
+    i=1;
     for (Models models : developments.getModels()) {
+
+        j = 1;
         for (ModelsGroupIds modelsGroupIds : models.getModelsGroupIds()){
             if (modelsGroupIds.getGroupIds().getGroupId().indexOf (models.getGroupId()) != -1){ // Si se encuentra la cadena
             }
             else{
+               j++;
                continue; // Descarta el modelo externo
             }
 line("    {");
-line("      \"artifactId\": \""+modelsGroupIds.getGroupIds().getArtifactId()+"\"");
+line("      \"artifactId\": \""+modelsGroupIds.getGroupIds().getArtifactId()+"\",");
 line("      \"groupId\": \""+modelsGroupIds.getGroupIds().getGroupId()+"\",");
 line("      \"version\": \""+modelsGroupIds.getGroupIds().getVersion()+"\",");
 line("      \"code\": \""+modelsGroupIds.getGroupIds().getCode()+"\"");
-line("    },i="+String.valueOf(j)+" models.getModelsGroupIds().size="+String.valueOf(models.getModelsGroupIds().size()));
-line("    },j="+String.valueOf(i)+" developments.getModels().size().size="+String.valueOf(developments.getModels().size()));
+          if (i == developments.getModels().size() && j == models.getModelsGroupIds().size() ){
+line("    }");
+          }
+          else{
+line("    },");
+          }
+
+/*
+line("i="+String.valueOf(i)+" size="+String.valueOf(developments.getModels().size())+
+     " : "+
+     "j="+String.valueOf(j)+" size="+String.valueOf(models.getModelsGroupIds().size()));
+*/
+
             j++;
         } // for: models.getModelsGroupIds()
         i++;
@@ -709,31 +725,52 @@ line("    },j="+String.valueOf(i)+" developments.getModels().size().size="+Strin
 line("  ],");
 
 line("  \"Models\": [");
-    for (Models models : developments.getModels()) {
-
+     i=1;
+     for (Models models : developments.getModels()) {
 line("    {");
-line("      \"artifactId\": \""+models.getArtifactId()+"\"");
+line("      \"artifactId\": \""+models.getArtifactId()+"\",");
 line("      \"groupId\": \""+models.getGroupId()+"\",");
 line("      \"version\": \""+models.getVersion()+"\",");
 line("      \"code\": \""+models.getCode()+"\"");
-line("    },size="+String.valueOf(developments.getModels().size()));
-    } // for: developments.getModels()
+          if (i == developments.getModels().size()){
+line("    }");
+          }
+          else{
+line("    },");
+          }
+          i++;
+     } // for: developments.getModels()
 line("  ],");
+
+/*
+line("i="+String.valueOf(i)+" size="+String.valueOf(developments.getModels().size()));
+*/
 
 line("  \"ModelsGroupIds\": [");
     i=1;
-    j=1;
     for (Models models : developments.getModels()) {
 
+        j = 1;
         for(ModelsGroupIds modelsGroupIds : models.getModelsGroupIds()){
 
 line("    {");
 line("      \"isSimplified\": "+modelsGroupIds.getIsSimplified()+",");
-line("      \"isIsolated\": \""+modelsGroupIds.getIsIsolated()+",");
+line("      \"isIsolated\": "+modelsGroupIds.getIsIsolated()+",");
 line("      \"GroupIds.groupId\": \""+modelsGroupIds.getGroupIds().getArtifactId()+"\",");
 line("      \"Models.artifactId\": \""+modelsGroupIds.getModels().getArtifactId()+"\"");
-line("    },j="+String.valueOf(j)+"models.getModelsGroupIds().size()="+String.valueOf(models.getModelsGroupIds().size()));
-line("    },i="+String.valueOf(i)+"developments.getModels().size()="+String.valueOf(developments.getModels().size()));
+          if (i == developments.getModels().size() && j == models.getModelsGroupIds().size() ){
+line("    }");
+          }
+          else{
+line("    },");
+          }
+
+/*
+line("i="+String.valueOf(i)+" size="+String.valueOf(developments.getModels().size())+
+     " : "+
+     "j="+String.valueOf(j)+" size="+String.valueOf(models.getModelsGroupIds().size()));
+*/
+
           j++;
         } // for: models.getModelsGroupIds()
         i++;
@@ -742,36 +779,49 @@ line("  ],");
 
 line("  \"Developments\": [");
 line("    {");
-line("      \"artifactId\": \""+developments.getArtifactId()+"\"");
+line("      \"artifactId\": \""+developments.getArtifactId()+"\",");
 line("      \"groupId\": \""+developments.getGroupId()+"\",");
 line("      \"version\": \""+developments.getVersion()+"\",");
-line("      \"code\": \""+developments.getCode()+"\"");
+line("      \"code\": \""+developments.getCode()+"\",");
 line("      \"Models.artifactId\": \""+developments.getArtifactId()+"\"");
 line("    }");
 line("  ],");
 
 line("  \"Entities\": [");
     i=1;
-    j=1;
-    k=1;
     for (Models models : developments.getModels()) {
 
+        j=1;
         for (ModelsGroupIds modelsGroupIds : models.getModelsGroupIds()){
 
             if (modelsGroupIds.getGroupIds().getGroupId().indexOf (models.getGroupId()) != -1){ // Si se encuentra la cadena
             }
             else{
+               j++;
                continue; // Descarta el modelo externo
             }
 
+            k=1;
             for (Entities entities : modelsGroupIds.getGroupIds().getEntities()){
 
 line("    {");
 line("      \"name\": \""+entities.getName()+"\",");
 line("      \"groupIds\": \""+modelsGroupIds.getGroupIds().getGroupId()+"\"");
-line("    },k="+String.valueOf(k)+"modelsGroupIds.getGroupIds().getEntities().size()="+String.valueOf(modelsGroupIds.getGroupIds().getEntities().size()));
-line("    },j="+String.valueOf(j)+"models.getModelsGroupIds().size()="+String.valueOf(models.getModelsGroupIds().size()));
-line("    },i="+String.valueOf(i)+"developments.getModels().size()="+String.valueOf(developments.getModels().size()));
+          if (i == developments.getModels().size() && j == models.getModelsGroupIds().size() && k == modelsGroupIds.getGroupIds().getEntities().size() ){
+line("    }");
+          }
+          else{
+line("    },");
+          }
+
+/*
+line("i="+String.valueOf(i)+" size="+String.valueOf(developments.getModels().size())+
+     " : "+
+     "j="+String.valueOf(j)+" size="+String.valueOf(models.getModelsGroupIds().size())+
+     " : "+
+     "k="+String.valueOf(k)+" size="+String.valueOf(modelsGroupIds.getGroupIds().getEntities().size()));
+*/
+
             k++;
             } // for: modelsGroupIds.getGroupIds().getEntities()
             j++;
@@ -782,22 +832,23 @@ line("  ],");
 
 
 line("  \"Attributes\": [");
-    i=0;
-    j=0;
-    k=0;
-    y=0;
+    i=1;
     for (Models models : developments.getModels()) {
 
+        j = 1;
         for (ModelsGroupIds modelsGroupIds : models.getModelsGroupIds()){
 
             if (modelsGroupIds.getGroupIds().getGroupId().indexOf (models.getGroupId()) != -1){ // Si se encuentra la cadena
             }
             else{
+               j++;
                continue; // Descarta el modelo externo
             }
 
+            k=1;
             for (Entities entities : modelsGroupIds.getGroupIds().getEntities()){
 
+                y=1;
                 for (Attributes attributes: entities.getAttributes()) {
 
 line("    {");
@@ -806,10 +857,23 @@ line("      \"name\": \""+attributes.getName()+"\",");
 line("      \"isNullable\": "+attributes.getIsNullable()+",");
 line("      \"isUnique\": "+attributes.getIsUnique()+",");
 line("      \"AttributesTypes\": \""+attributes.getAttributesTypes().getName()+"\"");
-line("    },y="+String.valueOf(y)+"entities.getAttributes().size()="+String.valueOf(entities.getAttributes().size()));
-line("    },k="+String.valueOf(k)+"modelsGroupIds.getGroupIds().getEntities().size()="+String.valueOf(modelsGroupIds.getGroupIds().getEntities().size()));
-line("    },j="+String.valueOf(j)+"developments.getModels().size()="+String.valueOf(models.getModelsGroupIds().size()));
-line("    },i="+String.valueOf(i)+"developments.getModels().size()="+String.valueOf(developments.getModels().size()));
+          if (i == developments.getModels().size() && j == models.getModelsGroupIds().size() && k == modelsGroupIds.getGroupIds().getEntities().size() && y == entities.getAttributes().size() ){
+line("    }");
+          }
+          else{
+line("    },");
+          }
+
+/*
+line("i="+String.valueOf(i)+" size="+String.valueOf(developments.getModels().size())+
+     " : "+
+     "j="+String.valueOf(j)+" size="+String.valueOf(models.getModelsGroupIds().size())+
+     " : "+
+     "k="+String.valueOf(k)+" size="+String.valueOf(modelsGroupIds.getGroupIds().getEntities().size())+
+     " : "+
+     "y="+String.valueOf(y)+" size="+String.valueOf(entities.getAttributes().size()));
+*/
+
                 y++;
                 } // for: entities.getAttributes()
                 k++;
@@ -821,16 +885,16 @@ line("    },i="+String.valueOf(i)+"developments.getModels().size()="+String.valu
 line("  ],");
 
 line("  \"Relationships\": [");
-    i=0;
-    j=0;
-    k=0;
-    y=0;
+    i=1;
     for (Models models : developments.getModels()) {
 
+        j=1;
         for (ModelsGroupIds modelsGroupIds : models.getModelsGroupIds()){
 
+            k=1;
             for (Entities entities : modelsGroupIds.getGroupIds().getEntities()){
 
+                y=1;
                 for (Relationships relationships: entities.getFrom() ) {
 
                     switch (relationships.getCardinalities().getCardinality()) {
@@ -844,11 +908,24 @@ line("      \"To\": \""+relationships.getTo().getName()+"\",");
 line("      \"isOptionality\": "+relationships.getIsOptionality()+",");
 line("      \"isEmbedded\": "+relationships.getIsEmbedded()+",");
 line("      \"isSimplified\": "+relationships.getIsSimplified()+",");
-line("      \"Cardinalities\": "+Cardinaly(relationships.getCardinalities().getCardinality()));
-line("    },y="+String.valueOf(y)+"size="+String.valueOf(entities.getFrom().size()));
-line("    },k="+String.valueOf(k)+"size="+String.valueOf(modelsGroupIds.getGroupIds().getEntities().size()));
-line("    },j="+String.valueOf(j)+"size="+String.valueOf(models.getModelsGroupIds().size()));
-line("    },i="+String.valueOf(i)+"developments.getModels().size()="+String.valueOf(developments.getModels().size()));
+line("      \"Cardinalities\": \""+Cardinaly(relationships.getCardinalities().getCardinality())+"\"");
+          if (i == developments.getModels().size() && j == models.getModelsGroupIds().size() && k == modelsGroupIds.getGroupIds().getEntities().size() && y == entities.getFrom().size() ){
+line("    }");
+          }
+          else{
+line("    },");
+          }
+
+/*
+line("i="+String.valueOf(i)+" size="+String.valueOf(developments.getModels().size())+
+     " : "+
+     "j="+String.valueOf(j)+" size="+String.valueOf(models.getModelsGroupIds().size())+
+     " : "+
+     "k="+String.valueOf(k)+" size="+String.valueOf(modelsGroupIds.getGroupIds().getEntities().size())+
+     " : "+
+     "y="+String.valueOf(y)+" size="+String.valueOf(entities.getFrom().size()));
+*/
+
 
                     } // switch
 
@@ -860,10 +937,9 @@ line("    },i="+String.valueOf(i)+"developments.getModels().size()="+String.valu
         } // for: models.getModelsGroupIds()
         i++;
     } // for: developments.getModels()
+line("  ]");
 
-line("    } // data()\n");
-
-line("} // "+developments.getArtifactId()+"Setup");
+line("}");
 
     saveFile("\\docs.h2.war."+developments.getArtifactId(),developments.getArtifactId()+"Setup.json");
 

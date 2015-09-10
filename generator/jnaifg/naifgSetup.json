@@ -1,6 +1,4 @@
 {
-  "id": 1,
-  "firstname": "Katerina",
   "GroupIds": [
     {
       "groupId": "co.simasoft.models.dev.naifg",
@@ -16,6 +14,26 @@
       "groupId": "co.simasoft.naifg",
       "artifactId": "naifg",
       "version": "1.0-SNAPSHOT"
+    }
+  ],
+  "ModelsGroupIds": [
+    {
+      "isSimplified": false,
+      "isIsolated": false,
+      "GroupIds.groupId": "co.simasoft.models.core.sites",
+      "Models.artifactId": "naifg"
+    },
+    {
+      "isSimplified": false,
+      "isIsolated": false,
+      "GroupIds.groupId": "co.simasoft.models.dev.naifg",
+      "Models.artifactId": "naifg"
+    },
+    {
+      "isSimplified": false,
+      "isIsolated": false,
+      "GroupIds.groupId": "co.simasoft.models.dev.naifg.dependencies",
+      "Models.artifactId": "naifg"
     }
   ],
   "Developments": [
