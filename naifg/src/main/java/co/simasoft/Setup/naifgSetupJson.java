@@ -17,6 +17,7 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+import javax.servlet.http.Part;
 
 
 import java.util.*;
@@ -40,12 +41,27 @@ public class naifgSetupJson {
     FindBean findBean = new FindBean();
 
     private static final Logger log = Logger.getLogger(naifgSetup.class.getName());
-    private static final String filePath = "\\docs\\naifgSetup.json";
+    private static final String filePathh = "\\docs\\naifgSetup.json";
 
-    public void data() throws IOException  {
+    public void data(Part file1) throws IOException  {
     try {
-
+      
          FileTxt f = new FileTxt();
+         
+         f.line("paso1");
+
+         String fileUpload = getFilename(file1);
+
+         f.line("paso2");
+         f.line(fileUpload);
+
+         String filePath = "\\docs\\"+fileUpload;
+
+         f.line("paso3");
+         f.line(filePath);
+
+         f.saveFile("\\docs", "PruebaWar.txt");
+
 
          // read the json file
          FileReader reader = new FileReader(filePath);
@@ -241,6 +257,7 @@ public class naifgSetupJson {
 
                 String from = (String)relationObj.get("From");
                 String to = (String)relationObj.get("To");
+                String relationName = (String)relationObj.get("name");
                 Boolean isOptionality = (Boolean)relationObj.get("isOptionality");
                 Boolean isEmbedded = (Boolean)relationObj.get("isEmbedded");
                 Boolean isSimplified = (Boolean)relationObj.get("isSimplified");
@@ -257,6 +274,7 @@ public class naifgSetupJson {
 */
 
                 Relationships relationships = new Relationships();
+                relationships.setName(relationName);
                 relationships.setIsOptionality(isOptionality);
                 relationships.setIsEmbedded(isEmbedded);
                 relationships.setIsSimplified(isSimplified);
@@ -296,10 +314,17 @@ public class naifgSetupJson {
             ioe.printStackTrace();
     }
 
-
-
-
     } // data()
+
+    private static String getFilename(Part part) {
+        for (String cd : part.getHeader("content-disposition").split(";")) {
+            if (cd.trim().startsWith("filename")) {
+                String filename = cd.substring(cd.indexOf('=') + 1).trim().replace("\"", "");
+                return filename.substring(filename.lastIndexOf('/') + 1).substring(filename.lastIndexOf('\\') + 1); // MSIE fix.
+            }
+        }
+        return null;
+    }
 
 } // naifgSetupJson
 

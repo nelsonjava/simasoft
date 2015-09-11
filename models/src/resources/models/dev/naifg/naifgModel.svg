@@ -12,6 +12,9 @@
    <polyline fill="none" points="206,393 206,306" stroke="#0080ff" stroke-width="1"/>
    <text x="218" y="381" fill="#000000" font-size="10" font-family="Arial" text-anchor="middle">0..1</text>
    <text x="217" y="322" fill="#000000" font-size="10" font-family="Arial" text-anchor="middle">0..*</text>
+   <polyline fill="none" points="239,417 357,417" stroke="#0080ff" stroke-width="1"/>
+   <text x="260" y="413" fill="#000000" font-size="10" font-family="Arial" text-anchor="middle">0..1</text>
+   <text x="338" y="412" fill="#000000" font-size="10" font-family="Arial" text-anchor="middle">0..*</text>
    <text x="124" y="554" fill="#000000" font-size="10" font-family="Arial" text-anchor="middle">from</text>
    <text x="124" y="513" fill="#000000" font-size="10" font-family="Arial" text-anchor="middle">to</text>
    <polyline fill="none" points="206,433 206,515" stroke="#0080ff" stroke-width="1"/>
@@ -122,4 +125,14 @@
    <text x="205" y="267" fill="#000000" font-size="10" font-family="Arial" text-anchor="middle">ModelsGroupIds</text>
    <line x1="164" x2="248" y1="275" y2="275" stroke="#0080ff" stroke-width="1"/>
    <line x1="164" x2="248" y1="292" y2="292" stroke="#0080ff" stroke-width="1"/>
+   <defs>
+      <linearGradient id="Gradient10" x1="0%" x2="100%" y1="0%" y2="100%" gradientUnits="objectBoundingBox">
+         <stop offset="5%" stop-color="#ffffff"/>
+         <stop offset="95%" stop-color="#aee4ff"/>
+      </linearGradient>
+   </defs>
+   <rect x="352" y="387" fill="url(#Gradient10)" width="72" height="55" stroke="#0080ff" stroke-width="1"/>
+   <text x="387" y="398" fill="#000000" font-size="10" font-family="Arial" text-anchor="middle">GroupIdsFiles</text>
+   <line x1="352" x2="424" y1="406" y2="406" stroke="#0080ff" stroke-width="1"/>
+   <line x1="352" x2="424" y1="423" y2="423" stroke="#0080ff" stroke-width="1"/>
 </svg>

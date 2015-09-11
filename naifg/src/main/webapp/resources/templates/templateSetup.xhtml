@@ -102,7 +102,13 @@
                               <h:commandButton value="Click Me to Populate Naifg Init JSON!" action="#{naifgSetupJson.data()}" />
                             </h:form>
                           </li>
-
+                          
+                          <li>
+                            <h:form  enctype="multipart/form-data">
+                              <h:inputFile value="#{FileUploadView.file1}" /><br/>
+                              <h:commandButton value="Upload File JSON!" action="#{naifgSetupJson.data(FileUploadView.file1)}" />
+                            </h:form>
+                          </li>
 
 			</ul>
 		</div>

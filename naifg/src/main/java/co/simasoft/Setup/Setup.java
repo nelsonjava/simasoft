@@ -754,8 +754,12 @@ public class Setup {
 
         AttributesTypes attributesTypes12 = new AttributesTypes();
         attributesTypes12.setName("Blob");
-        attributesTypes12.setType("Blob");
-//        attributesTypes12.setObservations("A binanry large object, for example an image or a video, which must be handled in a special way because of its size. Blob type can be further refined by expressing their MIME type for example image/gif");
+        attributesTypes12.setType("byte[]");
+        Set<AttributesProperties> attributesTypesAttributesProperties12 = new HashSet<AttributesProperties>();
+//      ...................... @Lob........................
+        AttributesProperties attributeTypeAttributeProperty12 = findBean.nameAttributesProperties("@Lob",em);
+        attributesTypesAttributesProperties12.add(attributeTypeAttributeProperty12);
+        attributesTypes12.setAttributesProperties(attributesTypesAttributesProperties12);
         em.persist(attributesTypes12);
         em.flush();
 

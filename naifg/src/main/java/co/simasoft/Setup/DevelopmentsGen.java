@@ -905,6 +905,7 @@ line("  \"Relationships\": [");
 line("    {");
 line("      \"From\": \""+relationships.getFrom().getName()+"\",");
 line("      \"To\": \""+relationships.getTo().getName()+"\",");
+line("      \"name\": \""+relationships.getName()+"\",");
 line("      \"isOptionality\": "+relationships.getIsOptionality()+",");
 line("      \"isEmbedded\": "+relationships.getIsEmbedded()+",");
 line("      \"isSimplified\": "+relationships.getIsSimplified()+",");
