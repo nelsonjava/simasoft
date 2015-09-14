@@ -30,6 +30,13 @@
                                 <h:panelGroup styleClass="search">
 
                                         <h:panelGrid columnClasses="label,component,required" columns="3">
+                                                <h:outputLabel for="modelsBeanExampleArtifactId" value="ArtifactId:"/>
+                                                <h:panelGroup>
+                                                        <h:inputText id="modelsBeanExampleArtifactId" value="#{modelsBean.example.artifactId}"/>
+                                                        <h:message for="modelsBeanExampleArtifactId" styleClass="error"/>
+                                                </h:panelGroup>
+                                                <h:outputText/>
+
                                                 <h:outputLabel for="modelsBeanExampleGroupId" value="GroupId:"/>
                                                 <h:panelGroup>
                                                         <h:inputText id="modelsBeanExampleGroupId" value="#{modelsBean.example.groupId}"/>
@@ -41,13 +48,6 @@
                                                 <h:panelGroup>
                                                         <h:inputText id="modelsBeanExampleVersion" value="#{modelsBean.example.version}"/>
                                                         <h:message for="modelsBeanExampleVersion" styleClass="error"/>
-                                                </h:panelGroup>
-                                                <h:outputText/>
-
-                                                <h:outputLabel for="modelsBeanExampleArtifactId" value="ArtifactId:"/>
-                                                <h:panelGroup>
-                                                        <h:inputText id="modelsBeanExampleArtifactId" value="#{modelsBean.example.artifactId}"/>
-                                                        <h:message for="modelsBeanExampleArtifactId" styleClass="error"/>
                                                 </h:panelGroup>
                                                 <h:outputText/>
 
@@ -71,6 +71,17 @@
 
                                 <h:column>
                                         <f:facet name="header">
+                                                <h:outputText value="ArtifactId"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/models/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemArtifactId" value="#{_item.artifactId}"/>
+                                        </h:link>
+                                </h:column>
+
+
+                                <h:column>
+                                        <f:facet name="header">
                                                 <h:outputText value="GroupId"/>
                                         </f:facet>
                                         <h:link outcome="/admin/models/view">
@@ -87,17 +98,6 @@
                                         <h:link outcome="/admin/models/view">
                                                 <f:param name="id" value="#{_item.id}"/>
                                                 <h:outputText id="itemVersion" value="#{_item.version}"/>
-                                        </h:link>
-                                </h:column>
-
-
-                                <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="ArtifactId"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/models/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemArtifactId" value="#{_item.artifactId}"/>
                                         </h:link>
                                 </h:column>
 

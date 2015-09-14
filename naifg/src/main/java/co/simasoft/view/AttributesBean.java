@@ -217,24 +217,22 @@ public class AttributesBean implements Serializable {
 					builder.lower(root.<String> get("observations")),
 					'%' + observations.toLowerCase() + '%'));
 		}
-		String name = this.example.getName();
-		if (name != null && !"".equals(name)) {
-			predicatesList.add(builder.like(
-					builder.lower(root.<String> get("name")),
-					'%' + name.toLowerCase() + '%'));
+		Boolean isCreate = this.example.getIsCreate();
+		if (isCreate != null) {
+			predicatesList.add(builder.equal(root.get("isCreate"), isCreate));
 		}
-		Integer length = this.example.getLength();
-		if (length != null && length.intValue() != 0) {
-			predicatesList.add(builder.equal(root.get("length"), length));
+		Boolean isSearch = this.example.getIsSearch();
+		if (isSearch != null) {
+			predicatesList.add(builder.equal(root.get("isSearch"), isSearch));
 		}
-		Integer precision = this.example.getPrecision();
-		if (precision != null && precision.intValue() != 0) {
-			predicatesList.add(builder.equal(root.get("precision"), precision));
+		Boolean isView = this.example.getIsView();
+		if (isView != null) {
+			predicatesList.add(builder.equal(root.get("isView"), isView));
 		}
-		Boolean isNullable = this.example.getIsNullable();
-		if (isNullable != null) {
-			predicatesList
-					.add(builder.equal(root.get("isNullable"), isNullable));
+		Boolean isViewColumn = this.example.getIsViewColumn();
+		if (isViewColumn != null) {
+			predicatesList.add(builder.equal(root.get("isViewColumn"),
+					isViewColumn));
 		}
 
 		return predicatesList.toArray(new Predicate[predicatesList.size()]);

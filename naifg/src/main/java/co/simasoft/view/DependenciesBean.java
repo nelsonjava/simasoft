@@ -229,17 +229,17 @@ public class DependenciesBean implements Serializable {
 					builder.lower(root.<String> get("artifactId")),
 					'%' + artifactId.toLowerCase() + '%'));
 		}
-		String groupId = this.example.getGroupId();
-		if (groupId != null && !"".equals(groupId)) {
+		String version = this.example.getVersion();
+		if (version != null && !"".equals(version)) {
 			predicatesList.add(builder.like(
-					builder.lower(root.<String> get("groupId")),
-					'%' + groupId.toLowerCase() + '%'));
+					builder.lower(root.<String> get("version")),
+					'%' + version.toLowerCase() + '%'));
 		}
-		String maven = this.example.getMaven();
-		if (maven != null && !"".equals(maven)) {
+		String type = this.example.getType();
+		if (type != null && !"".equals(type)) {
 			predicatesList.add(builder.like(
-					builder.lower(root.<String> get("maven")),
-					'%' + maven.toLowerCase() + '%'));
+					builder.lower(root.<String> get("type")),
+					'%' + type.toLowerCase() + '%'));
 		}
 		String scope = this.example.getScope();
 		if (scope != null && !"".equals(scope)) {

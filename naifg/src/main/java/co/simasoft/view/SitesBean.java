@@ -25,8 +25,6 @@ import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
 import co.simasoft.models.core.sites.Sites;
-import co.simasoft.models.core.sites.SitesTypes;
-import java.util.Iterator;
 
 /**
  * Backing bean for Sites entities.
@@ -132,14 +130,7 @@ public class SitesBean implements Serializable {
 
 		try {
 			Sites deletableEntity = findById(getId());
-			Iterator<SitesTypes> iterSitesTypes = deletableEntity
-					.getSitesTypes().iterator();
-			for (; iterSitesTypes.hasNext();) {
-				SitesTypes nextInSitesTypes = iterSitesTypes.next();
-				nextInSitesTypes.getSites().remove(deletableEntity);
-				iterSitesTypes.remove();
-				this.entityManager.merge(nextInSitesTypes);
-			}
+
 			this.entityManager.remove(deletableEntity);
 			this.entityManager.flush();
 			return "search?faces-redirect=true";

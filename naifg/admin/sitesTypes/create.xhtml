@@ -53,9 +53,37 @@
                                 </h:panelGroup>
                                 <h:outputText/>
 
+                                <!-- SitesTypes *..*  Sites -->
+
                                 <!-- SitesTypes 1..*  SitesTypes -->
 
                                 <!-- SitesTypes *..*  Sites -->
+
+                                <!-- SitesTypes 1..*  SitesTypes -->
+
+                                <!-- SitesTypes *..*  Sites -->
+
+                                <!-- SitesTypes 1..*  SitesTypes -->
+
+                                <h:outputLabel for="sitesTypesBeansitesTypesSitesTypes" value="SitesTypes:"/>
+                                <h:panelGroup>
+                                         <h:selectOneMenu converter="#{sitesTypesBean.converter}" id="sitesTypesBeanSitesTypesSitesTypes" value="#{sitesTypesBean.sitesTypes.sitesTypes}">
+                                                <f:selectItem/>
+                                                <f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{sitesTypesBean.all}" var="_item"/>
+                                        </h:selectOneMenu>
+                                        <h:message for="entitiesBeanEntitiesIsSimplified" styleClass="error"/>
+                                </h:panelGroup>
+                                <h:outputText/>
+
+                                <h:outputLabel for="sitesTypesBeansitesTypesSitesTypes" value="SitesTypes:"/>
+                                <h:panelGroup>
+                                         <h:selectOneMenu converter="#{sitesTypesBean.converter}" id="sitesTypesBeanSitesTypesSitesTypes" value="#{sitesTypesBean.sitesTypes.sitesTypes}">
+                                                <f:selectItem/>
+                                                <f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{sitesTypesBean.all}" var="_item"/>
+                                        </h:selectOneMenu>
+                                        <h:message for="entitiesBeanEntitiesIsSimplified" styleClass="error"/>
+                                </h:panelGroup>
+                                <h:outputText/>
 
                                 <h:outputLabel for="sitesTypesBeansitesTypesSitesTypes" value="SitesTypes:"/>
                                 <h:panelGroup>

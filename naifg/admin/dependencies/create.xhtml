@@ -46,13 +46,6 @@
                                 </h:panelGroup>
                                 <h:outputText/>
 
-                                <h:outputLabel for="dependenciesBeanDependenciesArtifactId" value="ArtifactId:"/>
-                                <h:panelGroup>
-                                        <h:inputText id="dependenciesBeanDependenciesArtifactId" required="true" value="#{dependenciesBean.dependencies.artifactId}"/>
-                                        <h:message for="dependenciesBeanDependenciesArtifactId" styleClass="error"/>
-                                </h:panelGroup>
-                                <h:outputText value="*"/>
-
                                 <h:outputLabel for="dependenciesBeanDependenciesGroupId" value="GroupId:"/>
                                 <h:panelGroup>
                                         <h:inputText id="dependenciesBeanDependenciesGroupId" required="true" value="#{dependenciesBean.dependencies.groupId}"/>
@@ -60,17 +53,17 @@
                                 </h:panelGroup>
                                 <h:outputText value="*"/>
 
-                                <h:outputLabel for="dependenciesBeanDependenciesMaven" value="Maven:"/>
+                                <h:outputLabel for="dependenciesBeanDependenciesArtifactId" value="ArtifactId:"/>
                                 <h:panelGroup>
-                                        <h:inputText id="dependenciesBeanDependenciesMaven" required="true" value="#{dependenciesBean.dependencies.maven}"/>
-                                        <h:message for="dependenciesBeanDependenciesMaven" styleClass="error"/>
+                                        <h:inputText id="dependenciesBeanDependenciesArtifactId" required="true" value="#{dependenciesBean.dependencies.artifactId}"/>
+                                        <h:message for="dependenciesBeanDependenciesArtifactId" styleClass="error"/>
                                 </h:panelGroup>
                                 <h:outputText value="*"/>
 
-                                <h:outputLabel for="dependenciesBeanDependenciesScope" value="Scope:"/>
+                                <h:outputLabel for="dependenciesBeanDependenciesVersion" value="Version:"/>
                                 <h:panelGroup>
-                                        <h:inputText id="dependenciesBeanDependenciesScope" value="#{dependenciesBean.dependencies.scope}"/>
-                                        <h:message for="dependenciesBeanDependenciesScope" styleClass="error"/>
+                                        <h:inputText id="dependenciesBeanDependenciesVersion" value="#{dependenciesBean.dependencies.version}"/>
+                                        <h:message for="dependenciesBeanDependenciesVersion" styleClass="error"/>
                                 </h:panelGroup>
                                 <h:outputText/>
 
@@ -81,16 +74,23 @@
                                 </h:panelGroup>
                                 <h:outputText/>
 
-                                <h:outputLabel for="dependenciesBeanDependenciesVersion" value="Version:"/>
+                                <h:outputLabel for="dependenciesBeanDependenciesScope" value="Scope:"/>
                                 <h:panelGroup>
-                                        <h:inputText id="dependenciesBeanDependenciesVersion" value="#{dependenciesBean.dependencies.version}"/>
-                                        <h:message for="dependenciesBeanDependenciesVersion" styleClass="error"/>
+                                        <h:inputText id="dependenciesBeanDependenciesScope" value="#{dependenciesBean.dependencies.scope}"/>
+                                        <h:message for="dependenciesBeanDependenciesScope" styleClass="error"/>
                                 </h:panelGroup>
                                 <h:outputText/>
 
-                                <!-- Dependencies 1..*  Imports -->
+                                <h:outputLabel for="dependenciesBeanDependenciesMaven" value="Maven:"/>
+                                <h:panelGroup>
+                                        <h:inputText id="dependenciesBeanDependenciesMaven" required="true" value="#{dependenciesBean.dependencies.maven}"/>
+                                        <h:message for="dependenciesBeanDependenciesMaven" styleClass="error"/>
+                                </h:panelGroup>
+                                <h:outputText value="*"/>
 
                                 <!-- Dependencies *..*  Sites -->
+
+                                <!-- Dependencies 1..*  Imports -->
 
                                 <h:outputLabel for="dependenciesBeanDependenciesObservations" value="Observations:"/>
                                 <h:panelGroup>

@@ -30,13 +30,12 @@
                                 <h:panelGroup styleClass="search">
 
                                         <h:panelGrid columnClasses="label,component,required" columns="3">
-                                                <h:outputLabel for="groupIdsBeanExampleCode" value="Code:"/>
+                                                <h:outputLabel for="groupIdsBeanExampleArtifactId" value="ArtifactId:"/>
                                                 <h:panelGroup>
-                                                        <h:inputText id="groupIdsBeanExampleCode" value="#{groupIdsBean.example.code}"/>
-                                                        <h:message for="groupIdsBeanExampleCode" styleClass="error"/>
+                                                        <h:inputText id="groupIdsBeanExampleArtifactId" value="#{groupIdsBean.example.artifactId}"/>
+                                                        <h:message for="groupIdsBeanExampleArtifactId" styleClass="error"/>
                                                 </h:panelGroup>
                                                 <h:outputText/>
-
 
                                                 <h:outputLabel for="groupIdsBeanExampleGroupId" value="GroupId:"/>
                                                 <h:panelGroup>
@@ -52,12 +51,13 @@
                                                 </h:panelGroup>
                                                 <h:outputText/>
 
-                                                <h:outputLabel for="groupIdsBeanExampleArtifactId" value="ArtifactId:"/>
+                                                <h:outputLabel for="groupIdsBeanExampleCode" value="Code:"/>
                                                 <h:panelGroup>
-                                                        <h:inputText id="groupIdsBeanExampleArtifactId" value="#{groupIdsBean.example.artifactId}"/>
-                                                        <h:message for="groupIdsBeanExampleArtifactId" styleClass="error"/>
+                                                        <h:inputText id="groupIdsBeanExampleCode" value="#{groupIdsBean.example.code}"/>
+                                                        <h:message for="groupIdsBeanExampleCode" styleClass="error"/>
                                                 </h:panelGroup>
                                                 <h:outputText/>
+
 
                                         </h:panelGrid>
                                         <h:panelGroup styleClass="buttons">
@@ -71,24 +71,11 @@
 
                                 <h:column>
                                         <f:facet name="header">
-                                                <h:outputText value="Code"/>
+                                                <h:outputText value="ArtifactId"/>
                                         </f:facet>
                                         <h:link outcome="/admin/groupIds/view">
                                                 <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemCode" value="#{_item.code}"/>
-                                        </h:link>
-                                </h:column>
-
-
-                                <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="Date"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/groupIds/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemDate" value="#{_item.date}"/>
-                                                        <f:convertDateTime type="date"/>
-                                               <h:outputText/>
+                                                <h:outputText id="itemArtifactId" value="#{_item.artifactId}"/>
                                         </h:link>
                                 </h:column>
 
@@ -117,11 +104,24 @@
 
                                 <h:column>
                                         <f:facet name="header">
-                                                <h:outputText value="ArtifactId"/>
+                                                <h:outputText value="Code"/>
                                         </f:facet>
                                         <h:link outcome="/admin/groupIds/view">
                                                 <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemArtifactId" value="#{_item.artifactId}"/>
+                                                <h:outputText id="itemCode" value="#{_item.code}"/>
+                                        </h:link>
+                                </h:column>
+
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Date"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/groupIds/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemDate" value="#{_item.date}"/>
+                                                        <f:convertDateTime type="date"/>
+                                               <h:outputText/>
                                         </h:link>
                                 </h:column>
 

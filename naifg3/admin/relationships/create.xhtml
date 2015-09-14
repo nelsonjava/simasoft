@@ -1,0 +1,180 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:c="http://java.sun.com/jsp/jstl/core"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:forgeview="http://jboss.org/forge/view"
+        template="/resources/scaffold/pageTemplate.xhtml">
+
+        <f:metadata>
+                <f:viewParam name="id" value='#{relationshipsBean.id}'/>
+                <f:event type="preRenderView" listener='#{relationshipsBean.retrieve}'/>
+        </f:metadata>
+
+        <ui:param name="pageTitle" value="Create Relationships"/>
+
+        <ui:define name="header">
+                Relationships
+        </ui:define>
+
+        <ui:define name="subheader">
+                <c:choose>
+                        <c:when test='#{!empty relationshipsBean.id}'>
+                                Edit existing Relationships
+                        </c:when>
+                        <c:otherwise>
+                                Create a new Relationships
+                        </c:otherwise>
+                </c:choose>
+        </ui:define>
+
+        <ui:define name="footer"/>
+
+        <ui:define name="main">
+                <h:form id="create">
+                        <h:messages globalOnly="true" styleClass="error"/>
+
+                        <h:panelGrid columnClasses="label,component,required" columns="3">
+
+                                <h:outputLabel for="relationshipsBeanRelationshipsOrden" value="Orden:"/>
+                                <h:panelGroup>
+                                        <h:inputText id="relationshipsBeanRelationshipsOrden" value="#{relationshipsBean.relationships.orden}"/>
+                                        <h:message for="relationshipsBeanRelationshipsOrden" styleClass="error"/>
+                                </h:panelGroup>
+                                <h:outputText/>
+
+                                <h:outputLabel for="relationshipsBeanRelationshipsName" value="Name:"/>
+                                <h:panelGroup>
+                                        <h:inputText id="relationshipsBeanRelationshipsName" value="#{relationshipsBean.relationships.name}"/>
+                                        <h:message for="relationshipsBeanRelationshipsName" styleClass="error"/>
+                                </h:panelGroup>
+                                <h:outputText/>
+
+                                <h:outputLabel for="relationshipsBeanRelationshipsIsEmbedded" value="IsEmbedded:"/>
+                                <h:panelGroup>
+                                        <h:selectOneMenu id="relationshipsBeanRelationshipsIsEmbedded" value="#{relationshipsBean.relationships.isEmbedded}">
+                                                <f:selectItem/>
+                                                <f:selectItem itemLabel="Yes" itemValue="true"/>
+                                                <f:selectItem itemLabel="No" itemValue="false"/>
+                                        </h:selectOneMenu>
+                                        <h:message for="entitiesBeanEntitiesIsSimplified" styleClass="error"/>
+                                </h:panelGroup>
+                                <h:outputText/>
+
+                                <h:outputLabel for="relationshipsBeanRelationshipsIsOptionality" value="IsOptionality:"/>
+                                <h:panelGroup>
+                                        <h:selectOneMenu id="relationshipsBeanRelationshipsIsOptionality" value="#{relationshipsBean.relationships.isOptionality}">
+                                                <f:selectItem/>
+                                                <f:selectItem itemLabel="Yes" itemValue="true"/>
+                                                <f:selectItem itemLabel="No" itemValue="false"/>
+                                        </h:selectOneMenu>
+                                        <h:message for="entitiesBeanEntitiesIsSimplified" styleClass="error"/>
+                                </h:panelGroup>
+                                <h:outputText/>
+
+                                <h:outputLabel for="relationshipsBeanRelationshipsIsCreate" value="IsCreate:"/>
+                                <h:panelGroup>
+                                        <h:selectOneMenu id="relationshipsBeanRelationshipsIsCreate" value="#{relationshipsBean.relationships.isCreate}">
+                                                <f:selectItem/>
+                                                <f:selectItem itemLabel="Yes" itemValue="true"/>
+                                                <f:selectItem itemLabel="No" itemValue="false"/>
+                                        </h:selectOneMenu>
+                                        <h:message for="entitiesBeanEntitiesIsSimplified" styleClass="error"/>
+                                </h:panelGroup>
+                                <h:outputText/>
+
+                                <h:outputLabel for="relationshipsBeanRelationshipsIsSimplified" value="IsSimplified:"/>
+                                <h:panelGroup>
+                                        <h:selectOneMenu id="relationshipsBeanRelationshipsIsSimplified" value="#{relationshipsBean.relationships.isSimplified}">
+                                                <f:selectItem/>
+                                                <f:selectItem itemLabel="Yes" itemValue="true"/>
+                                                <f:selectItem itemLabel="No" itemValue="false"/>
+                                        </h:selectOneMenu>
+                                        <h:message for="entitiesBeanEntitiesIsSimplified" styleClass="error"/>
+                                </h:panelGroup>
+                                <h:outputText/>
+
+                                <h:outputLabel for="relationshipsBeanRelationshipsIsView" value="IsView:"/>
+                                <h:panelGroup>
+                                        <h:selectOneMenu id="relationshipsBeanRelationshipsIsView" value="#{relationshipsBean.relationships.isView}">
+                                                <f:selectItem/>
+                                                <f:selectItem itemLabel="Yes" itemValue="true"/>
+                                                <f:selectItem itemLabel="No" itemValue="false"/>
+                                        </h:selectOneMenu>
+                                        <h:message for="entitiesBeanEntitiesIsSimplified" styleClass="error"/>
+                                </h:panelGroup>
+                                <h:outputText/>
+
+                                <h:outputLabel for="relationshipsBeanRelationshipsIsSearch" value="IsSearch:"/>
+                                <h:panelGroup>
+                                        <h:selectOneMenu id="relationshipsBeanRelationshipsIsSearch" value="#{relationshipsBean.relationships.isSearch}">
+                                                <f:selectItem/>
+                                                <f:selectItem itemLabel="Yes" itemValue="true"/>
+                                                <f:selectItem itemLabel="No" itemValue="false"/>
+                                        </h:selectOneMenu>
+                                        <h:message for="entitiesBeanEntitiesIsSimplified" styleClass="error"/>
+                                </h:panelGroup>
+                                <h:outputText/>
+
+                                <!-- Relationships *..*  AttributesProperties -->
+
+                                <h:outputLabel for="relationshipsBeanrelationshipsCardinalities" value="Cardinalities:"/>
+                                <h:panelGroup>
+                                         <h:selectOneMenu converter="#{cardinalitiesBean.converter}" id="relationshipsBeanRelationshipsCardinalities" value="#{relationshipsBean.relationships.cardinalities}">
+                                                <f:selectItem/>
+                                                <f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{cardinalitiesBean.all}" var="_item"/>
+                                        </h:selectOneMenu>
+                                        <h:message for="entitiesBeanEntitiesIsSimplified" styleClass="error"/>
+                                </h:panelGroup>
+                                <h:outputText/>
+
+                                <h:outputLabel for="relationshipsBeanrelationshipsEntities" value="Entities:"/>
+                                <h:panelGroup>
+                                         <h:selectOneMenu converter="#{entitiesBean.converter}" id="relationshipsBeanRelationshipsEntities" value="#{relationshipsBean.relationships.entities}">
+                                                <f:selectItem/>
+                                                <f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{entitiesBean.all}" var="_item"/>
+                                        </h:selectOneMenu>
+                                        <h:message for="entitiesBeanEntitiesIsSimplified" styleClass="error"/>
+                                </h:panelGroup>
+                                <h:outputText/>
+
+                                <h:outputLabel for="relationshipsBeanrelationshipsEntities" value="Entities:"/>
+                                <h:panelGroup>
+                                         <h:selectOneMenu converter="#{entitiesBean.converter}" id="relationshipsBeanRelationshipsEntities" value="#{relationshipsBean.relationships.entities}">
+                                                <f:selectItem/>
+                                                <f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{entitiesBean.all}" var="_item"/>
+                                        </h:selectOneMenu>
+                                        <h:message for="entitiesBeanEntitiesIsSimplified" styleClass="error"/>
+                                </h:panelGroup>
+                                <h:outputText/>
+
+                                <h:outputLabel for="relationshipsBeanRelationshipsObservations" value="Observations:"/>
+                                <h:panelGroup>
+                                        <p:editor id="relationshipsBeanRelationshipsObservations" value="#{relationshipsBean.relationships.observations}"/>
+                                        <h:message for="relationshipsBeanRelationshipsObservations" styleClass="error"/>
+                                </h:panelGroup>
+                                <h:outputText/>
+
+                        </h:panelGrid>
+
+                        <div class="buttons">
+                                <h:commandLink value="Save" action='#{relationshipsBean.update}' styleClass="btn btn-primary"/>
+                                <c:choose>
+                                        <c:when test='#{!empty relationshipsBean.id}'>
+                                                <h:link value="Cancel" outcome="view" styleClass="btn btn-primary">
+                                                        <f:param name="id" value='#{relationshipsBean.id}'/>
+                                                </h:link>
+                                                <h:commandLink value="Delete" action='#{relationshipsBean.delete}' styleClass="btn btn-primary"/>
+                                        </c:when>
+                                        <c:otherwise>
+                                                <h:link value="Cancel" outcome="search" styleClass="btn btn-primary"/>
+                                        </c:otherwise>
+                                </c:choose>
+                        </div>
+                </h:form>
+        </ui:define>
+
+</ui:composition>

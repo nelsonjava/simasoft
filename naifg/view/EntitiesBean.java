@@ -24,22 +24,23 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
+import import co.simasoft.models.core.sites.*;
 import import co.simasoft.models.dev.naifg.*;
 import import co.simasoft.models.dev.naifg.dependencies.*;
-import import co.simasoft.models.core.sites.*;
 import import org.hibernate.search.annotations.Analyze;
-import import org.hibernate.search.annotations.Index;
-import import org.hibernate.search.annotations.Field;
 import import org.hibernate.search.annotations.DocumentId;
-import import org.hibernate.search.annotations.Store;
+import import org.hibernate.search.annotations.Field;
+import import org.hibernate.search.annotations.Index;
 import import org.hibernate.search.annotations.Indexed;
-import import javax.persistence.TemporalType;
-import import javax.persistence.Temporal;
-import import org.hibernate.search.annotations.DateBridge;
-import import org.hibernate.search.annotations.Resolution;
+import import org.hibernate.search.annotations.Store;
+import import javax.persistence.ManyToMany;
 import import javax.persistence.OneToMany;
 import import javax.persistence.ManyToOne;
-import import javax.persistence.ManyToMany;
+import import javax.persistence.Temporal;
+import import javax.persistence.TemporalType;
+import import org.hibernate.search.annotations.DateBridge;
+import import org.hibernate.search.annotations.Resolution;
+import import javax.persistence.Lob;
 import java.util.Iterator;
 
 @Named
@@ -136,6 +137,13 @@ public class EntitiesBean implements Serializable{
 
                 try {
                         Entities deletableEntity = findById(getId());
+   5      Iterator<Relationships> iterTo = deletableEntity.getTo().iterator();
+   5      for (; iterTo.hasNext();){
+   5         Relationships nextInTo = iterTo.next();
+   5         nextInTo.setTo(null);
+   5         iterTo.remove();
+   5         this.entityManager.merge(nextInTo);
+   5      }
                         Iterator<Attributes> iterAttributes = deletableEntity.getAttributes().iterator();
                         for (; iterAttributes.hasNext();){
                                Attributes nextInAttributes = iterAttributes.next();
@@ -156,13 +164,6 @@ public class EntitiesBean implements Serializable{
    5         nextInFrom.setFrom(null);
    5         iterFrom.remove();
    5         this.entityManager.merge(nextInFrom);
-   5      }
-   5      Iterator<Relationships> iterTo = deletableEntity.getTo().iterator();
-   5      for (; iterTo.hasNext();){
-   5         Relationships nextInTo = iterTo.next();
-   5         nextInTo.setTo(null);
-   5         iterTo.remove();
-   5         this.entityManager.merge(nextInTo);
    5      }
                         GroupIds groupIds = deletableEntity.getGroupIds();
                         groupIds.getEntities().remove(deletableEntity);

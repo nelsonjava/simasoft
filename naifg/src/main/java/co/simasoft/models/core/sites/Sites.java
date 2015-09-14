@@ -15,22 +15,22 @@ import javax.persistence.FetchType;
 import javax.persistence.Column;
 import javax.persistence.Lob;
 
+import co.simasoft.models.core.sites.*;
 import co.simasoft.models.dev.naifg.*;
 import co.simasoft.models.dev.naifg.dependencies.*;
-import co.simasoft.models.core.sites.*;
 import org.hibernate.search.annotations.Analyze;
-import org.hibernate.search.annotations.Index;
-import org.hibernate.search.annotations.Field;
 import org.hibernate.search.annotations.DocumentId;
-import org.hibernate.search.annotations.Store;
+import org.hibernate.search.annotations.Field;
+import org.hibernate.search.annotations.Index;
 import org.hibernate.search.annotations.Indexed;
-import javax.persistence.TemporalType;
-import javax.persistence.Temporal;
-import org.hibernate.search.annotations.DateBridge;
-import org.hibernate.search.annotations.Resolution;
+import org.hibernate.search.annotations.Store;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.ManyToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import org.hibernate.search.annotations.DateBridge;
+import org.hibernate.search.annotations.Resolution;
 
 @Indexed
 @Entity
@@ -64,9 +64,6 @@ public class Sites implements Serializable {
 	@Column(nullable = true, unique = false)
 	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
 	private String title;
-
-	@ManyToMany(mappedBy = "sites")
-	private Set<SitesTypes> sitesTypes = new HashSet<SitesTypes>();
 
 	public Sites() {
 	}
@@ -123,13 +120,6 @@ public class Sites implements Serializable {
 	}
 	public void setTitle(String title) {
 		this.title = title;
-	}
-
-	public Set<SitesTypes> getSitesTypes() {
-		return sitesTypes;
-	}
-	public void setSitesTypes(Set<SitesTypes> sitesTypes) {
-		this.sitesTypes = sitesTypes;
 	}
 
 	@Override

@@ -223,11 +223,11 @@ public class DevelopmentsBean implements Serializable {
 					builder.lower(root.<String> get("observations")),
 					'%' + observations.toLowerCase() + '%'));
 		}
-		String code = this.example.getCode();
-		if (code != null && !"".equals(code)) {
+		String artifactId = this.example.getArtifactId();
+		if (artifactId != null && !"".equals(artifactId)) {
 			predicatesList.add(builder.like(
-					builder.lower(root.<String> get("code")),
-					'%' + code.toLowerCase() + '%'));
+					builder.lower(root.<String> get("artifactId")),
+					'%' + artifactId.toLowerCase() + '%'));
 		}
 		String groupId = this.example.getGroupId();
 		if (groupId != null && !"".equals(groupId)) {
@@ -241,11 +241,11 @@ public class DevelopmentsBean implements Serializable {
 					builder.lower(root.<String> get("version")),
 					'%' + version.toLowerCase() + '%'));
 		}
-		String artifactId = this.example.getArtifactId();
-		if (artifactId != null && !"".equals(artifactId)) {
+		String code = this.example.getCode();
+		if (code != null && !"".equals(code)) {
 			predicatesList.add(builder.like(
-					builder.lower(root.<String> get("artifactId")),
-					'%' + artifactId.toLowerCase() + '%'));
+					builder.lower(root.<String> get("code")),
+					'%' + code.toLowerCase() + '%'));
 		}
 
 		return predicatesList.toArray(new Predicate[predicatesList.size()]);

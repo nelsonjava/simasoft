@@ -30,13 +30,12 @@
                                 <h:panelGroup styleClass="search">
 
                                         <h:panelGrid columnClasses="label,component,required" columns="3">
-                                                <h:outputLabel for="developmentsBeanExampleCode" value="Code:"/>
+                                                <h:outputLabel for="developmentsBeanExampleArtifactId" value="ArtifactId:"/>
                                                 <h:panelGroup>
-                                                        <h:inputText id="developmentsBeanExampleCode" value="#{developmentsBean.example.code}"/>
-                                                        <h:message for="developmentsBeanExampleCode" styleClass="error"/>
+                                                        <h:inputText id="developmentsBeanExampleArtifactId" value="#{developmentsBean.example.artifactId}"/>
+                                                        <h:message for="developmentsBeanExampleArtifactId" styleClass="error"/>
                                                 </h:panelGroup>
                                                 <h:outputText/>
-
 
                                                 <h:outputLabel for="developmentsBeanExampleGroupId" value="GroupId:"/>
                                                 <h:panelGroup>
@@ -52,12 +51,13 @@
                                                 </h:panelGroup>
                                                 <h:outputText/>
 
-                                                <h:outputLabel for="developmentsBeanExampleArtifactId" value="ArtifactId:"/>
+                                                <h:outputLabel for="developmentsBeanExampleCode" value="Code:"/>
                                                 <h:panelGroup>
-                                                        <h:inputText id="developmentsBeanExampleArtifactId" value="#{developmentsBean.example.artifactId}"/>
-                                                        <h:message for="developmentsBeanExampleArtifactId" styleClass="error"/>
+                                                        <h:inputText id="developmentsBeanExampleCode" value="#{developmentsBean.example.code}"/>
+                                                        <h:message for="developmentsBeanExampleCode" styleClass="error"/>
                                                 </h:panelGroup>
                                                 <h:outputText/>
+
 
                                         </h:panelGrid>
                                         <h:panelGroup styleClass="buttons">
@@ -78,7 +78,8 @@
                                                 <h:outputText id="itemArtifactId" value="#{_item.artifactId}"/>
                                         </h:link>
                                 </h:column>
-                                
+
+
                                 <h:column>
                                         <f:facet name="header">
                                                 <h:outputText value="GroupId"/>
@@ -99,6 +100,7 @@
                                                 <h:outputText id="itemVersion" value="#{_item.version}"/>
                                         </h:link>
                                 </h:column>
+
 
                                 <h:column>
                                         <f:facet name="header">

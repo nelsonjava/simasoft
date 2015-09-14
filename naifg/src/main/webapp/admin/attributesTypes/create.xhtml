@@ -46,27 +46,6 @@
                                 </h:panelGroup>
                                 <h:outputText/>
 
-                                <h:outputLabel for="attributesTypesBeanAttributesTypesAnnotations" value="Annotations:"/>
-                                <h:panelGroup>
-                                        <h:inputText id="attributesTypesBeanAttributesTypesAnnotations" value="#{attributesTypesBean.attributesTypes.annotations}"/>
-                                        <h:message for="attributesTypesBeanAttributesTypesAnnotations" styleClass="error"/>
-                                </h:panelGroup>
-                                <h:outputText/>
-
-                                <h:outputLabel for="attributesTypesBeanAttributesTypesPrecision" value="Precision:"/>
-                                <h:panelGroup>
-                                        <h:inputText id="attributesTypesBeanAttributesTypesPrecision" value="#{attributesTypesBean.attributesTypes.precision}"/>
-                                        <h:message for="attributesTypesBeanAttributesTypesPrecision" styleClass="error"/>
-                                </h:panelGroup>
-                                <h:outputText/>
-
-                                <h:outputLabel for="attributesTypesBeanAttributesTypesLength" value="Length:"/>
-                                <h:panelGroup>
-                                        <h:inputText id="attributesTypesBeanAttributesTypesLength" value="#{attributesTypesBean.attributesTypes.length}"/>
-                                        <h:message for="attributesTypesBeanAttributesTypesLength" styleClass="error"/>
-                                </h:panelGroup>
-                                <h:outputText/>
-
                                 <h:outputLabel for="attributesTypesBeanAttributesTypesName" value="Name:"/>
                                 <h:panelGroup>
                                         <h:inputText id="attributesTypesBeanAttributesTypesName" required="true" value="#{attributesTypesBean.attributesTypes.name}"/>
@@ -81,11 +60,32 @@
                                 </h:panelGroup>
                                 <h:outputText value="*"/>
 
-                                <!-- AttributesTypes *..*  Sites -->
+                                <h:outputLabel for="attributesTypesBeanAttributesTypesLength" value="Length:"/>
+                                <h:panelGroup>
+                                        <h:inputText id="attributesTypesBeanAttributesTypesLength" value="#{attributesTypesBean.attributesTypes.length}"/>
+                                        <h:message for="attributesTypesBeanAttributesTypesLength" styleClass="error"/>
+                                </h:panelGroup>
+                                <h:outputText/>
+
+                                <h:outputLabel for="attributesTypesBeanAttributesTypesPrecision" value="Precision:"/>
+                                <h:panelGroup>
+                                        <h:inputText id="attributesTypesBeanAttributesTypesPrecision" value="#{attributesTypesBean.attributesTypes.precision}"/>
+                                        <h:message for="attributesTypesBeanAttributesTypesPrecision" styleClass="error"/>
+                                </h:panelGroup>
+                                <h:outputText/>
+
+                                <h:outputLabel for="attributesTypesBeanAttributesTypesAnnotations" value="Annotations:"/>
+                                <h:panelGroup>
+                                        <h:inputText id="attributesTypesBeanAttributesTypesAnnotations" value="#{attributesTypesBean.attributesTypes.annotations}"/>
+                                        <h:message for="attributesTypesBeanAttributesTypesAnnotations" styleClass="error"/>
+                                </h:panelGroup>
+                                <h:outputText/>
 
                                 <!-- AttributesTypes *..*  AttributesProperties -->
 
                                 <!-- AttributesTypes 1..*  Attributes -->
+
+                                <!-- AttributesTypes *..*  Sites -->
 
                                 <h:outputLabel for="attributesTypesBeanAttributesTypesObservations" value="Observations:"/>
                                 <h:panelGroup>

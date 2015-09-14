@@ -22,33 +22,91 @@
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ naifg ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 41 source files to d:\dev\njava\simasoft\naifg\target\classes
+[INFO] Compiling 43 source files to d:\dev\njava\simasoft\naifg\target\classes
+[INFO] -------------------------------------------------------------
+[WARNING] COMPILATION WARNING : 
+[INFO] -------------------------------------------------------------
 [WARNING] /d:/dev/njava/simasoft/naifg/src/main/java/co/simasoft/Beans/FindBean.java: Some input files use unchecked or unsafe operations.
 [WARNING] /d:/dev/njava/simasoft/naifg/src/main/java/co/simasoft/Beans/FindBean.java: Recompile with -Xlint:unchecked for details.
-[INFO] 
-[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ naifg ---
-[INFO] Using 'UTF-8' encoding to copy filtered resources.
-[INFO] skip non existing resourceDirectory d:\dev\njava\simasoft\naifg\src\test\resources
-[INFO] 
-[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ naifg ---
-[INFO] No sources to compile
-[INFO] 
-[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ naifg ---
-[INFO] No tests to run.
-[INFO] 
-[INFO] --- maven-war-plugin:2.1.1:war (default-war) @ naifg ---
-[INFO] Packaging webapp
-[INFO] Assembling webapp [naifg] in [d:\dev\njava\simasoft\naifg\target\naifg]
-[INFO] Processing war project
-[INFO] Copying webapp resources [d:\dev\njava\simasoft\naifg\src\main\webapp]
-[INFO] Webapp assembled in [8114 msecs]
-[INFO] Building war: d:\dev\njava\simasoft\naifg\target\naifg.war
-[WARNING] Warning: selected war files include a WEB-INF/web.xml which will be ignored 
-(webxml attribute is missing from war task, or ignoreWebxml attribute is specified as 'true')
+[INFO] 2 warnings 
+[INFO] -------------------------------------------------------------
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /d:/dev/njava/simasoft/naifg/src/main/java/co/simasoft/view/SitesTypesBean.java:[135,76] cannot find symbol
+  symbol:   method getObjHijos()
+  location: variable deletableEntity of type co.simasoft.models.core.sites.SitesTypes
+[ERROR] /d:/dev/njava/simasoft/naifg/src/main/java/co/simasoft/view/SitesTypesBean.java:[139,47] cannot find symbol
+  symbol:   method setObjPadre(<nulltype>)
+  location: variable nextInObjHijos of type co.simasoft.models.core.sites.SitesTypes
+[ERROR] /d:/dev/njava/simasoft/naifg/src/main/java/co/simasoft/view/SitesTypesBean.java:[143,68] cannot find symbol
+  symbol:   method getSites()
+  location: variable deletableEntity of type co.simasoft.models.core.sites.SitesTypes
+[ERROR] /d:/dev/njava/simasoft/naifg/src/main/java/co/simasoft/view/SitesTypesBean.java:[146,44] cannot find symbol
+  symbol:   method getSitesTypes()
+  location: variable nextInSites of type co.simasoft.models.core.sites.Sites
+[ERROR] /d:/dev/njava/simasoft/naifg/src/main/java/co/simasoft/view/SitesTypesBean.java:[150,62] cannot find symbol
+  symbol:   method getObjPadre()
+  location: variable deletableEntity of type co.simasoft.models.core.sites.SitesTypes
+[ERROR] /d:/dev/njava/simasoft/naifg/src/main/java/co/simasoft/view/SitesTypesBean.java:[151,33] cannot find symbol
+  symbol:   method getObjHijos()
+  location: variable objPadre of type co.simasoft.models.core.sites.SitesTypes
+[ERROR] /d:/dev/njava/simasoft/naifg/src/main/java/co/simasoft/view/SitesTypesBean.java:[152,40] cannot find symbol
+  symbol:   method setObjPadre(<nulltype>)
+  location: variable deletableEntity of type co.simasoft.models.core.sites.SitesTypes
+[ERROR] /d:/dev/njava/simasoft/naifg/src/main/java/co/simasoft/view/SitesTypesBean.java:[241,51] cannot find symbol
+  symbol:   method getObjPadre()
+  location: variable example of type co.simasoft.models.core.sites.SitesTypes
+[ERROR] /d:/dev/njava/simasoft/naifg/src/main/java/co/simasoft/view/SitesBean.java:[136,41] cannot find symbol
+  symbol:   method getSitesTypes()
+  location: variable deletableEntity of type co.simasoft.models.core.sites.Sites
+[ERROR] /d:/dev/njava/simasoft/naifg/src/main/java/co/simasoft/view/SitesBean.java:[139,49] cannot find symbol
+  symbol:   method getSites()
+  location: variable nextInSitesTypes of type co.simasoft.models.core.sites.SitesTypes
+[INFO] 10 errors 
+[INFO] -------------------------------------------------------------
 [INFO] ------------------------------------------------------------------------
-[INFO] BUILD SUCCESS
+[INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 14.294s
-[INFO] Finished at: Fri Sep 11 14:37:32 COT 2015
-[INFO] Final Memory: 17M/50M
+[INFO] Total time: 2.297s
+[INFO] Finished at: Mon Sep 14 10:19:47 COT 2015
+[INFO] Final Memory: 17M/43M
 [INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.1:compile (default-compile) on project naifg: Compilation failure: Compilation failure:
+[ERROR] /d:/dev/njava/simasoft/naifg/src/main/java/co/simasoft/view/SitesTypesBean.java:[135,76] cannot find symbol
+[ERROR] symbol:   method getObjHijos()
+[ERROR] location: variable deletableEntity of type co.simasoft.models.core.sites.SitesTypes
+[ERROR] /d:/dev/njava/simasoft/naifg/src/main/java/co/simasoft/view/SitesTypesBean.java:[139,47] cannot find symbol
+[ERROR] symbol:   method setObjPadre(<nulltype>)
+[ERROR] location: variable nextInObjHijos of type co.simasoft.models.core.sites.SitesTypes
+[ERROR] /d:/dev/njava/simasoft/naifg/src/main/java/co/simasoft/view/SitesTypesBean.java:[143,68] cannot find symbol
+[ERROR] symbol:   method getSites()
+[ERROR] location: variable deletableEntity of type co.simasoft.models.core.sites.SitesTypes
+[ERROR] /d:/dev/njava/simasoft/naifg/src/main/java/co/simasoft/view/SitesTypesBean.java:[146,44] cannot find symbol
+[ERROR] symbol:   method getSitesTypes()
+[ERROR] location: variable nextInSites of type co.simasoft.models.core.sites.Sites
+[ERROR] /d:/dev/njava/simasoft/naifg/src/main/java/co/simasoft/view/SitesTypesBean.java:[150,62] cannot find symbol
+[ERROR] symbol:   method getObjPadre()
+[ERROR] location: variable deletableEntity of type co.simasoft.models.core.sites.SitesTypes
+[ERROR] /d:/dev/njava/simasoft/naifg/src/main/java/co/simasoft/view/SitesTypesBean.java:[151,33] cannot find symbol
+[ERROR] symbol:   method getObjHijos()
+[ERROR] location: variable objPadre of type co.simasoft.models.core.sites.SitesTypes
+[ERROR] /d:/dev/njava/simasoft/naifg/src/main/java/co/simasoft/view/SitesTypesBean.java:[152,40] cannot find symbol
+[ERROR] symbol:   method setObjPadre(<nulltype>)
+[ERROR] location: variable deletableEntity of type co.simasoft.models.core.sites.SitesTypes
+[ERROR] /d:/dev/njava/simasoft/naifg/src/main/java/co/simasoft/view/SitesTypesBean.java:[241,51] cannot find symbol
+[ERROR] symbol:   method getObjPadre()
+[ERROR] location: variable example of type co.simasoft.models.core.sites.SitesTypes
+[ERROR] /d:/dev/njava/simasoft/naifg/src/main/java/co/simasoft/view/SitesBean.java:[136,41] cannot find symbol
+[ERROR] symbol:   method getSitesTypes()
+[ERROR] location: variable deletableEntity of type co.simasoft.models.core.sites.Sites
+[ERROR] /d:/dev/njava/simasoft/naifg/src/main/java/co/simasoft/view/SitesBean.java:[139,49] cannot find symbol
+[ERROR] symbol:   method getSites()
+[ERROR] location: variable nextInSitesTypes of type co.simasoft.models.core.sites.SitesTypes
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

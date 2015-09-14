@@ -134,6 +134,10 @@ public class RelationshipsBean implements Serializable {
 
 		try {
 			Relationships deletableEntity = findById(getId());
+			Entities to = deletableEntity.getTo();
+			to.getTo().remove(deletableEntity);
+			deletableEntity.setTo(null);
+			this.entityManager.merge(to);
 			Cardinalities cardinalities = deletableEntity.getCardinalities();
 			cardinalities.getRelationships().remove(deletableEntity);
 			deletableEntity.setCardinalities(null);
@@ -142,10 +146,6 @@ public class RelationshipsBean implements Serializable {
 			from.getFrom().remove(deletableEntity);
 			deletableEntity.setFrom(null);
 			this.entityManager.merge(from);
-			Entities to = deletableEntity.getTo();
-			to.getTo().remove(deletableEntity);
-			deletableEntity.setTo(null);
-			this.entityManager.merge(to);
 			this.entityManager.remove(deletableEntity);
 			this.entityManager.flush();
 			return "search?faces-redirect=true";
@@ -228,25 +228,23 @@ public class RelationshipsBean implements Serializable {
 					builder.lower(root.<String> get("observations")),
 					'%' + observations.toLowerCase() + '%'));
 		}
-		String name = this.example.getName();
-		if (name != null && !"".equals(name)) {
-			predicatesList.add(builder.like(
-					builder.lower(root.<String> get("name")),
-					'%' + name.toLowerCase() + '%'));
-		}
 		Boolean isEmbedded = this.example.getIsEmbedded();
 		if (isEmbedded != null) {
 			predicatesList
 					.add(builder.equal(root.get("isEmbedded"), isEmbedded));
 		}
-		Boolean isOptionality = this.example.getIsOptionality();
-		if (isOptionality != null) {
-			predicatesList.add(builder.equal(root.get("isOptionality"),
-					isOptionality));
+		Boolean isSimplified = this.example.getIsSimplified();
+		if (isSimplified != null) {
+			predicatesList.add(builder.equal(root.get("isSimplified"),
+					isSimplified));
 		}
 		Boolean isCreate = this.example.getIsCreate();
 		if (isCreate != null) {
 			predicatesList.add(builder.equal(root.get("isCreate"), isCreate));
+		}
+		Boolean isSearch = this.example.getIsSearch();
+		if (isSearch != null) {
+			predicatesList.add(builder.equal(root.get("isSearch"), isSearch));
 		}
 
 		return predicatesList.toArray(new Predicate[predicatesList.size()]);

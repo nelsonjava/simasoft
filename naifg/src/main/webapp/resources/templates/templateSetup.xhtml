@@ -56,54 +56,6 @@
                           </li>
 
                           <li>
-                            <h:form>
-                              <h:commandButton value="Click Me to Populate Data Core Init!" action="#{coreSetup.data()}" />
-                            </h:form>
-                          </li>
-
-                          <li>
-                            <h:form>
-                              <h:commandButton value="Click Me to Populate Data DB Init!" action="#{DataDb.data()}" />
-                            </h:form>
-                          </li>
-
-                          <li>
-                            <h:form>
-                              <h:commandButton value="Click Me to Populate SystemsModels Init!" action="#{SystemsModelsSetup.data()}" />
-                            </h:form>
-                          </li>
-
-                          <li>
-                            <h:form>
-                              <h:commandButton value="Click Me to Populate SGDEA Init!" action="#{SGDEASetup.data()}" />
-                            </h:form>
-                          </li>
-
-                          <li>
-                            <h:form>
-                              <h:commandButton value="Click Me to Populate Crm Init!" action="#{crmSetup.data()}" />
-                            </h:form>
-                          </li>
-
-                          <li>
-                            <h:form>
-                              <h:commandButton value="Click Me to Populate Task Init!" action="#{taskSetup.data()}" />
-                            </h:form>
-                          </li>
-
-                          <li>
-                            <h:form>
-                              <h:commandButton value="Click Me to Populate Naifg Init!" action="#{naifgSetup.data()}" />
-                            </h:form>
-                          </li>
-                          
-                          <li>
-                            <h:form>
-                              <h:commandButton value="Click Me to Populate Naifg Init JSON!" action="#{naifgSetupJson.data()}" />
-                            </h:form>
-                          </li>
-                          
-                          <li>
                             <h:form  enctype="multipart/form-data">
                               <h:inputFile value="#{FileUploadView.file1}" /><br/>
                               <h:commandButton value="Upload File JSON!" action="#{naifgSetupJson.data(FileUploadView.file1)}" />

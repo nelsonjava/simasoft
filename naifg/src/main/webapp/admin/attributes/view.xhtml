@@ -32,34 +32,6 @@
                         <h:outputText id="attributesBeanAttributesOrden" value="#{attributesBean.attributes.orden}"/>
                         <h:outputText/>
 
-                        <h:outputLabel for="attributesBeanAttributesName" value="Name:"/>
-                        <h:outputText id="attributesBeanAttributesName" value="#{attributesBean.attributes.name}"/>
-                        <h:outputText/>
-
-                        <h:outputLabel for="attributesBeanAttributesLength" value="Length:"/>
-                        <h:outputText id="attributesBeanAttributesLength" value="#{attributesBean.attributes.length}"/>
-                        <h:outputText/>
-
-                        <h:outputLabel for="attributesBeanAttributesPrecision" value="Precision:"/>
-                        <h:outputText id="attributesBeanAttributesPrecision" value="#{attributesBean.attributes.precision}"/>
-                        <h:outputText/>
-
-                        <h:outputLabel for="attributesBeanAttributesIsNullable" value="IsNullable:"/>
-                        <h:outputText id="attributesBeanAttributesIsNullable" value="#{attributesBean.attributes.isNullable}"/>
-                        <h:outputText/>
-
-                        <h:outputLabel for="attributesBeanAttributesIsUnique" value="IsUnique:"/>
-                        <h:outputText id="attributesBeanAttributesIsUnique" value="#{attributesBean.attributes.isUnique}"/>
-                        <h:outputText/>
-
-                        <h:outputLabel for="attributesBeanAttributesDescription" value="Description:"/>
-                        <h:outputText id="attributesBeanAttributesDescription" value="#{attributesBean.attributes.description}"/>
-                        <h:outputText/>
-
-                        <h:outputLabel for="attributesBeanAttributesIsSimplified" value="IsSimplified:"/>
-                        <h:outputText id="attributesBeanAttributesIsSimplified" value="#{attributesBean.attributes.isSimplified}"/>
-                        <h:outputText/>
-
                         <h:outputLabel for="attributesBeanAttributesIsCreate" value="IsCreate:"/>
                         <h:outputText id="attributesBeanAttributesIsCreate" value="#{attributesBean.attributes.isCreate}"/>
                         <h:outputText/>
@@ -80,44 +52,36 @@
                         <h:outputText id="attributesBeanAttributesIsViewRelation" value="#{attributesBean.attributes.isViewRelation}"/>
                         <h:outputText/>
 
-                        <h:outputLabel for="attributesBeanAttributesObservations" value="Observations:"/>
-                        <h:outputText id="attributesBeanAttributesObservations" value="#{attributesBean.attributes.observations}" escape="false" />
+                        <h:outputLabel for="attributesBeanAttributesName" value="Name:"/>
+                        <h:outputText id="attributesBeanAttributesName" value="#{attributesBean.attributes.name}"/>
                         <h:outputText/>
 
-                        <h:outputLabel for="attributesBeanAttributesAttributesProperties" value="AttributesProperties:"/>
-                        <h:dataTable id="attributesBeanAttributesattributesProperties" styleClass="data-table" value="#{forgeview:asList(attributesBean.attributes.attributesProperties)}" var="_item">
+                        <h:outputLabel for="attributesBeanAttributesDescription" value="Description:"/>
+                        <h:outputText id="attributesBeanAttributesDescription" value="#{attributesBean.attributes.description}"/>
+                        <h:outputText/>
 
-                                <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="Orden"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/attributesProperties/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemOrden" value="#{_item.orden}"/>
-                                        </h:link>
-                                </h:column>
+                        <h:outputLabel for="attributesBeanAttributesLength" value="Length:"/>
+                        <h:outputText id="attributesBeanAttributesLength" value="#{attributesBean.attributes.length}"/>
+                        <h:outputText/>
 
-                                <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="Name"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/attributesProperties/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemName" value="#{_item.name}"/>
-                                        </h:link>
-                                </h:column>
+                        <h:outputLabel for="attributesBeanAttributesPrecision" value="Precision:"/>
+                        <h:outputText id="attributesBeanAttributesPrecision" value="#{attributesBean.attributes.precision}"/>
+                        <h:outputText/>
 
-                                <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="Value"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/attributesProperties/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemValue" value="#{_item.value}"/>
-                                        </h:link>
-                                </h:column>
+                        <h:outputLabel for="attributesBeanAttributesIsNullable" value="IsNullable:"/>
+                        <h:outputText id="attributesBeanAttributesIsNullable" value="#{attributesBean.attributes.isNullable}"/>
+                        <h:outputText/>
 
-                        </h:dataTable>
+                        <h:outputLabel for="attributesBeanAttributesIsUnique" value="IsUnique:"/>
+                        <h:outputText id="attributesBeanAttributesIsUnique" value="#{attributesBean.attributes.isUnique}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="attributesBeanAttributesIsSimplified" value="IsSimplified:"/>
+                        <h:outputText id="attributesBeanAttributesIsSimplified" value="#{attributesBean.attributes.isSimplified}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="attributesBeanAttributesObservations" value="Observations:"/>
+                        <h:outputText id="attributesBeanAttributesObservations" value="#{attributesBean.attributes.observations}" escape="false" />
                         <h:outputText/>
 
                         <h:outputLabel for="attributesBeanAttributesSites" value="Sites:"/>
@@ -166,14 +130,50 @@
                         </h:dataTable>
                         <h:outputText/>
 
+                        <h:outputLabel for="attributesBeanAttributesAttributesProperties" value="AttributesProperties:"/>
+                        <h:dataTable id="attributesBeanAttributesattributesProperties" styleClass="data-table" value="#{forgeview:asList(attributesBean.attributes.attributesProperties)}" var="_item">
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Orden"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/attributesProperties/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemOrden" value="#{_item.orden}"/>
+                                        </h:link>
+                                </h:column>
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Name"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/attributesProperties/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemName" value="#{_item.name}"/>
+                                        </h:link>
+                                </h:column>
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Value"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/attributesProperties/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemValue" value="#{_item.value}"/>
+                                        </h:link>
+                                </h:column>
+
+                        </h:dataTable>
+                        <h:outputText/>
+
                         <h:outputLabel for="attributesBeanAttributesEntities" value="entities:"/>
-                        <h:link id="attributesBeanAttributesEntities" outcome="/admin/entities/view" rendered="#{!empty attributesBean.attributes.entities}" value="#{attributesBean.attributes.entities.name}">
+                        <h:link id="attributesBeanAttributesEntities" outcome="/admin/entities/view" rendered="#{!empty attributesBean.attributes.entities}" value="#{attributesBean.attributes.entities.isCreate}">
                                 <f:param name="id" value="#{attributesBean.attributes.entities.id}"/>
                         </h:link>
                         <h:outputText/>
 
                         <h:outputLabel for="attributesBeanAttributesAttributesTypes" value="attributesTypes:"/>
-                        <h:link id="attributesBeanAttributesAttributesTypes" outcome="/admin/attributesTypes/view" rendered="#{!empty attributesBean.attributes.attributesTypes}" value="#{attributesBean.attributes.attributesTypes.name}">
+                        <h:link id="attributesBeanAttributesAttributesTypes" outcome="/admin/attributesTypes/view" rendered="#{!empty attributesBean.attributes.attributesTypes}" value="#{attributesBean.attributes.attributesTypes.isCreate}">
                                 <f:param name="id" value="#{attributesBean.attributes.attributesTypes.id}"/>
                         </h:link>
                         <h:outputText/>

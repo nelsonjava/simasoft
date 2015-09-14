@@ -224,17 +224,17 @@ public class CardinalitiesBean implements Serializable {
 					builder.lower(root.<String> get("observations")),
 					'%' + observations.toLowerCase() + '%'));
 		}
-		String cardinality = this.example.getCardinality();
-		if (cardinality != null && !"".equals(cardinality)) {
-			predicatesList.add(builder.like(
-					builder.lower(root.<String> get("cardinality")),
-					'%' + cardinality.toLowerCase() + '%'));
-		}
 		String name = this.example.getName();
 		if (name != null && !"".equals(name)) {
 			predicatesList.add(builder.like(
 					builder.lower(root.<String> get("name")),
 					'%' + name.toLowerCase() + '%'));
+		}
+		String cardinality = this.example.getCardinality();
+		if (cardinality != null && !"".equals(cardinality)) {
+			predicatesList.add(builder.like(
+					builder.lower(root.<String> get("cardinality")),
+					'%' + cardinality.toLowerCase() + '%'));
 		}
 		Boolean isUnidirectional = this.example.getIsUnidirectional();
 		if (isUnidirectional != null) {

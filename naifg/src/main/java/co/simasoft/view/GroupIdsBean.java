@@ -26,6 +26,7 @@ import javax.persistence.criteria.Root;
 
 import co.simasoft.models.dev.naifg.GroupIds;
 import co.simasoft.models.dev.naifg.Entities;
+import co.simasoft.models.dev.naifg.GroupIdsFiles;
 import co.simasoft.models.dev.naifg.ModelsGroupIds;
 import java.util.Iterator;
 
@@ -141,6 +142,14 @@ public class GroupIdsBean implements Serializable {
 				iterEntities.remove();
 				this.entityManager.merge(nextInEntities);
 			}
+			Iterator<GroupIdsFiles> iterGroupIdsFiles = deletableEntity
+					.getGroupIdsFiles().iterator();
+			for (; iterGroupIdsFiles.hasNext();) {
+				GroupIdsFiles nextInGroupIdsFiles = iterGroupIdsFiles.next();
+				nextInGroupIdsFiles.setGroupIds(null);
+				iterGroupIdsFiles.remove();
+				this.entityManager.merge(nextInGroupIdsFiles);
+			}
 			Iterator<ModelsGroupIds> iterModelsGroupIds = deletableEntity
 					.getModelsGroupIds().iterator();
 			for (; iterModelsGroupIds.hasNext();) {
@@ -229,11 +238,11 @@ public class GroupIdsBean implements Serializable {
 					builder.lower(root.<String> get("observations")),
 					'%' + observations.toLowerCase() + '%'));
 		}
-		String code = this.example.getCode();
-		if (code != null && !"".equals(code)) {
+		String artifactId = this.example.getArtifactId();
+		if (artifactId != null && !"".equals(artifactId)) {
 			predicatesList.add(builder.like(
-					builder.lower(root.<String> get("code")),
-					'%' + code.toLowerCase() + '%'));
+					builder.lower(root.<String> get("artifactId")),
+					'%' + artifactId.toLowerCase() + '%'));
 		}
 		String groupId = this.example.getGroupId();
 		if (groupId != null && !"".equals(groupId)) {
@@ -247,11 +256,11 @@ public class GroupIdsBean implements Serializable {
 					builder.lower(root.<String> get("version")),
 					'%' + version.toLowerCase() + '%'));
 		}
-		String artifactId = this.example.getArtifactId();
-		if (artifactId != null && !"".equals(artifactId)) {
+		String code = this.example.getCode();
+		if (code != null && !"".equals(code)) {
 			predicatesList.add(builder.like(
-					builder.lower(root.<String> get("artifactId")),
-					'%' + artifactId.toLowerCase() + '%'));
+					builder.lower(root.<String> get("code")),
+					'%' + code.toLowerCase() + '%'));
 		}
 
 		return predicatesList.toArray(new Predicate[predicatesList.size()]);

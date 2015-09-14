@@ -15,22 +15,22 @@ import javax.persistence.FetchType;
 import javax.persistence.Column;
 import javax.persistence.Lob;
 
+import co.simasoft.models.core.sites.*;
 import co.simasoft.models.dev.naifg.*;
 import co.simasoft.models.dev.naifg.dependencies.*;
-import co.simasoft.models.core.sites.*;
 import org.hibernate.search.annotations.Analyze;
-import org.hibernate.search.annotations.Index;
-import org.hibernate.search.annotations.Field;
 import org.hibernate.search.annotations.DocumentId;
-import org.hibernate.search.annotations.Store;
+import org.hibernate.search.annotations.Field;
+import org.hibernate.search.annotations.Index;
 import org.hibernate.search.annotations.Indexed;
-import javax.persistence.TemporalType;
-import javax.persistence.Temporal;
-import org.hibernate.search.annotations.DateBridge;
-import org.hibernate.search.annotations.Resolution;
+import org.hibernate.search.annotations.Store;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.ManyToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import org.hibernate.search.annotations.DateBridge;
+import org.hibernate.search.annotations.Resolution;
 
 @Indexed
 @Entity
@@ -56,15 +56,6 @@ public class SitesTypes implements Serializable {
 	@Column(nullable = true, unique = false)
 	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
 	private String name;
-
-	@OneToMany(mappedBy = "objPadre")
-	private Set<SitesTypes> objHijos = new HashSet<SitesTypes>();
-
-	@ManyToMany
-	private Set<Sites> sites = new HashSet<Sites>();
-
-	@ManyToOne
-	private SitesTypes objPadre;
 
 	public SitesTypes() {
 	}
@@ -105,27 +96,6 @@ public class SitesTypes implements Serializable {
 	}
 	public void setName(String name) {
 		this.name = name;
-	}
-
-	public Set<SitesTypes> getObjHijos() {
-		return this.objHijos;
-	}
-	public void setObjHijos(Set<SitesTypes> objHijos) {
-		this.objHijos = objHijos;
-	}
-
-	public Set<Sites> getSites() {
-		return sites;
-	}
-	public void setSites(Set<Sites> sites) {
-		this.sites = sites;
-	}
-
-	public SitesTypes getObjPadre() {
-		return this.objPadre;
-	}
-	public void setObjPadre(SitesTypes objPadre) {
-		this.objPadre = objPadre;
 	}
 
 	@Override

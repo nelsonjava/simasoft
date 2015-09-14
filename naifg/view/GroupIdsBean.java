@@ -24,22 +24,23 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
+import import co.simasoft.models.core.sites.*;
 import import co.simasoft.models.dev.naifg.*;
 import import co.simasoft.models.dev.naifg.dependencies.*;
-import import co.simasoft.models.core.sites.*;
 import import org.hibernate.search.annotations.Analyze;
-import import org.hibernate.search.annotations.Index;
-import import org.hibernate.search.annotations.Field;
 import import org.hibernate.search.annotations.DocumentId;
-import import org.hibernate.search.annotations.Store;
+import import org.hibernate.search.annotations.Field;
+import import org.hibernate.search.annotations.Index;
 import import org.hibernate.search.annotations.Indexed;
-import import javax.persistence.TemporalType;
-import import javax.persistence.Temporal;
-import import org.hibernate.search.annotations.DateBridge;
-import import org.hibernate.search.annotations.Resolution;
+import import org.hibernate.search.annotations.Store;
+import import javax.persistence.ManyToMany;
 import import javax.persistence.OneToMany;
 import import javax.persistence.ManyToOne;
-import import javax.persistence.ManyToMany;
+import import javax.persistence.Temporal;
+import import javax.persistence.TemporalType;
+import import org.hibernate.search.annotations.DateBridge;
+import import org.hibernate.search.annotations.Resolution;
+import import javax.persistence.Lob;
 import java.util.Iterator;
 
 @Named
@@ -142,6 +143,13 @@ public class GroupIdsBean implements Serializable{
                                 nextInEntities.setGroupIds(null);
                                iterEntities.remove();
                                this.entityManager.merge(nextInEntities);
+                        }
+                        Iterator<GroupIdsFiles> iterGroupIdsFiles = deletableEntity.getGroupIdsFiles().iterator();
+                        for (; iterGroupIdsFiles.hasNext();){
+                               GroupIdsFiles nextInGroupIdsFiles = iterGroupIdsFiles.next();
+                                nextInGroupIdsFiles.setGroupIds(null);
+                               iterGroupIdsFiles.remove();
+                               this.entityManager.merge(nextInGroupIdsFiles);
                         }
                         Iterator<ModelsGroupIds> iterModelsGroupIds = deletableEntity.getModelsGroupIds().iterator();
                         for (; iterModelsGroupIds.hasNext();){

@@ -9,21 +9,22 @@
 
     <provider>org.hibernate.ejb.HibernatePersistence</provider>
 
-    <class>co.simasoft.models.dev.naifg.Models</class>
+    <class>co.simasoft.models.core.sites.Sites</class>
+    <class>co.simasoft.models.core.sites.SitesTypes</class>
     <class>co.simasoft.models.dev.naifg.NameQueries</class>
-    <class>co.simasoft.models.dev.naifg.Attributes</class>
-    <class>co.simasoft.models.dev.naifg.ModelsGroupIds</class>
     <class>co.simasoft.models.dev.naifg.Relationships</class>
-    <class>co.simasoft.models.dev.naifg.Developments</class>
     <class>co.simasoft.models.dev.naifg.GroupIds</class>
-    <class>co.simasoft.models.dev.naifg.Cardinalities</class>
+    <class>co.simasoft.models.dev.naifg.GroupIdsFiles</class>
+    <class>co.simasoft.models.dev.naifg.Models</class>
+    <class>co.simasoft.models.dev.naifg.Developments</class>
+    <class>co.simasoft.models.dev.naifg.ModelsGroupIds</class>
     <class>co.simasoft.models.dev.naifg.Entities</class>
+    <class>co.simasoft.models.dev.naifg.Attributes</class>
+    <class>co.simasoft.models.dev.naifg.Cardinalities</class>
+    <class>co.simasoft.models.dev.naifg.dependencies.AttributesTypes</class>
     <class>co.simasoft.models.dev.naifg.dependencies.Imports</class>
     <class>co.simasoft.models.dev.naifg.dependencies.Dependencies</class>
     <class>co.simasoft.models.dev.naifg.dependencies.AttributesProperties</class>
-    <class>co.simasoft.models.dev.naifg.dependencies.AttributesTypes</class>
-    <class>co.simasoft.models.core.sites.SitesTypes</class>
-    <class>co.simasoft.models.core.sites.Sites</class>
 
     <exclude-unlisted-classes>true</exclude-unlisted-classes>
     <jta-data-source>java:jboss/datasources/naifgDS</jta-data-source>

@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="114mm" xmlns="http://www.w3.org/2000/svg" height="178mm" version="1.1" viewBox="0 0 431 676" xmlns:xlink="http://www.w3.org/1999/xlink">
+   <polyline fill="none" points="203,51 203,139" stroke="#0080ff" stroke-width="1"/>
+   <text x="217" y="71" fill="#000000" font-size="10" font-family="Arial" text-anchor="middle">0..*</text>
+   <text x="217" y="81" fill="#000000" font-size="10" font-family="Arial" text-anchor="middle">from</text>
+   <text x="218" y="120" fill="#000000" font-size="10" font-family="Arial" text-anchor="middle">0..*</text>
+   <text x="218" y="130" fill="#000000" font-size="10" font-family="Arial" text-anchor="middle">to</text>
+   <polyline fill="none" points="205,186 205,264" stroke="#0080ff" stroke-width="1"/>
+   <text x="220" y="205" fill="#000000" font-size="10" font-family="Arial" text-anchor="middle">0..1</text>
+   <text x="216" y="248" fill="#000000" font-size="10" font-family="Arial" text-anchor="middle">0..*</text>
+   <polyline fill="none" points="206,393 206,306" stroke="#0080ff" stroke-width="1"/>
+   <text x="218" y="381" fill="#000000" font-size="10" font-family="Arial" text-anchor="middle">0..1</text>
+   <text x="217" y="322" fill="#000000" font-size="10" font-family="Arial" text-anchor="middle">0..*</text>
+   <polyline fill="none" points="239,417 357,417" stroke="#0080ff" stroke-width="1"/>
+   <text x="260" y="413" fill="#000000" font-size="10" font-family="Arial" text-anchor="middle">0..1</text>
+   <text x="338" y="412" fill="#000000" font-size="10" font-family="Arial" text-anchor="middle">0..*</text>
+   <text x="124" y="554" fill="#000000" font-size="10" font-family="Arial" text-anchor="middle">from</text>
+   <text x="124" y="513" fill="#000000" font-size="10" font-family="Arial" text-anchor="middle">to</text>
+   <polyline fill="none" points="206,433 206,515" stroke="#0080ff" stroke-width="1"/>
+   <text x="219" y="455" fill="#000000" font-size="10" font-family="Arial" text-anchor="middle">0..1</text>
+   <text x="218" y="495" fill="#000000" font-size="10" font-family="Arial" text-anchor="middle">0..*</text>
+   <polyline fill="none" points="182,522 70,522" stroke="#0080ff" stroke-width="1"/>
+   <text x="159" y="516" fill="#000000" font-size="10" font-family="Arial" text-anchor="middle">0..1</text>
+   <text x="88" y="516" fill="#000000" font-size="10" font-family="Arial" text-anchor="middle">0..*</text>
+   <polyline fill="none" points="180,539 73,539" stroke="#0080ff" stroke-width="1"/>
+   <text x="159" y="552" fill="#000000" font-size="10" font-family="Arial" text-anchor="middle">0..1</text>
+   <text x="87" y="551" fill="#000000" font-size="10" font-family="Arial" text-anchor="middle">0..*</text>
+   <polyline fill="none" points="37,436 37,513" stroke="#0080ff" stroke-width="1"/>
+   <text x="51" y="456" fill="#000000" font-size="10" font-family="Arial" text-anchor="middle">0..1</text>
+   <text x="49" y="494" fill="#000000" font-size="10" font-family="Arial" text-anchor="middle">0..*</text>
+   <polyline fill="none" points="211,547 211,625" stroke="#0080ff" stroke-width="1"/>
+   <text x="224" y="569" fill="#000000" font-size="10" font-family="Arial" text-anchor="middle">0..1</text>
+   <text x="225" y="612" fill="#000000" font-size="10" font-family="Arial" text-anchor="middle">0..*</text>
+   <polyline fill="none" points="243,534 366,534" stroke="#0080ff" stroke-width="1"/>
+   <text x="262" y="529" fill="#000000" font-size="10" font-family="Arial" text-anchor="middle">0..1</text>
+   <text x="342" y="529" fill="#000000" font-size="10" font-family="Arial" text-anchor="middle">0..*</text>
+   <defs>
+      <linearGradient id="Gradient1" x1="0%" x2="100%" y1="0%" y2="100%" gradientUnits="objectBoundingBox">
+         <stop offset="5%" stop-color="#ffffff"/>
+         <stop offset="95%" stop-color="#aee4ff"/>
+      </linearGradient>
+   </defs>
+   <rect x="165" y="2" fill="url(#Gradient1)" width="75" height="55" stroke="#0080ff" stroke-width="1"/>
+   <text x="201" y="13" fill="#000000" font-size="10" font-family="Arial" text-anchor="middle">Developments</text>
+   <line x1="165" x2="240" y1="21" y2="21" stroke="#0080ff" stroke-width="1"/>
+   <line x1="165" x2="240" y1="38" y2="38" stroke="#0080ff" stroke-width="1"/>
+   <defs>
+      <linearGradient id="Gradient2" x1="0%" x2="100%" y1="0%" y2="100%" gradientUnits="objectBoundingBox">
+         <stop offset="5%" stop-color="#ffffff"/>
+         <stop offset="95%" stop-color="#aee4ff"/>
+      </linearGradient>
+   </defs>
+   <rect x="169" y="137" fill="url(#Gradient2)" width="74" height="55" stroke="#0080ff" stroke-width="1"/>
+   <text x="205" y="148" fill="#000000" font-size="10" font-family="Arial" text-anchor="middle">Models</text>
+   <line x1="169" x2="243" y1="156" y2="156" stroke="#0080ff" stroke-width="1"/>
+   <line x1="169" x2="243" y1="173" y2="173" stroke="#0080ff" stroke-width="1"/>
+   <defs>
+      <linearGradient id="Gradient3" x1="0%" x2="100%" y1="0%" y2="100%" gradientUnits="objectBoundingBox">
+         <stop offset="5%" stop-color="#ffffff"/>
+         <stop offset="95%" stop-color="#aee4ff"/>
+      </linearGradient>
+   </defs>
+   <rect x="171" y="386" fill="url(#Gradient3)" width="74" height="55" stroke="#0080ff" stroke-width="1"/>
+   <text x="207" y="397" fill="#000000" font-size="10" font-family="Arial" text-anchor="middle">GroupIds</text>
+   <line x1="171" x2="245" y1="405" y2="405" stroke="#0080ff" stroke-width="1"/>
+   <line x1="171" x2="245" y1="422" y2="422" stroke="#0080ff" stroke-width="1"/>
+   <defs>
+      <linearGradient id="Gradient4" x1="0%" x2="100%" y1="0%" y2="100%" gradientUnits="objectBoundingBox">
+         <stop offset="5%" stop-color="#ffffff"/>
+         <stop offset="95%" stop-color="#aee4ff"/>
+      </linearGradient>
+   </defs>
+   <rect x="176" y="501" fill="url(#Gradient4)" width="72" height="55" stroke="#0080ff" stroke-width="1"/>
+   <text x="211" y="512" fill="#000000" font-size="10" font-family="Arial" text-anchor="middle">Entities</text>
+   <line x1="176" x2="248" y1="520" y2="520" stroke="#0080ff" stroke-width="1"/>
+   <line x1="176" x2="248" y1="537" y2="537" stroke="#0080ff" stroke-width="1"/>
+   <defs>
+      <linearGradient id="Gradient5" x1="0%" x2="100%" y1="0%" y2="100%" gradientUnits="objectBoundingBox">
+         <stop offset="5%" stop-color="#ffffff"/>
+         <stop offset="95%" stop-color="#aee4ff"/>
+      </linearGradient>
+   </defs>
+   <rect x="3" y="388" fill="url(#Gradient5)" width="67" height="55" stroke="#0080ff" stroke-width="1"/>
+   <text x="35" y="399" fill="#000000" font-size="10" font-family="Arial" text-anchor="middle">Cardinalities</text>
+   <line x1="3" x2="70" y1="407" y2="407" stroke="#0080ff" stroke-width="1"/>
+   <line x1="3" x2="70" y1="424" y2="424" stroke="#0080ff" stroke-width="1"/>
+   <defs>
+      <linearGradient id="Gradient6" x1="0%" x2="100%" y1="0%" y2="100%" gradientUnits="objectBoundingBox">
+         <stop offset="5%" stop-color="#ffffff"/>
+         <stop offset="95%" stop-color="#aee4ff"/>
+      </linearGradient>
+   </defs>
+   <rect x="2" y="501" fill="url(#Gradient6)" width="71" height="55" stroke="#0080ff" stroke-width="1"/>
+   <text x="36" y="512" fill="#000000" font-size="10" font-family="Arial" text-anchor="middle">Relationships</text>
+   <line x1="2" x2="73" y1="520" y2="520" stroke="#0080ff" stroke-width="1"/>
+   <line x1="2" x2="73" y1="537" y2="537" stroke="#0080ff" stroke-width="1"/>
+   <defs>
+      <linearGradient id="Gradient7" x1="0%" x2="100%" y1="0%" y2="100%" gradientUnits="objectBoundingBox">
+         <stop offset="5%" stop-color="#ffffff"/>
+         <stop offset="95%" stop-color="#aee4ff"/>
+      </linearGradient>
+   </defs>
+   <rect x="180" y="619" fill="url(#Gradient7)" width="70" height="55" stroke="#0080ff" stroke-width="1"/>
+   <text x="215" y="630" fill="#000000" font-size="10" font-family="Arial" text-anchor="middle">Attributes</text>
+   <line x1="180" x2="250" y1="638" y2="638" stroke="#0080ff" stroke-width="1"/>
+   <line x1="180" x2="250" y1="655" y2="655" stroke="#0080ff" stroke-width="1"/>
+   <defs>
+      <linearGradient id="Gradient8" x1="0%" x2="100%" y1="0%" y2="100%" gradientUnits="objectBoundingBox">
+         <stop offset="5%" stop-color="#ffffff"/>
+         <stop offset="95%" stop-color="#aee4ff"/>
+      </linearGradient>
+   </defs>
+   <rect x="357" y="505" fill="url(#Gradient8)" width="72" height="55" stroke="#0080ff" stroke-width="1"/>
+   <text x="393" y="516" fill="#000000" font-size="10" font-family="Arial" text-anchor="middle">NameQueries</text>
+   <line x1="357" x2="429" y1="524" y2="524" stroke="#0080ff" stroke-width="1"/>
+   <line x1="357" x2="429" y1="541" y2="541" stroke="#0080ff" stroke-width="1"/>
+   <defs>
+      <linearGradient id="Gradient9" x1="0%" x2="100%" y1="0%" y2="100%" gradientUnits="objectBoundingBox">
+         <stop offset="5%" stop-color="#ffffff"/>
+         <stop offset="95%" stop-color="#aee4ff"/>
+      </linearGradient>
+   </defs>
+   <rect x="164" y="256" fill="url(#Gradient9)" width="84" height="55" stroke="#0080ff" stroke-width="1"/>
+   <text x="205" y="267" fill="#000000" font-size="10" font-family="Arial" text-anchor="middle">ModelsGroupIds</text>
+   <line x1="164" x2="248" y1="275" y2="275" stroke="#0080ff" stroke-width="1"/>
+   <line x1="164" x2="248" y1="292" y2="292" stroke="#0080ff" stroke-width="1"/>
+   <defs>
+      <linearGradient id="Gradient10" x1="0%" x2="100%" y1="0%" y2="100%" gradientUnits="objectBoundingBox">
+         <stop offset="5%" stop-color="#ffffff"/>
+         <stop offset="95%" stop-color="#aee4ff"/>
+      </linearGradient>
+   </defs>
+   <rect x="352" y="387" fill="url(#Gradient10)" width="72" height="55" stroke="#0080ff" stroke-width="1"/>
+   <text x="387" y="398" fill="#000000" font-size="10" font-family="Arial" text-anchor="middle">GroupIdsFiles</text>
+   <line x1="352" x2="424" y1="406" y2="406" stroke="#0080ff" stroke-width="1"/>
+   <line x1="352" x2="424" y1="423" y2="423" stroke="#0080ff" stroke-width="1"/>
+</svg>

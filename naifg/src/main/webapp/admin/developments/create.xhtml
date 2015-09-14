@@ -46,6 +46,27 @@
                                 </h:panelGroup>
                                 <h:outputText/>
 
+                                <h:outputLabel for="developmentsBeanDevelopmentsArtifactId" value="ArtifactId:"/>
+                                <h:panelGroup>
+                                        <h:inputText id="developmentsBeanDevelopmentsArtifactId" required="true" value="#{developmentsBean.developments.artifactId}"/>
+                                        <h:message for="developmentsBeanDevelopmentsArtifactId" styleClass="error"/>
+                                </h:panelGroup>
+                                <h:outputText value="*"/>
+
+                                <h:outputLabel for="developmentsBeanDevelopmentsGroupId" value="GroupId:"/>
+                                <h:panelGroup>
+                                        <h:inputText id="developmentsBeanDevelopmentsGroupId" value="#{developmentsBean.developments.groupId}"/>
+                                        <h:message for="developmentsBeanDevelopmentsGroupId" styleClass="error"/>
+                                </h:panelGroup>
+                                <h:outputText/>
+
+                                <h:outputLabel for="developmentsBeanDevelopmentsVersion" value="Version:"/>
+                                <h:panelGroup>
+                                        <h:inputText id="developmentsBeanDevelopmentsVersion" value="#{developmentsBean.developments.version}"/>
+                                        <h:message for="developmentsBeanDevelopmentsVersion" styleClass="error"/>
+                                </h:panelGroup>
+                                <h:outputText/>
+
                                 <h:outputLabel for="developmentsBeanDevelopmentsCode" value="Code:"/>
                                 <h:panelGroup>
                                         <h:inputText id="developmentsBeanDevelopmentsCode" value="#{developmentsBean.developments.code}"/>
@@ -62,26 +83,9 @@
                                 </h:panelGroup>
                                 <h:outputText/>
 
-                                <h:outputLabel for="developmentsBeanDevelopmentsGroupId" value="GroupId:"/>
-                                <h:panelGroup>
-                                        <h:inputText id="developmentsBeanDevelopmentsGroupId" value="#{developmentsBean.developments.groupId}"/>
-                                        <h:message for="developmentsBeanDevelopmentsGroupId" styleClass="error"/>
-                                </h:panelGroup>
-                                <h:outputText/>
+                                <!-- Developments *..*  Models -->
 
-                                <h:outputLabel for="developmentsBeanDevelopmentsVersion" value="Version:"/>
-                                <h:panelGroup>
-                                        <h:inputText id="developmentsBeanDevelopmentsVersion" value="#{developmentsBean.developments.version}"/>
-                                        <h:message for="developmentsBeanDevelopmentsVersion" styleClass="error"/>
-                                </h:panelGroup>
-                                <h:outputText/>
-
-                                <h:outputLabel for="developmentsBeanDevelopmentsArtifactId" value="ArtifactId:"/>
-                                <h:panelGroup>
-                                        <h:inputText id="developmentsBeanDevelopmentsArtifactId" required="true" value="#{developmentsBean.developments.artifactId}"/>
-                                        <h:message for="developmentsBeanDevelopmentsArtifactId" styleClass="error"/>
-                                </h:panelGroup>
-                                <h:outputText value="*"/>
+                                <!-- Developments *..*  Sites -->
 
                                 <h:outputLabel for="developmentsBeanDevelopmentsObservations" value="Observations:"/>
                                 <h:panelGroup>
@@ -89,42 +93,6 @@
                                         <h:message for="developmentsBeanDevelopmentsObservations" styleClass="error"/>
                                 </h:panelGroup>
                                 <h:outputText/>
-
-				<h:outputLabel for="developmentsBeanDevelopmentsModels" value="Models:"/>
-				<h:panelGroup>
-					<ui:param name="_collection" value="#{developmentsBean.developments.models}"/>
-					<h:dataTable id="developmentsBeanDevelopmentsModels" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
-						<h:column>
-							<f:facet name="header">
-								<h:outputText value="Group Id"/>
-							</f:facet>
-							<h:link outcome="/admin/models/view">
-								<f:param name="id" value="#{_item.id}"/>
-								<h:outputText id="itemGroupId" value="#{_item.groupId}"/>
-							</h:link>
-						</h:column>
-						<h:column>
-							<f:facet name="header">
-								<h:outputText value="Artifact Id"/>
-							</f:facet>
-							<h:link outcome="/admin/models/view">
-								<f:param name="id" value="#{_item.id}"/>
-								<h:outputText id="itemArtifactId" value="#{_item.artifactId}"/>
-							</h:link>
-						</h:column>
-						<h:column footerClass="remove-column" headerClass="remove-column">
-							<h:commandLink action="#{_collection.remove(_item)}" styleClass="remove-button"/>
-						</h:column>
-					</h:dataTable>
-					<h:panelGrid columnClasses=",remove-column" columns="2" styleClass="data-table-footer">
-						<h:selectOneMenu converter="#{modelsBean.converter}" id="developmentsBeanDevelopmentsModelsSelect" value="#{requestScope['developmentsBeanDevelopmentsModelsSelect']}">
-							<f:selectItem/>
-							<f:selectItems itemLabel="#{forgeview:display(_item.artifactId)}" itemValue="#{_item}" value="#{modelsBean.all}" var="_item"/>
-						</h:selectOneMenu>
-						<h:commandLink action="#{_collection.add(requestScope['developmentsBeanDevelopmentsModelsSelect'])}" id="developmentsBeanDevelopmentsModelsAdd" onclick="if (document.getElementById(document.forms[0].id+':developmentsBeanDevelopmentsModelsSelect').selectedIndex &lt; 1) { alert('Must select a Models'); return false; }" styleClass="add-button"/>
-					</h:panelGrid>
-				</h:panelGroup>
-				<h:outputText/>
 
                         </h:panelGrid>
 

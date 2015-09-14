@@ -46,6 +46,27 @@
                                 </h:panelGroup>
                                 <h:outputText/>
 
+                                <h:outputLabel for="entitiesBeanEntitiesName" value="Name:"/>
+                                <h:panelGroup>
+                                        <h:inputText id="entitiesBeanEntitiesName" required="true" value="#{entitiesBean.entities.name}"/>
+                                        <h:message for="entitiesBeanEntitiesName" styleClass="error"/>
+                                </h:panelGroup>
+                                <h:outputText value="*"/>
+
+                                <h:outputLabel for="entitiesBeanEntitiesSerialID" value="SerialID:"/>
+                                <h:panelGroup>
+                                        <h:inputText id="entitiesBeanEntitiesSerialID" value="#{entitiesBean.entities.serialID}"/>
+                                        <h:message for="entitiesBeanEntitiesSerialID" styleClass="error"/>
+                                </h:panelGroup>
+                                <h:outputText/>
+
+                                <h:outputLabel for="entitiesBeanEntitiesTable" value="Table:"/>
+                                <h:panelGroup>
+                                        <h:inputText id="entitiesBeanEntitiesTable" value="#{entitiesBean.entities.table}"/>
+                                        <h:message for="entitiesBeanEntitiesTable" styleClass="error"/>
+                                </h:panelGroup>
+                                <h:outputText/>
+
                                 <h:outputLabel for="entitiesBeanEntitiesDescription" value="Description:"/>
                                 <h:panelGroup>
                                         <h:inputText id="entitiesBeanEntitiesDescription" value="#{entitiesBean.entities.description}"/>
@@ -64,26 +85,9 @@
                                 </h:panelGroup>
                                 <h:outputText/>
 
-                                <h:outputLabel for="entitiesBeanEntitiesTable" value="Table:"/>
-                                <h:panelGroup>
-                                        <h:inputText id="entitiesBeanEntitiesTable" value="#{entitiesBean.entities.table}"/>
-                                        <h:message for="entitiesBeanEntitiesTable" styleClass="error"/>
-                                </h:panelGroup>
-                                <h:outputText/>
+                                <!-- Entities *..*  AttributesProperties -->
 
-                                <h:outputLabel for="entitiesBeanEntitiesSerialID" value="SerialID:"/>
-                                <h:panelGroup>
-                                        <h:inputText id="entitiesBeanEntitiesSerialID" value="#{entitiesBean.entities.serialID}"/>
-                                        <h:message for="entitiesBeanEntitiesSerialID" styleClass="error"/>
-                                </h:panelGroup>
-                                <h:outputText/>
-
-                                <h:outputLabel for="entitiesBeanEntitiesName" value="Name:"/>
-                                <h:panelGroup>
-                                        <h:inputText id="entitiesBeanEntitiesName" required="true" value="#{entitiesBean.entities.name}"/>
-                                        <h:message for="entitiesBeanEntitiesName" styleClass="error"/>
-                                </h:panelGroup>
-                                <h:outputText value="*"/>
+                                <!-- Entities 1..*  Relationships -->
 
                                 <!-- Entities 1..*  Attributes -->
 
@@ -91,11 +95,7 @@
 
                                 <!-- Entities *..*  Imports -->
 
-                                <!-- Entities *..*  AttributesProperties -->
-
                                 <!-- Entities *..*  Sites -->
-
-                                <!-- Entities 1..*  Relationships -->
 
                                 <!-- Entities 1..*  Relationships -->
 

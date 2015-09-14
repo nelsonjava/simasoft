@@ -25,8 +25,6 @@ import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
 import co.simasoft.models.core.sites.SitesTypes;
-import co.simasoft.models.core.sites.Sites;
-import java.util.Iterator;
 
 /**
  * Backing bean for SitesTypes entities.
@@ -132,25 +130,7 @@ public class SitesTypesBean implements Serializable {
 
 		try {
 			SitesTypes deletableEntity = findById(getId());
-			Iterator<SitesTypes> iterObjHijos = deletableEntity.getObjHijos()
-					.iterator();
-			for (; iterObjHijos.hasNext();) {
-				SitesTypes nextInObjHijos = iterObjHijos.next();
-				nextInObjHijos.setObjPadre(null);
-				iterObjHijos.remove();
-				this.entityManager.merge(nextInObjHijos);
-			}
-			Iterator<Sites> iterSites = deletableEntity.getSites().iterator();
-			for (; iterSites.hasNext();) {
-				Sites nextInSites = iterSites.next();
-				nextInSites.getSitesTypes().remove(deletableEntity);
-				iterSites.remove();
-				this.entityManager.merge(nextInSites);
-			}
-			SitesTypes objPadre = deletableEntity.getObjPadre();
-			objPadre.getObjHijos().remove(deletableEntity);
-			deletableEntity.setObjPadre(null);
-			this.entityManager.merge(objPadre);
+
 			this.entityManager.remove(deletableEntity);
 			this.entityManager.flush();
 			return "search?faces-redirect=true";
@@ -237,10 +217,6 @@ public class SitesTypesBean implements Serializable {
 			predicatesList.add(builder.like(
 					builder.lower(root.<String> get("name")),
 					'%' + name.toLowerCase() + '%'));
-		}
-		SitesTypes objPadre = this.example.getObjPadre();
-		if (objPadre != null) {
-			predicatesList.add(builder.equal(root.get("objPadre"), objPadre));
 		}
 
 		return predicatesList.toArray(new Predicate[predicatesList.size()]);

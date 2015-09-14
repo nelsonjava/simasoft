@@ -24,22 +24,23 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
+import import co.simasoft.models.core.sites.*;
 import import co.simasoft.models.dev.naifg.*;
 import import co.simasoft.models.dev.naifg.dependencies.*;
-import import co.simasoft.models.core.sites.*;
 import import org.hibernate.search.annotations.Analyze;
-import import org.hibernate.search.annotations.Index;
-import import org.hibernate.search.annotations.Field;
 import import org.hibernate.search.annotations.DocumentId;
-import import org.hibernate.search.annotations.Store;
+import import org.hibernate.search.annotations.Field;
+import import org.hibernate.search.annotations.Index;
 import import org.hibernate.search.annotations.Indexed;
-import import javax.persistence.TemporalType;
-import import javax.persistence.Temporal;
-import import org.hibernate.search.annotations.DateBridge;
-import import org.hibernate.search.annotations.Resolution;
+import import org.hibernate.search.annotations.Store;
+import import javax.persistence.ManyToMany;
 import import javax.persistence.OneToMany;
 import import javax.persistence.ManyToOne;
-import import javax.persistence.ManyToMany;
+import import javax.persistence.Temporal;
+import import javax.persistence.TemporalType;
+import import org.hibernate.search.annotations.DateBridge;
+import import org.hibernate.search.annotations.Resolution;
+import import javax.persistence.Lob;
 import java.util.Iterator;
 
 @Named
@@ -143,6 +144,28 @@ public class SitesTypesBean implements Serializable{
     3        iterObjHijos.remove();
     3        this.entityManager.merge(nextInObjHijos);
     3     }
+    3     Iterator<SitesTypes> iterObjHijos = deletableEntity.getObjHijos().iterator();
+    3     for (; iterObjHijos.hasNext();){
+    3        SitesTypes nextInObjHijos = iterObjHijos.next();
+    3        nextInObjHijos.setObjPadre(null);
+    3        iterObjHijos.remove();
+    3        this.entityManager.merge(nextInObjHijos);
+    3     }
+    3     Iterator<SitesTypes> iterObjHijos = deletableEntity.getObjHijos().iterator();
+    3     for (; iterObjHijos.hasNext();){
+    3        SitesTypes nextInObjHijos = iterObjHijos.next();
+    3        nextInObjHijos.setObjPadre(null);
+    3        iterObjHijos.remove();
+    3        this.entityManager.merge(nextInObjHijos);
+    3     }
+         SitesTypes objPadre = deletableEntity.getObjPadre();
+         objPadre.getObjHijos().remove(deletableEntity);
+         deletableEntity.setObjPadre(null);
+         this.entityManager.merge(objPadre);
+         SitesTypes objPadre = deletableEntity.getObjPadre();
+         objPadre.getObjHijos().remove(deletableEntity);
+         deletableEntity.setObjPadre(null);
+         this.entityManager.merge(objPadre);
          SitesTypes objPadre = deletableEntity.getObjPadre();
          objPadre.getObjHijos().remove(deletableEntity);
          deletableEntity.setObjPadre(null);

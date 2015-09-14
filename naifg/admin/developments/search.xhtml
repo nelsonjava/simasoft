@@ -30,13 +30,12 @@
                                 <h:panelGroup styleClass="search">
 
                                         <h:panelGrid columnClasses="label,component,required" columns="3">
-                                                <h:outputLabel for="developmentsBeanExampleCode" value="Code:"/>
+                                                <h:outputLabel for="developmentsBeanExampleArtifactId" value="ArtifactId:"/>
                                                 <h:panelGroup>
-                                                        <h:inputText id="developmentsBeanExampleCode" value="#{developmentsBean.example.code}"/>
-                                                        <h:message for="developmentsBeanExampleCode" styleClass="error"/>
+                                                        <h:inputText id="developmentsBeanExampleArtifactId" value="#{developmentsBean.example.artifactId}"/>
+                                                        <h:message for="developmentsBeanExampleArtifactId" styleClass="error"/>
                                                 </h:panelGroup>
                                                 <h:outputText/>
-
 
                                                 <h:outputLabel for="developmentsBeanExampleGroupId" value="GroupId:"/>
                                                 <h:panelGroup>
@@ -52,12 +51,13 @@
                                                 </h:panelGroup>
                                                 <h:outputText/>
 
-                                                <h:outputLabel for="developmentsBeanExampleArtifactId" value="ArtifactId:"/>
+                                                <h:outputLabel for="developmentsBeanExampleCode" value="Code:"/>
                                                 <h:panelGroup>
-                                                        <h:inputText id="developmentsBeanExampleArtifactId" value="#{developmentsBean.example.artifactId}"/>
-                                                        <h:message for="developmentsBeanExampleArtifactId" styleClass="error"/>
+                                                        <h:inputText id="developmentsBeanExampleCode" value="#{developmentsBean.example.code}"/>
+                                                        <h:message for="developmentsBeanExampleCode" styleClass="error"/>
                                                 </h:panelGroup>
                                                 <h:outputText/>
+
 
                                         </h:panelGrid>
                                         <h:panelGroup styleClass="buttons">
@@ -71,24 +71,11 @@
 
                                 <h:column>
                                         <f:facet name="header">
-                                                <h:outputText value="Code"/>
+                                                <h:outputText value="ArtifactId"/>
                                         </f:facet>
                                         <h:link outcome="/admin/developments/view">
                                                 <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemCode" value="#{_item.code}"/>
-                                        </h:link>
-                                </h:column>
-
-
-                                <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="Date"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/developments/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemDate" value="#{_item.date}"/>
-                                                        <f:convertDateTime type="date"/>
-                                               <h:outputText/>
+                                                <h:outputText id="itemArtifactId" value="#{_item.artifactId}"/>
                                         </h:link>
                                 </h:column>
 
@@ -117,11 +104,24 @@
 
                                 <h:column>
                                         <f:facet name="header">
-                                                <h:outputText value="ArtifactId"/>
+                                                <h:outputText value="Code"/>
                                         </f:facet>
                                         <h:link outcome="/admin/developments/view">
                                                 <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemArtifactId" value="#{_item.artifactId}"/>
+                                                <h:outputText id="itemCode" value="#{_item.code}"/>
+                                        </h:link>
+                                </h:column>
+
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Date"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/developments/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemDate" value="#{_item.date}"/>
+                                                        <f:convertDateTime type="date"/>
+                                               <h:outputText/>
                                         </h:link>
                                 </h:column>
 
