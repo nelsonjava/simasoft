@@ -53,6 +53,16 @@
                         </f:validateBean>
 
                         <h:dataTable id="groupIdsFilesBeanPageItems" styleClass="data-table" value="#{groupIdsFilesBean.pageItems}" var="_item">
+                        
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="GroupIds:"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/groupIdsFiles/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemNameGroupId" value="#{_item.groupIds.groupId}"/>
+                                        </h:link>
+                                </h:column>
 
                                 <h:column>
                                         <f:facet name="header">
@@ -64,7 +74,6 @@
                                         </h:link>
                                 </h:column>
 
-
                                 <h:column>
                                         <f:facet name="header">
                                                 <h:outputText value="Type"/>
@@ -74,7 +83,6 @@
                                                 <h:outputText id="itemType" value="#{_item.type}"/>
                                         </h:link>
                                 </h:column>
-
 
                         </h:dataTable>
                         <ui:include src="/resources/scaffold/paginator.xhtml">
