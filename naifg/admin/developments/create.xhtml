@@ -46,6 +46,15 @@
                                 </h:panelGroup>
                                 <h:outputText/>
 
+                                <h:outputLabel for="developmentsBeanDevelopmentsDate" value="Date:"/>
+                                <h:panelGroup>
+                                <p:calendar id="developmentsBeanDevelopmentsDate"
+                                            showButtonPanel="true"
+                                            pattern="dd/MM/yyyy HH:mm a"
+                                            value="#{developmentsBean.developments.date}"/>
+                                </h:panelGroup>
+                                <h:outputText/>
+
                                 <h:outputLabel for="developmentsBeanDevelopmentsArtifactId" value="ArtifactId:"/>
                                 <h:panelGroup>
                                         <h:inputText id="developmentsBeanDevelopmentsArtifactId" required="true" value="#{developmentsBean.developments.artifactId}"/>
@@ -60,13 +69,6 @@
                                 </h:panelGroup>
                                 <h:outputText/>
 
-                                <h:outputLabel for="developmentsBeanDevelopmentsVersion" value="Version:"/>
-                                <h:panelGroup>
-                                        <h:inputText id="developmentsBeanDevelopmentsVersion" value="#{developmentsBean.developments.version}"/>
-                                        <h:message for="developmentsBeanDevelopmentsVersion" styleClass="error"/>
-                                </h:panelGroup>
-                                <h:outputText/>
-
                                 <h:outputLabel for="developmentsBeanDevelopmentsCode" value="Code:"/>
                                 <h:panelGroup>
                                         <h:inputText id="developmentsBeanDevelopmentsCode" value="#{developmentsBean.developments.code}"/>
@@ -74,18 +76,16 @@
                                 </h:panelGroup>
                                 <h:outputText/>
 
-                                <h:outputLabel for="developmentsBeanDevelopmentsDate" value="Date:"/>
+                                <h:outputLabel for="developmentsBeanDevelopmentsVersion" value="Version:"/>
                                 <h:panelGroup>
-                                <p:calendar id="developmentsBeanDevelopmentsDate"
-                                            showButtonPanel="true"
-                                            pattern="dd/MM/yyyy HH:mm a"
-                                            value="#{developmentsBean.developments.date}"/>
+                                        <h:inputText id="developmentsBeanDevelopmentsVersion" value="#{developmentsBean.developments.version}"/>
+                                        <h:message for="developmentsBeanDevelopmentsVersion" styleClass="error"/>
                                 </h:panelGroup>
                                 <h:outputText/>
 
-                                <!-- Developments *..*  Models -->
-
                                 <!-- Developments *..*  Sites -->
+
+                                <!-- Developments *..*  Models -->
 
                                 <h:outputLabel for="developmentsBeanDevelopmentsObservations" value="Observations:"/>
                                 <h:panelGroup>

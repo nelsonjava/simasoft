@@ -28,19 +28,19 @@ import import co.simasoft.models.core.sites.*;
 import import co.simasoft.models.dev.naifg.*;
 import import co.simasoft.models.dev.naifg.dependencies.*;
 import import org.hibernate.search.annotations.Analyze;
-import import org.hibernate.search.annotations.DocumentId;
-import import org.hibernate.search.annotations.Field;
 import import org.hibernate.search.annotations.Index;
-import import org.hibernate.search.annotations.Indexed;
+import import org.hibernate.search.annotations.Field;
+import import org.hibernate.search.annotations.DocumentId;
 import import org.hibernate.search.annotations.Store;
-import import javax.persistence.ManyToMany;
+import import org.hibernate.search.annotations.Indexed;
 import import javax.persistence.OneToMany;
 import import javax.persistence.ManyToOne;
-import import javax.persistence.Temporal;
+import import javax.persistence.ManyToMany;
+import import javax.persistence.Lob;
 import import javax.persistence.TemporalType;
+import import javax.persistence.Temporal;
 import import org.hibernate.search.annotations.DateBridge;
 import import org.hibernate.search.annotations.Resolution;
-import import javax.persistence.Lob;
 import java.util.Iterator;
 
 @Named

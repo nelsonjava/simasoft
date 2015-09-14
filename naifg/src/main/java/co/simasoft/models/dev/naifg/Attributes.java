@@ -19,19 +19,19 @@ import co.simasoft.models.core.sites.*;
 import co.simasoft.models.dev.naifg.*;
 import co.simasoft.models.dev.naifg.dependencies.*;
 import org.hibernate.search.annotations.Analyze;
-import org.hibernate.search.annotations.DocumentId;
-import org.hibernate.search.annotations.Field;
 import org.hibernate.search.annotations.Index;
-import org.hibernate.search.annotations.Indexed;
+import org.hibernate.search.annotations.Field;
+import org.hibernate.search.annotations.DocumentId;
 import org.hibernate.search.annotations.Store;
-import javax.persistence.ManyToMany;
+import org.hibernate.search.annotations.Indexed;
 import javax.persistence.OneToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.Temporal;
+import javax.persistence.ManyToMany;
+import javax.persistence.Lob;
 import javax.persistence.TemporalType;
+import javax.persistence.Temporal;
 import org.hibernate.search.annotations.DateBridge;
 import org.hibernate.search.annotations.Resolution;
-import javax.persistence.Lob;
 
 
 @Indexed
@@ -59,16 +59,19 @@ public class Attributes implements Serializable {
     private Boolean isCreate;
 
     @Column(nullable = true, unique = false)
-    private Boolean isSearch;
+    private Boolean isSimplified;
 
     @Column(nullable = true, unique = false)
     private Boolean isView;
 
     @Column(nullable = true, unique = false)
-    private Boolean isViewColumn;
+    private Boolean isSearch;
 
     @Column(nullable = true, unique = false)
     private Boolean isViewRelation;
+
+    @Column(nullable = true, unique = false)
+    private Boolean isViewColumn;
 
     @Column(nullable = false, unique = false)
     @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
@@ -90,9 +93,6 @@ public class Attributes implements Serializable {
     @Column(nullable = true, unique = false)
     private Boolean isUnique;
 
-    @Column(nullable = true, unique = false)
-    private Boolean isSimplified;
-
     @ManyToMany
     private Set<Sites> sites = new HashSet<Sites>();
 
@@ -108,19 +108,19 @@ public class Attributes implements Serializable {
     public Attributes() {
     }
 
-    public Attributes(Boolean isCreate,Boolean isSearch,Boolean isView,Boolean isViewColumn,Boolean isViewRelation,String name,String description,Integer length,Integer precision,Boolean isNullable,Boolean isUnique,Boolean isSimplified) {
+    public Attributes(Boolean isCreate,Boolean isSimplified,Boolean isView,Boolean isSearch,Boolean isViewRelation,Boolean isViewColumn,String name,String description,Integer length,Integer precision,Boolean isNullable,Boolean isUnique) {
         this.isCreate = isCreate;
-        this.isSearch = isSearch;
+        this.isSimplified = isSimplified;
         this.isView = isView;
-        this.isViewColumn = isViewColumn;
+        this.isSearch = isSearch;
         this.isViewRelation = isViewRelation;
+        this.isViewColumn = isViewColumn;
         this.name = name;
         this.description = description;
         this.length = length;
         this.precision = precision;
         this.isNullable = isNullable;
         this.isUnique = isUnique;
-        this.isSimplified = isSimplified;
     }
 
     public Long getId() {
@@ -157,11 +157,11 @@ public class Attributes implements Serializable {
         this.isCreate = isCreate;
     }
 
-    public Boolean getIsSearch() {
-        return isSearch;
+    public Boolean getIsSimplified() {
+        return isSimplified;
     }
-    public void setIsSearch(Boolean isSearch) {
-        this.isSearch = isSearch;
+    public void setIsSimplified(Boolean isSimplified) {
+        this.isSimplified = isSimplified;
     }
 
     public Boolean getIsView() {
@@ -171,11 +171,11 @@ public class Attributes implements Serializable {
         this.isView = isView;
     }
 
-    public Boolean getIsViewColumn() {
-        return isViewColumn;
+    public Boolean getIsSearch() {
+        return isSearch;
     }
-    public void setIsViewColumn(Boolean isViewColumn) {
-        this.isViewColumn = isViewColumn;
+    public void setIsSearch(Boolean isSearch) {
+        this.isSearch = isSearch;
     }
 
     public Boolean getIsViewRelation() {
@@ -183,6 +183,13 @@ public class Attributes implements Serializable {
     }
     public void setIsViewRelation(Boolean isViewRelation) {
         this.isViewRelation = isViewRelation;
+    }
+
+    public Boolean getIsViewColumn() {
+        return isViewColumn;
+    }
+    public void setIsViewColumn(Boolean isViewColumn) {
+        this.isViewColumn = isViewColumn;
     }
 
     public String getName() {
@@ -225,13 +232,6 @@ public class Attributes implements Serializable {
     }
     public void setIsUnique(Boolean isUnique) {
         this.isUnique = isUnique;
-    }
-
-    public Boolean getIsSimplified() {
-        return isSimplified;
-    }
-    public void setIsSimplified(Boolean isSimplified) {
-        this.isSimplified = isSimplified;
     }
 
     public Set<Sites> getSites() {

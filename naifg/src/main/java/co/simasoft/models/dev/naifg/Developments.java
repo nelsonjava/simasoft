@@ -19,19 +19,19 @@ import co.simasoft.models.core.sites.*;
 import co.simasoft.models.dev.naifg.*;
 import co.simasoft.models.dev.naifg.dependencies.*;
 import org.hibernate.search.annotations.Analyze;
-import org.hibernate.search.annotations.DocumentId;
-import org.hibernate.search.annotations.Field;
 import org.hibernate.search.annotations.Index;
-import org.hibernate.search.annotations.Indexed;
+import org.hibernate.search.annotations.Field;
+import org.hibernate.search.annotations.DocumentId;
 import org.hibernate.search.annotations.Store;
-import javax.persistence.ManyToMany;
+import org.hibernate.search.annotations.Indexed;
 import javax.persistence.OneToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.Temporal;
+import javax.persistence.ManyToMany;
+import javax.persistence.Lob;
 import javax.persistence.TemporalType;
+import javax.persistence.Temporal;
 import org.hibernate.search.annotations.DateBridge;
 import org.hibernate.search.annotations.Resolution;
-import javax.persistence.Lob;
 
 
 @Indexed
@@ -55,6 +55,11 @@ public class Developments implements Serializable {
     @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
     private String observations;
 
+    @Column(nullable = true, unique = false)
+    @Temporal(TemporalType.DATE)
+    @DateBridge(resolution = Resolution.YEAR)
+    private Date date;
+
     @Column(nullable = false, unique = true)
     @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
     private String artifactId;
@@ -65,32 +70,27 @@ public class Developments implements Serializable {
 
     @Column(nullable = true, unique = false)
     @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-    private String version;
-
-    @Column(nullable = true, unique = false)
-    @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
     private String code;
 
     @Column(nullable = true, unique = false)
-    @Temporal(TemporalType.DATE)
-    @DateBridge(resolution = Resolution.YEAR)
-    private Date date;
-
-    @ManyToMany
-    private Set<Models> models = new HashSet<Models>();
+    @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+    private String version;
 
     @ManyToMany
     private Set<Sites> sites = new HashSet<Sites>();
 
+    @ManyToMany
+    private Set<Models> models = new HashSet<Models>();
+
     public Developments() {
     }
 
-    public Developments(String artifactId,String groupId,String version,String code,Date date) {
+    public Developments(Date date,String artifactId,String groupId,String code,String version) {
+        this.date = date;
         this.artifactId = artifactId;
         this.groupId = groupId;
-        this.version = version;
         this.code = code;
-        this.date = date;
+        this.version = version;
     }
 
     public Long getId() {
@@ -120,6 +120,13 @@ public class Developments implements Serializable {
     public void setObservations(String observations) {
         this.observations = observations;
     }
+    public Date getDate() {
+        return date;
+    }
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
     public String getArtifactId() {
         return artifactId;
     }
@@ -134,13 +141,6 @@ public class Developments implements Serializable {
         this.groupId = groupId;
     }
 
-    public String getVersion() {
-        return version;
-    }
-    public void setVersion(String version) {
-        this.version = version;
-    }
-
     public String getCode() {
         return code;
     }
@@ -148,18 +148,11 @@ public class Developments implements Serializable {
         this.code = code;
     }
 
-    public Date getDate() {
-        return date;
+    public String getVersion() {
+        return version;
     }
-    public void setDate(Date date) {
-        this.date = date;
-    }
-
-    public Set<Models> getModels() {
-        return models;
-    }
-    public void setModels(Set<Models> models) {
-        this.models = models;
+    public void setVersion(String version) {
+        this.version = version;
     }
 
     public Set<Sites> getSites() {
@@ -167,6 +160,13 @@ public class Developments implements Serializable {
     }
     public void setSites(Set<Sites> sites) {
         this.sites = sites;
+    }
+
+    public Set<Models> getModels() {
+        return models;
+    }
+    public void setModels(Set<Models> models) {
+        this.models = models;
     }
 
    @Override

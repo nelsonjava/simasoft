@@ -1,0 +1,369 @@
+{
+  "Dependencies": [
+    {
+      "artifactId": "persistence-api",
+      "groupId": "javax.persistence",
+      "version": "null",
+      "type": "null",
+      "scope": "null",
+      "maven": "maven1"
+    },
+    {
+      "artifactId": "validation-api",
+      "groupId": "javax.validation",
+      "version": "null",
+      "type": "null",
+      "scope": "null",
+      "maven": "maven2"
+    },
+    {
+      "artifactId": "hibernate-validator",
+      "groupId": "org.hibernate",
+      "version": "null",
+      "type": "null",
+      "scope": "null",
+      "maven": "maven3"
+    },
+    {
+      "artifactId": "hibernate-search",
+      "groupId": "org.hibernate",
+      "version": "null",
+      "type": "null",
+      "scope": "null",
+      "maven": "maven4"
+    }
+  ],
+  "Imports": [
+    {
+      "name": "import javax.persistence.Column;",
+      "dependencies.artifactId": "import javax.persistence.Column;"
+    },
+    {
+      "name": "import javax.persistence.Basic;",
+      "dependencies.artifactId": "import javax.persistence.Basic;"
+    },
+    {
+      "name": "import javax.persistence.Lob;",
+      "dependencies.artifactId": "import javax.persistence.Lob;"
+    },
+    {
+      "name": "import javax.persistence.FetchType;",
+      "dependencies.artifactId": "import javax.persistence.FetchType;"
+    },
+    {
+      "name": "import javax.persistence.CascadeType;",
+      "dependencies.artifactId": "import javax.persistence.CascadeType;"
+    },
+    {
+      "name": "import javax.validation.constraints.NotNull;",
+      "dependencies.artifactId": "import javax.validation.constraints.NotNull;"
+    },
+    {
+      "name": "import javax.validation.constraints.Size;",
+      "dependencies.artifactId": "import javax.validation.constraints.Size;"
+    },
+    {
+      "name": "import javax.validation.constraints.Pattern;",
+      "dependencies.artifactId": "import javax.validation.constraints.Pattern;"
+    },
+    {
+      "name": "import javax.validation.constraints.Digits;",
+      "dependencies.artifactId": "import javax.validation.constraints.Digits;"
+    },
+    {
+      "name": "import org.hibernate.validator.Length;",
+      "dependencies.artifactId": "import org.hibernate.validator.Length;"
+    },
+    {
+      "name": "import org.hibernate.search.annotations.Resolution;",
+      "dependencies.artifactId": "import org.hibernate.search.annotations.Resolution;"
+    },
+    {
+      "name": "import org.hibernate.search.annotations.Store;",
+      "dependencies.artifactId": "import org.hibernate.search.annotations.Store;"
+    },
+    {
+      "name": "import javax.persistence.Embedded;",
+      "dependencies.artifactId": "import javax.persistence.Embedded;"
+    },
+    {
+      "name": "import org.hibernate.search.annotations.NumericField;",
+      "dependencies.artifactId": "import org.hibernate.search.annotations.NumericField;"
+    },
+    {
+      "name": "import javax.persistence.Temporal;",
+      "dependencies.artifactId": "import javax.persistence.Temporal;"
+    },
+    {
+      "name": "import javax.persistence.TemporalType;",
+      "dependencies.artifactId": "import javax.persistence.TemporalType;"
+    },
+    {
+      "name": "import org.hibernate.validator.constraints.NotEmpty;",
+      "dependencies.artifactId": "import org.hibernate.validator.constraints.NotEmpty;"
+    },
+    {
+      "name": "import org.hibernate.validator.constraints.Email;",
+      "dependencies.artifactId": "import org.hibernate.validator.constraints.Email;"
+    },
+    {
+      "name": "import java.util.Date;",
+      "dependencies.artifactId": "import java.util.Date;"
+    },
+    {
+      "name": "import org.hibernate.search.annotations.Analyze;",
+      "dependencies.artifactId": "import org.hibernate.search.annotations.Analyze;"
+    },
+    {
+      "name": "import org.hibernate.search.annotations.DateBridge;",
+      "dependencies.artifactId": "import org.hibernate.search.annotations.DateBridge;"
+    },
+    {
+      "name": "import org.hibernate.search.annotations.DocumentId;",
+      "dependencies.artifactId": "import org.hibernate.search.annotations.DocumentId;"
+    },
+    {
+      "name": "import org.hibernate.search.annotations.Field;",
+      "dependencies.artifactId": "import org.hibernate.search.annotations.Field;"
+    },
+    {
+      "name": "import org.hibernate.search.annotations.Index;",
+      "dependencies.artifactId": "import org.hibernate.search.annotations.Index;"
+    },
+    {
+      "name": "import org.hibernate.search.annotations.Indexed;",
+      "dependencies.artifactId": "import org.hibernate.search.annotations.Indexed;"
+    },
+    {
+      "name": "import org.hibernate.search.annotations.IndexedEmbedded;",
+      "dependencies.artifactId": "import org.hibernate.search.annotations.IndexedEmbedded;"
+    }
+  ],
+  "AttributesProperties": [
+    {
+      "name": "@Column",
+      "value": "@Column"
+    },
+    {
+      "name": "NullUnique1",
+      "value": "@Column(nullable = true, unique = true)"
+    },
+    {
+      "name": "NullUnique2",
+      "value": "@Column(nullable = true, unique = false)"
+    },
+    {
+      "name": "NullUnique3",
+      "value": "@Column(nullable = false, unique = true)"
+    },
+    {
+      "name": "NullUnique4",
+      "value": "@Column(nullable = false, unique = false)"
+    },
+    {
+      "name": "@Basic",
+      "value": "@Basic"
+    },
+    {
+      "name": "@Basic1",
+      "value": "@Basic(fetch=FetchType.LAZY)"
+    },
+    {
+      "name": "@Lob",
+      "value": "@Lob"
+    },
+    {
+      "name": "@Indexed",
+      "value": "@Indexed"
+    },
+    {
+      "name": "@DocumentId",
+      "value": "@DocumentId"
+    },
+    {
+      "name": "@DateBridgeSE",
+      "value": "@DateBridge(resolution = Resolution.SECOND)"
+    },
+    {
+      "name": "@DateBridgeML",
+      "value": "@DateBridge(resolution = Resolution.MILLISECOND)"
+    },
+    {
+      "name": "@NumericField",
+      "value": "@NumericField"
+    },
+    {
+      "name": "@Field1",
+      "value": "@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)"
+    },
+    {
+      "name": "@Field2",
+      "value": "@Field(index = Index.YES, analyze = Analyze.YES, store = Store.YES)"
+    },
+    {
+      "name": "@DateBridgeYE",
+      "value": "@DateBridge(resolution = Resolution.YEAR)"
+    },
+    {
+      "name": "@Embedded",
+      "value": "@Embedded"
+    },
+    {
+      "name": "@IndexedEmbedded",
+      "value": "@IndexedEmbedded"
+    },
+    {
+      "name": "@Temporal",
+      "value": "@Temporal(TemporalType.DATE)"
+    },
+    {
+      "name": "@DateBridgeMO",
+      "value": "@DateBridge(resolution = Resolution.MONTH)"
+    },
+    {
+      "name": "@DateBridgeDA",
+      "value": "@DateBridge(resolution = Resolution.DAY)"
+    },
+    {
+      "name": "@DateBridgeHO",
+      "value": "@DateBridge(resolution = Resolution.HOUR)"
+    },
+    {
+      "name": "@DateBridgeMI",
+      "value": "@DateBridge(resolution = Resolution.MINUTE)"
+    },
+    {
+      "name": "@NotNull",
+      "value": "@NotNull"
+    },
+    {
+      "name": "@Size0125",
+      "value": "@Size(min = 1, max = 25)"
+    },
+    {
+      "name": "@Size0912",
+      "value": "@Size(min = 9, max = 12)"
+    },
+    {
+      "name": "@Length0125",
+      "value": "@Length(min = 1, max = 25, message = "Size must be between 1 and 25 digits")"
+    },
+    {
+      "name": "@Length0912",
+      "value": "@Length(min = 9, max = 12, message = "Size must be between 9 and 12 digits")"
+    },
+    {
+      "name": "@Pattern1",
+      "value": "@Pattern(regexp = "[A-Za-z ]*", message = "must contain only letters and spaces")"
+    },
+    {
+      "name": "@Pattern2",
+      "value": "@Pattern(regexp = "[^0-9]*", message = "Must not contain numbers")"
+    },
+    {
+      "name": "@NotEmpty",
+      "value": "@NotEmpty"
+    },
+    {
+      "name": "@Email",
+      "value": "@Email(message = "Invalid format")"
+    },
+    {
+      "name": "@Digits0012",
+      "value": "@Digits(fractionalDigits = 0, integerDigits = 12, message = "Not allowed digit!")"
+    }
+  ],
+  "AttributesTypes": [
+    {
+      "name": "byte",
+      "type": "byte",
+      "length": "null",
+      "precision": "null",
+      "annotations": "null"
+    },
+    {
+      "name": "double",
+      "type": "double",
+      "length": "null",
+      "precision": "null",
+      "annotations": "null"
+    },
+    {
+      "name": "Email",
+      "type": "Email",
+      "length": "null",
+      "precision": "null",
+      "annotations": "null"
+    },
+    {
+      "name": "String",
+      "type": "String",
+      "length": "null",
+      "precision": "null",
+      "annotations": "null"
+    },
+    {
+      "name": "Text",
+      "type": "String",
+      "length": "null",
+      "precision": "null",
+      "annotations": "null"
+    },
+    {
+      "name": "Integer",
+      "type": "Integer",
+      "length": "null",
+      "precision": "null",
+      "annotations": "null"
+    },
+    {
+      "name": "Float",
+      "type": "Float",
+      "length": "null",
+      "precision": "null",
+      "annotations": "null"
+    },
+    {
+      "name": "Date",
+      "type": "Date",
+      "length": "null",
+      "precision": "null",
+      "annotations": "null"
+    },
+    {
+      "name": "Time",
+      "type": "Date",
+      "length": "null",
+      "precision": "null",
+      "annotations": "null"
+    },
+    {
+      "name": "Boolean",
+      "type": "Boolean",
+      "length": "null",
+      "precision": "null",
+      "annotations": "null"
+    },
+    {
+      "name": "Enumeration",
+      "type": "Enumeration",
+      "length": "null",
+      "precision": "null",
+      "annotations": "null"
+    },
+    {
+      "name": "Blob",
+      "type": "byte[]",
+      "length": "null",
+      "precision": "null",
+      "annotations": "null"
+    },
+    {
+      "name": "Url",
+      "type": "Url",
+      "length": "null",
+      "precision": "null",
+      "annotations": "null"
+    }
+  ]
+}

@@ -19,19 +19,19 @@ import co.simasoft.models.core.sites.*;
 import co.simasoft.models.dev.naifg.*;
 import co.simasoft.models.dev.naifg.dependencies.*;
 import org.hibernate.search.annotations.Analyze;
-import org.hibernate.search.annotations.DocumentId;
-import org.hibernate.search.annotations.Field;
 import org.hibernate.search.annotations.Index;
-import org.hibernate.search.annotations.Indexed;
+import org.hibernate.search.annotations.Field;
+import org.hibernate.search.annotations.DocumentId;
 import org.hibernate.search.annotations.Store;
-import javax.persistence.ManyToMany;
+import org.hibernate.search.annotations.Indexed;
 import javax.persistence.OneToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.Temporal;
+import javax.persistence.ManyToMany;
+import javax.persistence.Lob;
 import javax.persistence.TemporalType;
+import javax.persistence.Temporal;
 import org.hibernate.search.annotations.DateBridge;
 import org.hibernate.search.annotations.Resolution;
-import javax.persistence.Lob;
 
 
 @Indexed
@@ -62,10 +62,10 @@ public class ModelsGroupIds implements Serializable {
     private Boolean isIsolated;
 
     @ManyToOne
-    private Models models;
+    private GroupIds groupIds;
 
     @ManyToOne
-    private GroupIds groupIds;
+    private Models models;
 
     public ModelsGroupIds() {
     }
@@ -116,18 +116,18 @@ public class ModelsGroupIds implements Serializable {
         this.isIsolated = isIsolated;
     }
 
-    public Models getModels() {
-        return models;
-    }
-    public void setModels(Models models) {
-        this.models = models;
-    }
-
     public GroupIds getGroupIds() {
         return groupIds;
     }
     public void setGroupIds(GroupIds groupIds) {
         this.groupIds = groupIds;
+    }
+
+    public Models getModels() {
+        return models;
+    }
+    public void setModels(Models models) {
+        this.models = models;
     }
 
    @Override

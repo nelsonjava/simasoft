@@ -57,9 +57,9 @@
                                 </h:panelGroup>
                                 <h:outputText/>
 
-                                <h:outputLabel for="attributesBeanAttributesIsSearch" value="IsSearch:"/>
+                                <h:outputLabel for="attributesBeanAttributesIsSimplified" value="IsSimplified:"/>
                                 <h:panelGroup>
-                                        <h:selectOneMenu id="attributesBeanAttributesIsSearch" value="#{attributesBean.attributes.isSearch}">
+                                        <h:selectOneMenu id="attributesBeanAttributesIsSimplified" value="#{attributesBean.attributes.isSimplified}">
                                                 <f:selectItem/>
                                                 <f:selectItem itemLabel="Yes" itemValue="true"/>
                                                 <f:selectItem itemLabel="No" itemValue="false"/>
@@ -79,9 +79,9 @@
                                 </h:panelGroup>
                                 <h:outputText/>
 
-                                <h:outputLabel for="attributesBeanAttributesIsViewColumn" value="IsViewColumn:"/>
+                                <h:outputLabel for="attributesBeanAttributesIsSearch" value="IsSearch:"/>
                                 <h:panelGroup>
-                                        <h:selectOneMenu id="attributesBeanAttributesIsViewColumn" value="#{attributesBean.attributes.isViewColumn}">
+                                        <h:selectOneMenu id="attributesBeanAttributesIsSearch" value="#{attributesBean.attributes.isSearch}">
                                                 <f:selectItem/>
                                                 <f:selectItem itemLabel="Yes" itemValue="true"/>
                                                 <f:selectItem itemLabel="No" itemValue="false"/>
@@ -93,6 +93,17 @@
                                 <h:outputLabel for="attributesBeanAttributesIsViewRelation" value="IsViewRelation:"/>
                                 <h:panelGroup>
                                         <h:selectOneMenu id="attributesBeanAttributesIsViewRelation" value="#{attributesBean.attributes.isViewRelation}">
+                                                <f:selectItem/>
+                                                <f:selectItem itemLabel="Yes" itemValue="true"/>
+                                                <f:selectItem itemLabel="No" itemValue="false"/>
+                                        </h:selectOneMenu>
+                                        <h:message for="entitiesBeanEntitiesIsSimplified" styleClass="error"/>
+                                </h:panelGroup>
+                                <h:outputText/>
+
+                                <h:outputLabel for="attributesBeanAttributesIsViewColumn" value="IsViewColumn:"/>
+                                <h:panelGroup>
+                                        <h:selectOneMenu id="attributesBeanAttributesIsViewColumn" value="#{attributesBean.attributes.isViewColumn}">
                                                 <f:selectItem/>
                                                 <f:selectItem itemLabel="Yes" itemValue="true"/>
                                                 <f:selectItem itemLabel="No" itemValue="false"/>
@@ -143,17 +154,6 @@
                                 <h:outputLabel for="attributesBeanAttributesIsUnique" value="IsUnique:"/>
                                 <h:panelGroup>
                                         <h:selectOneMenu id="attributesBeanAttributesIsUnique" value="#{attributesBean.attributes.isUnique}">
-                                                <f:selectItem/>
-                                                <f:selectItem itemLabel="Yes" itemValue="true"/>
-                                                <f:selectItem itemLabel="No" itemValue="false"/>
-                                        </h:selectOneMenu>
-                                        <h:message for="entitiesBeanEntitiesIsSimplified" styleClass="error"/>
-                                </h:panelGroup>
-                                <h:outputText/>
-
-                                <h:outputLabel for="attributesBeanAttributesIsSimplified" value="IsSimplified:"/>
-                                <h:panelGroup>
-                                        <h:selectOneMenu id="attributesBeanAttributesIsSimplified" value="#{attributesBean.attributes.isSimplified}">
                                                 <f:selectItem/>
                                                 <f:selectItem itemLabel="Yes" itemValue="true"/>
                                                 <f:selectItem itemLabel="No" itemValue="false"/>

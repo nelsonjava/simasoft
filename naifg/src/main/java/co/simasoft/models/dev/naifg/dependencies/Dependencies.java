@@ -19,19 +19,19 @@ import co.simasoft.models.core.sites.*;
 import co.simasoft.models.dev.naifg.*;
 import co.simasoft.models.dev.naifg.dependencies.*;
 import org.hibernate.search.annotations.Analyze;
-import org.hibernate.search.annotations.DocumentId;
-import org.hibernate.search.annotations.Field;
 import org.hibernate.search.annotations.Index;
-import org.hibernate.search.annotations.Indexed;
+import org.hibernate.search.annotations.Field;
+import org.hibernate.search.annotations.DocumentId;
 import org.hibernate.search.annotations.Store;
-import javax.persistence.ManyToMany;
+import org.hibernate.search.annotations.Indexed;
 import javax.persistence.OneToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.Temporal;
+import javax.persistence.ManyToMany;
+import javax.persistence.Lob;
 import javax.persistence.TemporalType;
+import javax.persistence.Temporal;
 import org.hibernate.search.annotations.DateBridge;
 import org.hibernate.search.annotations.Resolution;
-import javax.persistence.Lob;
 
 
 @Indexed
@@ -55,17 +55,9 @@ public class Dependencies implements Serializable {
     @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
     private String observations;
 
-    @Column(nullable = false, unique = false)
-    @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-    private String groupId;
-
-    @Column(nullable = false, unique = false)
-    @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-    private String artifactId;
-
     @Column(nullable = true, unique = false)
     @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-    private String version;
+    private String scope;
 
     @Column(nullable = true, unique = false)
     @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
@@ -73,7 +65,15 @@ public class Dependencies implements Serializable {
 
     @Column(nullable = true, unique = false)
     @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-    private String scope;
+    private String version;
+
+    @Column(nullable = false, unique = false)
+    @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+    private String artifactId;
+
+    @Column(nullable = false, unique = false)
+    @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+    private String groupId;
 
     @Column(nullable = false, unique = true)
     @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
@@ -88,12 +88,12 @@ public class Dependencies implements Serializable {
     public Dependencies() {
     }
 
-    public Dependencies(String groupId,String artifactId,String version,String type,String scope,String maven) {
-        this.groupId = groupId;
-        this.artifactId = artifactId;
-        this.version = version;
-        this.type = type;
+    public Dependencies(String scope,String type,String version,String artifactId,String groupId,String maven) {
         this.scope = scope;
+        this.type = type;
+        this.version = version;
+        this.artifactId = artifactId;
+        this.groupId = groupId;
         this.maven = maven;
     }
 
@@ -124,25 +124,11 @@ public class Dependencies implements Serializable {
     public void setObservations(String observations) {
         this.observations = observations;
     }
-    public String getGroupId() {
-        return groupId;
+    public String getScope() {
+        return scope;
     }
-    public void setGroupId(String groupId) {
-        this.groupId = groupId;
-    }
-
-    public String getArtifactId() {
-        return artifactId;
-    }
-    public void setArtifactId(String artifactId) {
-        this.artifactId = artifactId;
-    }
-
-    public String getVersion() {
-        return version;
-    }
-    public void setVersion(String version) {
-        this.version = version;
+    public void setScope(String scope) {
+        this.scope = scope;
     }
 
     public String getType() {
@@ -152,11 +138,25 @@ public class Dependencies implements Serializable {
         this.type = type;
     }
 
-    public String getScope() {
-        return scope;
+    public String getVersion() {
+        return version;
     }
-    public void setScope(String scope) {
-        this.scope = scope;
+    public void setVersion(String version) {
+        this.version = version;
+    }
+
+    public String getArtifactId() {
+        return artifactId;
+    }
+    public void setArtifactId(String artifactId) {
+        this.artifactId = artifactId;
+    }
+
+    public String getGroupId() {
+        return groupId;
+    }
+    public void setGroupId(String groupId) {
+        this.groupId = groupId;
     }
 
     public String getMaven() {

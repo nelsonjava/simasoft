@@ -3,14 +3,14 @@
     {
       "artifactId": "co.simasoft.models.dev.naifg",
       "groupId": "co.simasoft.models.dev.naifg",
-      "version": "",
-      "code": ""
+      "version": "null",
+      "code": "null"
     },
     {
       "artifactId": "co.simasoft.models.dev.naifg.dependencies",
       "groupId": "co.simasoft.models.dev.naifg.dependencies",
-      "version": "",
-      "code": ""
+      "version": "null",
+      "code": "null"
     }
   ],
   "Models": [
@@ -18,7 +18,7 @@
       "artifactId": "naifg",
       "groupId": "co.simasoft.models.dev.naifg",
       "version": "naifg",
-      "code": ""
+      "code": "null"
     }
   ],
   "ModelsGroupIds": [
@@ -52,27 +52,7 @@
   ],
   "Entities": [
     {
-      "name": "Models",
-      "groupIds": "co.simasoft.models.dev.naifg"
-    },
-    {
-      "name": "Developments",
-      "groupIds": "co.simasoft.models.dev.naifg"
-    },
-    {
-      "name": "ModelsGroupIds",
-      "groupIds": "co.simasoft.models.dev.naifg"
-    },
-    {
-      "name": "Entities",
-      "groupIds": "co.simasoft.models.dev.naifg"
-    },
-    {
-      "name": "Attributes",
-      "groupIds": "co.simasoft.models.dev.naifg"
-    },
-    {
-      "name": "Cardinalities",
+      "name": "Relationships",
       "groupIds": "co.simasoft.models.dev.naifg"
     },
     {
@@ -80,11 +60,11 @@
       "groupIds": "co.simasoft.models.dev.naifg"
     },
     {
-      "name": "Relationships",
+      "name": "Cardinalities",
       "groupIds": "co.simasoft.models.dev.naifg"
     },
     {
-      "name": "GroupIds",
+      "name": "Attributes",
       "groupIds": "co.simasoft.models.dev.naifg"
     },
     {
@@ -92,7 +72,31 @@
       "groupIds": "co.simasoft.models.dev.naifg"
     },
     {
-      "name": "AttributesTypes",
+      "name": "Developments",
+      "groupIds": "co.simasoft.models.dev.naifg"
+    },
+    {
+      "name": "Models",
+      "groupIds": "co.simasoft.models.dev.naifg"
+    },
+    {
+      "name": "GroupIdsEntities",
+      "groupIds": "co.simasoft.models.dev.naifg"
+    },
+    {
+      "name": "Entities",
+      "groupIds": "co.simasoft.models.dev.naifg"
+    },
+    {
+      "name": "ModelsGroupIds",
+      "groupIds": "co.simasoft.models.dev.naifg"
+    },
+    {
+      "name": "GroupIds",
+      "groupIds": "co.simasoft.models.dev.naifg"
+    },
+    {
+      "name": "Dependencies",
       "groupIds": "co.simasoft.models.dev.naifg.dependencies"
     },
     {
@@ -100,7 +104,7 @@
       "groupIds": "co.simasoft.models.dev.naifg.dependencies"
     },
     {
-      "name": "Dependencies",
+      "name": "AttributesTypes",
       "groupIds": "co.simasoft.models.dev.naifg.dependencies"
     },
     {
@@ -110,120 +114,127 @@
   ],
   "Attributes": [
     {
-      "entity": "Models",
-      "name": "artifactId",
-      "isNullable": false,
-      "isUnique": true,
-      "AttributesTypes": "String"
-    },
-    {
-      "entity": "Models",
-      "name": "groupId",
-      "isNullable": false,
-      "isUnique": true,
-      "AttributesTypes": "String"
-    },
-    {
-      "entity": "Models",
-      "name": "version",
+      "entity": "Relationships",
+      "name": "isOptionality",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "String"
+      "AttributesTypes": "Boolean"
     },
     {
-      "entity": "Models",
-      "name": "code",
+      "entity": "Relationships",
+      "name": "isEmbedded",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "String"
+      "AttributesTypes": "Boolean"
     },
     {
-      "entity": "Models",
-      "name": "date",
-      "isNullable": true,
-      "isUnique": false,
-      "AttributesTypes": "Date"
-    },
-    {
-      "entity": "Developments",
-      "name": "version",
-      "isNullable": true,
-      "isUnique": false,
-      "AttributesTypes": "String"
-    },
-    {
-      "entity": "Developments",
-      "name": "code",
-      "isNullable": true,
-      "isUnique": false,
-      "AttributesTypes": "String"
-    },
-    {
-      "entity": "Developments",
-      "name": "date",
-      "isNullable": true,
-      "isUnique": false,
-      "AttributesTypes": "Date"
-    },
-    {
-      "entity": "Developments",
-      "name": "artifactId",
-      "isNullable": false,
-      "isUnique": true,
-      "AttributesTypes": "String"
-    },
-    {
-      "entity": "Developments",
-      "name": "groupId",
-      "isNullable": true,
-      "isUnique": false,
-      "AttributesTypes": "String"
-    },
-    {
-      "entity": "ModelsGroupIds",
+      "entity": "Relationships",
       "name": "isSimplified",
       "isNullable": true,
       "isUnique": false,
       "AttributesTypes": "Boolean"
     },
     {
-      "entity": "ModelsGroupIds",
-      "name": "isIsolated",
+      "entity": "Relationships",
+      "name": "isSearch",
       "isNullable": true,
       "isUnique": false,
       "AttributesTypes": "Boolean"
     },
     {
-      "entity": "Entities",
+      "entity": "Relationships",
+      "name": "isCreate",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "Boolean"
+    },
+    {
+      "entity": "Relationships",
+      "name": "name",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "String"
+    },
+    {
+      "entity": "Relationships",
+      "name": "isView",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "Boolean"
+    },
+    {
+      "entity": "NameQueries",
       "name": "name",
       "isNullable": false,
       "isUnique": true,
       "AttributesTypes": "String"
     },
     {
-      "entity": "Entities",
-      "name": "serialID",
-      "isNullable": true,
+      "entity": "NameQueries",
+      "name": "query",
+      "isNullable": false,
+      "isUnique": true,
+      "AttributesTypes": "String"
+    },
+    {
+      "entity": "Cardinalities",
+      "name": "cardinality",
+      "isNullable": false,
       "isUnique": false,
       "AttributesTypes": "String"
     },
     {
-      "entity": "Entities",
-      "name": "table",
-      "isNullable": true,
-      "isUnique": false,
+      "entity": "Cardinalities",
+      "name": "name",
+      "isNullable": false,
+      "isUnique": true,
       "AttributesTypes": "String"
     },
     {
-      "entity": "Entities",
-      "name": "description",
+      "entity": "Cardinalities",
+      "name": "isUnidirectional",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "String"
+      "AttributesTypes": "Boolean"
     },
     {
-      "entity": "Entities",
+      "entity": "Attributes",
+      "name": "isCreate",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "Boolean"
+    },
+    {
+      "entity": "Attributes",
       "name": "isSimplified",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "Boolean"
+    },
+    {
+      "entity": "Attributes",
+      "name": "isView",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "Boolean"
+    },
+    {
+      "entity": "Attributes",
+      "name": "isSearch",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "Boolean"
+    },
+    {
+      "entity": "Attributes",
+      "name": "isViewRelation",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "Boolean"
+    },
+    {
+      "entity": "Attributes",
+      "name": "isViewColumn",
       "isNullable": true,
       "isUnique": false,
       "AttributesTypes": "Boolean"
@@ -271,167 +282,6 @@
       "AttributesTypes": "Boolean"
     },
     {
-      "entity": "Attributes",
-      "name": "isSimplified",
-      "isNullable": true,
-      "isUnique": false,
-      "AttributesTypes": "Boolean"
-    },
-    {
-      "entity": "Attributes",
-      "name": "isCreate",
-      "isNullable": true,
-      "isUnique": false,
-      "AttributesTypes": "Boolean"
-    },
-    {
-      "entity": "Attributes",
-      "name": "isSearch",
-      "isNullable": true,
-      "isUnique": false,
-      "AttributesTypes": "Boolean"
-    },
-    {
-      "entity": "Attributes",
-      "name": "isView",
-      "isNullable": true,
-      "isUnique": false,
-      "AttributesTypes": "Boolean"
-    },
-    {
-      "entity": "Attributes",
-      "name": "isViewColumn",
-      "isNullable": true,
-      "isUnique": false,
-      "AttributesTypes": "Boolean"
-    },
-    {
-      "entity": "Attributes",
-      "name": "isViewRelation",
-      "isNullable": true,
-      "isUnique": false,
-      "AttributesTypes": "Boolean"
-    },
-    {
-      "entity": "Cardinalities",
-      "name": "name",
-      "isNullable": false,
-      "isUnique": true,
-      "AttributesTypes": "String"
-    },
-    {
-      "entity": "Cardinalities",
-      "name": "cardinality",
-      "isNullable": false,
-      "isUnique": false,
-      "AttributesTypes": "String"
-    },
-    {
-      "entity": "Cardinalities",
-      "name": "isUnidirectional",
-      "isNullable": true,
-      "isUnique": false,
-      "AttributesTypes": "Boolean"
-    },
-    {
-      "entity": "NameQueries",
-      "name": "name",
-      "isNullable": false,
-      "isUnique": true,
-      "AttributesTypes": "String"
-    },
-    {
-      "entity": "NameQueries",
-      "name": "query",
-      "isNullable": false,
-      "isUnique": true,
-      "AttributesTypes": "String"
-    },
-    {
-      "entity": "Relationships",
-      "name": "isSimplified",
-      "isNullable": true,
-      "isUnique": false,
-      "AttributesTypes": "Boolean"
-    },
-    {
-      "entity": "Relationships",
-      "name": "isCreate",
-      "isNullable": true,
-      "isUnique": false,
-      "AttributesTypes": "Boolean"
-    },
-    {
-      "entity": "Relationships",
-      "name": "isSearch",
-      "isNullable": true,
-      "isUnique": false,
-      "AttributesTypes": "Boolean"
-    },
-    {
-      "entity": "Relationships",
-      "name": "isView",
-      "isNullable": true,
-      "isUnique": false,
-      "AttributesTypes": "Boolean"
-    },
-    {
-      "entity": "Relationships",
-      "name": "name",
-      "isNullable": true,
-      "isUnique": false,
-      "AttributesTypes": "String"
-    },
-    {
-      "entity": "Relationships",
-      "name": "isOptionality",
-      "isNullable": true,
-      "isUnique": false,
-      "AttributesTypes": "Boolean"
-    },
-    {
-      "entity": "Relationships",
-      "name": "isEmbedded",
-      "isNullable": true,
-      "isUnique": false,
-      "AttributesTypes": "Boolean"
-    },
-    {
-      "entity": "GroupIds",
-      "name": "artifactId",
-      "isNullable": false,
-      "isUnique": true,
-      "AttributesTypes": "String"
-    },
-    {
-      "entity": "GroupIds",
-      "name": "groupId",
-      "isNullable": false,
-      "isUnique": true,
-      "AttributesTypes": "String"
-    },
-    {
-      "entity": "GroupIds",
-      "name": "version",
-      "isNullable": true,
-      "isUnique": false,
-      "AttributesTypes": "String"
-    },
-    {
-      "entity": "GroupIds",
-      "name": "code",
-      "isNullable": true,
-      "isUnique": false,
-      "AttributesTypes": "String"
-    },
-    {
-      "entity": "GroupIds",
-      "name": "date",
-      "isNullable": true,
-      "isUnique": false,
-      "AttributesTypes": "Date"
-    },
-    {
       "entity": "GroupIdsFiles",
       "name": "name",
       "isNullable": false,
@@ -453,7 +303,203 @@
       "AttributesTypes": "Blob"
     },
     {
-      "entity": "AttributesTypes",
+      "entity": "Developments",
+      "name": "date",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "Date"
+    },
+    {
+      "entity": "Developments",
+      "name": "artifactId",
+      "isNullable": false,
+      "isUnique": true,
+      "AttributesTypes": "String"
+    },
+    {
+      "entity": "Developments",
+      "name": "groupId",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "String"
+    },
+    {
+      "entity": "Developments",
+      "name": "code",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "String"
+    },
+    {
+      "entity": "Developments",
+      "name": "version",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "String"
+    },
+    {
+      "entity": "Models",
+      "name": "version",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "String"
+    },
+    {
+      "entity": "Models",
+      "name": "groupId",
+      "isNullable": false,
+      "isUnique": true,
+      "AttributesTypes": "String"
+    },
+    {
+      "entity": "Models",
+      "name": "artifactId",
+      "isNullable": false,
+      "isUnique": true,
+      "AttributesTypes": "String"
+    },
+    {
+      "entity": "Models",
+      "name": "date",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "Date"
+    },
+    {
+      "entity": "Models",
+      "name": "code",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "String"
+    },
+    {
+      "entity": "GroupIdsEntities",
+      "name": "isSimplified",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "Boolean"
+    },
+    {
+      "entity": "Entities",
+      "name": "name",
+      "isNullable": false,
+      "isUnique": true,
+      "AttributesTypes": "String"
+    },
+    {
+      "entity": "Entities",
+      "name": "serialID",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "String"
+    },
+    {
+      "entity": "Entities",
+      "name": "table",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "String"
+    },
+    {
+      "entity": "Entities",
+      "name": "description",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "String"
+    },
+    {
+      "entity": "ModelsGroupIds",
+      "name": "isSimplified",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "Boolean"
+    },
+    {
+      "entity": "ModelsGroupIds",
+      "name": "isIsolated",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "Boolean"
+    },
+    {
+      "entity": "GroupIds",
+      "name": "date",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "Date"
+    },
+    {
+      "entity": "GroupIds",
+      "name": "version",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "String"
+    },
+    {
+      "entity": "GroupIds",
+      "name": "code",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "String"
+    },
+    {
+      "entity": "GroupIds",
+      "name": "artifactId",
+      "isNullable": false,
+      "isUnique": true,
+      "AttributesTypes": "String"
+    },
+    {
+      "entity": "GroupIds",
+      "name": "groupId",
+      "isNullable": false,
+      "isUnique": true,
+      "AttributesTypes": "String"
+    },
+    {
+      "entity": "Dependencies",
+      "name": "scope",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "String"
+    },
+    {
+      "entity": "Dependencies",
+      "name": "type",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "String"
+    },
+    {
+      "entity": "Dependencies",
+      "name": "version",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "String"
+    },
+    {
+      "entity": "Dependencies",
+      "name": "artifactId",
+      "isNullable": false,
+      "isUnique": false,
+      "AttributesTypes": "String"
+    },
+    {
+      "entity": "Dependencies",
+      "name": "groupId",
+      "isNullable": false,
+      "isUnique": false,
+      "AttributesTypes": "String"
+    },
+    {
+      "entity": "Dependencies",
+      "name": "maven",
+      "isNullable": false,
+      "isUnique": true,
+      "AttributesTypes": "String"
+    },
+    {
+      "entity": "Imports",
       "name": "name",
       "isNullable": false,
       "isUnique": true,
@@ -461,8 +507,8 @@
     },
     {
       "entity": "AttributesTypes",
-      "name": "type",
-      "isNullable": false,
+      "name": "annotations",
+      "isNullable": true,
       "isUnique": false,
       "AttributesTypes": "String"
     },
@@ -482,65 +528,16 @@
     },
     {
       "entity": "AttributesTypes",
-      "name": "annotations",
-      "isNullable": true,
-      "isUnique": false,
-      "AttributesTypes": "String"
-    },
-    {
-      "entity": "Imports",
       "name": "name",
       "isNullable": false,
       "isUnique": true,
       "AttributesTypes": "String"
     },
     {
-      "entity": "Dependencies",
-      "name": "maven",
-      "isNullable": false,
-      "isUnique": true,
-      "AttributesTypes": "String"
-    },
-    {
-      "entity": "Dependencies",
-      "name": "groupId",
-      "isNullable": false,
-      "isUnique": false,
-      "AttributesTypes": "String"
-    },
-    {
-      "entity": "Dependencies",
-      "name": "artifactId",
-      "isNullable": false,
-      "isUnique": false,
-      "AttributesTypes": "String"
-    },
-    {
-      "entity": "Dependencies",
-      "name": "version",
-      "isNullable": true,
-      "isUnique": false,
-      "AttributesTypes": "String"
-    },
-    {
-      "entity": "Dependencies",
+      "entity": "AttributesTypes",
       "name": "type",
-      "isNullable": true,
-      "isUnique": false,
-      "AttributesTypes": "String"
-    },
-    {
-      "entity": "Dependencies",
-      "name": "scope",
-      "isNullable": true,
-      "isUnique": false,
-      "AttributesTypes": "String"
-    },
-    {
-      "entity": "AttributesProperties",
-      "name": "name",
       "isNullable": false,
-      "isUnique": true,
+      "isUnique": false,
       "AttributesTypes": "String"
     },
     {
@@ -549,13 +546,29 @@
       "isNullable": false,
       "isUnique": true,
       "AttributesTypes": "String"
+    },
+    {
+      "entity": "AttributesProperties",
+      "name": "name",
+      "isNullable": false,
+      "isUnique": true,
+      "AttributesTypes": "String"
     }
   ],
   "Relationships": [
     {
       "From": "SitesTypes",
+      "To": "SitesTypes",
+      "name": "null",
+      "isOptionality": true,
+      "isEmbedded": false,
+      "isSimplified": null,
+      "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+    },
+    {
+      "From": "SitesTypes",
       "To": "Sites",
-      "name": "",
+      "name": "null",
       "isOptionality": true,
       "isEmbedded": false,
       "isSimplified": null,
@@ -589,8 +602,26 @@
       "Cardinalities": "Uno a Muchos Bidirecccional No.5"
     },
     {
-      "From": "Models",
-      "To": "ModelsGroupIds",
+      "From": "SitesTypes",
+      "To": "Sites",
+      "name": "",
+      "isOptionality": true,
+      "isEmbedded": false,
+      "isSimplified": null,
+      "Cardinalities": "Muchos a Muchos Bidirecccional No.7"
+    },
+    {
+      "From": "Relationships",
+      "To": "AttributesProperties",
+      "name": "",
+      "isOptionality": true,
+      "isEmbedded": false,
+      "isSimplified": false,
+      "Cardinalities": "Muchos a Muchos Bidirecccional No.7"
+    },
+    {
+      "From": "Cardinalities",
+      "To": "Relationships",
       "name": "",
       "isOptionality": true,
       "isEmbedded": false,
@@ -598,7 +629,43 @@
       "Cardinalities": "Uno a Muchos Bidirecccional No.5"
     },
     {
-      "From": "Models",
+      "From": "Cardinalities",
+      "To": "Sites",
+      "name": "",
+      "isOptionality": true,
+      "isEmbedded": false,
+      "isSimplified": false,
+      "Cardinalities": "Muchos a Muchos Bidirecccional No.7"
+    },
+    {
+      "From": "Cardinalities",
+      "To": "Imports",
+      "name": "",
+      "isOptionality": true,
+      "isEmbedded": false,
+      "isSimplified": false,
+      "Cardinalities": "Muchos a Muchos Bidirecccional No.7"
+    },
+    {
+      "From": "Attributes",
+      "To": "Sites",
+      "name": "",
+      "isOptionality": true,
+      "isEmbedded": false,
+      "isSimplified": false,
+      "Cardinalities": "Muchos a Muchos Bidirecccional No.7"
+    },
+    {
+      "From": "Attributes",
+      "To": "AttributesProperties",
+      "name": "",
+      "isOptionality": true,
+      "isEmbedded": false,
+      "isSimplified": false,
+      "Cardinalities": "Muchos a Muchos Bidirecccional No.7"
+    },
+    {
+      "From": "Developments",
       "To": "Sites",
       "name": "",
       "isOptionality": true,
@@ -616,7 +683,7 @@
       "Cardinalities": "Muchos a Muchos Bidirecccional No.7"
     },
     {
-      "From": "Developments",
+      "From": "Models",
       "To": "Sites",
       "name": "",
       "isOptionality": true,
@@ -625,27 +692,9 @@
       "Cardinalities": "Muchos a Muchos Bidirecccional No.7"
     },
     {
-      "From": "Entities",
-      "To": "Relationships",
-      "name": "from",
-      "isOptionality": true,
-      "isEmbedded": false,
-      "isSimplified": false,
-      "Cardinalities": "Uno a Muchos Bidirecccional No.5"
-    },
-    {
-      "From": "Entities",
-      "To": "AttributesProperties",
+      "From": "Models",
+      "To": "ModelsGroupIds",
       "name": "",
-      "isOptionality": true,
-      "isEmbedded": false,
-      "isSimplified": false,
-      "Cardinalities": "Muchos a Muchos Bidirecccional No.7"
-    },
-    {
-      "From": "Entities",
-      "To": "Relationships",
-      "name": "to",
       "isOptionality": true,
       "isEmbedded": false,
       "isSimplified": false,
@@ -688,44 +737,17 @@
       "Cardinalities": "Muchos a Muchos Bidirecccional No.7"
     },
     {
-      "From": "Attributes",
-      "To": "Sites",
-      "name": "",
-      "isOptionality": true,
-      "isEmbedded": false,
-      "isSimplified": false,
-      "Cardinalities": "Muchos a Muchos Bidirecccional No.7"
-    },
-    {
-      "From": "Attributes",
-      "To": "AttributesProperties",
-      "name": "",
-      "isOptionality": true,
-      "isEmbedded": false,
-      "isSimplified": false,
-      "Cardinalities": "Muchos a Muchos Bidirecccional No.7"
-    },
-    {
-      "From": "Cardinalities",
-      "To": "Sites",
-      "name": "",
-      "isOptionality": true,
-      "isEmbedded": false,
-      "isSimplified": false,
-      "Cardinalities": "Muchos a Muchos Bidirecccional No.7"
-    },
-    {
-      "From": "Cardinalities",
-      "To": "Imports",
-      "name": "",
-      "isOptionality": true,
-      "isEmbedded": false,
-      "isSimplified": false,
-      "Cardinalities": "Muchos a Muchos Bidirecccional No.7"
-    },
-    {
-      "From": "Cardinalities",
+      "From": "Entities",
       "To": "Relationships",
+      "name": "from",
+      "isOptionality": true,
+      "isEmbedded": false,
+      "isSimplified": false,
+      "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+    },
+    {
+      "From": "Entities",
+      "To": "GroupIdsEntities",
       "name": "",
       "isOptionality": true,
       "isEmbedded": false,
@@ -733,7 +755,7 @@
       "Cardinalities": "Uno a Muchos Bidirecccional No.5"
     },
     {
-      "From": "Relationships",
+      "From": "Entities",
       "To": "AttributesProperties",
       "name": "",
       "isOptionality": true,
@@ -742,8 +764,26 @@
       "Cardinalities": "Muchos a Muchos Bidirecccional No.7"
     },
     {
+      "From": "Entities",
+      "To": "Relationships",
+      "name": "to",
+      "isOptionality": true,
+      "isEmbedded": false,
+      "isSimplified": false,
+      "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+    },
+    {
       "From": "GroupIds",
-      "To": "Entities",
+      "To": "ModelsGroupIds",
+      "name": "",
+      "isOptionality": true,
+      "isEmbedded": false,
+      "isSimplified": false,
+      "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+    },
+    {
+      "From": "GroupIds",
+      "To": "GroupIdsEntities",
       "name": "",
       "isOptionality": true,
       "isEmbedded": false,
@@ -760,51 +800,6 @@
       "Cardinalities": "Uno a Muchos Bidirecccional No.5"
     },
     {
-      "From": "GroupIds",
-      "To": "ModelsGroupIds",
-      "name": "",
-      "isOptionality": true,
-      "isEmbedded": false,
-      "isSimplified": false,
-      "Cardinalities": "Uno a Muchos Bidirecccional No.5"
-    },
-    {
-      "From": "AttributesTypes",
-      "To": "Attributes",
-      "name": "",
-      "isOptionality": true,
-      "isEmbedded": false,
-      "isSimplified": false,
-      "Cardinalities": "Uno a Muchos Bidirecccional No.5"
-    },
-    {
-      "From": "AttributesTypes",
-      "To": "Sites",
-      "name": "",
-      "isOptionality": true,
-      "isEmbedded": false,
-      "isSimplified": false,
-      "Cardinalities": "Muchos a Muchos Bidirecccional No.7"
-    },
-    {
-      "From": "AttributesTypes",
-      "To": "AttributesProperties",
-      "name": "",
-      "isOptionality": true,
-      "isEmbedded": false,
-      "isSimplified": false,
-      "Cardinalities": "Muchos a Muchos Bidirecccional No.7"
-    },
-    {
-      "From": "Imports",
-      "To": "Sites",
-      "name": "",
-      "isOptionality": true,
-      "isEmbedded": false,
-      "isSimplified": false,
-      "Cardinalities": "Muchos a Muchos Bidirecccional No.7"
-    },
-    {
       "From": "Dependencies",
       "To": "Sites",
       "name": "",
@@ -821,6 +816,42 @@
       "isEmbedded": false,
       "isSimplified": false,
       "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+    },
+    {
+      "From": "Imports",
+      "To": "Sites",
+      "name": "",
+      "isOptionality": true,
+      "isEmbedded": false,
+      "isSimplified": false,
+      "Cardinalities": "Muchos a Muchos Bidirecccional No.7"
+    },
+    {
+      "From": "AttributesTypes",
+      "To": "Attributes",
+      "name": "",
+      "isOptionality": true,
+      "isEmbedded": false,
+      "isSimplified": false,
+      "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+    },
+    {
+      "From": "AttributesTypes",
+      "To": "AttributesProperties",
+      "name": "",
+      "isOptionality": true,
+      "isEmbedded": false,
+      "isSimplified": false,
+      "Cardinalities": "Muchos a Muchos Bidirecccional No.7"
+    },
+    {
+      "From": "AttributesTypes",
+      "To": "Sites",
+      "name": "",
+      "isOptionality": true,
+      "isEmbedded": false,
+      "isSimplified": false,
+      "Cardinalities": "Muchos a Muchos Bidirecccional No.7"
     },
     {
       "From": "AttributesProperties",

@@ -46,13 +46,6 @@
                                 </h:panelGroup>
                                 <h:outputText/>
 
-                                <h:outputLabel for="attributesPropertiesBeanAttributesPropertiesName" value="Name:"/>
-                                <h:panelGroup>
-                                        <h:inputText id="attributesPropertiesBeanAttributesPropertiesName" required="true" value="#{attributesPropertiesBean.attributesProperties.name}"/>
-                                        <h:message for="attributesPropertiesBeanAttributesPropertiesName" styleClass="error"/>
-                                </h:panelGroup>
-                                <h:outputText value="*"/>
-
                                 <h:outputLabel for="attributesPropertiesBeanAttributesPropertiesValue" value="Value:"/>
                                 <h:panelGroup>
                                         <h:inputText id="attributesPropertiesBeanAttributesPropertiesValue" required="true" value="#{attributesPropertiesBean.attributesProperties.value}"/>
@@ -60,17 +53,24 @@
                                 </h:panelGroup>
                                 <h:outputText value="*"/>
 
+                                <h:outputLabel for="attributesPropertiesBeanAttributesPropertiesName" value="Name:"/>
+                                <h:panelGroup>
+                                        <h:inputText id="attributesPropertiesBeanAttributesPropertiesName" required="true" value="#{attributesPropertiesBean.attributesProperties.name}"/>
+                                        <h:message for="attributesPropertiesBeanAttributesPropertiesName" styleClass="error"/>
+                                </h:panelGroup>
+                                <h:outputText value="*"/>
+
                                 <!-- AttributesProperties *..*  Sites -->
 
                                 <!-- AttributesProperties *..*  Imports -->
 
-                                <!-- Entities *..*  AttributesProperties -->
-
                                 <!-- AttributesTypes *..*  AttributesProperties -->
 
-                                <!-- Attributes *..*  AttributesProperties -->
+                                <!-- Entities *..*  AttributesProperties -->
 
                                 <!-- Relationships *..*  AttributesProperties -->
+
+                                <!-- Attributes *..*  AttributesProperties -->
 
                                 <h:outputLabel for="attributesPropertiesBeanAttributesPropertiesObservations" value="Observations:"/>
                                 <h:panelGroup>

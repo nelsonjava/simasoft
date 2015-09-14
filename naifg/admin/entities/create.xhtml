@@ -74,21 +74,6 @@
                                 </h:panelGroup>
                                 <h:outputText/>
 
-                                <h:outputLabel for="entitiesBeanEntitiesIsSimplified" value="IsSimplified:"/>
-                                <h:panelGroup>
-                                        <h:selectOneMenu id="entitiesBeanEntitiesIsSimplified" value="#{entitiesBean.entities.isSimplified}">
-                                                <f:selectItem/>
-                                                <f:selectItem itemLabel="Yes" itemValue="true"/>
-                                                <f:selectItem itemLabel="No" itemValue="false"/>
-                                        </h:selectOneMenu>
-                                        <h:message for="entitiesBeanEntitiesIsSimplified" styleClass="error"/>
-                                </h:panelGroup>
-                                <h:outputText/>
-
-                                <!-- Entities *..*  AttributesProperties -->
-
-                                <!-- Entities 1..*  Relationships -->
-
                                 <!-- Entities 1..*  Attributes -->
 
                                 <!-- Entities 1..*  NameQueries -->
@@ -99,15 +84,11 @@
 
                                 <!-- Entities 1..*  Relationships -->
 
-                                <h:outputLabel for="entitiesBeanentitiesGroupIds" value="GroupIds:"/>
-                                <h:panelGroup>
-                                         <h:selectOneMenu converter="#{groupIdsBean.converter}" id="entitiesBeanEntitiesGroupIds" value="#{entitiesBean.entities.groupIds}">
-                                                <f:selectItem/>
-                                                <f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{groupIdsBean.all}" var="_item"/>
-                                        </h:selectOneMenu>
-                                        <h:message for="entitiesBeanEntitiesIsSimplified" styleClass="error"/>
-                                </h:panelGroup>
-                                <h:outputText/>
+                                <!-- Entities 1..*  GroupIdsEntities -->
+
+                                <!-- Entities *..*  AttributesProperties -->
+
+                                <!-- Entities 1..*  Relationships -->
 
                                 <h:outputLabel for="entitiesBeanEntitiesObservations" value="Observations:"/>
                                 <h:panelGroup>

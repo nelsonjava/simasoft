@@ -19,19 +19,19 @@ import co.simasoft.models.core.sites.*;
 import co.simasoft.models.dev.naifg.*;
 import co.simasoft.models.dev.naifg.dependencies.*;
 import org.hibernate.search.annotations.Analyze;
-import org.hibernate.search.annotations.DocumentId;
-import org.hibernate.search.annotations.Field;
 import org.hibernate.search.annotations.Index;
-import org.hibernate.search.annotations.Indexed;
+import org.hibernate.search.annotations.Field;
+import org.hibernate.search.annotations.DocumentId;
 import org.hibernate.search.annotations.Store;
-import javax.persistence.ManyToMany;
+import org.hibernate.search.annotations.Indexed;
 import javax.persistence.OneToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.Temporal;
+import javax.persistence.ManyToMany;
+import javax.persistence.Lob;
 import javax.persistence.TemporalType;
+import javax.persistence.Temporal;
 import org.hibernate.search.annotations.DateBridge;
 import org.hibernate.search.annotations.Resolution;
-import javax.persistence.Lob;
 
 
 @Indexed
@@ -56,29 +56,32 @@ public class Relationships implements Serializable {
     private String observations;
 
     @Column(nullable = true, unique = false)
+    private Boolean isOptionality;
+
+    @Column(nullable = true, unique = false)
     private Boolean isEmbedded;
 
     @Column(nullable = true, unique = false)
     private Boolean isSimplified;
 
     @Column(nullable = true, unique = false)
-    private Boolean isCreate;
-
-    @Column(nullable = true, unique = false)
     private Boolean isSearch;
 
     @Column(nullable = true, unique = false)
-    private Boolean isView;
+    private Boolean isCreate;
 
     @Column(nullable = true, unique = false)
     @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
     private String name;
 
     @Column(nullable = true, unique = false)
-    private Boolean isOptionality;
+    private Boolean isView;
 
     @ManyToMany
     private Set<AttributesProperties> attributesProperties = new HashSet<AttributesProperties>();
+
+    @ManyToOne
+    private Entities from;
 
     @ManyToOne
     private Entities to;
@@ -86,20 +89,17 @@ public class Relationships implements Serializable {
     @ManyToOne
     private Cardinalities cardinalities;
 
-    @ManyToOne
-    private Entities from;
-
     public Relationships() {
     }
 
-    public Relationships(Boolean isEmbedded,Boolean isSimplified,Boolean isCreate,Boolean isSearch,Boolean isView,String name,Boolean isOptionality) {
+    public Relationships(Boolean isOptionality,Boolean isEmbedded,Boolean isSimplified,Boolean isSearch,Boolean isCreate,String name,Boolean isView) {
+        this.isOptionality = isOptionality;
         this.isEmbedded = isEmbedded;
         this.isSimplified = isSimplified;
-        this.isCreate = isCreate;
         this.isSearch = isSearch;
-        this.isView = isView;
+        this.isCreate = isCreate;
         this.name = name;
-        this.isOptionality = isOptionality;
+        this.isView = isView;
     }
 
     public Long getId() {
@@ -129,6 +129,13 @@ public class Relationships implements Serializable {
     public void setObservations(String observations) {
         this.observations = observations;
     }
+    public Boolean getIsOptionality() {
+        return isOptionality;
+    }
+    public void setIsOptionality(Boolean isOptionality) {
+        this.isOptionality = isOptionality;
+    }
+
     public Boolean getIsEmbedded() {
         return isEmbedded;
     }
@@ -143,13 +150,6 @@ public class Relationships implements Serializable {
         this.isSimplified = isSimplified;
     }
 
-    public Boolean getIsCreate() {
-        return isCreate;
-    }
-    public void setIsCreate(Boolean isCreate) {
-        this.isCreate = isCreate;
-    }
-
     public Boolean getIsSearch() {
         return isSearch;
     }
@@ -157,11 +157,11 @@ public class Relationships implements Serializable {
         this.isSearch = isSearch;
     }
 
-    public Boolean getIsView() {
-        return isView;
+    public Boolean getIsCreate() {
+        return isCreate;
     }
-    public void setIsView(Boolean isView) {
-        this.isView = isView;
+    public void setIsCreate(Boolean isCreate) {
+        this.isCreate = isCreate;
     }
 
     public String getName() {
@@ -171,11 +171,11 @@ public class Relationships implements Serializable {
         this.name = name;
     }
 
-    public Boolean getIsOptionality() {
-        return isOptionality;
+    public Boolean getIsView() {
+        return isView;
     }
-    public void setIsOptionality(Boolean isOptionality) {
-        this.isOptionality = isOptionality;
+    public void setIsView(Boolean isView) {
+        this.isView = isView;
     }
 
     public Set<AttributesProperties> getAttributesProperties() {
@@ -183,6 +183,13 @@ public class Relationships implements Serializable {
     }
     public void setAttributesProperties(Set<AttributesProperties> attributesProperties) {
         this.attributesProperties = attributesProperties;
+    }
+
+    public Entities getFrom() {
+        return from;
+    }
+    public void setFrom(Entities from) {
+        this.from = from;
     }
 
     public Entities getTo() {
@@ -197,13 +204,6 @@ public class Relationships implements Serializable {
     }
     public void setCardinalities(Cardinalities cardinalities) {
         this.cardinalities = cardinalities;
-    }
-
-    public Entities getFrom() {
-        return from;
-    }
-    public void setFrom(Entities from) {
-        this.from = from;
     }
 
    @Override

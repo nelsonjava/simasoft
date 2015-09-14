@@ -30,10 +30,10 @@
                                 <h:panelGroup styleClass="search">
 
                                         <h:panelGrid columnClasses="label,component,required" columns="3">
-                                                <h:outputLabel for="modelsBeanExampleArtifactId" value="ArtifactId:"/>
+                                                <h:outputLabel for="modelsBeanExampleVersion" value="Version:"/>
                                                 <h:panelGroup>
-                                                        <h:inputText id="modelsBeanExampleArtifactId" value="#{modelsBean.example.artifactId}"/>
-                                                        <h:message for="modelsBeanExampleArtifactId" styleClass="error"/>
+                                                        <h:inputText id="modelsBeanExampleVersion" value="#{modelsBean.example.version}"/>
+                                                        <h:message for="modelsBeanExampleVersion" styleClass="error"/>
                                                 </h:panelGroup>
                                                 <h:outputText/>
 
@@ -44,12 +44,13 @@
                                                 </h:panelGroup>
                                                 <h:outputText/>
 
-                                                <h:outputLabel for="modelsBeanExampleVersion" value="Version:"/>
+                                                <h:outputLabel for="modelsBeanExampleArtifactId" value="ArtifactId:"/>
                                                 <h:panelGroup>
-                                                        <h:inputText id="modelsBeanExampleVersion" value="#{modelsBean.example.version}"/>
-                                                        <h:message for="modelsBeanExampleVersion" styleClass="error"/>
+                                                        <h:inputText id="modelsBeanExampleArtifactId" value="#{modelsBean.example.artifactId}"/>
+                                                        <h:message for="modelsBeanExampleArtifactId" styleClass="error"/>
                                                 </h:panelGroup>
                                                 <h:outputText/>
+
 
                                                 <h:outputLabel for="modelsBeanExampleCode" value="Code:"/>
                                                 <h:panelGroup>
@@ -57,7 +58,6 @@
                                                         <h:message for="modelsBeanExampleCode" styleClass="error"/>
                                                 </h:panelGroup>
                                                 <h:outputText/>
-
 
                                         </h:panelGrid>
                                         <h:panelGroup styleClass="buttons">
@@ -71,11 +71,11 @@
 
                                 <h:column>
                                         <f:facet name="header">
-                                                <h:outputText value="ArtifactId"/>
+                                                <h:outputText value="Version"/>
                                         </f:facet>
                                         <h:link outcome="/admin/models/view">
                                                 <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemArtifactId" value="#{_item.artifactId}"/>
+                                                <h:outputText id="itemVersion" value="#{_item.version}"/>
                                         </h:link>
                                 </h:column>
 
@@ -93,22 +93,11 @@
 
                                 <h:column>
                                         <f:facet name="header">
-                                                <h:outputText value="Version"/>
+                                                <h:outputText value="ArtifactId"/>
                                         </f:facet>
                                         <h:link outcome="/admin/models/view">
                                                 <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemVersion" value="#{_item.version}"/>
-                                        </h:link>
-                                </h:column>
-
-
-                                <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="Code"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/models/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemCode" value="#{_item.code}"/>
+                                                <h:outputText id="itemArtifactId" value="#{_item.artifactId}"/>
                                         </h:link>
                                 </h:column>
 
@@ -122,6 +111,17 @@
                                                 <h:outputText id="itemDate" value="#{_item.date}"/>
                                                         <f:convertDateTime type="date"/>
                                                <h:outputText/>
+                                        </h:link>
+                                </h:column>
+
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Code"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/models/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemCode" value="#{_item.code}"/>
                                         </h:link>
                                 </h:column>
 

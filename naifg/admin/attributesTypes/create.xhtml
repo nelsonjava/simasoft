@@ -46,19 +46,12 @@
                                 </h:panelGroup>
                                 <h:outputText/>
 
-                                <h:outputLabel for="attributesTypesBeanAttributesTypesName" value="Name:"/>
+                                <h:outputLabel for="attributesTypesBeanAttributesTypesAnnotations" value="Annotations:"/>
                                 <h:panelGroup>
-                                        <h:inputText id="attributesTypesBeanAttributesTypesName" required="true" value="#{attributesTypesBean.attributesTypes.name}"/>
-                                        <h:message for="attributesTypesBeanAttributesTypesName" styleClass="error"/>
+                                        <h:inputText id="attributesTypesBeanAttributesTypesAnnotations" value="#{attributesTypesBean.attributesTypes.annotations}"/>
+                                        <h:message for="attributesTypesBeanAttributesTypesAnnotations" styleClass="error"/>
                                 </h:panelGroup>
-                                <h:outputText value="*"/>
-
-                                <h:outputLabel for="attributesTypesBeanAttributesTypesType" value="Type:"/>
-                                <h:panelGroup>
-                                        <h:inputText id="attributesTypesBeanAttributesTypesType" required="true" value="#{attributesTypesBean.attributesTypes.type}"/>
-                                        <h:message for="attributesTypesBeanAttributesTypesType" styleClass="error"/>
-                                </h:panelGroup>
-                                <h:outputText value="*"/>
+                                <h:outputText/>
 
                                 <h:outputLabel for="attributesTypesBeanAttributesTypesLength" value="Length:"/>
                                 <h:panelGroup>
@@ -74,18 +67,25 @@
                                 </h:panelGroup>
                                 <h:outputText/>
 
-                                <h:outputLabel for="attributesTypesBeanAttributesTypesAnnotations" value="Annotations:"/>
+                                <h:outputLabel for="attributesTypesBeanAttributesTypesName" value="Name:"/>
                                 <h:panelGroup>
-                                        <h:inputText id="attributesTypesBeanAttributesTypesAnnotations" value="#{attributesTypesBean.attributesTypes.annotations}"/>
-                                        <h:message for="attributesTypesBeanAttributesTypesAnnotations" styleClass="error"/>
+                                        <h:inputText id="attributesTypesBeanAttributesTypesName" required="true" value="#{attributesTypesBean.attributesTypes.name}"/>
+                                        <h:message for="attributesTypesBeanAttributesTypesName" styleClass="error"/>
                                 </h:panelGroup>
-                                <h:outputText/>
+                                <h:outputText value="*"/>
 
-                                <!-- AttributesTypes *..*  Sites -->
+                                <h:outputLabel for="attributesTypesBeanAttributesTypesType" value="Type:"/>
+                                <h:panelGroup>
+                                        <h:inputText id="attributesTypesBeanAttributesTypesType" required="true" value="#{attributesTypesBean.attributesTypes.type}"/>
+                                        <h:message for="attributesTypesBeanAttributesTypesType" styleClass="error"/>
+                                </h:panelGroup>
+                                <h:outputText value="*"/>
+
+                                <!-- AttributesTypes 1..*  Attributes -->
 
                                 <!-- AttributesTypes *..*  AttributesProperties -->
 
-                                <!-- AttributesTypes 1..*  Attributes -->
+                                <!-- AttributesTypes *..*  Sites -->
 
                                 <h:outputLabel for="attributesTypesBeanAttributesTypesObservations" value="Observations:"/>
                                 <h:panelGroup>

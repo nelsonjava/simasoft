@@ -30,24 +30,10 @@
                                 <h:panelGroup styleClass="search">
 
                                         <h:panelGrid columnClasses="label,component,required" columns="3">
-                                                <h:outputLabel for="dependenciesBeanExampleGroupId" value="GroupId:"/>
+                                                <h:outputLabel for="dependenciesBeanExampleScope" value="Scope:"/>
                                                 <h:panelGroup>
-                                                        <h:inputText id="dependenciesBeanExampleGroupId" value="#{dependenciesBean.example.groupId}"/>
-                                                        <h:message for="dependenciesBeanExampleGroupId" styleClass="error"/>
-                                                </h:panelGroup>
-                                                <h:outputText/>
-
-                                                <h:outputLabel for="dependenciesBeanExampleArtifactId" value="ArtifactId:"/>
-                                                <h:panelGroup>
-                                                        <h:inputText id="dependenciesBeanExampleArtifactId" value="#{dependenciesBean.example.artifactId}"/>
-                                                        <h:message for="dependenciesBeanExampleArtifactId" styleClass="error"/>
-                                                </h:panelGroup>
-                                                <h:outputText/>
-
-                                                <h:outputLabel for="dependenciesBeanExampleVersion" value="Version:"/>
-                                                <h:panelGroup>
-                                                        <h:inputText id="dependenciesBeanExampleVersion" value="#{dependenciesBean.example.version}"/>
-                                                        <h:message for="dependenciesBeanExampleVersion" styleClass="error"/>
+                                                        <h:inputText id="dependenciesBeanExampleScope" value="#{dependenciesBean.example.scope}"/>
+                                                        <h:message for="dependenciesBeanExampleScope" styleClass="error"/>
                                                 </h:panelGroup>
                                                 <h:outputText/>
 
@@ -58,10 +44,24 @@
                                                 </h:panelGroup>
                                                 <h:outputText/>
 
-                                                <h:outputLabel for="dependenciesBeanExampleScope" value="Scope:"/>
+                                                <h:outputLabel for="dependenciesBeanExampleVersion" value="Version:"/>
                                                 <h:panelGroup>
-                                                        <h:inputText id="dependenciesBeanExampleScope" value="#{dependenciesBean.example.scope}"/>
-                                                        <h:message for="dependenciesBeanExampleScope" styleClass="error"/>
+                                                        <h:inputText id="dependenciesBeanExampleVersion" value="#{dependenciesBean.example.version}"/>
+                                                        <h:message for="dependenciesBeanExampleVersion" styleClass="error"/>
+                                                </h:panelGroup>
+                                                <h:outputText/>
+
+                                                <h:outputLabel for="dependenciesBeanExampleArtifactId" value="ArtifactId:"/>
+                                                <h:panelGroup>
+                                                        <h:inputText id="dependenciesBeanExampleArtifactId" value="#{dependenciesBean.example.artifactId}"/>
+                                                        <h:message for="dependenciesBeanExampleArtifactId" styleClass="error"/>
+                                                </h:panelGroup>
+                                                <h:outputText/>
+
+                                                <h:outputLabel for="dependenciesBeanExampleGroupId" value="GroupId:"/>
+                                                <h:panelGroup>
+                                                        <h:inputText id="dependenciesBeanExampleGroupId" value="#{dependenciesBean.example.groupId}"/>
+                                                        <h:message for="dependenciesBeanExampleGroupId" styleClass="error"/>
                                                 </h:panelGroup>
                                                 <h:outputText/>
 
@@ -84,33 +84,11 @@
 
                                 <h:column>
                                         <f:facet name="header">
-                                                <h:outputText value="GroupId"/>
+                                                <h:outputText value="Scope"/>
                                         </f:facet>
                                         <h:link outcome="/admin/dependencies/view">
                                                 <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemGroupId" value="#{_item.groupId}"/>
-                                        </h:link>
-                                </h:column>
-
-
-                                <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="ArtifactId"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/dependencies/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemArtifactId" value="#{_item.artifactId}"/>
-                                        </h:link>
-                                </h:column>
-
-
-                                <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="Version"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/dependencies/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemVersion" value="#{_item.version}"/>
+                                                <h:outputText id="itemScope" value="#{_item.scope}"/>
                                         </h:link>
                                 </h:column>
 
@@ -128,11 +106,33 @@
 
                                 <h:column>
                                         <f:facet name="header">
-                                                <h:outputText value="Scope"/>
+                                                <h:outputText value="Version"/>
                                         </f:facet>
                                         <h:link outcome="/admin/dependencies/view">
                                                 <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemScope" value="#{_item.scope}"/>
+                                                <h:outputText id="itemVersion" value="#{_item.version}"/>
+                                        </h:link>
+                                </h:column>
+
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="ArtifactId"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/dependencies/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemArtifactId" value="#{_item.artifactId}"/>
+                                        </h:link>
+                                </h:column>
+
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="GroupId"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/dependencies/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemGroupId" value="#{_item.groupId}"/>
                                         </h:link>
                                 </h:column>
 

@@ -46,12 +46,12 @@
                                 </h:panelGroup>
                                 <h:outputText/>
 
-                                <h:outputLabel for="modelsBeanModelsArtifactId" value="ArtifactId:"/>
+                                <h:outputLabel for="modelsBeanModelsVersion" value="Version:"/>
                                 <h:panelGroup>
-                                        <h:inputText id="modelsBeanModelsArtifactId" required="true" value="#{modelsBean.models.artifactId}"/>
-                                        <h:message for="modelsBeanModelsArtifactId" styleClass="error"/>
+                                        <h:inputText id="modelsBeanModelsVersion" value="#{modelsBean.models.version}"/>
+                                        <h:message for="modelsBeanModelsVersion" styleClass="error"/>
                                 </h:panelGroup>
-                                <h:outputText value="*"/>
+                                <h:outputText/>
 
                                 <h:outputLabel for="modelsBeanModelsGroupId" value="GroupId:"/>
                                 <h:panelGroup>
@@ -60,19 +60,12 @@
                                 </h:panelGroup>
                                 <h:outputText value="*"/>
 
-                                <h:outputLabel for="modelsBeanModelsVersion" value="Version:"/>
+                                <h:outputLabel for="modelsBeanModelsArtifactId" value="ArtifactId:"/>
                                 <h:panelGroup>
-                                        <h:inputText id="modelsBeanModelsVersion" value="#{modelsBean.models.version}"/>
-                                        <h:message for="modelsBeanModelsVersion" styleClass="error"/>
+                                        <h:inputText id="modelsBeanModelsArtifactId" required="true" value="#{modelsBean.models.artifactId}"/>
+                                        <h:message for="modelsBeanModelsArtifactId" styleClass="error"/>
                                 </h:panelGroup>
-                                <h:outputText/>
-
-                                <h:outputLabel for="modelsBeanModelsCode" value="Code:"/>
-                                <h:panelGroup>
-                                        <h:inputText id="modelsBeanModelsCode" value="#{modelsBean.models.code}"/>
-                                        <h:message for="modelsBeanModelsCode" styleClass="error"/>
-                                </h:panelGroup>
-                                <h:outputText/>
+                                <h:outputText value="*"/>
 
                                 <h:outputLabel for="modelsBeanModelsDate" value="Date:"/>
                                 <h:panelGroup>
@@ -83,9 +76,16 @@
                                 </h:panelGroup>
                                 <h:outputText/>
 
-                                <!-- Models 1..*  ModelsGroupIds -->
+                                <h:outputLabel for="modelsBeanModelsCode" value="Code:"/>
+                                <h:panelGroup>
+                                        <h:inputText id="modelsBeanModelsCode" value="#{modelsBean.models.code}"/>
+                                        <h:message for="modelsBeanModelsCode" styleClass="error"/>
+                                </h:panelGroup>
+                                <h:outputText/>
 
                                 <!-- Models *..*  Sites -->
+
+                                <!-- Models 1..*  ModelsGroupIds -->
 
                                 <!-- Developments *..*  Models -->
 

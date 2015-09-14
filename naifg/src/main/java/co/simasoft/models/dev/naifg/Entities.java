@@ -19,19 +19,19 @@ import co.simasoft.models.core.sites.*;
 import co.simasoft.models.dev.naifg.*;
 import co.simasoft.models.dev.naifg.dependencies.*;
 import org.hibernate.search.annotations.Analyze;
-import org.hibernate.search.annotations.DocumentId;
-import org.hibernate.search.annotations.Field;
 import org.hibernate.search.annotations.Index;
-import org.hibernate.search.annotations.Indexed;
+import org.hibernate.search.annotations.Field;
+import org.hibernate.search.annotations.DocumentId;
 import org.hibernate.search.annotations.Store;
-import javax.persistence.ManyToMany;
+import org.hibernate.search.annotations.Indexed;
 import javax.persistence.OneToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.Temporal;
+import javax.persistence.ManyToMany;
+import javax.persistence.Lob;
 import javax.persistence.TemporalType;
+import javax.persistence.Temporal;
 import org.hibernate.search.annotations.DateBridge;
 import org.hibernate.search.annotations.Resolution;
-import javax.persistence.Lob;
 
 
 @Indexed
@@ -71,15 +71,6 @@ public class Entities implements Serializable {
     @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
     private String description;
 
-    @Column(nullable = true, unique = false)
-    private Boolean isSimplified;
-
-    @ManyToMany
-    private Set<AttributesProperties> attributesProperties = new HashSet<AttributesProperties>();
-
-    @OneToMany(mappedBy = "to")
-    private Set<Relationships> to = new HashSet<Relationships>();
-
     @OneToMany(mappedBy = "entities")
     private Set<Attributes> attributes = new HashSet<Attributes>();
 
@@ -95,18 +86,23 @@ public class Entities implements Serializable {
     @OneToMany(mappedBy = "from")
     private Set<Relationships> from = new HashSet<Relationships>();
 
-    @ManyToOne
-    private GroupIds groupIds;
+    @OneToMany(mappedBy = "entities")
+    private Set<GroupIdsEntities> groupIdsEntities = new HashSet<GroupIdsEntities>();
+
+    @ManyToMany
+    private Set<AttributesProperties> attributesProperties = new HashSet<AttributesProperties>();
+
+    @OneToMany(mappedBy = "to")
+    private Set<Relationships> to = new HashSet<Relationships>();
 
     public Entities() {
     }
 
-    public Entities(String name,String serialID,String table,String description,Boolean isSimplified) {
+    public Entities(String name,String serialID,String table,String description) {
         this.name = name;
         this.serialID = serialID;
         this.table = table;
         this.description = description;
-        this.isSimplified = isSimplified;
     }
 
     public Long getId() {
@@ -164,27 +160,6 @@ public class Entities implements Serializable {
         this.description = description;
     }
 
-    public Boolean getIsSimplified() {
-        return isSimplified;
-    }
-    public void setIsSimplified(Boolean isSimplified) {
-        this.isSimplified = isSimplified;
-    }
-
-    public Set<AttributesProperties> getAttributesProperties() {
-        return attributesProperties;
-    }
-    public void setAttributesProperties(Set<AttributesProperties> attributesProperties) {
-        this.attributesProperties = attributesProperties;
-    }
-
-    public Set<Relationships> getTo() {
-        return to;
-    }
-    public void setTo(Set<Relationships> to) {
-        this.to = to;
-    }
-
     public Set<Attributes> getAttributes() {
         return attributes;
     }
@@ -220,11 +195,25 @@ public class Entities implements Serializable {
         this.from = from;
     }
 
-    public GroupIds getGroupIds() {
-        return groupIds;
+    public Set<GroupIdsEntities> getGroupIdsEntities() {
+        return groupIdsEntities;
     }
-    public void setGroupIds(GroupIds groupIds) {
-        this.groupIds = groupIds;
+    public void setGroupIdsEntities(Set<GroupIdsEntities> groupIdsEntities) {
+        this.groupIdsEntities = groupIdsEntities;
+    }
+
+    public Set<AttributesProperties> getAttributesProperties() {
+        return attributesProperties;
+    }
+    public void setAttributesProperties(Set<AttributesProperties> attributesProperties) {
+        this.attributesProperties = attributesProperties;
+    }
+
+    public Set<Relationships> getTo() {
+        return to;
+    }
+    public void setTo(Set<Relationships> to) {
+        this.to = to;
     }
 
    @Override

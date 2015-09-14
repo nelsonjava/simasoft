@@ -32,12 +32,12 @@
                         <h:outputText id="attributesPropertiesBeanAttributesPropertiesOrden" value="#{attributesPropertiesBean.attributesProperties.orden}"/>
                         <h:outputText/>
 
-                        <h:outputLabel for="attributesPropertiesBeanAttributesPropertiesName" value="Name:"/>
-                        <h:outputText id="attributesPropertiesBeanAttributesPropertiesName" value="#{attributesPropertiesBean.attributesProperties.name}"/>
-                        <h:outputText/>
-
                         <h:outputLabel for="attributesPropertiesBeanAttributesPropertiesValue" value="Value:"/>
                         <h:outputText id="attributesPropertiesBeanAttributesPropertiesValue" value="#{attributesPropertiesBean.attributesProperties.value}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="attributesPropertiesBeanAttributesPropertiesName" value="Name:"/>
+                        <h:outputText id="attributesPropertiesBeanAttributesPropertiesName" value="#{attributesPropertiesBean.attributesProperties.name}"/>
                         <h:outputText/>
 
                         <h:outputLabel for="attributesPropertiesBeanAttributesPropertiesObservations" value="Observations:"/>
@@ -59,6 +59,16 @@
 
                                 <h:column>
                                         <f:facet name="header">
+                                                <h:outputText value="Title"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/sites/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemTitle" value="#{_item.title}"/>
+                                        </h:link>
+                                </h:column>
+
+                                <h:column>
+                                        <f:facet name="header">
                                                 <h:outputText value="Abc"/>
                                         </f:facet>
                                         <h:link outcome="/admin/sites/view">
@@ -74,16 +84,6 @@
                                         <h:link outcome="/admin/sites/view">
                                                 <f:param name="id" value="#{_item.id}"/>
                                                 <h:outputText id="itemLink" value="#{_item.link}"/>
-                                        </h:link>
-                                </h:column>
-
-                                <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="Title"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/sites/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemTitle" value="#{_item.title}"/>
                                         </h:link>
                                 </h:column>
 
@@ -116,42 +116,6 @@
                         </h:dataTable>
                         <h:outputText/>
 
-                        <h:outputLabel for="entitiesBeanEntitiesAttributesProperties" value="AttributesProperties:"/>
-                        <h:dataTable id="entitiesBeanEntitiesattributesProperties" styleClass="data-table" value="#{forgeview:asList(entitiesBean.entities.attributesProperties)}" var="_item">
-
-                                <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="Orden"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/attributesProperties/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemOrden" value="#{_item.orden}"/>
-                                        </h:link>
-                                </h:column>
-
-                                <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="Name"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/attributesProperties/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemName" value="#{_item.name}"/>
-                                        </h:link>
-                                </h:column>
-
-                                <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="Value"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/attributesProperties/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemValue" value="#{_item.value}"/>
-                                        </h:link>
-                                </h:column>
-
-                        </h:dataTable>
-                        <h:outputText/>
-
                         <h:outputLabel for="attributesTypesBeanAttributesTypesAttributesProperties" value="AttributesProperties:"/>
                         <h:dataTable id="attributesTypesBeanAttributesTypesattributesProperties" styleClass="data-table" value="#{forgeview:asList(attributesTypesBean.attributesTypes.attributesProperties)}" var="_item">
 
@@ -167,16 +131,6 @@
 
                                 <h:column>
                                         <f:facet name="header">
-                                                <h:outputText value="Name"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/attributesProperties/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemName" value="#{_item.name}"/>
-                                        </h:link>
-                                </h:column>
-
-                                <h:column>
-                                        <f:facet name="header">
                                                 <h:outputText value="Value"/>
                                         </f:facet>
                                         <h:link outcome="/admin/attributesProperties/view">
@@ -185,11 +139,21 @@
                                         </h:link>
                                 </h:column>
 
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Name"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/attributesProperties/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemName" value="#{_item.name}"/>
+                                        </h:link>
+                                </h:column>
+
                         </h:dataTable>
                         <h:outputText/>
 
-                        <h:outputLabel for="attributesBeanAttributesAttributesProperties" value="AttributesProperties:"/>
-                        <h:dataTable id="attributesBeanAttributesattributesProperties" styleClass="data-table" value="#{forgeview:asList(attributesBean.attributes.attributesProperties)}" var="_item">
+                        <h:outputLabel for="entitiesBeanEntitiesAttributesProperties" value="AttributesProperties:"/>
+                        <h:dataTable id="entitiesBeanEntitiesattributesProperties" styleClass="data-table" value="#{forgeview:asList(entitiesBean.entities.attributesProperties)}" var="_item">
 
                                 <h:column>
                                         <f:facet name="header">
@@ -203,21 +167,21 @@
 
                                 <h:column>
                                         <f:facet name="header">
-                                                <h:outputText value="Name"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/attributesProperties/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemName" value="#{_item.name}"/>
-                                        </h:link>
-                                </h:column>
-
-                                <h:column>
-                                        <f:facet name="header">
                                                 <h:outputText value="Value"/>
                                         </f:facet>
                                         <h:link outcome="/admin/attributesProperties/view">
                                                 <f:param name="id" value="#{_item.id}"/>
                                                 <h:outputText id="itemValue" value="#{_item.value}"/>
+                                        </h:link>
+                                </h:column>
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Name"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/attributesProperties/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemName" value="#{_item.name}"/>
                                         </h:link>
                                 </h:column>
 
@@ -239,11 +203,37 @@
 
                                 <h:column>
                                         <f:facet name="header">
+                                                <h:outputText value="Value"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/attributesProperties/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemValue" value="#{_item.value}"/>
+                                        </h:link>
+                                </h:column>
+
+                                <h:column>
+                                        <f:facet name="header">
                                                 <h:outputText value="Name"/>
                                         </f:facet>
                                         <h:link outcome="/admin/attributesProperties/view">
                                                 <f:param name="id" value="#{_item.id}"/>
                                                 <h:outputText id="itemName" value="#{_item.name}"/>
+                                        </h:link>
+                                </h:column>
+
+                        </h:dataTable>
+                        <h:outputText/>
+
+                        <h:outputLabel for="attributesBeanAttributesAttributesProperties" value="AttributesProperties:"/>
+                        <h:dataTable id="attributesBeanAttributesattributesProperties" styleClass="data-table" value="#{forgeview:asList(attributesBean.attributes.attributesProperties)}" var="_item">
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Orden"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/attributesProperties/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemOrden" value="#{_item.orden}"/>
                                         </h:link>
                                 </h:column>
 
@@ -254,6 +244,16 @@
                                         <h:link outcome="/admin/attributesProperties/view">
                                                 <f:param name="id" value="#{_item.id}"/>
                                                 <h:outputText id="itemValue" value="#{_item.value}"/>
+                                        </h:link>
+                                </h:column>
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Name"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/attributesProperties/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemName" value="#{_item.name}"/>
                                         </h:link>
                                 </h:column>
 

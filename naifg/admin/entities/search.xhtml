@@ -58,17 +58,6 @@
                                                 </h:panelGroup>
                                                 <h:outputText/>
 
-                                                <h:outputLabel for="entitiesBeanExampleIsSimplified" value="IsSimplified:"/>
-                                                <h:panelGroup>
-                                                        <h:selectOneMenu id="entitiesBeanExampleIsSimplified" value="#{entitiesBean.example.isSimplified}">
-                                                                <f:selectItem/>
-                                                                <f:selectItem itemLabel="Yes" itemValue="true"/>
-                                                                <f:selectItem itemLabel="No" itemValue="false"/>
-                                                        </h:selectOneMenu>
-                                                        <h:message for="entitiesBeanExampleIsSimplified" styleClass="error"/>
-                                                </h:panelGroup>
-                                                <h:outputText/>
-
                                         </h:panelGrid>
                                         <h:panelGroup styleClass="buttons">
                                                 <h:commandLink value="Search" action='#{entitiesBean.search}' styleClass="btn btn-primary"/>
@@ -119,17 +108,6 @@
                                         <h:link outcome="/admin/entities/view">
                                                 <f:param name="id" value="#{_item.id}"/>
                                                 <h:outputText id="itemDescription" value="#{_item.description}"/>
-                                        </h:link>
-                                </h:column>
-
-
-                                <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="IsSimplified"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/entities/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemIsSimplified" value="#{_item.isSimplified}"/>
                                         </h:link>
                                 </h:column>
 

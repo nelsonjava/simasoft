@@ -19,19 +19,19 @@ import co.simasoft.models.core.sites.*;
 import co.simasoft.models.dev.naifg.*;
 import co.simasoft.models.dev.naifg.dependencies.*;
 import org.hibernate.search.annotations.Analyze;
-import org.hibernate.search.annotations.DocumentId;
-import org.hibernate.search.annotations.Field;
 import org.hibernate.search.annotations.Index;
-import org.hibernate.search.annotations.Indexed;
+import org.hibernate.search.annotations.Field;
+import org.hibernate.search.annotations.DocumentId;
 import org.hibernate.search.annotations.Store;
-import javax.persistence.ManyToMany;
+import org.hibernate.search.annotations.Indexed;
 import javax.persistence.OneToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.Temporal;
+import javax.persistence.ManyToMany;
+import javax.persistence.Lob;
 import javax.persistence.TemporalType;
+import javax.persistence.Temporal;
 import org.hibernate.search.annotations.DateBridge;
 import org.hibernate.search.annotations.Resolution;
-import javax.persistence.Lob;
 
 
 @Indexed
@@ -57,11 +57,11 @@ public class AttributesProperties implements Serializable {
 
     @Column(nullable = false, unique = true)
     @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-    private String name;
+    private String value;
 
     @Column(nullable = false, unique = true)
     @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-    private String value;
+    private String name;
 
     @ManyToMany
     private Set<Sites> sites = new HashSet<Sites>();
@@ -70,23 +70,23 @@ public class AttributesProperties implements Serializable {
     private Set<Imports> imports = new HashSet<Imports>();
 
     @ManyToMany(mappedBy = "attributesProperties")
-    private Set<Entities> entities = new HashSet<Entities>();
-
-    @ManyToMany(mappedBy = "attributesProperties")
     private Set<AttributesTypes> attributesTypes = new HashSet<AttributesTypes>();
 
     @ManyToMany(mappedBy = "attributesProperties")
-    private Set<Attributes> attributes = new HashSet<Attributes>();
+    private Set<Entities> entities = new HashSet<Entities>();
 
     @ManyToMany(mappedBy = "attributesProperties")
     private Set<Relationships> relationships = new HashSet<Relationships>();
 
+    @ManyToMany(mappedBy = "attributesProperties")
+    private Set<Attributes> attributes = new HashSet<Attributes>();
+
     public AttributesProperties() {
     }
 
-    public AttributesProperties(String name,String value) {
-        this.name = name;
+    public AttributesProperties(String value,String name) {
         this.value = value;
+        this.name = name;
     }
 
     public Long getId() {
@@ -116,18 +116,18 @@ public class AttributesProperties implements Serializable {
     public void setObservations(String observations) {
         this.observations = observations;
     }
-    public String getName() {
-        return name;
-    }
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public String getValue() {
         return value;
     }
     public void setValue(String value) {
         this.value = value;
+    }
+
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Set<Sites> getSites() {
@@ -144,13 +144,6 @@ public class AttributesProperties implements Serializable {
         this.imports = imports;
     }
 
-    public Set<Entities> getEntities() {
-        return entities;
-    }
-    public void setEntities(Set<Entities> entities) {
-        this.entities = entities;
-    }
-
     public Set<AttributesTypes> getAttributesTypes() {
         return attributesTypes;
     }
@@ -158,11 +151,11 @@ public class AttributesProperties implements Serializable {
         this.attributesTypes = attributesTypes;
     }
 
-    public Set<Attributes> getAttributes() {
-        return attributes;
+    public Set<Entities> getEntities() {
+        return entities;
     }
-    public void setAttributes(Set<Attributes> attributes) {
-        this.attributes = attributes;
+    public void setEntities(Set<Entities> entities) {
+        this.entities = entities;
     }
 
     public Set<Relationships> getRelationships() {
@@ -170,6 +163,13 @@ public class AttributesProperties implements Serializable {
     }
     public void setRelationships(Set<Relationships> relationships) {
         this.relationships = relationships;
+    }
+
+    public Set<Attributes> getAttributes() {
+        return attributes;
+    }
+    public void setAttributes(Set<Attributes> attributes) {
+        this.attributes = attributes;
     }
 
    @Override
