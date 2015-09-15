@@ -53,6 +53,27 @@
 
                                 <h:column>
                                         <f:facet name="header">
+                                                <h:outputText value="GroupIds"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/groupIdsEntities/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemGroupIds" value="#{_item.groupIds.groupId}"/>
+                                        </h:link>
+                                </h:column>
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Entity"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/groupIdsEntities/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemEntity" value="#{_item.entities.name}"/>
+                                        </h:link>
+                                </h:column>
+
+
+                                <h:column>
+                                        <f:facet name="header">
                                                 <h:outputText value="IsSimplified"/>
                                         </f:facet>
                                         <h:link outcome="/admin/groupIdsEntities/view">
