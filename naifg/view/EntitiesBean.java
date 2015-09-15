@@ -28,17 +28,17 @@ import import co.simasoft.models.core.sites.*;
 import import co.simasoft.models.dev.naifg.*;
 import import co.simasoft.models.dev.naifg.dependencies.*;
 import import org.hibernate.search.annotations.Analyze;
-import import org.hibernate.search.annotations.Index;
-import import org.hibernate.search.annotations.Field;
 import import org.hibernate.search.annotations.DocumentId;
-import import org.hibernate.search.annotations.Store;
+import import org.hibernate.search.annotations.Field;
+import import org.hibernate.search.annotations.Index;
 import import org.hibernate.search.annotations.Indexed;
+import import org.hibernate.search.annotations.Store;
+import import javax.persistence.ManyToMany;
 import import javax.persistence.OneToMany;
 import import javax.persistence.ManyToOne;
-import import javax.persistence.ManyToMany;
 import import javax.persistence.Lob;
-import import javax.persistence.TemporalType;
 import import javax.persistence.Temporal;
+import import javax.persistence.TemporalType;
 import import org.hibernate.search.annotations.DateBridge;
 import import org.hibernate.search.annotations.Resolution;
 import java.util.Iterator;
@@ -137,20 +137,6 @@ public class EntitiesBean implements Serializable{
 
                 try {
                         Entities deletableEntity = findById(getId());
-                        Iterator<Attributes> iterAttributes = deletableEntity.getAttributes().iterator();
-                        for (; iterAttributes.hasNext();){
-                               Attributes nextInAttributes = iterAttributes.next();
-                                nextInAttributes.setEntities(null);
-                               iterAttributes.remove();
-                               this.entityManager.merge(nextInAttributes);
-                        }
-                        Iterator<NameQueries> iterNameQueries = deletableEntity.getNameQueries().iterator();
-                        for (; iterNameQueries.hasNext();){
-                               NameQueries nextInNameQueries = iterNameQueries.next();
-                                nextInNameQueries.setEntities(null);
-                               iterNameQueries.remove();
-                               this.entityManager.merge(nextInNameQueries);
-                        }
    5      Iterator<Relationships> iterFrom = deletableEntity.getFrom().iterator();
    5      for (; iterFrom.hasNext();){
    5         Relationships nextInFrom = iterFrom.next();
@@ -172,6 +158,20 @@ public class EntitiesBean implements Serializable{
    5         iterTo.remove();
    5         this.entityManager.merge(nextInTo);
    5      }
+                        Iterator<Attributes> iterAttributes = deletableEntity.getAttributes().iterator();
+                        for (; iterAttributes.hasNext();){
+                               Attributes nextInAttributes = iterAttributes.next();
+                                nextInAttributes.setEntities(null);
+                               iterAttributes.remove();
+                               this.entityManager.merge(nextInAttributes);
+                        }
+                        Iterator<NameQueries> iterNameQueries = deletableEntity.getNameQueries().iterator();
+                        for (; iterNameQueries.hasNext();){
+                               NameQueries nextInNameQueries = iterNameQueries.next();
+                                nextInNameQueries.setEntities(null);
+                               iterNameQueries.remove();
+                               this.entityManager.merge(nextInNameQueries);
+                        }
                         this.entityManager.remove(deletableEntity);
                         this.entityManager.flush();
                         return "search?faces-redirect=true";

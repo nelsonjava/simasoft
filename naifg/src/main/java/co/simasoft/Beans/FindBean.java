@@ -95,6 +95,18 @@ public class FindBean {
         return entities;
     }
 
+    public Entities nameEntities(String search,EntityManager em) {
+
+        Entities entities = new Entities();
+        List<Entities> results = em.createQuery("SELECT o FROM Entities o WHERE o.name LIKE :field").setParameter("field", search).getResultList();
+
+        if (!results.isEmpty()) {
+           entities = results.get(0);
+        }
+        return entities;
+    }
+
+
 //      ---------------------- AttributesProperties ------------------------
 
     public List<AttributesProperties> AllAttributesProperties(EntityManager em) {
@@ -372,17 +384,6 @@ public class FindBean {
            groupIds = results.get(0);
         }
         return groupIds;
-    }
-
-    public Entities nameEntities(String search,EntityManager em) {
-
-        Entities entities = new Entities();
-        List<Entities> results = em.createQuery("SELECT o FROM Entities o WHERE o.name LIKE :field").setParameter("field", search).getResultList();
-
-        if (!results.isEmpty()) {
-           entities = results.get(0);
-        }
-        return entities;
     }
 
     public Attributes fieldAttributes(String search,EntityManager em) {

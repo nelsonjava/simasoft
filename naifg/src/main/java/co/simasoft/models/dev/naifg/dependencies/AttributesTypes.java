@@ -19,17 +19,17 @@ import co.simasoft.models.core.sites.*;
 import co.simasoft.models.dev.naifg.*;
 import co.simasoft.models.dev.naifg.dependencies.*;
 import org.hibernate.search.annotations.Analyze;
-import org.hibernate.search.annotations.Index;
-import org.hibernate.search.annotations.Field;
 import org.hibernate.search.annotations.DocumentId;
-import org.hibernate.search.annotations.Store;
+import org.hibernate.search.annotations.Field;
+import org.hibernate.search.annotations.Index;
 import org.hibernate.search.annotations.Indexed;
+import org.hibernate.search.annotations.Store;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.ManyToMany;
 import javax.persistence.Lob;
-import javax.persistence.TemporalType;
 import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import org.hibernate.search.annotations.DateBridge;
 import org.hibernate.search.annotations.Resolution;
 
@@ -55,16 +55,6 @@ public class AttributesTypes implements Serializable {
     @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
     private String observations;
 
-    @Column(nullable = true, unique = false)
-    @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-    private String annotations;
-
-    @Column(nullable = true, unique = false)
-    private Integer length;
-
-    @Column(nullable = true, unique = false)
-    private Integer precision;
-
     @Column(nullable = false, unique = true)
     @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
     private String name;
@@ -73,24 +63,34 @@ public class AttributesTypes implements Serializable {
     @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
     private String type;
 
+    @Column(nullable = true, unique = false)
+    private Integer length;
+
+    @Column(nullable = true, unique = false)
+    private Integer precision;
+
+    @Column(nullable = true, unique = false)
+    @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+    private String annotations;
+
     @OneToMany(mappedBy = "attributesTypes")
     private Set<Attributes> attributes = new HashSet<Attributes>();
 
     @ManyToMany
-    private Set<AttributesProperties> attributesProperties = new HashSet<AttributesProperties>();
+    private Set<Sites> sites = new HashSet<Sites>();
 
     @ManyToMany
-    private Set<Sites> sites = new HashSet<Sites>();
+    private Set<AttributesProperties> attributesProperties = new HashSet<AttributesProperties>();
 
     public AttributesTypes() {
     }
 
-    public AttributesTypes(String annotations,Integer length,Integer precision,String name,String type) {
-        this.annotations = annotations;
-        this.length = length;
-        this.precision = precision;
+    public AttributesTypes(String name,String type,Integer length,Integer precision,String annotations) {
         this.name = name;
         this.type = type;
+        this.length = length;
+        this.precision = precision;
+        this.annotations = annotations;
     }
 
     public Long getId() {
@@ -120,11 +120,18 @@ public class AttributesTypes implements Serializable {
     public void setObservations(String observations) {
         this.observations = observations;
     }
-    public String getAnnotations() {
-        return annotations;
+    public String getName() {
+        return name;
     }
-    public void setAnnotations(String annotations) {
-        this.annotations = annotations;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getType() {
+        return type;
+    }
+    public void setType(String type) {
+        this.type = type;
     }
 
     public Integer getLength() {
@@ -141,18 +148,11 @@ public class AttributesTypes implements Serializable {
         this.precision = precision;
     }
 
-    public String getName() {
-        return name;
+    public String getAnnotations() {
+        return annotations;
     }
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getType() {
-        return type;
-    }
-    public void setType(String type) {
-        this.type = type;
+    public void setAnnotations(String annotations) {
+        this.annotations = annotations;
     }
 
     public Set<Attributes> getAttributes() {
@@ -162,18 +162,18 @@ public class AttributesTypes implements Serializable {
         this.attributes = attributes;
     }
 
-    public Set<AttributesProperties> getAttributesProperties() {
-        return attributesProperties;
-    }
-    public void setAttributesProperties(Set<AttributesProperties> attributesProperties) {
-        this.attributesProperties = attributesProperties;
-    }
-
     public Set<Sites> getSites() {
         return sites;
     }
     public void setSites(Set<Sites> sites) {
         this.sites = sites;
+    }
+
+    public Set<AttributesProperties> getAttributesProperties() {
+        return attributesProperties;
+    }
+    public void setAttributesProperties(Set<AttributesProperties> attributesProperties) {
+        this.attributesProperties = attributesProperties;
     }
 
    @Override

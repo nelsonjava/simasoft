@@ -19,17 +19,17 @@ import co.simasoft.models.core.sites.*;
 import co.simasoft.models.dev.naifg.*;
 import co.simasoft.models.dev.naifg.dependencies.*;
 import org.hibernate.search.annotations.Analyze;
-import org.hibernate.search.annotations.Index;
-import org.hibernate.search.annotations.Field;
 import org.hibernate.search.annotations.DocumentId;
-import org.hibernate.search.annotations.Store;
+import org.hibernate.search.annotations.Field;
+import org.hibernate.search.annotations.Index;
 import org.hibernate.search.annotations.Indexed;
+import org.hibernate.search.annotations.Store;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.ManyToMany;
 import javax.persistence.Lob;
-import javax.persistence.TemporalType;
 import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import org.hibernate.search.annotations.DateBridge;
 import org.hibernate.search.annotations.Resolution;
 
@@ -59,6 +59,10 @@ public class Entities implements Serializable {
     @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
     private String name;
 
+    @Column(nullable = false, unique = false)
+    @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+    private String groupId;
+
     @Column(nullable = true, unique = false)
     @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
     private String serialID;
@@ -70,18 +74,6 @@ public class Entities implements Serializable {
     @Column(nullable = true, unique = false)
     @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
     private String description;
-
-    @OneToMany(mappedBy = "entities")
-    private Set<Attributes> attributes = new HashSet<Attributes>();
-
-    @OneToMany(mappedBy = "entities")
-    private Set<NameQueries> nameQueries = new HashSet<NameQueries>();
-
-    @ManyToMany
-    private Set<Imports> imports = new HashSet<Imports>();
-
-    @ManyToMany
-    private Set<Sites> sites = new HashSet<Sites>();
 
     @OneToMany(mappedBy = "from")
     private Set<Relationships> from = new HashSet<Relationships>();
@@ -95,11 +87,24 @@ public class Entities implements Serializable {
     @OneToMany(mappedBy = "to")
     private Set<Relationships> to = new HashSet<Relationships>();
 
+    @OneToMany(mappedBy = "entities")
+    private Set<Attributes> attributes = new HashSet<Attributes>();
+
+    @OneToMany(mappedBy = "entities")
+    private Set<NameQueries> nameQueries = new HashSet<NameQueries>();
+
+    @ManyToMany
+    private Set<Imports> imports = new HashSet<Imports>();
+
+    @ManyToMany
+    private Set<Sites> sites = new HashSet<Sites>();
+
     public Entities() {
     }
 
-    public Entities(String name,String serialID,String table,String description) {
+    public Entities(String name,String groupId,String serialID,String table,String description) {
         this.name = name;
+        this.groupId = groupId;
         this.serialID = serialID;
         this.table = table;
         this.description = description;
@@ -139,6 +144,13 @@ public class Entities implements Serializable {
         this.name = name;
     }
 
+    public String getGroupId() {
+        return groupId;
+    }
+    public void setGroupId(String groupId) {
+        this.groupId = groupId;
+    }
+
     public String getSerialID() {
         return serialID;
     }
@@ -158,34 +170,6 @@ public class Entities implements Serializable {
     }
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public Set<Attributes> getAttributes() {
-        return attributes;
-    }
-    public void setAttributes(Set<Attributes> attributes) {
-        this.attributes = attributes;
-    }
-
-    public Set<NameQueries> getNameQueries() {
-        return nameQueries;
-    }
-    public void setNameQueries(Set<NameQueries> nameQueries) {
-        this.nameQueries = nameQueries;
-    }
-
-    public Set<Imports> getImports() {
-        return imports;
-    }
-    public void setImports(Set<Imports> imports) {
-        this.imports = imports;
-    }
-
-    public Set<Sites> getSites() {
-        return sites;
-    }
-    public void setSites(Set<Sites> sites) {
-        this.sites = sites;
     }
 
     public Set<Relationships> getFrom() {
@@ -214,6 +198,34 @@ public class Entities implements Serializable {
     }
     public void setTo(Set<Relationships> to) {
         this.to = to;
+    }
+
+    public Set<Attributes> getAttributes() {
+        return attributes;
+    }
+    public void setAttributes(Set<Attributes> attributes) {
+        this.attributes = attributes;
+    }
+
+    public Set<NameQueries> getNameQueries() {
+        return nameQueries;
+    }
+    public void setNameQueries(Set<NameQueries> nameQueries) {
+        this.nameQueries = nameQueries;
+    }
+
+    public Set<Imports> getImports() {
+        return imports;
+    }
+    public void setImports(Set<Imports> imports) {
+        this.imports = imports;
+    }
+
+    public Set<Sites> getSites() {
+        return sites;
+    }
+    public void setSites(Set<Sites> sites) {
+        this.sites = sites;
     }
 
    @Override

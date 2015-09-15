@@ -19,17 +19,17 @@ import co.simasoft.models.core.sites.*;
 import co.simasoft.models.dev.naifg.*;
 import co.simasoft.models.dev.naifg.dependencies.*;
 import org.hibernate.search.annotations.Analyze;
-import org.hibernate.search.annotations.Index;
-import org.hibernate.search.annotations.Field;
 import org.hibernate.search.annotations.DocumentId;
-import org.hibernate.search.annotations.Store;
+import org.hibernate.search.annotations.Field;
+import org.hibernate.search.annotations.Index;
 import org.hibernate.search.annotations.Indexed;
+import org.hibernate.search.annotations.Store;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.ManyToMany;
 import javax.persistence.Lob;
-import javax.persistence.TemporalType;
 import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import org.hibernate.search.annotations.DateBridge;
 import org.hibernate.search.annotations.Resolution;
 
@@ -56,22 +56,25 @@ public class Attributes implements Serializable {
     private String observations;
 
     @Column(nullable = true, unique = false)
-    private Boolean isCreate;
+    private Boolean isUnique;
 
     @Column(nullable = true, unique = false)
     private Boolean isSimplified;
 
     @Column(nullable = true, unique = false)
-    private Boolean isView;
+    private Boolean isCreate;
 
     @Column(nullable = true, unique = false)
     private Boolean isSearch;
 
     @Column(nullable = true, unique = false)
-    private Boolean isViewRelation;
+    private Boolean isView;
 
     @Column(nullable = true, unique = false)
     private Boolean isViewColumn;
+
+    @Column(nullable = true, unique = false)
+    private Boolean isViewRelation;
 
     @Column(nullable = false, unique = false)
     @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
@@ -90,9 +93,6 @@ public class Attributes implements Serializable {
     @Column(nullable = true, unique = false)
     private Boolean isNullable;
 
-    @Column(nullable = true, unique = false)
-    private Boolean isUnique;
-
     @ManyToMany
     private Set<Sites> sites = new HashSet<Sites>();
 
@@ -100,27 +100,27 @@ public class Attributes implements Serializable {
     private Set<AttributesProperties> attributesProperties = new HashSet<AttributesProperties>();
 
     @ManyToOne
-    private Entities entities;
+    private AttributesTypes attributesTypes;
 
     @ManyToOne
-    private AttributesTypes attributesTypes;
+    private Entities entities;
 
     public Attributes() {
     }
 
-    public Attributes(Boolean isCreate,Boolean isSimplified,Boolean isView,Boolean isSearch,Boolean isViewRelation,Boolean isViewColumn,String name,String description,Integer length,Integer precision,Boolean isNullable,Boolean isUnique) {
-        this.isCreate = isCreate;
+    public Attributes(Boolean isUnique,Boolean isSimplified,Boolean isCreate,Boolean isSearch,Boolean isView,Boolean isViewColumn,Boolean isViewRelation,String name,String description,Integer length,Integer precision,Boolean isNullable) {
+        this.isUnique = isUnique;
         this.isSimplified = isSimplified;
-        this.isView = isView;
+        this.isCreate = isCreate;
         this.isSearch = isSearch;
-        this.isViewRelation = isViewRelation;
+        this.isView = isView;
         this.isViewColumn = isViewColumn;
+        this.isViewRelation = isViewRelation;
         this.name = name;
         this.description = description;
         this.length = length;
         this.precision = precision;
         this.isNullable = isNullable;
-        this.isUnique = isUnique;
     }
 
     public Long getId() {
@@ -150,11 +150,11 @@ public class Attributes implements Serializable {
     public void setObservations(String observations) {
         this.observations = observations;
     }
-    public Boolean getIsCreate() {
-        return isCreate;
+    public Boolean getIsUnique() {
+        return isUnique;
     }
-    public void setIsCreate(Boolean isCreate) {
-        this.isCreate = isCreate;
+    public void setIsUnique(Boolean isUnique) {
+        this.isUnique = isUnique;
     }
 
     public Boolean getIsSimplified() {
@@ -164,11 +164,11 @@ public class Attributes implements Serializable {
         this.isSimplified = isSimplified;
     }
 
-    public Boolean getIsView() {
-        return isView;
+    public Boolean getIsCreate() {
+        return isCreate;
     }
-    public void setIsView(Boolean isView) {
-        this.isView = isView;
+    public void setIsCreate(Boolean isCreate) {
+        this.isCreate = isCreate;
     }
 
     public Boolean getIsSearch() {
@@ -178,11 +178,11 @@ public class Attributes implements Serializable {
         this.isSearch = isSearch;
     }
 
-    public Boolean getIsViewRelation() {
-        return isViewRelation;
+    public Boolean getIsView() {
+        return isView;
     }
-    public void setIsViewRelation(Boolean isViewRelation) {
-        this.isViewRelation = isViewRelation;
+    public void setIsView(Boolean isView) {
+        this.isView = isView;
     }
 
     public Boolean getIsViewColumn() {
@@ -190,6 +190,13 @@ public class Attributes implements Serializable {
     }
     public void setIsViewColumn(Boolean isViewColumn) {
         this.isViewColumn = isViewColumn;
+    }
+
+    public Boolean getIsViewRelation() {
+        return isViewRelation;
+    }
+    public void setIsViewRelation(Boolean isViewRelation) {
+        this.isViewRelation = isViewRelation;
     }
 
     public String getName() {
@@ -227,13 +234,6 @@ public class Attributes implements Serializable {
         this.isNullable = isNullable;
     }
 
-    public Boolean getIsUnique() {
-        return isUnique;
-    }
-    public void setIsUnique(Boolean isUnique) {
-        this.isUnique = isUnique;
-    }
-
     public Set<Sites> getSites() {
         return sites;
     }
@@ -248,18 +248,18 @@ public class Attributes implements Serializable {
         this.attributesProperties = attributesProperties;
     }
 
-    public Entities getEntities() {
-        return entities;
-    }
-    public void setEntities(Entities entities) {
-        this.entities = entities;
-    }
-
     public AttributesTypes getAttributesTypes() {
         return attributesTypes;
     }
     public void setAttributesTypes(AttributesTypes attributesTypes) {
         this.attributesTypes = attributesTypes;
+    }
+
+    public Entities getEntities() {
+        return entities;
+    }
+    public void setEntities(Entities entities) {
+        this.entities = entities;
     }
 
    @Override

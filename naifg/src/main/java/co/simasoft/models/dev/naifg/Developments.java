@@ -19,17 +19,17 @@ import co.simasoft.models.core.sites.*;
 import co.simasoft.models.dev.naifg.*;
 import co.simasoft.models.dev.naifg.dependencies.*;
 import org.hibernate.search.annotations.Analyze;
-import org.hibernate.search.annotations.Index;
-import org.hibernate.search.annotations.Field;
 import org.hibernate.search.annotations.DocumentId;
-import org.hibernate.search.annotations.Store;
+import org.hibernate.search.annotations.Field;
+import org.hibernate.search.annotations.Index;
 import org.hibernate.search.annotations.Indexed;
+import org.hibernate.search.annotations.Store;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.ManyToMany;
 import javax.persistence.Lob;
-import javax.persistence.TemporalType;
 import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import org.hibernate.search.annotations.DateBridge;
 import org.hibernate.search.annotations.Resolution;
 
@@ -70,11 +70,11 @@ public class Developments implements Serializable {
 
     @Column(nullable = true, unique = false)
     @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-    private String code;
+    private String version;
 
     @Column(nullable = true, unique = false)
     @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-    private String version;
+    private String code;
 
     @ManyToMany
     private Set<Sites> sites = new HashSet<Sites>();
@@ -85,12 +85,12 @@ public class Developments implements Serializable {
     public Developments() {
     }
 
-    public Developments(Date date,String artifactId,String groupId,String code,String version) {
+    public Developments(Date date,String artifactId,String groupId,String version,String code) {
         this.date = date;
         this.artifactId = artifactId;
         this.groupId = groupId;
-        this.code = code;
         this.version = version;
+        this.code = code;
     }
 
     public Long getId() {
@@ -141,18 +141,18 @@ public class Developments implements Serializable {
         this.groupId = groupId;
     }
 
-    public String getCode() {
-        return code;
-    }
-    public void setCode(String code) {
-        this.code = code;
-    }
-
     public String getVersion() {
         return version;
     }
     public void setVersion(String version) {
         this.version = version;
+    }
+
+    public String getCode() {
+        return code;
+    }
+    public void setCode(String code) {
+        this.code = code;
     }
 
     public Set<Sites> getSites() {

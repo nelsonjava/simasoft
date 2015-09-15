@@ -1,0 +1,1138 @@
+{
+  "GroupIds": [
+    {
+      "artifactId": "co.simasoft.models.core.books",
+      "groupId": "co.simasoft.models.core.books",
+      "version": "null",
+      "code": "null"
+    },
+    {
+      "artifactId": "co.simasoft.models.core.archival",
+      "groupId": "co.simasoft.models.core.archival",
+      "version": "null",
+      "code": "null"
+    },
+    {
+      "artifactId": "co.simasoft.models.core.companies",
+      "groupId": "co.simasoft.models.core.companies",
+      "version": "null",
+      "code": "null"
+    },
+    {
+      "artifactId": "co.simasoft.models.core.regulations",
+      "groupId": "co.simasoft.models.core.regulations",
+      "version": "null",
+      "code": "null"
+    },
+    {
+      "artifactId": "co.simasoft.models.core.sites",
+      "groupId": "co.simasoft.models.core.sites",
+      "version": "null",
+      "code": "null"
+    }
+  ],
+  "Models": [
+    {
+      "artifactId": "core",
+      "groupId": "co.simasoft.models.core",
+      "version": "1.0-SNAPSHOT",
+      "code": "null"
+    }
+  ],
+  "ModelsGroupIds": [
+    {
+      "isSimplified": false,
+      "isIsolated": false,
+      "GroupIds.groupId": "co.simasoft.models.core.books",
+      "Models.artifactId": "core"
+    },
+    {
+      "isSimplified": false,
+      "isIsolated": false,
+      "GroupIds.groupId": "co.simasoft.models.core.archival",
+      "Models.artifactId": "core"
+    },
+    {
+      "isSimplified": false,
+      "isIsolated": false,
+      "GroupIds.groupId": "co.simasoft.models.core.companies",
+      "Models.artifactId": "core"
+    },
+    {
+      "isSimplified": false,
+      "isIsolated": false,
+      "GroupIds.groupId": "co.simasoft.models.core.regulations",
+      "Models.artifactId": "core"
+    },
+    {
+      "isSimplified": false,
+      "isIsolated": false,
+      "GroupIds.groupId": "co.simasoft.models.core.sites",
+      "Models.artifactId": "core"
+    }
+  ],
+  "Developments": [
+    {
+      "artifactId": "core",
+      "groupId": "co.simasoft",
+      "version": "1.0-SNAPSHOT",
+      "code": "null",
+      "Models.artifactId": "core"
+    }
+  ],
+  "Entities": [
+    {
+      "name": "Books",
+      "groupId": "co.simasoft.models.core.books",
+      "groupIds": "co.simasoft.models.core.books"
+    },
+    {
+      "name": "Chapters",
+      "groupId": "co.simasoft.models.core.books",
+      "groupIds": "co.simasoft.models.core.books"
+    },
+    {
+      "name": "BooksTypes",
+      "groupId": "co.simasoft.models.core.books",
+      "groupIds": "co.simasoft.models.core.books"
+    },
+    {
+      "name": "OriginalOrder",
+      "groupId": "co.simasoft.models.core.archival",
+      "groupIds": "co.simasoft.models.core.archival"
+    },
+    {
+      "name": "SectionsTypes",
+      "groupId": "co.simasoft.models.core.archival",
+      "groupIds": "co.simasoft.models.core.archival"
+    },
+    {
+      "name": "FrequentlyQuery",
+      "groupId": "co.simasoft.models.core.archival",
+      "groupIds": "co.simasoft.models.core.archival"
+    },
+    {
+      "name": "Series",
+      "groupId": "co.simasoft.models.core.archival",
+      "groupIds": "co.simasoft.models.core.archival"
+    },
+    {
+      "name": "Funds",
+      "groupId": "co.simasoft.models.core.archival",
+      "groupIds": "co.simasoft.models.core.archival"
+    },
+    {
+      "name": "Sections",
+      "groupId": "co.simasoft.models.core.archival",
+      "groupIds": "co.simasoft.models.core.archival"
+    },
+    {
+      "name": "DocumentalsUnits",
+      "groupId": "co.simasoft.models.core.archival",
+      "groupIds": "co.simasoft.models.core.archival"
+    },
+    {
+      "name": "DocumentalsSupports",
+      "groupId": "co.simasoft.models.core.archival",
+      "groupIds": "co.simasoft.models.core.archival"
+    },
+    {
+      "name": "InventoryFinality",
+      "groupId": "co.simasoft.models.core.archival",
+      "groupIds": "co.simasoft.models.core.archival"
+    },
+    {
+      "name": "ConservationUnits",
+      "groupId": "co.simasoft.models.core.archival",
+      "groupIds": "co.simasoft.models.core.archival"
+    },
+    {
+      "name": "DocumentalRetention",
+      "groupId": "co.simasoft.models.core.archival",
+      "groupIds": "co.simasoft.models.core.archival"
+    },
+    {
+      "name": "DocumentalInventory",
+      "groupId": "co.simasoft.models.core.archival",
+      "groupIds": "co.simasoft.models.core.archival"
+    },
+    {
+      "name": "FundsLife",
+      "groupId": "co.simasoft.models.core.archival",
+      "groupIds": "co.simasoft.models.core.archival"
+    },
+    {
+      "name": "FinalDisposition",
+      "groupId": "co.simasoft.models.core.archival",
+      "groupIds": "co.simasoft.models.core.archival"
+    },
+    {
+      "name": "DocumentsTypes",
+      "groupId": "co.simasoft.models.core.archival",
+      "groupIds": "co.simasoft.models.core.archival"
+    },
+    {
+      "name": "Trd",
+      "groupId": "co.simasoft.models.core.archival",
+      "groupIds": "co.simasoft.models.core.archival"
+    },
+    {
+      "name": "Companies",
+      "groupId": "co.simasoft.models.core.companies",
+      "groupIds": "co.simasoft.models.core.companies"
+    },
+    {
+      "name": "Brands",
+      "groupId": "co.simasoft.models.core.companies",
+      "groupIds": "co.simasoft.models.core.companies"
+    },
+    {
+      "name": "RegulationsText",
+      "groupId": "co.simasoft.models.core.regulations",
+      "groupIds": "co.simasoft.models.core.regulations"
+    },
+    {
+      "name": "RegulationsTypes",
+      "groupId": "co.simasoft.models.core.regulations",
+      "groupIds": "co.simasoft.models.core.regulations"
+    },
+    {
+      "name": "Regulations",
+      "groupId": "co.simasoft.models.core.regulations",
+      "groupIds": "co.simasoft.models.core.regulations"
+    },
+    {
+      "name": "Sites",
+      "groupId": "co.simasoft.models.core.sites",
+      "groupIds": "co.simasoft.models.core.sites"
+    },
+    {
+      "name": "SitesTypes",
+      "groupId": "co.simasoft.models.core.sites",
+      "groupIds": "co.simasoft.models.core.sites"
+    }
+  ],
+  "GroupIdsEntities": [
+    {
+      "entity": "Books",
+      "groupIds": "co.simasoft.models.core.books",
+      "isSimplified": false
+    },
+    {
+      "entity": "Chapters",
+      "groupIds": "co.simasoft.models.core.books",
+      "isSimplified": false
+    },
+    {
+      "entity": "BooksTypes",
+      "groupIds": "co.simasoft.models.core.books",
+      "isSimplified": false
+    },
+    {
+      "entity": "OriginalOrder",
+      "groupIds": "co.simasoft.models.core.archival",
+      "isSimplified": false
+    },
+    {
+      "entity": "SectionsTypes",
+      "groupIds": "co.simasoft.models.core.archival",
+      "isSimplified": false
+    },
+    {
+      "entity": "FrequentlyQuery",
+      "groupIds": "co.simasoft.models.core.archival",
+      "isSimplified": false
+    },
+    {
+      "entity": "Series",
+      "groupIds": "co.simasoft.models.core.archival",
+      "isSimplified": false
+    },
+    {
+      "entity": "Funds",
+      "groupIds": "co.simasoft.models.core.archival",
+      "isSimplified": false
+    },
+    {
+      "entity": "Sections",
+      "groupIds": "co.simasoft.models.core.archival",
+      "isSimplified": false
+    },
+    {
+      "entity": "DocumentalsUnits",
+      "groupIds": "co.simasoft.models.core.archival",
+      "isSimplified": false
+    },
+    {
+      "entity": "DocumentalsSupports",
+      "groupIds": "co.simasoft.models.core.archival",
+      "isSimplified": false
+    },
+    {
+      "entity": "InventoryFinality",
+      "groupIds": "co.simasoft.models.core.archival",
+      "isSimplified": false
+    },
+    {
+      "entity": "ConservationUnits",
+      "groupIds": "co.simasoft.models.core.archival",
+      "isSimplified": false
+    },
+    {
+      "entity": "DocumentalRetention",
+      "groupIds": "co.simasoft.models.core.archival",
+      "isSimplified": false
+    },
+    {
+      "entity": "DocumentalInventory",
+      "groupIds": "co.simasoft.models.core.archival",
+      "isSimplified": false
+    },
+    {
+      "entity": "FundsLife",
+      "groupIds": "co.simasoft.models.core.archival",
+      "isSimplified": false
+    },
+    {
+      "entity": "FinalDisposition",
+      "groupIds": "co.simasoft.models.core.archival",
+      "isSimplified": false
+    },
+    {
+      "entity": "DocumentsTypes",
+      "groupIds": "co.simasoft.models.core.archival",
+      "isSimplified": false
+    },
+    {
+      "entity": "Trd",
+      "groupIds": "co.simasoft.models.core.archival",
+      "isSimplified": false
+    },
+    {
+      "entity": "Companies",
+      "groupIds": "co.simasoft.models.core.companies",
+      "isSimplified": false
+    },
+    {
+      "entity": "Brands",
+      "groupIds": "co.simasoft.models.core.companies",
+      "isSimplified": false
+    },
+    {
+      "entity": "RegulationsText",
+      "groupIds": "co.simasoft.models.core.regulations",
+      "isSimplified": false
+    },
+    {
+      "entity": "RegulationsTypes",
+      "groupIds": "co.simasoft.models.core.regulations",
+      "isSimplified": false
+    },
+    {
+      "entity": "Regulations",
+      "groupIds": "co.simasoft.models.core.regulations",
+      "isSimplified": false
+    },
+    {
+      "entity": "Sites",
+      "groupIds": "co.simasoft.models.core.sites",
+      "isSimplified": false
+    },
+    {
+      "entity": "SitesTypes",
+      "groupIds": "co.simasoft.models.core.sites",
+      "isSimplified": false
+    }
+  ],
+  "Attributes": [
+    {
+      "entity": "Books",
+      "name": "code",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "String"
+    },
+    {
+      "entity": "Books",
+      "name": "content",
+      "isNullable": false,
+      "isUnique": false,
+      "AttributesTypes": "String"
+    },
+    {
+      "entity": "Books",
+      "name": "name",
+      "isNullable": false,
+      "isUnique": true,
+      "AttributesTypes": "String"
+    },
+    {
+      "entity": "Chapters",
+      "name": "code",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "String"
+    },
+    {
+      "entity": "Chapters",
+      "name": "content",
+      "isNullable": false,
+      "isUnique": false,
+      "AttributesTypes": "String"
+    },
+    {
+      "entity": "Chapters",
+      "name": "name",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "String"
+    },
+    {
+      "entity": "BooksTypes",
+      "name": "name",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "String"
+    },
+    {
+      "entity": "OriginalOrder",
+      "name": "entryDate",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "Date"
+    },
+    {
+      "entity": "OriginalOrder",
+      "name": "startDate",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "Date"
+    },
+    {
+      "entity": "OriginalOrder",
+      "name": "finalDate",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "Date"
+    },
+    {
+      "entity": "OriginalOrder",
+      "name": "folios",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "Integer"
+    },
+    {
+      "entity": "OriginalOrder",
+      "name": "located",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "String"
+    },
+    {
+      "entity": "SectionsTypes",
+      "name": "name",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "String"
+    },
+    {
+      "entity": "FrequentlyQuery",
+      "name": "name",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "Integer"
+    },
+    {
+      "entity": "Series",
+      "name": "name",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "String"
+    },
+    {
+      "entity": "Series",
+      "name": "code",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "String"
+    },
+    {
+      "entity": "Series",
+      "name": "link",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "String"
+    },
+    {
+      "entity": "Series",
+      "name": "located",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "String"
+    },
+    {
+      "entity": "Funds",
+      "name": "code",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "String"
+    },
+    {
+      "entity": "Funds",
+      "name": "name",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "String"
+    },
+    {
+      "entity": "Sections",
+      "name": "email",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "String"
+    },
+    {
+      "entity": "Sections",
+      "name": "code",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "String"
+    },
+    {
+      "entity": "Sections",
+      "name": "name",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "String"
+    },
+    {
+      "entity": "DocumentalsUnits",
+      "name": "creationDate",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "Date"
+    },
+    {
+      "entity": "DocumentalsUnits",
+      "name": "name",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "String"
+    },
+    {
+      "entity": "DocumentalsSupports",
+      "name": "name",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "String"
+    },
+    {
+      "entity": "DocumentalsSupports",
+      "name": "code",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "String"
+    },
+    {
+      "entity": "InventoryFinality",
+      "name": "name",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "String"
+    },
+    {
+      "entity": "ConservationUnits",
+      "name": "code",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "String"
+    },
+    {
+      "entity": "ConservationUnits",
+      "name": "name",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "String"
+    },
+    {
+      "entity": "DocumentalRetention",
+      "name": "year",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "Integer"
+    },
+    {
+      "entity": "DocumentalRetention",
+      "name": "name",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "String"
+    },
+    {
+      "entity": "DocumentalInventory",
+      "name": "folios",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "Integer"
+    },
+    {
+      "entity": "DocumentalInventory",
+      "name": "quantity",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "Integer"
+    },
+    {
+      "entity": "DocumentalInventory",
+      "name": "startDate",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "Date"
+    },
+    {
+      "entity": "DocumentalInventory",
+      "name": "finalDate",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "Date"
+    },
+    {
+      "entity": "DocumentalInventory",
+      "name": "debugDate",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "Date"
+    },
+    {
+      "entity": "DocumentalInventory",
+      "name": "finalDisposition",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "String"
+    },
+    {
+      "entity": "DocumentalInventory",
+      "name": "deliveryDate",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "Date"
+    },
+    {
+      "entity": "DocumentalInventory",
+      "name": "transferNumber",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "Integer"
+    },
+    {
+      "entity": "FundsLife",
+      "name": "name",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "String"
+    },
+    {
+      "entity": "FundsLife",
+      "name": "isOpen",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "Boolean"
+    },
+    {
+      "entity": "FinalDisposition",
+      "name": "name",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "String"
+    },
+    {
+      "entity": "DocumentsTypes",
+      "name": "name",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "String"
+    },
+    {
+      "entity": "Trd",
+      "name": "procedures",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "String"
+    },
+    {
+      "entity": "Companies",
+      "name": "address",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "String"
+    },
+    {
+      "entity": "Companies",
+      "name": "nit",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "String"
+    },
+    {
+      "entity": "Companies",
+      "name": "email",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "String"
+    },
+    {
+      "entity": "Companies",
+      "name": "telephones",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "String"
+    },
+    {
+      "entity": "Companies",
+      "name": "name",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "String"
+    },
+    {
+      "entity": "Brands",
+      "name": "name",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "String"
+    },
+    {
+      "entity": "RegulationsText",
+      "name": "name",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "String"
+    },
+    {
+      "entity": "RegulationsText",
+      "name": "code",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "String"
+    },
+    {
+      "entity": "RegulationsText",
+      "name": "text",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "String"
+    },
+    {
+      "entity": "RegulationsTypes",
+      "name": "name",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "String"
+    },
+    {
+      "entity": "Regulations",
+      "name": "date",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "Date"
+    },
+    {
+      "entity": "Regulations",
+      "name": "name",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "String"
+    },
+    {
+      "entity": "Sites",
+      "name": "abc",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "String"
+    },
+    {
+      "entity": "Sites",
+      "name": "link",
+      "isNullable": false,
+      "isUnique": true,
+      "AttributesTypes": "String"
+    },
+    {
+      "entity": "Sites",
+      "name": "title",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "String"
+    },
+    {
+      "entity": "SitesTypes",
+      "name": "name",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "String"
+    }
+  ],
+  "Relationships": [
+    {
+      "From": "Books",
+      "To": "Chapters",
+      "isOptionality": true,
+      "isEmbedded": false,
+      "isSimplified": null,
+      "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+    },
+    {
+      "From": "Books",
+      "To": "Sites",
+      "isOptionality": true,
+      "isEmbedded": false,
+      "isSimplified": null,
+      "Cardinalities": "Muchos a Muchos Bidirecccional No.7"
+    },
+    {
+      "From": "Chapters",
+      "To": "Chapters",
+      "isOptionality": true,
+      "isEmbedded": false,
+      "isSimplified": null,
+      "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+    },
+    {
+      "From": "Chapters",
+      "To": "RegulationsText",
+      "isOptionality": true,
+      "isEmbedded": false,
+      "isSimplified": null,
+      "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+    },
+    {
+      "From": "Chapters",
+      "To": "Sites",
+      "isOptionality": true,
+      "isEmbedded": false,
+      "isSimplified": null,
+      "Cardinalities": "Muchos a Muchos Bidirecccional No.7"
+    },
+    {
+      "From": "BooksTypes",
+      "To": "Books",
+      "isOptionality": true,
+      "isEmbedded": false,
+      "isSimplified": null,
+      "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+    },
+    {
+      "From": "BooksTypes",
+      "To": "Sites",
+      "isOptionality": true,
+      "isEmbedded": false,
+      "isSimplified": null,
+      "Cardinalities": "Muchos a Muchos Bidirecccional No.7"
+    },
+    {
+      "From": "BooksTypes",
+      "To": "BooksTypes",
+      "isOptionality": true,
+      "isEmbedded": false,
+      "isSimplified": null,
+      "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+    },
+    {
+      "From": "OriginalOrder",
+      "To": "Sites",
+      "isOptionality": true,
+      "isEmbedded": false,
+      "isSimplified": null,
+      "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+    },
+    {
+      "From": "SectionsTypes",
+      "To": "Sections",
+      "isOptionality": true,
+      "isEmbedded": false,
+      "isSimplified": null,
+      "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+    },
+    {
+      "From": "FrequentlyQuery",
+      "To": "DocumentalsUnits",
+      "isOptionality": true,
+      "isEmbedded": false,
+      "isSimplified": null,
+      "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+    },
+    {
+      "From": "Series",
+      "To": "Chapters",
+      "isOptionality": true,
+      "isEmbedded": false,
+      "isSimplified": null,
+      "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+    },
+    {
+      "From": "Series",
+      "To": "RegulationsText",
+      "isOptionality": true,
+      "isEmbedded": false,
+      "isSimplified": null,
+      "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+    },
+    {
+      "From": "Series",
+      "To": "Sites",
+      "isOptionality": true,
+      "isEmbedded": false,
+      "isSimplified": null,
+      "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+    },
+    {
+      "From": "Series",
+      "To": "Series",
+      "isOptionality": true,
+      "isEmbedded": false,
+      "isSimplified": null,
+      "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+    },
+    {
+      "From": "Series",
+      "To": "DocumentalsUnits",
+      "isOptionality": true,
+      "isEmbedded": false,
+      "isSimplified": null,
+      "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+    },
+    {
+      "From": "Series",
+      "To": "FinalDisposition",
+      "isOptionality": true,
+      "isEmbedded": false,
+      "isSimplified": null,
+      "Cardinalities": "Muchos a Muchos Bidirecccional No.7"
+    },
+    {
+      "From": "Funds",
+      "To": "Sections",
+      "isOptionality": true,
+      "isEmbedded": false,
+      "isSimplified": null,
+      "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+    },
+    {
+      "From": "Sections",
+      "To": "Sections",
+      "isOptionality": true,
+      "isEmbedded": false,
+      "isSimplified": null,
+      "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+    },
+    {
+      "From": "Sections",
+      "To": "Series",
+      "isOptionality": true,
+      "isEmbedded": false,
+      "isSimplified": null,
+      "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+    },
+    {
+      "From": "DocumentalsUnits",
+      "To": "OriginalOrder",
+      "isOptionality": true,
+      "isEmbedded": false,
+      "isSimplified": null,
+      "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+    },
+    {
+      "From": "DocumentalsUnits",
+      "To": "DocumentalInventory",
+      "isOptionality": true,
+      "isEmbedded": false,
+      "isSimplified": null,
+      "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+    },
+    {
+      "From": "DocumentalsSupports",
+      "To": "OriginalOrder",
+      "isOptionality": true,
+      "isEmbedded": false,
+      "isSimplified": null,
+      "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+    },
+    {
+      "From": "InventoryFinality",
+      "To": "DocumentalInventory",
+      "isOptionality": true,
+      "isEmbedded": false,
+      "isSimplified": null,
+      "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+    },
+    {
+      "From": "ConservationUnits",
+      "To": "DocumentalsUnits",
+      "isOptionality": true,
+      "isEmbedded": false,
+      "isSimplified": null,
+      "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+    },
+    {
+      "From": "DocumentalRetention",
+      "To": "Trd",
+      "isOptionality": true,
+      "isEmbedded": false,
+      "isSimplified": null,
+      "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+    },
+    {
+      "From": "DocumentalRetention",
+      "To": "Trd",
+      "isOptionality": true,
+      "isEmbedded": false,
+      "isSimplified": null,
+      "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+    },
+    {
+      "From": "FundsLife",
+      "To": "Funds",
+      "isOptionality": true,
+      "isEmbedded": false,
+      "isSimplified": null,
+      "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+    },
+    {
+      "From": "DocumentsTypes",
+      "To": "OriginalOrder",
+      "isOptionality": true,
+      "isEmbedded": false,
+      "isSimplified": null,
+      "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+    },
+    {
+      "From": "DocumentsTypes",
+      "To": "Series",
+      "isOptionality": true,
+      "isEmbedded": false,
+      "isSimplified": null,
+      "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+    },
+    {
+      "From": "Trd",
+      "To": "Series",
+      "isOptionality": true,
+      "isEmbedded": false,
+      "isSimplified": null,
+      "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+    },
+    {
+      "From": "Companies",
+      "To": "Sites",
+      "isOptionality": true,
+      "isEmbedded": false,
+      "isSimplified": null,
+      "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+    },
+    {
+      "From": "Companies",
+      "To": "Funds",
+      "isOptionality": true,
+      "isEmbedded": false,
+      "isSimplified": null,
+      "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+    },
+    {
+      "From": "Companies",
+      "To": "Brands",
+      "isOptionality": true,
+      "isEmbedded": false,
+      "isSimplified": null,
+      "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+    },
+    {
+      "From": "Companies",
+      "To": "Companies",
+      "isOptionality": true,
+      "isEmbedded": false,
+      "isSimplified": null,
+      "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+    },
+    {
+      "From": "Companies",
+      "To": "RegulationsText",
+      "isOptionality": true,
+      "isEmbedded": false,
+      "isSimplified": null,
+      "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+    },
+    {
+      "From": "Brands",
+      "To": "RegulationsText",
+      "isOptionality": true,
+      "isEmbedded": false,
+      "isSimplified": null,
+      "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+    },
+    {
+      "From": "Brands",
+      "To": "Sites",
+      "isOptionality": true,
+      "isEmbedded": false,
+      "isSimplified": null,
+      "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+    },
+    {
+      "From": "RegulationsText",
+      "To": "RegulationsText",
+      "isOptionality": true,
+      "isEmbedded": false,
+      "isSimplified": null,
+      "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+    },
+    {
+      "From": "RegulationsTypes",
+      "To": "Regulations",
+      "isOptionality": true,
+      "isEmbedded": false,
+      "isSimplified": null,
+      "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+    },
+    {
+      "From": "RegulationsTypes",
+      "To": "RegulationsTypes",
+      "isOptionality": true,
+      "isEmbedded": false,
+      "isSimplified": null,
+      "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+    },
+    {
+      "From": "Regulations",
+      "To": "Sites",
+      "isOptionality": true,
+      "isEmbedded": false,
+      "isSimplified": null,
+      "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+    },
+    {
+      "From": "Regulations",
+      "To": "RegulationsText",
+      "isOptionality": true,
+      "isEmbedded": false,
+      "isSimplified": null,
+      "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+    },
+    {
+      "From": "SitesTypes",
+      "To": "Sites",
+      "isOptionality": true,
+      "isEmbedded": false,
+      "isSimplified": null,
+      "Cardinalities": "Muchos a Muchos Bidirecccional No.7"
+    },
+    {
+      "From": "SitesTypes",
+      "To": "SitesTypes",
+      "isOptionality": true,
+      "isEmbedded": false,
+      "isSimplified": null,
+      "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+    }
+  ]
+}

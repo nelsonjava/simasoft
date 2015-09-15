@@ -40,14 +40,14 @@ public class naifgSetupJson {
 
     FindBean findBean = new FindBean();
 
-    private static final Logger log = Logger.getLogger(naifgSetup.class.getName());
+    private static final Logger log = Logger.getLogger(naifgSetupJson.class.getName());
     private static final String filePathh = "\\docs\\naifgSetup.json";
 
     public void data(Part file1) throws IOException  {
     try {
-      
+
          FileTxt f = new FileTxt();
-         
+
          f.line("paso1");
 
          String fileUpload = getFilename(file1);
@@ -186,22 +186,52 @@ public class naifgSetupJson {
                 JSONObject entityObj = (JSONObject) iteEntities.next();
 
                 String entityName = (String)entityObj.get("name");
-                String entityGroupId = (String)entityObj.get("groupIds");
+                String entityGroupId = (String)entityObj.get("groupId");
 
                 f.line("name:"+entityName);
-                f.line("groupIds:"+entityGroupId);
+                f.line("groupId:"+entityGroupId);
                 f.line("");
 
                 Entities entity = new Entities();
                 entity.setName(entityName);
-                entity.setIsSimplified(false);
+                entity.setGroupId(entityGroupId);
 
                 GroupIds entitiesGroupId = new GroupIds();
                 entitiesGroupId = findBean.groupIdGroupIds(entityGroupId,em);
 
-                entity.setGroupIds(entitiesGroupId);
+//                entity.setGroupIds(entitiesGroupId);
                 em.persist(entity);
                 em.flush();
+
+         }
+
+         // get an array from the JSON object
+         JSONArray arrayGroupIdsEntities = (JSONArray) jsonObject.get("GroupIdsEntities");
+         Iterator iteGroupIdsEntities = arrayGroupIdsEntities.iterator();
+         while (iteGroupIdsEntities.hasNext()) {
+
+                JSONObject groupIdsEntitiesObj = (JSONObject) iteGroupIdsEntities.next();
+
+                String groupIdsEntitiesName = (String)groupIdsEntitiesObj.get("entity");
+                String groupIdsEntitiesGroupId = (String)groupIdsEntitiesObj.get("groupIds");
+                Boolean groupIdsEntitiesIsSimplified = (Boolean)groupIdsEntitiesObj.get("isSimplified");
+
+                GroupIds groupId1 = new GroupIds();
+                groupId1 = findBean.groupIdGroupIds(groupIdsEntitiesGroupId,em);
+
+                Entities entity1 = new Entities();
+                entity1 = findBean.nameEntities(groupIdsEntitiesName,em);
+
+                GroupIdsEntities groupIdsEntities = new GroupIdsEntities();
+                groupIdsEntities.setGroupIds(groupId1);
+                groupIdsEntities.setEntities(entity1);
+                groupIdsEntities.setIsSimplified(groupIdsEntitiesIsSimplified);
+                em.persist(groupIdsEntities);
+                em.flush();
+
+                f.line("name:"+groupIdsEntitiesName);
+                f.line("groupId:"+groupIdsEntitiesGroupId);
+                f.line("");
 
          }
 

@@ -19,17 +19,17 @@ import co.simasoft.models.core.sites.*;
 import co.simasoft.models.dev.naifg.*;
 import co.simasoft.models.dev.naifg.dependencies.*;
 import org.hibernate.search.annotations.Analyze;
-import org.hibernate.search.annotations.Index;
-import org.hibernate.search.annotations.Field;
 import org.hibernate.search.annotations.DocumentId;
-import org.hibernate.search.annotations.Store;
+import org.hibernate.search.annotations.Field;
+import org.hibernate.search.annotations.Index;
 import org.hibernate.search.annotations.Indexed;
+import org.hibernate.search.annotations.Store;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.ManyToMany;
 import javax.persistence.Lob;
-import javax.persistence.TemporalType;
 import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import org.hibernate.search.annotations.DateBridge;
 import org.hibernate.search.annotations.Resolution;
 
@@ -55,10 +55,13 @@ public class GroupIds implements Serializable {
     @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
     private String observations;
 
-    @Column(nullable = true, unique = false)
-    @Temporal(TemporalType.DATE)
-    @DateBridge(resolution = Resolution.YEAR)
-    private Date date;
+    @Column(nullable = false, unique = true)
+    @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+    private String artifactId;
+
+    @Column(nullable = false, unique = true)
+    @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+    private String groupId;
 
     @Column(nullable = true, unique = false)
     @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
@@ -68,13 +71,13 @@ public class GroupIds implements Serializable {
     @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
     private String code;
 
-    @Column(nullable = false, unique = true)
-    @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-    private String artifactId;
+    @Column(nullable = true, unique = false)
+    @Temporal(TemporalType.DATE)
+    @DateBridge(resolution = Resolution.YEAR)
+    private Date date;
 
-    @Column(nullable = false, unique = true)
-    @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-    private String groupId;
+    @OneToMany(mappedBy = "groupIds")
+    private Set<GroupIdsFiles> groupIdsFiles = new HashSet<GroupIdsFiles>();
 
     @OneToMany(mappedBy = "groupIds")
     private Set<ModelsGroupIds> modelsGroupIds = new HashSet<ModelsGroupIds>();
@@ -82,18 +85,15 @@ public class GroupIds implements Serializable {
     @OneToMany(mappedBy = "groupIds")
     private Set<GroupIdsEntities> groupIdsEntities = new HashSet<GroupIdsEntities>();
 
-    @OneToMany(mappedBy = "groupIds")
-    private Set<GroupIdsFiles> groupIdsFiles = new HashSet<GroupIdsFiles>();
-
     public GroupIds() {
     }
 
-    public GroupIds(Date date,String version,String code,String artifactId,String groupId) {
-        this.date = date;
-        this.version = version;
-        this.code = code;
+    public GroupIds(String artifactId,String groupId,String version,String code,Date date) {
         this.artifactId = artifactId;
         this.groupId = groupId;
+        this.version = version;
+        this.code = code;
+        this.date = date;
     }
 
     public Long getId() {
@@ -123,11 +123,18 @@ public class GroupIds implements Serializable {
     public void setObservations(String observations) {
         this.observations = observations;
     }
-    public Date getDate() {
-        return date;
+    public String getArtifactId() {
+        return artifactId;
     }
-    public void setDate(Date date) {
-        this.date = date;
+    public void setArtifactId(String artifactId) {
+        this.artifactId = artifactId;
+    }
+
+    public String getGroupId() {
+        return groupId;
+    }
+    public void setGroupId(String groupId) {
+        this.groupId = groupId;
     }
 
     public String getVersion() {
@@ -144,18 +151,18 @@ public class GroupIds implements Serializable {
         this.code = code;
     }
 
-    public String getArtifactId() {
-        return artifactId;
+    public Date getDate() {
+        return date;
     }
-    public void setArtifactId(String artifactId) {
-        this.artifactId = artifactId;
+    public void setDate(Date date) {
+        this.date = date;
     }
 
-    public String getGroupId() {
-        return groupId;
+    public Set<GroupIdsFiles> getGroupIdsFiles() {
+        return groupIdsFiles;
     }
-    public void setGroupId(String groupId) {
-        this.groupId = groupId;
+    public void setGroupIdsFiles(Set<GroupIdsFiles> groupIdsFiles) {
+        this.groupIdsFiles = groupIdsFiles;
     }
 
     public Set<ModelsGroupIds> getModelsGroupIds() {
@@ -170,13 +177,6 @@ public class GroupIds implements Serializable {
     }
     public void setGroupIdsEntities(Set<GroupIdsEntities> groupIdsEntities) {
         this.groupIdsEntities = groupIdsEntities;
-    }
-
-    public Set<GroupIdsFiles> getGroupIdsFiles() {
-        return groupIdsFiles;
-    }
-    public void setGroupIdsFiles(Set<GroupIdsFiles> groupIdsFiles) {
-        this.groupIdsFiles = groupIdsFiles;
     }
 
    @Override

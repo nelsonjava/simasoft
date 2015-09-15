@@ -58,7 +58,7 @@ public class DevelopmentsGen extends FileTxt {
 
     @PersistenceContext(unitName = "naifgPU-JTA")
     private EntityManager em;
-    
+
     FindBean findBean = new FindBean();
 
     public void data(Developments developments) throws IOException {
@@ -68,8 +68,6 @@ public class DevelopmentsGen extends FileTxt {
 
         LinkedHashSet<String> imports = new LinkedHashSet<String>();
         ArrayList<Entidad> entidades = new ArrayList<Entidad>(0);
-
-        System.out.println("Hello World!" + developments.getArtifactId());
 
         for (Models models : developments.getModels()){
 
@@ -85,12 +83,11 @@ public class DevelopmentsGen extends FileTxt {
 
              for (ModelsGroupIds modelsGroupIds : models.getModelsGroupIds()){
 
-//                 ArrayList<Entidad> entidades = new ArrayList<Entidad>(0);
-                 for (Entities entity : modelsGroupIds.getGroupIds().getEntities()){
+                 for (GroupIdsEntities groupIdsEntities : modelsGroupIds.getGroupIds().getGroupIdsEntities()){
 
-                      Entidad entidad = new Entidad(entity.getName());
+                      Entidad entidad = new Entidad(groupIdsEntities.getEntities().getName());
 
-                      for (Attributes attribute : entity.getAttributes()) {
+                      for (Attributes attribute : groupIdsEntities.getEntities().getAttributes()) {
 
                            Atributos atributos = new Atributos();
                            atributos.setField(attribute.getName());
@@ -153,7 +150,7 @@ public class DevelopmentsGen extends FileTxt {
 
                       } // for: entity.getAttributes()
 
-                      for (Relationships relationships : entity.getFrom()) {
+                      for (Relationships relationships : groupIdsEntities.getEntities().getFrom()) {
 
                           switch (relationships.getCardinalities().getName()) {
 
@@ -217,11 +214,11 @@ public class DevelopmentsGen extends FileTxt {
 
                           } // switch
 
-                      } // for: entity.getFrom()
+                      } // for: groupIdsEntities.getEntities().getFrom()
 
+                      for (Relationships relationships : groupIdsEntities.getEntities().getTo()) {
 
-                      for (Relationships relationships : entity.getTo()) {
-
+/*
                           if (!isRelationModel(relationships.getFrom().getGroupIds().getGroupId(),
                                               relationships.getTo().getGroupIds().getGroupId(),
                                               models.getGroupId())){
@@ -230,6 +227,7 @@ public class DevelopmentsGen extends FileTxt {
                                 continue;
                              }
                           }
+*/
 
 /*
 line("************");
@@ -301,12 +299,12 @@ line(".***********");
 
                           } // switch
 
-                      } // for: entity.getTo()
+                      } // for: groupIdsEntities.getEntities().getTo()
 
-                      entidad.setGroupId(modelsGroupIds.getGroupIds().getGroupId());
+                      entidad.setGroupId(groupIdsEntities.getGroupIds().getGroupId());
                       entidades.add(entidad);
 
-                 } // for: modelsGroupIds.getGroupIds().getEntities()
+                 } // for: modelsGroupIds.getGroupIds().getGroupIdsEntities()
 
 /*
 for (Entidad entidad : entidades) {
@@ -316,12 +314,12 @@ for (Entidad entidad : entidades) {
 } // for: groupIds.getEntities()
 */
 
-
                  packages.add(new Packages(modelsGroupIds.getGroupIds().getGroupId(),entidades));
 
              } // for: models.getModelsGroupIds()
 
         } // for: developments.getModels()
+
 
         saveFile("\\docs", "Prueba.txt");
 
@@ -331,8 +329,10 @@ for (Entidad entidad : entidades) {
         modelsGen.setEntities(entidades);
         modelsGen.WarH2();
         modelsGen.jdocbook();
-        war(developments);
-        jsonNaifg(developments);
+//        war(developments);
+//        jsonNaifg(developments);
+
+
     }
     catch(Exception ioe) {
       ioe.printStackTrace();
@@ -385,253 +385,6 @@ line(".***********");
         j=0;
         LinkedHashSet<String> imports = new LinkedHashSet<String>();
 
-line("package "+developments.getGroupId()+".setup;\n");
-
-line("import "+developments.getGroupId()+".beans.*;");
-line("import "+developments.getGroupId()+".utils.*;");
-line("import co.simasoft.models.dev.naifg.*;");
-line("import co.simasoft.models.dev.naifg.dependencies.*;\n");
-
-line("");
-
-line("import java.util.*;");
-line("import java.util.Calendar;");
-line("import java.util.Random;");
-line("import javax.ejb.LocalBean;");
-line("import javax.ejb.Singleton;");
-line("import javax.inject.Named;");
-line("import javax.persistence.EntityManager;");
-line("import javax.persistence.PersistenceContext;");
-line("import org.jboss.logging.Logger;\n");
-
-line("@Singleton");
-line("@LocalBean");
-
-line("@Named(\""+developments.getArtifactId()+"Setup\")");
-line("public class "+developments.getArtifactId()+"Setup {\n");
-
-line("    @PersistenceContext(unitName = \"naifgPU-JTA\")");
-line("    private EntityManager em;\n");
-
-line("    FindBean findBean = new FindBean();\n");
-
-line("    private static final Logger log = Logger.getLogger("+developments.getArtifactId()+"Setup.class.getName());\n");
-
-line("    public void data() {\n");
-
-line("//      ---------------------- GroupIds ------------------------\n");
-
-    for (Models models : developments.getModels()) {
-
-        for (ModelsGroupIds modelsGroupIds : models.getModelsGroupIds()){
-
-            if (modelsGroupIds.getGroupIds().getGroupId().indexOf (models.getGroupId()) != -1){ // Si se encuentra la cadena
-            }
-            else{
-               continue; // Descarta el modelo externo
-            }
-
-line("        GroupIds groupIds"+String.valueOf(++i)+" = new GroupIds();");
-line("        groupIds"+String.valueOf(i)+".setArtifactId(\""+modelsGroupIds.getGroupIds().getArtifactId()+"\");");
-line("        groupIds"+String.valueOf(i)+".setGroupId(\""+modelsGroupIds.getGroupIds().getGroupId()+"\");");
-line("        groupIds"+String.valueOf(i)+".setVersion(\""+modelsGroupIds.getGroupIds().getVersion()+"\");");
-line("        groupIds"+String.valueOf(i)+".setCode(\""+modelsGroupIds.getGroupIds().getCode()+"\");");
-// line("        groupIds"+String.valueOf(i)+".setDate("+modelsGroupIds.getGroupIds().getDate()+");");
-line("        em.persist(groupIds"+String.valueOf(i)+");");
-line("        em.flush();\n");
-
-        } // for: models.getModelsGroupIds()
-
-    } // for: developments.getModels()
-
-line("//      ---------------------- Models ------------------------\n");
-
-    for (Models models : developments.getModels()) {
-
-line("        Models models = new Models();");
-line("        models.setArtifactId(\""+models.getArtifactId()+"\");");
-line("        models.setGroupId(\""+models.getGroupId()+"\");");
-line("        models.setVersion(\""+models.getVersion()+"\");");
-line("        models.setCode(\""+models.getCode()+"\");");
-// line("        models.setDate("+models.getDate()+");");
-line("        em.persist(models);");
-line("        em.flush();\n");
-
-    } // for: developments.getModels()
-
-line("//      ---------------------- ModelsGroupIds ----------------------\n");
-
-    i=0;
-    for (Models models : developments.getModels()) {
-
-        for(ModelsGroupIds modelsGroupIds : models.getModelsGroupIds()){
-
-line("        ModelsGroupIds modelsGroupIds"+String.valueOf(++i)+" = new ModelsGroupIds();");
-line("        Models modelss"+String.valueOf(i)+" = findBean.artifactIdModels(\""+modelsGroupIds.getModels().getArtifactId()+"\",em);");
-line("        GroupIds groupIdd"+String.valueOf(i)+" = findBean.artifactIdGroupIds(\""+modelsGroupIds.getGroupIds().getArtifactId()+"\",em);");
-line("        modelsGroupIds"+String.valueOf(i)+".setModels(modelss"+String.valueOf(i)+");");
-line("        modelsGroupIds"+String.valueOf(i)+".setGroupIds(groupIdd"+String.valueOf(i)+");");
-line("        modelsGroupIds"+String.valueOf(i)+".setIsSingle("+modelsGroupIds.getIsIsolated()+");");
-line("        modelsGroupIds"+String.valueOf(i)+".setIsSimplified("+modelsGroupIds.getIsSimplified()+");");
-line("        em.persist(modelsGroupIds"+String.valueOf(i)+");");
-line("        em.flush();\n");
-
-        } // for: models.getModelsGroupIds()
-
-    } // for: developments.getModels()
-
-line("//      ---------------------- Developments ------------------------\n");
-
-line("        Developments dev = new Developments();");
-line("        dev.setGroupId(\""+developments.getGroupId()+"\");");
-line("        dev.setArtifactId(\""+developments.getArtifactId()+"\");");
-line("        dev.setVersion(\""+developments.getVersion()+"\");");
-line("        dev.setCode(\""+developments.getCode()+"\");");
-line("        Set<Models> models1 = new HashSet<Models>();");
-line("        Models model1 = findBean.artifactIdModels(\""+developments.getArtifactId()+"\",em);");
-line("        models1.add(model1);");
-line("        dev.setModels(models1);");
-// line("        dev.setObservations(\""+developments.getObservations()+"\");");
-line("        dev.setVersion(\""+developments.getVersion()+"\");");
-line("        dev.setCode(\""+developments.getCode()+"\");");
-// line("        dev.setDate("+developments.getDate()+");");
-line("        em.persist(dev);");
-line("        em.flush();\n");
-
-line("//      ---------------------- Entities ------------------------\n");
-
-    i=0;
-    j=0;
-    for (Models models : developments.getModels()) {
-
-        for (ModelsGroupIds modelsGroupIds : models.getModelsGroupIds()){
-
-            if (modelsGroupIds.getGroupIds().getGroupId().indexOf (models.getGroupId()) != -1){ // Si se encuentra la cadena
-            }
-            else{
-               continue; // Descarta el modelo externo
-            }
-
-            for (Entities entities : modelsGroupIds.getGroupIds().getEntities()){
-
-line("        Entities entities"+String.valueOf(++i)+" = new Entities();");
-line("        entities"+String.valueOf(i)+".setName(\""+entities.getName()+"\");");
-line("//      ...................... "+modelsGroupIds.getGroupIds().getGroupId()+" ........................");
-line("        GroupIds groupId"+String.valueOf(++j)+" = new GroupIds();");
-line("        groupId"+String.valueOf(j)+" = findBean.groupIdGroupIds(\""+modelsGroupIds.getGroupIds().getGroupId()+"\",em);");
-line("        entities"+String.valueOf(i)+".setGroupIds(groupId"+String.valueOf(j)+");");
-line("        em.persist(entities"+String.valueOf(i)+");");
-line("        em.flush();\n");
-
-line("//      ---------------------- Attributes ------------------------\n");
-
-              for (Attributes attributes: entities.getAttributes()) {
-
-line("        Attributes attributes"+String.valueOf(++i)+" = new Attributes();");
-line("        attributes"+String.valueOf(i)+".setName(\""+attributes.getName()+"\");");
-line("        attributes"+String.valueOf(i)+".setIsNullable("+attributes.getIsNullable()+");");
-line("        attributes"+String.valueOf(i)+".setIsUnique("+attributes.getIsUnique()+");");
-line("//      ...................... "+entities.getName()+" ........................");
-line("        Entities entity"+String.valueOf(++j)+" = new Entities();");
-line("        entity"+String.valueOf(j)+" = findBean.nameEntities(\""+entities.getName()+"\",em);");
-line("        attributes"+String.valueOf(i)+".setEntities(entity"+String.valueOf(j)+");");
-line("//      ...................... "+attributes.getAttributesTypes().getName()+" ........................");
-line("        AttributesTypes attributesTypes"+String.valueOf(++j)+" = new AttributesTypes();");
-line("        attributesTypes"+String.valueOf(j)+" = findBean.nameAttributesTypes(\""+attributes.getAttributesTypes().getName()+"\",em);");
-line("        attributes"+String.valueOf(i)+".setAttributesTypes(attributesTypes"+String.valueOf(j)+");");
-line("        em.persist(attributes"+String.valueOf(i)+");");
-line("        em.flush();\n");
-
-              } // for: entities.getAttributes()
-
-            } // for: modelsGroupIds.getGroupIds().getEntities()
-
-        } // for: models.getModelsGroupIds()
-
-    } // for: developments.getModels()
-
-line("//      ---------------------- Relationships ------------------------\n");
-
-line("/*");
-    i=0;
-    for (Models models : developments.getModels()) {
-
-        for (ModelsGroupIds modelsGroupIds : models.getModelsGroupIds()){
-
-            for (Entities entities : modelsGroupIds.getGroupIds().getEntities()){
-
-                for (Relationships relationships: entities.getFrom() ) {
-
-                    switch (relationships.getCardinalities().getCardinality()) {
-                        case "1..1":
-                        case "1..*":
-                        case "*..*":
-line(". "+relationships.getFrom().getName()+" . "+relationships.getCardinalities().getCardinality()+" "+relationships.getTo().getName());
-                    } // switch
-
-                } // for: entities.getFrom()
-
-            } // for: modelsGroupIds.getGroupIds().getEntities()
-
-        } // for: models.getModelsGroupIds()
-
-    } // for: developments.getModels()
-
-line("*/");
-
-    i=0;
-    for (Models models : developments.getModels()) {
-
-        for (ModelsGroupIds modelsGroupIds : models.getModelsGroupIds()){
-
-            for (Entities entities : modelsGroupIds.getGroupIds().getEntities()){
-
-                for (Relationships relationships: entities.getFrom() ) {
-
-                    switch (relationships.getCardinalities().getCardinality()) {
-                        case "1..1":
-                        case "1..*":
-                        case "*..*":
-line("        Relationships relationships"+String.valueOf(++i)+" = new Relationships();");
-line("        relationships"+String.valueOf(i)+".setIsOptionality("+relationships.getIsOptionality()+");");
-line("        relationships"+String.valueOf(i)+".setIsEmbedded("+relationships.getIsEmbedded()+");");
-                          if(relationships.getName() == null || relationships.getName().isEmpty() ){
-line("        relationships"+String.valueOf(i)+".setName(\"\");");
-                          }
-                          else{
-line("        relationships"+String.valueOf(i)+".setName(\""+relationships.getName()+"\");");
-                          }
-line("//      ...................... "+relationships.getFrom().getName()+" ........................");
-line("        Entities entities"+String.valueOf(++j)+" = new Entities();");
-line("        entities"+String.valueOf(j)+" = findBean.nameEntities(\""+relationships.getFrom().getName()+"\",em);");
-line("        relationships"+String.valueOf(i)+".setFrom(entities"+String.valueOf(j)+");");
-line("//      ...................... "+relationships.getTo().getName()+" ........................");
-line("        Entities entities"+String.valueOf(++j)+" = new Entities();");
-line("        entities"+String.valueOf(j)+" = findBean.nameEntities(\""+relationships.getTo().getName()+"\",em);");
-line("        relationships"+String.valueOf(i)+".setTo(entities"+String.valueOf(j)+");");
-line("//      ...................... "+Cardinaly(relationships.getCardinalities().getCardinality())+" ........................");
-line("        Cardinalities cardinalities"+String.valueOf(++j)+" = new Cardinalities();");
-line("        cardinalities"+String.valueOf(j)+" = findBean.nameCardinalities(\""+Cardinaly(relationships.getCardinalities().getCardinality())+"\",em);");
-line("        relationships"+String.valueOf(i)+".setCardinalities(cardinalities"+String.valueOf(j)+");");
-line("        em.persist(relationships"+String.valueOf(i)+");");
-line("        em.flush();\n");
-                    } // switch
-
-
-                } // for: entities.getFrom()
-
-            } // for: modelsGroupIds.getGroupIds().getEntities()
-
-        } // for: models.getModelsGroupIds()
-
-    } // for: developments.getModels()
-
-line("    } // data()\n");
-
-line("} // "+developments.getArtifactId()+"Setup");
-
-    saveFile("\\docs.h2.war."+developments.getArtifactId(),developments.getArtifactId()+"Setup.java");
-
     }
     catch(Exception ioe) {
       ioe.printStackTrace();
@@ -683,267 +436,6 @@ line("} // "+developments.getArtifactId()+"Setup");
     public void jsonNaifg(Developments developments) throws IOException {
     try {
 
-        clearFileTxt();
-        LinkedHashSet<String> imports = new LinkedHashSet<String>();
-
-line("{");
-line("  \"GroupIds\": [");
-
-    i=1;
-    for (Models models : developments.getModels()) {
-
-        j = 1;
-        for (ModelsGroupIds modelsGroupIds : models.getModelsGroupIds()){
-            if (modelsGroupIds.getGroupIds().getGroupId().indexOf (models.getGroupId()) != -1){ // Si se encuentra la cadena
-            }
-            else{
-               j++;
-               continue; // Descarta el modelo externo
-            }
-line("    {");
-line("      \"artifactId\": \""+modelsGroupIds.getGroupIds().getArtifactId()+"\",");
-line("      \"groupId\": \""+modelsGroupIds.getGroupIds().getGroupId()+"\",");
-line("      \"version\": \""+modelsGroupIds.getGroupIds().getVersion()+"\",");
-line("      \"code\": \""+modelsGroupIds.getGroupIds().getCode()+"\"");
-          if (i == developments.getModels().size() && j == models.getModelsGroupIds().size() ){
-line("    }");
-          }
-          else{
-line("    },");
-          }
-
-/*
-line("i="+String.valueOf(i)+" size="+String.valueOf(developments.getModels().size())+
-     " : "+
-     "j="+String.valueOf(j)+" size="+String.valueOf(models.getModelsGroupIds().size()));
-*/
-
-            j++;
-        } // for: models.getModelsGroupIds()
-        i++;
-    } // for: developments.getModels()
-line("  ],");
-
-line("  \"Models\": [");
-     i=1;
-     for (Models models : developments.getModels()) {
-line("    {");
-line("      \"artifactId\": \""+models.getArtifactId()+"\",");
-line("      \"groupId\": \""+models.getGroupId()+"\",");
-line("      \"version\": \""+models.getVersion()+"\",");
-line("      \"code\": \""+models.getCode()+"\"");
-          if (i == developments.getModels().size()){
-line("    }");
-          }
-          else{
-line("    },");
-          }
-          i++;
-     } // for: developments.getModels()
-line("  ],");
-
-/*
-line("i="+String.valueOf(i)+" size="+String.valueOf(developments.getModels().size()));
-*/
-
-line("  \"ModelsGroupIds\": [");
-    i=1;
-    for (Models models : developments.getModels()) {
-
-        j = 1;
-        for(ModelsGroupIds modelsGroupIds : models.getModelsGroupIds()){
-
-line("    {");
-line("      \"isSimplified\": "+modelsGroupIds.getIsSimplified()+",");
-line("      \"isIsolated\": "+modelsGroupIds.getIsIsolated()+",");
-line("      \"GroupIds.groupId\": \""+modelsGroupIds.getGroupIds().getArtifactId()+"\",");
-line("      \"Models.artifactId\": \""+modelsGroupIds.getModels().getArtifactId()+"\"");
-          if (i == developments.getModels().size() && j == models.getModelsGroupIds().size() ){
-line("    }");
-          }
-          else{
-line("    },");
-          }
-
-/*
-line("i="+String.valueOf(i)+" size="+String.valueOf(developments.getModels().size())+
-     " : "+
-     "j="+String.valueOf(j)+" size="+String.valueOf(models.getModelsGroupIds().size()));
-*/
-
-          j++;
-        } // for: models.getModelsGroupIds()
-        i++;
-    } // for: developments.getModels()
-line("  ],");
-
-line("  \"Developments\": [");
-line("    {");
-line("      \"artifactId\": \""+developments.getArtifactId()+"\",");
-line("      \"groupId\": \""+developments.getGroupId()+"\",");
-line("      \"version\": \""+developments.getVersion()+"\",");
-line("      \"code\": \""+developments.getCode()+"\",");
-line("      \"Models.artifactId\": \""+developments.getArtifactId()+"\"");
-line("    }");
-line("  ],");
-
-line("  \"Entities\": [");
-    i=1;
-    for (Models models : developments.getModels()) {
-
-        j=1;
-        for (ModelsGroupIds modelsGroupIds : models.getModelsGroupIds()){
-
-            if (modelsGroupIds.getGroupIds().getGroupId().indexOf (models.getGroupId()) != -1){ // Si se encuentra la cadena
-            }
-            else{
-               j++;
-               continue; // Descarta el modelo externo
-            }
-
-            k=1;
-            for (Entities entities : modelsGroupIds.getGroupIds().getEntities()){
-
-line("    {");
-line("      \"name\": \""+entities.getName()+"\",");
-line("      \"groupIds\": \""+modelsGroupIds.getGroupIds().getGroupId()+"\"");
-          if (i == developments.getModels().size() && j == models.getModelsGroupIds().size() && k == modelsGroupIds.getGroupIds().getEntities().size() ){
-line("    }");
-          }
-          else{
-line("    },");
-          }
-
-/*
-line("i="+String.valueOf(i)+" size="+String.valueOf(developments.getModels().size())+
-     " : "+
-     "j="+String.valueOf(j)+" size="+String.valueOf(models.getModelsGroupIds().size())+
-     " : "+
-     "k="+String.valueOf(k)+" size="+String.valueOf(modelsGroupIds.getGroupIds().getEntities().size()));
-*/
-
-            k++;
-            } // for: modelsGroupIds.getGroupIds().getEntities()
-            j++;
-        } // for: models.getModelsGroupIds()
-        i++;
-    } // for: developments.getModels()
-line("  ],");
-
-
-line("  \"Attributes\": [");
-    i=1;
-    for (Models models : developments.getModels()) {
-
-        j = 1;
-        for (ModelsGroupIds modelsGroupIds : models.getModelsGroupIds()){
-
-            if (modelsGroupIds.getGroupIds().getGroupId().indexOf (models.getGroupId()) != -1){ // Si se encuentra la cadena
-            }
-            else{
-               j++;
-               continue; // Descarta el modelo externo
-            }
-
-            k=1;
-            for (Entities entities : modelsGroupIds.getGroupIds().getEntities()){
-
-                y=1;
-                for (Attributes attributes: entities.getAttributes()) {
-
-line("    {");
-line("      \"entity\": \""+entities.getName()+"\",");
-line("      \"name\": \""+attributes.getName()+"\",");
-line("      \"isNullable\": "+attributes.getIsNullable()+",");
-line("      \"isUnique\": "+attributes.getIsUnique()+",");
-line("      \"AttributesTypes\": \""+attributes.getAttributesTypes().getName()+"\"");
-          if (i == developments.getModels().size() && j == models.getModelsGroupIds().size() && k == modelsGroupIds.getGroupIds().getEntities().size() && y == entities.getAttributes().size() ){
-line("    }");
-          }
-          else{
-line("    },");
-          }
-
-/*
-line("i="+String.valueOf(i)+" size="+String.valueOf(developments.getModels().size())+
-     " : "+
-     "j="+String.valueOf(j)+" size="+String.valueOf(models.getModelsGroupIds().size())+
-     " : "+
-     "k="+String.valueOf(k)+" size="+String.valueOf(modelsGroupIds.getGroupIds().getEntities().size())+
-     " : "+
-     "y="+String.valueOf(y)+" size="+String.valueOf(entities.getAttributes().size()));
-*/
-
-                y++;
-                } // for: entities.getAttributes()
-                k++;
-            } // for: modelsGroupIds.getGroupIds().getEntities()
-            j++;
-        } // for: models.getModelsGroupIds()
-        i++;
-    } // for: developments.getModels()
-line("  ],");
-
-line("  \"Relationships\": [");
-    i=1;
-    for (Models models : developments.getModels()) {
-
-        j=1;
-        for (ModelsGroupIds modelsGroupIds : models.getModelsGroupIds()){
-
-            k=1;
-            for (Entities entities : modelsGroupIds.getGroupIds().getEntities()){
-
-                y=1;
-                for (Relationships relationships: entities.getFrom() ) {
-
-                    switch (relationships.getCardinalities().getCardinality()) {
-                        case "1..1":
-                        case "1..*":
-                        case "*..*":
-
-line("    {");
-line("      \"From\": \""+relationships.getFrom().getName()+"\",");
-line("      \"To\": \""+relationships.getTo().getName()+"\",");
-line("      \"name\": \""+relationships.getName()+"\",");
-line("      \"isOptionality\": "+relationships.getIsOptionality()+",");
-line("      \"isEmbedded\": "+relationships.getIsEmbedded()+",");
-line("      \"isSimplified\": "+relationships.getIsSimplified()+",");
-line("      \"Cardinalities\": \""+Cardinaly(relationships.getCardinalities().getCardinality())+"\"");
-          if (i == developments.getModels().size() && j == models.getModelsGroupIds().size() && k == modelsGroupIds.getGroupIds().getEntities().size() && y == entities.getFrom().size() ){
-line("    }");
-          }
-          else{
-line("    },");
-          }
-
-/*
-line("i="+String.valueOf(i)+" size="+String.valueOf(developments.getModels().size())+
-     " : "+
-     "j="+String.valueOf(j)+" size="+String.valueOf(models.getModelsGroupIds().size())+
-     " : "+
-     "k="+String.valueOf(k)+" size="+String.valueOf(modelsGroupIds.getGroupIds().getEntities().size())+
-     " : "+
-     "y="+String.valueOf(y)+" size="+String.valueOf(entities.getFrom().size()));
-*/
-
-
-                    } // switch
-
-                   y++;
-                } // for: entities.getFrom()
-                k++;
-            } // for: modelsGroupIds.getGroupIds().getEntities()
-            j++;
-        } // for: models.getModelsGroupIds()
-        i++;
-    } // for: developments.getModels()
-line("  ]");
-
-line("}");
-
-    saveFile("\\docs.h2.war."+developments.getArtifactId(),developments.getArtifactId()+"Setup.json");
-
     }
     catch(Exception ioe) {
       ioe.printStackTrace();
@@ -955,90 +447,6 @@ line("}");
 
     public void jsonDependencies(Developments developments) throws IOException {
     try {
-
-        clearFileTxt();
-
-line("{");
-
-line("  \"Dependencies\": [");
-        List<Dependencies> dependencies = findBean.AllDependencies(em);
-        i=1;
-        for (Dependencies dependency : dependencies) {
-line("    {");
-line("      \"artifactId\": \""+dependency.getArtifactId()+"\",");
-line("      \"groupId\": \""+dependency.getGroupId()+"\",");
-line("      \"version\": \""+dependency.getVersion()+"\",");
-line("      \"type\": \""+dependency.getType()+"\",");
-line("      \"scope\": \""+dependency.getScope()+"\",");
-line("      \"maven\": \""+dependency.getMaven()+"\"");
-          if (i == dependencies.size()){
-line("    }");
-          }
-          else{
-line("    },");
-          }
-          i++;
-        } // for: dependencies
-line("  ],");
-
-line("  \"Imports\": [");
-        List<Imports> imports = findBean.AllImports(em);
-        i=1;
-        for (Imports impor : imports) {
-line("    {");
-line("      \"name\": \""+impor.getName()+"\",");
-line("      \"dependencies.artifactId\": \""+impor.getName()+"\"");
-// System.out.println(impor.getDependencies().getGroupId());
-          if (i == imports.size()){
-line("    }");
-          }
-          else{
-line("    },");
-          }
-          i++;
-        } // for:imports
-line("  ],");
-
-line("  \"AttributesProperties\": [");
-        List<AttributesProperties> attributesProperties = findBean.AllAttributesProperties(em);
-        i=1;
-        for (AttributesProperties attributesProperty : attributesProperties ){
-line("    {");
-line("      \"name\": \""+attributesProperty.getName()+"\",");
-line("      \"value\": \""+attributesProperty.getValue()+"\"");
-          if (i == attributesProperties.size()){
-line("    }");
-          }
-          else{
-line("    },");
-          }
-          i++;
-        } // for:
-line("  ],");
-
-line("  \"AttributesTypes\": [");
-        List<AttributesTypes> attributesTypes = findBean.AllAttributesTypes(em);
-        i=1;
-        for (AttributesTypes attributesType : attributesTypes ) {
-
-line("    {");
-line("      \"name\": \""+attributesType.getName()+"\",");
-line("      \"type\": \""+attributesType.getType()+"\",");
-line("      \"length\": \""+String.valueOf(attributesType.getLength())+"\",");
-line("      \"precision\": \""+String.valueOf(attributesType.getPrecision())+"\",");
-line("      \"annotations\": \""+attributesType.getAnnotations()+"\"");
-          if (i == attributesTypes.size()){
-line("    }");
-          }
-          else{
-line("    },");
-          }
-          i++;
-        } // for: attributesTypes
-line("  ]");
-line("}");
-
-    saveFile("\\docs.h2.war."+developments.getArtifactId(),"DependenciesSetup.json");
 
     }
     catch(Exception ioe) {

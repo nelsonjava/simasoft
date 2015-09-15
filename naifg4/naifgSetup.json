@@ -53,62 +53,77 @@
   "Entities": [
     {
       "name": "Developments",
+      "groupId": "co.simasoft.models.dev.naifg",
       "groupIds": "co.simasoft.models.dev.naifg"
     },
     {
       "name": "Models",
+      "groupId": "co.simasoft.models.dev.naifg",
       "groupIds": "co.simasoft.models.dev.naifg"
     },
     {
       "name": "ModelsGroupIds",
+      "groupId": "co.simasoft.models.dev.naifg",
       "groupIds": "co.simasoft.models.dev.naifg"
     },
     {
       "name": "GroupIds",
+      "groupId": "co.simasoft.models.dev.naifg",
       "groupIds": "co.simasoft.models.dev.naifg"
     },
     {
       "name": "GroupIdsEntities",
+      "groupId": "co.simasoft.models.dev.naifg",
       "groupIds": "co.simasoft.models.dev.naifg"
     },
     {
       "name": "Entities",
+      "groupId": "co.simasoft.models.dev.naifg",
       "groupIds": "co.simasoft.models.dev.naifg"
     },
     {
       "name": "Attributes",
+      "groupId": "co.simasoft.models.dev.naifg",
       "groupIds": "co.simasoft.models.dev.naifg"
     },
     {
       "name": "Cardinalities",
+      "groupId": "co.simasoft.models.dev.naifg",
       "groupIds": "co.simasoft.models.dev.naifg"
     },
     {
       "name": "NameQueries",
+      "groupId": "co.simasoft.models.dev.naifg",
       "groupIds": "co.simasoft.models.dev.naifg"
     },
     {
       "name": "Relationships",
+      "groupId": "co.simasoft.models.dev.naifg",
       "groupIds": "co.simasoft.models.dev.naifg"
     },
     {
       "name": "GroupIdsFiles",
+      "groupId": "co.simasoft.models.dev.naifg",
       "groupIds": "co.simasoft.models.dev.naifg"
     },
     {
       "name": "AttributesTypes",
+      "groupId": "co.simasoft.models.dev.naifg.dependencies",
       "groupIds": "co.simasoft.models.dev.naifg.dependencies"
     },
     {
       "name": "Imports",
+      "groupId": "co.simasoft.models.dev.naifg.dependencies",
       "groupIds": "co.simasoft.models.dev.naifg.dependencies"
     },
     {
       "name": "Dependencies",
+      "groupId": "co.simasoft.models.dev.naifg.dependencies",
       "groupIds": "co.simasoft.models.dev.naifg.dependencies"
     },
     {
       "name": "AttributesProperties",
+      "groupId": "co.simasoft.models.dev.naifg.dependencies",            
       "groupIds": "co.simasoft.models.dev.naifg.dependencies"
     }
   ],
@@ -202,6 +217,13 @@
       "name": "name",
       "isNullable": false,
       "isUnique": true,
+      "AttributesTypes": "String"
+    },
+    {
+      "entity": "Entities",
+      "name": "groupId",
+      "isNullable": false,
+      "isUnique": false,
       "AttributesTypes": "String"
     },
     {

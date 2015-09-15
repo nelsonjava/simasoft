@@ -44,12 +44,12 @@
                         <h:outputText id="developmentsBeanDevelopmentsGroupId" value="#{developmentsBean.developments.groupId}"/>
                         <h:outputText/>
 
-                        <h:outputLabel for="developmentsBeanDevelopmentsCode" value="Code:"/>
-                        <h:outputText id="developmentsBeanDevelopmentsCode" value="#{developmentsBean.developments.code}"/>
-                        <h:outputText/>
-
                         <h:outputLabel for="developmentsBeanDevelopmentsVersion" value="Version:"/>
                         <h:outputText id="developmentsBeanDevelopmentsVersion" value="#{developmentsBean.developments.version}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="developmentsBeanDevelopmentsCode" value="Code:"/>
+                        <h:outputText id="developmentsBeanDevelopmentsCode" value="#{developmentsBean.developments.code}"/>
                         <h:outputText/>
 
                         <h:outputLabel for="developmentsBeanDevelopmentsObservations" value="Observations:"/>
@@ -66,16 +66,6 @@
                                         <h:link outcome="/admin/sites/view">
                                                 <f:param name="id" value="#{_item.id}"/>
                                                 <h:outputText id="itemOrden" value="#{_item.orden}"/>
-                                        </h:link>
-                                </h:column>
-
-                                <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="Title"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/sites/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemTitle" value="#{_item.title}"/>
                                         </h:link>
                                 </h:column>
 
@@ -99,6 +89,16 @@
                                         </h:link>
                                 </h:column>
 
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Title"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/sites/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemTitle" value="#{_item.title}"/>
+                                        </h:link>
+                                </h:column>
+
                         </h:dataTable>
                         <h:outputText/>
 
@@ -117,11 +117,11 @@
 
                                 <h:column>
                                         <f:facet name="header">
-                                                <h:outputText value="Version"/>
+                                                <h:outputText value="ArtifactId"/>
                                         </f:facet>
                                         <h:link outcome="/admin/models/view">
                                                 <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemVersion" value="#{_item.version}"/>
+                                                <h:outputText id="itemArtifactId" value="#{_item.artifactId}"/>
                                         </h:link>
                                 </h:column>
 
@@ -137,11 +137,21 @@
 
                                 <h:column>
                                         <f:facet name="header">
-                                                <h:outputText value="ArtifactId"/>
+                                                <h:outputText value="Version"/>
                                         </f:facet>
                                         <h:link outcome="/admin/models/view">
                                                 <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemArtifactId" value="#{_item.artifactId}"/>
+                                                <h:outputText id="itemVersion" value="#{_item.version}"/>
+                                        </h:link>
+                                </h:column>
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Code"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/models/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemCode" value="#{_item.code}"/>
                                         </h:link>
                                 </h:column>
 
@@ -154,16 +164,6 @@
                                                 <h:outputText id="itemDate" value="#{_item.date}"/>
                                                         <f:convertDateTime type="date"/>
                                                <h:outputText/>
-                                        </h:link>
-                                </h:column>
-
-                                <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="Code"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/models/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemCode" value="#{_item.code}"/>
                                         </h:link>
                                 </h:column>
 
