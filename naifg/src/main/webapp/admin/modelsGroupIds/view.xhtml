@@ -45,7 +45,7 @@
                         <h:outputText/>
 
                         <h:outputLabel for="modelsGroupIdsBeanModelsGroupIdsGroupIds" value="groupIds:"/>
-                        <h:link id="modelsGroupIdsBeanModelsGroupIdsGroupIds" outcome="/admin/groupIds/view" rendered="#{!empty modelsGroupIdsBean.modelsGroupIds.groupIds}" value="#{modelsGroupIdsBean.modelsGroupIds.groupIds.artifactId}">
+                        <h:link id="modelsGroupIdsBeanModelsGroupIdsGroupIds" outcome="/admin/groupIds/view" rendered="#{!empty modelsGroupIdsBean.modelsGroupIds.groupIds}" value="#{modelsGroupIdsBean.modelsGroupIds.groupIds.artifactId} : #{modelsGroupIdsBean.modelsGroupIds.groupIds.groupId}">
                                 <f:param name="id" value="#{modelsGroupIdsBean.modelsGroupIds.groupIds.id}"/>
                         </h:link>
                         <h:outputText/>

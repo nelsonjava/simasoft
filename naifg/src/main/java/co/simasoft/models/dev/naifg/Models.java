@@ -59,7 +59,7 @@ public class Models implements Serializable {
     @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
     private String artifactId;
 
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false, unique = false)
     @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
     private String groupId;
 

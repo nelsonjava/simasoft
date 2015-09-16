@@ -225,6 +225,11 @@ public class GroupIdsEntitiesBean implements Serializable {
 					builder.lower(root.<String> get("observations")),
 					'%' + observations.toLowerCase() + '%'));
 		}
+		Boolean isIsolated = this.example.getIsIsolated();
+		if (isIsolated != null) {
+			predicatesList.add(builder.equal(root.get("isIsolated"),
+					isIsolated));
+		}
 		Boolean isSimplified = this.example.getIsSimplified();
 		if (isSimplified != null) {
 			predicatesList.add(builder.equal(root.get("isSimplified"),

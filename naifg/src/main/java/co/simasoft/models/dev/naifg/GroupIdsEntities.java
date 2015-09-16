@@ -54,6 +54,9 @@ public class GroupIdsEntities implements Serializable {
     @Column(nullable = true, unique = false)
     @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
     private String observations;
+    
+    @Column(nullable = true, unique = false)
+    private Boolean isIsolated;
 
     @Column(nullable = true, unique = false)
     private Boolean isSimplified;
@@ -67,7 +70,8 @@ public class GroupIdsEntities implements Serializable {
     public GroupIdsEntities() {
     }
 
-    public GroupIdsEntities(Boolean isSimplified) {
+    public GroupIdsEntities(Boolean isIsolated,Boolean isSimplified) {
+        this.isIsolated = isIsolated;
         this.isSimplified = isSimplified;
     }
 
@@ -98,6 +102,14 @@ public class GroupIdsEntities implements Serializable {
     public void setObservations(String observations) {
         this.observations = observations;
     }
+
+    public Boolean getIsIsolated() {
+        return isIsolated;
+    }
+    public void setIsIsolated(Boolean isIsolated) {
+        this.isIsolated = isIsolated;
+    }
+
     public Boolean getIsSimplified() {
         return isSimplified;
     }

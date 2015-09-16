@@ -75,11 +75,21 @@
 
 				<h:column>
 					<f:facet name="header">
-						<h:outputText value="Is Simplified"/>
+						<h:outputText value="IsSimplified"/>
 					</f:facet>
 					<h:link outcome="/admin/groupIdsEntities/view">
 						<f:param name="id" value="#{_item.id}"/>
 						<h:outputText id="itemIsSimplified" value="#{_item.isSimplified}"/>
+					</h:link>
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="IsIsIsolated"/>
+					</f:facet>
+					<h:link outcome="/admin/groupIdsEntities/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemIsIsolated" value="#{_item.isIsolated}"/>
 					</h:link>
 				</h:column>
 
@@ -98,7 +108,7 @@
 						<h:outputText id="itemOrden" value="#{_item.orden}"/>
 					</h:link>
 				</h:column>
-				
+
 				<h:column>
 					<f:facet name="header">
 						<h:outputText value="Models"/>
@@ -108,6 +118,17 @@
 						<h:outputText id="forgeviewdisplayitemModels" value="#{forgeview:display(_item.models.artifactId)}"/>
 					</h:link>
 				</h:column>
+				
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="GroupId"/>
+					</f:facet>
+					<h:link outcome="/admin/modelsGroupIds/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="forgeviewdisplayitemModels" value="#{forgeview:display(_item.groupIds.groupId)}"/>
+					</h:link>
+				</h:column>
+
 
 				<h:column>
 					<f:facet name="header">

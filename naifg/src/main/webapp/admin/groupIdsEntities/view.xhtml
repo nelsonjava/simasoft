@@ -32,6 +32,10 @@
                         <h:outputText id="groupIdsEntitiesBeanGroupIdsEntitiesOrden" value="#{groupIdsEntitiesBean.groupIdsEntities.orden}"/>
                         <h:outputText/>
 
+                        <h:outputLabel for="groupIdsEntitiesBeanGroupIdsEntitiesIsIsolated" value="IsIsolated:"/>
+                        <h:outputText id="groupIdsEntitiesBeanGroupIdsEntitiesIsIsolated" value="#{groupIdsEntitiesBean.groupIdsEntities.isIsolated}"/>
+                        <h:outputText/>
+
                         <h:outputLabel for="groupIdsEntitiesBeanGroupIdsEntitiesIsSimplified" value="IsSimplified:"/>
                         <h:outputText id="groupIdsEntitiesBeanGroupIdsEntitiesIsSimplified" value="#{groupIdsEntitiesBean.groupIdsEntities.isSimplified}"/>
                         <h:outputText/>
@@ -39,7 +43,7 @@
                         <h:outputLabel for="groupIdsEntitiesBeanGroupIdsEntitiesObservations" value="Observations:"/>
                         <h:outputText id="groupIdsEntitiesBeanGroupIdsEntitiesObservations" value="#{groupIdsEntitiesBean.groupIdsEntities.observations}" escape="false" />
                         <h:outputText/>
-                        
+
                         <h:outputLabel for="groupIdsEntitiesBeanGroupIdsEntitiesGroupIds" value="groupIds:"/>
                         <h:link id="groupIdsEntitiesBeanGroupIdsEntitiesGroupIds" outcome="/admin/groupIds/view" rendered="#{!empty groupIdsEntitiesBean.groupIdsEntities.groupIds}" value="#{groupIdsEntitiesBean.groupIdsEntities.groupIds.artifactId}">
                                 <f:param name="id" value="#{groupIdsEntitiesBean.groupIdsEntities.groupIds.id}"/>

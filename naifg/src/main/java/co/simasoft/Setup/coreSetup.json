@@ -1,31 +1,37 @@
 {
   "GroupIds": [
     {
-      "artifactId": "co.simasoft.models.core.books",
+      "artifactId": "books",
       "groupId": "co.simasoft.models.core.books",
       "version": "null",
       "code": "null"
     },
     {
-      "artifactId": "co.simasoft.models.core.archival",
+      "artifactId": "archival",
       "groupId": "co.simasoft.models.core.archival",
       "version": "null",
       "code": "null"
     },
     {
-      "artifactId": "co.simasoft.models.core.companies",
+      "artifactId": "companies",
       "groupId": "co.simasoft.models.core.companies",
       "version": "null",
       "code": "null"
     },
     {
-      "artifactId": "co.simasoft.models.core.regulations",
+      "artifactId": "regulations",
       "groupId": "co.simasoft.models.core.regulations",
       "version": "null",
       "code": "null"
     },
     {
-      "artifactId": "co.simasoft.models.core.sites",
+      "artifactId": "sites",
+      "groupId": "co.simasoft.models.core.sites",
+      "version": "null",
+      "code": "null"
+    },
+    {
+      "artifactId": "sites1",
       "groupId": "co.simasoft.models.core.sites",
       "version": "null",
       "code": "null"
@@ -216,131 +222,157 @@
     {
       "entity": "Books",
       "groupIds": "co.simasoft.models.core.books",
+      "isIsolated": false,
       "isSimplified": false
     },
     {
       "entity": "Chapters",
       "groupIds": "co.simasoft.models.core.books",
+      "isIsolated": false,
       "isSimplified": false
     },
     {
       "entity": "BooksTypes",
       "groupIds": "co.simasoft.models.core.books",
+      "isIsolated": false,
       "isSimplified": false
     },
     {
       "entity": "OriginalOrder",
       "groupIds": "co.simasoft.models.core.archival",
+      "isIsolated": false,
       "isSimplified": false
     },
     {
       "entity": "SectionsTypes",
       "groupIds": "co.simasoft.models.core.archival",
+      "isIsolated": false,
       "isSimplified": false
     },
     {
       "entity": "FrequentlyQuery",
       "groupIds": "co.simasoft.models.core.archival",
+      "isIsolated": false,
       "isSimplified": false
     },
     {
       "entity": "Series",
       "groupIds": "co.simasoft.models.core.archival",
+      "isIsolated": false,
       "isSimplified": false
     },
     {
       "entity": "Funds",
       "groupIds": "co.simasoft.models.core.archival",
+      "isIsolated": false,
       "isSimplified": false
     },
     {
       "entity": "Sections",
       "groupIds": "co.simasoft.models.core.archival",
+      "isIsolated": false,
       "isSimplified": false
     },
     {
       "entity": "DocumentalsUnits",
       "groupIds": "co.simasoft.models.core.archival",
+      "isIsolated": false,
       "isSimplified": false
     },
     {
       "entity": "DocumentalsSupports",
       "groupIds": "co.simasoft.models.core.archival",
+      "isIsolated": false,
       "isSimplified": false
     },
     {
       "entity": "InventoryFinality",
       "groupIds": "co.simasoft.models.core.archival",
+      "isIsolated": false,
       "isSimplified": false
     },
     {
       "entity": "ConservationUnits",
       "groupIds": "co.simasoft.models.core.archival",
+      "isIsolated": false,
       "isSimplified": false
     },
     {
       "entity": "DocumentalRetention",
       "groupIds": "co.simasoft.models.core.archival",
+      "isIsolated": false,
       "isSimplified": false
     },
     {
       "entity": "DocumentalInventory",
       "groupIds": "co.simasoft.models.core.archival",
+      "isIsolated": false,
       "isSimplified": false
     },
     {
       "entity": "FundsLife",
       "groupIds": "co.simasoft.models.core.archival",
+      "isIsolated": false,
       "isSimplified": false
     },
     {
       "entity": "FinalDisposition",
       "groupIds": "co.simasoft.models.core.archival",
+      "isIsolated": false,
       "isSimplified": false
     },
     {
       "entity": "DocumentsTypes",
       "groupIds": "co.simasoft.models.core.archival",
+      "isIsolated": false,
       "isSimplified": false
     },
     {
       "entity": "Trd",
       "groupIds": "co.simasoft.models.core.archival",
+      "isIsolated": false,
       "isSimplified": false
     },
     {
       "entity": "Companies",
       "groupIds": "co.simasoft.models.core.companies",
+      "isIsolated": false,
       "isSimplified": false
     },
     {
       "entity": "Brands",
       "groupIds": "co.simasoft.models.core.companies",
+      "isIsolated": false,
       "isSimplified": false
     },
     {
       "entity": "RegulationsText",
       "groupIds": "co.simasoft.models.core.regulations",
+      "isIsolated": false,
       "isSimplified": false
     },
     {
       "entity": "RegulationsTypes",
       "groupIds": "co.simasoft.models.core.regulations",
+      "isIsolated": false,
       "isSimplified": false
     },
     {
       "entity": "Regulations",
       "groupIds": "co.simasoft.models.core.regulations",
+      "isIsolated": false,
       "isSimplified": false
     },
     {
       "entity": "Sites",
       "groupIds": "co.simasoft.models.core.sites",
+      "isIsolated": false,
       "isSimplified": false
     },
     {
       "entity": "SitesTypes",
       "groupIds": "co.simasoft.models.core.sites",
+      "isIsolated": false,
       "isSimplified": false
     }
   ],
