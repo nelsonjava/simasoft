@@ -29,12 +29,6 @@
       "groupId": "co.simasoft.models.core.sites",
       "version": "null",
       "code": "null"
-    },
-    {
-      "artifactId": "sites1",
-      "groupId": "co.simasoft.models.core.sites",
-      "version": "null",
-      "code": "null"
     }
   ],
   "Models": [
@@ -49,31 +43,31 @@
     {
       "isSimplified": false,
       "isIsolated": false,
-      "GroupIds.groupId": "co.simasoft.models.core.books",
+      "GroupIds.artifactId": "books",
       "Models.artifactId": "core"
     },
     {
       "isSimplified": false,
       "isIsolated": false,
-      "GroupIds.groupId": "co.simasoft.models.core.archival",
+      "GroupIds.artifactId": "archival",
       "Models.artifactId": "core"
     },
     {
       "isSimplified": false,
       "isIsolated": false,
-      "GroupIds.groupId": "co.simasoft.models.core.companies",
+      "GroupIds.artifactId": "companies",
       "Models.artifactId": "core"
     },
     {
       "isSimplified": false,
       "isIsolated": false,
-      "GroupIds.groupId": "co.simasoft.models.core.regulations",
+      "GroupIds.artifactId": "regulations",
       "Models.artifactId": "core"
     },
     {
       "isSimplified": false,
       "isIsolated": false,
-      "GroupIds.groupId": "co.simasoft.models.core.sites",
+      "GroupIds.artifactId": "sites",
       "Models.artifactId": "core"
     }
   ],
@@ -221,157 +215,157 @@
   "GroupIdsEntities": [
     {
       "entity": "Books",
-      "groupIds": "co.simasoft.models.core.books",
+      "groupIds.artifactId": "books",
       "isIsolated": false,
       "isSimplified": false
     },
     {
       "entity": "Chapters",
-      "groupIds": "co.simasoft.models.core.books",
+      "groupIds.artifactId": "books",
       "isIsolated": false,
       "isSimplified": false
     },
     {
       "entity": "BooksTypes",
-      "groupIds": "co.simasoft.models.core.books",
+      "groupIds.artifactId": "books",
       "isIsolated": false,
       "isSimplified": false
     },
     {
       "entity": "OriginalOrder",
-      "groupIds": "co.simasoft.models.core.archival",
+      "groupIds.artifactId": "archival",
       "isIsolated": false,
       "isSimplified": false
     },
     {
       "entity": "SectionsTypes",
-      "groupIds": "co.simasoft.models.core.archival",
+      "groupIds.artifactId": "archival",
       "isIsolated": false,
       "isSimplified": false
     },
     {
       "entity": "FrequentlyQuery",
-      "groupIds": "co.simasoft.models.core.archival",
+      "groupIds.artifactId": "archival",
       "isIsolated": false,
       "isSimplified": false
     },
     {
       "entity": "Series",
-      "groupIds": "co.simasoft.models.core.archival",
+      "groupIds.artifactId": "archival",
       "isIsolated": false,
       "isSimplified": false
     },
     {
       "entity": "Funds",
-      "groupIds": "co.simasoft.models.core.archival",
+      "groupIds.artifactId": "archival",
       "isIsolated": false,
       "isSimplified": false
     },
     {
       "entity": "Sections",
-      "groupIds": "co.simasoft.models.core.archival",
+      "groupIds.artifactId": "archival",
       "isIsolated": false,
       "isSimplified": false
     },
     {
       "entity": "DocumentalsUnits",
-      "groupIds": "co.simasoft.models.core.archival",
+      "groupIds.artifactId": "archival",
       "isIsolated": false,
       "isSimplified": false
     },
     {
       "entity": "DocumentalsSupports",
-      "groupIds": "co.simasoft.models.core.archival",
+      "groupIds.artifactId": "archival",
       "isIsolated": false,
       "isSimplified": false
     },
     {
       "entity": "InventoryFinality",
-      "groupIds": "co.simasoft.models.core.archival",
+      "groupIds.artifactId": "archival",
       "isIsolated": false,
       "isSimplified": false
     },
     {
       "entity": "ConservationUnits",
-      "groupIds": "co.simasoft.models.core.archival",
+      "groupIds.artifactId": "archival",
       "isIsolated": false,
       "isSimplified": false
     },
     {
       "entity": "DocumentalRetention",
-      "groupIds": "co.simasoft.models.core.archival",
+      "groupIds.artifactId": "archival",
       "isIsolated": false,
       "isSimplified": false
     },
     {
       "entity": "DocumentalInventory",
-      "groupIds": "co.simasoft.models.core.archival",
+      "groupIds.artifactId": "archival",
       "isIsolated": false,
       "isSimplified": false
     },
     {
       "entity": "FundsLife",
-      "groupIds": "co.simasoft.models.core.archival",
+      "groupIds.artifactId": "archival",
       "isIsolated": false,
       "isSimplified": false
     },
     {
       "entity": "FinalDisposition",
-      "groupIds": "co.simasoft.models.core.archival",
+      "groupIds.artifactId": "archival",
       "isIsolated": false,
       "isSimplified": false
     },
     {
       "entity": "DocumentsTypes",
-      "groupIds": "co.simasoft.models.core.archival",
+      "groupIds.artifactId": "archival",
       "isIsolated": false,
       "isSimplified": false
     },
     {
       "entity": "Trd",
-      "groupIds": "co.simasoft.models.core.archival",
+      "groupIds.artifactId": "archival",
       "isIsolated": false,
       "isSimplified": false
     },
     {
       "entity": "Companies",
-      "groupIds": "co.simasoft.models.core.companies",
+      "groupIds.artifactId": "companies",
       "isIsolated": false,
       "isSimplified": false
     },
     {
       "entity": "Brands",
-      "groupIds": "co.simasoft.models.core.companies",
+      "groupIds.artifactId": "companies",
       "isIsolated": false,
       "isSimplified": false
     },
     {
       "entity": "RegulationsText",
-      "groupIds": "co.simasoft.models.core.regulations",
+      "groupIds.artifactId": "regulations",
       "isIsolated": false,
       "isSimplified": false
     },
     {
       "entity": "RegulationsTypes",
-      "groupIds": "co.simasoft.models.core.regulations",
+      "groupIds.artifactId": "regulations",
       "isIsolated": false,
       "isSimplified": false
     },
     {
       "entity": "Regulations",
-      "groupIds": "co.simasoft.models.core.regulations",
+      "groupIds.artifactId": "regulations",
       "isIsolated": false,
       "isSimplified": false
     },
     {
       "entity": "Sites",
-      "groupIds": "co.simasoft.models.core.sites",
+      "groupIds.artifactId": "sites",
       "isIsolated": false,
       "isSimplified": false
     },
     {
       "entity": "SitesTypes",
-      "groupIds": "co.simasoft.models.core.sites",
+      "groupIds.artifactId": "sites",
       "isIsolated": false,
       "isSimplified": false
     }

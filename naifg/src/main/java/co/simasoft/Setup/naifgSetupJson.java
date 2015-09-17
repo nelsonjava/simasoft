@@ -123,10 +123,10 @@ public class naifgSetupJson {
                 Boolean modelsGroupIdsIsSimplified = (Boolean)modelsGroupIdsObj.get("isSimplified");
                 Boolean modelsGroupIdsIsIsolated = (Boolean)modelsGroupIdsObj.get("isIsolated");
                 String modelsArtifactId = (String)modelsGroupIdsObj.get("Models.artifactId");
-                String groupIdsGroupId = (String)modelsGroupIdsObj.get("GroupIds.groupId");
+                String groupIdsArtifactId = (String)modelsGroupIdsObj.get("GroupIds.artifactId");
 
                 f.line("Models.artifactId:"+modelsArtifactId);
-                f.line("GroupIds.groupId:"+groupIdsGroupId);
+                f.line("GroupIds.artifactId:"+groupIdsArtifactId);
                 f.line("");
 
                 ModelsGroupIds modelsGroupIds1 = new ModelsGroupIds();
@@ -136,7 +136,7 @@ public class naifgSetupJson {
                 Models modelss1 = findBean.artifactIdModels(modelsArtifactId,em);
                 modelsGroupIds1.setModels(modelss1);
 
-                GroupIds groupIdd1 = findBean.groupIdGroupIds(groupIdsGroupId,em);
+                GroupIds groupIdd1 = findBean.artifactIdGroupIds(groupIdsArtifactId,em);
                 modelsGroupIds1.setGroupIds(groupIdd1);
 
                 em.persist(modelsGroupIds1);
@@ -213,12 +213,12 @@ public class naifgSetupJson {
                 JSONObject groupIdsEntitiesObj = (JSONObject) iteGroupIdsEntities.next();
 
                 String groupIdsEntitiesName = (String)groupIdsEntitiesObj.get("entity");
-                String groupIdsEntitiesGroupId = (String)groupIdsEntitiesObj.get("groupIds");
+                String groupIdsEntitiesArtifactId = (String)groupIdsEntitiesObj.get("groupIds.artifactId");
                 Boolean groupIdsEntitiesIsIsolated = (Boolean)groupIdsEntitiesObj.get("isIsolated");
                 Boolean groupIdsEntitiesIsSimplified = (Boolean)groupIdsEntitiesObj.get("isSimplified");
 
                 GroupIds groupId1 = new GroupIds();
-                groupId1 = findBean.groupIdGroupIds(groupIdsEntitiesGroupId,em);
+                groupId1 = findBean.artifactIdGroupIds(groupIdsEntitiesArtifactId,em);
 
                 Entities entity1 = new Entities();
                 entity1 = findBean.nameEntities(groupIdsEntitiesName,em);
@@ -232,7 +232,7 @@ public class naifgSetupJson {
                 em.flush();
 
                 f.line("name:"+groupIdsEntitiesName);
-                f.line("groupId:"+groupIdsEntitiesGroupId);
+                f.line("groupId:"+groupIdsEntitiesArtifactId);
                 f.line("");
 
          }

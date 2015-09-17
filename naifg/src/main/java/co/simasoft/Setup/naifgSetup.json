@@ -11,6 +11,12 @@
       "groupId": "co.simasoft.models.dev.naifg.dependencies",
       "version": "",
       "code": ""
+    },
+    {
+      "artifactId": "sites1",
+      "groupId": "co.simasoft.models.core.sites",
+      "version": "null",
+      "code": "null"
     }
   ],
   "Models": [
@@ -25,19 +31,19 @@
     {
       "isSimplified": true,
       "isIsolated": true,
-      "GroupIds.groupId": "co.simasoft.models.core.sites",
+      "GroupIds.artifactId": "sites1",
       "Models.artifactId": "naifg"
     },
     {
       "isSimplified": false,
       "isIsolated": false,
-      "GroupIds.groupId": "co.simasoft.models.dev.naifg",
+      "GroupIds.artifactId": "naifg",
       "Models.artifactId": "naifg"
     },
     {
       "isSimplified": false,
       "isIsolated": false,
-      "GroupIds.groupId": "co.simasoft.models.dev.naifg.dependencies",
+      "GroupIds.artifactId": "dependencies",
       "Models.artifactId": "naifg"
     }
   ],
@@ -130,103 +136,103 @@
   "GroupIdsEntities": [
     {
       "entity": "Developments",
-      "groupIds": "co.simasoft.models.dev.naifg",
+      "groupIds.artifactId": "naifg",
       "isIsolated": false,
       "isSimplified": false
     },
     {
       "entity": "Models",
-      "groupIds": "co.simasoft.models.dev.naifg",
+      "groupIds.artifactId": "naifg",
       "isIsolated": false,
       "isSimplified": false
     },
     {
       "entity": "ModelsGroupIds",
-      "groupIds": "co.simasoft.models.dev.naifg",
+      "groupIds.artifactId": "naifg",
       "isIsolated": false,
       "isSimplified": false
     },
     {
       "entity": "GroupIds",
-      "groupIds": "co.simasoft.models.dev.naifg",
+      "groupIds.artifactId": "naifg",
       "isIsolated": false,
       "isSimplified": false
     },
     {
       "entity": "GroupIdsEntities",
-      "groupIds": "co.simasoft.models.dev.naifg",
+      "groupIds.artifactId": "naifg",
       "isIsolated": false,
       "isSimplified": false
     },
     {
       "entity": "Entities",
-      "groupIds": "co.simasoft.models.dev.naifg",
+      "groupIds.artifactId": "naifg",
       "isIsolated": false,
       "isSimplified": false
     },
     {
       "entity": "Attributes",
-      "groupIds": "co.simasoft.models.dev.naifg",
+      "groupIds.artifactId": "naifg",
       "isIsolated": false,
       "isSimplified": false
     },
     {
       "entity": "Cardinalities",
-      "groupIds": "co.simasoft.models.dev.naifg",
+      "groupIds.artifactId": "naifg",
       "isIsolated": false,
       "isSimplified": false
     },
     {
       "entity": "NameQueries",
-      "groupIds": "co.simasoft.models.dev.naifg",
+      "groupIds.artifactId": "naifg",
       "isIsolated": false,
       "isSimplified": false
     },
     {
       "entity": "Relationships",
-      "groupIds": "co.simasoft.models.dev.naifg",
+      "groupIds.artifactId": "naifg",
       "isIsolated": false,
       "isSimplified": false
     },
     {
       "entity": "GroupIdsFiles",
-      "groupIds": "co.simasoft.models.dev.naifg",
+      "groupIds.artifactId": "naifg",
       "isIsolated": false,
       "isSimplified": false
     },
     {
       "entity": "Dependencies",
-      "groupIds": "co.simasoft.models.dev.naifg.dependencies",
+      "groupIds.artifactId": "dependencies",
       "isIsolated": false,
       "isSimplified": false
     },
     {
       "entity": "Imports",
-      "groupIds": "co.simasoft.models.dev.naifg.dependencies",
-      "isIsolated": false,
+      "groupIds.artifactId": "dependencies",
+      "isIsolated.artifactId": false,
       "isSimplified": false
     },
     {
       "entity": "AttributesProperties",
-      "groupIds": "co.simasoft.models.dev.naifg.dependencies",
+      "groupIds.artifactId": "dependencies",
       "isIsolated": false,
       "isSimplified": false
     },
     {
       "entity": "AttributesTypes",
-      "groupIds": "co.simasoft.models.dev.naifg.dependencies",
+      "groupIds.artifactId": "dependencies",
       "isIsolated": false,
       "isSimplified": false
     },
     {
       "entity": "Sites",
-      "groupIds": "co.simasoft.models.core.sites",
+      "groupIds.artifactId": "sites1",
       "isIsolated": true,
       "isSimplified": true
     },
     {
       "entity": "SitesTypes",
-      "groupIds": "co.simasoft.models.core.sites",
+      "groupIds.artifactId": "sites1",
       "isIsolated": true,
       "isSimplified": true
     }
@@ -689,42 +695,6 @@
     }
   ],
   "Relationships": [
-    {
-      "From": "SitesTypes",
-      "To": "Sites",
-      "name": "",
-      "isOptionality": true,
-      "isEmbedded": false,
-      "isSimplified": null,
-      "Cardinalities": "Muchos a Muchos Bidirecccional No.7"
-    },
-    {
-      "From": "SitesTypes",
-      "To": "SitesTypes",
-      "name": "",
-      "isOptionality": true,
-      "isEmbedded": false,
-      "isSimplified": null,
-      "Cardinalities": "Uno a Muchos Bidirecccional No.5"
-    },
-    {
-      "From": "SitesTypes",
-      "To": "Sites",
-      "name": "",
-      "isOptionality": true,
-      "isEmbedded": false,
-      "isSimplified": null,
-      "Cardinalities": "Muchos a Muchos Bidirecccional No.7"
-    },
-    {
-      "From": "SitesTypes",
-      "To": "SitesTypes",
-      "name": "",
-      "isOptionality": true,
-      "isEmbedded": false,
-      "isSimplified": null,
-      "Cardinalities": "Uno a Muchos Bidirecccional No.5"
-    },
     {
       "From": "Models",
       "To": "ModelsGroupIds",

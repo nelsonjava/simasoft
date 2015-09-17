@@ -218,16 +218,14 @@ public class DevelopmentsGen extends FileTxt {
 
                       for (Relationships relationships : groupIdsEntities.getEntities().getTo()) {
 
-/*
-                          if (!isRelationModel(relationships.getFrom().getGroupIds().getGroupId(),
-                                              relationships.getTo().getGroupIds().getGroupId(),
-                                              models.getGroupId())){
+                          if (!isRelationModel(relationships.getFrom().getGroupId(),
+                                               relationships.getTo().getGroupId(),
+                                               models.getGroupId())){
 
                              if (modelsGroupIds.getIsIsolated()){
                                 continue;
                              }
                           }
-*/                          
 
 /*
 line("************");
