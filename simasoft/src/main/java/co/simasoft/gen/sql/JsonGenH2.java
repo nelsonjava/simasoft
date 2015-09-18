@@ -31,6 +31,12 @@ public class JsonGenH2 extends FileTxt {
 
 //>>DECLARACION DE INSTANCIAS
       LinkedHashSet<String> imports = new LinkedHashSet<String>();
+      
+      private int i=0;
+      private int j=0;
+      private int k=0;
+      private int y=0;
+
 //>>DECLARACION DE INSTANCIAS
 
 /****************************************************************************************************************
@@ -56,30 +62,45 @@ public JsonGenH2(Domains domain) throws IOException {
     }
 
 line("{");
-line("  \"id\": 1,");
-line("  \"firstname\": \"Katerina\",");
 line("  \"GroupIds\": [");
-    Iterator iImpor = imports.iterator();
-    while(iImpor.hasNext()){
-       String impor = (String) iImpor.next();
-line("    {");
-line("      \"groupId\": \""+impor+"\",");
-       if(iImpor.hasNext()){
-line("      \"artifactId\": \""+impor+"\"");
-       }
-       else {
-line("      \"artifactId\": \""+impor+"\"");
-       }
 
+    i=1;
+    for (String impor : imports) {
+
+line("    {");
+line("      \"artifactId\": \""+impor+"\",");
+line("      \"groupId\": \""+impor+"\",");
+line("      \"version\": \"\",");
+line("      \"code\": \"\"");
+          if (i == imports.size()){
+line("    }");
+          }
+          else{
 line("    },");
+          }
+    i++;
     }
 line("  ],");
 
+//      -------------------------- Models ---------------------------
+
 line("  \"Models\": [");
 line("    {");
-line("      \"groupId\": \""+domain.getGroupId()+"."+domain.getArtifactId()+"\",");
 line("      \"artifactId\": \""+domain.getArtifactId()+"\",");
-line("      \"version\": \""+domain.getVersion()+"\"");
+line("      \"groupId\": \""+domain.getGroupId()+"."+domain.getArtifactId()+"\",");
+line("      \"version\": \""+domain.getVersion()+"\",");
+line("      \"code\": \"\"");
+line("    }");
+line("  ],");
+
+//      ---------------------- ModelsGroupIds ------------------------
+
+line("  \"ModelsGroupIds\": [");
+line("    {");
+line("      \"isSimplified\": false,");
+line("      \"isIsolated\": false,");
+line("      \"GroupIds.groupId\": \""+domain.getGroupId()+"."+domain.getArtifactId()+"\",");
+line("      \"Models.artifactId\": \""+domain.getArtifactId()+"\"");
 line("    }");
 line("  ],");
 
@@ -87,10 +108,11 @@ line("  ],");
 
 line("  \"Developments\": [");
 line("    {");
-line("      \"groupId\": \""+domain.getGroupId()+"\",");
 line("      \"artifactId\": \""+domain.getArtifactId()+"\",");
+line("      \"groupId\": \""+domain.getGroupId()+"\",");
 line("      \"version\": \""+domain.getVersion()+"\",");
-line("      \"models\": \""+domain.getArtifactId()+"\"");
+line("      \"code\": \"\",");
+line("      \"Models.artifactId\": \""+domain.getArtifactId()+"\"");
 line("    }");
 line("  ],");
 
@@ -100,73 +122,85 @@ line("  ],");
 //      line(" paso2     x="+Integer.toString(x));
 //       line("      j="+Integer.toString(j)+" size="+Integer.toString(groupId.getEntities().size()));
 
-    int x=0;
+
+    i = 1;
 line("  \"Entities\": [");
     for (Packages groupId : domain.getPackages()){
-          for(int j=0; j<groupId.getEntities().size(); j++){
-              Entidad entidad = groupId.getEntities().get(j);
+        j = 1;
+        for (Entidad entidad : groupId.getEntities() ) {
+
 line("    {");
 line("      \"name\": \""+entidad.getName()+"\",");
-              if(x == domain.getPackages().size()-2 && j<groupId.getEntities().size()-1){
+line("      \"groupId\": \""+groupId.getGroupId()+"\"");
 line("      \"groupIds\": \""+groupId.getGroupId()+"\"");
-       }
-              else {
-line("      \"groupIds\": \""+groupId.getGroupId()+"\"");
-       }
+          if (i == domain.getPackages().size() && j == groupId.getEntities().size() ){
+line("    }");
+          }
+          else{
 line("    },");
+          }
+            j++;
         } // for: groupId.getEntities()
-        x++;
+        i++;
     } // for: domain.getPackages()
 line("  ],");
 
 
-
 //      ---------------------- Attributes ------------------------
 
+    i = 1;
 line("  \"Attributes\": [");
     for (Packages groupId : domain.getPackages()){
+        j = 1;
         for (Entidad entidad: groupId.getEntities()) {
-          for(int i=0; i<entidad.getAtributos().size(); i++){
-              Atributos attri = entidad.getAtributos().get(i);
+          k = 1;
+          for(Atributos attri : entidad.getAtributos() ){
+
 line("    {");
 line("      \"entity\": \""+entidad.getName()+"\",");
 line("      \"name\": \""+attri.getField()+"\",");
-line("      \"isNullable\": \""+attri.getNulo()+"\",");
-line("      \"isUnique\": \""+attri.getUnique()+"\",");
-              if(i<entidad.getAtributos().size()){
+line("      \"isNullable\": "+attri.getNulo()+",");
+line("      \"isUnique\": "+attri.getUnique()+",");
 line("      \"AttributesTypes\": \""+attri.getType()+"\"");
-       }
-              else {
-line("      \"AttributesTypes\": \""+attri.getType()+"\"");
-       }
+          if (i == domain.getPackages().size() && j == groupId.getEntities().size() && k == entidad.getAtributos().size() ){
+line("    }");
+          }
+          else{
 line("    },");
-            } // for: entidad.getAtributos()
+          }
+          k++;
+          } // for: entidad.getAtributos()
+        j++;
         } // for: groupId.getEntities()
+    i++;
     } // for: domain.getPackages()
 line("  ],");
 
 //      ---------------------- Relationships ------------------------
 
 line("  \"Relationships\": [");
+    i = 1;
     for (Packages groupId : domain.getPackages()){
-//        for (Relation relation: groupId.getRelations()) {
-        for(int i=0; i<groupId.getRelations().size(); i++){
-            Relation relation = groupId.getRelations().get(i);
+        j = 1;
+        for (Relation relation: groupId.getRelations()) {
 
 line("    {");
 line("      \"From\": \""+relation.getFrom()+"\",");
 line("      \"To\": \""+relation.getTo()+"\",");
+line("      \"name\": \"\",");
 line("      \"isOptionality\": "+relation.getOptionality()+",");
 line("      \"isEmbedded\": false,");
 line("      \"isSimplified\": false,");
-              if(i<groupId.getRelations().size()){
 line("      \"Cardinalities\": \""+Cardinaly(relation.getCardinality())+"\"");
-       }
-              else {
-line("      \"Cardinalities\": \""+Cardinaly(relation.getCardinality())+"\"");
-       }
+          if (i == domain.getPackages().size() && j == groupId.getRelations().size() ){
+line("    }");
+          }
+          else{
 line("    },");
+          }
+          j++;
         } // for: groupId.getRelations()
+        i++;
     } // for: domain.getPackages()
 line("  ]");
 line("}");
