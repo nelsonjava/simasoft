@@ -131,8 +131,34 @@ line("  \"Entities\": [");
 
 line("    {");
 line("      \"name\": \""+entidad.getName()+"\",");
-line("      \"groupId\": \""+groupId.getGroupId()+"\"");
+line("      \"groupId\": \""+groupId.getGroupId()+"\",");
 line("      \"groupIds\": \""+groupId.getGroupId()+"\"");
+          if (i == domain.getPackages().size() && j == groupId.getEntities().size() ){
+line("    }");
+          }
+          else{
+line("    },");
+          }
+            j++;
+        } // for: groupId.getEntities()
+        i++;
+    } // for: domain.getPackages()
+line("  ],");
+
+//      ---------------------- GroupIdsEntities ------------------------
+
+    i = 1;
+line("  \"GroupIdsEntities\": [");
+    for (Packages groupId : domain.getPackages()){
+        j = 1;
+        for (Entidad entidad : groupId.getEntities() ) {
+
+line("    {");
+line("      \"entity\": \""+entidad.getName()+"\",");
+line("      \"groupIds.artifactId\": \""+domain.getArtifactId()+"\",");
+line("      \"isIsolated\": false,");
+line("      \"isSimplified\": false");
+
           if (i == domain.getPackages().size() && j == groupId.getEntities().size() ){
 line("    }");
           }

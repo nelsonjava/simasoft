@@ -1,0 +1,142 @@
+[[wildfly-instalacion]]
+////
+a=&#225; e=&#233; i=&#237; o=&#243; u=&#250;
+A=&#193; E=&#201; I=&#205; O=&#211; U=&#218;
+n=&#241; N=&#209;
+////
+== MODELO
+image::images/modelo.jpg[]
+== ENTITY:Guides
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|guide|null|String|null|null|true|false|false|true|true|true|true|true
+|title|null|String|null|null|true|false|false|true|true|true|true|true
+|===
+*RELATIONS:* 1
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|Activities|*..*|Guides|true|false|
+|===
+== ENTITY:Activities
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|untimelyDate|null|Date|null|null|true|false|false|true|true|true|true|true
+|timelyDate|null|Date|null|null|true|false|false|true|true|true|true|true
+|finalDate|null|Date|null|null|true|false|false|true|true|true|true|true
+|startDate|null|Date|null|null|true|false|false|true|true|true|true|true
+|detail|null|String|null|null|true|false|false|true|true|true|true|true
+|name|null|String|null|null|true|false|false|true|true|true|true|true
+|===
+*RELATIONS:* 9
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|Activities|*..*|Calendars|true|false|
+|Activities|1..*|Tasks|true|false|
+|Activities|*..*|Sites|true|false|
+|Activities|1..*|Activities|true|false|
+|Activities|*..*|Guides|true|false|
+|ActivitiesTypes|*..1|Activities|true|false|
+|Sections|*..*|Activities|true|false|
+|Persons|*..*|Activities|true|false|
+|Activities|*..1|Activities|true|false|
+|===
+== ENTITY:ActivitiesTypes
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|name|null|String|null|null|true|false|false|true|true|true|true|true
+|===
+*RELATIONS:* 1
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|ActivitiesTypes|1..*|Activities|true|false|
+|===
+== ENTITY:Diaries
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|detail|null|String|null|null|true|false|false|true|true|true|true|true
+|date|null|Date|null|null|true|false|false|true|true|true|true|true
+|===
+*RELATIONS:* 2
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|Diaries|*..*|Sites|true|false|
+|Tasks|*..1|Diaries|true|false|
+|===
+== ENTITY:Tasks
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|detail|null|String|null|null|true|false|false|true|true|true|true|true
+|finalDate|null|Date|null|null|true|false|false|true|true|true|true|true
+|priority|null|Integer|null|null|true|false|false|true|true|true|true|true
+|name|null|String|null|null|true|false|false|true|true|true|true|true
+|startDate|null|Date|null|null|true|false|false|true|true|true|true|true
+|===
+*RELATIONS:* 3
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|Tasks|1..*|Diaries|true|false|
+|Tasks|*..*|Sites|true|false|
+|Activities|*..1|Tasks|true|false|
+|===
+== ENTITY:Calendars
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|date|null|Date|null|null|true|false|false|true|true|true|true|true
+|name|null|String|null|null|true|false|false|true|true|true|true|true
+|===
+*RELATIONS:* 1
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|Activities|*..*|Calendars|true|false|
+|===
+== ENTITY:Sites
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|link|null|String|null|null|false|true|false|true|true|true|true|true
+|title|null|String|null|null|true|false|false|true|true|true|true|true
+|abc|null|String|null|null|true|false|false|true|true|true|true|true
+|===
+*RELATIONS:* 4
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|Activities|*..*|Sites|true|false|
+|Diaries|*..*|Sites|true|false|
+|Tasks|*..*|Sites|true|false|
+|SitesTypes|*..*|Sites|true|false|
+|===
+== ENTITY:SitesTypes
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|name|null|String|null|null|true|false|false|true|true|true|true|true
+|===
+*RELATIONS:* 3
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|SitesTypes|*..*|Sites|true|false|
+|SitesTypes|1..*|SitesTypes|true|false|
+|SitesTypes|*..1|SitesTypes|true|false|
+|===

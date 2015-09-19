@@ -1,0 +1,177 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        template="/resources/scaffold/pageTemplate.xhtml">
+
+        <f:metadata>
+                <f:viewParam name="page" value='#{personsBean.page}'/>
+                <f:event type="preRenderView" listener='#{personsBean.paginate}'/>
+        </f:metadata>
+
+        <ui:param name="pageTitle" value="Search Persons entities"/>
+
+        <ui:define name="header">
+                Persons
+        </ui:define>
+
+        <ui:define name="subheader">
+                Search Persons entities
+        </ui:define>
+
+        <ui:define name="footer"/>
+
+        <ui:define name="main">
+                <h:form id="search">
+                        <f:validateBean disabled="true">
+                                <h:panelGroup styleClass="search">
+
+                                        <h:panelGrid columnClasses="label,component,required" columns="3">
+                                                <h:outputLabel for="personsBeanExampleTelephones" value="Telephones:"/>
+                                                <h:panelGroup>
+                                                        <h:inputText id="personsBeanExampleTelephones" value="#{personsBean.example.telephones}"/>
+                                                        <h:message for="personsBeanExampleTelephones" styleClass="error"/>
+                                                </h:panelGroup>
+                                                <h:outputText/>
+
+                                                <h:outputLabel for="personsBeanExampleAddress" value="Address:"/>
+                                                <h:panelGroup>
+                                                        <h:inputText id="personsBeanExampleAddress" value="#{personsBean.example.address}"/>
+                                                        <h:message for="personsBeanExampleAddress" styleClass="error"/>
+                                                </h:panelGroup>
+                                                <h:outputText/>
+
+                                                <h:outputLabel for="personsBeanExampleSecondName" value="SecondName:"/>
+                                                <h:panelGroup>
+                                                        <h:inputText id="personsBeanExampleSecondName" value="#{personsBean.example.secondName}"/>
+                                                        <h:message for="personsBeanExampleSecondName" styleClass="error"/>
+                                                </h:panelGroup>
+                                                <h:outputText/>
+
+                                                <h:outputLabel for="personsBeanExampleFirstName" value="FirstName:"/>
+                                                <h:panelGroup>
+                                                        <h:inputText id="personsBeanExampleFirstName" value="#{personsBean.example.firstName}"/>
+                                                        <h:message for="personsBeanExampleFirstName" styleClass="error"/>
+                                                </h:panelGroup>
+                                                <h:outputText/>
+
+                                                <h:outputLabel for="personsBeanExampleSecondLastName" value="SecondLastName:"/>
+                                                <h:panelGroup>
+                                                        <h:inputText id="personsBeanExampleSecondLastName" value="#{personsBean.example.secondLastName}"/>
+                                                        <h:message for="personsBeanExampleSecondLastName" styleClass="error"/>
+                                                </h:panelGroup>
+                                                <h:outputText/>
+
+                                                <h:outputLabel for="personsBeanExampleFirstLastName" value="FirstLastName:"/>
+                                                <h:panelGroup>
+                                                        <h:inputText id="personsBeanExampleFirstLastName" value="#{personsBean.example.firstLastName}"/>
+                                                        <h:message for="personsBeanExampleFirstLastName" styleClass="error"/>
+                                                </h:panelGroup>
+                                                <h:outputText/>
+
+                                                <h:outputLabel for="personsBeanExampleEmail" value="Email:"/>
+                                                <h:panelGroup>
+                                                        <h:inputText id="personsBeanExampleEmail" value="#{personsBean.example.email}"/>
+                                                        <h:message for="personsBeanExampleEmail" styleClass="error"/>
+                                                </h:panelGroup>
+                                                <h:outputText/>
+
+                                        </h:panelGrid>
+                                        <h:panelGroup styleClass="buttons">
+                                                <h:commandLink value="Search" action='#{personsBean.search}' styleClass="btn btn-primary"/>
+                                                <h:commandLink value="Create New" action='#{personsBean.create}' styleClass="btn btn-primary"/>
+                                        </h:panelGroup>
+                                </h:panelGroup>
+                        </f:validateBean>
+
+                        <h:dataTable id="personsBeanPageItems" styleClass="data-table" value="#{personsBean.pageItems}" var="_item">
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Telephones"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/persons/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemTelephones" value="#{_item.telephones}"/>
+                                        </h:link>
+                                </h:column>
+
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Address"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/persons/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemAddress" value="#{_item.address}"/>
+                                        </h:link>
+                                </h:column>
+
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="SecondName"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/persons/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemSecondName" value="#{_item.secondName}"/>
+                                        </h:link>
+                                </h:column>
+
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="FirstName"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/persons/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemFirstName" value="#{_item.firstName}"/>
+                                        </h:link>
+                                </h:column>
+
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="SecondLastName"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/persons/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemSecondLastName" value="#{_item.secondLastName}"/>
+                                        </h:link>
+                                </h:column>
+
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="FirstLastName"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/persons/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemFirstLastName" value="#{_item.firstLastName}"/>
+                                        </h:link>
+                                </h:column>
+
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Email"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/persons/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemEmail" value="#{_item.email}"/>
+                                        </h:link>
+                                </h:column>
+
+
+                        </h:dataTable>
+                        <ui:include src="/resources/scaffold/paginator.xhtml">
+                                <ui:param name="paginatorBean" value='#{personsBean}'/>
+                        </ui:include>
+                </h:form>
+
+        </ui:define>
+
+</ui:composition>

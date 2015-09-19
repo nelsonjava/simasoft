@@ -563,6 +563,9 @@ public class App extends FileTxt{
         modelos.add(new Modelos("core/companies/companiesEntities.oom","co.simasoft.models.core.companies"));
         modelos.add(new Modelos("core/companies/companiesModel.oom","co.simasoft.models.core.companies"));
         modelos.add(new Modelos("core/companies/companiesModelExternal.oom","co.simasoft.models.core.companies"));
+        
+        modelos.add(new Modelos("core/persons/personsModel.oom","co.simasoft.models.core.persons"));
+        modelos.add(new Modelos("core/persons/personsEntities.oom","co.simasoft.models.core.persons"));
 
         modelos.add(new Modelos("core/regulations/regulationsEntities.oom","co.simasoft.models.core.regulations"));
         modelos.add(new Modelos("core/regulations/regulationsModel.oom","co.simasoft.models.core.regulations"));
@@ -578,17 +581,19 @@ public class App extends FileTxt{
         modelos.add(new Modelos("dev/naifg/dependencies/dependenciesEntities.oom","co.simasoft.models.dev.naifg.dependencies"));
         modelos.add(new Modelos("dev/naifg/dependencies/dependenciesModel.oom","co.simasoft.models.dev.naifg.dependencies"));
         modelos.add(new Modelos("dev/naifg/dependencies/dependenciesModelExternal.oom","co.simasoft.models.dev.naifg.dependencies"));
-
-/*
-        modelos.add(new Modelos("dev/naifg/sites/sitesEntities.oom","co.simasoft.models.dev.naifg.sites"));
-        modelos.add(new Modelos("dev/naifg/sites/sitesModel.oom","co.simasoft.models.dev.naifg.sites"));
-*/
-
         modelos.add(new Modelos("dev/naifg/naifgEntities.oom","co.simasoft.models.dev.naifg"));
         modelos.add(new Modelos("dev/naifg/naifgModel.oom","co.simasoft.models.dev.naifg"));
         modelos.add(new Modelos("dev/naifg/naifgExternalModel.oom","co.simasoft.models.dev.naifg"));
 //        modelos.add(new Modelos("dev/naifg/naifgModelExt.oom","co.simasoft.models.dev.naifg"));
         domains = new Domains("co.simasoft","naifg","1.0-SNAPSHOT",modelos);
+        dataGenH2 = new DataGenH2(domains);
+        jsonGenH2 = new JsonGenH2(domains);
+        
+        modelos.clear();
+        modelos.add(new Modelos("dev/tasks/tasksEntities.oom","co.simasoft.models.dev.tasks"));
+        modelos.add(new Modelos("dev/tasks/tasksModel.oom","co.simasoft.models.dev.tasks"));
+        modelos.add(new Modelos("dev/tasks/tasksExternalModel.oom","co.simasoft.models.dev.tasks"));
+        domains = new Domains("co.simasoft","tasks","1.0-SNAPSHOT",modelos);
         dataGenH2 = new DataGenH2(domains);
         jsonGenH2 = new JsonGenH2(domains);
 

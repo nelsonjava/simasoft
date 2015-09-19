@@ -1,0 +1,376 @@
+{
+  "GroupIds": [
+    {
+      "artifactId": "tasks",
+      "groupId": "co.simasoft.models.dev.tasks",
+      "version": "",
+      "code": ""
+    },
+    {
+      "artifactId": "persons1",
+      "groupId": "co.simasoft.models.core.persons",
+      "version": "null",
+      "code": "null"
+    },
+    {
+      "artifactId": "sections",
+      "groupId": "co.simasoft.models.core.archival",
+      "version": "null",
+      "code": "null"
+    },
+  ],
+  "Models": [
+    {
+      "artifactId": "tasks",
+      "groupId": "co.simasoft.models.dev.tasks",
+      "version": "1.0-SNAPSHOT",
+      "code": ""
+    }
+  ],
+  "ModelsGroupIds": [
+    {
+      "isSimplified": false,
+      "isIsolated": false,
+      "GroupIds.artifactId": "tasks",
+      "Models.artifactId": "tasks"
+    },
+    {
+      "isSimplified": true,
+      "isIsolated": true,
+      "GroupIds.artifactId": "persons1",
+      "Models.artifactId": "tasks"
+    },
+    {
+      "isSimplified": true,
+      "isIsolated": true,
+      "GroupIds.artifactId": "sections",
+      "Models.artifactId": "tasks"
+    },
+    {
+      "isSimplified": true,
+      "isIsolated": true,
+      "GroupIds.artifactId": "sites1",
+      "Models.artifactId": "tasks"
+    }
+  ],
+  "Developments": [
+    {
+      "artifactId": "tasks",
+      "groupId": "co.simasoft",
+      "version": "1.0-SNAPSHOT",
+      "code": "",
+      "Models.artifactId": "tasks"
+    }
+  ],
+  "Entities": [
+    {
+      "name": "Guides",
+      "groupId": "co.simasoft.models.dev.tasks",
+      "groupIds": "co.simasoft.models.dev.tasks"
+    },
+    {
+      "name": "Activities",
+      "groupId": "co.simasoft.models.dev.tasks",
+      "groupIds": "co.simasoft.models.dev.tasks"
+    },
+    {
+      "name": "ActivitiesTypes",
+      "groupId": "co.simasoft.models.dev.tasks",
+      "groupIds": "co.simasoft.models.dev.tasks"
+    },
+    {
+      "name": "Calendars",
+      "groupId": "co.simasoft.models.dev.tasks",
+      "groupIds": "co.simasoft.models.dev.tasks"
+    },
+    {
+      "name": "Tasks",
+      "groupId": "co.simasoft.models.dev.tasks",
+      "groupIds": "co.simasoft.models.dev.tasks"
+    },
+    {
+      "name": "Diaries",
+      "groupId": "co.simasoft.models.dev.tasks",
+      "groupIds": "co.simasoft.models.dev.tasks"
+    }
+  ],
+  "GroupIdsEntities": [
+    {
+      "entity": "Guides",
+      "groupIds.artifactId": "tasks",
+      "isIsolated": false,
+      "isSimplified": false
+    },
+    {
+      "entity": "Activities",
+      "groupIds.artifactId": "tasks",
+      "isIsolated": false,
+      "isSimplified": false
+    },
+    {
+      "entity": "ActivitiesTypes",
+      "groupIds.artifactId": "tasks",
+      "isIsolated": false,
+      "isSimplified": false
+    },
+    {
+      "entity": "Calendars",
+      "groupIds.artifactId": "tasks",
+      "isIsolated": false,
+      "isSimplified": false
+    },
+    {
+      "entity": "Tasks",
+      "groupIds.artifactId": "tasks",
+      "isIsolated": false,
+      "isSimplified": false
+    },
+    {
+      "entity": "Diaries",
+      "groupIds.artifactId": "tasks",
+      "isIsolated": false,
+      "isSimplified": false
+    },
+    {
+      "entity": "Persons",
+      "groupIds.artifactId": "persons1",
+      "isIsolated": false,
+      "isSimplified": false
+    },
+    {
+      "entity": "Sections",
+      "groupIds.artifactId": "sections",
+      "isIsolated": false,
+      "isSimplified": false
+    }
+  ],
+  "Attributes": [
+    {
+      "entity": "Guides",
+      "name": "title",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "String"
+    },
+    {
+      "entity": "Guides",
+      "name": "guide",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "String"
+    },
+    {
+      "entity": "Activities",
+      "name": "name",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "String"
+    },
+    {
+      "entity": "Activities",
+      "name": "detail",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "String"
+    },
+    {
+      "entity": "Activities",
+      "name": "startDate",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "Date"
+    },
+    {
+      "entity": "Activities",
+      "name": "finalDate",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "Date"
+    },
+    {
+      "entity": "Activities",
+      "name": "timelyDate",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "Date"
+    },
+    {
+      "entity": "Activities",
+      "name": "untimelyDate",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "Date"
+    },
+    {
+      "entity": "ActivitiesTypes",
+      "name": "name",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "String"
+    },
+    {
+      "entity": "Calendars",
+      "name": "name",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "String"
+    },
+    {
+      "entity": "Calendars",
+      "name": "date",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "Date"
+    },
+    {
+      "entity": "Tasks",
+      "name": "name",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "String"
+    },
+    {
+      "entity": "Tasks",
+      "name": "startDate",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "Date"
+    },
+    {
+      "entity": "Tasks",
+      "name": "finalDate",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "Date"
+    },
+    {
+      "entity": "Tasks",
+      "name": "priority",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "Integer"
+    },
+    {
+      "entity": "Tasks",
+      "name": "detail",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "String"
+    },
+    {
+      "entity": "Diaries",
+      "name": "date",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "Date"
+    },
+    {
+      "entity": "Diaries",
+      "name": "detail",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "String"
+    }
+  ],
+  "Relationships": [
+    {
+      "From": "Tasks",
+      "To": "Sites",
+      "name": "",
+      "isOptionality": true,
+      "isEmbedded": false,
+      "isSimplified": false,
+      "Cardinalities": "Muchos a Muchos Bidirecccional No.7"
+    },
+    {
+      "From": "Persons",
+      "To": "Activities",
+      "name": "",
+      "isOptionality": true,
+      "isEmbedded": false,
+      "isSimplified": false,
+      "Cardinalities": "Muchos a Muchos Bidirecccional No.7"
+    },
+    {
+      "From": "Diaries",
+      "To": "Sites",
+      "name": "",
+      "isOptionality": true,
+      "isEmbedded": false,
+      "isSimplified": false,
+      "Cardinalities": "Muchos a Muchos Bidirecccional No.7"
+    },
+    {
+      "From": "Sections",
+      "To": "Activities",
+      "name": "",
+      "isOptionality": true,
+      "isEmbedded": false,
+      "isSimplified": false,
+      "Cardinalities": "Muchos a Muchos Bidirecccional No.7"
+    },
+    {
+      "From": "Activities",
+      "To": "Sites",
+      "name": "",
+      "isOptionality": true,
+      "isEmbedded": false,
+      "isSimplified": false,
+      "Cardinalities": "Muchos a Muchos Bidirecccional No.7"
+    },
+    {
+      "From": "ActivitiesTypes",
+      "To": "Activities",
+      "name": "",
+      "isOptionality": true,
+      "isEmbedded": false,
+      "isSimplified": false,
+      "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+    },
+    {
+      "From": "Activities",
+      "To": "Tasks",
+      "name": "",
+      "isOptionality": true,
+      "isEmbedded": false,
+      "isSimplified": false,
+      "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+    },
+    {
+      "From": "Tasks",
+      "To": "Diaries",
+      "name": "",
+      "isOptionality": true,
+      "isEmbedded": false,
+      "isSimplified": false,
+      "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+    },
+    {
+      "From": "Activities",
+      "To": "Calendars",
+      "name": "",
+      "isOptionality": true,
+      "isEmbedded": false,
+      "isSimplified": false,
+      "Cardinalities": "Muchos a Muchos Bidirecccional No.7"
+    },
+    {
+      "From": "Activities",
+      "To": "Guides",
+      "name": "",
+      "isOptionality": true,
+      "isEmbedded": false,
+      "isSimplified": false,
+      "Cardinalities": "Muchos a Muchos Bidirecccional No.7"
+    },
+    {
+      "From": "Activities",
+      "To": "Activities",
+      "name": "",
+      "isOptionality": true,
+      "isEmbedded": false,
+      "isSimplified": false,
+      "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+    }
+  ]
+}

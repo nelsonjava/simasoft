@@ -19,6 +19,12 @@
       "code": "null"
     },
     {
+      "artifactId": "persons",
+      "groupId": "co.simasoft.models.core.persons",
+      "version": "null",
+      "code": "null"
+    },
+    {
       "artifactId": "regulations",
       "groupId": "co.simasoft.models.core.regulations",
       "version": "null",
@@ -56,6 +62,12 @@
       "isSimplified": false,
       "isIsolated": false,
       "GroupIds.artifactId": "companies",
+      "Models.artifactId": "core"
+    },
+    {
+      "isSimplified": false,
+      "isIsolated": false,
+      "GroupIds.artifactId": "persons",
       "Models.artifactId": "core"
     },
     {
@@ -185,6 +197,11 @@
       "name": "Brands",
       "groupId": "co.simasoft.models.core.companies",
       "groupIds": "co.simasoft.models.core.companies"
+    },
+    {
+      "name": "Persons",
+      "groupId": "co.simasoft.models.core.persons"
+      "groupIds": "co.simasoft.models.core.persons"
     },
     {
       "name": "RegulationsText",
@@ -336,6 +353,12 @@
     {
       "entity": "Brands",
       "groupIds.artifactId": "companies",
+      "isIsolated": false,
+      "isSimplified": false
+    },
+    {
+      "entity": "Persons",
+      "groupIds.artifactId": "persons",
       "isIsolated": false,
       "isSimplified": false
     },
@@ -724,6 +747,55 @@
     {
       "entity": "Brands",
       "name": "name",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "String"
+    },
+    {
+      "entity": "Persons",
+      "name": "firstLastName",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "String"
+    },
+    {
+      "entity": "Persons",
+      "name": "secondLastName",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "String"
+    },
+    {
+      "entity": "Persons",
+      "name": "firstName",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "String"
+    },
+    {
+      "entity": "Persons",
+      "name": "secondName",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "String"
+    },
+    {
+      "entity": "Persons",
+      "name": "address",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "String"
+    },
+    {
+      "entity": "Persons",
+      "name": "telephones",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "String"
+    },
+    {
+      "entity": "Persons",
+      "name": "email",
       "isNullable": true,
       "isUnique": false,
       "AttributesTypes": "String"

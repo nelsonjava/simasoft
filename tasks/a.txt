@@ -1,0 +1,56 @@
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for co.simasoft:tasks:war:1.0.0-SNAPSHOT
+[WARNING] 'dependencies.dependency.type' for org.primefaces:primefaces:jar must be 'pom' to import the managed dependencies. @ line 79, column 17
+[WARNING] 'dependencies.dependency.scope' for org.primefaces:primefaces:jar must be one of [provided, compile, runtime, test, system] but is 'import'. @ line 83, column 14
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO] 
+[INFO] Using the builder org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder with a thread count of 1
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building tasks 1.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ tasks ---
+[INFO] Deleting d:\docs\h2\war\tasks\target
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ tasks ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ tasks ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 13 source files to d:\docs\h2\war\tasks\target\classes
+[WARNING] /d:/docs/h2/war/tasks/src/main/java/co/simasoft/Beans/FindBean.java: Some input files use unchecked or unsafe operations.
+[WARNING] /d:/docs/h2/war/tasks/src/main/java/co/simasoft/Beans/FindBean.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ tasks ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory d:\docs\h2\war\tasks\src\test\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ tasks ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ tasks ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] --- maven-war-plugin:2.1.1:war (default-war) @ tasks ---
+[INFO] Packaging webapp
+[INFO] Assembling webapp [tasks] in [d:\docs\h2\war\tasks\target\tasks]
+[INFO] Processing war project
+[INFO] Copying webapp resources [d:\docs\h2\war\tasks\src\main\webapp]
+[INFO] Webapp assembled in [451 msecs]
+[INFO] Building war: d:\docs\h2\war\tasks\target\tasks.war
+[WARNING] Warning: selected war files include a WEB-INF/web.xml which will be ignored 
+(webxml attribute is missing from war task, or ignoreWebxml attribute is specified as 'true')
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 6.631 s
+[INFO] Finished at: 2015-09-19T14:50:43-05:00
+[INFO] Final Memory: 17M/45M
+[INFO] ------------------------------------------------------------------------

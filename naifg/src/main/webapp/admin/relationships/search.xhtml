@@ -30,6 +30,8 @@
                                 <h:panelGroup styleClass="search">
 
                                         <h:panelGrid columnClasses="label,component,required" columns="3">
+
+
                                                 <h:outputLabel for="relationshipsBeanExampleName" value="Name:"/>
                                                 <h:panelGroup>
                                                         <h:inputText id="relationshipsBeanExampleName" value="#{relationshipsBean.example.name}"/>
@@ -113,6 +115,36 @@
 
                         <h:dataTable id="relationshipsBeanPageItems" styleClass="data-table" value="#{relationshipsBean.pageItems}" var="_item">
 
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="From:"/>
+					</f:facet>
+					<h:link outcome="/admin/relationships/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemEntity" value="#{_item.from.name}"/>
+					</h:link>
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value=""/>
+					</f:facet>
+					<h:link outcome="/admin/relationships/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemCardinality" value="#{_item.cardinalities.cardinality}"/>
+					</h:link>
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="To"/>
+					</f:facet>
+					<h:link outcome="/admin/relationships/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemMappedby" value="#{_item.to.name}"/>
+					</h:link>
+				</h:column>
+
                                 <h:column>
                                         <f:facet name="header">
                                                 <h:outputText value="Name"/>
@@ -156,7 +188,7 @@
                                         </h:link>
                                 </h:column>
 
-
+<!--
                                 <h:column>
                                         <f:facet name="header">
                                                 <h:outputText value="IsCreate"/>
@@ -188,6 +220,7 @@
                                                 <h:outputText id="itemIsView" value="#{_item.isView}"/>
                                         </h:link>
                                 </h:column>
+-->
 
 
                         </h:dataTable>
