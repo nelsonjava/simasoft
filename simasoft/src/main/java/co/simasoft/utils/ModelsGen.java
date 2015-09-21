@@ -384,7 +384,13 @@ saveFile("\\docs", "ModelsGen.txt");
         H2Persistence h2Persistence = new H2Persistence(artifactId,entities);
         Utils.fileMake(pathDocs+".h2.war."+artifactId+".src.main.resources.META-INF", "persistence.xml", h2Persistence);
 
+int i = 1;
+line("entidades:"+Integer.toString(entities.size()));
+
         for (Entidad entidad : entities) {
+
+line(Integer.toString(i++)+":"+entidad.getName());
+
 
             EntityH2 entityH2 = new EntityH2(entidad.getGroupId(),entidad.getGroupId(),entidad,imports);
             Utils.fileMake(pathDocs+".h2.war."+artifactId+".src.main.java."+entidad.getGroupId(),entidad.getName()+".java", entityH2);

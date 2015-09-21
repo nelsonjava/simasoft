@@ -68,6 +68,11 @@ public class DevelopmentsGen extends FileTxt {
 
         LinkedHashSet<String> imports = new LinkedHashSet<String>();
         ArrayList<Entidad> entidades = new ArrayList<Entidad>(0);
+        ArrayList<String> entitiesNames = EntitiesNames(developments);
+
+for (String entityName : entitiesNames){
+line(entityName);
+}
 
         for (Models models : developments.getModels()){
 
@@ -82,6 +87,8 @@ public class DevelopmentsGen extends FileTxt {
         for (Models models : developments.getModels()){
 
              for (ModelsGroupIds modelsGroupIds : models.getModelsGroupIds()){
+
+line(modelsGroupIds.getGroupIds().getGroupId());
 
                  for (GroupIdsEntities groupIdsEntities : modelsGroupIds.getGroupIds().getGroupIdsEntities()){
 
@@ -152,6 +159,11 @@ public class DevelopmentsGen extends FileTxt {
 
                       for (Relationships relationships : groupIdsEntities.getEntities().getFrom()) {
 
+                          if (!entitiesNames.contains(relationships.getTo().getName())){
+                             continue;
+                          }
+
+
                           switch (relationships.getCardinalities().getName()) {
 
                               case "Uno a Uno Unidireccional No.1":
@@ -218,6 +230,7 @@ public class DevelopmentsGen extends FileTxt {
 
                       for (Relationships relationships : groupIdsEntities.getEntities().getTo()) {
 
+/*
                           if (!isRelationModel(relationships.getFrom().getGroupId(),
                                                relationships.getTo().getGroupId(),
                                                models.getGroupId())){
@@ -226,14 +239,26 @@ public class DevelopmentsGen extends FileTxt {
                                 continue;
                              }
                           }
-
-/*
-line("************");
-line("     "+relationships.getTo().getGroupIds().getGroupId());
-line("to  :"+relationships.getTo().getGroupIds().getGroupId()+"."+relationships.getTo().getName());
-line("from:"+relationships.getFrom().getGroupIds().getGroupId()+"."+relationships.getFrom().getName());
-line(".***********");
 */
+
+                          if (!entitiesNames.contains(relationships.getFrom().getName())){
+                             continue;
+                          }
+
+
+line("************");
+line("to  :"+relationships.getTo().getName());
+line("from:"+relationships.getFrom().getName());
+
+if (entitiesNames.contains(relationships.getFrom().getName())){
+line("valida:si");
+}
+else {
+line("valida:no");
+}
+line(".***********");
+
+
 
 
                           switch (relationships.getCardinalities().getName()) {
@@ -301,6 +326,7 @@ line(".***********");
 
                       entidad.setGroupId(groupIdsEntities.getGroupIds().getGroupId());
                       entidades.add(entidad);
+line(entidad.getName());
 
                  } // for: modelsGroupIds.getGroupIds().getGroupIdsEntities()
 
@@ -452,6 +478,19 @@ line(".***********");
     }
 
     } // json
+
+
+    public ArrayList<String> EntitiesNames(Developments developments){
+        ArrayList<String> entitiesNames = new ArrayList<String>(0);
+        for (Models models : developments.getModels()){
+            for (ModelsGroupIds modelsGroupIds : models.getModelsGroupIds()){
+                for (GroupIdsEntities groupIdsEntities : modelsGroupIds.getGroupIds().getGroupIdsEntities()){
+                    entitiesNames.add(groupIdsEntities.getEntities().getName());
+                } // for: modelsGroupIds.getGroupIds().getGroupIdsEntities()
+            } // for: models.getModelsGroupIds()
+        } // for: developments.getModels()
+        return entitiesNames;
+    } // EntitiesNames
 
 
 } // DevelopmentsGen

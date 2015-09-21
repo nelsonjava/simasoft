@@ -881,8 +881,8 @@
       "Cardinalities": "Uno a Muchos Bidirecccional No.5"
     },
     {
-      "From": "Books",
-      "To": "Sites",
+      "From": "Sites",
+      "To": "Books",
       "isOptionality": true,
       "isEmbedded": false,
       "isSimplified": null,
@@ -905,8 +905,8 @@
       "Cardinalities": "Uno a Muchos Bidirecccional No.5"
     },
     {
-      "From": "Chapters",
-      "To": "Sites",
+      "From": "Sites",
+      "To": "Chapters",
       "isOptionality": true,
       "isEmbedded": false,
       "isSimplified": null,
@@ -921,8 +921,8 @@
       "Cardinalities": "Uno a Muchos Bidirecccional No.5"
     },
     {
-      "From": "BooksTypes",
-      "To": "Sites",
+      "From": "Sites",
+      "To": "BooksTypes",
       "isOptionality": true,
       "isEmbedded": false,
       "isSimplified": null,
@@ -937,8 +937,8 @@
       "Cardinalities": "Uno a Muchos Bidirecccional No.5"
     },
     {
-      "From": "OriginalOrder",
-      "To": "Sites",
+      "From": "Sites",
+      "To": "OriginalOrder",
       "isOptionality": true,
       "isEmbedded": false,
       "isSimplified": null,
@@ -977,8 +977,8 @@
       "Cardinalities": "Uno a Muchos Bidirecccional No.5"
     },
     {
-      "From": "Series",
-      "To": "Sites",
+      "From": "Sites",
+      "To": "Series",
       "isOptionality": true,
       "isEmbedded": false,
       "isSimplified": null,
@@ -1121,8 +1121,8 @@
       "Cardinalities": "Uno a Muchos Bidirecccional No.5"
     },
     {
-      "From": "Companies",
-      "To": "Sites",
+      "From": "Sites",
+      "To": "Companies",
       "isOptionality": true,
       "isEmbedded": false,
       "isSimplified": null,
@@ -1169,8 +1169,8 @@
       "Cardinalities": "Uno a Muchos Bidirecccional No.5"
     },
     {
-      "From": "Brands",
-      "To": "Sites",
+      "From": "Sites",
+      "To": "Brands",
       "isOptionality": true,
       "isEmbedded": false,
       "isSimplified": null,
@@ -1201,8 +1201,8 @@
       "Cardinalities": "Uno a Muchos Bidirecccional No.5"
     },
     {
-      "From": "Regulations",
-      "To": "Sites",
+      "From": "Sites",
+      "To": "Regulations",
       "isOptionality": true,
       "isEmbedded": false,
       "isSimplified": null,
@@ -1217,8 +1217,8 @@
       "Cardinalities": "Uno a Muchos Bidirecccional No.5"
     },
     {
-      "From": "SitesTypes",
-      "To": "Sites",
+      "From": "Sites",
+      "To": "SitesTypes",
       "isOptionality": true,
       "isEmbedded": false,
       "isSimplified": null,

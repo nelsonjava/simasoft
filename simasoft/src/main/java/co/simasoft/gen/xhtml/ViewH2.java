@@ -66,6 +66,7 @@ public ViewH2(Entidad entity) throws IOException {
       this.relations = entity.getRelations();
 //>>FIN INICIALIZACION DE ATRIBUTOS
 
+
 line("<?xml version='1.0' encoding='UTF-8' ?>");
 line("<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">");
 line("<ui:composition xmlns=\"http://www.w3.org/1999/xhtml\"");
@@ -98,13 +99,9 @@ line("                <h:panelGrid columnClasses=\"label,component,required\" co
 
 line(entity.attributeView("orden","double"));
 
-          for(int x = 0; x < atributos.size(); x++) {
-
-              Atributos atributo = atributos.get(x);
-
+          for (Atributos atributo : entity.getAtributos()){
 line(entity.attributeView(atributo.getField(),atributo.getType()));
-
-          } // for atributos
+          } // entity.getAtributos()
 
 line(entity.attributeView("observations","Text"));
 
@@ -124,6 +121,7 @@ line("                </div>");
 line("        </ui:define>");
 line("</ui:composition>");
 
-    } // Constructor
+
+    } // ViewH2
 
 } // END : CLASS

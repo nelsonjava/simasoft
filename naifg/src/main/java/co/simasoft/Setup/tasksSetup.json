@@ -274,8 +274,8 @@
   ],
   "Relationships": [
     {
-      "From": "Tasks",
-      "To": "Sites",
+      "From": "Sites",
+      "To": "Tasks",
       "name": "",
       "isOptionality": true,
       "isEmbedded": false,
@@ -292,8 +292,8 @@
       "Cardinalities": "Muchos a Muchos Bidirecccional No.7"
     },
     {
-      "From": "Diaries",
-      "To": "Sites",
+      "From": "Sites",
+      "To": "Diaries",
       "name": "",
       "isOptionality": true,
       "isEmbedded": false,
@@ -310,8 +310,17 @@
       "Cardinalities": "Muchos a Muchos Bidirecccional No.7"
     },
     {
-      "From": "Activities",
-      "To": "Sites",
+      "From": "Sites",
+      "To": "Activities",
+      "name": "",
+      "isOptionality": true,
+      "isEmbedded": false,
+      "isSimplified": false,
+      "Cardinalities": "Muchos a Muchos Bidirecccional No.7"
+    },
+    {
+      "From": "Sites",
+      "To": "ActivitiesTypes",
       "name": "",
       "isOptionality": true,
       "isEmbedded": false,

@@ -705,8 +705,8 @@
       "Cardinalities": "Uno a Muchos Bidirecccional No.5"
     },
     {
-      "From": "Models",
-      "To": "Sites",
+      "From": "Sites",
+      "To": "Models",
       "name": "",
       "isOptionality": true,
       "isEmbedded": false,
@@ -723,8 +723,8 @@
       "Cardinalities": "Muchos a Muchos Bidirecccional No.7"
     },
     {
-      "From": "Developments",
-      "To": "Sites",
+      "From": "Sites",
+      "To": "Developments",
       "name": "",
       "isOptionality": true,
       "isEmbedded": false,
@@ -795,8 +795,8 @@
       "Cardinalities": "Muchos a Muchos Bidirecccional No.7"
     },
     {
-      "From": "Entities",
-      "To": "Sites",
+      "From": "Sites",
+      "To": "Entities",
       "name": "",
       "isOptionality": true,
       "isEmbedded": false,
@@ -804,8 +804,8 @@
       "Cardinalities": "Muchos a Muchos Bidirecccional No.7"
     },
     {
-      "From": "Attributes",
-      "To": "Sites",
+      "From": "Sites",
+      "To": "Attributes",
       "name": "",
       "isOptionality": true,
       "isEmbedded": false,
@@ -822,8 +822,8 @@
       "Cardinalities": "Muchos a Muchos Bidirecccional No.7"
     },
     {
-      "From": "Cardinalities",
-      "To": "Sites",
+      "From": "Sites",
+      "To": "Cardinalities",
       "name": "",
       "isOptionality": true,
       "isEmbedded": false,
@@ -894,8 +894,8 @@
       "Cardinalities": "Uno a Muchos Bidirecccional No.5"
     },
     {
-      "From": "AttributesTypes",
-      "To": "Sites",
+      "From": "Sites",
+      "To": "AttributesTypes",
       "name": "",
       "isOptionality": true,
       "isEmbedded": false,
@@ -912,8 +912,8 @@
       "Cardinalities": "Muchos a Muchos Bidirecccional No.7"
     },
     {
-      "From": "Imports",
-      "To": "Sites",
+      "From": "Sites",
+      "To": "Imports",
       "name": "",
       "isOptionality": true,
       "isEmbedded": false,
@@ -921,8 +921,8 @@
       "Cardinalities": "Muchos a Muchos Bidirecccional No.7"
     },
     {
-      "From": "Dependencies",
-      "To": "Sites",
+      "From": "Sites",
+      "To": "Dependencies",
       "name": "",
       "isOptionality": true,
       "isEmbedded": false,
@@ -939,8 +939,8 @@
       "Cardinalities": "Uno a Muchos Bidirecccional No.5"
     },
     {
-      "From": "AttributesProperties",
-      "To": "Sites",
+      "From": "Sites",
+      "To": "AttributesProperties",
       "name": "",
       "isOptionality": true,
       "isEmbedded": false,
