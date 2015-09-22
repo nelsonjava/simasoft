@@ -1,5 +1,11 @@
 package co.simasoft.view;
 
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+import javax.faces.context.ExternalContext;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -49,6 +55,8 @@ public class GroupIdsFilesBean implements Serializable {
 	 */
 
 	private Long id;
+
+	private Part file;
 
 	public Long getId() {
 		return this.id;
@@ -113,7 +121,10 @@ public class GroupIdsFilesBean implements Serializable {
 
 		try {
 			if (this.id == null) {
-				this.entityManager.persist(this.groupIdsFiles);
+//				this.entityManager.persist(this.groupIdsFiles);
+				//storeFileInFolder();
+				storeFileInDB();
+
 				return "search?faces-redirect=true";
 			} else {
 				this.entityManager.merge(this.groupIdsFiles);
@@ -305,4 +316,93 @@ public class GroupIdsFilesBean implements Serializable {
 		this.add = new GroupIdsFiles();
 		return added;
 	}
+
+	/*
+	 * NAIFG
+	*/
+
+	private void storeFileInFolder() throws Exception {
+		String theFileName = getFilename();
+
+		if (file == null) {
+            throw new Exception("A file was not selected to upload.");
+        }
+        if (theFileName == null) {
+            throw new Exception("An error occurred with the selected file.");
+        }
+
+        file.write("D:\\docs\\" + theFileName);
+	} // end : storeFileInFolder Method
+
+	private void prepareFileForDB() throws Exception {
+		int bytesRead;
+		byte[] 		buffer 	= new byte[8192];
+		InputStream is 		= file.getInputStream();
+    	        ByteArrayOutputStream output = new ByteArrayOutputStream();
+
+    	if (file == null) {
+            throw new Exception("A file was not selected to upload.");
+        }
+
+    	while ((bytesRead = is.read(buffer)) != -1) {
+        	output.write(buffer, 0, bytesRead);
+    	}
+
+		this.groupIdsFiles.setName(getFilename());
+		this.groupIdsFiles.setData(output.toByteArray());
+	} // end : prepareFileForDB Method
+
+	private void storeFileInDB() throws Exception {
+		prepareFileForDB();
+		this.entityManager.persist(this.groupIdsFiles);
+	} // end : storeFileInDB Method
+
+	public void downloadFile() {
+		try {
+			String fileNameWithExt = groupIdsFiles.getName();
+			FacesContext fc = FacesContext.getCurrentInstance();
+    		ExternalContext ec = fc.getExternalContext();
+    		HttpServletResponse response = (HttpServletResponse) ec.getResponse();
+
+    		response.reset();
+		    response.setContentType(ec.getMimeType(fileNameWithExt));
+    		response.setHeader("Content-Disposition", "attachment; filename=\"" + fileNameWithExt + "\"");
+			response.getOutputStream().write(groupIdsFiles.getData());
+
+			fc.responseComplete();
+		} catch (Exception e) {
+			FacesContext.getCurrentInstance()
+						.addMessage(null, new FacesMessage(e.getMessage()));
+		}
+	} // end : downloadFile Method
+
+	/*^*^*^*^*^*^*^*^*^* TEST METHODS *^*^*^*^*^*^*^*^*^*/
+	
+	public Part getFile() {
+            return file;
+        }
+
+        public void setFile(Part file) {
+            this.file = file;
+        }
+
+
+
+	// ---------------------------- METHODS ----------------------------- //
+	// ------------------------------------------------------------------ //
+
+	private String getFilename() {
+		if (file == null) return null;
+
+        for (String cd : file.getHeader("content-disposition").split(";")) {
+            if (cd.trim().startsWith("filename")) {
+                String filename = cd.substring(cd.indexOf('=') + 1).trim().replace("\"", "");
+                return filename.substring(filename.lastIndexOf('/') + 1).substring(filename.lastIndexOf('\\') + 1); // MSIE fix.
+            }
+        }
+
+        return null;
+    }
+
+
 }

@@ -8,6 +8,8 @@
 [WARNING] 
 [WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
 [WARNING] 
+[INFO] 
+[INFO] Using the builder org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder with a thread count of 1
 [INFO]                                                                         
 [INFO] ------------------------------------------------------------------------
 [INFO] Building naifg 1.0.0-SNAPSHOT
@@ -23,8 +25,8 @@
 [INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ naifg ---
 [INFO] Changes detected - recompiling the module!
 [INFO] Compiling 44 source files to d:\dev\njava\simasoft\naifg\target\classes
-[WARNING] /d:/dev/njava/simasoft/naifg/src/main/java/co/simasoft/Beans/FindBean.java: Some input files use unchecked or unsafe operations.
-[WARNING] /d:/dev/njava/simasoft/naifg/src/main/java/co/simasoft/Beans/FindBean.java: Recompile with -Xlint:unchecked for details.
+[WARNING] /d:/dev/njava/simasoft/naifg/src/main/java/co/simasoft/Setup/DevelopmentsGen.java: Some input files use unchecked or unsafe operations.
+[WARNING] /d:/dev/njava/simasoft/naifg/src/main/java/co/simasoft/Setup/DevelopmentsGen.java: Recompile with -Xlint:unchecked for details.
 [INFO] 
 [INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ naifg ---
 [INFO] Using 'UTF-8' encoding to copy filtered resources.
@@ -41,14 +43,14 @@
 [INFO] Assembling webapp [naifg] in [d:\dev\njava\simasoft\naifg\target\naifg]
 [INFO] Processing war project
 [INFO] Copying webapp resources [d:\dev\njava\simasoft\naifg\src\main\webapp]
-[INFO] Webapp assembled in [656 msecs]
+[INFO] Webapp assembled in [815 msecs]
 [INFO] Building war: d:\dev\njava\simasoft\naifg\target\naifg.war
 [WARNING] Warning: selected war files include a WEB-INF/web.xml which will be ignored 
 (webxml attribute is missing from war task, or ignoreWebxml attribute is specified as 'true')
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 5.117s
-[INFO] Finished at: Thu Sep 17 07:38:12 COT 2015
-[INFO] Final Memory: 18M/48M
+[INFO] Total time: 7.290 s
+[INFO] Finished at: 2015-09-21T18:35:56-05:00
+[INFO] Final Memory: 18M/50M
 [INFO] ------------------------------------------------------------------------

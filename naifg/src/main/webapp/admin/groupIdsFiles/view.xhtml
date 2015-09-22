@@ -45,10 +45,27 @@
                         <h:outputText/>
 
                         <h:outputLabel for="groupIdsFilesBeanGroupIdsFilesGroupIds" value="groupIds:"/>
-                        <h:link id="groupIdsFilesBeanGroupIdsFilesGroupIds" outcome="/admin/groupIds/view" rendered="#{!empty groupIdsFilesBean.groupIdsFiles.groupIds}" value="#{groupIdsFilesBean.groupIdsFiles.groupIds.name}">
+                        <h:link id="groupIdsFilesBeanGroupIdsFilesGroupIds" outcome="/admin/groupIds/view" rendered="#{!empty groupIdsFilesBean.groupIdsFiles.groupIds}" value="#{groupIdsFilesBean.groupIdsFiles.name}">
                                 <f:param name="id" value="#{groupIdsFilesBean.groupIdsFiles.groupIds.id}"/>
                         </h:link>
                         <h:outputText/>
+
+                        <h:outputLabel for="groupIdsFilesBeanGroupIdsFile" value="File:"/>
+                        <h:form>
+                                <h:commandLink id="groupIdsFilesBeanGroupIdsFile" value="Download" action="#{groupIdsFilesBean.downloadFile}" />
+                        </h:form>
+                        <h:outputText/>
+
+                        <object
+                           width="700"
+                           height="600"
+                           data="#{groupIdsFilesBean.groupIdsFiles.data}"
+                           type="application/pdf">
+                           Your browser can't display pdf, <a href="/resources/demo/media/guide.pdf">click</a> to download pdf instead.
+                        </object>
+                       <h:outputText/>
+
+
 
                 </h:panelGrid>
 

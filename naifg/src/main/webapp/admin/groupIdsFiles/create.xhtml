@@ -34,7 +34,7 @@
         <ui:define name="footer"/>
 
         <ui:define name="main">
-                <h:form id="create">
+                <h:form id="create" enctype="multipart/form-data">
                         <h:messages globalOnly="true" styleClass="error"/>
 
                         <h:panelGrid columnClasses="label,component,required" columns="3">
@@ -70,11 +70,10 @@
                                 </h:panelGroup>
                                 <h:outputText/>
 
-                                <h:outputLabel for="FileUpload" value="File:"/>
-                                <h:form  enctype="multipart/form-data">
-                                  <h:inputFile value="#{FileUpload.file1}" /><br/>
-                                  <h:commandButton value="Save the file!" action="#{FileUpload.save(FileUploadView.file1)}" />
-                                </h:form>
+                                <h:outputLabel value="File:" for="inputFileId" />
+                                <h:panelGroup>
+                                    <h:inputFile id="inputFileId" value="#{groupIdsFilesBean.file}" /><br/>
+                                </h:panelGroup>
                                 <h:outputText/>
 
                                 <h:outputLabel for="groupIdsFilesBeanGroupIdsFilesObservations" value="Observations:"/>
