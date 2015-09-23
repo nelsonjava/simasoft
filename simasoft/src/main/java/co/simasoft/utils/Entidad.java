@@ -254,17 +254,90 @@ public class Entidad {
                        RelationName = Utils._1raMay(relationName);
                     }
 
-                    xhtml =  space+"<h:outputLabel for=\""+From+"Bean"+From+To+"\" value=\""+To+":\"/>"+"\n";
-                    xhtml += space+"<h:dataTable id=\""+from+"Bean"+From+to+
-                                             "\" styleClass=\"data-table\" value=\"#{forgeview:asList("+from+"Bean."+from+"."+atri+")}\" var=\"_item\">"+"\n\n";
-                    xhtml += columnView(relation.getEntityTo().getName(),"orden","double");
-                    for (Atributos atributos : relation.getEntityTo().getAtributos()) {
-                        if (atributos.getIsViewColumn() == null || atributos.getIsViewColumn()){
-                           xhtml += columnView(relation.getEntityTo().getName(),atributos.getField(),atributos.getType());
+/*
+                    xhtml = "\n";
+                    xhtml += space+"<!-- \n";
+                    xhtml += space+"===================\n";
+                    xhtml += space+"Uno a Muchos Bidirecccional No.5\n";
+                    xhtml += space+relation.getCardinality()+"\n";
+                    xhtml += space+"From:"+From+"\n";
+                    xhtml += space+"from:"+from+"\n";
+                    xhtml += space+"To:"+To+"\n";
+                    xhtml += space+"to:"+to+"\n";
+                    xhtml += space+"RelationName:"+RelationName+"\n";
+                    xhtml += space+"relationName:"+relationName+"\n";
+                    xhtml += space+"atri:"+atri+"\n";
+                    xhtml += space+"atribute:"+atribute+"\n";
+                    xhtml += space+"===================\n";
+                    if (relation.getFrom().equals(relation.getTo())){  // Relación Unitaria
+                        xhtml += space+"UNITARIA\n";
+                    }
+                    else {
+                        xhtml += space+"NO UNITARIA\n";
+                    }
+                    xhtml += space+" -->\n";
+*/
+
+                    if (relation.getCardinality().equals("1..*")){
+
+                        if (relation.getFrom().equals(relation.getTo())){  // Relación Unitaria
+
+                           xhtml +=  space+"<h:outputLabel for=\""+From+"Bean"+From+To+"\" value=\""+To+":\"/>"+"\n";
+                           xhtml += space+"<h:dataTable id=\""+from+"Bean"+From+to+
+                                                    "\" styleClass=\"data-table\" value=\"#{forgeview:asList("+from+"Bean."+from+".objHijos)}\" var=\"_item\">"+"\n\n";
+                           xhtml += columnView(relation.getEntityTo().getName(),"orden","double");
+
+                           for (Atributos atributos : relation.getEntityTo().getAtributos()) {
+                               if (atributos.getIsViewColumn() == null || atributos.getIsViewColumn()){
+                                   xhtml += columnView(relation.getEntityTo().getName(),atributos.getField(),atributos.getType());
+                               }
+                           } // for: relation.getEntityTo().getAtributos()
+                           xhtml += space+"</h:dataTable>"+"\n";
+                           xhtml += space+"<h:outputText/>\n";
                         }
-                    } // for: relation.getEntityTo().getAtributos()
-                    xhtml += space+"</h:dataTable>"+"\n";
-                    xhtml += space+"<h:outputText/>\n";
+                        else{
+
+                           xhtml +=  space+"<h:outputLabel for=\""+From+"Bean"+From+To+"\" value=\""+To+":\"/>"+"\n";
+                           xhtml += space+"<h:dataTable id=\""+from+"Bean"+From+to+
+                                                    "\" styleClass=\"data-table\" value=\"#{forgeview:asList("+from+"Bean."+from+"."+to+")}\" var=\"_item\">"+"\n\n";
+                           xhtml += columnView(relation.getEntityTo().getName(),"orden","double");
+
+                           for (Atributos atributos : relation.getEntityTo().getAtributos()) {
+                               if (atributos.getIsViewColumn() == null || atributos.getIsViewColumn()){
+                                   xhtml += columnView(relation.getEntityTo().getName(),atributos.getField(),atributos.getType());
+                               }
+                           } // for: relation.getEntityTo().getAtributos()
+                           xhtml += space+"</h:dataTable>"+"\n";
+                           xhtml += space+"<h:outputText/>\n";
+
+                        }
+
+                    }
+                    else {
+
+                         // *.1
+                         if (relation.getFrom().equals(relation.getTo())){  // Relación Unitaria
+
+                             xhtml  = space+"<h:outputLabel for=\""+to+"Bean"+To+RelationName+"\" value=\""+relationName+":\"/>\n";
+                             xhtml += space+"<h:link id=\""+to+"Bean"+To+RelationName+"\" outcome=\"/admin/"+from+"/view\" rendered=\"#{!empty "+to+"Bean."+to+".objPadre}\" value=\"#{"+to+"Bean."+to+"."+relationName+atribute+"}\">\n";
+                             xhtml += space+"        <f:param name=\"id\" value=\"#{"+to+"Bean."+to+"."+relationName+".id}\"/>\n";
+                             xhtml += space+"</h:link>\n";
+                             xhtml += space+"<h:outputText/>\n";
+                         }
+                         else{
+
+                             xhtml  = space+"<h:outputLabel for=\""+to+"Bean"+To+RelationName+"\" value=\""+relationName+":\"/>\n";
+                             xhtml += space+"<h:link id=\""+to+"Bean"+To+RelationName+"\" outcome=\"/admin/"+from+"/view\" rendered=\"#{!empty "+to+"Bean."+to+"."+relationName+"}\" value=\"#{"+to+"Bean."+to+"."+relationName+atribute+"}\">\n";
+                             xhtml += space+"        <f:param name=\"id\" value=\"#{"+to+"Bean."+to+"."+relationName+".id}\"/>\n";
+                             xhtml += space+"</h:link>\n";
+                             xhtml += space+"<h:outputText/>\n";
+
+                         }
+
+                    }
+
+
+
                  }
                  else{
 
@@ -290,6 +363,7 @@ public class Entidad {
                     xhtml += space+"        <f:param name=\"id\" value=\"#{"+to+"Bean."+to+"."+relationName+".id}\"/>\n";
                     xhtml += space+"</h:link>\n";
                     xhtml += space+"<h:outputText/>\n";
+
                  }
 
 /*
@@ -309,7 +383,33 @@ xhtml +=  space+"<!-- to:"+to+" -->\n";
 
             case "Muchos a Muchos Bidirecccional No.7":
 
-                 xhtml =  space+"<h:outputLabel for=\""+from+"Bean"+From+To+"\" value=\""+To+":\"/>"+"\n";
+
+/*
+                    xhtml = "\n";
+                    xhtml += space+"<!-- \n";
+                    xhtml += space+"===================\n";
+                    xhtml += space+"Muchos a Muchos Bidirecccional No.7\n";
+                    xhtml += space+relation.getCardinality()+"\n";
+                    xhtml += space+"From:"+From+"\n";
+                    xhtml += space+"from:"+from+"\n";
+                    xhtml += space+"To:"+To+"\n";
+                    xhtml += space+"to:"+to+"\n";
+                    xhtml += space+"RelationName:"+RelationName+"\n";
+                    xhtml += space+"relationName:"+relationName+"\n";
+                    xhtml += space+"atri:"+atri+"\n";
+                    xhtml += space+"atribute:"+atribute+"\n";
+                    xhtml += space+"===================\n";
+                    if (relation.getFrom().equals(relation.getTo())){  // Relación Unitaria
+                        xhtml += space+"UNITARIA\n";
+                    }
+                    else {
+                        xhtml += space+"NO UNITARIA\n";
+                    }
+                    xhtml += space+" -->\n";
+*/                    
+
+
+                 xhtml +=  space+"<h:outputLabel for=\""+from+"Bean"+From+To+"\" value=\""+To+":\"/>"+"\n";
                  xhtml += space+"<h:dataTable id=\""+from+"Bean"+From+to+
                                           "\" styleClass=\"data-table\" value=\"#{forgeview:asList("+from+"Bean."+from+"."+to+")}\" var=\"_item\">"+"\n\n";
 

@@ -50,7 +50,7 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 2.394s
-[INFO] Finished at: Tue Sep 01 09:03:08 COT 2015
-[INFO] Final Memory: 14M/35M
+[INFO] Total time: 3.989s
+[INFO] Finished at: Wed Sep 23 15:06:21 COT 2015
+[INFO] Final Memory: 14M/33M
 [INFO] ------------------------------------------------------------------------

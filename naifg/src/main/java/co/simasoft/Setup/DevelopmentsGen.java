@@ -250,6 +250,14 @@ line("************");
 line("to  :"+relationships.getTo().getName());
 line("from:"+relationships.getFrom().getName());
 
+if (relationships.getFrom().equals(relationships.getTo())){  // Relación Unitaria
+line("unitaria:si");
+}
+else {
+line("unitaria:no");
+}
+
+
 if (entitiesNames.contains(relationships.getFrom().getName())){
 line("valida:si");
 }
