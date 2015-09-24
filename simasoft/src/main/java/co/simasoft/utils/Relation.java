@@ -31,6 +31,7 @@ public class Relation{
 
     private boolean unidireccional;
 
+    private Entidad entityFrom = new Entidad();
     private Entidad entityTo = new Entidad();
     private String attribute = "";            // isViewRelation
 
@@ -213,6 +214,13 @@ public class Relation{
     }
     public void setUnidireccional(boolean unidireccional) {
         this.unidireccional = unidireccional;
+    }
+    
+    public Entidad getEntityFrom() {
+        return entityFrom;
+    }
+    public void setEntityFrom(Entidad entityFrom) {
+        this.entityFrom = entityFrom;
     }
 
     public Entidad getEntityTo() {

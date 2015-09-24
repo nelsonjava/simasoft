@@ -66,7 +66,6 @@ public ViewH2(Entidad entity) throws IOException {
       this.relations = entity.getRelations();
 //>>FIN INICIALIZACION DE ATRIBUTOS
 
-
 line("<?xml version='1.0' encoding='UTF-8' ?>");
 line("<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">");
 line("<ui:composition xmlns=\"http://www.w3.org/1999/xhtml\"");

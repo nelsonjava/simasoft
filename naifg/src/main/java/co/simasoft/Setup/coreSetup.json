@@ -200,7 +200,7 @@
     },
     {
       "name": "Persons",
-      "groupId": "co.simasoft.models.core.persons"
+      "groupId": "co.simasoft.models.core.persons",
       "groupIds": "co.simasoft.models.core.persons"
     },
     {
@@ -399,476 +399,885 @@
       "name": "code",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "String"
+      "AttributesTypes": "String",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": false
+
     },
     {
       "entity": "Books",
       "name": "content",
       "isNullable": false,
       "isUnique": false,
-      "AttributesTypes": "String"
+      "AttributesTypes": "String",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": false
     },
     {
       "entity": "Books",
       "name": "name",
       "isNullable": false,
       "isUnique": true,
-      "AttributesTypes": "String"
+      "AttributesTypes": "String",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "Chapters",
       "name": "code",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "String"
+      "AttributesTypes": "String",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": false
     },
     {
       "entity": "Chapters",
       "name": "content",
       "isNullable": false,
       "isUnique": false,
-      "AttributesTypes": "String"
+      "AttributesTypes": "String",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": false
     },
     {
       "entity": "Chapters",
       "name": "name",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "String"
+      "AttributesTypes": "String",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "BooksTypes",
       "name": "name",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "String"
+      "AttributesTypes": "String",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "OriginalOrder",
       "name": "entryDate",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "Date"
+      "AttributesTypes": "Date",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "OriginalOrder",
       "name": "startDate",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "Date"
+      "AttributesTypes": "Date",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "OriginalOrder",
       "name": "finalDate",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "Date"
+      "AttributesTypes": "Date",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "OriginalOrder",
       "name": "folios",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "Integer"
+      "AttributesTypes": "Integer",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "OriginalOrder",
       "name": "located",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "String"
+      "AttributesTypes": "String",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "SectionsTypes",
       "name": "name",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "String"
+      "AttributesTypes": "String",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "FrequentlyQuery",
       "name": "name",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "Integer"
+      "AttributesTypes": "Integer",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "Series",
       "name": "name",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "String"
+      "AttributesTypes": "String",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "Series",
       "name": "code",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "String"
+      "AttributesTypes": "String",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "Series",
       "name": "link",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "String"
+      "AttributesTypes": "String",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": false
     },
     {
       "entity": "Series",
       "name": "located",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "String"
+      "AttributesTypes": "String",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": false
     },
     {
       "entity": "Funds",
       "name": "code",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "String"
+      "AttributesTypes": "String",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": false
     },
     {
       "entity": "Funds",
       "name": "name",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "String"
+      "AttributesTypes": "String",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "Sections",
       "name": "email",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "String"
+      "AttributesTypes": "String",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": false
     },
     {
       "entity": "Sections",
       "name": "code",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "String"
+      "AttributesTypes": "String",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "Sections",
       "name": "name",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "String"
+      "AttributesTypes": "String",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "DocumentalsUnits",
       "name": "creationDate",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "Date"
+      "AttributesTypes": "Date",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": false
     },
     {
       "entity": "DocumentalsUnits",
       "name": "name",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "String"
+      "AttributesTypes": "String",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "DocumentalsSupports",
       "name": "name",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "String"
+      "AttributesTypes": "String",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "DocumentalsSupports",
       "name": "code",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "String"
+      "AttributesTypes": "String",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "InventoryFinality",
       "name": "name",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "String"
+      "AttributesTypes": "String",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "ConservationUnits",
       "name": "code",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "String"
+      "AttributesTypes": "String",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "ConservationUnits",
       "name": "name",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "String"
+      "AttributesTypes": "String",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "DocumentalRetention",
       "name": "year",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "Integer"
+      "AttributesTypes": "Integer",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "DocumentalRetention",
       "name": "name",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "String"
+      "AttributesTypes": "String",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "DocumentalInventory",
       "name": "folios",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "Integer"
+      "AttributesTypes": "Integer",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "DocumentalInventory",
       "name": "quantity",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "Integer"
+      "AttributesTypes": "Integer",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "DocumentalInventory",
       "name": "startDate",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "Date"
+      "AttributesTypes": "Date",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "DocumentalInventory",
       "name": "finalDate",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "Date"
+      "AttributesTypes": "Date",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "DocumentalInventory",
       "name": "debugDate",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "Date"
+      "AttributesTypes": "Date",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "DocumentalInventory",
       "name": "finalDisposition",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "String"
+      "AttributesTypes": "String",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "DocumentalInventory",
       "name": "deliveryDate",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "Date"
+      "AttributesTypes": "Date",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "DocumentalInventory",
       "name": "transferNumber",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "Integer"
+      "AttributesTypes": "Integer",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "FundsLife",
       "name": "name",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "String"
+      "AttributesTypes": "String",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "FundsLife",
       "name": "isOpen",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "Boolean"
+      "AttributesTypes": "Boolean",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "FinalDisposition",
       "name": "name",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "String"
+      "AttributesTypes": "String",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "DocumentsTypes",
       "name": "name",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "String"
+      "AttributesTypes": "String",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "Trd",
       "name": "procedures",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "String"
+      "AttributesTypes": "String",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "Companies",
       "name": "address",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "String"
+      "AttributesTypes": "String",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "Companies",
       "name": "nit",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "String"
+      "AttributesTypes": "String",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "Companies",
       "name": "email",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "String"
+      "AttributesTypes": "String",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "Companies",
       "name": "telephones",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "String"
+      "AttributesTypes": "String",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "Companies",
       "name": "name",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "String"
+      "AttributesTypes": "String",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "Brands",
       "name": "name",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "String"
+      "AttributesTypes": "String",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "Persons",
       "name": "firstLastName",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "String"
+      "AttributesTypes": "String",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "Persons",
       "name": "secondLastName",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "String"
+      "AttributesTypes": "String",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "Persons",
       "name": "firstName",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "String"
+      "AttributesTypes": "String",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "Persons",
       "name": "secondName",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "String"
+      "AttributesTypes": "String",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "Persons",
       "name": "address",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "String"
+      "AttributesTypes": "String",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "Persons",
       "name": "telephones",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "String"
+      "AttributesTypes": "String",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "Persons",
       "name": "email",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "String"
+      "AttributesTypes": "String",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "RegulationsText",
       "name": "name",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "String"
+      "AttributesTypes": "String",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "RegulationsText",
       "name": "code",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "String"
+      "AttributesTypes": "String",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "RegulationsText",
       "name": "text",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "String"
+      "AttributesTypes": "String",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "RegulationsTypes",
       "name": "name",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "String"
+      "AttributesTypes": "String",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "Regulations",
       "name": "date",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "Date"
+      "AttributesTypes": "Date",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "Regulations",
       "name": "name",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "String"
+      "AttributesTypes": "String",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "Sites",
       "name": "abc",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "String"
+      "AttributesTypes": "String",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "Sites",
       "name": "link",
       "isNullable": false,
       "isUnique": true,
-      "AttributesTypes": "String"
+      "AttributesTypes": "String",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "Sites",
       "name": "title",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "String"
+      "AttributesTypes": "String",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "SitesTypes",
       "name": "name",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "String"
+      "AttributesTypes": "String",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     }
   ],
   "Relationships": [

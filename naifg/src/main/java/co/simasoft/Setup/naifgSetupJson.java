@@ -249,6 +249,13 @@ public class naifgSetupJson {
                 Boolean attributeIsUnique = (Boolean)attributeObj.get("isUnique");
                 String attributeAttributesTypes = (String)attributeObj.get("AttributesTypes");
 
+                Boolean attributeIsSimplified = (Boolean)attributeObj.get("isSimplified");
+                Boolean attributeIsCreate = (Boolean)attributeObj.get("isCreate");
+                Boolean attributeIsSearch = (Boolean)attributeObj.get("isSearch");
+                Boolean attributeIsView = (Boolean)attributeObj.get("isView");
+                Boolean attributeIsViewRelation = (Boolean)attributeObj.get("isViewRelation");
+                Boolean attributeIsViewColumn = (Boolean)attributeObj.get("isViewColumn");
+
                 f.line("entity:"+attributeEntity);
                 f.line("name:"+attributeName);
                 f.line("isNullable:"+String.valueOf(attributeIsNullable));
@@ -260,12 +267,12 @@ public class naifgSetupJson {
                 attributes.setName(attributeName);
                 attributes.setIsNullable(attributeIsNullable);
                 attributes.setIsUnique(attributeIsUnique);
-                attributes.setIsSimplified(false);
-                attributes.setIsCreate(true);
-                attributes.setIsSearch(true);
-                attributes.setIsView(true);
-                attributes.setIsViewRelation(true);
-                attributes.setIsViewColumn(true);
+                attributes.setIsSimplified(attributeIsSimplified);
+                attributes.setIsCreate(attributeIsCreate);
+                attributes.setIsSearch(attributeIsSearch);
+                attributes.setIsView(attributeIsView);
+                attributes.setIsViewRelation(attributeIsViewRelation);
+                attributes.setIsViewColumn(attributeIsViewColumn);
 
                 Entities entity1 = new Entities();
                 entity1 = findBean.nameEntities(attributeEntity,em);

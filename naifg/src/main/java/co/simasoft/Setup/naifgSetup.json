@@ -243,455 +243,845 @@
       "name": "artifactId",
       "isNullable": false,
       "isUnique": true,
-      "AttributesTypes": "String"
+      "AttributesTypes": "String",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "Models",
       "name": "groupId",
       "isNullable": false,
       "isUnique": true,
-      "AttributesTypes": "String"
+      "AttributesTypes": "String",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "Models",
       "name": "version",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "String"
+      "AttributesTypes": "String",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "Models",
       "name": "code",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "String"
+      "AttributesTypes": "String",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "Models",
       "name": "date",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "Date"
+      "AttributesTypes": "Date",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "Developments",
       "name": "version",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "String"
+      "AttributesTypes": "String",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "Developments",
       "name": "code",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "String"
+      "AttributesTypes": "String",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "Developments",
       "name": "date",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "Date"
+      "AttributesTypes": "Date",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "Developments",
       "name": "artifactId",
       "isNullable": false,
       "isUnique": true,
-      "AttributesTypes": "String"
+      "AttributesTypes": "String",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "Developments",
       "name": "groupId",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "String"
+      "AttributesTypes": "String",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "ModelsGroupIds",
       "name": "isSimplified",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "Boolean"
+      "AttributesTypes": "Boolean",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "ModelsGroupIds",
       "name": "isIsolated",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "Boolean"
+      "AttributesTypes": "Boolean",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "Entities",
       "name": "name",
       "isNullable": false,
       "isUnique": true,
-      "AttributesTypes": "String"
+      "AttributesTypes": "String",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "Entities",
       "name": "groupId",
       "isNullable": false,
       "isUnique": false,
-      "AttributesTypes": "String"
+      "AttributesTypes": "String",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "Entities",
       "name": "serialID",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "String"
+      "AttributesTypes": "String",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "Entities",
       "name": "table",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "String"
+      "AttributesTypes": "String",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "Entities",
       "name": "description",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "String"
+      "AttributesTypes": "String",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "GroupIdsEntities",
       "name": "isIsolated",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "Boolean"
+      "AttributesTypes": "Boolean",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "GroupIdsEntities",
       "name": "isSimplified",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "Boolean"
+      "AttributesTypes": "Boolean",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "Attributes",
       "name": "name",
       "isNullable": false,
       "isUnique": false,
-      "AttributesTypes": "String"
+      "AttributesTypes": "String",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "Attributes",
       "name": "description",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "String"
+      "AttributesTypes": "String",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "Attributes",
       "name": "length",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "Integer"
+      "AttributesTypes": "Integer",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "Attributes",
       "name": "precision",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "Integer"
+      "AttributesTypes": "Integer",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "Attributes",
       "name": "isNullable",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "Boolean"
+      "AttributesTypes": "Boolean",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "Attributes",
       "name": "isUnique",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "Boolean"
+      "AttributesTypes": "Boolean",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "Attributes",
       "name": "isSimplified",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "Boolean"
+      "AttributesTypes": "Boolean",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "Attributes",
       "name": "isCreate",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "Boolean"
+      "AttributesTypes": "Boolean",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "Attributes",
       "name": "isSearch",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "Boolean"
+      "AttributesTypes": "Boolean",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "Attributes",
       "name": "isView",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "Boolean"
+      "AttributesTypes": "Boolean",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "Attributes",
       "name": "isViewColumn",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "Boolean"
+      "AttributesTypes": "Boolean",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "Attributes",
       "name": "isViewRelation",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "Boolean"
+      "AttributesTypes": "Boolean",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "Cardinalities",
       "name": "name",
       "isNullable": false,
       "isUnique": true,
-      "AttributesTypes": "String"
+      "AttributesTypes": "String",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "Cardinalities",
       "name": "cardinality",
       "isNullable": false,
       "isUnique": false,
-      "AttributesTypes": "String"
+      "AttributesTypes": "String",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "Cardinalities",
       "name": "isUnidirectional",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "Boolean"
+      "AttributesTypes": "Boolean",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "NameQueries",
       "name": "name",
       "isNullable": false,
       "isUnique": true,
-      "AttributesTypes": "String"
+      "AttributesTypes": "String",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "NameQueries",
       "name": "query",
       "isNullable": false,
       "isUnique": true,
-      "AttributesTypes": "String"
+      "AttributesTypes": "String",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "Relationships",
       "name": "isSimplified",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "Boolean"
+      "AttributesTypes": "Boolean",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "Relationships",
       "name": "isCreate",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "Boolean"
+      "AttributesTypes": "Boolean",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "Relationships",
       "name": "isSearch",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "Boolean"
+      "AttributesTypes": "Boolean",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "Relationships",
       "name": "isView",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "Boolean"
+      "AttributesTypes": "Boolean",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "Relationships",
       "name": "name",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "String"
+      "AttributesTypes": "String",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "Relationships",
       "name": "isOptionality",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "Boolean"
+      "AttributesTypes": "Boolean",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "Relationships",
       "name": "isEmbedded",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "Boolean"
+      "AttributesTypes": "Boolean",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "GroupIds",
       "name": "artifactId",
       "isNullable": false,
       "isUnique": true,
-      "AttributesTypes": "String"
+      "AttributesTypes": "String",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "GroupIds",
       "name": "groupId",
       "isNullable": false,
       "isUnique": true,
-      "AttributesTypes": "String"
+      "AttributesTypes": "String",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "GroupIds",
       "name": "version",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "String"
+      "AttributesTypes": "String",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "GroupIds",
       "name": "code",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "String"
+      "AttributesTypes": "String",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "GroupIds",
       "name": "date",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "Date"
+      "AttributesTypes": "Date",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "GroupIdsFiles",
       "name": "name",
       "isNullable": false,
       "isUnique": true,
-      "AttributesTypes": "String"
+      "AttributesTypes": "String",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "GroupIdsFiles",
       "name": "type",
       "isNullable": false,
       "isUnique": false,
-      "AttributesTypes": "String"
+      "AttributesTypes": "String",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "GroupIdsFiles",
       "name": "data",
       "isNullable": false,
       "isUnique": false,
-      "AttributesTypes": "Blob"
+      "AttributesTypes": "Blob",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "AttributesTypes",
       "name": "name",
       "isNullable": false,
       "isUnique": true,
-      "AttributesTypes": "String"
+      "AttributesTypes": "String",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "AttributesTypes",
       "name": "type",
       "isNullable": false,
       "isUnique": false,
-      "AttributesTypes": "String"
+      "AttributesTypes": "String",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "AttributesTypes",
       "name": "length",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "Integer"
+      "AttributesTypes": "Integer",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "AttributesTypes",
       "name": "precision",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "Integer"
+      "AttributesTypes": "Integer",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "AttributesTypes",
       "name": "annotations",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "String"
+      "AttributesTypes": "String",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "Imports",
       "name": "name",
       "isNullable": false,
       "isUnique": true,
-      "AttributesTypes": "String"
+      "AttributesTypes": "String",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "Dependencies",
       "name": "maven",
       "isNullable": false,
       "isUnique": true,
-      "AttributesTypes": "String"
+      "AttributesTypes": "String",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "Dependencies",
       "name": "groupId",
       "isNullable": false,
       "isUnique": false,
-      "AttributesTypes": "String"
+      "AttributesTypes": "String",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "Dependencies",
       "name": "artifactId",
       "isNullable": false,
       "isUnique": false,
-      "AttributesTypes": "String"
+      "AttributesTypes": "String",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "Dependencies",
       "name": "version",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "String"
+      "AttributesTypes": "String",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "Dependencies",
       "name": "type",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "String"
+      "AttributesTypes": "String",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "Dependencies",
       "name": "scope",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "String"
+      "AttributesTypes": "String",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "AttributesProperties",
       "name": "name",
       "isNullable": false,
       "isUnique": true,
-      "AttributesTypes": "String"
+      "AttributesTypes": "String",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "AttributesProperties",
       "name": "value",
       "isNullable": false,
       "isUnique": true,
-      "AttributesTypes": "String"
+      "AttributesTypes": "String",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     }
   ],
   "Relationships": [

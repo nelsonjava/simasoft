@@ -17,7 +17,7 @@
       "groupId": "co.simasoft.models.core.archival",
       "version": "null",
       "code": "null"
-    },
+    }
   ],
   "Models": [
     {
@@ -137,72 +137,145 @@
     {
       "entity": "Guides",
       "name": "name",
-      "isNullable": true,
-      "isUnique": false,
-      "AttributesTypes": "String"
+      "isNullable": false,
+      "isUnique": true,
+      "AttributesTypes": "String",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "Activities",
       "name": "name",
-      "isNullable": true,
-      "isUnique": false,
-      "AttributesTypes": "String"
+      "isNullable": false,
+      "isUnique": true,
+      "AttributesTypes": "String",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "Activities",
       "name": "startDate",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "Date"
-    },
-    {
-      "entity": "Activities",
-      "name": "finalDate",
-      "isNullable": true,
-      "isUnique": false,
-      "AttributesTypes": "Date"
+      "AttributesTypes": "Date",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "Activities",
       "name": "timelyDate",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "Date"
+      "AttributesTypes": "Date",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": false
     },
     {
       "entity": "Activities",
       "name": "untimelyDate",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "Date"
+      "AttributesTypes": "Date",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": false
+    },
+    {
+      "entity": "Activities",
+      "name": "finalDate",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "Date",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
+    },
+    {
+      "entity": "Activities",
+      "name": "priority",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "Integer",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "ActivitiesTypes",
       "name": "name",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "String"
+      "AttributesTypes": "String",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "Calendars",
       "name": "name",
-      "isNullable": true,
-      "isUnique": false,
-      "AttributesTypes": "String"
+      "isNullable": false,
+      "isUnique": true,
+      "AttributesTypes": "String",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "Calendars",
       "name": "date",
       "isNullable": true,
       "isUnique": false,
-      "AttributesTypes": "Date"
+      "AttributesTypes": "Date",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     },
     {
       "entity": "Diaries",
       "name": "date",
-      "isNullable": true,
-      "isUnique": false,
-      "AttributesTypes": "Date"
+      "isNullable": false,
+      "isUnique": true,
+      "AttributesTypes": "Date",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
     }
   ],
   "Relationships": [

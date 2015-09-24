@@ -84,8 +84,14 @@ public class ModelsGen extends FileTxt {
             for(Entidad entidad : groupIds.getEntities()) {
 
                for(Relation relation : entidad.getRelations()) {
+
+                   Entidad entityFrom = seekEntidad(relation.getFrom());
+                   relation.setEntityFrom(entityFrom);
+
                    Entidad entityTo = seekEntidad(relation.getTo());
                    relation.setEntityTo(entityTo);
+
+
                } // entidad.getRelations()
 
             } // for: groupIds.getEntities()

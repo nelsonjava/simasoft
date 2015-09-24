@@ -171,7 +171,6 @@ line("    },");
     } // for: domain.getPackages()
 line("  ],");
 
-
 //      ---------------------- Attributes ------------------------
 
     i = 1;
@@ -187,7 +186,13 @@ line("      \"entity\": \""+entidad.getName()+"\",");
 line("      \"name\": \""+attri.getField()+"\",");
 line("      \"isNullable\": "+attri.getNulo()+",");
 line("      \"isUnique\": "+attri.getUnique()+",");
-line("      \"AttributesTypes\": \""+attri.getType()+"\"");
+line("      \"AttributesTypes\": \""+attri.getType()+"\",");
+line("      \"isSimplified\": false,");
+line("      \"isCreate\": true,");
+line("      \"isSearch\": true,");
+line("      \"isView\": true,");
+line("      \"isViewRelation\": true,");
+line("      \"isViewColumn\": true");
           if (i == domain.getPackages().size() && j == groupId.getEntities().size() && k == entidad.getAtributos().size() ){
 line("    }");
           }

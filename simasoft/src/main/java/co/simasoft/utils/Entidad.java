@@ -278,6 +278,7 @@ public class Entidad {
                     xhtml += space+" -->\n";
 */
 
+
                     if (relation.getCardinality().equals("1..*")){
 
                         if (relation.getFrom().equals(relation.getTo())){  // Relación Unitaria
@@ -383,51 +384,67 @@ xhtml +=  space+"<!-- to:"+to+" -->\n";
 
             case "Muchos a Muchos Bidirecccional No.7":
 
-
 /*
-                    xhtml = "\n";
-                    xhtml += space+"<!-- \n";
-                    xhtml += space+"===================\n";
-                    xhtml += space+"Muchos a Muchos Bidirecccional No.7\n";
-                    xhtml += space+relation.getCardinality()+"\n";
-                    xhtml += space+"From:"+From+"\n";
-                    xhtml += space+"from:"+from+"\n";
-                    xhtml += space+"To:"+To+"\n";
-                    xhtml += space+"to:"+to+"\n";
-                    xhtml += space+"RelationName:"+RelationName+"\n";
-                    xhtml += space+"relationName:"+relationName+"\n";
-                    xhtml += space+"atri:"+atri+"\n";
-                    xhtml += space+"atribute:"+atribute+"\n";
-                    xhtml += space+"===================\n";
-                    if (relation.getFrom().equals(relation.getTo())){  // Relación Unitaria
+                 xhtml = "\n";
+                 xhtml += space+"<!-- \n";
+                 xhtml += space+"===================\n";
+                 xhtml += space+"Muchos a Muchos Bidirecccional No.7\n";
+                 xhtml += space+relation.getCardinality()+"\n";
+                 xhtml += space+"From:"+From+"\n";
+                 xhtml += space+"from:"+from+"\n";
+                 xhtml += space+"To:"+To+"\n";
+                 xhtml += space+"to:"+to+"\n";
+                 xhtml += space+"RelationName:"+RelationName+"\n";
+                 xhtml += space+"relationName:"+relationName+"\n";
+                 xhtml += space+"atri:"+atri+"\n";
+                 xhtml += space+"atribute:"+atribute+"\n";
+                 xhtml += space+"===================\n";
+                 if (relation.getFrom().equals(relation.getTo())){  // Relación Unitaria
                         xhtml += space+"UNITARIA\n";
-                    }
-                    else {
+                 }
+                 else {
                         xhtml += space+"NO UNITARIA\n";
-                    }
-                    xhtml += space+" -->\n";
-*/                    
+                 }
+                 xhtml += space+" -->\n";
+*/                 
 
+                 if (getName().equals(from)){
 
-                 xhtml +=  space+"<h:outputLabel for=\""+from+"Bean"+From+To+"\" value=\""+To+":\"/>"+"\n";
-                 xhtml += space+"<h:dataTable id=\""+from+"Bean"+From+to+
-                                          "\" styleClass=\"data-table\" value=\"#{forgeview:asList("+from+"Bean."+from+"."+to+")}\" var=\"_item\">"+"\n\n";
+                     xhtml +=  space+"<h:outputLabel for=\""+from+"Bean"+From+To+"\" value=\""+To+":\"/>"+"\n";
+                     xhtml += space+"<h:dataTable id=\""+from+"Bean"+From+to+
+                                                  "\" styleClass=\"data-table\" value=\"#{forgeview:asList("+from+"Bean."+from+"."+to+")}\" var=\"_item\">"+"\n\n";
 
+                     xhtml += columnView(relation.getEntityTo().getName(),"orden","double");
 
-                 xhtml += columnView(relation.getEntityTo().getName(),"orden","double");
+                     for (Atributos atributos : relation.getEntityTo().getAtributos()) {
+                         if (atributos.getIsViewColumn() == null || atributos.getIsViewColumn()){
+                             xhtml += columnView(relation.getEntityTo().getName(),atributos.getField(),atributos.getType());
+                         }
+                     } // for: relation.getEntityTo().getAtributos()
 
-                 for (Atributos atributos : relation.getEntityTo().getAtributos()) {
-                      if (atributos.getIsViewColumn() == null || atributos.getIsViewColumn()){
-                         xhtml += columnView(relation.getEntityTo().getName(),atributos.getField(),atributos.getType());
-                      }
-                 } // for: relation.getEntityTo().getAtributos()
+                     xhtml += space+"</h:dataTable>"+"\n";
+                     xhtml += space+"<h:outputText/>\n";
 
-                 xhtml += space+"</h:dataTable>"+"\n";
-                 xhtml += space+"<h:outputText/>\n";
+                 }
+                 else{
 
-/*
-xhtml +=  space+"<!-- "+relation.getNameCardinality()+"-->\n";
-*/
+                     xhtml +=  space+"<h:outputLabel for=\""+to+"Bean"+To+From+"\" value=\""+From+":\"/>"+"\n";
+                     xhtml += space+"<h:dataTable id=\""+to+"Bean"+To+from+
+                                                  "\" styleClass=\"data-table\" value=\"#{forgeview:asList("+to+"Bean."+to+"."+from+")}\" var=\"_item\">"+"\n\n";
+
+                     xhtml += columnView(relation.getEntityFrom().getName(),"orden","double");
+
+                     for (Atributos atributos : relation.getEntityFrom().getAtributos()) {
+                         if (atributos.getIsViewColumn() == null || atributos.getIsViewColumn()){
+                             xhtml += columnView(relation.getEntityFrom().getName(),atributos.getField(),atributos.getType());
+                         }
+                     } // for: relation.getEntityTo().getAtributos()
+
+                     xhtml += space+"</h:dataTable>"+"\n";
+                     xhtml += space+"<h:outputText/>\n";
+
+                 }
+
                  break;
 
 
@@ -460,7 +477,7 @@ xhtml +=  space+"<!-- "+relation.getNameCardinality()+"-->\n";
 
             case "double":
 
-                 xhtml = space+"<h:column>\n";
+                 xhtml = space+"     <h:column>\n";
                  xhtml +=space+"        <f:facet name=\"header\">\n";
                  xhtml +=space+"                <h:outputText value=\""+Attribute+"\"/>\n";
                  xhtml +=space+"        </f:facet>\n";
@@ -468,12 +485,12 @@ xhtml +=  space+"<!-- "+relation.getNameCardinality()+"-->\n";
                  xhtml +=space+"                <f:param name=\"id\" value=\"#{_item.id}\"/>\n";
                  xhtml +=space+"                <h:outputText id=\"item"+Attribute+"\" value=\"#{_item."+attribute+"}\"/>\n";
                  xhtml +=space+"        </h:link>\n";
-                 xhtml +=space+"</h:column>\n\n";
+                 xhtml +=space+"     </h:column>\n\n";
                  break;
 
             case "String":
 
-                 xhtml = space+"<h:column>\n";
+                 xhtml = space+"     <h:column>\n";
                  xhtml +=space+"        <f:facet name=\"header\">\n";
                  xhtml +=space+"                <h:outputText value=\""+Attribute+"\"/>\n";
                  xhtml +=space+"        </f:facet>\n";
@@ -481,7 +498,7 @@ xhtml +=  space+"<!-- "+relation.getNameCardinality()+"-->\n";
                  xhtml +=space+"                <f:param name=\"id\" value=\"#{_item.id}\"/>\n";
                  xhtml +=space+"                <h:outputText id=\"item"+Attribute+"\" value=\"#{_item."+attribute+"}\"/>\n";
                  xhtml +=space+"        </h:link>\n";
-                 xhtml +=space+"</h:column>\n\n";
+                 xhtml +=space+"     </h:column>\n\n";
                  break;
 
             case "Text":
@@ -490,7 +507,7 @@ xhtml +=  space+"<!-- "+relation.getNameCardinality()+"-->\n";
 
             case "Integer":
 
-                 xhtml = space+"<h:column>\n";
+                 xhtml = space+"     <h:column>\n";
                  xhtml +=space+"        <f:facet name=\"header\">\n";
                  xhtml +=space+"                <h:outputText value=\""+Attribute+"\"/>\n";
                  xhtml +=space+"        </f:facet>\n";
@@ -498,13 +515,13 @@ xhtml +=  space+"<!-- "+relation.getNameCardinality()+"-->\n";
                  xhtml +=space+"                <f:param name=\"id\" value=\"#{_item.id}\"/>\n";
                  xhtml +=space+"                <h:outputText id=\"item"+Attribute+"\" value=\"#{_item."+attribute+"}\"/>\n";
                  xhtml +=space+"        </h:link>\n";
-                 xhtml +=space+"</h:column>\n\n";
+                 xhtml +=space+"     </h:column>\n\n";
                  break;
 
 
             case "Date":
 
-                 xhtml = space+"<h:column>\n";
+                 xhtml = space+"     <h:column>\n";
                  xhtml +=space+"        <f:facet name=\"header\">\n";
                  xhtml +=space+"                <h:outputText value=\""+Attribute+"\"/>\n";
                  xhtml +=space+"        </f:facet>\n";
@@ -514,14 +531,14 @@ xhtml +=  space+"<!-- "+relation.getNameCardinality()+"-->\n";
                  xhtml +=space+"                        <f:convertDateTime type=\"date\"/>\n";
                  xhtml +=space+"               <h:outputText/>\n";
                  xhtml +=space+"        </h:link>\n";
-                 xhtml +=space+"</h:column>\n\n";
+                 xhtml +=space+"     </h:column>\n\n";
 
                  break;
 
 
             case "Boolean":
 
-                 xhtml = space+"<h:column>\n";
+                 xhtml = space+"     <h:column>\n";
                  xhtml +=space+"        <f:facet name=\"header\">\n";
                  xhtml +=space+"                <h:outputText value=\""+Attribute+"\"/>\n";
                  xhtml +=space+"        </f:facet>\n";
@@ -529,7 +546,7 @@ xhtml +=  space+"<!-- "+relation.getNameCardinality()+"-->\n";
                  xhtml +=space+"                <f:param name=\"id\" value=\"#{_item.id}\"/>\n";
                  xhtml +=space+"                <h:outputText styleClass=\"#{_item."+attribute+" ? 'boolean-true' : 'boolean-false'}\" value=\"\"/>";
                  xhtml +=space+"        </h:link>\n";
-                 xhtml +=space+"</h:column>\n\n";
+                 xhtml +=space+"     </h:column>\n\n";
                  break;
 
 
@@ -732,8 +749,8 @@ xhtml +=  space+"<!-- "+relation.getNameCardinality()+"-->\n";
 
                      xhtml =  space+"<h:outputLabel for=\""+from+"Bean"+from+To+"\" value=\""+To+":\"/>"+"\n";
                      xhtml += space+"<h:panelGroup>\n";
-                     xhtml += space+"   <ui:param name=\"_collection\" value=\"#{"+from+"Bean."+from+"."+to+"}\"/>\n";
-                     xhtml += space+"   <h:dataTable id=\""+from+"Bean"+From+To+"\" styleClass=\"data-table\" value=\"#{forgeview:asList(_collection)}\" var=\"_item\">\n";
+                     xhtml += space+"        <ui:param name=\"_collection\" value=\"#{"+from+"Bean."+from+"."+to+"}\"/>\n";
+                     xhtml += space+"        <h:dataTable id=\""+from+"Bean"+From+To+"\" styleClass=\"data-table\" value=\"#{forgeview:asList(_collection)}\" var=\"_item\">\n";
 
                      for (Atributos atributos : relation.getEntityTo().getAtributos()) {
                          if (atributos.getIsViewColumn() == null || atributos.getIsViewColumn()){
@@ -741,15 +758,19 @@ xhtml +=  space+"<!-- "+relation.getNameCardinality()+"-->\n";
                          }
                      } // for: relation.getEntityTo().getAtributos()
 
-                     xhtml += space+"   </h:dataTable>\n\n";
+                     xhtml += space+"     <h:column footerClass=\"remove-column\" headerClass=\"remove-column\">\n";
+                     xhtml += space+"        <h:commandLink action=\"#{_collection.remove(_item)}\" styleClass=\"remove-button\"/>\n";
+                     xhtml += space+"     </h:column>\n";
 
-                     xhtml += space+"   <h:panelGrid columnClasses=\",remove-column\" columns=\"2\" styleClass=\"data-table-footer\">\n";
-                     xhtml += space+"      <h:selectOneMenu converter=\"#{"+to+"Bean.converter}\" id=\""+from+"Bean"+From+To+"Select\" value=\"#{requestScope['"+from+"Bean"+From+To+"Select']}\">\n";
-                     xhtml += space+"        <f:selectItem/>\n";
-                     xhtml += space+"        <f:selectItems itemLabel=\"#{forgeview:display(_item."+atribute+")}\" itemValue=\"#{_item}\" value=\"#{"+to+"Bean.all}\" var=\"_item\"/>\n";
-                     xhtml += space+"      </h:selectOneMenu>\n";
-                     xhtml += space+"      <h:commandLink action=\"#{_collection.add(requestScope['"+from+"Bean"+From+To+"Select'])}\" id=\""+from+"Bean"+From+To+"Add\" onclick=\"if (document.getElementById(document.forms[0].id+':"+from+"Bean"+From+To+"Select').selectedIndex &lt; 1) { alert('Must select a "+To+"'); return false; }\" styleClass=\"add-button\"/>\n";
-                     xhtml += space+"   </h:panelGrid>\n";
+                     xhtml += space+"        </h:dataTable>\n\n";
+
+                     xhtml += space+"        <h:panelGrid columnClasses=\",remove-column\" columns=\"2\" styleClass=\"data-table-footer\">\n";
+                     xhtml += space+"           <h:selectOneMenu converter=\"#{"+to+"Bean.converter}\" id=\""+from+"Bean"+From+To+"Select\" value=\"#{requestScope['"+from+"Bean"+From+To+"Select']}\">\n";
+                     xhtml += space+"             <f:selectItem/>\n";
+                     xhtml += space+"             <f:selectItems itemLabel=\"#{forgeview:display(_item."+atribute+")}\" itemValue=\"#{_item}\" value=\"#{"+to+"Bean.all}\" var=\"_item\"/>\n";
+                     xhtml += space+"           </h:selectOneMenu>\n";
+                     xhtml += space+"           <h:commandLink action=\"#{_collection.add(requestScope['"+from+"Bean"+From+To+"Select'])}\" id=\""+from+"Bean"+From+To+"Add\" onclick=\"if (document.getElementById(document.forms[0].id+':"+from+"Bean"+From+To+"Select').selectedIndex &lt; 1) { alert('Must select a "+To+"'); return false; }\" styleClass=\"add-button\"/>\n";
+                     xhtml += space+"        </h:panelGrid>\n";
 
                      xhtml += space+"</h:panelGroup>\n";
                      xhtml += space+"<h:outputText/>\n";
@@ -761,10 +782,32 @@ xhtml +=  space+"<!-- "+relation.getNameCardinality()+"-->\n";
 
             case "*..1":
 
-                 if (getName().equals(From)){
+/*
+                    xhtml = "\n";
+                    xhtml += space+"<!-- \n";
+                    xhtml += space+"===================\n";
+                    xhtml += space+"*..1\n";
+                    xhtml += space+relation.getCardinality()+"\n";
+                    xhtml += space+"From:"+From+"\n";
+                    xhtml += space+"from:"+from+"\n";
+                    xhtml += space+"To:"+To+"\n";
+                    xhtml += space+"to:"+to+"\n";
+                    xhtml += space+"atribute:"+atribute+"\n";
+                    xhtml += space+"===================\n";
+                    if (relation.getFrom().equals(relation.getTo())){  // Relación Unitaria
+                        xhtml += space+"UNITARIA\n";
+                    }
+                    else {
+                        xhtml += space+"NO UNITARIA\n";
+                    }
+                    xhtml += space+" -->\n";
+*/
+
+                 if (getName().equals(From)){ // relación Unitaria
+
                      xhtml =  space+"<h:outputLabel for=\""+from+"Bean"+from+To+"\" value=\""+To+":\"/>"+"\n";
                      xhtml += space+"<h:panelGroup>\n";
-                     xhtml += space+"         <h:selectOneMenu converter=\"#{"+to+"Bean.converter}\" id=\""+from+"Bean"+From+To+"\" value=\"#{"+from+"Bean."+from+"."+atribute+"}\">\n";
+                     xhtml += space+"         <h:selectOneMenu converter=\"#{"+to+"Bean.converter}\" id=\""+from+"Bean"+From+To+"\" value=\"#{"+from+"Bean."+from+".objPadre}\">\n";
                      xhtml += space+"                <f:selectItem/>\n";
                      xhtml += space+"                <f:selectItems itemLabel=\"#{forgeview:display(_item."+atribute+")}\" itemValue=\"#{_item}\" value=\"#{"+to+"Bean.all}\" var=\"_item\"/>\n";
                      xhtml += space+"        </h:selectOneMenu>\n";
@@ -774,9 +817,10 @@ xhtml +=  space+"<!-- "+relation.getNameCardinality()+"-->\n";
 
                  }
                  else{ // relación inversa.
+
                      xhtml =  space+"<h:outputLabel for=\""+to+"Bean"+to+From+"\" value=\""+From+":\"/>"+"\n";
                      xhtml += space+"<h:panelGroup>\n";
-                     xhtml += space+"         <h:selectOneMenu converter=\"#{"+from+"Bean.converter}\" id=\""+to+"Bean"+To+From+"\" value=\"#{"+to+"Bean."+to+"."+atribute+"}\">\n";
+                     xhtml += space+"         <h:selectOneMenu converter=\"#{"+from+"Bean.converter}\" id=\""+to+"Bean"+To+From+"\" value=\"#{"+to+"Bean."+to+"."+from+"}\">\n";
                      xhtml += space+"                <f:selectItem/>\n";
                      xhtml += space+"                <f:selectItems itemLabel=\"#{forgeview:display(_item."+atribute+")}\" itemValue=\"#{_item}\" value=\"#{"+from+"Bean.all}\" var=\"_item\"/>\n";
                      xhtml += space+"        </h:selectOneMenu>\n";
@@ -784,6 +828,7 @@ xhtml +=  space+"<!-- "+relation.getNameCardinality()+"-->\n";
                      xhtml += space+"</h:panelGroup>\n";
                      xhtml += space+"<h:outputText/>\n";
                  }
+
                  break;
 
 
