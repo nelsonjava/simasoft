@@ -325,8 +325,8 @@
       "Cardinalities": "Uno a Muchos Bidirecccional No.5"
     },
     {
-      "From": "Sections",
-      "To": "Activities",
+      "From": "Activities",
+      "To": "Sections",
       "name": "",
       "isOptionality": true,
       "isEmbedded": false,

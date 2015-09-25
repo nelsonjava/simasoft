@@ -662,7 +662,7 @@
       "isUnique": false,
       "AttributesTypes": "String",
       "isSimplified": false,
-      "isCreate": true,
+      "isCreate": false,
       "isSearch": true,
       "isView": true,
       "isViewRelation": true,
@@ -675,7 +675,7 @@
       "isUnique": false,
       "AttributesTypes": "String",
       "isSimplified": false,
-      "isCreate": true,
+      "isCreate": false,
       "isSearch": true,
       "isView": true,
       "isViewRelation": true,
@@ -1065,7 +1065,7 @@
       "isUnique": false,
       "AttributesTypes": "String",
       "isSimplified": false,
-      "isCreate": true,
+      "isCreate": false,
       "isSearch": true,
       "isView": true,
       "isViewRelation": true,
@@ -1078,7 +1078,7 @@
       "isUnique": false,
       "AttributesTypes": "String",
       "isSimplified": false,
-      "isCreate": true,
+      "isCreate": false,
       "isSearch": true,
       "isView": true,
       "isViewRelation": true,
@@ -1091,7 +1091,7 @@
       "isUnique": false,
       "AttributesTypes": "String",
       "isSimplified": false,
-      "isCreate": true,
+      "isCreate": false,
       "isSearch": true,
       "isView": true,
       "isViewRelation": true,
@@ -1117,11 +1117,11 @@
       "isUnique": false,
       "AttributesTypes": "String",
       "isSimplified": false,
-      "isCreate": true,
+      "isCreate": false,
       "isSearch": true,
       "isView": true,
       "isViewRelation": true,
-      "isViewColumn": true
+      "isViewColumn": false
     },
     {
       "entity": "Persons",
@@ -1130,11 +1130,11 @@
       "isUnique": false,
       "AttributesTypes": "String",
       "isSimplified": false,
-      "isCreate": true,
+      "isCreate": false,
       "isSearch": true,
       "isView": true,
       "isViewRelation": true,
-      "isViewColumn": true
+      "isViewColumn": false
     },
     {
       "entity": "Persons",
@@ -1143,11 +1143,11 @@
       "isUnique": false,
       "AttributesTypes": "String",
       "isSimplified": false,
-      "isCreate": true,
+      "isCreate": false,
       "isSearch": true,
       "isView": true,
       "isViewRelation": true,
-      "isViewColumn": true
+      "isViewColumn": false
     },
     {
       "entity": "RegulationsText",

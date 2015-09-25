@@ -287,6 +287,7 @@ public class Entidad {
 */
 
 
+
                     if (relation.getCardinality().equals("1..*")){
 
                         if (relation.getFrom().equals(relation.getTo())){  // Relación Unitaria
@@ -366,9 +367,8 @@ public class Entidad {
                        atribute = "."+relation.getAttribute() ;
                     }
 
-
                     xhtml  = space+"<h:outputLabel for=\""+to+"Bean"+To+RelationName+"\" value=\""+relationName+":\"/>\n";
-                    xhtml += space+"<h:link id=\""+to+"Bean"+To+RelationName+"\" outcome=\"/admin/"+from+"/view\" rendered=\"#{!empty "+to+"Bean."+to+"."+relationName+"}\" value=\"#{"+to+"Bean."+to+"."+relationName+atribute+"}\">\n";
+                    xhtml += space+"<h:link id=\""+to+"Bean"+To+RelationName+"\" outcome=\"/admin/"+from+"/view\" rendered=\"#{!empty "+to+"Bean."+to+"."+relationName+"}\" value=\"#{"+to+"Bean."+to+"."+relationName+"."+relation.getEntityFrom().getFieldCreate()+"}\">\n";
                     xhtml += space+"        <f:param name=\"id\" value=\"#{"+to+"Bean."+to+"."+relationName+".id}\"/>\n";
                     xhtml += space+"</h:link>\n";
                     xhtml += space+"<h:outputText/>\n";
@@ -414,7 +414,7 @@ xhtml +=  space+"<!-- to:"+to+" -->\n";
                         xhtml += space+"NO UNITARIA\n";
                  }
                  xhtml += space+" -->\n";
-*/                 
+*/
 
                  if (getName().equals(from)){
 
@@ -436,15 +436,15 @@ xhtml +=  space+"<!-- to:"+to+" -->\n";
                  }
                  else{
 
-                     xhtml +=  space+"<h:outputLabel for=\""+to+"Bean"+To+From+"\" value=\""+From+":\"/>"+"\n";
-                     xhtml += space+"<h:dataTable id=\""+to+"Bean"+To+from+
-                                                  "\" styleClass=\"data-table\" value=\"#{forgeview:asList("+to+"Bean."+to+"."+from+")}\" var=\"_item\">"+"\n\n";
+                     xhtml +=  space+"<h:outputLabel for=\""+from+"Bean"+From+To+"\" value=\""+To+"::\"/>"+"\n";
+                     xhtml += space+"<h:dataTable id=\""+from+"Bean"+From+to+
+                                                  "\" styleClass=\"data-table\" value=\"#{forgeview:asList("+from+"Bean."+from+"."+to+")}\" var=\"_item\">"+"\n\n";
 
-                     xhtml += columnView(relation.getEntityFrom().getName(),"orden","double");
+                     xhtml += columnView(relation.getEntityTo().getName(),"orden","double");
 
-                     for (Atributos atributos : relation.getEntityFrom().getAtributos()) {
+                     for (Atributos atributos : relation.getEntityTo().getAtributos()) {
                          if (atributos.getIsViewColumn() == null || atributos.getIsViewColumn()){
-                             xhtml += columnView(relation.getEntityFrom().getName(),atributos.getField(),atributos.getType());
+                             xhtml += columnView(relation.getEntityTo().getName(),atributos.getField(),atributos.getType());
                          }
                      } // for: relation.getEntityTo().getAtributos()
 
@@ -853,7 +853,7 @@ xhtml +=  space+"<!-- to:"+to+" -->\n";
                      xhtml += space+"<h:panelGroup>\n";
                      xhtml += space+"         <h:selectOneMenu converter=\"#{"+from+"Bean.converter}\" id=\""+to+"Bean"+To+From+"\" value=\"#{"+to+"Bean."+to+"."+from+"}\">\n";
                      xhtml += space+"                <f:selectItem/>\n";
-                     xhtml += space+"                <f:selectItems itemLabel=\"#{forgeview:display(_item."+atribute+")}\" itemValue=\"#{_item}\" value=\"#{"+from+"Bean.all}\" var=\"_item\"/>\n";
+                     xhtml += space+"                <f:selectItems itemLabel=\"#{forgeview:display(_item."+relation.getEntityFrom().getFieldCreate()+")}\" itemValue=\"#{_item}\" value=\"#{"+from+"Bean.all}\" var=\"_item\"/>\n";
                      xhtml += space+"        </h:selectOneMenu>\n";
                      xhtml += space+"        <h:message for=\"entitiesBeanEntitiesIsSimplified\" styleClass=\"error\"/>\n";
                      xhtml += space+"</h:panelGroup>\n";
