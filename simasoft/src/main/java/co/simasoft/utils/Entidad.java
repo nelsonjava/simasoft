@@ -10,6 +10,7 @@ public class Entidad {
     private String groupId = "";
     private String name = "";
     private String ref = "";
+    private String fieldCreate = "";
 
     private ArrayList<Atributos> atributos = new ArrayList<Atributos>() ;
     private ArrayList<Relation> relations = new ArrayList<Relation>();
@@ -34,6 +35,13 @@ public class Entidad {
     }
     public void setName(String name){
         this.name = name;
+    }
+
+    public String getFieldCreate(){
+        return fieldCreate;
+    }
+    public void setFieldCreate(String fieldCreate){
+        this.fieldCreate = fieldCreate;
     }
 
     public String getGroupId() {
@@ -767,13 +775,36 @@ xhtml +=  space+"<!-- to:"+to+" -->\n";
                      xhtml += space+"        <h:panelGrid columnClasses=\",remove-column\" columns=\"2\" styleClass=\"data-table-footer\">\n";
                      xhtml += space+"           <h:selectOneMenu converter=\"#{"+to+"Bean.converter}\" id=\""+from+"Bean"+From+To+"Select\" value=\"#{requestScope['"+from+"Bean"+From+To+"Select']}\">\n";
                      xhtml += space+"             <f:selectItem/>\n";
-                     xhtml += space+"             <f:selectItems itemLabel=\"#{forgeview:display(_item."+atribute+")}\" itemValue=\"#{_item}\" value=\"#{"+to+"Bean.all}\" var=\"_item\"/>\n";
+                     xhtml += space+"             <f:selectItems itemLabel=\"#{forgeview:display(_item."+relation.getEntityTo().getFieldCreate()+")}\" itemValue=\"#{_item}\" value=\"#{"+to+"Bean.all}\" var=\"_item\"/>\n";
                      xhtml += space+"           </h:selectOneMenu>\n";
                      xhtml += space+"           <h:commandLink action=\"#{_collection.add(requestScope['"+from+"Bean"+From+To+"Select'])}\" id=\""+from+"Bean"+From+To+"Add\" onclick=\"if (document.getElementById(document.forms[0].id+':"+from+"Bean"+From+To+"Select').selectedIndex &lt; 1) { alert('Must select a "+To+"'); return false; }\" styleClass=\"add-button\"/>\n";
                      xhtml += space+"        </h:panelGrid>\n";
 
                      xhtml += space+"</h:panelGroup>\n";
                      xhtml += space+"<h:outputText/>\n";
+
+/*
+                    xhtml += "\n";
+                    xhtml += space+"<!-- \n";
+                    xhtml += space+"===================\n";
+                    xhtml += space+"*..1\n";
+                    xhtml += space+relation.getCardinality()+"\n";
+                    xhtml += space+"From:"+From+"\n";
+                    xhtml += space+"from:"+from+"\n";
+                    xhtml += space+"To:"+To+"\n";
+                    xhtml += space+"to:"+to+"\n";
+                    xhtml += space+"atribute:"+atribute+"\n";
+                    xhtml += space+"===================\n";
+                    if (relation.getFrom().equals(relation.getTo())){  // Relación Unitaria
+                        xhtml += space+"UNITARIA\n";
+                    }
+                    else {
+                        xhtml += space+"NO UNITARIA\n";
+                    }
+                    xhtml += space+" -->\n";
+*/
+
+
                  }
                  else {
 //                      xhtml =  space+"<!-- "+From+" "+relation.getCardinality()+"  "+To+" -->\n";

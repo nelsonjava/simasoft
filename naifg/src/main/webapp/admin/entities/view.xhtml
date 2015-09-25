@@ -117,11 +117,12 @@
 
                                 <h:column>
                                         <f:facet name="header">
-                                                <h:outputText value="IsViewRelation"/>
+                                                <h:outputText value="IsCreate"/>
                                         </f:facet>
                                         <h:link outcome="/admin/attributes/view">
                                                 <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText styleClass="#{_item.isViewRelation ? 'boolean-true' : 'boolean-false'}" value=""/>                                        </h:link>
+                                                <h:outputText styleClass="#{_item.isCreate ? 'boolean-true' : 'boolean-false'}" value=""/>                                        
+                                        </h:link>
                                 </h:column>
 
 

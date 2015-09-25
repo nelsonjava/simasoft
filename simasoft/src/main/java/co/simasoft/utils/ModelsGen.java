@@ -86,9 +86,11 @@ public class ModelsGen extends FileTxt {
                for(Relation relation : entidad.getRelations()) {
 
                    Entidad entityFrom = seekEntidad(relation.getFrom());
+                   entityFrom.setFieldCreate(entityFrom.fieldCreate());
                    relation.setEntityFrom(entityFrom);
 
                    Entidad entityTo = seekEntidad(relation.getTo());
+                   entityTo.setFieldCreate(entityTo.fieldCreate());
                    relation.setEntityTo(entityTo);
 
 
