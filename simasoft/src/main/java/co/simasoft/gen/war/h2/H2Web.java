@@ -39,6 +39,19 @@ line("    <error-code>500</error-code>");
 line("    <location>/faces/error.xhtml</location>");
 line("  </error-page>\n");
 
+line("  <login-config>");
+line("    <auth-method>KEYCLOAK</auth-method>");
+line("    <realm-name>Nafgkc</realm-name>");
+line("  </login-config>\n");
+
+line("  <security-role>");
+line("    <role-name>admin</role-name>");
+line("  </security-role>\n");
+
+line("  <security-role>");
+line("    <role-name>user</role-name>");
+line("  </security-role>\n");
+
 line("</web-app>");
 
   } // Constructor

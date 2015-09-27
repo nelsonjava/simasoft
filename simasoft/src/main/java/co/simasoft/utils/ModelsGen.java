@@ -354,6 +354,9 @@ saveFile("\\docs", "ModelsGen.txt");
         H2Web h2Web = new H2Web(artifactId);
         Utils.fileMake(pathDocs+".h2.war."+artifactId+".src.main.webapp.WEB-INF","web.xml", h2Web);
 
+        H2Keycloak h2Keycloak = new H2Keycloak();
+        Utils.fileMake(pathDocs+".h2.war."+artifactId+".src.main.webapp.WEB-INF","keycloak.json", h2Keycloak);
+
         Utils.fileJar("webH2/webapp/resources","add.png",pathDocs+"\\h2\\war\\"+artifactId+"\\src\\main\\webapp\\resources\\",fileJar);
         Utils.fileJar("webH2/webapp/resources","bootstrap.css",pathDocs+"\\h2\\war\\"+artifactId+"\\src\\main\\webapp\\resources\\",fileJar);
         Utils.fileJar("webH2/webapp/resources","false.png",pathDocs+"\\h2\\war\\"+artifactId+"\\src\\main\\webapp\\resources\\",fileJar);

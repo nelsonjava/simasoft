@@ -87,6 +87,18 @@ line("      <version>1.0-SNAPSHOT</version>");
 line("    </dependency>\n");
 
 line("    <dependency>");
+line("      <groupId>org.keycloak</groupId>");
+line("      <artifactId>keycloak-core</artifactId>");
+line("      <version>1.5.0.Final</version>");
+line("    </dependency>\n");
+
+line("    <dependency>");
+line("      <groupId>org.keycloak</groupId>");
+line("      <artifactId>keycloak-adapter-core</artifactId>");
+line("      <version>1.5.0.Final</version>");
+line("    </dependency>\n");
+
+line("    <dependency>");
 line("      <groupId>org.primefaces</groupId>");
 line("      <artifactId>primefaces</artifactId>");
 line("      <version>5.1</version>");
