@@ -30,21 +30,21 @@
                                 <h:panelGroup styleClass="search">
 
                                         <h:panelGrid columnClasses="label,component,required" columns="3">
-
-
-
-
-                                                <h:outputLabel for="activitiesBeanExampleDetail" value="Detail:"/>
-                                                <h:panelGroup>
-                                                        <h:inputText id="activitiesBeanExampleDetail" value="#{activitiesBean.example.detail}"/>
-                                                        <h:message for="activitiesBeanExampleDetail" styleClass="error"/>
-                                                </h:panelGroup>
-                                                <h:outputText/>
-
                                                 <h:outputLabel for="activitiesBeanExampleName" value="Name:"/>
                                                 <h:panelGroup>
                                                         <h:inputText id="activitiesBeanExampleName" value="#{activitiesBean.example.name}"/>
                                                         <h:message for="activitiesBeanExampleName" styleClass="error"/>
+                                                </h:panelGroup>
+                                                <h:outputText/>
+
+
+
+
+
+                                                <h:outputLabel for="activitiesBeanExamplePriority" value="Priority:"/>
+                                                <h:panelGroup>
+                                                        <h:inputText id="activitiesBeanExamplePriority" value="#{activitiesBean.example.priority}"/>
+                                                        <h:message for="activitiesBeanExamplePriority" styleClass="error"/>
                                                 </h:panelGroup>
                                                 <h:outputText/>
 
@@ -60,11 +60,22 @@
 
                                 <h:column>
                                         <f:facet name="header">
-                                                <h:outputText value="UntimelyDate"/>
+                                                <h:outputText value="Name"/>
                                         </f:facet>
                                         <h:link outcome="/admin/activities/view">
                                                 <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemUntimelyDate" value="#{_item.untimelyDate}"/>
+                                                <h:outputText id="itemName" value="#{_item.name}"/>
+                                        </h:link>
+                                </h:column>
+
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="StartDate"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/activities/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemStartDate" value="#{_item.startDate}"/>
                                                         <f:convertDateTime type="date"/>
                                                <h:outputText/>
                                         </h:link>
@@ -73,11 +84,24 @@
 
                                 <h:column>
                                         <f:facet name="header">
-                                                <h:outputText value="TimelyDate"/>
+                                                <h:outputText value="OptimisticDate"/>
                                         </f:facet>
                                         <h:link outcome="/admin/activities/view">
                                                 <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemTimelyDate" value="#{_item.timelyDate}"/>
+                                                <h:outputText id="itemOptimisticDate" value="#{_item.optimisticDate}"/>
+                                                        <f:convertDateTime type="date"/>
+                                               <h:outputText/>
+                                        </h:link>
+                                </h:column>
+
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="PessimisticDate"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/activities/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemPessimisticDate" value="#{_item.pessimisticDate}"/>
                                                         <f:convertDateTime type="date"/>
                                                <h:outputText/>
                                         </h:link>
@@ -99,35 +123,11 @@
 
                                 <h:column>
                                         <f:facet name="header">
-                                                <h:outputText value="StartDate"/>
+                                                <h:outputText value="Priority"/>
                                         </f:facet>
                                         <h:link outcome="/admin/activities/view">
                                                 <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemStartDate" value="#{_item.startDate}"/>
-                                                        <f:convertDateTime type="date"/>
-                                               <h:outputText/>
-                                        </h:link>
-                                </h:column>
-
-
-                                <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="Detail"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/activities/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemDetail" value="#{_item.detail}"/>
-                                        </h:link>
-                                </h:column>
-
-
-                                <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="Name"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/activities/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemName" value="#{_item.name}"/>
+                                                <h:outputText id="itemPriority" value="#{_item.priority}"/>
                                         </h:link>
                                 </h:column>
 

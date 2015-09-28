@@ -46,6 +46,13 @@
                                 </h:panelGroup>
                                 <h:outputText/>
 
+                                <h:outputLabel for="calendarsBeanCalendarsName" value="Name:"/>
+                                <h:panelGroup>
+                                        <h:inputText id="calendarsBeanCalendarsName" required="true" value="#{calendarsBean.calendars.name}"/>
+                                        <h:message for="calendarsBeanCalendarsName" styleClass="error"/>
+                                </h:panelGroup>
+                                <h:outputText value="*"/>
+
                                 <h:outputLabel for="calendarsBeanCalendarsDate" value="Date:"/>
                                 <h:panelGroup>
                                 <p:calendar id="developmentsBeanDevelopmentsDate"
@@ -55,14 +62,6 @@
                                 </h:panelGroup>
                                 <h:outputText/>
 
-                                <h:outputLabel for="calendarsBeanCalendarsName" value="Name:"/>
-                                <h:panelGroup>
-                                        <h:inputText id="calendarsBeanCalendarsName" value="#{calendarsBean.calendars.name}"/>
-                                        <h:message for="calendarsBeanCalendarsName" styleClass="error"/>
-                                </h:panelGroup>
-                                <h:outputText/>
-
-                                <!-- Activities *..*  Calendars -->
 
                                 <h:outputLabel for="calendarsBeanCalendarsObservations" value="Observations:"/>
                                 <h:panelGroup>

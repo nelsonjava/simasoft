@@ -46,85 +46,242 @@
                                 </h:panelGroup>
                                 <h:outputText/>
 
-                                <h:outputLabel for="activitiesBeanActivitiesUntimelyDate" value="UntimelyDate:"/>
+                                <h:outputLabel for="activitiesBeanActivitiesName" value="Name:"/>
                                 <h:panelGroup>
-                                <p:calendar id="developmentsBeanDevelopmentsDate"
-                                            showButtonPanel="true"
-                                            pattern="dd/MM/yyyy HH:mm a"
-                                            value="#{activitiesBean.activities.untimelyDate}"/>
+                                        <h:inputText id="activitiesBeanActivitiesName" required="true" value="#{activitiesBean.activities.name}"/>
+                                        <h:message for="activitiesBeanActivitiesName" styleClass="error"/>
                                 </h:panelGroup>
-                                <h:outputText/>
-
-                                <h:outputLabel for="activitiesBeanActivitiesTimelyDate" value="TimelyDate:"/>
-                                <h:panelGroup>
-                                <p:calendar id="developmentsBeanDevelopmentsDate"
-                                            showButtonPanel="true"
-                                            pattern="dd/MM/yyyy HH:mm a"
-                                            value="#{activitiesBean.activities.timelyDate}"/>
-                                </h:panelGroup>
-                                <h:outputText/>
-
-                                <h:outputLabel for="activitiesBeanActivitiesFinalDate" value="FinalDate:"/>
-                                <h:panelGroup>
-                                <p:calendar id="developmentsBeanDevelopmentsDate"
-                                            showButtonPanel="true"
-                                            pattern="dd/MM/yyyy HH:mm a"
-                                            value="#{activitiesBean.activities.finalDate}"/>
-                                </h:panelGroup>
-                                <h:outputText/>
+                                <h:outputText value="*"/>
 
                                 <h:outputLabel for="activitiesBeanActivitiesStartDate" value="StartDate:"/>
                                 <h:panelGroup>
-                                <p:calendar id="developmentsBeanDevelopmentsDate"
+                                <p:calendar id="developmentsBeanDevelopmentsStartDate"
                                             showButtonPanel="true"
                                             pattern="dd/MM/yyyy HH:mm a"
                                             value="#{activitiesBean.activities.startDate}"/>
                                 </h:panelGroup>
                                 <h:outputText/>
 
-                                <h:outputLabel for="activitiesBeanActivitiesDetail" value="Detail:"/>
+                                <h:outputLabel for="activitiesBeanActivitiesOptimisticDate" value="OptimisticDate:"/>
                                 <h:panelGroup>
-                                        <h:inputText id="activitiesBeanActivitiesDetail" value="#{activitiesBean.activities.detail}"/>
-                                        <h:message for="activitiesBeanActivitiesDetail" styleClass="error"/>
+                                <p:calendar id="developmentsBeanDevelopmentsOptimisticDate"
+                                            showButtonPanel="true"
+                                            pattern="dd/MM/yyyy HH:mm a"
+                                            value="#{activitiesBean.activities.optimisticDate}"/>
                                 </h:panelGroup>
                                 <h:outputText/>
 
-                                <h:outputLabel for="activitiesBeanActivitiesName" value="Name:"/>
+                                <h:outputLabel for="activitiesBeanActivitiesPessimisticDate" value="PessimisticDate:"/>
                                 <h:panelGroup>
-                                        <h:inputText id="activitiesBeanActivitiesName" value="#{activitiesBean.activities.name}"/>
-                                        <h:message for="activitiesBeanActivitiesName" styleClass="error"/>
+                                <p:calendar id="developmentsBeanDevelopmentsPessimisticDate"
+                                            showButtonPanel="true"
+                                            pattern="dd/MM/yyyy HH:mm a"
+                                            value="#{activitiesBean.activities.pessimisticDate}"/>
                                 </h:panelGroup>
                                 <h:outputText/>
 
-                                <!-- Activities *..*  Calendars -->
+                                <h:outputLabel for="activitiesBeanActivitiesFinalDate" value="FinalDate:"/>
+                                <h:panelGroup>
+                                <p:calendar id="developmentsBeanDevelopmentsFinalDate"
+                                            showButtonPanel="true"
+                                            pattern="dd/MM/yyyy HH:mm a"
+                                            value="#{activitiesBean.activities.finalDate}"/>
+                                </h:panelGroup>
+                                <h:outputText/>
 
-                                <!-- Activities 1..*  Tasks -->
+                                <h:outputLabel for="activitiesBeanActivitiesPriority" value="Priority:"/>
+                                <h:panelGroup>
+                                        <h:inputText id="activitiesBeanActivitiesPriority" value="#{activitiesBean.activities.priority}"/>
+                                        <h:message for="activitiesBeanActivitiesPriority" styleClass="error"/>
+                                </h:panelGroup>
+                                <h:outputText/>
 
-                                <!-- Activities *..*  Sites -->
+                                <h:outputLabel for="activitiesBeanactivitiesPersons" value="Persons:"/>
+                                <h:panelGroup>
+                                        <ui:param name="_collection" value="#{activitiesBean.activities.persons}"/>
+                                        <h:dataTable id="activitiesBeanActivitiesPersons" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
+                                     <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="FirstLastName"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/persons/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemFirstLastName" value="#{_item.firstLastName}"/>
+                                        </h:link>
+                                     </h:column>
 
-                                <!-- Activities 1..*  Activities -->
+                                     <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="SecondLastName"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/persons/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemSecondLastName" value="#{_item.secondLastName}"/>
+                                        </h:link>
+                                     </h:column>
 
-                                <!-- Activities *..*  Guides -->
+                                     <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="FirstName"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/persons/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemFirstName" value="#{_item.firstName}"/>
+                                        </h:link>
+                                     </h:column>
+
+                                     <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="SecondName"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/persons/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemSecondName" value="#{_item.secondName}"/>
+                                        </h:link>
+                                     </h:column>
+
+                                     <h:column footerClass="remove-column" headerClass="remove-column">
+                                        <h:commandLink action="#{_collection.remove(_item)}" styleClass="remove-button"/>
+                                     </h:column>
+                                        </h:dataTable>
+
+                                        <h:panelGrid columnClasses=",remove-column" columns="2" styleClass="data-table-footer">
+                                           <h:selectOneMenu converter="#{personsBean.converter}" id="activitiesBeanActivitiesPersonsSelect" value="#{requestScope['activitiesBeanActivitiesPersonsSelect']}">
+                                             <f:selectItem/>
+                                             <f:selectItems itemLabel="#{forgeview:display(_item.secondName)}" itemValue="#{_item}" value="#{personsBean.all}" var="_item"/>
+                                           </h:selectOneMenu>
+                                           <h:commandLink action="#{_collection.add(requestScope['activitiesBeanActivitiesPersonsSelect'])}" id="activitiesBeanActivitiesPersonsAdd" onclick="if (document.getElementById(document.forms[0].id+':activitiesBeanActivitiesPersonsSelect').selectedIndex &lt; 1) { alert('Must select a Persons'); return false; }" styleClass="add-button"/>
+                                        </h:panelGrid>
+                                </h:panelGroup>
+                                <h:outputText/>
+
+
+                                <h:outputLabel for="activitiesBeanactivitiesSections" value="Sections:"/>
+                                <h:panelGroup>
+                                        <ui:param name="_collection" value="#{activitiesBean.activities.sections}"/>
+                                        <h:dataTable id="activitiesBeanActivitiesSections" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
+                                     <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Code"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/sections/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemCode" value="#{_item.code}"/>
+                                        </h:link>
+                                     </h:column>
+
+                                     <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Name"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/sections/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemName" value="#{_item.name}"/>
+                                        </h:link>
+                                     </h:column>
+
+                                     <h:column footerClass="remove-column" headerClass="remove-column">
+                                        <h:commandLink action="#{_collection.remove(_item)}" styleClass="remove-button"/>
+                                     </h:column>
+                                        </h:dataTable>
+
+                                        <h:panelGrid columnClasses=",remove-column" columns="2" styleClass="data-table-footer">
+                                           <h:selectOneMenu converter="#{sectionsBean.converter}" id="activitiesBeanActivitiesSectionsSelect" value="#{requestScope['activitiesBeanActivitiesSectionsSelect']}">
+                                             <f:selectItem/>
+                                             <f:selectItems itemLabel="#{forgeview:display(_item.name)}" itemValue="#{_item}" value="#{sectionsBean.all}" var="_item"/>
+                                           </h:selectOneMenu>
+                                           <h:commandLink action="#{_collection.add(requestScope['activitiesBeanActivitiesSectionsSelect'])}" id="activitiesBeanActivitiesSectionsAdd" onclick="if (document.getElementById(document.forms[0].id+':activitiesBeanActivitiesSectionsSelect').selectedIndex &lt; 1) { alert('Must select a Sections'); return false; }" styleClass="add-button"/>
+                                        </h:panelGrid>
+                                </h:panelGroup>
+                                <h:outputText/>
+
+                                <h:outputLabel for="activitiesBeanactivitiesCalendars" value="Calendars:"/>
+                                <h:panelGroup>
+                                        <ui:param name="_collection" value="#{activitiesBean.activities.calendars}"/>
+                                        <h:dataTable id="activitiesBeanActivitiesCalendars" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
+                                     <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Name"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/calendars/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemName" value="#{_item.name}"/>
+                                        </h:link>
+                                     </h:column>
+
+                                     <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Date"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/calendars/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemDate" value="#{_item.date}"/>
+                                                        <f:convertDateTime type="date"/>
+                                               <h:outputText/>
+                                        </h:link>
+                                     </h:column>
+
+                                     <h:column footerClass="remove-column" headerClass="remove-column">
+                                        <h:commandLink action="#{_collection.remove(_item)}" styleClass="remove-button"/>
+                                     </h:column>
+                                        </h:dataTable>
+
+                                        <h:panelGrid columnClasses=",remove-column" columns="2" styleClass="data-table-footer">
+                                           <h:selectOneMenu converter="#{calendarsBean.converter}" id="activitiesBeanActivitiesCalendarsSelect" value="#{requestScope['activitiesBeanActivitiesCalendarsSelect']}">
+                                             <f:selectItem/>
+                                             <f:selectItems itemLabel="#{forgeview:display(_item.name)}" itemValue="#{_item}" value="#{calendarsBean.all}" var="_item"/>
+                                           </h:selectOneMenu>
+                                           <h:commandLink action="#{_collection.add(requestScope['activitiesBeanActivitiesCalendarsSelect'])}" id="activitiesBeanActivitiesCalendarsAdd" onclick="if (document.getElementById(document.forms[0].id+':activitiesBeanActivitiesCalendarsSelect').selectedIndex &lt; 1) { alert('Must select a Calendars'); return false; }" styleClass="add-button"/>
+                                        </h:panelGrid>
+                                </h:panelGroup>
+                                <h:outputText/>
+
+                                <h:outputLabel for="activitiesBeanactivitiesGuides" value="Guides:"/>
+                                <h:panelGroup>
+                                        <ui:param name="_collection" value="#{activitiesBean.activities.guides}"/>
+                                        <h:dataTable id="activitiesBeanActivitiesGuides" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
+                                     <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Name"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/guides/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemName" value="#{_item.name}"/>
+                                        </h:link>
+                                     </h:column>
+
+                                     <h:column footerClass="remove-column" headerClass="remove-column">
+                                        <h:commandLink action="#{_collection.remove(_item)}" styleClass="remove-button"/>
+                                     </h:column>
+                                        </h:dataTable>
+
+                                        <h:panelGrid columnClasses=",remove-column" columns="2" styleClass="data-table-footer">
+                                           <h:selectOneMenu converter="#{guidesBean.converter}" id="activitiesBeanActivitiesGuidesSelect" value="#{requestScope['activitiesBeanActivitiesGuidesSelect']}">
+                                             <f:selectItem/>
+                                             <f:selectItems itemLabel="#{forgeview:display(_item.name)}" itemValue="#{_item}" value="#{guidesBean.all}" var="_item"/>
+                                           </h:selectOneMenu>
+                                           <h:commandLink action="#{_collection.add(requestScope['activitiesBeanActivitiesGuidesSelect'])}" id="activitiesBeanActivitiesGuidesAdd" onclick="if (document.getElementById(document.forms[0].id+':activitiesBeanActivitiesGuidesSelect').selectedIndex &lt; 1) { alert('Must select a Guides'); return false; }" styleClass="add-button"/>
+                                        </h:panelGrid>
+                                </h:panelGroup>
+                                <h:outputText/>
+
+
 
                                 <h:outputLabel for="activitiesBeanactivitiesActivitiesTypes" value="ActivitiesTypes:"/>
                                 <h:panelGroup>
                                          <h:selectOneMenu converter="#{activitiesTypesBean.converter}" id="activitiesBeanActivitiesActivitiesTypes" value="#{activitiesBean.activities.activitiesTypes}">
                                                 <f:selectItem/>
-                                                <f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{activitiesTypesBean.all}" var="_item"/>
+                                                <f:selectItems itemLabel="#{forgeview:display(_item.name)}" itemValue="#{_item}" value="#{activitiesTypesBean.all}" var="_item"/>
                                         </h:selectOneMenu>
                                         <h:message for="entitiesBeanEntitiesIsSimplified" styleClass="error"/>
                                 </h:panelGroup>
                                 <h:outputText/>
 
-                                <!-- Sections *..*  Activities -->
-
-                                <!-- Persons *..*  Activities -->
-
                                 <h:outputLabel for="activitiesBeanactivitiesActivities" value="Activities:"/>
                                 <h:panelGroup>
-                                         <h:selectOneMenu converter="#{activitiesBean.converter}" id="activitiesBeanActivitiesActivities" value="#{activitiesBean.activities.activities}">
+                                         <h:selectOneMenu converter="#{activitiesBean.converter}" id="activitiesBeanActivitiesActivities" value="#{activitiesBean.activities.objPadre}">
                                                 <f:selectItem/>
-                                                <f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{activitiesBean.all}" var="_item"/>
+                                                <f:selectItems itemLabel="#{forgeview:display(_item.name)}" itemValue="#{_item}" value="#{activitiesBean.all}" var="_item"/>
                                         </h:selectOneMenu>
                                         <h:message for="entitiesBeanEntitiesIsSimplified" styleClass="error"/>
                                 </h:panelGroup>

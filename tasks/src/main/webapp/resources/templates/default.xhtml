@@ -9,6 +9,8 @@
     <title>demo-war</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <h:outputStylesheet name="css/screen.css" />
+    <script src="/auth/js/keycloak.js"></script>
+    <script src="js/app.js" type="text/javascript"></script>    
 </h:head>
 
 <h:body>
@@ -25,6 +27,7 @@
             </ui:insert>
         </div>
 
+        <ui:fragment rendered="#{identity.loggedIn}">
         <div id="aside">
             <p>News.</p>
             <ul>
@@ -39,9 +42,17 @@
               <li><a href="http://www.applesfera.com/" target="_blank">Apple. Applesfera</a></li>
               <li><a href="http://www.xatakandroid.com/" target="_blank">Xataka Android</a></li>
               <li><a href="http://www.genbetadev.com/" target="_blank">Genbeta Dev</a></li>
-              <li><a href="http://in.relation.to/" target="_blank">in.relation.to</a></li>              
+              <li><a href="http://in.relation.to/" target="_blank">in.relation.to</a></li>
+            </ul>
+            <p>Debug Information</p>
+            <ul>
+              <li><b>Timestamp:</b> #{propertyBean.date}</li>
+              <li><b>Node name:</b> #{propertyBean.getProperty('jboss.node.name')}</li>
+              <li><b>Session id:</b> #{propertyBean.sessionId}</li>
+              <li><b>User:</b> #{identity.account.loginName}</li>
             </ul>
         </div>
+        </ui:fragment>
 
         <div id="footer">
             <p>

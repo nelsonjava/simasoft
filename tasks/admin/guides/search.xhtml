@@ -30,17 +30,17 @@
                                 <h:panelGroup styleClass="search">
 
                                         <h:panelGrid columnClasses="label,component,required" columns="3">
-                                                <h:outputLabel for="guidesBeanExampleGuide" value="Guide:"/>
+                                                <h:outputLabel for="guidesBeanExampleName" value="Name:"/>
                                                 <h:panelGroup>
-                                                        <h:inputText id="guidesBeanExampleGuide" value="#{guidesBean.example.guide}"/>
-                                                        <h:message for="guidesBeanExampleGuide" styleClass="error"/>
+                                                        <h:inputText id="guidesBeanExampleName" value="#{guidesBean.example.name}"/>
+                                                        <h:message for="guidesBeanExampleName" styleClass="error"/>
                                                 </h:panelGroup>
                                                 <h:outputText/>
 
-                                                <h:outputLabel for="guidesBeanExampleTitle" value="Title:"/>
+                                                <h:outputLabel for="guidesBeanExampleDetail" value="Detail:"/>
                                                 <h:panelGroup>
-                                                        <h:inputText id="guidesBeanExampleTitle" value="#{guidesBean.example.title}"/>
-                                                        <h:message for="guidesBeanExampleTitle" styleClass="error"/>
+                                                        <h:inputText id="guidesBeanExampleDetail" value="#{guidesBean.example.detail}"/>
+                                                        <h:message for="guidesBeanExampleDetail" styleClass="error"/>
                                                 </h:panelGroup>
                                                 <h:outputText/>
 
@@ -56,22 +56,22 @@
 
                                 <h:column>
                                         <f:facet name="header">
-                                                <h:outputText value="Guide"/>
+                                                <h:outputText value="Name"/>
                                         </f:facet>
                                         <h:link outcome="/admin/guides/view">
                                                 <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemGuide" value="#{_item.guide}"/>
+                                                <h:outputText id="itemName" value="#{_item.name}"/>
                                         </h:link>
                                 </h:column>
 
 
                                 <h:column>
                                         <f:facet name="header">
-                                                <h:outputText value="Title"/>
+                                                <h:outputText value="Detail"/>
                                         </f:facet>
                                         <h:link outcome="/admin/guides/view">
                                                 <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemTitle" value="#{_item.title}"/>
+                                                <h:outputText id="itemDetail" value="#{_item.detail}"/>
                                         </h:link>
                                 </h:column>
 

@@ -10,6 +10,7 @@
   <!-- mvn clean package wildfly:deploy -->
   <!-- http://localhost:8080 -->
   <!-- http://localhost:8080/tasks -->
+  <!-- http://localhost:8080/auth/ -->
 
   <modelVersion>4.0.0</modelVersion>
 
@@ -74,6 +75,24 @@
       <groupId>co.simasoft</groupId>
       <artifactId>simasoft</artifactId>
       <version>1.0-SNAPSHOT</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.keycloak</groupId>
+      <artifactId>keycloak-core</artifactId>
+      <version>1.5.0.Final</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.keycloak</groupId>
+      <artifactId>keycloak-adapter-core</artifactId>
+      <version>1.5.0.Final</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.httpcomponents</groupId>
+      <artifactId>httpclient</artifactId>
+      <version>4.5.1</version>
     </dependency>
 
     <dependency>

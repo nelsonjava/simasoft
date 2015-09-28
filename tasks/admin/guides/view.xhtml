@@ -32,22 +32,22 @@
                         <h:outputText id="guidesBeanGuidesOrden" value="#{guidesBean.guides.orden}"/>
                         <h:outputText/>
 
-                        <h:outputLabel for="guidesBeanGuidesGuide" value="Guide:"/>
-                        <h:outputText id="guidesBeanGuidesGuide" value="#{guidesBean.guides.guide}"/>
+                        <h:outputLabel for="guidesBeanGuidesName" value="Name:"/>
+                        <h:outputText id="guidesBeanGuidesName" value="#{guidesBean.guides.name}"/>
                         <h:outputText/>
 
-                        <h:outputLabel for="guidesBeanGuidesTitle" value="Title:"/>
-                        <h:outputText id="guidesBeanGuidesTitle" value="#{guidesBean.guides.title}"/>
+                        <h:outputLabel for="guidesBeanGuidesDetail" value="Detail:"/>
+                        <h:outputText id="guidesBeanGuidesDetail" value="#{guidesBean.guides.detail}"/>
                         <h:outputText/>
 
                         <h:outputLabel for="guidesBeanGuidesObservations" value="Observations:"/>
                         <h:outputText id="guidesBeanGuidesObservations" value="#{guidesBean.guides.observations}" escape="false" />
                         <h:outputText/>
 
-                        <h:outputLabel for="activitiesBeanActivitiesGuides" value="Guides:"/>
-                        <h:dataTable id="activitiesBeanActivitiesguides" styleClass="data-table" value="#{forgeview:asList(activitiesBean.activities.guides)}" var="_item">
+                        <h:outputLabel for="sitesBeanSitesGuides" value="Guides::"/>
+                        <h:dataTable id="sitesBeanSitesguides" styleClass="data-table" value="#{forgeview:asList(sitesBean.sites.guides)}" var="_item">
 
-                                <h:column>
+                                     <h:column>
                                         <f:facet name="header">
                                                 <h:outputText value="Orden"/>
                                         </f:facet>
@@ -55,27 +55,43 @@
                                                 <f:param name="id" value="#{_item.id}"/>
                                                 <h:outputText id="itemOrden" value="#{_item.orden}"/>
                                         </h:link>
-                                </h:column>
+                                     </h:column>
 
-                                <h:column>
+                                     <h:column>
                                         <f:facet name="header">
-                                                <h:outputText value="Guide"/>
+                                                <h:outputText value="Name"/>
                                         </f:facet>
                                         <h:link outcome="/admin/guides/view">
                                                 <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemGuide" value="#{_item.guide}"/>
+                                                <h:outputText id="itemName" value="#{_item.name}"/>
                                         </h:link>
-                                </h:column>
+                                     </h:column>
 
-                                <h:column>
+                        </h:dataTable>
+                        <h:outputText/>
+
+                        <h:outputLabel for="activitiesBeanActivitiesGuides" value="Guides::"/>
+                        <h:dataTable id="activitiesBeanActivitiesguides" styleClass="data-table" value="#{forgeview:asList(activitiesBean.activities.guides)}" var="_item">
+
+                                     <h:column>
                                         <f:facet name="header">
-                                                <h:outputText value="Title"/>
+                                                <h:outputText value="Orden"/>
                                         </f:facet>
                                         <h:link outcome="/admin/guides/view">
                                                 <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemTitle" value="#{_item.title}"/>
+                                                <h:outputText id="itemOrden" value="#{_item.orden}"/>
                                         </h:link>
-                                </h:column>
+                                     </h:column>
+
+                                     <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Name"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/guides/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemName" value="#{_item.name}"/>
+                                        </h:link>
+                                     </h:column>
 
                         </h:dataTable>
                         <h:outputText/>

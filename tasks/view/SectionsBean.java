@@ -47,12 +47,12 @@ import java.util.Iterator;
 @Named
 @Stateful
 @ConversationScoped
-public class SitesTypesBean implements Serializable{
+public class SectionsBean implements Serializable{
 
         private static final long serialVersionUID = 1L;
 
         /*
-         * Support creating and retrieving SitesTypes entities
+         * Support creating and retrieving Sections entities
          */
 
         private Long id;
@@ -65,14 +65,14 @@ public class SitesTypesBean implements Serializable{
                 this.id = id;
         }
 
-        private SitesTypes sitesTypes;
+        private Sections sections;
 
-        public SitesTypes getSitesTypes() {
-                return this.sitesTypes;
+        public Sections getSections() {
+                return this.sections;
         }
 
-        public void setSitesTypes(SitesTypes sitesTypes) {
-                this.sitesTypes = sitesTypes;
+        public void setSections(Sections sections) {
+                this.sections = sections;
         }
 
         @Inject
@@ -100,19 +100,19 @@ public class SitesTypesBean implements Serializable{
                 }
 
                 if (this.id == null) {
-                        this.sitesTypes = this.example;
+                        this.sections = this.example;
                 } else {
-                        this.sitesTypes = findById(getId());
+                        this.sections = findById(getId());
                 }
         }
 
-        public SitesTypes findById(Long id) {
+        public Sections findById(Long id) {
 
-                return this.entityManager.find(SitesTypes.class, id);
+                return this.entityManager.find(Sections.class, id);
         }
 
         /*
-         * Support updating and deleting SitesTypes entities
+         * Support updating and deleting Sections entities
         */
 
         public String update() {
@@ -120,11 +120,11 @@ public class SitesTypesBean implements Serializable{
 
                 try {
                         if (this.id == null) {
-                                this.entityManager.persist(this.sitesTypes);
+                                this.entityManager.persist(this.sections);
                                 return "search?faces-redirect=true";
                         } else {
-                                this.entityManager.merge(this.sitesTypes);
-                                return "view?faces-redirect=true&id=" + this.sitesTypes.getId();
+                                this.entityManager.merge(this.sections);
+                                return "view?faces-redirect=true&id=" + this.sections.getId();
                         }
                 } catch (Exception e) {
                         FacesContext.getCurrentInstance().addMessage(null,
@@ -137,15 +137,19 @@ public class SitesTypesBean implements Serializable{
                 this.conversation.end();
 
                 try {
-                        SitesTypes deletableEntity = findById(getId());
-    3     Iterator<SitesTypes> iterObjHijos = deletableEntity.getObjHijos().iterator();
+                        Sections deletableEntity = findById(getId());
+    3     Iterator<Sections> iterObjHijos = deletableEntity.getObjHijos().iterator();
     3     for (; iterObjHijos.hasNext();){
-    3        SitesTypes nextInObjHijos = iterObjHijos.next();
+    3        Sections nextInObjHijos = iterObjHijos.next();
     3        nextInObjHijos.setObjPadre(null);
     3        iterObjHijos.remove();
     3        this.entityManager.merge(nextInObjHijos);
     3     }
-         SitesTypes objPadre = deletableEntity.getObjPadre();
+                        Persons persons = deletableEntity.getPersons();
+                        persons.getSections().remove(deletableEntity);
+                        deletableEntity.setPersons(null);
+                        this.entityManager.merge(persons);
+         Sections objPadre = deletableEntity.getObjPadre();
          objPadre.getObjHijos().remove(deletableEntity);
          deletableEntity.setObjPadre(null);
          this.entityManager.merge(objPadre);
@@ -160,14 +164,14 @@ public class SitesTypesBean implements Serializable{
         }
 
         /*
-         * Support searching SitesTypes entities with pagination
+         * Support searching Sections entities with pagination
          */
 
         private int page;
         private long count;
-        private List<SitesTypes> pageItems;
+        private List<Sections> pageItems;
 
-        private SitesTypes example = new SitesTypes();
+        private Sections example = new Sections();
 
         public int getPage() {
                 return this.page;
@@ -181,11 +185,11 @@ public class SitesTypesBean implements Serializable{
                 return 10;
         }
 
-        public SitesTypes getExample() {
+        public Sections getExample() {
                 return this.example;
         }
 
-        public void setExample(SitesTypes example) {
+        public void setExample(Sections example) {
                 this.example = example;
         }
 
@@ -201,21 +205,21 @@ public class SitesTypesBean implements Serializable{
                 // Populate this.count
 
                 CriteriaQuery<Long> countCriteria = builder.createQuery(Long.class);
-                Root<SitesTypes> root = countCriteria.from(SitesTypes.class);
+                Root<Sections> root = countCriteria.from(Sections.class);
                 countCriteria = countCriteria.select(builder.count(root)).where(
                                 getSearchPredicates(root));
                 this.count = this.entityManager.createQuery(countCriteria).getSingleResult();
 
                 // Populate this.pageItems
 
-                CriteriaQuery<SitesTypes> criteria = builder.createQuery(SitesTypes.class);
-                root = criteria.from(SitesTypes.class);
-                TypedQuery<SitesTypes> query = this.entityManager.createQuery(criteria.select(root).where(getSearchPredicates(root)));
+                CriteriaQuery<Sections> criteria = builder.createQuery(Sections.class);
+                root = criteria.from(Sections.class);
+                TypedQuery<Sections> query = this.entityManager.createQuery(criteria.select(root).where(getSearchPredicates(root)));
                 query.setFirstResult(this.page * getPageSize()).setMaxResults(getPageSize());
                 this.pageItems = query.getResultList();
         }
 
-        private Predicate[] getSearchPredicates(Root<SitesTypes> root) {
+        private Predicate[] getSearchPredicates(Root<Sections> root) {
 
                 CriteriaBuilder builder = this.entityManager.getCriteriaBuilder();
                 List<Predicate> predicatesList = new ArrayList<Predicate>();
@@ -223,7 +227,7 @@ public class SitesTypesBean implements Serializable{
                 return predicatesList.toArray(new Predicate[predicatesList.size()]);
         }
 
-        public List<SitesTypes> getPageItems() {
+        public List<Sections> getPageItems() {
                 return this.pageItems;
         }
 
@@ -232,12 +236,12 @@ public class SitesTypesBean implements Serializable{
         }
 
         /*
-         * Support listing and POSTing back SitesTypes entities (e.g. from inside an HtmlSelectOneMenu)
+         * Support listing and POSTing back Sections entities (e.g. from inside an HtmlSelectOneMenu)
          */
 
-        public List<SitesTypes> getAll() {
-                CriteriaQuery<SitesTypes> criteria = this.entityManager.getCriteriaBuilder().createQuery(SitesTypes.class);
-                return this.entityManager.createQuery(criteria.select(criteria.from(SitesTypes.class))).getResultList();
+        public List<Sections> getAll() {
+                CriteriaQuery<Sections> criteria = this.entityManager.getCriteriaBuilder().createQuery(Sections.class);
+                return this.entityManager.createQuery(criteria.select(criteria.from(Sections.class))).getResultList();
         }
 
         @Resource
@@ -245,7 +249,7 @@ public class SitesTypesBean implements Serializable{
 
         public Converter getConverter() {
 
-                final SitesTypesBean ejbProxy = this.sessionContext.getBusinessObject(SitesTypesBean.class);
+                final SectionsBean ejbProxy = this.sessionContext.getBusinessObject(SectionsBean.class);
 
                 return new Converter(){
 
@@ -259,7 +263,7 @@ public class SitesTypesBean implements Serializable{
                        if (value == null){
                           return "";
                        }
-                       return String.valueOf(((SitesTypes) value).getId());
+                       return String.valueOf(((Sections) value).getId());
                 }
 
         };
@@ -269,15 +273,15 @@ public class SitesTypesBean implements Serializable{
          * Support adding children to bidirectional, one-to-many tables
          */
 
-        private SitesTypes add = new SitesTypes();
+        private Sections add = new Sections();
 
-        public SitesTypes getAdd() {
+        public Sections getAdd() {
                return this.add;
         }
 
-        public SitesTypes getAdded() {
-               SitesTypes added = this.add;
-               this.add = new SitesTypes();
+        public Sections getAdded() {
+               Sections added = this.add;
+               this.add = new Sections();
                return added;
         }
 

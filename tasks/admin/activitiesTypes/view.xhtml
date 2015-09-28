@@ -43,7 +43,7 @@
                         <h:outputLabel for="ActivitiesTypesBeanActivitiesTypesActivities" value="Activities:"/>
                         <h:dataTable id="activitiesTypesBeanActivitiesTypesactivities" styleClass="data-table" value="#{forgeview:asList(activitiesTypesBean.activitiesTypes.activities)}" var="_item">
 
-                                <h:column>
+                                     <h:column>
                                         <f:facet name="header">
                                                 <h:outputText value="Orden"/>
                                         </f:facet>
@@ -51,45 +51,19 @@
                                                 <f:param name="id" value="#{_item.id}"/>
                                                 <h:outputText id="itemOrden" value="#{_item.orden}"/>
                                         </h:link>
-                                </h:column>
+                                     </h:column>
 
-                                <h:column>
+                                     <h:column>
                                         <f:facet name="header">
-                                                <h:outputText value="UntimelyDate"/>
+                                                <h:outputText value="Name"/>
                                         </f:facet>
                                         <h:link outcome="/admin/activities/view">
                                                 <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemUntimelyDate" value="#{_item.untimelyDate}"/>
-                                                        <f:convertDateTime type="date"/>
-                                               <h:outputText/>
+                                                <h:outputText id="itemName" value="#{_item.name}"/>
                                         </h:link>
-                                </h:column>
+                                     </h:column>
 
-                                <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="TimelyDate"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/activities/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemTimelyDate" value="#{_item.timelyDate}"/>
-                                                        <f:convertDateTime type="date"/>
-                                               <h:outputText/>
-                                        </h:link>
-                                </h:column>
-
-                                <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="FinalDate"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/activities/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemFinalDate" value="#{_item.finalDate}"/>
-                                                        <f:convertDateTime type="date"/>
-                                               <h:outputText/>
-                                        </h:link>
-                                </h:column>
-
-                                <h:column>
+                                     <h:column>
                                         <f:facet name="header">
                                                 <h:outputText value="StartDate"/>
                                         </f:facet>
@@ -99,27 +73,55 @@
                                                         <f:convertDateTime type="date"/>
                                                <h:outputText/>
                                         </h:link>
-                                </h:column>
+                                     </h:column>
 
-                                <h:column>
+                                     <h:column>
                                         <f:facet name="header">
-                                                <h:outputText value="Detail"/>
+                                                <h:outputText value="FinalDate"/>
                                         </f:facet>
                                         <h:link outcome="/admin/activities/view">
                                                 <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemDetail" value="#{_item.detail}"/>
+                                                <h:outputText id="itemFinalDate" value="#{_item.finalDate}"/>
+                                                        <f:convertDateTime type="date"/>
+                                               <h:outputText/>
                                         </h:link>
-                                </h:column>
+                                     </h:column>
 
-                                <h:column>
+                                     <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Priority"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/activities/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemPriority" value="#{_item.priority}"/>
+                                        </h:link>
+                                     </h:column>
+
+                        </h:dataTable>
+                        <h:outputText/>
+
+                        <h:outputLabel for="sitesBeanSitesActivitiesTypes" value="ActivitiesTypes::"/>
+                        <h:dataTable id="sitesBeanSitesactivitiesTypes" styleClass="data-table" value="#{forgeview:asList(sitesBean.sites.activitiesTypes)}" var="_item">
+
+                                     <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Orden"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/activitiesTypes/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemOrden" value="#{_item.orden}"/>
+                                        </h:link>
+                                     </h:column>
+
+                                     <h:column>
                                         <f:facet name="header">
                                                 <h:outputText value="Name"/>
                                         </f:facet>
-                                        <h:link outcome="/admin/activities/view">
+                                        <h:link outcome="/admin/activitiesTypes/view">
                                                 <f:param name="id" value="#{_item.id}"/>
                                                 <h:outputText id="itemName" value="#{_item.name}"/>
                                         </h:link>
-                                </h:column>
+                                     </h:column>
 
                         </h:dataTable>
                         <h:outputText/>

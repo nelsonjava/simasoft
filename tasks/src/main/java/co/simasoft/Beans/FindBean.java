@@ -1,6 +1,8 @@
 package co.simasoft.beans;
 
 import co.simasoft.models.dev.tasks.*;
+import co.simasoft.models.core.persons.*;
+import co.simasoft.models.core.archival.*;
 import co.simasoft.models.core.sites.*;
 
 import java.util.*;
@@ -25,6 +27,28 @@ public class FindBean {
 
     @PersistenceContext(unitName = "tasksPU-JTA")
     private EntityManager em;
+
+//      ---------------------- Diaries ------------------------
+
+    public List<Diaries> AllDiaries() {
+        List<Diaries> results = em.createQuery("SELECT o FROM Diaries o").getResultList();
+        if (results.isEmpty()) {
+            return new ArrayList<Diaries>();
+        }
+        return results;
+    }
+
+    public Diaries idDiaries(Long id) {
+
+        Diaries diaries = new Diaries();
+        List<Diaries> results = em.createQuery("SELECT o FROM Diaries o WHERE o.id LIKE :custId").setParameter("custId", id).getResultList();
+
+        if (!results.isEmpty()) {
+
+           diaries = results.get(0);
+        }
+        return diaries;
+    }
 
 //      ---------------------- Guides ------------------------
 
@@ -92,50 +116,6 @@ public class FindBean {
         return activitiesTypes;
     }
 
-//      ---------------------- Diaries ------------------------
-
-    public List<Diaries> AllDiaries() {
-        List<Diaries> results = em.createQuery("SELECT o FROM Diaries o").getResultList();
-        if (results.isEmpty()) {
-            return new ArrayList<Diaries>();
-        }
-        return results;
-    }
-
-    public Diaries idDiaries(Long id) {
-
-        Diaries diaries = new Diaries();
-        List<Diaries> results = em.createQuery("SELECT o FROM Diaries o WHERE o.id LIKE :custId").setParameter("custId", id).getResultList();
-
-        if (!results.isEmpty()) {
-
-           diaries = results.get(0);
-        }
-        return diaries;
-    }
-
-//      ---------------------- Tasks ------------------------
-
-    public List<Tasks> AllTasks() {
-        List<Tasks> results = em.createQuery("SELECT o FROM Tasks o").getResultList();
-        if (results.isEmpty()) {
-            return new ArrayList<Tasks>();
-        }
-        return results;
-    }
-
-    public Tasks idTasks(Long id) {
-
-        Tasks tasks = new Tasks();
-        List<Tasks> results = em.createQuery("SELECT o FROM Tasks o WHERE o.id LIKE :custId").setParameter("custId", id).getResultList();
-
-        if (!results.isEmpty()) {
-
-           tasks = results.get(0);
-        }
-        return tasks;
-    }
-
 //      ---------------------- Calendars ------------------------
 
     public List<Calendars> AllCalendars() {
@@ -156,6 +136,50 @@ public class FindBean {
            calendars = results.get(0);
         }
         return calendars;
+    }
+
+//      ---------------------- Persons ------------------------
+
+    public List<Persons> AllPersons() {
+        List<Persons> results = em.createQuery("SELECT o FROM Persons o").getResultList();
+        if (results.isEmpty()) {
+            return new ArrayList<Persons>();
+        }
+        return results;
+    }
+
+    public Persons idPersons(Long id) {
+
+        Persons persons = new Persons();
+        List<Persons> results = em.createQuery("SELECT o FROM Persons o WHERE o.id LIKE :custId").setParameter("custId", id).getResultList();
+
+        if (!results.isEmpty()) {
+
+           persons = results.get(0);
+        }
+        return persons;
+    }
+
+//      ---------------------- Sections ------------------------
+
+    public List<Sections> AllSections() {
+        List<Sections> results = em.createQuery("SELECT o FROM Sections o").getResultList();
+        if (results.isEmpty()) {
+            return new ArrayList<Sections>();
+        }
+        return results;
+    }
+
+    public Sections idSections(Long id) {
+
+        Sections sections = new Sections();
+        List<Sections> results = em.createQuery("SELECT o FROM Sections o WHERE o.id LIKE :custId").setParameter("custId", id).getResultList();
+
+        if (!results.isEmpty()) {
+
+           sections = results.get(0);
+        }
+        return sections;
     }
 
 //      ---------------------- Sites ------------------------

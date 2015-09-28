@@ -39,9 +39,27 @@ line("    <error-code>500</error-code>");
 line("    <location>/faces/error.xhtml</location>");
 line("  </error-page>\n");
 
+line("  <security-constraint>");
+line("    <web-resource-collection>");
+line("      <url-pattern>/*</url-pattern>");
+line("    </web-resource-collection>");
+line("    <auth-constraint>");
+line("      <role-name>admin</role-name>");
+line("    </auth-constraint>");
+line("  </security-constraint>\n");
+
+line("  <security-constraint>");
+line("    <web-resource-collection>");
+line("      <url-pattern>/*</url-pattern>");
+line("    </web-resource-collection>");
+line("    <auth-constraint>");
+line("      <role-name>user</role-name>");
+line("    </auth-constraint>");
+line("  </security-constraint>\n");
+
 line("  <login-config>");
 line("    <auth-method>KEYCLOAK</auth-method>");
-line("    <realm-name>Nafgkc</realm-name>");
+line("    <realm-name>nafgkc</realm-name>");
 line("  </login-config>\n");
 
 line("  <security-role>");

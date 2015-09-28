@@ -46,21 +46,21 @@
                                 </h:panelGroup>
                                 <h:outputText/>
 
-                                <h:outputLabel for="guidesBeanGuidesGuide" value="Guide:"/>
+                                <h:outputLabel for="guidesBeanGuidesName" value="Name:"/>
                                 <h:panelGroup>
-                                        <h:inputText id="guidesBeanGuidesGuide" value="#{guidesBean.guides.guide}"/>
-                                        <h:message for="guidesBeanGuidesGuide" styleClass="error"/>
+                                        <h:inputText id="guidesBeanGuidesName" required="true" value="#{guidesBean.guides.name}"/>
+                                        <h:message for="guidesBeanGuidesName" styleClass="error"/>
+                                </h:panelGroup>
+                                <h:outputText value="*"/>
+
+                                <h:outputLabel for="guidesBeanGuidesDetail" value="Detail:"/>
+                                <h:panelGroup>
+                                        <h:inputText id="guidesBeanGuidesDetail" value="#{guidesBean.guides.detail}"/>
+                                        <h:message for="guidesBeanGuidesDetail" styleClass="error"/>
                                 </h:panelGroup>
                                 <h:outputText/>
 
-                                <h:outputLabel for="guidesBeanGuidesTitle" value="Title:"/>
-                                <h:panelGroup>
-                                        <h:inputText id="guidesBeanGuidesTitle" value="#{guidesBean.guides.title}"/>
-                                        <h:message for="guidesBeanGuidesTitle" styleClass="error"/>
-                                </h:panelGroup>
-                                <h:outputText/>
 
-                                <!-- Activities *..*  Guides -->
 
                                 <h:outputLabel for="guidesBeanGuidesObservations" value="Observations:"/>
                                 <h:panelGroup>

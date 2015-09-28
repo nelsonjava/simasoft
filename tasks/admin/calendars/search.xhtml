@@ -30,13 +30,13 @@
                                 <h:panelGroup styleClass="search">
 
                                         <h:panelGrid columnClasses="label,component,required" columns="3">
-
                                                 <h:outputLabel for="calendarsBeanExampleName" value="Name:"/>
                                                 <h:panelGroup>
                                                         <h:inputText id="calendarsBeanExampleName" value="#{calendarsBean.example.name}"/>
                                                         <h:message for="calendarsBeanExampleName" styleClass="error"/>
                                                 </h:panelGroup>
                                                 <h:outputText/>
+
 
                                         </h:panelGrid>
                                         <h:panelGroup styleClass="buttons">
@@ -50,6 +50,17 @@
 
                                 <h:column>
                                         <f:facet name="header">
+                                                <h:outputText value="Name"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/calendars/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemName" value="#{_item.name}"/>
+                                        </h:link>
+                                </h:column>
+
+
+                                <h:column>
+                                        <f:facet name="header">
                                                 <h:outputText value="Date"/>
                                         </f:facet>
                                         <h:link outcome="/admin/calendars/view">
@@ -57,17 +68,6 @@
                                                 <h:outputText id="itemDate" value="#{_item.date}"/>
                                                         <f:convertDateTime type="date"/>
                                                <h:outputText/>
-                                        </h:link>
-                                </h:column>
-
-
-                                <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="Name"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/calendars/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemName" value="#{_item.name}"/>
                                         </h:link>
                                 </h:column>
 

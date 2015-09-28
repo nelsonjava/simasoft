@@ -18,8 +18,8 @@ line("  <!-- http://localhost:8080/auth/admin/index.html -->");
 line("  <!-- mvn wildfly:undeploy -->");
 line("  <!-- mvn clean package wildfly:deploy -->");
 line("  <!-- http://localhost:8080 -->");
-line("  <!-- http://localhost:8080/"+artifactId+" -->\n");
-
+line("  <!-- http://localhost:8080/"+artifactId+" -->");
+line("  <!-- http://localhost:8080/auth/ -->\n");
 
 line("  <modelVersion>4.0.0</modelVersion>\n");
 

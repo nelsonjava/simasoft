@@ -1,6 +1,8 @@
 package co.simasoft.beans;
 
 import co.simasoft.models.dev.tasks.*;
+import co.simasoft.models.core.persons.*;
+import co.simasoft.models.core.archival.*;
 import co.simasoft.models.core.sites.*;
 
 import java.util.Calendar;
@@ -90,6 +92,17 @@ public class SearchBean {
 
     // QUERIES //
 
+    public List<Diaries> selectAllDiaries(EntityManager em) {
+        prepare(Diaries.class,em);
+
+        Query query = qb.all().createQuery();
+
+        List<Diaries> results = execute(query,
+                                              new Class[]{Diaries.class}, null,
+                                              new SortField("orden", SortField.DOUBLE));
+        return results;
+    }
+
     public List<Guides> selectAllGuides(EntityManager em) {
         prepare(Guides.class,em);
 
@@ -123,28 +136,6 @@ public class SearchBean {
         return results;
     }
 
-    public List<Diaries> selectAllDiaries(EntityManager em) {
-        prepare(Diaries.class,em);
-
-        Query query = qb.all().createQuery();
-
-        List<Diaries> results = execute(query,
-                                              new Class[]{Diaries.class}, null,
-                                              new SortField("orden", SortField.DOUBLE));
-        return results;
-    }
-
-    public List<Tasks> selectAllTasks(EntityManager em) {
-        prepare(Tasks.class,em);
-
-        Query query = qb.all().createQuery();
-
-        List<Tasks> results = execute(query,
-                                              new Class[]{Tasks.class}, null,
-                                              new SortField("orden", SortField.DOUBLE));
-        return results;
-    }
-
     public List<Calendars> selectAllCalendars(EntityManager em) {
         prepare(Calendars.class,em);
 
@@ -152,6 +143,28 @@ public class SearchBean {
 
         List<Calendars> results = execute(query,
                                               new Class[]{Calendars.class}, null,
+                                              new SortField("orden", SortField.DOUBLE));
+        return results;
+    }
+
+    public List<Persons> selectAllPersons(EntityManager em) {
+        prepare(Persons.class,em);
+
+        Query query = qb.all().createQuery();
+
+        List<Persons> results = execute(query,
+                                              new Class[]{Persons.class}, null,
+                                              new SortField("orden", SortField.DOUBLE));
+        return results;
+    }
+
+    public List<Sections> selectAllSections(EntityManager em) {
+        prepare(Sections.class,em);
+
+        Query query = qb.all().createQuery();
+
+        List<Sections> results = execute(query,
+                                              new Class[]{Sections.class}, null,
                                               new SortField("orden", SortField.DOUBLE));
         return results;
     }

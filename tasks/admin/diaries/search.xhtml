@@ -30,10 +30,11 @@
                                 <h:panelGroup styleClass="search">
 
                                         <h:panelGrid columnClasses="label,component,required" columns="3">
-                                                <h:outputLabel for="diariesBeanExampleDetail" value="Detail:"/>
+
+                                                <h:outputLabel for="diariesBeanExampleTitle" value="Title:"/>
                                                 <h:panelGroup>
-                                                        <h:inputText id="diariesBeanExampleDetail" value="#{diariesBean.example.detail}"/>
-                                                        <h:message for="diariesBeanExampleDetail" styleClass="error"/>
+                                                        <h:inputText id="diariesBeanExampleTitle" value="#{diariesBean.example.title}"/>
+                                                        <h:message for="diariesBeanExampleTitle" styleClass="error"/>
                                                 </h:panelGroup>
                                                 <h:outputText/>
 
@@ -50,22 +51,35 @@
 
                                 <h:column>
                                         <f:facet name="header">
-                                                <h:outputText value="Detail"/>
+                                                <h:outputText value="FinalDate"/>
                                         </f:facet>
                                         <h:link outcome="/admin/diaries/view">
                                                 <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemDetail" value="#{_item.detail}"/>
+                                                <h:outputText id="itemFinalDate" value="#{_item.finalDate}"/>
+                                                        <f:convertDateTime type="date"/>
+                                               <h:outputText/>
                                         </h:link>
                                 </h:column>
 
 
                                 <h:column>
                                         <f:facet name="header">
-                                                <h:outputText value="Date"/>
+                                                <h:outputText value="Title"/>
                                         </f:facet>
                                         <h:link outcome="/admin/diaries/view">
                                                 <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemDate" value="#{_item.date}"/>
+                                                <h:outputText id="itemTitle" value="#{_item.title}"/>
+                                        </h:link>
+                                </h:column>
+
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="StartDate"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/diaries/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemStartDate" value="#{_item.startDate}"/>
                                                         <f:convertDateTime type="date"/>
                                                <h:outputText/>
                                         </h:link>

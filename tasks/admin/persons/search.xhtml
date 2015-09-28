@@ -30,38 +30,10 @@
                                 <h:panelGroup styleClass="search">
 
                                         <h:panelGrid columnClasses="label,component,required" columns="3">
-                                                <h:outputLabel for="personsBeanExampleTelephones" value="Telephones:"/>
+                                                <h:outputLabel for="personsBeanExampleEmail" value="Email:"/>
                                                 <h:panelGroup>
-                                                        <h:inputText id="personsBeanExampleTelephones" value="#{personsBean.example.telephones}"/>
-                                                        <h:message for="personsBeanExampleTelephones" styleClass="error"/>
-                                                </h:panelGroup>
-                                                <h:outputText/>
-
-                                                <h:outputLabel for="personsBeanExampleAddress" value="Address:"/>
-                                                <h:panelGroup>
-                                                        <h:inputText id="personsBeanExampleAddress" value="#{personsBean.example.address}"/>
-                                                        <h:message for="personsBeanExampleAddress" styleClass="error"/>
-                                                </h:panelGroup>
-                                                <h:outputText/>
-
-                                                <h:outputLabel for="personsBeanExampleSecondName" value="SecondName:"/>
-                                                <h:panelGroup>
-                                                        <h:inputText id="personsBeanExampleSecondName" value="#{personsBean.example.secondName}"/>
-                                                        <h:message for="personsBeanExampleSecondName" styleClass="error"/>
-                                                </h:panelGroup>
-                                                <h:outputText/>
-
-                                                <h:outputLabel for="personsBeanExampleFirstName" value="FirstName:"/>
-                                                <h:panelGroup>
-                                                        <h:inputText id="personsBeanExampleFirstName" value="#{personsBean.example.firstName}"/>
-                                                        <h:message for="personsBeanExampleFirstName" styleClass="error"/>
-                                                </h:panelGroup>
-                                                <h:outputText/>
-
-                                                <h:outputLabel for="personsBeanExampleSecondLastName" value="SecondLastName:"/>
-                                                <h:panelGroup>
-                                                        <h:inputText id="personsBeanExampleSecondLastName" value="#{personsBean.example.secondLastName}"/>
-                                                        <h:message for="personsBeanExampleSecondLastName" styleClass="error"/>
+                                                        <h:inputText id="personsBeanExampleEmail" value="#{personsBean.example.email}"/>
+                                                        <h:message for="personsBeanExampleEmail" styleClass="error"/>
                                                 </h:panelGroup>
                                                 <h:outputText/>
 
@@ -72,10 +44,38 @@
                                                 </h:panelGroup>
                                                 <h:outputText/>
 
-                                                <h:outputLabel for="personsBeanExampleEmail" value="Email:"/>
+                                                <h:outputLabel for="personsBeanExampleSecondLastName" value="SecondLastName:"/>
                                                 <h:panelGroup>
-                                                        <h:inputText id="personsBeanExampleEmail" value="#{personsBean.example.email}"/>
-                                                        <h:message for="personsBeanExampleEmail" styleClass="error"/>
+                                                        <h:inputText id="personsBeanExampleSecondLastName" value="#{personsBean.example.secondLastName}"/>
+                                                        <h:message for="personsBeanExampleSecondLastName" styleClass="error"/>
+                                                </h:panelGroup>
+                                                <h:outputText/>
+
+                                                <h:outputLabel for="personsBeanExampleFirstName" value="FirstName:"/>
+                                                <h:panelGroup>
+                                                        <h:inputText id="personsBeanExampleFirstName" value="#{personsBean.example.firstName}"/>
+                                                        <h:message for="personsBeanExampleFirstName" styleClass="error"/>
+                                                </h:panelGroup>
+                                                <h:outputText/>
+
+                                                <h:outputLabel for="personsBeanExampleSecondName" value="SecondName:"/>
+                                                <h:panelGroup>
+                                                        <h:inputText id="personsBeanExampleSecondName" value="#{personsBean.example.secondName}"/>
+                                                        <h:message for="personsBeanExampleSecondName" styleClass="error"/>
+                                                </h:panelGroup>
+                                                <h:outputText/>
+
+                                                <h:outputLabel for="personsBeanExampleAddress" value="Address:"/>
+                                                <h:panelGroup>
+                                                        <h:inputText id="personsBeanExampleAddress" value="#{personsBean.example.address}"/>
+                                                        <h:message for="personsBeanExampleAddress" styleClass="error"/>
+                                                </h:panelGroup>
+                                                <h:outputText/>
+
+                                                <h:outputLabel for="personsBeanExampleTelephones" value="Telephones:"/>
+                                                <h:panelGroup>
+                                                        <h:inputText id="personsBeanExampleTelephones" value="#{personsBean.example.telephones}"/>
+                                                        <h:message for="personsBeanExampleTelephones" styleClass="error"/>
                                                 </h:panelGroup>
                                                 <h:outputText/>
 
@@ -91,55 +91,11 @@
 
                                 <h:column>
                                         <f:facet name="header">
-                                                <h:outputText value="Telephones"/>
+                                                <h:outputText value="Email"/>
                                         </f:facet>
                                         <h:link outcome="/admin/persons/view">
                                                 <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemTelephones" value="#{_item.telephones}"/>
-                                        </h:link>
-                                </h:column>
-
-
-                                <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="Address"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/persons/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemAddress" value="#{_item.address}"/>
-                                        </h:link>
-                                </h:column>
-
-
-                                <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="SecondName"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/persons/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemSecondName" value="#{_item.secondName}"/>
-                                        </h:link>
-                                </h:column>
-
-
-                                <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="FirstName"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/persons/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemFirstName" value="#{_item.firstName}"/>
-                                        </h:link>
-                                </h:column>
-
-
-                                <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="SecondLastName"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/persons/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemSecondLastName" value="#{_item.secondLastName}"/>
+                                                <h:outputText id="itemEmail" value="#{_item.email}"/>
                                         </h:link>
                                 </h:column>
 
@@ -157,11 +113,55 @@
 
                                 <h:column>
                                         <f:facet name="header">
-                                                <h:outputText value="Email"/>
+                                                <h:outputText value="SecondLastName"/>
                                         </f:facet>
                                         <h:link outcome="/admin/persons/view">
                                                 <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemEmail" value="#{_item.email}"/>
+                                                <h:outputText id="itemSecondLastName" value="#{_item.secondLastName}"/>
+                                        </h:link>
+                                </h:column>
+
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="FirstName"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/persons/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemFirstName" value="#{_item.firstName}"/>
+                                        </h:link>
+                                </h:column>
+
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="SecondName"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/persons/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemSecondName" value="#{_item.secondName}"/>
+                                        </h:link>
+                                </h:column>
+
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Address"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/persons/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemAddress" value="#{_item.address}"/>
+                                        </h:link>
+                                </h:column>
+
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Telephones"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/persons/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemTelephones" value="#{_item.telephones}"/>
                                         </h:link>
                                 </h:column>
 

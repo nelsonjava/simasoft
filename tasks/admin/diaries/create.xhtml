@@ -46,29 +46,37 @@
                                 </h:panelGroup>
                                 <h:outputText/>
 
-                                <h:outputLabel for="diariesBeanDiariesDetail" value="Detail:"/>
+                                <h:outputLabel for="diariesBeanDiariesFinalDate" value="FinalDate:"/>
                                 <h:panelGroup>
-                                        <h:inputText id="diariesBeanDiariesDetail" value="#{diariesBean.diaries.detail}"/>
-                                        <h:message for="diariesBeanDiariesDetail" styleClass="error"/>
-                                </h:panelGroup>
-                                <h:outputText/>
-
-                                <h:outputLabel for="diariesBeanDiariesDate" value="Date:"/>
-                                <h:panelGroup>
-                                <p:calendar id="developmentsBeanDevelopmentsDate"
+                                <p:calendar id="developmentsBeanDevelopmentsFinalDate"
                                             showButtonPanel="true"
                                             pattern="dd/MM/yyyy HH:mm a"
-                                            value="#{diariesBean.diaries.date}"/>
+                                            value="#{diariesBean.diaries.finalDate}"/>
                                 </h:panelGroup>
                                 <h:outputText/>
 
-                                <!-- Diaries *..*  Sites -->
-
-                                <h:outputLabel for="diariesBeandiariesTasks" value="Tasks:"/>
+                                <h:outputLabel for="diariesBeanDiariesTitle" value="Title:"/>
                                 <h:panelGroup>
-                                         <h:selectOneMenu converter="#{tasksBean.converter}" id="diariesBeanDiariesTasks" value="#{diariesBean.diaries.tasks}">
+                                        <h:inputText id="diariesBeanDiariesTitle" required="true" value="#{diariesBean.diaries.title}"/>
+                                        <h:message for="diariesBeanDiariesTitle" styleClass="error"/>
+                                </h:panelGroup>
+                                <h:outputText value="*"/>
+
+                                <h:outputLabel for="diariesBeanDiariesStartDate" value="StartDate:"/>
+                                <h:panelGroup>
+                                <p:calendar id="developmentsBeanDevelopmentsStartDate"
+                                            showButtonPanel="true"
+                                            pattern="dd/MM/yyyy HH:mm a"
+                                            value="#{diariesBean.diaries.startDate}"/>
+                                </h:panelGroup>
+                                <h:outputText/>
+
+
+                                <h:outputLabel for="diariesBeandiariesActivities" value="Activities:"/>
+                                <h:panelGroup>
+                                         <h:selectOneMenu converter="#{activitiesBean.converter}" id="diariesBeanDiariesActivities" value="#{diariesBean.diaries.activities}">
                                                 <f:selectItem/>
-                                                <f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{tasksBean.all}" var="_item"/>
+                                                <f:selectItems itemLabel="#{forgeview:display(_item.name)}" itemValue="#{_item}" value="#{activitiesBean.all}" var="_item"/>
                                         </h:selectOneMenu>
                                         <h:message for="entitiesBeanEntitiesIsSimplified" styleClass="error"/>
                                 </h:panelGroup>
