@@ -342,6 +342,9 @@ saveFile("\\docs", "ModelsGen.txt");
         Build build = new Build(artifactId,groupId);
         Utils.fileMake(pathDocs+".h2.war."+artifactId, "build.xml", build);
 
+        H2Keycloak h2Keycloak = new H2Keycloak();
+        Utils.fileMake(pathDocs+".h2.war."+artifactId,"keycloak.json", h2Keycloak);
+
         H2Datasource h2datasource = new H2Datasource(artifactId);
         Utils.fileMake(pathDocs+".h2.war."+artifactId+".src.main.webapp.WEB-INF",artifactId+"-ds.xml", h2datasource);
 
@@ -353,9 +356,15 @@ saveFile("\\docs", "ModelsGen.txt");
 
         H2Web h2Web = new H2Web(artifactId);
         Utils.fileMake(pathDocs+".h2.war."+artifactId+".src.main.webapp.WEB-INF","web.xml", h2Web);
+        
+        H2PropertyBean h2PropertyBean = new H2PropertyBean();
+        Utils.fileMake(pathDocs+".h2.war."+artifactId+".src.main.java."+groupId+".authentication","PropertyBean.java", h2PropertyBean);
 
-        H2Keycloak h2Keycloak = new H2Keycloak();
-        Utils.fileMake(pathDocs+".h2.war."+artifactId+".src.main.webapp.WEB-INF","keycloak.json", h2Keycloak);
+        H2Resources h2Resources = new H2Resources();
+        Utils.fileMake(pathDocs+".h2.war."+artifactId+".src.main.java."+groupId+".authentication","Resources.java", h2Resources);
+
+        H2SimpleAuthenticator h2SimpleAuthenticator = new H2SimpleAuthenticator();
+        Utils.fileMake(pathDocs+".h2.war."+artifactId+".src.main.java."+groupId+".authentication","SimpleAuthenticator.java", h2SimpleAuthenticator);
 
         Utils.fileJar("webH2/webapp/resources","add.png",pathDocs+"\\h2\\war\\"+artifactId+"\\src\\main\\webapp\\resources\\",fileJar);
         Utils.fileJar("webH2/webapp/resources","bootstrap.css",pathDocs+"\\h2\\war\\"+artifactId+"\\src\\main\\webapp\\resources\\",fileJar);

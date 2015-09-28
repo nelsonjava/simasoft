@@ -1,7 +1,0 @@
-The first name is: Katerina
-The id is: 1
-The 0 element of the array: {"lang":"en","knowledge":"proficient"}
-The 1 element of the array: {"lang":"fr","knowledge":"advanced"}
-language en with level proficient
-language fr with level advanced
-Into job structure, name: Java Code Geeks

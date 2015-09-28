@@ -29,18 +29,5 @@
     <error-code>500</error-code>
     <location>/faces/error.xhtml</location>
   </error-page>
-  
-  <login-config>
-    <auth-method>KEYCLOAK</auth-method>
-    <realm-name>Nafgkc</realm-name>
-  </login-config>
-
-  <security-role>
-    <role-name>admin</role-name>
-  </security-role>
-  
-  <security-role>
-    <role-name>user</role-name>
-  </security-role>
 
 </web-app>

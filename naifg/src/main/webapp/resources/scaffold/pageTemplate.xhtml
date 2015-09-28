@@ -23,12 +23,19 @@
 				<div class="nav-collapse collapse">
 					<ul class="nav">
                                                 <li><a href="/naifg/home.jsf">Home</a></li>
+                                                <li>
+	                                        <h:form>
+		                                   <h:commandButton id="logout" value="Log out"
+			                           action="#{identity.logout}" />
+	                                        </h:form>
+	                                        </li>
 					</ul>
 				</div>
 			</div>
 		</div>
 	</div>
 
+        <ui:fragment rendered="#{identity.loggedIn}">
 	<div class="container forgecontainer">
 		<div id="navigation">
 			<h:link id="homeLink" outcome="/index.xhtml">
@@ -116,11 +123,11 @@
 				<li>
                                         <p>====================</p>
 				</li>
-				
+
 				<li>
 					<h:link outcome="/admin/varios/pdf" value="Pdf"/>
 				</li>
-				
+
 				<li>
 					<h:link outcome="/admin/varios/models" value="Nafg Models"/>
 				</li>
@@ -149,6 +156,7 @@
 			<ui:insert name="main" />
 		</div>
 	</div>
+        </ui:fragment>
 
 	<footer>
 		<div id="footer-wrapper">
