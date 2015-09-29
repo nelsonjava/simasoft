@@ -293,7 +293,7 @@
     {
       "entity": "Diaries",
       "name": "startDate",
-      "isNullable": true,
+      "isNullable": false,
       "isUnique": false,
       "AttributesTypes": "Date",
       "isSimplified": false,

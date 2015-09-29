@@ -287,7 +287,6 @@ public class Entidad {
 */
 
 
-
                     if (relation.getCardinality().equals("1..*")){
 
                         if (relation.getFrom().equals(relation.getTo())){  // Relación Unitaria
@@ -416,7 +415,8 @@ xhtml +=  space+"<!-- to:"+to+" -->\n";
                  xhtml += space+" -->\n";
 */
 
-                 if (getName().equals(from)){
+
+                 if (getName().equals(From)){
 
                      xhtml +=  space+"<h:outputLabel for=\""+from+"Bean"+From+To+"\" value=\""+To+":\"/>"+"\n";
                      xhtml += space+"<h:dataTable id=\""+from+"Bean"+From+to+
@@ -436,13 +436,14 @@ xhtml +=  space+"<!-- to:"+to+" -->\n";
                  }
                  else{
 
-                     xhtml +=  space+"<h:outputLabel for=\""+from+"Bean"+From+To+"\" value=\""+To+"::\"/>"+"\n";
-                     xhtml += space+"<h:dataTable id=\""+from+"Bean"+From+to+
-                                                  "\" styleClass=\"data-table\" value=\"#{forgeview:asList("+from+"Bean."+from+"."+to+")}\" var=\"_item\">"+"\n\n";
+                     xhtml +=  space+"<h:outputLabel for=\""+to+"Bean"+To+From+"\" value=\""+From+":\"/>"+"\n";
 
-                     xhtml += columnView(relation.getEntityTo().getName(),"orden","double");
+                     xhtml += space+"<h:dataTable id=\""+to+"Bean"+To+From+
+                                                  "\" styleClass=\"data-table\" value=\"#{forgeview:asList("+to+"Bean."+to+"."+from+")}\" var=\"_item\">"+"\n\n";
 
-                     for (Atributos atributos : relation.getEntityTo().getAtributos()) {
+                     xhtml += columnView(relation.getEntityFrom().getName(),"orden","double");
+
+                     for (Atributos atributos : relation.getEntityFrom().getAtributos()) {
                          if (atributos.getIsViewColumn() == null || atributos.getIsViewColumn()){
                              xhtml += columnView(relation.getEntityTo().getName(),atributos.getField(),atributos.getType());
                          }
@@ -460,9 +461,6 @@ xhtml +=  space+"<!-- to:"+to+" -->\n";
                  break;
 
         } // switch
-
-
-
 
 
         return xhtml;
