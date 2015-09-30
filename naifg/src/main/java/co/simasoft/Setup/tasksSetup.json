@@ -84,7 +84,7 @@
       "groupIds": "co.simasoft.models.dev.tasks"
     },
     {
-      "name": "Diaries",
+      "name": "Tasks",
       "groupId": "co.simasoft.models.dev.tasks",
       "groupIds": "co.simasoft.models.dev.tasks"
     }
@@ -115,7 +115,7 @@
       "isSimplified": false
     },
     {
-      "entity": "Diaries",
+      "entity": "Tasks",
       "groupIds.artifactId": "tasks",
       "isIsolated": false,
       "isSimplified": false
@@ -278,7 +278,7 @@
       "isViewColumn": true
     },
     {
-      "entity": "Diaries",
+      "entity": "Tasks",
       "name": "title",
       "isNullable": false,
       "isUnique": false,
@@ -291,7 +291,7 @@
       "isViewColumn": true
     },
     {
-      "entity": "Diaries",
+      "entity": "Tasks",
       "name": "startDate",
       "isNullable": false,
       "isUnique": false,
@@ -304,7 +304,7 @@
       "isViewColumn": true
     },
     {
-      "entity": "Diaries",
+      "entity": "Tasks",
       "name": "finalDate",
       "isNullable": true,
       "isUnique": false,
@@ -337,8 +337,17 @@
       "Cardinalities": "Uno a Muchos Bidirecccional No.5"
     },
     {
+      "From": "Persons",
+      "To": "Tasks",
+      "name": "",
+      "isOptionality": true,
+      "isEmbedded": false,
+      "isSimplified": false,
+      "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+    },
+    {
       "From": "Sites",
-      "To": "Diaries",
+      "To": "Tasks",
       "name": "",
       "isOptionality": true,
       "isEmbedded": false,
@@ -356,7 +365,7 @@
     },
     {
       "From": "Activities",
-      "To": "Diaries",
+      "To": "Tasks",
       "name": "",
       "isOptionality": true,
       "isEmbedded": false,
