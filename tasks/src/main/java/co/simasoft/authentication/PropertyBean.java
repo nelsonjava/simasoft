@@ -42,14 +42,14 @@ public class PropertyBean {
 
     }
 
-    public String getSessionIdddd() {
+    public String getSessionId() {
         FacesContext fCtx = FacesContext.getCurrentInstance();
         HttpSession session = (HttpSession) fCtx.getExternalContext().getSession(false);
         String sessionId = session.getId();
         return sessionId;
     }
 
-    public String getSessionId() {
+    public String getSessionIdd() {
         FacesContext fCtx = FacesContext.getCurrentInstance();
         KeycloakSecurityContext session = (KeycloakSecurityContext) fCtx.getExternalContext().getSession(false);
         IDToken iDToken = session.getIdToken();

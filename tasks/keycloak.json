@@ -1,10 +1,35 @@
 {
   "realm": "nafgkc",
-  "realm-public-key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAhowms/3spWmPw/VdHG80YX3fWCkS1CeZXH+FNiXKJ/a3XcWs5MeVzGtY0kbXbLElYzENRSrTyQl36teBNMIs661qU00QxNPqXLfa+GlfJiL2MD4mSGNVoTaqS77Y3vIHD/UgBthR/EaWqwTya+6Z3kBNGB3v1x4ZlS137kqFcTKXzq7Wuy+MZzft7f69tTn/gl8DdvIun6fRwzn7itxU3Ud8PAhQUymwP9YnoylBJrYzqamDpHS8epj2jdL2+XE/hTqe4jdS3aabjbZJWWUp6dW6rd5c1tu+w3gFFfzKhUKrrn5zOdfaFmR5hb17NG66LmjunZRb2HOaNHtfsDAk4QIDAQAB",
-  "auth-server-url": "http://localhost:8080/auth",
-  "ssl-required": "external",
-  "resource": "tasks",
-  "credentials": {
-    "secret": "fd0b8ed0-e468-4c46-8384-07f220201691"
-  }
+
+  <security-constraint>
+    <web-resource-collection>
+      <url-pattern>/*</url-pattern>
+    </web-resource-collection>
+    <auth-constraint>
+      <role-name>admin</role-name>
+    </auth-constraint>
+  </security-constraint>
+
+  <security-constraint>
+    <web-resource-collection>
+      <url-pattern>/*</url-pattern>
+    </web-resource-collection>
+    <auth-constraint>
+      <role-name>user</role-name>
+    </auth-constraint>
+  </security-constraint>
+
+  <login-config>
+    <auth-method>KEYCLOAK</auth-method>
+    <realm-name>nafgkc</realm-name>
+  </login-config>
+
+  <security-role>
+    <role-name>admin</role-name>
+  </security-role>
+
+  <security-role>
+    <role-name>user</role-name>
+  </security-role>
+
 }

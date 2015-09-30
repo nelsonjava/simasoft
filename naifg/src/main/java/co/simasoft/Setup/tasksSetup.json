@@ -418,13 +418,13 @@
       "Cardinalities": "Muchos a Muchos Bidirecccional No.7"
     },
     {
-      "From": "Activities",
-      "To": "Guides",
+      "From": "Guides",
+      "To": "Activities",
       "name": "",
       "isOptionality": true,
       "isEmbedded": false,
       "isSimplified": false,
-      "Cardinalities": "Muchos a Muchos Bidirecccional No.7"
+      "Cardinalities": "Uno a Muchos Bidirecccional No.5"
     },
     {
       "From": "Activities",

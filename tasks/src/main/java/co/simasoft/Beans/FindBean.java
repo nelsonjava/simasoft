@@ -28,26 +28,26 @@ public class FindBean {
     @PersistenceContext(unitName = "tasksPU-JTA")
     private EntityManager em;
 
-//      ---------------------- Diaries ------------------------
+//      ---------------------- Tasks ------------------------
 
-    public List<Diaries> AllDiaries() {
-        List<Diaries> results = em.createQuery("SELECT o FROM Diaries o").getResultList();
+    public List<Tasks> AllTasks() {
+        List<Tasks> results = em.createQuery("SELECT o FROM Tasks o").getResultList();
         if (results.isEmpty()) {
-            return new ArrayList<Diaries>();
+            return new ArrayList<Tasks>();
         }
         return results;
     }
 
-    public Diaries idDiaries(Long id) {
+    public Tasks idTasks(Long id) {
 
-        Diaries diaries = new Diaries();
-        List<Diaries> results = em.createQuery("SELECT o FROM Diaries o WHERE o.id LIKE :custId").setParameter("custId", id).getResultList();
+        Tasks tasks = new Tasks();
+        List<Tasks> results = em.createQuery("SELECT o FROM Tasks o WHERE o.id LIKE :custId").setParameter("custId", id).getResultList();
 
         if (!results.isEmpty()) {
 
-           diaries = results.get(0);
+           tasks = results.get(0);
         }
-        return diaries;
+        return tasks;
     }
 
 //      ---------------------- Guides ------------------------

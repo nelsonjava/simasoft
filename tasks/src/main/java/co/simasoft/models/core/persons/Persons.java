@@ -30,198 +30,212 @@ import org.hibernate.search.annotations.Index;
 import org.hibernate.search.annotations.Indexed;
 import org.hibernate.search.annotations.Store;
 import javax.persistence.Lob;
-import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.ManyToOne;
-
+import javax.persistence.ManyToMany;
 
 @Indexed
 @Entity
 public class Persons implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
-    @Id
-    @DocumentId
-    @GeneratedValue(strategy=GenerationType.TABLE)
-    private Long id;
+	@Id
+	@DocumentId
+	@GeneratedValue(strategy = GenerationType.TABLE)
+	private Long id;
 
-    @Version
-    private Integer optlock;
+	@Version
+	private Integer optlock;
 
-    private double orden;
+	private double orden;
 
-    @Lob
-    @Column(nullable = true, unique = false)
-    @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-    private String observations;
+	@Lob
+	@Column(nullable = true, unique = false)
+	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+	private String observations;
 
-    @Column(nullable = true, unique = false)
-    @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-    private String email;
+	@Column(nullable = true, unique = false)
+	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+	private String email;
 
-    @Column(nullable = true, unique = false)
-    @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-    private String firstLastName;
+	@Column(nullable = true, unique = false)
+	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+	private String firstLastName;
 
-    @Column(nullable = true, unique = false)
-    @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-    private String secondLastName;
+	@Column(nullable = true, unique = false)
+	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+	private String secondLastName;
 
-    @Column(nullable = true, unique = false)
-    @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-    private String firstName;
+	@Column(nullable = true, unique = false)
+	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+	private String firstName;
 
-    @Column(nullable = true, unique = false)
-    @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-    private String secondName;
+	@Column(nullable = true, unique = false)
+	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+	private String secondName;
 
-    @Column(nullable = true, unique = false)
-    @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-    private String address;
+	@Column(nullable = true, unique = false)
+	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+	private String address;
 
-    @Column(nullable = true, unique = false)
-    @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-    private String telephones;
+	@Column(nullable = true, unique = false)
+	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+	private String telephones;
 
-    @OneToMany(mappedBy = "persons")
-    private Set<Sections> sections = new HashSet<Sections>();
+	@OneToMany(mappedBy = "persons")
+	private Set<Sections> sections = new HashSet<Sections>();
 
-    @ManyToMany(mappedBy = "persons")
-    private Set<Activities> activities = new HashSet<Activities>();
+	@OneToMany(mappedBy = "persons")
+	private Set<Tasks> tasks = new HashSet<Tasks>();
 
-    public Persons() {
-    }
+	@ManyToMany(mappedBy = "persons")
+	private Set<Activities> activities = new HashSet<Activities>();
 
-    public Persons(String email,String firstLastName,String secondLastName,String firstName,String secondName,String address,String telephones) {
-        this.email = email;
-        this.firstLastName = firstLastName;
-        this.secondLastName = secondLastName;
-        this.firstName = firstName;
-        this.secondName = secondName;
-        this.address = address;
-        this.telephones = telephones;
-    }
+	public Persons() {
+	}
 
-    public Long getId() {
-        return this.id;
-    }
-    public void setId(Long id) {
-        this.id = id;
-    }
+	public Persons(String email, String firstLastName, String secondLastName,
+			String firstName, String secondName, String address,
+			String telephones) {
+		this.email = email;
+		this.firstLastName = firstLastName;
+		this.secondLastName = secondLastName;
+		this.firstName = firstName;
+		this.secondName = secondName;
+		this.address = address;
+		this.telephones = telephones;
+	}
 
-    public Integer getOptlock() {
-        return this.optlock;
-    }
-    public void setOptlock(Integer optlock) {
-        this.optlock = optlock;
-    }
+	public Long getId() {
+		return this.id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-    public double getOrden() {
-        return this.orden;
-    }
-    public void setOrden(double orden) {
-        this.orden = orden;
-    }
+	public Integer getOptlock() {
+		return this.optlock;
+	}
+	public void setOptlock(Integer optlock) {
+		this.optlock = optlock;
+	}
 
-    public String getObservations() {
-        return observations;
-    }
-    public void setObservations(String observations) {
-        this.observations = observations;
-    }
-    public String getEmail() {
-        return email;
-    }
-    public void setEmail(String email) {
-        this.email = email;
-    }
+	public double getOrden() {
+		return this.orden;
+	}
+	public void setOrden(double orden) {
+		this.orden = orden;
+	}
 
-    public String getFirstLastName() {
-        return firstLastName;
-    }
-    public void setFirstLastName(String firstLastName) {
-        this.firstLastName = firstLastName;
-    }
+	public String getObservations() {
+		return observations;
+	}
+	public void setObservations(String observations) {
+		this.observations = observations;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
-    public String getSecondLastName() {
-        return secondLastName;
-    }
-    public void setSecondLastName(String secondLastName) {
-        this.secondLastName = secondLastName;
-    }
+	public String getFirstLastName() {
+		return firstLastName;
+	}
+	public void setFirstLastName(String firstLastName) {
+		this.firstLastName = firstLastName;
+	}
 
-    public String getFirstName() {
-        return firstName;
-    }
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
+	public String getSecondLastName() {
+		return secondLastName;
+	}
+	public void setSecondLastName(String secondLastName) {
+		this.secondLastName = secondLastName;
+	}
 
-    public String getSecondName() {
-        return secondName;
-    }
-    public void setSecondName(String secondName) {
-        this.secondName = secondName;
-    }
+	public String getFirstName() {
+		return firstName;
+	}
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
 
-    public String getAddress() {
-        return address;
-    }
-    public void setAddress(String address) {
-        this.address = address;
-    }
+	public String getSecondName() {
+		return secondName;
+	}
+	public void setSecondName(String secondName) {
+		this.secondName = secondName;
+	}
 
-    public String getTelephones() {
-        return telephones;
-    }
-    public void setTelephones(String telephones) {
-        this.telephones = telephones;
-    }
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
+	}
 
-    public Set<Sections> getSections() {
-        return sections;
-    }
-    public void setSections(Set<Sections> sections) {
-        this.sections = sections;
-    }
+	public String getTelephones() {
+		return telephones;
+	}
+	public void setTelephones(String telephones) {
+		this.telephones = telephones;
+	}
 
-    public Set<Activities> getActivities() {
-        return activities;
-    }
-    public void setActivities(Set<Activities> activities) {
-        this.activities = activities;
-    }
+	public Set<Sections> getSections() {
+		return sections;
+	}
+	public void setSections(Set<Sections> sections) {
+		this.sections = sections;
+	}
 
-   @Override
-   public int hashCode() {
-      final int prime  = 31;
-            int result =  1;
+	public Set<Tasks> getTasks() {
+		return tasks;
+	}
+	public void setTasks(Set<Tasks> tasks) {
+		this.tasks = tasks;
+	}
 
-      result = prime * result + ((id == null) ? 0 : id.hashCode());
+	public Set<Activities> getActivities() {
+		return activities;
+	}
+	public void setActivities(Set<Activities> activities) {
+		this.activities = activities;
+	}
 
-      return result;
-   }
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
 
-   @Override
-   public boolean equals(Object ojt) {
-      if (      this == ojt           ) return true;
-      if (       ojt == null          ) return false;
-      if (getClass() != ojt.getClass()) return false;
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
 
-      Persons other = (Persons) ojt;
-      if (id == null) {
-         if (other.id != null) {
-            return false;
-         }
-      } else {
-         if (!id.equals(other.id)) {
-            return false;
-         }
-      }
+		return result;
+	}
 
-      return true;
-   }
+	@Override
+	public boolean equals(Object ojt) {
+		if (this == ojt)
+			return true;
+		if (ojt == null)
+			return false;
+		if (getClass() != ojt.getClass())
+			return false;
+
+		Persons other = (Persons) ojt;
+		if (id == null) {
+			if (other.id != null) {
+				return false;
+			}
+		} else {
+			if (!id.equals(other.id)) {
+				return false;
+			}
+		}
+
+		return true;
+	}
 
 } // entity
 

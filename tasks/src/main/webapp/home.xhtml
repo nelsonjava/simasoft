@@ -8,6 +8,30 @@
 
     <ui:define name="content">
 
+        <h:form id="loginForm" rendered="#{not identity.loggedIn}">
+	   <h:messages globalOnly="true" />
+
+	   <div class="loginRow">
+		<h:outputLabel for="name" value="Username" styleClass="loginLabel" />
+		<h:inputText id="name" value="#{loginCredentials.userId}" />
+	   </div>
+
+	   <div class="loginRow">
+		<h:outputLabel for="password" value="Password" styleClass="loginLabel" />
+		<h:inputSecret id="password" value="#{loginCredentials.password}"
+			redisplay="true" />
+	   </div>
+
+	   <div class="loginRow"></div>
+
+	   <div class="buttons">
+		<h:commandButton id="login" value="Login" action="#{identity.login}"
+			styleClass="loginButton" />
+	   </div>
+
+        </h:form>
+
+        <ui:fragment rendered="#{identity.loggedIn}">
 
            <h1>>Hello World!</h1>
 
@@ -19,36 +43,7 @@
             <h:link outcome="/admin/index.html" value="Admin"/>
            </div>
 
-           <div>
-             <h:link outcome="/setup/index.html" value="Setup"/>
-          </div>
-
-          <div>
-            <h:form>
-              <h:commandButton id="logout" value="Log out" action="#{identity.logout}" />
-            </h:form>
-          </div>
-          
-          <div>
-            <h:form>
-              <h:commandButton id="logout" value="Log out" action="keycloak.logout()" />
-            </h:form>
-          </div>
-
-          <div>
-             <a href="" ng-click="logout()">Sign Out</a>
-          </div>
-
-          <div>
-            <p>Debug Information</p>
-            <ul>
-              <li><b>Timestamp:</b> #{propertyBean.date}</li>
-              <li><b>Node name:</b> #{propertyBean.getProperty('jboss.node.name')}</li>
-              <li><b>Session id:</b> #{propertyBean.sessionId}</li>
-              <li><b>User:</b> #{identity.account.loginName}</li>
-            </ul>
-          </div>
-
+        </ui:fragment>
 
     </ui:define>
 </ui:composition>

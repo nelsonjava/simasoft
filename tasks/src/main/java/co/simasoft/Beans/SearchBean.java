@@ -92,13 +92,13 @@ public class SearchBean {
 
     // QUERIES //
 
-    public List<Diaries> selectAllDiaries(EntityManager em) {
-        prepare(Diaries.class,em);
+    public List<Tasks> selectAllTasks(EntityManager em) {
+        prepare(Tasks.class,em);
 
         Query query = qb.all().createQuery();
 
-        List<Diaries> results = execute(query,
-                                              new Class[]{Diaries.class}, null,
+        List<Tasks> results = execute(query,
+                                              new Class[]{Tasks.class}, null,
                                               new SortField("orden", SortField.DOUBLE));
         return results;
     }

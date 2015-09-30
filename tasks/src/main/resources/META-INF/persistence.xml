@@ -9,7 +9,7 @@
 
     <provider>org.hibernate.ejb.HibernatePersistence</provider>
 
-    <class>co.simasoft.models.dev.tasks.Diaries</class>
+    <class>co.simasoft.models.dev.tasks.Tasks</class>
     <class>co.simasoft.models.dev.tasks.Guides</class>
     <class>co.simasoft.models.dev.tasks.Activities</class>
     <class>co.simasoft.models.dev.tasks.ActivitiesTypes</class>
