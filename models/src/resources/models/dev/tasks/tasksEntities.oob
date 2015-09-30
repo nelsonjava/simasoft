@@ -1580,11 +1580,11 @@ LABL 0 Arial,8,N</a:FontList>
 </o:Class>
 <o:Class Id="o15">
 <a:ObjectID>5AAD1E96-4BDE-4D0B-B863-50C2C96AF997</a:ObjectID>
-<a:Name>Diaries</a:Name>
-<a:Code>Diaries</a:Code>
+<a:Name>Tasks</a:Name>
+<a:Code>Tasks</a:Code>
 <a:CreationDate>1442258455</a:CreationDate>
 <a:Creator>admin</a:Creator>
-<a:ModificationDate>1443287648</a:ModificationDate>
+<a:ModificationDate>1443572726</a:ModificationDate>
 <a:Modifier>admin</a:Modifier>
 <a:UseParentNamespace>0</a:UseParentNamespace>
 <c:Attributes>
