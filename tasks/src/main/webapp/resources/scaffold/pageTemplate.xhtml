@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:ui="http://java.sun.com/jsf/facelets">
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
 
 <h:head>
 	<title>#{empty pageTitle ? 'Page Title' : pageTitle}</title>
@@ -23,6 +23,7 @@
 				<div class="nav-collapse collapse">
 					<ul class="nav">
 						<li><a href="/tasks/home.jsf">Home</a></li>
+						<li><a href="/favorites/admin/index.jsf">Favorites</a></li>
                                                 <li>
 	                                        <h:form>
 		                                   <h:commandButton id="logout" value="Log out"
@@ -58,7 +59,7 @@
 				<li>
 					<h:link outcome="/admin/calendars/search" value="Calendars"/>
 				</li>
-				
+
 				<li>
 					<h:link outcome="/admin/sections/search" value="Sections"/>
 				</li>
@@ -93,11 +94,11 @@
 			<ui:insert name="main" />
 		</div>
 	</div>
-        </ui:fragment>	
+        </ui:fragment>
 
 	<footer>
 		<div id="footer-wrapper">
-	    	<p>Powered by <a href="http://jboss.org/forge">Forge</a></p>
+	    	<p>Powered by <a href="http://simavirtual.com/" target="_blank" >Naifg</a></p>
 	    </div>
 	</footer>
 

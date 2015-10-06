@@ -8,6 +8,31 @@
 
     <ui:define name="content">
 
+        <h:form id="loginForm" rendered="#{not identity.loggedIn}">
+	   <h:messages globalOnly="true" />
+
+	   <div class="loginRow">
+		<h:outputLabel for="name" value="Username" styleClass="loginLabel" />
+		<h:inputText id="name" value="#{loginCredentials.userId}" />
+	   </div>
+
+	   <div class="loginRow">
+		<h:outputLabel for="password" value="Password" styleClass="loginLabel" />
+		<h:inputSecret id="password" value="#{loginCredentials.password}"
+			redisplay="true" />
+	   </div>
+
+	   <div class="loginRow"></div>
+
+	   <div class="buttons">
+		<h:commandButton id="login" value="Login" action="#{identity.login}"
+			styleClass="loginButton" />
+	   </div>
+
+        </h:form>
+
+
+        <ui:fragment rendered="#{identity.loggedIn}">
         <h1>>Hello World!</h1>
 
         <div>
@@ -17,6 +42,7 @@
         <div>
             <h:link outcome="/admin/index.html" value="Admin"/>
         </div>
+        </ui:fragment>
 
     </ui:define>
 </ui:composition>

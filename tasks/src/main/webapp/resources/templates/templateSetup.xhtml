@@ -22,7 +22,7 @@
 				</h:link>
 				<div class="nav-collapse collapse">
 					<ul class="nav">
-						<li><a href="/tasks/home.jsf">Home</a></li>
+						<li><a href="/task/home.jsf">Home</a></li>
 					</ul>
 				</div>
 			</div>
@@ -35,8 +35,19 @@
 				<img src='#{resource["forge-logo.png"]}' alt="Forge... get hammered" border="0" />
 			</h:link>
 			<ul>
+
                           <li>
+                            <h:form>
+                              <h:commandButton value="Click Me to Populate Data Setup Init!" action="#{Setup.data()}" />
+                            </h:form>
                           </li>
+
+                          <li>
+                            <h:form>
+                              <h:commandButton value="Click Me to Populate DomainModels Data!" action="#{DomainModelsSetup.data()}" />
+                            </h:form>
+                          </li>
+
 			</ul>
 		</div>
 
@@ -54,7 +65,7 @@
 
 	<footer>
 		<div id="footer-wrapper">
-	    	<p>Powered by <a href="http://jboss.org/forge">Forge</a></p>
+	    	<p>Powered by <a href="http://simavirtual.com/">Naifg</a></p>
 	    </div>
 	</footer>
 

@@ -17,13 +17,12 @@
 			<div class="container">
 				<h:link id="brandLink" outcome="/index.xhtml" styleClass="brand">
 					<h:outputText value="Welcome to " rendered=" #{request.userPrincipal !=null} "/>
-                    Favorites
+                    Task
                     <h:outputText value=",  #{request.userPrincipal.name}" rendered="#{request.userPrincipal !=null} "/>
 				</h:link>
 				<div class="nav-collapse collapse">
 					<ul class="nav">
-					        <li><a href="/favorites/home.jsf">Home</a></li>
-					        <li><a href="/gi/admin/index.jsf">GI</a></li>
+						<li><a href="http://forge.jboss.org/docs/important_plugins/ui-scaffolding.html">How to Customize</a></li>
 					</ul>
 				</div>
 			</div>
@@ -33,15 +32,65 @@
 	<div class="container forgecontainer">
 		<div id="navigation">
 			<h:link id="homeLink" outcome="/index.xhtml">
-				<img src='#{resource["forge-logo.jpg"]}' alt="Nafg" border="0" />
+				<img src='#{resource["forge-logo.png"]}' alt="Forge... get hammered" border="0" />
 			</h:link>
 			<ul>
 				<li>
-					<h:link outcome="/admin/linksTypes/search" value="Links Types"/>
+					<h:link outcome="/admin/activities/search" value="Activities"/>
 				</li>
-
 				<li>
-					<h:link outcome="/admin/links/search" value="Links"/>
+					<h:link outcome="/admin/activitiesTypes/search" value="Activities Types"/>
+				</li>
+				<li>
+					<h:link outcome="/admin/calendars/search" value="Calendars"/>
+				</li>
+				<li>
+					<h:link outcome="/admin/conservationUnits/search" value="Conservation Units"/>
+				</li>
+				<li>
+					<h:link outcome="/admin/diaries/search" value="Diaries"/>
+				</li>
+				<li>
+					<h:link outcome="/admin/documentalsSupports/search" value="Documentals Supports"/>
+				</li>
+				<li>
+					<h:link outcome="/admin/documentalsUnits/search" value="Documentals Units"/>
+				</li>
+				<li>
+					<h:link outcome="/admin/documentsTypes/search" value="Documents Types"/>
+				</li>
+				<li>
+					<h:link outcome="/admin/funds/search" value="Funds"/>
+				</li>
+				<li>
+					<h:link outcome="/admin/guides/search" value="Guides"/>
+				</li>
+				<li>
+					<h:link outcome="/admin/originalOrder/search" value="Original Order"/>
+				</li>
+				<li>
+					<h:link outcome="/admin/personalType/search" value="Personal Type"/>
+				</li>
+				<li>
+					<h:link outcome="/admin/persons/search" value="Persons"/>
+				</li>
+				<li>
+					<h:link outcome="/admin/sections/search" value="Sections"/>
+				</li>
+				<li>
+					<h:link outcome="/admin/sectionsTypes/search" value="Sections Types"/>
+				</li>
+				<li>
+					<h:link outcome="/admin/series/search" value="Series"/>
+				</li>
+				<li>
+					<h:link outcome="/admin/sites/search" value="Sites"/>
+				</li>
+				<li>
+					<h:link outcome="/admin/sitesTypes/search" value="Sites Types"/>
+				</li>
+				<li>
+					<h:link outcome="/admin/tasks/search" value="Tasks"/>
 				</li>
 			</ul>
 		</div>
@@ -60,7 +109,7 @@
 
 	<footer>
 		<div id="footer-wrapper">
-	    	<p>Powered by <a href="/favorites/home.jsf">Nafg</a></p>
+	    	<p>Powered by <a href="http://jboss.org/forge">Forge</a></p>
 	    </div>
 	</footer>
 

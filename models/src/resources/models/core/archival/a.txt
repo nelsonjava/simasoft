@@ -1,0 +1,32 @@
+ El volumen de la unidad D no tiene etiqueta.
+ El n£mero de serie del volumen es: 3029-3EA4
+
+ Directorio de d:\dev\njava\simasoft\models\src\resources\models\core\archival
+
+06/10/2015  03:54 p. m.    <DIR>          .
+06/10/2015  03:54 p. m.    <DIR>          ..
+06/10/2015  03:54 p. m.                 0 a.txt
+30/09/2015  07:21 a. m.            63.175 archivalEntities.oob
+30/09/2015  07:21 a. m.            63.175 archivalEntities.oom
+30/09/2015  07:21 a. m.            80.628 archivalModel.oob
+30/09/2015  07:21 a. m.            80.628 archivalModel.oom
+30/09/2015  07:21 a. m.            47.825 archivalModelExternal.oom
+06/10/2015  03:33 p. m.    <DIR>          sections
+06/10/2015  03:35 p. m.    <DIR>          series
+               6 archivos        335.431 bytes
+
+ Directorio de d:\dev\njava\simasoft\models\src\resources\models\core\archival\sections
+
+06/10/2015  03:33 p. m.    <DIR>          .
+06/10/2015  03:33 p. m.    <DIR>          ..
+               0 archivos              0 bytes
+
+ Directorio de d:\dev\njava\simasoft\models\src\resources\models\core\archival\series
+
+06/10/2015  03:35 p. m.    <DIR>          .
+06/10/2015  03:35 p. m.    <DIR>          ..
+               0 archivos              0 bytes
+
+     Total de archivos en la lista:
+               6 archivos        335.431 bytes
+               8 dirs  28.827.054.080 bytes libres

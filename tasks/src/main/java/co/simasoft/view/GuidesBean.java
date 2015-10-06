@@ -169,7 +169,7 @@ public class GuidesBean implements Serializable {
 	}
 
 	public int getPageSize() {
-		return 10;
+		return 1000;
 	}
 
 	public Guides getExample() {
