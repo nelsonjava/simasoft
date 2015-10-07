@@ -1,0 +1,14 @@
+ El volumen de la unidad D no tiene etiqueta.
+ El n£mero de serie del volumen es: 3029-3EA4
+
+ Directorio de d:\dev\njava\simasoft\models\src\resources\models\core\invoices
+
+07/10/2015  11:14 a. m.    <DIR>          .
+07/10/2015  11:14 a. m.    <DIR>          ..
+07/10/2015  11:15 a. m.                 0 a.txt
+06/10/2015  04:06 p. m.            35.058 invoicesEntities.oom
+06/10/2015  04:05 p. m.            34.332 invoicesModel.oom
+07/10/2015  11:14 a. m.            34.330 invoicesModelExternal.oob
+07/10/2015  11:14 a. m.            34.330 invoicesModelExternal.oom
+               5 archivos        138.050 bytes
+               2 dirs  29.032.796.160 bytes libres

@@ -549,30 +549,54 @@ public class App extends FileTxt{
         domains = new Domains("co.simasoft","task","1.0-SNAPSHOT",modelos);
         systemsModels = new DataGenH2(domains);
 
+        modelos.add(new Modelos("","co.simasoft.models.core."));
+
 */
 
         modelos.clear();
-        modelos.add(new Modelos("core/archival/archivalEntities.oom","co.simasoft.models.core.archival"));
-        modelos.add(new Modelos("core/archival/archivalModel.oom","co.simasoft.models.core.archival"));
-        modelos.add(new Modelos("core/archival/archivalModelExternal.oom","co.simasoft.models.core.archival"));
+        modelos.add(new Modelos("core/archival/funds/fundsModel.oom","co.simasoft.models.core.archival"));
+        modelos.add(new Modelos("core/archival/funds/fundsEntities.oom","co.simasoft.models.core.archival"));
+        modelos.add(new Modelos("core/archival/inventory/inventoryModel.oom","co.simasoft.models.core.archival"));
+        modelos.add(new Modelos("core/archival/inventory/inventoryEntities.oom","co.simasoft.models.core.archival"));
+        modelos.add(new Modelos("core/archival/sections/sectionsModel.oom","co.simasoft.models.core.archival"));
+        modelos.add(new Modelos("core/archival/sections/sectionsEntities.oom","co.simasoft.models.core.archival"));
+        modelos.add(new Modelos("core/archival/series/seriesModel.oom","co.simasoft.models.core.archival"));
+        modelos.add(new Modelos("core/archival/series/seriesEntities.oom","co.simasoft.models.core.archival"));
+        modelos.add(new Modelos("core/archival/trd/trdModel.oom","co.simasoft.models.core.archival"));
+        modelos.add(new Modelos("core/archival/trd/trdEntities.oom","co.simasoft.models.core.archival"));
 
         modelos.add(new Modelos("core/books/booksEntities.oom","co.simasoft.models.core.books"));
         modelos.add(new Modelos("core/books/booksModel.oom","co.simasoft.models.core.books"));
-        modelos.add(new Modelos("core/books/booksModelExternal.oom","co.simasoft.models.core.books"));
 
         modelos.add(new Modelos("core/companies/companiesEntities.oom","co.simasoft.models.core.companies"));
         modelos.add(new Modelos("core/companies/companiesModel.oom","co.simasoft.models.core.companies"));
         modelos.add(new Modelos("core/companies/companiesModelExternal.oom","co.simasoft.models.core.companies"));
-        
+
+        modelos.add(new Modelos("core/inventories/inventoriesModel.oom","co.simasoft.models.core.inventories"));
+        modelos.add(new Modelos("core/inventories/inventoriesEntities.oom","co.simasoft.models.core.inventories"));
+
+        modelos.add(new Modelos("core/invoices/invoicesModel.oom","co.simasoft.models.core.invoices"));
+        modelos.add(new Modelos("core/invoices/invoicesEntities.oom","co.simasoft.models.core.invoices"));
+        modelos.add(new Modelos("core/invoices/invoicesModelExternal.oom","co.simasoft.models.core.invoices"));
+
+        modelos.add(new Modelos("core/items/itemsModel.oom","co.simasoft.models.core.items"));
+        modelos.add(new Modelos("core/items/itemsEntities.oom","co.simasoft.models.core.items"));
+        modelos.add(new Modelos("core/items/itemsModelExternal.oom","co.simasoft.models.core.items"));
+
         modelos.add(new Modelos("core/persons/personsModel.oom","co.simasoft.models.core.persons"));
         modelos.add(new Modelos("core/persons/personsEntities.oom","co.simasoft.models.core.persons"));
 
+        modelos.add(new Modelos("core/physicalAreas/physicalAreasModel.oom","co.simasoft.models.core.physicalareas"));
+        modelos.add(new Modelos("core/physicalAreas/physicalAreasEntities.oom","co.simasoft.models.core.physicalareas"));
+
         modelos.add(new Modelos("core/regulations/regulationsEntities.oom","co.simasoft.models.core.regulations"));
         modelos.add(new Modelos("core/regulations/regulationsModel.oom","co.simasoft.models.core.regulations"));
-        modelos.add(new Modelos("core/regulations/regulationsModelExternal.oom","co.simasoft.models.core.regulations"));
 
         modelos.add(new Modelos("core/sites/sitesEntities.oom","co.simasoft.models.core.sites"));
         modelos.add(new Modelos("core/sites/sitesModel.oom","co.simasoft.models.core.sites"));
+
+        modelos.add(new Modelos("core/vlans/vlansModel.oom","co.simasoft.models.core.vlans"));
+        modelos.add(new Modelos("core/vlans/vlansEntities.oom","co.simasoft.models.core.vlans"));
         Domains domains = new Domains("co.simasoft","core","1.0-SNAPSHOT",modelos);
         DataGenH2 dataGenH2 = new DataGenH2(domains);
         JsonGenH2 jsonGenH2 = new JsonGenH2(domains);
@@ -588,12 +612,18 @@ public class App extends FileTxt{
         domains = new Domains("co.simasoft","naifg","1.0-SNAPSHOT",modelos);
         dataGenH2 = new DataGenH2(domains);
         jsonGenH2 = new JsonGenH2(domains);
-        
+
         modelos.clear();
         modelos.add(new Modelos("dev/tasks/tasksEntities.oom","co.simasoft.models.dev.tasks"));
         modelos.add(new Modelos("dev/tasks/tasksModel.oom","co.simasoft.models.dev.tasks"));
         modelos.add(new Modelos("dev/tasks/tasksExternalModel.oom","co.simasoft.models.dev.tasks"));
         domains = new Domains("co.simasoft","tasks","1.0-SNAPSHOT",modelos);
+        dataGenH2 = new DataGenH2(domains);
+        jsonGenH2 = new JsonGenH2(domains);
+
+        modelos.clear();
+        modelos.add(new Modelos("dev/inventory/inventoryModelExternal.oom","co.simasoft.models.dev.inventory"));
+        domains = new Domains("co.simasoft","inventory","1.0-SNAPSHOT",modelos);
         dataGenH2 = new DataGenH2(domains);
         jsonGenH2 = new JsonGenH2(domains);
 

@@ -31,7 +31,7 @@ public class JsonGenH2 extends FileTxt {
 
 //>>DECLARACION DE INSTANCIAS
       LinkedHashSet<String> imports = new LinkedHashSet<String>();
-      
+
       private int i=0;
       private int j=0;
       private int k=0;
@@ -99,7 +99,7 @@ line("  \"ModelsGroupIds\": [");
 line("    {");
 line("      \"isSimplified\": false,");
 line("      \"isIsolated\": false,");
-line("      \"GroupIds.groupId\": \""+domain.getGroupId()+"."+domain.getArtifactId()+"\",");
+line("      \"GroupIds.artifactId\": \""+domain.getGroupId()+"."+domain.getArtifactId()+"\",");
 line("      \"Models.artifactId\": \""+domain.getArtifactId()+"\"");
 line("    }");
 line("  ],");
@@ -117,11 +117,8 @@ line("    }");
 line("  ],");
 
 //      ---------------------- Entities ------------------------
-//      line(" paso1     x="+Integer.toString(x));
-//      line("      xsize="+Integer.toString(domain.getPackages().size()));
-//      line(" paso2     x="+Integer.toString(x));
-//       line("      j="+Integer.toString(j)+" size="+Integer.toString(groupId.getEntities().size()));
-
+// line("      i="+Integer.toString(i)+" size="+Integer.toString(domain.getPackages().size()-1));
+// line("      j="+Integer.toString(j)+" size="+Integer.toString(groupId.getEntities().size()));
 
     i = 1;
 line("  \"Entities\": [");
@@ -133,7 +130,7 @@ line("    {");
 line("      \"name\": \""+entidad.getName()+"\",");
 line("      \"groupId\": \""+groupId.getGroupId()+"\",");
 line("      \"groupIds\": \""+groupId.getGroupId()+"\"");
-          if (i == domain.getPackages().size() && j == groupId.getEntities().size() ){
+          if (i == domain.getPackages().size()-1 && j == groupId.getEntities().size() ){
 line("    }");
           }
           else{
@@ -146,6 +143,10 @@ line("    },");
 line("  ],");
 
 //      ---------------------- GroupIdsEntities ------------------------
+// line("      i="+Integer.toString(i)+" size="+Integer.toString(domain.getPackages().size()-1));
+// line("      j="+Integer.toString(j)+" size="+Integer.toString(groupId.getEntities().size()));
+
+
 
     i = 1;
 line("  \"GroupIdsEntities\": [");
@@ -159,7 +160,7 @@ line("      \"groupIds.artifactId\": \""+domain.getArtifactId()+"\",");
 line("      \"isIsolated\": false,");
 line("      \"isSimplified\": false");
 
-          if (i == domain.getPackages().size() && j == groupId.getEntities().size() ){
+          if (i == domain.getPackages().size()-1 && j == groupId.getEntities().size() ){
 line("    }");
           }
           else{
@@ -172,6 +173,10 @@ line("    },");
 line("  ],");
 
 //      ---------------------- Attributes ------------------------
+// line("      i="+Integer.toString(i)+" size="+Integer.toString(domain.getPackages().size()-1));
+// line("      j="+Integer.toString(j)+" size="+Integer.toString(groupId.getEntities().size()));
+// line("      k="+Integer.toString(k)+" size="+Integer.toString(entidad.getAtributos().size()));
+
 
     i = 1;
 line("  \"Attributes\": [");
@@ -188,12 +193,12 @@ line("      \"isNullable\": "+attri.getNulo()+",");
 line("      \"isUnique\": "+attri.getUnique()+",");
 line("      \"AttributesTypes\": \""+attri.getType()+"\",");
 line("      \"isSimplified\": false,");
-line("      \"isCreate\": true,");
+line("      \"isCreate\": false,");
 line("      \"isSearch\": true,");
 line("      \"isView\": true,");
 line("      \"isViewRelation\": true,");
 line("      \"isViewColumn\": true");
-          if (i == domain.getPackages().size() && j == groupId.getEntities().size() && k == entidad.getAtributos().size() ){
+          if (i == domain.getPackages().size()-1 && j == groupId.getEntities().size() && k == entidad.getAtributos().size() ){
 line("    }");
           }
           else{
