@@ -339,6 +339,9 @@ saveFile("\\docs", "ModelsGen.txt");
         H2Pom filePom = new H2Pom(artifactId,groupId);
         Utils.fileMake(pathDocs+".h2.war."+artifactId, "pom.xml", filePom);
 
+        H2Gradle fileGradle = new H2Gradle(artifactId,groupId);
+        Utils.fileMake(pathDocs+".h2.war."+artifactId, "build.gradle", fileGradle);
+
         Build build = new Build(artifactId,groupId);
         Utils.fileMake(pathDocs+".h2.war."+artifactId, "build.xml", build);
 
@@ -356,7 +359,7 @@ saveFile("\\docs", "ModelsGen.txt");
 
         H2Web h2Web = new H2Web(artifactId);
         Utils.fileMake(pathDocs+".h2.war."+artifactId+".src.main.webapp.WEB-INF","web.xml", h2Web);
-        
+
         H2PropertyBean h2PropertyBean = new H2PropertyBean();
         Utils.fileMake(pathDocs+".h2.war."+artifactId+".src.main.java."+groupId+".authentication","PropertyBean.java", h2PropertyBean);
 
