@@ -1,0 +1,58 @@
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for co.simasoft:users:war:1.0.0-SNAPSHOT
+[WARNING] 'dependencies.dependency.type' for org.primefaces:primefaces:jar must be 'pom' to import the managed dependencies. @ line 102, column 17
+[WARNING] 'dependencies.dependency.scope' for org.primefaces:primefaces:jar must be one of [provided, compile, runtime, test, system] but is 'import'. @ line 106, column 14
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building users 1.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ users ---
+[INFO] Deleting d:\dev\njava\simasoft\users\target
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ users ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ users ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 14 source files to d:\dev\njava\simasoft\users\target\classes
+[INFO] -------------------------------------------------------------
+[WARNING] COMPILATION WARNING : 
+[INFO] -------------------------------------------------------------
+[WARNING] /d:/dev/njava/simasoft/users/src/main/java/co/simasoft/Beans/FindBean.java: Some input files use unchecked or unsafe operations.
+[WARNING] /d:/dev/njava/simasoft/users/src/main/java/co/simasoft/Beans/FindBean.java: Recompile with -Xlint:unchecked for details.
+[INFO] 2 warnings 
+[INFO] -------------------------------------------------------------
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /d:/dev/njava/simasoft/users/src/main/java/co/simasoft/util/Resources.java:[32,47] cannot find symbol
+  symbol:   method getUser()
+  location: variable injectionPoint of type javax.enterprise.inject.spi.InjectionPoint
+[INFO] 1 error
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 1.721s
+[INFO] Finished at: Tue Oct 13 16:10:36 COT 2015
+[INFO] Final Memory: 17M/46M
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.1:compile (default-compile) on project users: Compilation failure
+[ERROR] /d:/dev/njava/simasoft/users/src/main/java/co/simasoft/util/Resources.java:[32,47] cannot find symbol
+[ERROR] symbol:   method getUser()
+[ERROR] location: variable injectionPoint of type javax.enterprise.inject.spi.InjectionPoint
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

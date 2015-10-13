@@ -54,6 +54,7 @@
     <delete dir="task/target" failonerror="no"/>
     <delete dir="tasks/target" failonerror="no"/>
     <delete dir="apprest/target" failonerror="no"/>
+    <delete dir="users/target" failonerror="no"/>
 
     <!-- DabaBases -->
     <delete dir="db/contabDb/target" failonerror="no"/>
