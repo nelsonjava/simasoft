@@ -1,0 +1,91 @@
+{
+  "GroupIds": [
+    {
+      "artifactId": "users",
+      "groupId": "co.simasoft.models.dev.users",
+      "version": "",
+      "code": ""
+    }
+  ],
+  "Models": [
+    {
+      "artifactId": "users",
+      "groupId": "co.simasoft.models.dev.users",
+      "version": "1.0-SNAPSHOT",
+      "code": ""
+    }
+  ],
+  "ModelsGroupIds": [
+    {
+      "isSimplified": false,
+      "isIsolated": false,
+      "GroupIds.artifactId": "users",
+      "Models.artifactId": "users"
+    }
+  ],
+  "Developments": [
+    {
+      "artifactId": "users",
+      "groupId": "co.simasoft",
+      "version": "1.0-SNAPSHOT",
+      "code": "",
+      "Models.artifactId": "users"
+    }
+  ],
+  "Entities": [
+    {
+      "name": "Users",
+      "groupId": "co.simasoft.models.dev.users",
+      "groupIds": "co.simasoft.models.dev.users"
+    }
+  ],
+  "GroupIdsEntities": [
+    {
+      "entity": "Users",
+      "groupIds.artifactId": "users",
+      "isIsolated": false,
+      "isSimplified": false
+    }
+  ],
+  "Attributes": [
+    {
+      "entity": "Users",
+      "name": "name",
+      "isNullable": false,
+      "isUnique": true,
+      "AttributesTypes": "String",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
+    },
+    {
+      "entity": "Users",
+      "name": "email",
+      "isNullable": false,
+      "isUnique": true,
+      "AttributesTypes": "String",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
+    },
+    {
+      "entity": "Users",
+      "name": "phoneNumber",
+      "isNullable": false,
+      "isUnique": true,
+      "AttributesTypes": "String",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
+    }
+  ]
+}
