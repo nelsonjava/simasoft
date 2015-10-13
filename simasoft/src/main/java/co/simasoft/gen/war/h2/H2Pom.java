@@ -35,6 +35,16 @@ line("  </properties>\n");
 line("  <dependencyManagement>");
 line("    <dependencies>\n");
 
+line("      <!-- Define the version of JBoss' Java EE 7 APIs we want to import.");
+line("           Any dependencies from org.jboss.spec will have their version defined by this");
+line("           BOM -->");
+line("      <!-- JBoss distributes a complete set of Java EE 7 APIs including");
+line("           a Bill of Materials (BOM). A BOM specifies the versions of a \"stack\" (or");
+line("           a collection) of artifacts. We use this here so that we always get the correct");
+line("           versions of artifacts. Here we use the jboss-javaee-7.0 stack (you can");
+line("           read this as the JBoss stack of the Java EE 7 APIs). You can actually");
+line("           use this stack with any version of WildFly that implements Java EE 7, not");
+line("           just WildFly 8! -->");
 line("      <dependency>");
 line("        <groupId>org.jboss.spec</groupId>");
 line("        <artifactId>jboss-javaee-7.0</artifactId>");
@@ -155,6 +165,7 @@ line("    <dependency>");
 line("      <groupId>org.jboss.jbossts</groupId>");
 line("      <artifactId>jbossjta</artifactId>");
 line("    </dependency>\n");
+
 
 line("    <dependency>");
 line("      <groupId>javax.enterprise</groupId>");
