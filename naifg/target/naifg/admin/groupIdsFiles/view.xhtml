@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:forgeview="http://jboss.org/forge/view"
+        template="/resources/scaffold/pageTemplate.xhtml">
+
+        <f:metadata>
+                <f:viewParam name="id" value='#{groupIdsFilesBean.id}'/>
+                <f:event type="preRenderView" listener='#{groupIdsFilesBean.retrieve}'/>
+        </f:metadata>
+
+        <ui:param name="pageTitle" value="View GroupIdsFiles"/>
+
+        <ui:define name="header">
+                GroupIdsFiles
+        </ui:define>
+
+        <ui:define name="subheader">
+                View existing GroupIdsFiles
+        </ui:define>
+
+        <ui:define name="footer"/>
+
+        <ui:define name="main">
+                <h:panelGrid columnClasses="label,component,required" columns="3">
+
+                        <h:outputLabel for="groupIdsFilesBeanGroupIdsFilesOrden" value="Orden:"/>
+                        <h:outputText id="groupIdsFilesBeanGroupIdsFilesOrden" value="#{groupIdsFilesBean.groupIdsFiles.orden}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="groupIdsFilesBeanGroupIdsFilesName" value="Name:"/>
+                        <h:outputText id="groupIdsFilesBeanGroupIdsFilesName" value="#{groupIdsFilesBean.groupIdsFiles.name}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="groupIdsFilesBeanGroupIdsFilesType" value="Type:"/>
+                        <h:outputText id="groupIdsFilesBeanGroupIdsFilesType" value="#{groupIdsFilesBean.groupIdsFiles.type}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="groupIdsFilesBeanGroupIdsFilesObservations" value="Observations:"/>
+                        <h:outputText id="groupIdsFilesBeanGroupIdsFilesObservations" value="#{groupIdsFilesBean.groupIdsFiles.observations}" escape="false" />
+                        <h:outputText/>
+
+                        <h:outputLabel for="groupIdsFilesBeanGroupIdsFilesGroupIds" value="groupIds:"/>
+                        <h:link id="groupIdsFilesBeanGroupIdsFilesGroupIds" outcome="/admin/groupIds/view" rendered="#{!empty groupIdsFilesBean.groupIdsFiles.groupIds}" value="#{groupIdsFilesBean.groupIdsFiles.name}">
+                                <f:param name="id" value="#{groupIdsFilesBean.groupIdsFiles.groupIds.id}"/>
+                        </h:link>
+                        <h:outputText/>
+
+                        <h:outputLabel for="groupIdsFilesBeanGroupIdsFile" value="File:"/>
+                        <h:form>
+                                <h:commandLink id="groupIdsFilesBeanGroupIdsFile" value="Download" action="#{groupIdsFilesBean.downloadFile}" />
+                        </h:form>
+                        <h:outputText/>
+
+                        <object
+                           width="700"
+                           height="600"
+                           data="#{groupIdsFilesBean.groupIdsFiles.data}?pfdrid_c=true"
+                           type="application/pdf">
+                           Your browser can't display pdf, <a href="/resources/demo/media/guide.pdf">click</a> to download pdf instead.
+                        </object>
+                       <h:outputText/>
+
+
+
+                </h:panelGrid>
+
+                <div class="buttons">
+                        <h:link value="View All" outcome="search" styleClass="btn btn-primary"/>
+                        <h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
+                        <h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
+                </div>
+        </ui:define>
+</ui:composition>
