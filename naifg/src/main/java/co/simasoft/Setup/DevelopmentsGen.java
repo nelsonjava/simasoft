@@ -360,6 +360,7 @@ for (Entidad entidad : entidades) {
         modelsGen.setPackages(packages);
         modelsGen.setEntities(entidades);
         modelsGen.WarH2();
+        modelsGen.RestH2();        
         modelsGen.jdocbook();
 //        war(developments);
 //        jsonNaifg(developments);

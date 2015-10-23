@@ -448,5 +448,81 @@ line(Integer.toString(i++)+":"+entidad.getName());
     }
     } // entiyWarH2()
 
+    public void RestH2() throws IOException {
+    try {
+
+        clearFileTxt();
+
+        relationTo();
+
+        templateRestH2();
+
+        entiyRestH2();
+
+line("Rest");
+saveFile("\\docs", "OjoGen.txt");
+
+
+    }
+    catch(Exception ioe) {
+      ioe.printStackTrace();
+    }
+
+    } // RestH2()
+
+    public void templateRestH2() throws IOException {
+    try {
+
+        H2Pom filePom = new H2Pom(artifactId,groupId);
+        Utils.fileMake(pathDocs+".h2.rest."+artifactId, "pom.xml", filePom);
+
+        H2Gradle fileGradle = new H2Gradle(artifactId,groupId);
+        Utils.fileMake(pathDocs+".h2.rest."+artifactId, "build.gradle", fileGradle);
+
+        Build build = new Build(artifactId,groupId);
+        Utils.fileMake(pathDocs+".h2.rest."+artifactId, "build.xml", build);
+
+        H2Datasource h2datasource = new H2Datasource(artifactId);
+        Utils.fileMake(pathDocs+".h2.rest."+artifactId+".src.main.webapp.WEB-INF",artifactId+"-ds.xml", h2datasource);
+
+        H2Web h2Web = new H2Web(artifactId);
+        Utils.fileMake(pathDocs+".h2.rest."+artifactId+".src.main.webapp.WEB-INF","web.xml", h2Web);
+
+    }
+    catch(Exception ioe) {
+      ioe.printStackTrace();
+    }
+
+    } // templateWarH22()
+
+    public void entiyRestH2() throws IOException {
+    try {
+
+        H2Persistence h2Persistence = new H2Persistence(artifactId,entities);
+        Utils.fileMake(pathDocs+".h2.rest."+artifactId+".src.main.resources.META-INF", "persistence.xml", h2Persistence);
+
+int i = 1;
+line("entidades:"+Integer.toString(entities.size()));
+
+        for (Entidad entidad : entities) {
+
+line(Integer.toString(i++)+":"+entidad.getName());
+
+            EntityRestEasy entityRestEasy = new EntityRestEasy(entidad.getGroupId(),entidad.getGroupId(),entidad,imports);
+            Utils.fileMake(pathDocs+".h2.rest."+artifactId+".src.main.java."+entidad.getGroupId(),entidad.getName()+".java", entityRestEasy);
+
+            RestEndPoint restEndPoint = new RestEndPoint(artifactId,entidad.getGroupId(),entidad,imports);
+            Utils.fileMake(pathDocs+".h2.rest."+artifactId+".src.main.java."+groupId+".rest",entidad.getName()+"EndPoint.java", restEndPoint);
+
+
+        } // groupIds.getEntities()
+
+
+    }
+    catch(Exception ioe) {
+      ioe.printStackTrace();
+    }
+    } // entiyWarH2()
+
 
 } // ModelsGen
