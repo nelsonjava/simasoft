@@ -8,6 +8,8 @@ import co.simasoft.gen.bean.*;
 import co.simasoft.gen.xhtml.*;
 import co.simasoft.gen.war.*;
 import co.simasoft.gen.war.h2.*;
+import co.simasoft.gen.war.h2.rest.*;
+
 
 import java.io.*;
 import java.util.*;
@@ -473,20 +475,20 @@ saveFile("\\docs", "OjoGen.txt");
     public void templateRestH2() throws IOException {
     try {
 
-        H2Pom filePom = new H2Pom(artifactId,groupId);
+        H2RestPom filePom = new H2RestPom(artifactId,groupId);
         Utils.fileMake(pathDocs+".h2.rest."+artifactId, "pom.xml", filePom);
 
-        H2Gradle fileGradle = new H2Gradle(artifactId,groupId);
+        H2RestGradle fileGradle = new H2RestGradle(artifactId,groupId);
         Utils.fileMake(pathDocs+".h2.rest."+artifactId, "build.gradle", fileGradle);
 
         Build build = new Build(artifactId,groupId);
         Utils.fileMake(pathDocs+".h2.rest."+artifactId, "build.xml", build);
 
-        H2Datasource h2datasource = new H2Datasource(artifactId);
-        Utils.fileMake(pathDocs+".h2.rest."+artifactId+".src.main.webapp.WEB-INF",artifactId+"-ds.xml", h2datasource);
+        H2RestDatasource h2RestDatasource = new H2RestDatasource(artifactId);
+        Utils.fileMake(pathDocs+".h2.rest."+artifactId+".src.main.webapp.WEB-INF",artifactId+"-ds.xml", h2RestDatasource);
 
-        H2Web h2Web = new H2Web(artifactId);
-        Utils.fileMake(pathDocs+".h2.rest."+artifactId+".src.main.webapp.WEB-INF","web.xml", h2Web);
+        H2RestWeb h2RestWeb = new H2RestWeb(artifactId);
+        Utils.fileMake(pathDocs+".h2.rest."+artifactId+".src.main.webapp.WEB-INF","web.xml", h2RestWeb);
 
     }
     catch(Exception ioe) {
@@ -498,8 +500,17 @@ saveFile("\\docs", "OjoGen.txt");
     public void entiyRestH2() throws IOException {
     try {
 
-        H2Persistence h2Persistence = new H2Persistence(artifactId,entities);
-        Utils.fileMake(pathDocs+".h2.rest."+artifactId+".src.main.resources.META-INF", "persistence.xml", h2Persistence);
+        H2RestPersistence h2RestPersistence = new H2RestPersistence(artifactId,entities);
+        Utils.fileMake(pathDocs+".h2.rest."+artifactId+".src.main.resources.META-INF", "persistence.xml", h2RestPersistence);
+
+        RestJaxRsActivator restJaxRsActivator = new RestJaxRsActivator(artifactId);
+        Utils.fileMake(pathDocs+".h2.rest."+artifactId+".src.main.resources.META-INF", "persistence.xml", restJaxRsActivator);
+
+// Pendiente        
+        Utils.fileMake(pathDocs+".h2.rest."+artifactId+".src.main.java."+entidad.getGroupId(),entidad.getName()+".java", entityRestEasy);
+
+
+
 
 int i = 1;
 line("entidades:"+Integer.toString(entities.size()));
