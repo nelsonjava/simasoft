@@ -490,6 +490,9 @@ saveFile("\\docs", "OjoGen.txt");
         H2RestWeb h2RestWeb = new H2RestWeb(artifactId);
         Utils.fileMake(pathDocs+".h2.rest."+artifactId+".src.main.webapp.WEB-INF","web.xml", h2RestWeb);
 
+        RestJaxRsActivator restJaxRsActivator = new RestJaxRsActivator(groupId);
+        Utils.fileMake(pathDocs+".h2.rest."+artifactId+".src.main.java."+groupId+".rest", "JaxRsActivator.java", restJaxRsActivator);
+
     }
     catch(Exception ioe) {
       ioe.printStackTrace();
@@ -503,15 +506,6 @@ saveFile("\\docs", "OjoGen.txt");
         H2RestPersistence h2RestPersistence = new H2RestPersistence(artifactId,entities);
         Utils.fileMake(pathDocs+".h2.rest."+artifactId+".src.main.resources.META-INF", "persistence.xml", h2RestPersistence);
 
-        RestJaxRsActivator restJaxRsActivator = new RestJaxRsActivator(artifactId);
-        Utils.fileMake(pathDocs+".h2.rest."+artifactId+".src.main.resources.META-INF", "persistence.xml", restJaxRsActivator);
-
-// Pendiente        
-        Utils.fileMake(pathDocs+".h2.rest."+artifactId+".src.main.java."+entidad.getGroupId(),entidad.getName()+".java", entityRestEasy);
-
-
-
-
 int i = 1;
 line("entidades:"+Integer.toString(entities.size()));
 
@@ -522,7 +516,7 @@ line(Integer.toString(i++)+":"+entidad.getName());
             EntityRestEasy entityRestEasy = new EntityRestEasy(entidad.getGroupId(),entidad.getGroupId(),entidad,imports);
             Utils.fileMake(pathDocs+".h2.rest."+artifactId+".src.main.java."+entidad.getGroupId(),entidad.getName()+".java", entityRestEasy);
 
-            RestEndPoint restEndPoint = new RestEndPoint(artifactId,entidad.getGroupId(),entidad,imports);
+            RestEndPoint restEndPoint = new RestEndPoint(artifactId,groupId+".rest",entidad,imports);
             Utils.fileMake(pathDocs+".h2.rest."+artifactId+".src.main.java."+groupId+".rest",entidad.getName()+"EndPoint.java", restEndPoint);
 
 

@@ -25,20 +25,6 @@ OBJETIVOS:
 *---------------------------------------------------------------------------------------------------------------*/
 
 public class RestJaxRsActivator extends FileTxt {
-  
-//>>DECLARACION DE INSTANCIAS
-      private Entidad entity = new Entidad();                                // Entidad
-      private ArrayList<Atributos> atributos = new ArrayList<Atributos>();   // Atributos de la Entidad
-      private ArrayList<Relation> relations = new ArrayList<Relation>();     // Relaciones de la Entidad
-
-      Integer nro = 4;                                                       // Número de Espacios de Margen
-      String name = "";                                                      // Nombre del Atributo
-      String type = "";                                                      // Tipo del Atributo
-      String field = "";                                                     // Nombre del Campo
-      Integer len = 0;                                                           // Longitud del Campo
-      Integer prec = 0;                                                          // Decimales del Campo
-      String annotations = "";
-//>>DECLARACION DE INSTANCIAS
 
 /****************************************************************************************************************
 * METODO..: Constructor de la clase                                                                             *
@@ -55,19 +41,13 @@ OBJETIVOS:
 *                                           IMPLEMENTACION DEL METODO                                           *
 *---------------------------------------------------------------------------------------------------------------*/
 
-public RestJaxRsActivator(String artifactId,String groupId,Entidad entity,LinkedHashSet<String> imports) throws IOException {
-
-//>>INICIALIZACION DE ATRIBUTOS
-      this.entity = entity;
-      this.atributos = entity.getAtributos();
-      this.relations = entity.getRelations();
-//>>FIN INICIALIZACION DE ATRIBUTOS
+public RestJaxRsActivator(String groupId) throws IOException {
 
 //>>GENERACION DEL ARCHIVO
-      line("package "+groupId+";\n");
+      line("package "+groupId+".rest;\n");
 
       line("import javax.ws.rs.ApplicationPath;");
-      line("import javax.ws.rs.core.Application;");
+      line("import javax.ws.rs.core.Application;\n");
 
       line("@ApplicationPath(\"/rest\")");
       line("public class JaxRsActivator extends Application {");
