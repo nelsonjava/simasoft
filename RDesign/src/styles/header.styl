@@ -1,0 +1,82 @@
+.header
+  font-family 'Montserrat'
+  background-color $black
+  color $white
+  height 64px
+  position fixed
+  top 0
+  left 0
+  width 100%
+  z-index 10
+  display flex
+  flex-direction column
+
+  &--light
+    background-color $white
+    color $black
+
+  &-mobile
+    display flex
+    justify-content space-between
+
+  &-logo
+    order 1
+    margin-left 1rem
+    padding 0
+    line-height 64px
+
+  &-btn-nav
+    display block
+    order 2
+    border 0
+    border-radius .4em
+    background-color $black
+    color $white
+    padding 0
+    margin 1em
+
+  &-menu-navbar
+    background-color $black
+
+  &-menu-list
+    list-style-type none
+    height 0
+    overflow hidden
+    transition height 0.3s ease
+
+    &--show
+      height 280px
+
+    &-item
+      a
+        text-decoration none
+        color $white
+        width 100%
+        padding 1.5em
+        display block
+
+@media (min-width: 768px)
+  .header
+    flex-direction row
+    flex-wrap wrap
+    justify-content space-between
+    height 80px
+    transition all .3s ease
+    font-size 1.2em
+    overflow visible
+
+    &-btn-nav
+      display none
+
+    &-logo
+      margin-left 2rem
+      order 1
+
+    &-menu-navbar
+      order 2
+
+    &-menu-list
+      height 100%
+
+      &-item
+        display inline-block
