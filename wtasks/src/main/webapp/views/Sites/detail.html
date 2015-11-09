@@ -1,0 +1,98 @@
+<header ng-switch on="$location.path().indexOf('/Sites/new') > -1">
+    <h3 ng-switch-when="true">Create a new Sites</h3>
+    <h3 ng-switch-when="false">View or edit Sites</h3>
+</header>
+<form id="SitesForm" name="SitesForm" class="form-horizontal" role="form">
+    
+
+    <div class="form-group" ng-class="{'has-error': SitesForm.orden.$invalid}">
+        <label for="orden" class="col-sm-2 control-label">Orden</label>
+        <div id="ordenControls" class="col-sm-10">
+            <input id="orden" name="orden" type="number" class="form-control" ng-model="sites.orden" placeholder="Enter the Sites Orden"></input>
+            <span class="help-block error" ng-show="SitesForm.orden.$error.number">not a number</span>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': SitesForm.observations.$invalid}">
+        <label for="observations" class="col-sm-2 control-label">Observations</label>
+        <div id="observationsControls" class="col-sm-10">
+            <input id="observations" name="observations" type="text" class="form-control" ng-model="sites.observations" placeholder="Enter the Sites Observations"></input>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': SitesForm.abc.$invalid}">
+        <label for="abc" class="col-sm-2 control-label">Abc</label>
+        <div id="abcControls" class="col-sm-10">
+            <input id="abc" name="abc" type="text" class="form-control" ng-model="sites.abc" placeholder="Enter the Sites Abc"></input>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': SitesForm.link.$invalid}">
+        <label for="link" class="col-sm-2 control-label">Link</label>
+        <div id="linkControls" class="col-sm-10">
+            <input id="link" name="link" type="text" required class="form-control" ng-model="sites.link" placeholder="Enter the Sites Link"></input>
+            <span class="help-block error" ng-show="SitesForm.link.$error.required">required</span> 
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': SitesForm.title.$invalid}">
+        <label for="title" class="col-sm-2 control-label">Title</label>
+        <div id="titleControls" class="col-sm-10">
+            <input id="title" name="title" type="text" class="form-control" ng-model="sites.title" placeholder="Enter the Sites Title"></input>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': SitesForm.tasks.$invalid}">
+        <label for="tasks" class="col-sm-2 control-label">Tasks</label>
+        <div id="tasksControls" class="col-sm-10">
+            <select id="tasks" name="tasks" multiple class="form-control" ng-model="tasksSelection" ng-options="t.text for t in tasksSelectionList">
+                <option value="">Choose a Tasks</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': SitesForm.guides.$invalid}">
+        <label for="guides" class="col-sm-2 control-label">Guides</label>
+        <div id="guidesControls" class="col-sm-10">
+            <select id="guides" name="guides" multiple class="form-control" ng-model="guidesSelection" ng-options="g.text for g in guidesSelectionList">
+                <option value="">Choose a Guides</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': SitesForm.sitesTypes.$invalid}">
+        <label for="sitesTypes" class="col-sm-2 control-label">Sites Types</label>
+        <div id="sitesTypesControls" class="col-sm-10">
+            <select id="sitesTypes" name="sitesTypes" multiple class="form-control" ng-model="sitesTypesSelection" ng-options="s.text for s in sitesTypesSelectionList">
+                <option value="">Choose a Sites Types</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': SitesForm.activities.$invalid}">
+        <label for="activities" class="col-sm-2 control-label">Activities</label>
+        <div id="activitiesControls" class="col-sm-10">
+            <select id="activities" name="activities" multiple class="form-control" ng-model="activitiesSelection" ng-options="a.text for a in activitiesSelectionList">
+                <option value="">Choose a Activities</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': SitesForm.activitiesTypes.$invalid}">
+        <label for="activitiesTypes" class="col-sm-2 control-label">Activities Types</label>
+        <div id="activitiesTypesControls" class="col-sm-10">
+            <select id="activitiesTypes" name="activitiesTypes" multiple class="form-control" ng-model="activitiesTypesSelection" ng-options="a.text for a in activitiesTypesSelectionList">
+                <option value="">Choose a Activities Types</option>
+            </select>
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button id="saveSites" name="saveSites" class="btn btn-primary" ng-disabled="isClean() || SitesForm.$invalid" ng-click="save()"><span class="glyphicon glyphicon-ok-sign"></span> Save</button>
+            <button id="cancel" name="cancel" class="btn btn-default" ng-click="cancel()"><span class="glyphicon glyphicon-remove-sign"></span> Cancel</button>
+            <button id="deleteSites" name="deleteSites" class="btn btn-danger" ng-show="sites.id" ng-click="remove()"><span class="glyphicon glyphicon-trash"></span> Delete</button>
+        </div>
+    </div>
+</form>

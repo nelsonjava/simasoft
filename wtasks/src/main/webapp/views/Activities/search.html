@@ -1,0 +1,136 @@
+<div class="form-horizontal">
+    <h3>Create a new Activities</h3>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-sm-2">
+            <a id="Create" name="Create" class="btn btn-primary" href="#/Activities/new"><span class="glyphicon glyphicon-plus-sign"></span> Create</a>
+        </div>
+    </div>
+</div>
+<hr/>
+<div>
+    <h3>Search for Activities</h3>
+    <form id="ActivitiesSearch" class="form-horizontal">
+        
+
+    <div class="form-group">
+        <label for="orden" class="col-sm-2 control-label">Orden</label>
+        <div class="col-sm-10">
+            <input id="orden" name="orden" class="form-control" type="text" ng-model="search.orden" placeholder="Enter the Activities Orden"></input>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="observations" class="col-sm-2 control-label">Observations</label>
+        <div class="col-sm-10">
+            <input id="observations" name="observations" class="form-control" type="text" ng-model="search.observations" placeholder="Enter the Activities Observations"></input>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="name" class="col-sm-2 control-label">Name</label>
+        <div class="col-sm-10">
+            <input id="name" name="name" class="form-control" type="text" ng-model="search.name" placeholder="Enter the Activities Name"></input>
+        </div>
+    </div>
+
+
+
+
+
+    <div class="form-group">
+        <label for="priority" class="col-sm-2 control-label">Priority</label>
+        <div class="col-sm-10">
+            <input id="priority" name="priority" class="form-control" type="text" ng-model="search.priority" placeholder="Enter the Activities Priority"></input>
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <div class="form-group">
+        <label for="activitiesTypes" class="col-sm-2 control-label">Activities Types</label>
+        <div class="col-sm-10">
+            <select id="activitiesTypes" name="activitiesTypes" class="form-control" ng-model="search.activitiesTypes" ng-options="a as a.orden for a in activitiesTypesList">
+                <option value="">Choose a Activities Types</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="guides" class="col-sm-2 control-label">Guides</label>
+        <div class="col-sm-10">
+            <select id="guides" name="guides" class="form-control" ng-model="search.guides" ng-options="g as g.orden for g in guidesList">
+                <option value="">Choose a Guides</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="objPadre" class="col-sm-2 control-label">Obj Padre</label>
+        <div class="col-sm-10">
+            <select id="objPadre" name="objPadre" class="form-control" ng-model="search.objPadre" ng-options="o as o.orden for o in objPadreList">
+                <option value="">Choose a Obj Padre</option>
+            </select>
+        </div>
+    </div>
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-sm-10">
+                <a id="Search" name="Search" class="btn btn-primary" ng-click="performSearch()"><span class="glyphicon glyphicon-search"></span> Search</a>
+            </div>
+        </div>
+    </form>
+</div>
+<div id="search-results">
+        <div class="table-responsive">
+        <table class="table table-responsive table-bordered table-striped clearfix">
+            <thead>
+                <tr>
+                    <th>Orden</th>
+                    <th>Observations</th>
+                    <th>Name</th>
+                    <th>Start Date</th>
+                    <th>Optimistic Date</th>
+                    <th>Pessimistic Date</th>
+                    <th>Final Date</th>
+                    <th>Priority</th>
+                    <th>Activities Types</th>
+                    <th>Guides</th>
+                    <th>Obj Padre</th>
+                </tr>
+            </thead>
+            <tbody id="search-results-body">
+                <tr ng-repeat="result in filteredResults | startFrom:currentPage*pageSize | limitTo:pageSize">
+                    <td><a href="#/Activities/edit/{{result.id}}">{{result.orden}}</a></td>
+                    <td><a href="#/Activities/edit/{{result.id}}">{{result.observations}}</a></td>
+                    <td><a href="#/Activities/edit/{{result.id}}">{{result.name}}</a></td>
+                    <td><a href="#/Activities/edit/{{result.id}}">{{result.startDate| date:'mediumDate'}}</a></td>
+                    <td><a href="#/Activities/edit/{{result.id}}">{{result.optimisticDate| date:'mediumDate'}}</a></td>
+                    <td><a href="#/Activities/edit/{{result.id}}">{{result.pessimisticDate| date:'mediumDate'}}</a></td>
+                    <td><a href="#/Activities/edit/{{result.id}}">{{result.finalDate| date:'mediumDate'}}</a></td>
+                    <td><a href="#/Activities/edit/{{result.id}}">{{result.priority}}</a></td>
+                        <td><a href="#/Activities/edit/{{result.id}}">{{result.activitiesTypes.orden}}</a></td>
+                        <td><a href="#/Activities/edit/{{result.id}}">{{result.guides.orden}}</a></td>
+                        <td><a href="#/Activities/edit/{{result.id}}">{{result.objPadre.orden}}</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+        <ul class="pagination pagination-centered">
+        <li ng-class="{disabled:currentPage == 0}">
+            <a id="prev" href ng-click="previous()">«</a>
+        </li>
+        <li ng-repeat="n in pageRange" ng-class="{active:currentPage == n}" ng-click="setPage(n)">
+            <a href ng-bind="n + 1">1</a>
+        </li>
+        <li ng-class="{disabled: currentPage == (numberOfPages() - 1)}">
+            <a id="next" href ng-click="next()">»</a>
+        </li>
+    </ul>
+
+</div>

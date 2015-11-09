@@ -1,0 +1,65 @@
+<header ng-switch on="$location.path().indexOf('/SitesTypes/new') > -1">
+    <h3 ng-switch-when="true">Create a new SitesTypes</h3>
+    <h3 ng-switch-when="false">View or edit SitesTypes</h3>
+</header>
+<form id="SitesTypesForm" name="SitesTypesForm" class="form-horizontal" role="form">
+    
+
+    <div class="form-group" ng-class="{'has-error': SitesTypesForm.orden.$invalid}">
+        <label for="orden" class="col-sm-2 control-label">Orden</label>
+        <div id="ordenControls" class="col-sm-10">
+            <input id="orden" name="orden" type="number" class="form-control" ng-model="sitesTypes.orden" placeholder="Enter the SitesTypes Orden"></input>
+            <span class="help-block error" ng-show="SitesTypesForm.orden.$error.number">not a number</span>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': SitesTypesForm.observations.$invalid}">
+        <label for="observations" class="col-sm-2 control-label">Observations</label>
+        <div id="observationsControls" class="col-sm-10">
+            <input id="observations" name="observations" type="text" class="form-control" ng-model="sitesTypes.observations" placeholder="Enter the SitesTypes Observations"></input>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': SitesTypesForm.name.$invalid}">
+        <label for="name" class="col-sm-2 control-label">Name</label>
+        <div id="nameControls" class="col-sm-10">
+            <input id="name" name="name" type="text" class="form-control" ng-model="sitesTypes.name" placeholder="Enter the SitesTypes Name"></input>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': SitesTypesForm.objHijos.$invalid}">
+        <label for="objHijos" class="col-sm-2 control-label">Obj Hijos</label>
+        <div id="objHijosControls" class="col-sm-10">
+            <select id="objHijos" name="objHijos" multiple class="form-control" ng-model="objHijosSelection" ng-options="o.text for o in objHijosSelectionList">
+                <option value="">Choose a Obj Hijos</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': SitesTypesForm.sites.$invalid}">
+        <label for="sites" class="col-sm-2 control-label">Sites</label>
+        <div id="sitesControls" class="col-sm-10">
+            <select id="sites" name="sites" multiple class="form-control" ng-model="sitesSelection" ng-options="s.text for s in sitesSelectionList">
+                <option value="">Choose a Sites</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': SitesTypesForm.objPadre.$invalid}">
+        <label for="objPadre" class="col-sm-2 control-label">Obj Padre</label>
+        <div id="objPadreControls" class="col-sm-10">
+        <select id="objPadre" name="objPadre" class="form-control" ng-model="objPadreSelection" ng-options="o.text for o in objPadreSelectionList"  >
+            <option value="">Choose a Obj Padre</option>
+        </select>
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button id="saveSitesTypes" name="saveSitesTypes" class="btn btn-primary" ng-disabled="isClean() || SitesTypesForm.$invalid" ng-click="save()"><span class="glyphicon glyphicon-ok-sign"></span> Save</button>
+            <button id="cancel" name="cancel" class="btn btn-default" ng-click="cancel()"><span class="glyphicon glyphicon-remove-sign"></span> Cancel</button>
+            <button id="deleteSitesTypes" name="deleteSitesTypes" class="btn btn-danger" ng-show="sitesTypes.id" ng-click="remove()"><span class="glyphicon glyphicon-trash"></span> Delete</button>
+        </div>
+    </div>
+</form>

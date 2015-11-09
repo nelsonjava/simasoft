@@ -9,31 +9,47 @@
   <!-- mvn wildfly:undeploy -->
   <!-- mvn clean package wildfly:deploy -->
   <!-- http://localhost:8080 -->
-  <!-- http://localhost:8080/naifg -->
+  <!-- http://localhost:8080/wtasks -->
   <!-- http://localhost:8080/auth/ -->
-  <!-- JAVA_OPTS = -Xms512m -Xmx512m -XX:PermSize=256m -XX:MaxPermSize=512m -->
-  <!-- https://github.com/forge/docs/blob/master/tutorials/forge-hol/scripts/generate.fsh  -->
 
   <modelVersion>4.0.0</modelVersion>
-
-  <groupId>co.simasoft</groupId>
-  <artifactId>naifg</artifactId>
+  <groupId>org.wtasks</groupId>
+  <artifactId>wtasks</artifactId>
   <version>1.0.0-SNAPSHOT</version>
   <packaging>war</packaging>
 
   <properties>
+    <maven.compiler.source>1.7</maven.compiler.source>
+    <maven.compiler.target>1.7</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 
   <dependencyManagement>
     <dependencies>
 
+      <!-- Define the version of JBoss' Java EE 7 APIs we want to import.
+           Any dependencies from org.jboss.spec will have their version defined by this
+           BOM -->
+      <!-- JBoss distributes a complete set of Java EE 7 APIs including
+           a Bill of Materials (BOM). A BOM specifies the versions of a "stack" (or
+           a collection) of artifacts. We use this here so that we always get the correct
+           versions of artifacts. Here we use the jboss-javaee-7.0 stack (you can
+           read this as the JBoss stack of the Java EE 7 APIs). You can actually
+           use this stack with any version of WildFly that implements Java EE 7, not
+           just WildFly 8! -->
       <dependency>
         <groupId>org.jboss.spec</groupId>
         <artifactId>jboss-javaee-7.0</artifactId>
         <version>1.0.0.Final</version>
         <type>pom</type>
         <scope>import</scope>
+      </dependency>
+
+      <dependency>
+        <groupId>javax.annotation</groupId>
+        <artifactId>jsr250-api</artifactId>
+        <version>1.0</version>
+        <scope>provided</scope>
       </dependency>
 
       <dependency>
@@ -78,12 +94,18 @@
       <artifactId>simasoft</artifactId>
       <version>1.0-SNAPSHOT</version>
     </dependency>
-    
+
     <dependency>
-      <groupId>com.googlecode.json-simple</groupId>
-      <artifactId>json-simple</artifactId>
-      <version>1.1</version>
-    </dependency>    
+      <groupId>org.keycloak</groupId>
+      <artifactId>keycloak-core</artifactId>
+      <version>1.5.0.Final</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.keycloak</groupId>
+      <artifactId>keycloak-adapter-core</artifactId>
+      <version>1.5.0.Final</version>
+    </dependency>
 
     <dependency>
       <groupId>org.primefaces</groupId>
@@ -95,6 +117,42 @@
     <dependency>
       <groupId>org.hibernate.ogm</groupId>
       <artifactId>hibernate-ogm-mongodb</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.hibernate.javax.persistence</groupId>
+      <artifactId>hibernate-jpa-2.0-api</artifactId>
+      <scope>provided</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>javax.enterprise</groupId>
+      <artifactId>cdi-api</artifactId>
+      <scope>provided</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>javax.annotation</groupId>
+      <artifactId>jsr250-api</artifactId>
+      <scope>provided</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.jboss.spec.javax.ejb</groupId>
+      <artifactId>jboss-ejb-api_3.1_spec</artifactId>
+      <scope>provided</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.jboss.spec.javax.servlet</groupId>
+      <artifactId>jboss-servlet-api_3.0_spec</artifactId>
+      <scope>provided</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.jboss.spec.javax.ws.rs</groupId>
+      <artifactId>jboss-jaxrs-api_1.1_spec</artifactId>
+      <scope>provided</scope>
     </dependency>
 
     <dependency>

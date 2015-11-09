@@ -1,0 +1,56 @@
+<header ng-switch on="$location.path().indexOf('/Calendars/new') > -1">
+    <h3 ng-switch-when="true">Create a new Calendars</h3>
+    <h3 ng-switch-when="false">View or edit Calendars</h3>
+</header>
+<form id="CalendarsForm" name="CalendarsForm" class="form-horizontal" role="form">
+    
+
+    <div class="form-group" ng-class="{'has-error': CalendarsForm.orden.$invalid}">
+        <label for="orden" class="col-sm-2 control-label">Orden</label>
+        <div id="ordenControls" class="col-sm-10">
+            <input id="orden" name="orden" type="number" class="form-control" ng-model="calendars.orden" placeholder="Enter the Calendars Orden"></input>
+            <span class="help-block error" ng-show="CalendarsForm.orden.$error.number">not a number</span>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': CalendarsForm.observations.$invalid}">
+        <label for="observations" class="col-sm-2 control-label">Observations</label>
+        <div id="observationsControls" class="col-sm-10">
+            <input id="observations" name="observations" type="text" class="form-control" ng-model="calendars.observations" placeholder="Enter the Calendars Observations"></input>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': CalendarsForm.name.$invalid}">
+        <label for="name" class="col-sm-2 control-label">Name</label>
+        <div id="nameControls" class="col-sm-10">
+            <input id="name" name="name" type="text" required class="form-control" ng-model="calendars.name" placeholder="Enter the Calendars Name"></input>
+            <span class="help-block error" ng-show="CalendarsForm.name.$error.required">required</span> 
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': CalendarsForm.date.$invalid}">
+        <label for="date" class="col-sm-2 control-label">Date</label>
+        <div id="dateControls" class="col-sm-10">
+            <date id="date" name="date" ng-model="calendars.date" placeholder="Enter the Calendars Date"></date>
+            <span class="help-block error" ng-show="CalendarsForm.date.$error.dateFormat">does not match format "yyyy-MM-dd" (e.g. 2013-12-01)</span>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': CalendarsForm.activities.$invalid}">
+        <label for="activities" class="col-sm-2 control-label">Activities</label>
+        <div id="activitiesControls" class="col-sm-10">
+            <select id="activities" name="activities" multiple class="form-control" ng-model="activitiesSelection" ng-options="a.text for a in activitiesSelectionList">
+                <option value="">Choose a Activities</option>
+            </select>
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button id="saveCalendars" name="saveCalendars" class="btn btn-primary" ng-disabled="isClean() || CalendarsForm.$invalid" ng-click="save()"><span class="glyphicon glyphicon-ok-sign"></span> Save</button>
+            <button id="cancel" name="cancel" class="btn btn-default" ng-click="cancel()"><span class="glyphicon glyphicon-remove-sign"></span> Cancel</button>
+            <button id="deleteCalendars" name="deleteCalendars" class="btn btn-danger" ng-show="calendars.id" ng-click="remove()"><span class="glyphicon glyphicon-trash"></span> Delete</button>
+        </div>
+    </div>
+</form>

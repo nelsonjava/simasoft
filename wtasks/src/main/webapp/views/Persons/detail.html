@@ -1,0 +1,107 @@
+<header ng-switch on="$location.path().indexOf('/Persons/new') > -1">
+    <h3 ng-switch-when="true">Create a new Persons</h3>
+    <h3 ng-switch-when="false">View or edit Persons</h3>
+</header>
+<form id="PersonsForm" name="PersonsForm" class="form-horizontal" role="form">
+    
+
+    <div class="form-group" ng-class="{'has-error': PersonsForm.orden.$invalid}">
+        <label for="orden" class="col-sm-2 control-label">Orden</label>
+        <div id="ordenControls" class="col-sm-10">
+            <input id="orden" name="orden" type="number" class="form-control" ng-model="persons.orden" placeholder="Enter the Persons Orden"></input>
+            <span class="help-block error" ng-show="PersonsForm.orden.$error.number">not a number</span>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': PersonsForm.observations.$invalid}">
+        <label for="observations" class="col-sm-2 control-label">Observations</label>
+        <div id="observationsControls" class="col-sm-10">
+            <input id="observations" name="observations" type="text" class="form-control" ng-model="persons.observations" placeholder="Enter the Persons Observations"></input>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': PersonsForm.email.$invalid}">
+        <label for="email" class="col-sm-2 control-label">Email</label>
+        <div id="emailControls" class="col-sm-10">
+            <input id="email" name="email" type="text" class="form-control" ng-model="persons.email" placeholder="Enter the Persons Email"></input>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': PersonsForm.firstLastName.$invalid}">
+        <label for="firstLastName" class="col-sm-2 control-label">First Last Name</label>
+        <div id="firstLastNameControls" class="col-sm-10">
+            <input id="firstLastName" name="firstLastName" type="text" class="form-control" ng-model="persons.firstLastName" placeholder="Enter the Persons First Last Name"></input>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': PersonsForm.secondLastName.$invalid}">
+        <label for="secondLastName" class="col-sm-2 control-label">Second Last Name</label>
+        <div id="secondLastNameControls" class="col-sm-10">
+            <input id="secondLastName" name="secondLastName" type="text" class="form-control" ng-model="persons.secondLastName" placeholder="Enter the Persons Second Last Name"></input>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': PersonsForm.firstName.$invalid}">
+        <label for="firstName" class="col-sm-2 control-label">First Name</label>
+        <div id="firstNameControls" class="col-sm-10">
+            <input id="firstName" name="firstName" type="text" class="form-control" ng-model="persons.firstName" placeholder="Enter the Persons First Name"></input>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': PersonsForm.secondName.$invalid}">
+        <label for="secondName" class="col-sm-2 control-label">Second Name</label>
+        <div id="secondNameControls" class="col-sm-10">
+            <input id="secondName" name="secondName" type="text" class="form-control" ng-model="persons.secondName" placeholder="Enter the Persons Second Name"></input>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': PersonsForm.address.$invalid}">
+        <label for="address" class="col-sm-2 control-label">Address</label>
+        <div id="addressControls" class="col-sm-10">
+            <input id="address" name="address" type="text" class="form-control" ng-model="persons.address" placeholder="Enter the Persons Address"></input>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': PersonsForm.telephones.$invalid}">
+        <label for="telephones" class="col-sm-2 control-label">Telephones</label>
+        <div id="telephonesControls" class="col-sm-10">
+            <input id="telephones" name="telephones" type="text" class="form-control" ng-model="persons.telephones" placeholder="Enter the Persons Telephones"></input>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': PersonsForm.sections.$invalid}">
+        <label for="sections" class="col-sm-2 control-label">Sections</label>
+        <div id="sectionsControls" class="col-sm-10">
+            <select id="sections" name="sections" multiple class="form-control" ng-model="sectionsSelection" ng-options="s.text for s in sectionsSelectionList">
+                <option value="">Choose a Sections</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': PersonsForm.tasks.$invalid}">
+        <label for="tasks" class="col-sm-2 control-label">Tasks</label>
+        <div id="tasksControls" class="col-sm-10">
+            <select id="tasks" name="tasks" multiple class="form-control" ng-model="tasksSelection" ng-options="t.text for t in tasksSelectionList">
+                <option value="">Choose a Tasks</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': PersonsForm.activities.$invalid}">
+        <label for="activities" class="col-sm-2 control-label">Activities</label>
+        <div id="activitiesControls" class="col-sm-10">
+            <select id="activities" name="activities" multiple class="form-control" ng-model="activitiesSelection" ng-options="a.text for a in activitiesSelectionList">
+                <option value="">Choose a Activities</option>
+            </select>
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button id="savePersons" name="savePersons" class="btn btn-primary" ng-disabled="isClean() || PersonsForm.$invalid" ng-click="save()"><span class="glyphicon glyphicon-ok-sign"></span> Save</button>
+            <button id="cancel" name="cancel" class="btn btn-default" ng-click="cancel()"><span class="glyphicon glyphicon-remove-sign"></span> Cancel</button>
+            <button id="deletePersons" name="deletePersons" class="btn btn-danger" ng-show="persons.id" ng-click="remove()"><span class="glyphicon glyphicon-trash"></span> Delete</button>
+        </div>
+    </div>
+</form>

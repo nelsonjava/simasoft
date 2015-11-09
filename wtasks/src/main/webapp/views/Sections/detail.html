@@ -1,0 +1,88 @@
+<header ng-switch on="$location.path().indexOf('/Sections/new') > -1">
+    <h3 ng-switch-when="true">Create a new Sections</h3>
+    <h3 ng-switch-when="false">View or edit Sections</h3>
+</header>
+<form id="SectionsForm" name="SectionsForm" class="form-horizontal" role="form">
+    
+
+    <div class="form-group" ng-class="{'has-error': SectionsForm.orden.$invalid}">
+        <label for="orden" class="col-sm-2 control-label">Orden</label>
+        <div id="ordenControls" class="col-sm-10">
+            <input id="orden" name="orden" type="number" class="form-control" ng-model="sections.orden" placeholder="Enter the Sections Orden"></input>
+            <span class="help-block error" ng-show="SectionsForm.orden.$error.number">not a number</span>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': SectionsForm.observations.$invalid}">
+        <label for="observations" class="col-sm-2 control-label">Observations</label>
+        <div id="observationsControls" class="col-sm-10">
+            <input id="observations" name="observations" type="text" class="form-control" ng-model="sections.observations" placeholder="Enter the Sections Observations"></input>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': SectionsForm.email.$invalid}">
+        <label for="email" class="col-sm-2 control-label">Email</label>
+        <div id="emailControls" class="col-sm-10">
+            <input id="email" name="email" type="text" class="form-control" ng-model="sections.email" placeholder="Enter the Sections Email"></input>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': SectionsForm.code.$invalid}">
+        <label for="code" class="col-sm-2 control-label">Code</label>
+        <div id="codeControls" class="col-sm-10">
+            <input id="code" name="code" type="text" class="form-control" ng-model="sections.code" placeholder="Enter the Sections Code"></input>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': SectionsForm.name.$invalid}">
+        <label for="name" class="col-sm-2 control-label">Name</label>
+        <div id="nameControls" class="col-sm-10">
+            <input id="name" name="name" type="text" class="form-control" ng-model="sections.name" placeholder="Enter the Sections Name"></input>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': SectionsForm.objHijos.$invalid}">
+        <label for="objHijos" class="col-sm-2 control-label">Obj Hijos</label>
+        <div id="objHijosControls" class="col-sm-10">
+            <select id="objHijos" name="objHijos" multiple class="form-control" ng-model="objHijosSelection" ng-options="o.text for o in objHijosSelectionList">
+                <option value="">Choose a Obj Hijos</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': SectionsForm.persons.$invalid}">
+        <label for="persons" class="col-sm-2 control-label">Persons</label>
+        <div id="personsControls" class="col-sm-10">
+        <select id="persons" name="persons" class="form-control" ng-model="personsSelection" ng-options="p.text for p in personsSelectionList"  >
+            <option value="">Choose a Persons</option>
+        </select>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': SectionsForm.activities.$invalid}">
+        <label for="activities" class="col-sm-2 control-label">Activities</label>
+        <div id="activitiesControls" class="col-sm-10">
+            <select id="activities" name="activities" multiple class="form-control" ng-model="activitiesSelection" ng-options="a.text for a in activitiesSelectionList">
+                <option value="">Choose a Activities</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': SectionsForm.objPadre.$invalid}">
+        <label for="objPadre" class="col-sm-2 control-label">Obj Padre</label>
+        <div id="objPadreControls" class="col-sm-10">
+        <select id="objPadre" name="objPadre" class="form-control" ng-model="objPadreSelection" ng-options="o.text for o in objPadreSelectionList"  >
+            <option value="">Choose a Obj Padre</option>
+        </select>
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button id="saveSections" name="saveSections" class="btn btn-primary" ng-disabled="isClean() || SectionsForm.$invalid" ng-click="save()"><span class="glyphicon glyphicon-ok-sign"></span> Save</button>
+            <button id="cancel" name="cancel" class="btn btn-default" ng-click="cancel()"><span class="glyphicon glyphicon-remove-sign"></span> Cancel</button>
+            <button id="deleteSections" name="deleteSections" class="btn btn-danger" ng-show="sections.id" ng-click="remove()"><span class="glyphicon glyphicon-trash"></span> Delete</button>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,83 @@
+<header ng-switch on="$location.path().indexOf('/Tasks/new') > -1">
+    <h3 ng-switch-when="true">Create a new Tasks</h3>
+    <h3 ng-switch-when="false">View or edit Tasks</h3>
+</header>
+<form id="TasksForm" name="TasksForm" class="form-horizontal" role="form">
+    
+
+    <div class="form-group" ng-class="{'has-error': TasksForm.orden.$invalid}">
+        <label for="orden" class="col-sm-2 control-label">Orden</label>
+        <div id="ordenControls" class="col-sm-10">
+            <input id="orden" name="orden" type="number" class="form-control" ng-model="tasks.orden" placeholder="Enter the Tasks Orden"></input>
+            <span class="help-block error" ng-show="TasksForm.orden.$error.number">not a number</span>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': TasksForm.observations.$invalid}">
+        <label for="observations" class="col-sm-2 control-label">Observations</label>
+        <div id="observationsControls" class="col-sm-10">
+            <input id="observations" name="observations" type="text" class="form-control" ng-model="tasks.observations" placeholder="Enter the Tasks Observations"></input>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': TasksForm.finalDate.$invalid}">
+        <label for="finalDate" class="col-sm-2 control-label">Final Date</label>
+        <div id="finalDateControls" class="col-sm-10">
+            <date id="finalDate" name="finalDate" ng-model="tasks.finalDate" placeholder="Enter the Tasks Final Date"></date>
+            <span class="help-block error" ng-show="TasksForm.finalDate.$error.dateFormat">does not match format "yyyy-MM-dd" (e.g. 2013-12-01)</span>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': TasksForm.title.$invalid}">
+        <label for="title" class="col-sm-2 control-label">Title</label>
+        <div id="titleControls" class="col-sm-10">
+            <input id="title" name="title" type="text" required class="form-control" ng-model="tasks.title" placeholder="Enter the Tasks Title"></input>
+            <span class="help-block error" ng-show="TasksForm.title.$error.required">required</span> 
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': TasksForm.startDate.$invalid}">
+        <label for="startDate" class="col-sm-2 control-label">Start Date</label>
+        <div id="startDateControls" class="col-sm-10">
+            <date id="startDate" name="startDate" required ng-model="tasks.startDate" placeholder="Enter the Tasks Start Date"></date>
+            <span class="help-block error" ng-show="TasksForm.startDate.$error.required">required</span> 
+            <span class="help-block error" ng-show="TasksForm.startDate.$error.dateFormat">does not match format "yyyy-MM-dd" (e.g. 2013-12-01)</span>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': TasksForm.persons.$invalid}">
+        <label for="persons" class="col-sm-2 control-label">Persons</label>
+        <div id="personsControls" class="col-sm-10">
+        <select id="persons" name="persons" class="form-control" ng-model="personsSelection" ng-options="p.text for p in personsSelectionList"  >
+            <option value="">Choose a Persons</option>
+        </select>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': TasksForm.sites.$invalid}">
+        <label for="sites" class="col-sm-2 control-label">Sites</label>
+        <div id="sitesControls" class="col-sm-10">
+            <select id="sites" name="sites" multiple class="form-control" ng-model="sitesSelection" ng-options="s.text for s in sitesSelectionList">
+                <option value="">Choose a Sites</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': TasksForm.activities.$invalid}">
+        <label for="activities" class="col-sm-2 control-label">Activities</label>
+        <div id="activitiesControls" class="col-sm-10">
+        <select id="activities" name="activities" class="form-control" ng-model="activitiesSelection" ng-options="a.text for a in activitiesSelectionList"  >
+            <option value="">Choose a Activities</option>
+        </select>
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button id="saveTasks" name="saveTasks" class="btn btn-primary" ng-disabled="isClean() || TasksForm.$invalid" ng-click="save()"><span class="glyphicon glyphicon-ok-sign"></span> Save</button>
+            <button id="cancel" name="cancel" class="btn btn-default" ng-click="cancel()"><span class="glyphicon glyphicon-remove-sign"></span> Cancel</button>
+            <button id="deleteTasks" name="deleteTasks" class="btn btn-danger" ng-show="tasks.id" ng-click="remove()"><span class="glyphicon glyphicon-trash"></span> Delete</button>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,133 @@
+<div class="form-horizontal">
+    <h3>Create a new Persons</h3>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-sm-2">
+            <a id="Create" name="Create" class="btn btn-primary" href="#/Persons/new"><span class="glyphicon glyphicon-plus-sign"></span> Create</a>
+        </div>
+    </div>
+</div>
+<hr/>
+<div>
+    <h3>Search for Persons</h3>
+    <form id="PersonsSearch" class="form-horizontal">
+        
+
+    <div class="form-group">
+        <label for="orden" class="col-sm-2 control-label">Orden</label>
+        <div class="col-sm-10">
+            <input id="orden" name="orden" class="form-control" type="text" ng-model="search.orden" placeholder="Enter the Persons Orden"></input>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="observations" class="col-sm-2 control-label">Observations</label>
+        <div class="col-sm-10">
+            <input id="observations" name="observations" class="form-control" type="text" ng-model="search.observations" placeholder="Enter the Persons Observations"></input>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="email" class="col-sm-2 control-label">Email</label>
+        <div class="col-sm-10">
+            <input id="email" name="email" class="form-control" type="text" ng-model="search.email" placeholder="Enter the Persons Email"></input>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="firstLastName" class="col-sm-2 control-label">First Last Name</label>
+        <div class="col-sm-10">
+            <input id="firstLastName" name="firstLastName" class="form-control" type="text" ng-model="search.firstLastName" placeholder="Enter the Persons First Last Name"></input>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="secondLastName" class="col-sm-2 control-label">Second Last Name</label>
+        <div class="col-sm-10">
+            <input id="secondLastName" name="secondLastName" class="form-control" type="text" ng-model="search.secondLastName" placeholder="Enter the Persons Second Last Name"></input>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="firstName" class="col-sm-2 control-label">First Name</label>
+        <div class="col-sm-10">
+            <input id="firstName" name="firstName" class="form-control" type="text" ng-model="search.firstName" placeholder="Enter the Persons First Name"></input>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="secondName" class="col-sm-2 control-label">Second Name</label>
+        <div class="col-sm-10">
+            <input id="secondName" name="secondName" class="form-control" type="text" ng-model="search.secondName" placeholder="Enter the Persons Second Name"></input>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="address" class="col-sm-2 control-label">Address</label>
+        <div class="col-sm-10">
+            <input id="address" name="address" class="form-control" type="text" ng-model="search.address" placeholder="Enter the Persons Address"></input>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="telephones" class="col-sm-2 control-label">Telephones</label>
+        <div class="col-sm-10">
+            <input id="telephones" name="telephones" class="form-control" type="text" ng-model="search.telephones" placeholder="Enter the Persons Telephones"></input>
+        </div>
+    </div>
+
+
+
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-sm-10">
+                <a id="Search" name="Search" class="btn btn-primary" ng-click="performSearch()"><span class="glyphicon glyphicon-search"></span> Search</a>
+            </div>
+        </div>
+    </form>
+</div>
+<div id="search-results">
+        <div class="table-responsive">
+        <table class="table table-responsive table-bordered table-striped clearfix">
+            <thead>
+                <tr>
+                    <th>Orden</th>
+                    <th>Observations</th>
+                    <th>Email</th>
+                    <th>First Last Name</th>
+                    <th>Second Last Name</th>
+                    <th>First Name</th>
+                    <th>Second Name</th>
+                    <th>Address</th>
+                    <th>Telephones</th>
+                </tr>
+            </thead>
+            <tbody id="search-results-body">
+                <tr ng-repeat="result in filteredResults | startFrom:currentPage*pageSize | limitTo:pageSize">
+                    <td><a href="#/Persons/edit/{{result.id}}">{{result.orden}}</a></td>
+                    <td><a href="#/Persons/edit/{{result.id}}">{{result.observations}}</a></td>
+                    <td><a href="#/Persons/edit/{{result.id}}">{{result.email}}</a></td>
+                    <td><a href="#/Persons/edit/{{result.id}}">{{result.firstLastName}}</a></td>
+                    <td><a href="#/Persons/edit/{{result.id}}">{{result.secondLastName}}</a></td>
+                    <td><a href="#/Persons/edit/{{result.id}}">{{result.firstName}}</a></td>
+                    <td><a href="#/Persons/edit/{{result.id}}">{{result.secondName}}</a></td>
+                    <td><a href="#/Persons/edit/{{result.id}}">{{result.address}}</a></td>
+                    <td><a href="#/Persons/edit/{{result.id}}">{{result.telephones}}</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+        <ul class="pagination pagination-centered">
+        <li ng-class="{disabled:currentPage == 0}">
+            <a id="prev" href ng-click="previous()">«</a>
+        </li>
+        <li ng-repeat="n in pageRange" ng-class="{active:currentPage == n}" ng-click="setPage(n)">
+            <a href ng-bind="n + 1">1</a>
+        </li>
+        <li ng-class="{disabled: currentPage == (numberOfPages() - 1)}">
+            <a id="next" href ng-click="next()">»</a>
+        </li>
+    </ul>
+
+</div>

@@ -53,6 +53,7 @@
     <delete dir="sgdea/target" failonerror="no"/>
     <delete dir="task/target" failonerror="no"/>
     <delete dir="tasks/target" failonerror="no"/>
+    <delete dir="wtasks/target" failonerror="no"/>
     <delete dir="apprest/target" failonerror="no"/>
     <delete dir="users/target" failonerror="no"/>
 

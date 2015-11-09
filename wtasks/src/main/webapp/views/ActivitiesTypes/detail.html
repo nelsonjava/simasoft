@@ -1,0 +1,56 @@
+<header ng-switch on="$location.path().indexOf('/ActivitiesTypes/new') > -1">
+    <h3 ng-switch-when="true">Create a new ActivitiesTypes</h3>
+    <h3 ng-switch-when="false">View or edit ActivitiesTypes</h3>
+</header>
+<form id="ActivitiesTypesForm" name="ActivitiesTypesForm" class="form-horizontal" role="form">
+    
+
+    <div class="form-group" ng-class="{'has-error': ActivitiesTypesForm.orden.$invalid}">
+        <label for="orden" class="col-sm-2 control-label">Orden</label>
+        <div id="ordenControls" class="col-sm-10">
+            <input id="orden" name="orden" type="number" class="form-control" ng-model="activitiesTypes.orden" placeholder="Enter the ActivitiesTypes Orden"></input>
+            <span class="help-block error" ng-show="ActivitiesTypesForm.orden.$error.number">not a number</span>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': ActivitiesTypesForm.observations.$invalid}">
+        <label for="observations" class="col-sm-2 control-label">Observations</label>
+        <div id="observationsControls" class="col-sm-10">
+            <input id="observations" name="observations" type="text" class="form-control" ng-model="activitiesTypes.observations" placeholder="Enter the ActivitiesTypes Observations"></input>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': ActivitiesTypesForm.name.$invalid}">
+        <label for="name" class="col-sm-2 control-label">Name</label>
+        <div id="nameControls" class="col-sm-10">
+            <input id="name" name="name" type="text" class="form-control" ng-model="activitiesTypes.name" placeholder="Enter the ActivitiesTypes Name"></input>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': ActivitiesTypesForm.activities.$invalid}">
+        <label for="activities" class="col-sm-2 control-label">Activities</label>
+        <div id="activitiesControls" class="col-sm-10">
+            <select id="activities" name="activities" multiple class="form-control" ng-model="activitiesSelection" ng-options="a.text for a in activitiesSelectionList">
+                <option value="">Choose a Activities</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': ActivitiesTypesForm.sites.$invalid}">
+        <label for="sites" class="col-sm-2 control-label">Sites</label>
+        <div id="sitesControls" class="col-sm-10">
+            <select id="sites" name="sites" multiple class="form-control" ng-model="sitesSelection" ng-options="s.text for s in sitesSelectionList">
+                <option value="">Choose a Sites</option>
+            </select>
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button id="saveActivitiesTypes" name="saveActivitiesTypes" class="btn btn-primary" ng-disabled="isClean() || ActivitiesTypesForm.$invalid" ng-click="save()"><span class="glyphicon glyphicon-ok-sign"></span> Save</button>
+            <button id="cancel" name="cancel" class="btn btn-default" ng-click="cancel()"><span class="glyphicon glyphicon-remove-sign"></span> Cancel</button>
+            <button id="deleteActivitiesTypes" name="deleteActivitiesTypes" class="btn btn-danger" ng-show="activitiesTypes.id" ng-click="remove()"><span class="glyphicon glyphicon-trash"></span> Delete</button>
+        </div>
+    </div>
+</form>

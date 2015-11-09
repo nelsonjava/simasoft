@@ -528,6 +528,157 @@ line(Integer.toString(i++)+":"+entidad.getName());
       ioe.printStackTrace();
     }
     } // entiyWarH2()
+    
+/*
+---------------------------------------- ForgeRestH2() --------------------------
+*/
+
+    public void ForgeRestH2() throws IOException {
+    try {
+
+        clearFileTxt();
+
+        relationTo();
+
+        line("project-new --named r"+artifactId);
+
+        entiyForgeH2();
+
+        saveFile("\\docs.h2.rest","b"+artifactId+".fsh");
+
+    }
+    catch(Exception ioe) {
+      ioe.printStackTrace();
+    }
+
+    } // ForgeRestH2()
+
+/*
+---------------------------------------- ForgeWarH2() --------------------------
+*/
+
+    public void ForgeWarH2() throws IOException {
+    try {
+
+        clearFileTxt();
+
+        relationTo();
+
+        line("project-new --named w"+artifactId);
+        line("jpa-setup");
+        line("scaffold-setup --provider AngularJS\n");
+
+        entiyForgeH2();
+
+
+        saveFile("\\docs.h2.war","f"+artifactId+".fsh");
+
+    }
+    catch(Exception ioe) {
+      ioe.printStackTrace();
+    }
+
+    } // ForgeWartH2()
+
+/*
+---------------------------------------- entiyForgeH2() --------------------------
+*/
+
+    public void entiyForgeH2() throws IOException {
+    try {
+
+        for (Entidad entidad : entities) {
+
+            line("#  "+entidad.getName()+" entity");
+            line("#  ############");
+            line("jpa-new-entity --named "+entidad.getName());
+
+            for (Atributos attribute :  entidad.getAtributos()){
+
+                if (attribute.getType().equals("Date")){
+                   line("jpa-new-field --named "+attribute.getField()+" --type java.util.Date --temporalType TIMESTAMP");
+                }
+                else{
+                   line("jpa-new-field --named "+attribute.getField()+" --type "+attribute.getType());
+                }
+
+            }
+
+//>>RELACIONES DE LA CLASE
+      line("# Relationships");
+      for(Relation relation : entidad.getRelations()) {
+
+//*******RELACION UNO A UNO
+           if(relation.getCardinality().equals("1..1")) {
+
+             if (entidad.getName().equals(relation.getEntityFrom().getName())){
+                line("#  "+relation.getEntityFrom().getName()+" "+relation.getNameCardinality()+" "+relation.getEntityTo().getName());
+             }
+
+           }
+//*******FIN RELACION UNO A UNO
+
+//*******RELACION MUCHOS A UNO
+           if(relation.getCardinality().equals("*..1")) {
+
+             if (entidad.getName().equals(relation.getEntityFrom().getName())){
+                line("#  "+relation.getEntityFrom().getName()+" "+relation.getNameCardinality()+" "+relation.getEntityTo().getName());
+                line("jpa-new-field --named "+Utils._1raMin(relation.getEntityTo().getName())+
+                                  " --type org.wtasks.model."+relation.getEntityTo().getName()+
+                                  " --relationshipType Many-to-One ;");
+
+
+             }
+
+           }
+//*******FIN RELACION MUCHOS A UNO
+
+//*******RELACION UNO A MUCHOS
+           if(relation.getCardinality().equals("1..*")) {
+
+             if (entidad.getName().equals(relation.getEntityFrom().getName())){
+                line("#  "+relation.getEntityFrom().getName()+" "+relation.getNameCardinality()+" "+relation.getEntityTo().getName());
+
+/*
+                line("jpa-new-field --named "+Utils._1raMin(relation.getEntityTo().getName())+
+                                  " --type org.wtasks.model."+relation.getEntityTo().getName()+
+                                  " --relationshipType One-to-Many ;");
+*/
+
+             }
+
+           }
+//*******FIN RELACION UNO A MUCHOS
+
+//*******RELACION MUCHOS A MUCHOS
+           if(relation.getCardinality().equals("*..*")) {
+
+             if (entidad.getName().equals(relation.getEntityFrom().getName())){
+                line("#  "+relation.getEntityFrom().getName()+" "+relation.getNameCardinality()+" "+relation.getEntityTo().getName());
+                line("jpa-new-field --named "+Utils._1raMin(relation.getEntityTo().getName())+
+                                  " --type org.wtasks.model."+relation.getEntityTo().getName()+
+                                  " --relationshipType Many-to-Many "+
+                                  " ----inverseFieldName "+ Utils._1raMin(relation.getEntityFrom().getName()) +" ;");
+             }
+
+           }
+//*******FIN RELACION MUCHOS A MUCHOS
+
+      }
+//>>FIN RELACIONES DE LA CLASE
+
+
+    line("scaffold-generate --provider AngularJS --targets org.wtasks.model."+entidad.getName());
+    line("");
+
+        } // groupIds.getEntities()
+        line("rest-generate-endpoints-from-entities --targets org.wtasks.model.*");
+
+    }
+    catch(Exception ioe) {
+      ioe.printStackTrace();
+    }
+    } // entiyForgeH2()
 
 
 } // ModelsGen
