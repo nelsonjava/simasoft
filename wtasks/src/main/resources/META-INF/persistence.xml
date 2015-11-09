@@ -1,16 +1,36 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <persistence xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.0" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+
   <persistence-unit name="tasks-persistence-unit" transaction-type="JTA">
+
     <description>Forge Persistence Unit</description>
     <provider>org.hibernate.ejb.HibernatePersistence</provider>
-    <jta-data-source>java:jboss/datasources/ExampleDS</jta-data-source>
-    <exclude-unlisted-classes>false</exclude-unlisted-classes>
+    
+    <class>org.wtasks.model.Tasks</class>
+    <class>org.wtasks.model.Guides</class>
+    <class>org.wtasks.model.Activities</class>
+    <class>org.wtasks.model.ActivitiesTypes</class>
+    <class>org.wtasks.model.Calendars</class>
+    <class>org.wtasks.model.Persons</class>
+    <class>org.wtasks.model.Sections</class>
+    <class>org.wtasks.model.Sites</class>
+    <class>org.wtasks.model.SitesTypes</class>
+
+    <exclude-unlisted-classes>true</exclude-unlisted-classes>
+    <jta-data-source>java:jboss/datasources/wtasksDS</jta-data-source>
     <properties>
-      <property name="hibernate.hbm2ddl.auto" value="create-drop"/>
-      <property name="hibernate.show_sql" value="true"/>
-      <property name="hibernate.format_sql" value="true"/>
-      <property name="hibernate.transaction.flush_before_completion" value="true"/>
-      <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/>
+      <!-- <property name="javax.persistence.jdbc.url"      value="jdbc:h2:/db/tasks/data"/>  -->
+      <!-- <property name="javax.persistence.jdbc.user"     value="sa"/>  -->
+      <!-- <property name="javax.persistence.jdbc.password" value=""/>  -->
+      <property name="hibernate.connection.driver_class"    value="org.h2.Driver"/>
+      <property name="hibernate.dialect"                    value="org.hibernate.dialect.H2Dialect"/>
+      <property name="hibernate.hbm2ddl.auto"               value="update" />
+      <property name="hibernate.show_sql"                   value="true" />
+      <property name="hibernate.format_sql"                 value="true"/>
     </properties>
+
   </persistence-unit>
+
 </persistence>
+
+org.wtasks.model

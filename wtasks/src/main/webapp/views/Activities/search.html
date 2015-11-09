@@ -90,32 +90,36 @@
         <table class="table table-responsive table-bordered table-striped clearfix">
             <thead>
                 <tr>
+                    <th>Name</th>
+                    <th>Activities Types</th>
+<!--
                     <th>Orden</th>
                     <th>Observations</th>
-                    <th>Name</th>
                     <th>Start Date</th>
                     <th>Optimistic Date</th>
                     <th>Pessimistic Date</th>
                     <th>Final Date</th>
                     <th>Priority</th>
-                    <th>Activities Types</th>
                     <th>Guides</th>
                     <th>Obj Padre</th>
+-->
                 </tr>
             </thead>
             <tbody id="search-results-body">
                 <tr ng-repeat="result in filteredResults | startFrom:currentPage*pageSize | limitTo:pageSize">
+                    <td><a href="#/Activities/edit/{{result.id}}">{{result.name}}</a></td>
+                    <td><a href="#/Activities/edit/{{result.id}}">{{result.activitiesTypes.name}}</a></td>
+<!--
                     <td><a href="#/Activities/edit/{{result.id}}">{{result.orden}}</a></td>
                     <td><a href="#/Activities/edit/{{result.id}}">{{result.observations}}</a></td>
-                    <td><a href="#/Activities/edit/{{result.id}}">{{result.name}}</a></td>
                     <td><a href="#/Activities/edit/{{result.id}}">{{result.startDate| date:'mediumDate'}}</a></td>
                     <td><a href="#/Activities/edit/{{result.id}}">{{result.optimisticDate| date:'mediumDate'}}</a></td>
                     <td><a href="#/Activities/edit/{{result.id}}">{{result.pessimisticDate| date:'mediumDate'}}</a></td>
                     <td><a href="#/Activities/edit/{{result.id}}">{{result.finalDate| date:'mediumDate'}}</a></td>
                     <td><a href="#/Activities/edit/{{result.id}}">{{result.priority}}</a></td>
-                        <td><a href="#/Activities/edit/{{result.id}}">{{result.activitiesTypes.orden}}</a></td>
-                        <td><a href="#/Activities/edit/{{result.id}}">{{result.guides.orden}}</a></td>
-                        <td><a href="#/Activities/edit/{{result.id}}">{{result.objPadre.orden}}</a></td>
+                    <td><a href="#/Activities/edit/{{result.id}}">{{result.guides.orden}}</a></td>
+                    <td><a href="#/Activities/edit/{{result.id}}">{{result.objPadre.orden}}</a></td>
+-->
                 </tr>
             </tbody>
         </table>
