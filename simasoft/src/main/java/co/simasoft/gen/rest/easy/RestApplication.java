@@ -1,4 +1,4 @@
-package co.simasoft.gen.jpa;
+package co.simasoft.gen.rest;
 
 import co.simasoft.utils.*;
 
@@ -10,7 +10,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /****************************************************************************************************************
-* CLASE : RestJaxRsActivator                                                                                          *
+* CLASE : RestApplication                                                                                          *
 *****************************************************************************************************************
 
 AUTOR: NAIFG                                   FECHA DE INICIO: VIE 23 OCT/2015   FECHA FINAL: VIE 23 ENE/2016
@@ -24,7 +24,7 @@ OBJETIVOS:
 *------------------------------------------- DECLARACION DE LA CLASE -------------------------------------------*
 *---------------------------------------------------------------------------------------------------------------*/
 
-public class RestJaxRsActivator extends FileTxt {
+public class RestApplication extends FileTxt {
 
 /****************************************************************************************************************
 * METODO..: Constructor de la clase                                                                             *
@@ -41,7 +41,7 @@ OBJETIVOS:
 *                                           IMPLEMENTACION DEL METODO                                           *
 *---------------------------------------------------------------------------------------------------------------*/
 
-public RestJaxRsActivator(String groupId) throws IOException {
+public RestApplication(String groupId) throws IOException {
 
 //>>GENERACION DEL ARCHIVO
       line("package "+groupId+".rest;\n");
@@ -49,8 +49,8 @@ public RestJaxRsActivator(String groupId) throws IOException {
       line("import javax.ws.rs.ApplicationPath;");
       line("import javax.ws.rs.core.Application;\n");
 
-      line("@ApplicationPath(\"/rest\")");
-      line("public class JaxRsActivator extends Application {");
+      line("@ApplicationPath(\"/services\")");
+      line("public class RestApplication extends Application {");
       line("}");
 //>>GENERACION DEL ARCHIVO
 

@@ -3,6 +3,7 @@ package co.simasoft.utils;
 import co.simasoft.utils.*;
 import co.simasoft.gen.asciidoc.*;
 import co.simasoft.gen.jpa.*;
+import co.simasoft.gen.rest.*;
 import co.simasoft.gen.sql.*;
 import co.simasoft.gen.bean.*;
 import co.simasoft.gen.xhtml.*;
@@ -490,8 +491,14 @@ saveFile("\\docs", "OjoGen.txt");
         H2RestWeb h2RestWeb = new H2RestWeb(artifactId);
         Utils.fileMake(pathDocs+".h2.rest."+artifactId+".src.main.webapp.WEB-INF","web.xml", h2RestWeb);
 
-        RestJaxRsActivator restJaxRsActivator = new RestJaxRsActivator(groupId);
-        Utils.fileMake(pathDocs+".h2.rest."+artifactId+".src.main.java."+groupId+".rest", "JaxRsActivator.java", restJaxRsActivator);
+        BaseResource baseResource = new BaseResource();
+        Utils.fileMake(pathDocs+".h2.rest."+artifactId+".src.main.java."+groupId+".services","BaseResource.java", baseResource);
+
+        EntityCrud entityCrud = new EntityCrud();
+        Utils.fileMake(pathDocs+".h2.rest."+artifactId+".src.main.java."+groupId+".services","EntityCrud.java", entityCrud);
+
+        RestApplication restApplication = new RestApplication(groupId);
+        Utils.fileMake(pathDocs+".h2.rest."+artifactId+".src.main.java."+groupId+".services", "RestApplication.java", restApplication);
 
     }
     catch(Exception ioe) {
@@ -513,11 +520,19 @@ line("entidades:"+Integer.toString(entities.size()));
 
 line(Integer.toString(i++)+":"+entidad.getName());
 
+            EntityH2 entityH2 = new EntityH2(entidad.getGroupId(),entidad.getGroupId(),entidad,imports);
+            Utils.fileMake(pathDocs+".h2.rest."+artifactId+".src.main.java."+entidad.getGroupId(),entidad.getName()+".java", entityH2);
+
+            Resource resource = new Resource(artifactId,groupId,entidad,imports);
+            Utils.fileMake(pathDocs+".h2.rest."+artifactId+".src.main.java."+groupId+".services",entidad.getName()+"Resource.java", resource);
+
+/*
             EntityRestEasy entityRestEasy = new EntityRestEasy(entidad.getGroupId(),entidad.getGroupId(),entidad,imports);
-            Utils.fileMake(pathDocs+".h2.rest."+artifactId+".src.main.java."+entidad.getGroupId(),entidad.getName()+".java", entityRestEasy);
+            Utils.fileMake(pathDocs+".h2.rest.r"+artifactId+".src.main.java."+entidad.getGroupId(),entidad.getName()+".java", entityRestEasy);
 
             RestEndPoint restEndPoint = new RestEndPoint(artifactId,groupId+".rest",entidad,imports);
             Utils.fileMake(pathDocs+".h2.rest."+artifactId+".src.main.java."+groupId+".rest",entidad.getName()+"EndPoint.java", restEndPoint);
+*/
 
 
         } // groupIds.getEntities()
@@ -528,7 +543,7 @@ line(Integer.toString(i++)+":"+entidad.getName());
       ioe.printStackTrace();
     }
     } // entiyWarH2()
-    
+
 /*
 ---------------------------------------- ForgeRestH2() --------------------------
 */

@@ -123,6 +123,12 @@ line("      <version>3.0.13.Final</version>");
 line("    </dependency>\n");
 
 line("    <dependency>");
+line("      <groupId>com.fasterxml.jackson.core</groupId>");
+line("      <artifactId>jackson-annotations</artifactId>");
+line("      <version>2.6.3</version>");
+line("    </dependency>");
+
+line("    <dependency>");
 line("      <groupId>junit</groupId>");
 line("      <artifactId>junit</artifactId>");
 line("      <version>4.11</version>");

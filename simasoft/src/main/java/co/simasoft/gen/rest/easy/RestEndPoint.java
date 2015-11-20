@@ -1,4 +1,4 @@
-package co.simasoft.gen.jpa;
+package co.simasoft.gen.rest;
 
 import co.simasoft.utils.*;
 
