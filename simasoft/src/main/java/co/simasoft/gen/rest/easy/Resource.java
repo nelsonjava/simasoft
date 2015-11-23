@@ -60,7 +60,7 @@ public Resource(String artifactId,String groupId,Entidad entity,LinkedHashSet<St
 //>>FIN INICIALIZACION DE ATRIBUTOS
 
 //>>PAQUETE
-      line("package co.simasoft.services;");
+      line("package co.simasoft.service;");
 //>>FIN PAQUETE
 
 //>>IMPORTS

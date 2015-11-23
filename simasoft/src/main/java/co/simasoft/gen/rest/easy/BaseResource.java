@@ -50,7 +50,7 @@ OBJETIVOS:
 
 public BaseResource() throws IOException {
 
-line("package co.simasoft.services;\n");
+line("package co.simasoft.service;\n");
 
 line("import java.util.List;\n");
 

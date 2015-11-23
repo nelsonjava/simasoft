@@ -49,7 +49,7 @@ public RestApplication(String groupId) throws IOException {
       line("import javax.ws.rs.ApplicationPath;");
       line("import javax.ws.rs.core.Application;\n");
 
-      line("@ApplicationPath(\"/services\")");
+      line("@ApplicationPath(\"/rest\")");
       line("public class RestApplication extends Application {");
       line("}");
 //>>GENERACION DEL ARCHIVO

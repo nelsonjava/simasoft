@@ -256,6 +256,40 @@ line("      <artifactId>jboss-jsf-api_2.1_spec</artifactId>");
 line("      <scope>provided</scope>");
 line("    </dependency>\n");
 
+line("    <dependency>");
+line("      <groupId>org.jboss.resteasy</groupId>");
+line("      <artifactId>resteasy-jaxrs</artifactId>");
+line("      <version>3.0.13.Final</version>");
+line("      <scope>provided</scope>");
+line("    </dependency>\n");
+
+line("    <dependency>");
+line("      <groupId>org.jboss.resteasy</groupId>");
+line("      <artifactId>resteasy-client</artifactId>");
+line("      <version>3.0.13.Final</version>");
+line("      <scope>provided</scope>");
+line("    </dependency>\n");
+
+line("    <dependency>");
+line("      <groupId>org.jboss.resteasy</groupId>");
+line("      <artifactId>async-http-servlet-3.0</artifactId>");
+line("      <version>3.0.13.Final</version>");
+line("      <scope>provided</scope>");
+line("    </dependency>\n");
+
+line("    <dependency>");
+line("      <groupId>org.jboss.resteasy</groupId>");
+line("      <artifactId>resteasy-servlet-initializer</artifactId>");
+line("      <version>3.0.13.Final</version>");
+line("      <scope>provided</scope>");
+line("    </dependency>\n");
+
+line("    <dependency>");
+line("      <groupId>com.fasterxml.jackson.core</groupId>");
+line("      <artifactId>jackson-annotations</artifactId>");
+line("      <version>2.6.3</version>");
+line("    </dependency>\n");
+
 line("  </dependencies>\n");
 
 line("  <repositories>");

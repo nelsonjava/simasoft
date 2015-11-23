@@ -492,13 +492,13 @@ saveFile("\\docs", "OjoGen.txt");
         Utils.fileMake(pathDocs+".h2.rest."+artifactId+".src.main.webapp.WEB-INF","web.xml", h2RestWeb);
 
         BaseResource baseResource = new BaseResource();
-        Utils.fileMake(pathDocs+".h2.rest."+artifactId+".src.main.java."+groupId+".services","BaseResource.java", baseResource);
+        Utils.fileMake(pathDocs+".h2.rest."+artifactId+".src.main.java."+groupId+".service","BaseResource.java", baseResource);
 
         EntityCrud entityCrud = new EntityCrud();
-        Utils.fileMake(pathDocs+".h2.rest."+artifactId+".src.main.java."+groupId+".services","EntityCrud.java", entityCrud);
+        Utils.fileMake(pathDocs+".h2.rest."+artifactId+".src.main.java."+groupId+".service","EntityCrud.java", entityCrud);
 
         RestApplication restApplication = new RestApplication(groupId);
-        Utils.fileMake(pathDocs+".h2.rest."+artifactId+".src.main.java."+groupId+".services", "RestApplication.java", restApplication);
+        Utils.fileMake(pathDocs+".h2.rest."+artifactId+".src.main.java."+groupId+".service", "RestApplication.java", restApplication);
 
     }
     catch(Exception ioe) {
@@ -520,19 +520,20 @@ line("entidades:"+Integer.toString(entities.size()));
 
 line(Integer.toString(i++)+":"+entidad.getName());
 
+
             EntityH2 entityH2 = new EntityH2(entidad.getGroupId(),entidad.getGroupId(),entidad,imports);
             Utils.fileMake(pathDocs+".h2.rest."+artifactId+".src.main.java."+entidad.getGroupId(),entidad.getName()+".java", entityH2);
 
             Resource resource = new Resource(artifactId,groupId,entidad,imports);
-            Utils.fileMake(pathDocs+".h2.rest."+artifactId+".src.main.java."+groupId+".services",entidad.getName()+"Resource.java", resource);
+            Utils.fileMake(pathDocs+".h2.rest."+artifactId+".src.main.java."+groupId+".service",entidad.getName()+"Resource.java", resource);
 
 /*
             EntityRestEasy entityRestEasy = new EntityRestEasy(entidad.getGroupId(),entidad.getGroupId(),entidad,imports);
             Utils.fileMake(pathDocs+".h2.rest.r"+artifactId+".src.main.java."+entidad.getGroupId(),entidad.getName()+".java", entityRestEasy);
+*/
 
             RestEndPoint restEndPoint = new RestEndPoint(artifactId,groupId+".rest",entidad,imports);
             Utils.fileMake(pathDocs+".h2.rest."+artifactId+".src.main.java."+groupId+".rest",entidad.getName()+"EndPoint.java", restEndPoint);
-*/
 
 
         } // groupIds.getEntities()
@@ -560,6 +561,10 @@ line(Integer.toString(i++)+":"+entidad.getName());
         entiyForgeH2();
 
         saveFile("\\docs.h2.rest","b"+artifactId+".fsh");
+
+        clearFileTxt();
+        entiyForgeAngularH2();
+        saveFile("\\docs.h2.rest","a"+artifactId+".fsh");
 
     }
     catch(Exception ioe) {
@@ -639,7 +644,7 @@ line(Integer.toString(i++)+":"+entidad.getName());
              if (entidad.getName().equals(relation.getEntityFrom().getName())){
                 line("#  "+relation.getEntityFrom().getName()+" "+relation.getNameCardinality()+" "+relation.getEntityTo().getName());
                 line("jpa-new-field --named "+Utils._1raMin(relation.getEntityTo().getName())+
-                                  " --type org.wtasks.model."+relation.getEntityTo().getName()+
+                                  " --type "+entidad.getGroupId()+"."+relation.getEntityTo().getName()+
                                   " --relationshipType Many-to-One ;");
 
 
@@ -671,7 +676,7 @@ line(Integer.toString(i++)+":"+entidad.getName());
              if (entidad.getName().equals(relation.getEntityFrom().getName())){
                 line("#  "+relation.getEntityFrom().getName()+" "+relation.getNameCardinality()+" "+relation.getEntityTo().getName());
                 line("jpa-new-field --named "+Utils._1raMin(relation.getEntityTo().getName())+
-                                  " --type org.wtasks.model."+relation.getEntityTo().getName()+
+                                  " --type "+entidad.getGroupId()+"."+relation.getEntityTo().getName()+
                                   " --relationshipType Many-to-Many "+
                                   " ----inverseFieldName "+ Utils._1raMin(relation.getEntityFrom().getName()) +" ;");
              }
@@ -683,17 +688,37 @@ line(Integer.toString(i++)+":"+entidad.getName());
 //>>FIN RELACIONES DE LA CLASE
 
 
-    line("scaffold-generate --provider AngularJS --targets org.wtasks.model."+entidad.getName());
+    line("scaffold-generate --provider AngularJS --targets "+entidad.getGroupId()+"."+entidad.getName());
     line("");
 
         } // groupIds.getEntities()
-        line("rest-generate-endpoints-from-entities --targets org.wtasks.model.*");
+        line("rest-generate-endpoints-from-entities --targets co.simasoft.models.*");
 
     }
     catch(Exception ioe) {
       ioe.printStackTrace();
     }
     } // entiyForgeH2()
+
+
+/*
+---------------------------------------- entiyForgeAngularH2() --------------------------
+*/
+
+    public void entiyForgeAngularH2() throws IOException {
+    try {
+
+        line("scaffold-setup --provider AngularJS\n");
+        for (Entidad entidad : entities) {
+             line("scaffold-generate --provider AngularJS --targets "+entidad.getGroupId()+"."+entidad.getName());
+             line("");
+        } // entities
+
+    }
+    catch(Exception ioe) {
+      ioe.printStackTrace();
+    }
+    } // entiyForgeAngularH2
 
 
 } // ModelsGen

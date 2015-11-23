@@ -72,19 +72,14 @@ public RestEndPoint(String artifactId,String groupId,Entidad entity,LinkedHashSe
 //>>FIN PAQUETE DE LA CLASE
 
 //>>IMPORTS DE LA CLASE
-      line("import java.util.ArrayList;");
       line("import java.util.List;\n");
 
-      line("import org.w3c.dom.Document;");
-      line("import org.w3c.dom.Element;");
-      line("import org.w3c.dom.NodeList;\n");
-
+      line("import javax.ejb.Stateless;");
       line("import javax.persistence.EntityManager;");
       line("import javax.persistence.NoResultException;");
       line("import javax.persistence.OptimisticLockException;");
       line("import javax.persistence.PersistenceContext;");
-      line("import javax.persistence.TypedQuery;\n");
-
+      line("import javax.persistence.TypedQuery;");
       line("import javax.ws.rs.Consumes;");
       line("import javax.ws.rs.DELETE;");
       line("import javax.ws.rs.GET;");
@@ -94,19 +89,10 @@ public RestEndPoint(String artifactId,String groupId,Entidad entity,LinkedHashSe
       line("import javax.ws.rs.PathParam;");
       line("import javax.ws.rs.Produces;");
       line("import javax.ws.rs.QueryParam;");
-      line("import javax.ws.rs.WebApplicationException;\n");
-
       line("import javax.ws.rs.core.Response;");
       line("import javax.ws.rs.core.Response.Status;");
       line("import javax.ws.rs.core.UriBuilder;");
-      line("import javax.ws.rs.core.StreamingOutput;\n");
-
-      line("import javax.xml.parsers.DocumentBuilder;");
-      line("import javax.xml.parsers.DocumentBuilderFactory;\n");
-
-      for (String impor : imports) {
-         line(impor);
-      }
+      line("import "+entity.getGroupId()+"."+entity.getName()+";");
       line("\n");
 //>>FIN IMPORTS DE LA CLASE
 
