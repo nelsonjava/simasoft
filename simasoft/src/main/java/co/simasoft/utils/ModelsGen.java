@@ -532,8 +532,8 @@ line(Integer.toString(i++)+":"+entidad.getName());
             Utils.fileMake(pathDocs+".h2.rest.r"+artifactId+".src.main.java."+entidad.getGroupId(),entidad.getName()+".java", entityRestEasy);
 */
 
-            RestEndPoint restEndPoint = new RestEndPoint(artifactId,groupId+".rest",entidad,imports);
-            Utils.fileMake(pathDocs+".h2.rest."+artifactId+".src.main.java."+groupId+".rest",entidad.getName()+"EndPoint.java", restEndPoint);
+            RestEndPoint restEndPoint = new RestEndPoint(artifactId,groupId+".rest",entidad,imports);           
+            Utils.fileMake(pathDocs+".h2.rest."+artifactId+".src.main.java."+groupId+".rest",entidad.getName()+"Endpoint.java", restEndPoint);
 
 
         } // groupIds.getEntities()

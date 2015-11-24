@@ -39,8 +39,8 @@ public class RestEndPoint extends FileTxt {
       String name = "";                                                      // Nombre del Atributo
       String type = "";                                                      // Tipo del Atributo
       String field = "";                                                     // Nombre del Campo
-      Integer len = 0;                                                           // Longitud del Campo
-      Integer prec = 0;                                                          // Decimales del Campo
+      Integer len = 0;                                                       // Longitud del Campo
+      Integer prec = 0;                                                      // Decimales del Campo
       String annotations = "";
 //>>DECLARACION DE INSTANCIAS
 
@@ -65,6 +65,7 @@ public RestEndPoint(String artifactId,String groupId,Entidad entity,LinkedHashSe
       this.entity = entity;
       this.atributos = entity.getAtributos();
       this.relations = entity.getRelations();
+      String joins = Join(relations);
 //>>FIN INICIALIZACION DE ATRIBUTOS
 
 //>>PAQUETE DE LA CLASE
@@ -92,39 +93,181 @@ public RestEndPoint(String artifactId,String groupId,Entidad entity,LinkedHashSe
       line("import javax.ws.rs.core.Response;");
       line("import javax.ws.rs.core.Response.Status;");
       line("import javax.ws.rs.core.UriBuilder;");
-      line("import "+entity.getGroupId()+"."+entity.getName()+";");
-      line("\n");
+      line("import "+entity.getGroupId()+"."+entity.getName()+";\n");
 //>>FIN IMPORTS DE LA CLASE
+
+      line("/**");
+      line(" *");
+      line(" */");
 
 //>>ENDPOINT
       line("@Stateless");
-      line("@Path(\""+artifactId.toLowerCase()+"/"+entity.getName().toLowerCase()+"\")");
-      line("public class "+entity.getName()+"EndPoint {\n");
+      line("@Path(\"forge"+"/"+entity.getName().toLowerCase()+"\")");
+      line("public class "+entity.getName()+"Endpoint {");
+      line("	@PersistenceContext(unitName = \""+artifactId+"PU-JTA\")");
+      line("	private EntityManager em;\n");
 
-      line("   @GET");
-      line("   @Produces(\"application/json\")");
-      line("   public List<PerformanceDTO> listAll(@QueryParam(\"start\") Integer startPosition, @QueryParam(\"max\") Integer maxResult){");
-      line("      TypedQuery<Performance> findAllQuery = em.createQuery(\"SELECT DISTINCT p FROM Performance p LEFT JOIN FETCH p.show ORDER BY p.id\", Performance.class);");
-      line("      if (startPosition != null){");
-      line("         findAllQuery.setFirstResult(startPosition);");
-      line("      }");
-      line("      if (maxResult != null){");
-      line("         findAllQuery.setMaxResults(maxResult);");
-      line("      }");
-      line("      final List<Performance> searchResults = findAllQuery.getResultList();");
-      line("      final List<PerformanceDTO> results = new ArrayList<PerformanceDTO>();");
-      line("      for (Performance searchResult : searchResults){");
-      line("         PerformanceDTO dto = new PerformanceDTO(searchResult);");
-      line("         results.add(dto);");
-      line("      }");
-      line("      return results;");
-      line("   }");
+      line("	@POST");
+      line("	@Consumes(\"application/json\")");
+      line("	public Response create("+entity.getName()+" entity) {");
+      line("		em.persist(entity);");
+      line("		return Response.created(");
+      line("				UriBuilder.fromResource("+entity.getName()+"Endpoint.class)");
+      line("						.path(String.valueOf(entity.getId())).build()).build();");
+      line("	}\n");
+
+      line("	@DELETE");
+      line("	@Path(\"/{id:[0-9][0-9]*}\")");
+      line("	public Response deleteById(@PathParam(\"id\") Long id) {");
+      line("		"+entity.getName()+" entity = em.find("+entity.getName()+".class, id);");
+      line("		if (entity == null) {");
+      line("			return Response.status(Status.NOT_FOUND).build();");
+      line("		}");
+      line("		em.remove(entity);");
+      line("		return Response.noContent().build();");
+      line("	}\n");
+
+      line("	@GET");
+      line("	@Path(\"/{id:[0-9][0-9]*}\")");
+      line("	@Produces(\"application/json\")");
+      line("	public Response findById(@PathParam(\"id\") Long id) {");
+      line("		TypedQuery<"+entity.getName()+"> findByIdQuery = em");
+      line("				.createQuery(");
+      line("						"+"\"SELECT DISTINCT a FROM "+entity.getName()+" a "+joins+" WHERE a.id = :entityId ORDER BY a.id\""+",");
+      line("						"+entity.getName()+".class);");
+      line("		findByIdQuery.setParameter(\"entityId\", id);");
+      line("		"+entity.getName()+" entity;");
+      line("		try {");
+      line("			entity = findByIdQuery.getSingleResult();");
+      line("		} catch (NoResultException nre) {");
+      line("			entity = null;");
+      line("		}");
+      line("		if (entity == null) {");
+      line("			return Response.status(Status.NOT_FOUND).build();");
+      line("		}");
+      line("		return Response.ok(entity).build();");
+      line("	}\n");
+
+      line("	@GET");
+      line("	@Produces(\"application/json\")");
+      line("	public List<"+entity.getName()+"> listAll(@QueryParam(\"start\") Integer startPosition,");
+      line("			@QueryParam(\"max\") Integer maxResult) {");
+      line("		TypedQuery<"+entity.getName()+"> findAllQuery = em");
+      line("				.createQuery(");
+      line("						"+"\"SELECT DISTINCT a FROM "+entity.getName()+" a "+joins+" ORDER BY a.id\""+",");
+      line("						"+entity.getName()+".class);");
+      line("		if (startPosition != null) {");
+      line("			findAllQuery.setFirstResult(startPosition);");
+      line("		}");
+      line("		if (maxResult != null) {");
+      line("			findAllQuery.setMaxResults(maxResult);");
+      line("		}");
+      line("		final List<"+entity.getName()+"> results = findAllQuery.getResultList();");
+      line("		return results;");
+      line("	}\n");
+
+      line("	@PUT");
+      line("	@Path(\"/{id:[0-9][0-9]*}\")");
+      line("	@Consumes(\"application/json\")");
+      line("	public Response update(@PathParam(\"id\") Long id, "+entity.getName()+" entity) {");
+      line("		if (entity == null) {");
+      line("			return Response.status(Status.BAD_REQUEST).build();");
+      line("		}");
+      line("		if (id == null) {");
+      line("			return Response.status(Status.BAD_REQUEST).build();");
+      line("		}");
+      line("		if (!id.equals(entity.getId())) {");
+      line("			return Response.status(Status.CONFLICT).entity(entity).build();");
+      line("		}");
+      line("		if (em.find("+entity.getName()+".class, id) == null) {");
+      line("			return Response.status(Status.NOT_FOUND).build();");
+      line("		}");
+      line("		try {");
+      line("			entity = em.merge(entity);");
+      line("		} catch (OptimisticLockException e) {");
+      line("			return Response.status(Response.Status.CONFLICT)");
+      line("					.entity(e.getEntity()).build();");
+      line("		}\n");
+
+      line("		return Response.noContent().build();");
+      line("	}\n");
+
 
       line("} // EndPoint"+"\n");
 //>>ENDPOINT
 
     } // RestEndPoint
 //>>FIN GENERACION DEL ARCHIVO
+
+/****************************************************************************************************************
+* METODO..: Join                                                                             *
+*****************************************************************************************************************
+
+AUTOR: Nelson A Fernández Gómez                FECHA DE INICIO: MAR 27 ENE/2015   FECHA FINAL: MAR 27 ENE/2015
+       SIMASOFT Bucaramanga / SAN / Colombia   FECHA DE LA ULTIMA MODIFICACION:   MAR 27 ENE/2015 HORA: 02:30 PM
+
+OBJETIVOS:
+
+1- Pendiente la documentación
+
+*---------------------------------------------------------------------------------------------------------------*
+*                                           IMPLEMENTACION DEL METODO                                           *
+*---------------------------------------------------------------------------------------------------------------*/
+
+public String Join(ArrayList<Relation> relations) {
+
+//>>DECLARACION DE VARIABLES
+      String join = "";
+//>>DECLARACION DE VARIABLES
+
+//>>RECORRIDO DE LAS RELACIONES
+      for(Relation relation : relations) {
+
+//*******ANALISIS DE LA RELACION
+           if (relation.getEntityFrom().getName().equals(entity.getName())){
+
+//============ANALISIS DE LA RELACION
+                if (relation.getEntityFrom().getName().equals(relation.getEntityTo().getName())){
+
+//-----------------RELACION UNITARIA
+                     switch (relation.getCardinality()) {
+                         case "1..1":
+                              join += " LEFT JOIN FETCH a.objPadre";
+                              break;
+
+                         case "*..1":
+                              join += " LEFT JOIN FETCH a.objPadre";
+                              break;
+
+                         case "1..*":
+                              join += " LEFT JOIN FETCH a.objHijos";
+                              break;
+
+                         case "*..*":
+                              join += " LEFT JOIN FETCH a.objHijos";
+                              break;
+                     } // switch
+//-----------------FIN RELACION UNITARIA
+
+                }
+                else{
+                     join += " LEFT JOIN FETCH a."+Utils._1raMin(relation.getEntityTo().getName());
+                }
+//============FIN RELACION UNITARIA
+
+         }
+         else{
+            join += " LEFT JOIN FETCH a."+Utils._1raMin(relation.getEntityFrom().getName());
+
+         }
+//*******FIN ANALISIS DE LA RELACION
+
+      } // for: relations
+      return join;
+//>>FIN RECORRIDO DE LAS RELACIONES
+
+
+} // Join
 
 } // class
 
