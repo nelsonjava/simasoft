@@ -497,8 +497,12 @@ saveFile("\\docs", "OjoGen.txt");
         EntityCrud entityCrud = new EntityCrud();
         Utils.fileMake(pathDocs+".h2.rest."+artifactId+".src.main.java."+groupId+".service","EntityCrud.java", entityCrud);
 
+        RestApplication restServiceApplication = new RestApplication(groupId);
+        Utils.fileMake(pathDocs+".h2.rest."+artifactId+".src.main.java."+groupId+".service", "RestApplication.java", restServiceApplication);
+
         RestApplication restApplication = new RestApplication(groupId);
-        Utils.fileMake(pathDocs+".h2.rest."+artifactId+".src.main.java."+groupId+".service", "RestApplication.java", restApplication);
+        Utils.fileMake(pathDocs+".h2.rest."+artifactId+".src.main.java."+groupId+".rest", "RestApplication.java", restApplication);
+
 
     }
     catch(Exception ioe) {
@@ -532,7 +536,7 @@ line(Integer.toString(i++)+":"+entidad.getName());
             Utils.fileMake(pathDocs+".h2.rest.r"+artifactId+".src.main.java."+entidad.getGroupId(),entidad.getName()+".java", entityRestEasy);
 */
 
-            RestEndPoint restEndPoint = new RestEndPoint(artifactId,groupId+".rest",entidad,imports);           
+            RestEndPoint restEndPoint = new RestEndPoint(artifactId,groupId+".rest",entidad,imports);
             Utils.fileMake(pathDocs+".h2.rest."+artifactId+".src.main.java."+groupId+".rest",entidad.getName()+"Endpoint.java", restEndPoint);
 
 
@@ -556,6 +560,7 @@ line(Integer.toString(i++)+":"+entidad.getName());
 
         relationTo();
 
+        line("#  jpa-generate-entities-from-tables --databaseTables * --targetPackage co.simasoft.models --hibernateDialect org.hibernate.dialect.H2Dialect --driverClass org.h2.Driver --jdbcUrl jdbc:h2:/db/tasks/data --userName sa --driverLocation D:/docs/h2-1.3.173.jar;");
         line("project-new --named r"+artifactId);
 
         entiyForgeH2();
@@ -607,11 +612,14 @@ line(Integer.toString(i++)+":"+entidad.getName());
     public void entiyForgeH2() throws IOException {
     try {
 
+/*
+---------------------------------------- entities --------------------------
+*/
         for (Entidad entidad : entities) {
 
             line("#  "+entidad.getName()+" entity");
             line("#  ############");
-            line("jpa-new-entity --named "+entidad.getName());
+            line("jpa-new-entity --named "+entidad.getName()+" --targetPackage "+entidad.getGroupId());
 
             for (Atributos attribute :  entidad.getAtributos()){
 
@@ -623,15 +631,28 @@ line(Integer.toString(i++)+":"+entidad.getName());
                 }
 
             }
+            line("");
+
+        } // groupIds.getEntities()
+
+/*
+---------------------------------------- Relations --------------------------
+*/
+
+        line("#  Relationships");
+        line("#  ############");
+        for (Entidad entidad : entities) {
 
 //>>RELACIONES DE LA CLASE
-      line("# Relationships");
       for(Relation relation : entidad.getRelations()) {
 
 //*******RELACION UNO A UNO
            if(relation.getCardinality().equals("1..1")) {
 
-             if (entidad.getName().equals(relation.getEntityFrom().getName())){
+             if (relation.getEntityFrom().getName().equals(relation.getEntityTo().getName())){
+                line("#Unitaria  "+relation.getEntityFrom().getName()+" "+relation.getNameCardinality()+" "+relation.getEntityTo().getName());
+             }
+             else{
                 line("#  "+relation.getEntityFrom().getName()+" "+relation.getNameCardinality()+" "+relation.getEntityTo().getName());
              }
 
@@ -641,13 +662,22 @@ line(Integer.toString(i++)+":"+entidad.getName());
 //*******RELACION MUCHOS A UNO
            if(relation.getCardinality().equals("*..1")) {
 
-             if (entidad.getName().equals(relation.getEntityFrom().getName())){
-                line("#  "+relation.getEntityFrom().getName()+" "+relation.getNameCardinality()+" "+relation.getEntityTo().getName());
+             if (relation.getEntityFrom().getName().equals(relation.getEntityTo().getName())){
+
+                line("#Unitaria  "+relation.getEntityFrom().getName()+" "+relation.getNameCardinality()+" "+relation.getEntityTo().getName());
+                line("cd ..");
+                line("cd "+relation.getEntityFrom().getName()+".java");
                 line("jpa-new-field --named "+Utils._1raMin(relation.getEntityTo().getName())+
                                   " --type "+entidad.getGroupId()+"."+relation.getEntityTo().getName()+
-                                  " --relationshipType Many-to-One ;");
-
-
+                                  " --relationshipType Many-to-One;\n");
+             }
+             else{
+                line("#  "+relation.getEntityFrom().getName()+" "+relation.getNameCardinality()+" "+relation.getEntityTo().getName());
+                line("cd ..");
+                line("cd "+relation.getEntityFrom().getName()+".java");
+                line("jpa-new-field --named "+Utils._1raMin(relation.getEntityTo().getName())+
+                                  " --type "+entidad.getGroupId()+"."+relation.getEntityTo().getName()+
+                                  " --relationshipType Many-to-One;\n");
              }
 
            }
@@ -656,14 +686,23 @@ line(Integer.toString(i++)+":"+entidad.getName());
 //*******RELACION UNO A MUCHOS
            if(relation.getCardinality().equals("1..*")) {
 
-             if (entidad.getName().equals(relation.getEntityFrom().getName())){
-                line("#  "+relation.getEntityFrom().getName()+" "+relation.getNameCardinality()+" "+relation.getEntityTo().getName());
+             if (relation.getEntityFrom().getName().equals(relation.getEntityTo().getName())){
 
-/*
+                line("#Unitaria  "+relation.getEntityFrom().getName()+" "+relation.getNameCardinality()+" "+relation.getEntityTo().getName());
+                line("cd ..");
+                line("cd "+relation.getEntityFrom().getName()+".java");
+                line("jpa-new-field --named objHijos"+
+                                  " --type "+entidad.getGroupId()+"."+relation.getEntityTo().getName()+
+                                  " --relationshipType One-to-Many;\n");
+
+             }
+             else{
+                line("#  "+relation.getEntityFrom().getName()+" "+relation.getNameCardinality()+" "+relation.getEntityTo().getName());
+                line("cd ..");
+                line("cd "+relation.getEntityFrom().getName()+".java");
                 line("jpa-new-field --named "+Utils._1raMin(relation.getEntityTo().getName())+
-                                  " --type org.wtasks.model."+relation.getEntityTo().getName()+
-                                  " --relationshipType One-to-Many ;");
-*/
+                                  " --type "+entidad.getGroupId()+"."+relation.getEntityTo().getName()+
+                                  " --relationshipType One-to-Many;\n");
 
              }
 
@@ -673,12 +712,24 @@ line(Integer.toString(i++)+":"+entidad.getName());
 //*******RELACION MUCHOS A MUCHOS
            if(relation.getCardinality().equals("*..*")) {
 
-             if (entidad.getName().equals(relation.getEntityFrom().getName())){
-                line("#  "+relation.getEntityFrom().getName()+" "+relation.getNameCardinality()+" "+relation.getEntityTo().getName());
+             if (relation.getEntityFrom().getName().equals(relation.getEntityTo().getName())){
+
+                line("#Unitaria  "+relation.getEntityFrom().getName()+" "+relation.getNameCardinality()+" "+relation.getEntityTo().getName());
+                line("cd ..");
+                line("cd "+relation.getEntityFrom().getName()+".java");
                 line("jpa-new-field --named "+Utils._1raMin(relation.getEntityTo().getName())+
                                   " --type "+entidad.getGroupId()+"."+relation.getEntityTo().getName()+
                                   " --relationshipType Many-to-Many "+
-                                  " ----inverseFieldName "+ Utils._1raMin(relation.getEntityFrom().getName()) +" ;");
+                                  " ----inverseFieldName "+ Utils._1raMin(relation.getEntityFrom().getName()) +";\n");
+             }
+             else{
+                line("#  "+relation.getEntityFrom().getName()+" "+relation.getNameCardinality()+" "+relation.getEntityTo().getName());
+                line("cd ..");
+                line("cd "+relation.getEntityFrom().getName()+".java");
+                line("jpa-new-field --named "+Utils._1raMin(relation.getEntityTo().getName())+
+                                  " --type "+entidad.getGroupId()+"."+relation.getEntityTo().getName()+
+                                  " --relationshipType Many-to-Many "+
+                                  " ----inverseFieldName "+ Utils._1raMin(relation.getEntityFrom().getName()) +";\n");
              }
 
            }
@@ -687,11 +738,9 @@ line(Integer.toString(i++)+":"+entidad.getName());
       }
 //>>FIN RELACIONES DE LA CLASE
 
-
-    line("scaffold-generate --provider AngularJS --targets "+entidad.getGroupId()+"."+entidad.getName());
-    line("");
-
         } // groupIds.getEntities()
+
+//      line("scaffold-generate --provider AngularJS --targets "+entidad.getGroupId()+"."+entidad.getName());
         line("rest-generate-endpoints-from-entities --targets co.simasoft.models.*");
 
     }
