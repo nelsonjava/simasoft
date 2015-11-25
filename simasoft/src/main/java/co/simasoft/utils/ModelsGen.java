@@ -639,11 +639,11 @@ line(Integer.toString(i++)+":"+entidad.getName());
 ---------------------------------------- Relations --------------------------
 */
 
-        line("#  Relationships");
-        line("#  ############");
         for (Entidad entidad : entities) {
 
 //>>RELACIONES DE LA CLASE
+      line("#  "+entidad.getName()+" Relationships ");
+      line("#  ############");
       for(Relation relation : entidad.getRelations()) {
 
 //*******RELACION UNO A UNO
@@ -666,18 +666,28 @@ line(Integer.toString(i++)+":"+entidad.getName());
 
                 line("#Unitaria  "+relation.getEntityFrom().getName()+" "+relation.getNameCardinality()+" "+relation.getEntityTo().getName());
                 line("cd ..");
-                line("cd "+relation.getEntityFrom().getName()+".java");
-                line("jpa-new-field --named "+Utils._1raMin(relation.getEntityTo().getName())+
+                line("cd "+entidad.getName()+".java");
+                line("jpa-new-field --named objPadre"+
                                   " --type "+entidad.getGroupId()+"."+relation.getEntityTo().getName()+
                                   " --relationshipType Many-to-One;\n");
              }
              else{
-                line("#  "+relation.getEntityFrom().getName()+" "+relation.getNameCardinality()+" "+relation.getEntityTo().getName());
-                line("cd ..");
-                line("cd "+relation.getEntityFrom().getName()+".java");
-                line("jpa-new-field --named "+Utils._1raMin(relation.getEntityTo().getName())+
-                                  " --type "+entidad.getGroupId()+"."+relation.getEntityTo().getName()+
-                                  " --relationshipType Many-to-One;\n");
+                if (entidad.getName().equals(relation.getEntityFrom().getName())){
+                   line("#  "+relation.getEntityFrom().getName()+" "+relation.getNameCardinality()+" "+relation.getEntityTo().getName());
+                   line("cd ..");
+                   line("cd "+entidad.getName()+".java");
+                   line("jpa-new-field --named "+Utils._1raMin(relation.getEntityTo().getName())+
+                                     " --type "+entidad.getGroupId()+"."+relation.getEntityTo().getName()+
+                                     " --relationshipType Many-to-One;\n");
+                }
+                else{
+                   line("#  "+relation.getEntityFrom().getName()+" "+relation.getNameCardinality()+" "+relation.getEntityTo().getName());
+                   line("cd ..");
+                   line("cd "+entidad.getName()+".java");
+                   line("jpa-new-field --named "+Utils._1raMin(relation.getEntityFrom().getName())+
+                                     " --type "+entidad.getGroupId()+"."+relation.getEntityFrom().getName()+
+                                     " --relationshipType Many-to-One;\n");
+                }
              }
 
            }
@@ -690,20 +700,29 @@ line(Integer.toString(i++)+":"+entidad.getName());
 
                 line("#Unitaria  "+relation.getEntityFrom().getName()+" "+relation.getNameCardinality()+" "+relation.getEntityTo().getName());
                 line("cd ..");
-                line("cd "+relation.getEntityFrom().getName()+".java");
+                line("cd "+entidad.getName()+".java");
                 line("jpa-new-field --named objHijos"+
                                   " --type "+entidad.getGroupId()+"."+relation.getEntityTo().getName()+
                                   " --relationshipType One-to-Many;\n");
 
              }
              else{
-                line("#  "+relation.getEntityFrom().getName()+" "+relation.getNameCardinality()+" "+relation.getEntityTo().getName());
-                line("cd ..");
-                line("cd "+relation.getEntityFrom().getName()+".java");
-                line("jpa-new-field --named "+Utils._1raMin(relation.getEntityTo().getName())+
-                                  " --type "+entidad.getGroupId()+"."+relation.getEntityTo().getName()+
-                                  " --relationshipType One-to-Many;\n");
-
+                if (entidad.getName().equals(relation.getEntityFrom().getName())){
+                   line("#  "+relation.getEntityFrom().getName()+" "+relation.getNameCardinality()+" "+relation.getEntityTo().getName());
+                   line("cd ..");
+                   line("cd "+entidad.getName()+".java");
+                   line("jpa-new-field --named "+Utils._1raMin(relation.getEntityTo().getName())+
+                                     " --type "+entidad.getGroupId()+"."+relation.getEntityTo().getName()+
+                                     " --relationshipType One-to-Many;\n");
+                }
+                else{
+                   line("#  "+relation.getEntityFrom().getName()+" "+relation.getNameCardinality()+" "+relation.getEntityTo().getName());
+                   line("cd ..");
+                   line("cd "+entidad.getName()+".java");
+                   line("jpa-new-field --named "+Utils._1raMin(relation.getEntityTo().getName())+
+                                     " --type "+entidad.getGroupId()+"."+relation.getEntityTo().getName()+
+                                     " --relationshipType One-to-Many;\n");
+                }
              }
 
            }
@@ -716,20 +735,33 @@ line(Integer.toString(i++)+":"+entidad.getName());
 
                 line("#Unitaria  "+relation.getEntityFrom().getName()+" "+relation.getNameCardinality()+" "+relation.getEntityTo().getName());
                 line("cd ..");
-                line("cd "+relation.getEntityFrom().getName()+".java");
+                line("cd "+entidad.getName()+".java");
                 line("jpa-new-field --named "+Utils._1raMin(relation.getEntityTo().getName())+
                                   " --type "+entidad.getGroupId()+"."+relation.getEntityTo().getName()+
                                   " --relationshipType Many-to-Many "+
                                   " ----inverseFieldName "+ Utils._1raMin(relation.getEntityFrom().getName()) +";\n");
              }
              else{
-                line("#  "+relation.getEntityFrom().getName()+" "+relation.getNameCardinality()+" "+relation.getEntityTo().getName());
-                line("cd ..");
-                line("cd "+relation.getEntityFrom().getName()+".java");
-                line("jpa-new-field --named "+Utils._1raMin(relation.getEntityTo().getName())+
-                                  " --type "+entidad.getGroupId()+"."+relation.getEntityTo().getName()+
-                                  " --relationshipType Many-to-Many "+
-                                  " ----inverseFieldName "+ Utils._1raMin(relation.getEntityFrom().getName()) +";\n");
+                if (entidad.getName().equals(relation.getEntityFrom().getName())){
+
+                   line("#  "+relation.getEntityFrom().getName()+" "+relation.getNameCardinality()+" "+relation.getEntityTo().getName());
+                   line("cd ..");
+                   line("cd "+entidad.getName()+".java");
+                   line("jpa-new-field --named "+Utils._1raMin(relation.getEntityTo().getName())+
+                                   " --type "+entidad.getGroupId()+"."+relation.getEntityTo().getName()+
+                                   " --relationshipType Many-to-Many "+
+                                   " ----inverseFieldName "+ Utils._1raMin(relation.getEntityFrom().getName()) +";\n");
+                }
+                else{
+
+                   line("#  "+relation.getEntityFrom().getName()+" "+relation.getNameCardinality()+" "+relation.getEntityTo().getName());
+                   line("cd ..");
+                   line("cd "+entidad.getName()+".java");
+                   line("jpa-new-field --named "+Utils._1raMin(relation.getEntityFrom().getName())+
+                                   " --type "+entidad.getGroupId()+"."+relation.getEntityFrom().getName()+
+                                   " --relationshipType Many-to-Many "+
+                                   " ----inverseFieldName "+Utils._1raMin(relation.getEntityTo().getName())+";\n");
+                }
              }
 
            }
