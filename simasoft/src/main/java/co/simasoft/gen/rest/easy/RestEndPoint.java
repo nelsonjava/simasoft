@@ -96,7 +96,10 @@ public RestEndPoint(String artifactId,String groupId,Entidad entity,LinkedHashSe
       line("import "+entity.getGroupId()+"."+entity.getName()+";\n");
 //>>FIN IMPORTS DE LA CLASE
 
-      line("/**");
+      line("/**\n");
+
+      line("http://localhost:8080/rtasks/services/activitiestypes/create\n");
+
       line("{");
       line("\"name\": \"Zusammenfarbe\",");
       line("\"observations\": \"Die arbeit\",");
@@ -104,10 +107,10 @@ public RestEndPoint(String artifactId,String groupId,Entidad entity,LinkedHashSe
       line("\"orden\": 12.03");
       line("}\n");
 
-      line("http://localhost:8080/tasks/services/activitiestypes/getOne/1");
-      line("http://localhost:8080/tasks/services/activitiestypes/get?start=1&size=3&orderBy=name");
-      line("http://localhost:8080/tasks/services/activitiestypes/update/11");
-      line("http://localhost:8080/tasks/services/activitiestypes/delete/10\n");
+      line("http://localhost:8080/rtasks/services/activitiestypes/getOne/1");
+      line("http://localhost:8080/rtasks/services/activitiestypes/get?start=1&size=3&orderBy=name");
+      line("http://localhost:8080/rtasks/services/activitiestypes/update/11");
+      line("http://localhost:8080/rtasks/services/activitiestypes/delete/10\n");
 
       line("{");
       line("\"name\": \"Fachenfarbe\",");

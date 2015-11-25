@@ -500,10 +500,10 @@ saveFile("\\docs", "OjoGen.txt");
         EntityCrud entityCrud = new EntityCrud();
         Utils.fileMake(pathDocs+".h2.rest.r"+artifactId+".src.main.java."+groupId+".service","EntityCrud.java", entityCrud);
 
-        RestApplication restServiceApplication = new RestApplication(groupId);
+        RestApplication restServiceApplication = new RestApplication(groupId,"services");
         Utils.fileMake(pathDocs+".h2.rest.r"+artifactId+".src.main.java."+groupId+".service", "RestApplication.java", restServiceApplication);
 
-        RestApplication restApplication = new RestApplication(groupId);
+        RestApplication restApplication = new RestApplication(groupId,"rest");
         Utils.fileMake(pathDocs+".h2.rest.r"+artifactId+".src.main.java."+groupId+".rest", "RestApplication.java", restApplication);
 
 

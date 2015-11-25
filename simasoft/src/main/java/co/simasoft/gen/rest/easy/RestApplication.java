@@ -41,7 +41,7 @@ OBJETIVOS:
 *                                           IMPLEMENTACION DEL METODO                                           *
 *---------------------------------------------------------------------------------------------------------------*/
 
-public RestApplication(String groupId) throws IOException {
+public RestApplication(String groupId,String services) throws IOException {
 
 //>>GENERACION DEL ARCHIVO
       line("package "+groupId+".rest;\n");
@@ -49,7 +49,7 @@ public RestApplication(String groupId) throws IOException {
       line("import javax.ws.rs.ApplicationPath;");
       line("import javax.ws.rs.core.Application;\n");
 
-      line("@ApplicationPath(\"/rest\")");
+      line("@ApplicationPath(\"/"+services+"\")");
       line("public class RestApplication extends Application {");
       line("}");
 //>>GENERACION DEL ARCHIVO

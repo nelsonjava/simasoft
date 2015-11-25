@@ -72,6 +72,31 @@ line("import javax.ws.rs.core.MediaType;");
 line("import javax.ws.rs.core.Response;");
 line("import javax.ws.rs.core.Response.Status;\n");
 
+      line("/**\n");
+
+      line("http://localhost:8080/rtasks/services/activitiestypes/create\n");
+
+      line("{");
+      line("\"name\": \"Zusammenfarbe\",");
+      line("\"observations\": \"Die arbeit\",");
+      line("\"optlock\": null,");
+      line("\"orden\": 12.03");
+      line("}\n");
+
+      line("http://localhost:8080/rtasks/services/activitiestypes/getOne/1");
+      line("http://localhost:8080/rtasks/services/activitiestypes/get?start=1&size=3&orderBy=name");
+      line("http://localhost:8080/rtasks/services/activitiestypes/update/11");
+      line("http://localhost:8080/rtasks/services/activitiestypes/delete/10\n");
+
+      line("{");
+      line("\"name\": \"Fachenfarbe\",");
+      line("\"observations\": \"Die anwendung\",");
+      line("\"optlock\": null,");
+      line("\"orden\": 99.09,");
+      line("\"id\": 11");
+      line("}");
+      line(" */\n");
+
 line("public abstract class BaseResource<T> {\n");
 
 line("    @Inject");
