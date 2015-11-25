@@ -62,7 +62,7 @@ line("import javax.persistence.PersistenceContext;\n");
 line("@Stateless");
 line("public class EntityCrud<T> {\n");
 
-line("    @PersistenceContext(unitName = \"tasksPU-JTA\")");
+line("    @PersistenceContext(unitName = \"rtasksPU-JTA\")");
 line("    private EntityManager em;\n");
 
 line("    // ----------------- CRUD OPERATIONS ----------------- //\n");

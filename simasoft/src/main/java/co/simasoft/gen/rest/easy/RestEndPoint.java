@@ -97,6 +97,28 @@ public RestEndPoint(String artifactId,String groupId,Entidad entity,LinkedHashSe
 //>>FIN IMPORTS DE LA CLASE
 
       line("/**");
+      line("{");
+      line("\"name\": \"Zusammenfarbe\",");
+      line("\"observations\": \"Die arbeit\",");
+      line("\"optlock\": null,");
+      line("\"orden\": 12.03");
+      line("}\n");
+
+      line("http://localhost:8080/tasks/services/activitiestypes/getOne/1");
+      line("http://localhost:8080/tasks/services/activitiestypes/get?start=1&size=3&orderBy=name");
+      line("http://localhost:8080/tasks/services/activitiestypes/update/11");
+      line("http://localhost:8080/tasks/services/activitiestypes/delete/10\n");
+
+      line("{");
+      line("\"name\": \"Fachenfarbe\",");
+      line("\"observations\": \"Die anwendung\",");
+      line("\"optlock\": null,");
+      line("\"orden\": 99.09,");
+      line("\"id\": 11");
+      line("}");
+      line(" */\n");
+
+      line("/**");
       line(" *");
       line(" */");
 
