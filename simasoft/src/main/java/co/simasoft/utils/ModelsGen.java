@@ -476,32 +476,35 @@ saveFile("\\docs", "OjoGen.txt");
     public void templateRestH2() throws IOException {
     try {
 
-        H2RestPom filePom = new H2RestPom(artifactId,groupId);
-        Utils.fileMake(pathDocs+".h2.rest."+artifactId, "pom.xml", filePom);
+        H2RestPom filePom = new H2RestPom("r"+artifactId,groupId);
+        Utils.fileMake(pathDocs+".h2.rest.r"+artifactId, "pom.xml", filePom);
+
+        H2RestPomBak filePomBak = new H2RestPomBak("r"+artifactId,groupId);
+        Utils.fileMake(pathDocs+".h2.rest.r"+artifactId, "pombak.xml", filePomBak);
 
         H2RestGradle fileGradle = new H2RestGradle(artifactId,groupId);
-        Utils.fileMake(pathDocs+".h2.rest."+artifactId, "build.gradle", fileGradle);
+        Utils.fileMake(pathDocs+".h2.rest.r"+artifactId, "build.gradle", fileGradle);
 
         Build build = new Build(artifactId,groupId);
-        Utils.fileMake(pathDocs+".h2.rest."+artifactId, "build.xml", build);
+        Utils.fileMake(pathDocs+".h2.rest.r"+artifactId, "build.xml", build);
 
-        H2RestDatasource h2RestDatasource = new H2RestDatasource(artifactId);
-        Utils.fileMake(pathDocs+".h2.rest."+artifactId+".src.main.webapp.WEB-INF",artifactId+"-ds.xml", h2RestDatasource);
+        H2RestDatasource h2RestDatasource = new H2RestDatasource("r"+artifactId);
+        Utils.fileMake(pathDocs+".h2.rest.r"+artifactId+".src.main.webapp.WEB-INF","r"+artifactId+"-ds.xml", h2RestDatasource);
 
         H2RestWeb h2RestWeb = new H2RestWeb(artifactId);
-        Utils.fileMake(pathDocs+".h2.rest."+artifactId+".src.main.webapp.WEB-INF","web.xml", h2RestWeb);
+        Utils.fileMake(pathDocs+".h2.rest.r"+artifactId+".src.main.webapp.WEB-INF","web.xml", h2RestWeb);
 
         BaseResource baseResource = new BaseResource();
-        Utils.fileMake(pathDocs+".h2.rest."+artifactId+".src.main.java."+groupId+".service","BaseResource.java", baseResource);
+        Utils.fileMake(pathDocs+".h2.rest.r"+artifactId+".src.main.java."+groupId+".service","BaseResource.java", baseResource);
 
         EntityCrud entityCrud = new EntityCrud();
-        Utils.fileMake(pathDocs+".h2.rest."+artifactId+".src.main.java."+groupId+".service","EntityCrud.java", entityCrud);
+        Utils.fileMake(pathDocs+".h2.rest.r"+artifactId+".src.main.java."+groupId+".service","EntityCrud.java", entityCrud);
 
         RestApplication restServiceApplication = new RestApplication(groupId);
-        Utils.fileMake(pathDocs+".h2.rest."+artifactId+".src.main.java."+groupId+".service", "RestApplication.java", restServiceApplication);
+        Utils.fileMake(pathDocs+".h2.rest.r"+artifactId+".src.main.java."+groupId+".service", "RestApplication.java", restServiceApplication);
 
         RestApplication restApplication = new RestApplication(groupId);
-        Utils.fileMake(pathDocs+".h2.rest."+artifactId+".src.main.java."+groupId+".rest", "RestApplication.java", restApplication);
+        Utils.fileMake(pathDocs+".h2.rest.r"+artifactId+".src.main.java."+groupId+".rest", "RestApplication.java", restApplication);
 
 
     }
@@ -514,8 +517,8 @@ saveFile("\\docs", "OjoGen.txt");
     public void entiyRestH2() throws IOException {
     try {
 
-        H2RestPersistence h2RestPersistence = new H2RestPersistence(artifactId,entities);
-        Utils.fileMake(pathDocs+".h2.rest."+artifactId+".src.main.resources.META-INF", "persistence.xml", h2RestPersistence);
+        H2RestPersistence h2RestPersistence = new H2RestPersistence("r"+artifactId,entities);
+        Utils.fileMake(pathDocs+".h2.rest.r"+artifactId+".src.main.resources.META-INF", "persistence.xml", h2RestPersistence);
 
 int i = 1;
 line("entidades:"+Integer.toString(entities.size()));
@@ -526,18 +529,18 @@ line(Integer.toString(i++)+":"+entidad.getName());
 
 
             EntityH2 entityH2 = new EntityH2(entidad.getGroupId(),entidad.getGroupId(),entidad,imports);
-            Utils.fileMake(pathDocs+".h2.rest."+artifactId+".src.main.java."+entidad.getGroupId(),entidad.getName()+".java", entityH2);
+            Utils.fileMake(pathDocs+".h2.rest.r"+artifactId+".src.main.java."+entidad.getGroupId(),entidad.getName()+".java", entityH2);
 
             Resource resource = new Resource(artifactId,groupId,entidad,imports);
-            Utils.fileMake(pathDocs+".h2.rest."+artifactId+".src.main.java."+groupId+".service",entidad.getName()+"Resource.java", resource);
+            Utils.fileMake(pathDocs+".h2.rest.r"+artifactId+".src.main.java."+groupId+".service",entidad.getName()+"Resource.java", resource);
 
 /*
             EntityRestEasy entityRestEasy = new EntityRestEasy(entidad.getGroupId(),entidad.getGroupId(),entidad,imports);
             Utils.fileMake(pathDocs+".h2.rest.r"+artifactId+".src.main.java."+entidad.getGroupId(),entidad.getName()+".java", entityRestEasy);
 */
 
-            RestEndPoint restEndPoint = new RestEndPoint(artifactId,groupId+".rest",entidad,imports);
-            Utils.fileMake(pathDocs+".h2.rest."+artifactId+".src.main.java."+groupId+".rest",entidad.getName()+"Endpoint.java", restEndPoint);
+            RestEndPoint restEndPoint = new RestEndPoint("r"+artifactId,groupId+".rest",entidad,imports);
+            Utils.fileMake(pathDocs+".h2.rest.r"+artifactId+".src.main.java."+groupId+".rest",entidad.getName()+"Endpoint.java", restEndPoint);
 
 
         } // groupIds.getEntities()
@@ -560,8 +563,8 @@ line(Integer.toString(i++)+":"+entidad.getName());
 
         relationTo();
 
-        line("#  jpa-generate-entities-from-tables --databaseTables * --targetPackage co.simasoft.models --hibernateDialect org.hibernate.dialect.H2Dialect --driverClass org.h2.Driver --jdbcUrl jdbc:h2:/db/tasks/data --userName sa --driverLocation D:/docs/h2-1.3.173.jar;");
-        line("project-new --named r"+artifactId);
+        line("#  jpa-generate-entities-from-tables --databaseTables * --targetPackage co.simasoft.models --hibernateDialect org.hibernate.dialect.H2Dialect --driverClass org.h2.Driver --jdbcUrl jdbc:h2:/db/tasks/data --userName sa --driverLocation D:/javasrv/keycloak-demo-1.5.0.Final/keycloak/modules/system/layers/base/com/h2database/h2/main/h2-1.3.173.jar;");
+        line("project-new --named r"+artifactId+" --topLevelPackage co.simasoft");
 
         entiyForgeH2();
 

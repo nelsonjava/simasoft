@@ -85,7 +85,8 @@ public EntityH2(String artifactId,String groupId,Entidad entity,LinkedHashSet<St
       line("import javax.persistence.FetchType;\n");
 
       line("import javax.persistence.Column;");
-      line("import javax.persistence.Lob;\n");
+      line("import javax.persistence.Lob;");
+      line("import javax.xml.bind.annotation.XmlRootElement;\n");
 
       for (String impor : imports) {
          line(impor);
@@ -100,8 +101,9 @@ public EntityH2(String artifactId,String groupId,Entidad entity,LinkedHashSet<St
 //>>FIN NAMEDQUERIES DE LA CLASE
 
 //>>ANNOTATIONS DE LA CLASE
-      line("@Indexed");
+      line("// @Indexed");
       line("@Entity");
+      line("@XmlRootElement");
 //>>FIN ANNOTATIONS DE LA CLASE
 
 //>>DECLARACION DE LA CLASE
@@ -125,7 +127,7 @@ public EntityH2(String artifactId,String groupId,Entidad entity,LinkedHashSet<St
 
       line("    @Lob");
       line("    @Column(nullable = true, unique = false)");
-      line("    @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)");
+      line("    // @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)");
       line("    private String observations;\n");
 //>>FIN ATTRIBUTOS POR DEFECTO
 
