@@ -5,6 +5,7 @@ line(Integer.toString(developments.getModels().size()));
 package co.simasoft.setup;
 
 import co.simasoft.gen.jpa.*;
+import co.simasoft.gen.war.h2.angular.*;
 
 import co.simasoft.utils.*;
 import co.simasoft.beans.*;
@@ -366,6 +367,17 @@ for (Entidad entidad : entidades) {
 //        jsonNaifg(developments);
         modelsGen.ForgeRestH2();
         modelsGen.ForgeWarH2();
+
+        AppModels appModels = new AppModels(developments.getGroupId(),developments.getArtifactId());
+        appModels.setImports(imports);
+        appModels.setPackages(packages);
+        appModels.setEntities(entidades);
+
+        AngularH2 angularH2 = new AngularH2(appModels);
+        angularH2.App();
+
+
+
 
 
     }
