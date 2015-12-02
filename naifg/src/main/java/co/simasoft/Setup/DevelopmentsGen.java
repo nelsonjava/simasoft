@@ -6,6 +6,8 @@ package co.simasoft.setup;
 
 import co.simasoft.gen.jpa.*;
 import co.simasoft.gen.war.h2.angular.*;
+import co.simasoft.gen.war.h2.jquery.*;
+import co.simasoft.gen.war.h2.nodejs.*;
 
 import co.simasoft.utils.*;
 import co.simasoft.beans.*;
@@ -376,9 +378,11 @@ for (Entidad entidad : entidades) {
         AngularH2 angularH2 = new AngularH2(appModels);
         angularH2.App();
 
+        JqueryH2 jqueryH2 = new JqueryH2(appModels);
+        jqueryH2.App();
 
-
-
+        NodejsH2 nodejsH2 = new NodejsH2(appModels);
+        nodejsH2.App();
 
     }
     catch(Exception ioe) {

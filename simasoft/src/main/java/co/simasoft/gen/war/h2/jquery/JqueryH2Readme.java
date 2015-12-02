@@ -1,13 +1,13 @@
-package co.simasoft.gen.war.h2.angular;
+package co.simasoft.gen.war.h2.jquery;
 
 import java.io.*;
 import java.util.*;
 
 import co.simasoft.utils.*;
 
-public class AngularH2Readme extends FileTxt {
+public class JqueryH2Readme extends FileTxt {
 
-  public AngularH2Readme(String artifactId) {
+  public JqueryH2Readme(String artifactId) {
 
 line("* ENLACES");
 line("http://semver.org/");
@@ -22,11 +22,15 @@ line("");
 line("");
 
 
-line("#Angular");
-line("npm install -g gulp");
-line("npm install -g bower");
-line("npm install -g stylus");
 
+line("#jquery");
+line("npm install --save jquery");
+line("npm install --save-dev browserify");
+line("npm install --save babelify, babel-preset-es2015");
+line("npm install --save server");
+line("npm run build-js");
+
+line("#Dependencias");
 line("npm install --save-dev gulp");
 line("npm install --save-dev gulp-connect");
 line("npm install --save-dev gulp-jshint");
@@ -49,11 +53,7 @@ line("bower install --save angular-route");
 line("bower install --save angular-resource");
 line("bower install --save fontawesome");
 
-line("#jquery");
-line("npm install --save jquery");
-
-
-line("");
+line("git status");
 line("");
 line("");
 line("");
