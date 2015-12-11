@@ -9,8 +9,6 @@ public class ReactH2Build extends FileTxt {
 
   public ReactH2Build(String artifactId) {
 
-line("{");
-
 line("<?xml version=\"1.0\"?>");
 line("<project name=\""+artifactId+"\" default=\"bak\" basedir=\".\">\n");
 

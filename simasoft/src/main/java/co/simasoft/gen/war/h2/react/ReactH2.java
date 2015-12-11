@@ -19,6 +19,13 @@ public class ReactH2 extends FileTxt {
     private String dirDist = "dist";
     private String dirSrc = "src";
     private String dirComponents = "components";
+    private String dirApi = "db-api";
+    private String dirResources = "resources";
+    private String dirCss = "css";
+    private String dirImg = "img";
+    private String dirScripts = "scripts";
+    private String dirTemplates = "templates";
+
 
     public ReactH2(AppModels appModels){
 
@@ -28,10 +35,17 @@ public class ReactH2 extends FileTxt {
         this.groupId = this.appModels.getGroupId();
 
         this.dirBuild = pathDocs+"."+dataBase+"."+artifactId+"."+dirBuild;
-        this.dirDist = pathDocs+"."+dataBase+"."+artifactId+"."+dirDist;
-        this.dirSrc = pathDocs+"."+dataBase+"."+artifactId+"."+dirSrc;
-        this.dirComponents = this.dirSrc+"."+dirComponents;
 
+        this.dirDist = pathDocs+"."+dataBase+"."+artifactId+"."+dirDist;
+
+        this.dirSrc = pathDocs+"."+dataBase+"."+artifactId+"."+dirSrc;
+        this.dirResources = this.dirSrc+"."+dirResources;
+        this.dirCss = dirResources+"."+dirCss;
+        this.dirImg = dirResources+"."+dirImg;
+        this.dirScripts = dirResources+"."+dirScripts;
+        this.dirComponents = this.dirScripts+"."+dirComponents;
+        this.dirApi = this.dirScripts+"."+dirApi;
+        this.dirTemplates = dirResources+"."+dirTemplates;
     }
 
     public void App() throws IOException {
@@ -39,9 +53,15 @@ public class ReactH2 extends FileTxt {
 
         clearFileTxt();
 
-        Utils.mkDirs(dirComponents);
         Utils.mkDirs(dirBuild);
-        Utils.mkDirs(dirDist);
+        Utils.mkDirs(dirDist+".resources.css");
+        Utils.mkDirs(dirDist+".resources.img");
+        Utils.mkDirs(dirDist+".resources.scripts");
+        Utils.mkDirs(dirCss);
+        Utils.mkDirs(dirImg);
+        Utils.mkDirs(dirTemplates);
+        Utils.mkDirs(dirComponents);
+        Utils.mkDirs(dirApi);
 
         ReactH2Package reactH2Package = new ReactH2Package(artifactId);
         Utils.fileMake(pathDocs+"."+dataBase+"."+artifactId, "package.json", reactH2Package);
@@ -57,6 +77,15 @@ public class ReactH2 extends FileTxt {
 
         ReactH2Build reactH2Build = new ReactH2Build(artifactId);
         Utils.fileMake(pathDocs+"."+dataBase+"."+artifactId, "build.xml", reactH2Build);
+
+        ReactH2EntitiesJS reactH2EntitiesJS = new ReactH2EntitiesJS(artifactId,appModels.getEntities());
+        Utils.fileMake(dirApi, "entities.js", reactH2EntitiesJS);
+
+        ReactH2Index reactH2Index = new ReactH2Index(artifactId);
+        Utils.fileMake(dirSrc, "index.html", reactH2Index);
+
+        ReactH2Css reactH2Css = new ReactH2Css(artifactId);
+        Utils.fileMake(dirCss, "app.css", reactH2Css);
 
     }
     catch(Exception ioe) {

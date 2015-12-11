@@ -25,11 +25,12 @@ line("");
 line("");
 line("");
 
-
 line("#Angular");
 line("npm install -g gulp");
 line("npm install -g bower");
 line("npm install -g stylus");
+line("npm install -g babel");
+line("npm install -g babel_cli");
 
 line("npm install --save-dev gulp");
 line("npm install --save-dev gulp-connect");
