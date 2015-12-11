@@ -8,6 +8,7 @@ import co.simasoft.gen.jpa.*;
 import co.simasoft.gen.war.h2.angular.*;
 import co.simasoft.gen.war.h2.jquery.*;
 import co.simasoft.gen.war.h2.nodejs.*;
+import co.simasoft.gen.war.h2.react.*;
 
 import co.simasoft.utils.*;
 import co.simasoft.beans.*;
@@ -383,6 +384,9 @@ for (Entidad entidad : entidades) {
 
         NodejsH2 nodejsH2 = new NodejsH2(appModels);
         nodejsH2.App();
+
+        ReactH2 reactH2 = new ReactH2(appModels);
+        reactH2.App();
 
     }
     catch(Exception ioe) {
