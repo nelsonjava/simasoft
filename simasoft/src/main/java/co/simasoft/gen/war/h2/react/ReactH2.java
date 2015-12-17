@@ -18,14 +18,14 @@ public class ReactH2 extends FileTxt {
     private String dirBuild = "build";
     private String dirDist = "dist";
     private String dirSrc = "src";
+    private String dirClient = "client";
+    private String dirServer = "server";
     private String dirComponents = "components";
     private String dirApi = "db-api";
-    private String dirResources = "resources";
     private String dirCss = "css";
     private String dirImg = "img";
     private String dirScripts = "scripts";
     private String dirTemplates = "templates";
-
 
     public ReactH2(AppModels appModels){
 
@@ -39,13 +39,15 @@ public class ReactH2 extends FileTxt {
         this.dirDist = pathDocs+"."+dataBase+"."+artifactId+"."+dirDist;
 
         this.dirSrc = pathDocs+"."+dataBase+"."+artifactId+"."+dirSrc;
-        this.dirResources = this.dirSrc+"."+dirResources;
-        this.dirCss = dirResources+"."+dirCss;
-        this.dirImg = dirResources+"."+dirImg;
-        this.dirScripts = dirResources+"."+dirScripts;
+        this.dirClient = this.dirSrc+"."+dirClient;
+        this.dirServer = this.dirSrc+"."+dirServer;
+
+        this.dirCss = this.dirClient+"."+dirCss;
+        this.dirImg = this.dirClient+"."+dirImg;
+        this.dirScripts = this.dirClient+"."+dirScripts;
         this.dirComponents = this.dirScripts+"."+dirComponents;
         this.dirApi = this.dirScripts+"."+dirApi;
-        this.dirTemplates = dirResources+"."+dirTemplates;
+        this.dirTemplates = this.dirClient+"."+dirTemplates;
     }
 
     public void App() throws IOException {
@@ -54,9 +56,12 @@ public class ReactH2 extends FileTxt {
         clearFileTxt();
 
         Utils.mkDirs(dirBuild);
-        Utils.mkDirs(dirDist+".resources.css");
-        Utils.mkDirs(dirDist+".resources.img");
-        Utils.mkDirs(dirDist+".resources.scripts");
+        Utils.mkDirs(dirDist+".css");
+        Utils.mkDirs(dirDist+".img");
+        Utils.mkDirs(dirDist+".scripts");
+
+        Utils.mkDirs(dirServer);
+
         Utils.mkDirs(dirCss);
         Utils.mkDirs(dirImg);
         Utils.mkDirs(dirTemplates);
