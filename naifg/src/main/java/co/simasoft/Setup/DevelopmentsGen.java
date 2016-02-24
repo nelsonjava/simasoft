@@ -9,6 +9,7 @@ import co.simasoft.gen.war.h2.angular.*;
 import co.simasoft.gen.war.h2.jquery.*;
 import co.simasoft.gen.war.h2.nodejs.*;
 import co.simasoft.gen.war.h2.react.*;
+import co.simasoft.gen.war.sqlite.django.*;
 
 import co.simasoft.utils.*;
 import co.simasoft.beans.*;
@@ -370,6 +371,7 @@ for (Entidad entidad : entidades) {
 //        jsonNaifg(developments);
         modelsGen.ForgeRestH2();
         modelsGen.ForgeWarH2();
+        modelsGen.WarSqliteDjango();
 
         AppModels appModels = new AppModels(developments.getGroupId(),developments.getArtifactId());
         appModels.setImports(imports);
@@ -387,6 +389,10 @@ for (Entidad entidad : entidades) {
 
         ReactH2 reactH2 = new ReactH2(appModels);
         reactH2.App();
+
+        DjangoSqlite djangoSqlite = new DjangoSqlite(appModels);
+        djangoSqlite.App();
+
 
     }
     catch(Exception ioe) {

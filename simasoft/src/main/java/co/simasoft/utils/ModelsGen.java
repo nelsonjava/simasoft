@@ -10,6 +10,7 @@ import co.simasoft.gen.xhtml.*;
 import co.simasoft.gen.war.*;
 import co.simasoft.gen.war.h2.*;
 import co.simasoft.gen.war.h2.rest.*;
+import co.simasoft.persistence.sqlite.django.*;
 
 
 import java.io.*;
@@ -144,6 +145,38 @@ saveFile("\\docs", "OjoGen.txt");
     }
 
     } // WarH2()
+
+    public void WarSqliteDjango() throws IOException {
+    try {
+
+        clearFileTxt();
+        relationTo();
+        entiyWarSqliteDjango();
+
+    }
+    catch(Exception ioe) {
+      ioe.printStackTrace();
+    }
+
+    } // WarSqliteDjango()
+
+
+    public void entiyWarSqliteDjango() throws IOException {
+    try {
+
+        for (Entidad entidad : entities) {
+
+            EntitySqliteDjango entitySqliteDjango = new EntitySqliteDjango(entidad.getGroupId(),entidad.getGroupId(),entidad,imports);
+            Utils.fileMake(pathDocs+".sqlite.django."+artifactId+".models",entidad.getName()+".py", entitySqliteDjango);
+
+        } // groupIds.getEntities()
+
+
+    }
+    catch(Exception ioe) {
+      ioe.printStackTrace();
+    }
+    } // entiyWarSqliteDjango
 
 
     public void jdocbook() throws IOException {
@@ -803,6 +836,5 @@ line(Integer.toString(i++)+":"+entidad.getName());
       ioe.printStackTrace();
     }
     } // entiyForgeAngularH2
-
 
 } // ModelsGen

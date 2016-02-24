@@ -1,5 +1,7 @@
 package co.simasoft.utils;
 
+import java.io.*;
+
 public class Atributos{
 
      private String field = "";
@@ -59,6 +61,11 @@ public class Atributos{
     public String getType(){
         return typeField(type);
     }
+
+    public String getTypeDjango(){
+        return typeFieldDjango(type);
+    }
+
     public void setType(String type){
         this.type = type;
     }
@@ -185,6 +192,67 @@ public class Atributos{
                  break;
 
         } // switch
+
+        return typeField;
+
+    } // typeField
+
+    public String typeFieldDjango(String type){
+
+        String typeField = "pendiente0";
+
+        switch (type) {
+
+            case "long":
+                 typeField = "Pendiente1";
+                 break;
+
+            case "date":
+                 typeField = "DateField()";
+                 break;
+
+            case "Date":
+                 typeField = "DateField()";
+                 break;
+
+            case "Datetime":
+                 typeField = "DateTimeField";
+                 break;
+
+            case "Integer":
+                 typeField = "IntegerField()";
+                 break;
+
+            case "number":
+                 typeField = "Pendiente4";
+                 break;
+
+            case "float":
+                 typeField = "DecimalField(max_digits="+String.valueOf(length)+", decimal_places="+String.valueOf(precision)+")";
+
+            case "boolean":
+                 typeField = "BooleanField()";
+                 break;
+
+            case "Boolean":
+                 typeField = "BooleanField()";
+                 break;
+
+            case "String":
+                 typeField = "CharField(max_length=255)";
+
+                 break;
+
+            case "Blog":
+                 typeField = "Pendiente6";
+                 break;
+
+            default:
+                 typeField = type;
+                 break;
+
+        } // switch
+
 
         return typeField;
 
