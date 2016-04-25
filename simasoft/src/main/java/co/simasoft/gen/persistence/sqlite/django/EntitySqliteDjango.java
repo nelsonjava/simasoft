@@ -64,10 +64,6 @@ public EntitySqliteDjango(String artifactId,String groupId,Entidad entity,Linked
 //>>FIN INICIALIZACION DE ATRIBUTOS
 
 //>>DECLARACION DE LA CLASE
-      line("from __future__ import unicode_literals\n");
-
-      line("from django.db import models\n");
-
       line("class "+entity.getName()+"(models.Model):");
 //>>FIN DECLARACION DE LA CLASE
 
@@ -79,17 +75,10 @@ public EntitySqliteDjango(String artifactId,String groupId,Entidad entity,Linked
 
           line("    "+name+" = models."+type);
       } // for atributos
-
-      line("");
-      line("    def __str__(self):");
-      line("        return self.name");
-
-      line("    class Meta:");
-      line("        ordering = ('id',)\n");
 //>>DECLARACION DE ATRIBUTOS
 
-/*
 //>>DECLARACION DE RELACIONES
+      line("");
       for(Relation relation : relations) {
 
 //********RELACION UNO A UNO
@@ -98,24 +87,25 @@ public EntitySqliteDjango(String artifactId,String groupId,Entidad entity,Linked
 //********RELACION MUCHOS A UNO
             if(relation.getCardinality().equals("*..1")) {
               if (relation.getFrom().equals(relation.getTo())){   // Relación Unitaria
-                 line("# ManyToOne "+relation.getTo()+" objPadre;\n");
+//                 line("# ManyToOne "+relation.getTo()+" objPadre;\n");
               }
               else{
                  if(relation.getName() == null || relation.getName() == ""){
                    if (entity.getName().equals(relation.getFrom())){
-                      line("# @ManyToOne "+relation.getTo()+" "+Utils._1raMin(relation.getTo())+";\n");
+//                      line("# @ManyToOne "+relation.getTo()+" "+Utils._1raMin(relation.getTo())+";\n");
                    }
                    else{
-                      line("# ManyToOne inversa "+relation.getFrom()+" "+Utils._1raMin(relation.getFrom())+";\n");
+//                      line("# ManyToOne inversa1 "+relation.getFrom()+" "+Utils._1raMin(relation.getFrom())+";\n");
+                      line("    "+Utils._1raMin(relation.getFrom())+" = models.ForeignKey("+relation.getFrom()+")");
                       // relación inversa.
                    }
                  }
                  else{
                    if (entity.getName().equals(relation.getFrom())){
-                      line("# ManyToOne "+ relation.getTo() +" "+ relation.getName()+";\n");
+//                      line("# ManyToOne "+ relation.getTo() +" "+ relation.getName()+";\n");
                    }
                    else{
-                      line("# ManyToOne inversa "+ relation.getFrom() +" "+ relation.getName()+";\n");
+//                      line("# ManyToOne inversa2 "+ relation.getFrom() +" "+ relation.getName()+";\n");
                       // relación inversa.
                    }
                  }
@@ -126,16 +116,16 @@ public EntitySqliteDjango(String artifactId,String groupId,Entidad entity,Linked
 //********RELACION UNO A MUCHOS
             if(relation.getCardinality().equals("1..*")) {
               if(relation.getFrom().equals(relation.getTo())){  // Relación Unitaria
-                line("# OneToMany(mappedBy = \"objPadre\")");
+//                line("# OneToMany(mappedBy = \"objPadre\")");
               }
               else{
                 if(relation.getName() == null || relation.getName() == ""){
-                  line("#    @OneToMany(mappedBy = \""+Utils._1raMin(entity.getName())+"\")");
-                  line("#    private Set<"+relation.getTo()+"> "+Utils._1raMin(relation.getTo())+" = new HashSet<"+relation.getTo()+">();\n");
+//                  line("#    @OneToMany(mappedBy = \""+Utils._1raMin(entity.getName())+"\")");
+//                  line("#    private Set<"+relation.getTo()+"> "+Utils._1raMin(relation.getTo())+" = new HashSet<"+relation.getTo()+">();\n");
                 }
                 else{
-                  line("#    @OneToMany(mappedBy = \""+relation.getName()+"\")");
-                  line("#    private Set<"+relation.getTo()+"> "+relation.getName()+" = new HashSet<"+relation.getTo()+">();\n");
+//                  line("#    @OneToMany(mappedBy = \""+relation.getName()+"\")");
+//                  line("#    private Set<"+relation.getTo()+"> "+relation.getName()+" = new HashSet<"+relation.getTo()+">();\n");
                 }
               }
             }
@@ -144,39 +134,39 @@ public EntitySqliteDjango(String artifactId,String groupId,Entidad entity,Linked
 //********RELACION MUCHOS A MUCHOS
             if(relation.getCardinality().equals("*..*")) {
               if(relation.getFrom().equals(relation.getTo())){  // Relación Unitaria
-                line("#    @ManyToMany(mappedBy = \"objPadre\")");
-                line("#    private Set<"+relation.getTo()+"> objHijos = new HashSet<"+relation.getTo()+">();\n");
+//                line("#    @ManyToMany(mappedBy = \"objPadre\")");
+//                line("#    private Set<"+relation.getTo()+"> objHijos = new HashSet<"+relation.getTo()+">();\n");
               }
               else{
                 if(relation.getName() == null || relation.getName() == ""){
                    if(relation.getUnidireccional()){
-                     line("#    @ManyToMany");
+//                     line("#    @ManyToMany");
                    }
                    else{
-                     line("#    @ManyToMany(mappedBy = \""+Utils._1raMin(entity.getName())+"\")");
+//                     line("#    @ManyToMany(mappedBy = \""+Utils._1raMin(entity.getName())+"\")");
                    }
 
                    if (entity.getName().equals(relation.getFrom())){
-                      line("#    private Set<"+relation.getTo()+"> "+Utils._1raMin(relation.getTo())+" = new HashSet<"+relation.getTo()+">();\n");
+//                      line("#    private Set<"+relation.getTo()+"> "+Utils._1raMin(relation.getTo())+" = new HashSet<"+relation.getTo()+">();\n");
                    }
                    else{ // relación inversa
-                     line("#    private Set<"+relation.getFrom()+"> "+Utils._1raMin(relation.getFrom())+" = new HashSet<"+relation.getFrom()+">();\n");
+//                     line("#    private Set<"+relation.getFrom()+"> "+Utils._1raMin(relation.getFrom())+" = new HashSet<"+relation.getFrom()+">();\n");
                    }
                 }
                 else{
 
                    if(relation.getUnidireccional()){
-                     line("#    @ManyToMany()");
+//                     line("#    @ManyToMany()");
                    }
                    else{
-                     line("#    @ManyToMany(mappedBy = \""+Utils._1raMin(entity.getName())+"\")");
+//                     line("#    @ManyToMany(mappedBy = \""+Utils._1raMin(entity.getName())+"\")");
                    }
 
                    if (entity.getName().equals(relation.getFrom())){
-                      line("#    private Set<"+relation.getTo()+"> "+relation.getName()+" = new HashSet<"+relation.getTo()+">();\n");
+//                      line("#    private Set<"+relation.getTo()+"> "+relation.getName()+" = new HashSet<"+relation.getTo()+">();\n");
                    }
                    else{
-                      line("#    private Set<"+relation.getFrom()+"> "+relation.getName()+" = new HashSet<"+relation.getFrom()+">();\n");
+//                      line("#    private Set<"+relation.getFrom()+"> "+relation.getName()+" = new HashSet<"+relation.getFrom()+">();\n");
                       // Relación inversa.
                    }
 
@@ -189,7 +179,14 @@ public EntitySqliteDjango(String artifactId,String groupId,Entidad entity,Linked
       } // for relations
 //>>FIN DECLARACION DE RELACIONES
 
-*/
+      line("");
+      line("    def __str__(self):");
+      line("        return self.id");
+
+      line("    class Meta:");
+      line("        ordering = ('id',)\n");
+
+
 
 
 

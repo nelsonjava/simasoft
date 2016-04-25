@@ -14,7 +14,7 @@ public class DjangoSqlite extends FileTxt {
     private String groupId = "";
     private String artifactId = "";
 
-    private String dataBase = "ssqlite.django";
+    private String dataBase = "sqlite.django";
     private String dirSrc = "";
 
     public DjangoSqlite(AppModels appModels){
@@ -34,6 +34,10 @@ public class DjangoSqlite extends FileTxt {
         clearFileTxt();
 
         Utils.mkDirs(dirSrc);
+
+        DjangoReadme djangoReadme = new DjangoReadme(artifactId);
+        Utils.fileMake(pathDocs+"."+dataBase+"."+artifactId, "readme.md", djangoReadme);
+
 
     }
     catch(Exception ioe) {

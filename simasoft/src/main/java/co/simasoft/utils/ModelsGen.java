@@ -162,14 +162,29 @@ saveFile("\\docs", "OjoGen.txt");
 
 
     public void entiyWarSqliteDjango() throws IOException {
+
     try {
-
+      
+/*
         for (Entidad entidad : entities) {
-
             EntitySqliteDjango entitySqliteDjango = new EntitySqliteDjango(entidad.getGroupId(),entidad.getGroupId(),entidad,imports);
             Utils.fileMake(pathDocs+".sqlite.django."+artifactId+".models",entidad.getName()+".py", entitySqliteDjango);
-
         } // groupIds.getEntities()
+*/
+
+        ArrayList<FileTxt> entitiesSqliteDjango = new ArrayList<FileTxt>();
+        for (Entidad entidad : entities) {
+            EntitySqliteDjango entitySqliteDjango = new EntitySqliteDjango(entidad.getGroupId(),entidad.getGroupId(),entidad,imports);
+            entitiesSqliteDjango.add(entitySqliteDjango);
+        } // groupIds.getEntities()
+
+        FileTxt models = new FileTxt();
+        models.line("from __future__ import unicode_literals");
+        models.line("from django.db import models\n");
+        for (FileTxt entidad : entitiesSqliteDjango) {
+             models.line(entidad.getSource());
+        } // groupIds.getEntities()
+        Utils.fileMake(pathDocs+".sqlite.django."+artifactId+".models","models.py", models);
 
 
     }
