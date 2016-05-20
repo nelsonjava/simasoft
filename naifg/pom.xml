@@ -11,6 +11,7 @@
   <!-- http://localhost:8080 -->
   <!-- http://localhost:8080/naifg -->
   <!-- http://localhost:8080/auth/ -->
+  <!-- http://localhost:8080/h2console jdbc:h2:/db/naifg/data -->
   <!-- JAVA_OPTS = -Xms512m -Xmx512m -XX:PermSize=256m -XX:MaxPermSize=512m -->
   <!-- https://github.com/forge/docs/blob/master/tutorials/forge-hol/scripts/generate.fsh  -->
   <!-- https://chrome.google.com/webstore/detail/advanced-rest-client/hgmloofddffdnphfgcellkdfbfbjeloo   -->
