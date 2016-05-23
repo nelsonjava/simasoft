@@ -124,7 +124,7 @@
                                 <h:panelGroup>
                                          <h:selectOneMenu converter="#{inventoryFinalityBean.converter}" id="documentalInventoryBeanDocumentalInventoryInventoryFinality" value="#{documentalInventoryBean.documentalInventory.inventoryFinality}">
                                                 <f:selectItem/>
-                                                <f:selectItems itemLabel="#{forgeview:display(_item.name)}" itemValue="#{_item}" value="#{inventoryFinalityBean.all}" var="_item"/>
+                                                <f:selectItems itemLabel="#{forgeview:display(_item.name)}" itemValue="#{_item.name}" value="#{inventoryFinalityBean.all}" var="_item"/>
                                         </h:selectOneMenu>
                                         <h:message for="entitiesBeanEntitiesIsSimplified" styleClass="error"/>
                                 </h:panelGroup>
