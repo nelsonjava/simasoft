@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:forgeview="http://jboss.org/forge/view"
+        template="/resources/scaffold/pageTemplate.xhtml">
+
+        <f:metadata>
+                <f:viewParam name="id" value='#{fundsBean.id}'/>
+                <f:event type="preRenderView" listener='#{fundsBean.retrieve}'/>
+        </f:metadata>
+
+        <ui:param name="pageTitle" value="View Funds"/>
+
+        <ui:define name="header">
+                Funds
+        </ui:define>
+
+        <ui:define name="subheader">
+                View existing Funds
+        </ui:define>
+
+        <ui:define name="footer"/>
+
+        <ui:define name="main">
+                <h:panelGrid columnClasses="label,component,required" columns="3">
+
+                        <h:outputLabel for="fundsBeanFundsOrden" value="Orden:"/>
+                        <h:outputText id="fundsBeanFundsOrden" value="#{fundsBean.funds.orden}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="fundsBeanFundsCode" value="Code:"/>
+                        <h:outputText id="fundsBeanFundsCode" value="#{fundsBean.funds.code}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="fundsBeanFundsName" value="Name:"/>
+                        <h:outputText id="fundsBeanFundsName" value="#{fundsBean.funds.name}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="fundsBeanFundsObservations" value="Observations:"/>
+                        <h:outputText id="fundsBeanFundsObservations" value="#{fundsBean.funds.observations}" escape="false" />
+                        <h:outputText/>
+
+                        <h:outputLabel for="FundsBeanFundsSections" value="Sections:"/>
+                        <h:dataTable id="fundsBeanFundssections" styleClass="data-table" value="#{forgeview:asList(fundsBean.funds.sections)}" var="_item">
+
+                                     <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Orden"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/sections/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemOrden" value="#{_item.orden}"/>
+                                        </h:link>
+                                     </h:column>
+
+                                     <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Code"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/sections/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemCode" value="#{_item.code}"/>
+                                        </h:link>
+                                     </h:column>
+
+                                     <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Name"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/sections/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemName" value="#{_item.name}"/>
+                                        </h:link>
+                                     </h:column>
+
+                        </h:dataTable>
+                        <h:outputText/>
+
+                        <h:outputLabel for="fundsBeanFundsFundsLife" value="fundsLife:"/>
+                        <h:link id="fundsBeanFundsFundsLife" outcome="/admin/fundsLife/view" rendered="#{!empty fundsBean.funds.fundsLife}" value="#{fundsBean.funds.fundsLife.isOpen}">
+                                <f:param name="id" value="#{fundsBean.funds.fundsLife.id}"/>
+                        </h:link>
+                        <h:outputText/>
+
+                </h:panelGrid>
+
+                <div class="buttons">
+                        <h:link value="View All" outcome="search" styleClass="btn btn-primary"/>
+                        <h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
+                        <h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
+                </div>
+        </ui:define>
+</ui:composition>

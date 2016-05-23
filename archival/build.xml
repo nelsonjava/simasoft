@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<project name="naif" default="bak" basedir=".">
+
+  <tstamp/>
+  <property name="bak"          value="/dev/backups/co/simasoft"/>
+  <property name="project.name" value="archival"/>
+  <!--
+  <property name="wildfly"      value="d:/javasrv/wildfly-8.2.0.Final"/>
+  -->
+
+  <target name="bak">
+    <delete dir="target" failonerror="no"/>
+    <mkdir dir="${bak}/${project.name}" />
+    <jar jarfile="${bak}/${project.name}/${DSTAMP}-${TSTAMP}-${project.name}.zip" basedir="."/>
+  </target>
+
+  <target name="ok">
+    <mkdir dir="${bak}/${project.name}" />
+    <delete dir="target" failonerror="no"/>
+    <jar jarfile="${bak}/${project.name}/ok-${DSTAMP}-${TSTAMP}-${project.name}.zip" basedir="."/>
+  </target>
+
+  <target name="clean" description="Cleans up the staging directory">
+    <delete dir="target"/>
+  </target>
+
+  <!--
+  <target name="del1" description="Initialize the build">
+    <delete dir="${wildfly}" failonerror="no"/>
+  </target>
+
+  <target name="del" depends="del1" description="Initialize the build">
+    <mkdir dir="${wildfly}" />
+    <copy todir="${wildfly}">
+      <fileset dir="${wildfly} - copia" />
+    </copy>
+  </target>
+  -->
+
+</project>

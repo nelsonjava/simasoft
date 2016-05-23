@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:forgeview="http://jboss.org/forge/view"
+        template="/resources/scaffold/pageTemplate.xhtml">
+
+        <f:metadata>
+                <f:viewParam name="id" value='#{originalOrderBean.id}'/>
+                <f:event type="preRenderView" listener='#{originalOrderBean.retrieve}'/>
+        </f:metadata>
+
+        <ui:param name="pageTitle" value="View OriginalOrder"/>
+
+        <ui:define name="header">
+                OriginalOrder
+        </ui:define>
+
+        <ui:define name="subheader">
+                View existing OriginalOrder
+        </ui:define>
+
+        <ui:define name="footer"/>
+
+        <ui:define name="main">
+                <h:panelGrid columnClasses="label,component,required" columns="3">
+
+                        <h:outputLabel for="originalOrderBeanOriginalOrderOrden" value="Orden:"/>
+                        <h:outputText id="originalOrderBeanOriginalOrderOrden" value="#{originalOrderBean.originalOrder.orden}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="originalOrderBeanOriginalOrderFinalDate" value="FinalDate:"/>
+                        <h:outputText id="originalOrderBeanOriginalOrderFinalDate" value="Pendiente"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="originalOrderBeanOriginalOrderFolios" value="Folios:"/>
+                        <h:outputText id="originalOrderBeanOriginalOrderFolios" value="#{originalOrderBean.originalOrder.folios}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="originalOrderBeanOriginalOrderLocated" value="Located:"/>
+                        <h:outputText id="originalOrderBeanOriginalOrderLocated" value="#{originalOrderBean.originalOrder.located}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="originalOrderBeanOriginalOrderEntryDate" value="EntryDate:"/>
+                        <h:outputText id="originalOrderBeanOriginalOrderEntryDate" value="Pendiente"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="originalOrderBeanOriginalOrderStartDate" value="StartDate:"/>
+                        <h:outputText id="originalOrderBeanOriginalOrderStartDate" value="Pendiente"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="originalOrderBeanOriginalOrderObservations" value="Observations:"/>
+                        <h:outputText id="originalOrderBeanOriginalOrderObservations" value="#{originalOrderBean.originalOrder.observations}" escape="false" />
+                        <h:outputText/>
+
+                        <h:outputLabel for="originalOrderBeanOriginalOrderDocumentalsSupports" value="documentalsSupports:"/>
+                        <h:link id="originalOrderBeanOriginalOrderDocumentalsSupports" outcome="/admin/documentalsSupports/view" rendered="#{!empty originalOrderBean.originalOrder.documentalsSupports}" value="#{originalOrderBean.originalOrder.documentalsSupports.name}">
+                                <f:param name="id" value="#{originalOrderBean.originalOrder.documentalsSupports.id}"/>
+                        </h:link>
+                        <h:outputText/>
+
+                        <h:outputLabel for="originalOrderBeanOriginalOrderDocumentsTypes" value="documentsTypes:"/>
+                        <h:link id="originalOrderBeanOriginalOrderDocumentsTypes" outcome="/admin/documentsTypes/view" rendered="#{!empty originalOrderBean.originalOrder.documentsTypes}" value="#{originalOrderBean.originalOrder.documentsTypes.name}">
+                                <f:param name="id" value="#{originalOrderBean.originalOrder.documentsTypes.id}"/>
+                        </h:link>
+                        <h:outputText/>
+
+                        <h:outputLabel for="originalOrderBeanOriginalOrderDocumentalsUnits" value="documentalsUnits:"/>
+                        <h:link id="originalOrderBeanOriginalOrderDocumentalsUnits" outcome="/admin/documentalsUnits/view" rendered="#{!empty originalOrderBean.originalOrder.documentalsUnits}" value="#{originalOrderBean.originalOrder.documentalsUnits.creationDate}">
+                                <f:param name="id" value="#{originalOrderBean.originalOrder.documentalsUnits.id}"/>
+                        </h:link>
+                        <h:outputText/>
+
+                </h:panelGrid>
+
+                <div class="buttons">
+                        <h:link value="View All" outcome="search" styleClass="btn btn-primary"/>
+                        <h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
+                        <h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
+                </div>
+        </ui:define>
+</ui:composition>
