@@ -75,9 +75,9 @@ public class DevelopmentsGen extends FileTxt {
         ArrayList<Entidad> entidades = new ArrayList<Entidad>(0);
         ArrayList<String> entitiesNames = EntitiesNames(developments);
 
-for (String entityName : entitiesNames){
-line(entityName);
-}
+        for (String entityName : entitiesNames){
+            line(entityName);
+        }
 
         for (Models models : developments.getModels()){
 
@@ -93,7 +93,7 @@ line(entityName);
 
              for (ModelsGroupIds modelsGroupIds : models.getModelsGroupIds()){
 
-line(modelsGroupIds.getGroupIds().getGroupId());
+                 line(modelsGroupIds.getGroupIds().getGroupId());
 
                  for (GroupIdsEntities groupIdsEntities : modelsGroupIds.getGroupIds().getGroupIdsEntities()){
 

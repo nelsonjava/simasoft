@@ -640,6 +640,9 @@ line(Integer.toString(i++)+":"+entidad.getName());
 
         relationTo();
 
+        line("scaffold-setup --provider Faces");
+        line("scaffold-generate --web-root /admin --provider Faces --targets co.simasoft.models.*;");
+
         line("project-new --named w"+artifactId);
         line("jpa-setup");
         line("scaffold-setup --provider AngularJS\n");
