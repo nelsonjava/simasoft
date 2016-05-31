@@ -25,9 +25,10 @@ import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
 import co.simasoft.models.OriginalOrder;
+import co.simasoft.models.ConservationUnits;
+import co.simasoft.models.DocumentalInventory;
 import co.simasoft.models.DocumentalsSupports;
 import co.simasoft.models.DocumentalsUnits;
-import co.simasoft.models.DocumentsTypes;
 
 /**
  * Backing bean for OriginalOrder entities.
@@ -134,15 +135,21 @@ public class OriginalOrderBean implements Serializable {
 
 		try {
 			OriginalOrder deletableEntity = findById(getId());
+			DocumentalInventory documentalInventory = deletableEntity
+					.getDocumentalInventory();
+			documentalInventory.getOriginalOrder().remove(deletableEntity);
+			deletableEntity.setDocumentalInventory(null);
+			this.entityManager.merge(documentalInventory);
 			DocumentalsSupports documentalsSupports = deletableEntity
 					.getDocumentalsSupports();
 			documentalsSupports.getOriginalOrder().remove(deletableEntity);
 			deletableEntity.setDocumentalsSupports(null);
 			this.entityManager.merge(documentalsSupports);
-			DocumentsTypes documentsTypes = deletableEntity.getDocumentsTypes();
-			documentsTypes.getOriginalOrder().remove(deletableEntity);
-			deletableEntity.setDocumentsTypes(null);
-			this.entityManager.merge(documentsTypes);
+			ConservationUnits conservationUnits = deletableEntity
+					.getConservationUnits();
+			conservationUnits.getOriginalOrder().remove(deletableEntity);
+			deletableEntity.setConservationUnits(null);
+			this.entityManager.merge(conservationUnits);
 			DocumentalsUnits documentalsUnits = deletableEntity
 					.getDocumentalsUnits();
 			documentalsUnits.getOriginalOrder().remove(deletableEntity);
@@ -177,7 +184,7 @@ public class OriginalOrderBean implements Serializable {
 	}
 
 	public int getPageSize() {
-		return 1000;
+		return 10;
 	}
 
 	public OriginalOrder getExample() {
@@ -240,16 +247,17 @@ public class OriginalOrderBean implements Serializable {
 					builder.lower(root.<String> get("located")),
 					'%' + located.toLowerCase() + '%'));
 		}
-		DocumentalsSupports documentalsSupports = this.example
-				.getDocumentalsSupports();
-		if (documentalsSupports != null) {
-			predicatesList.add(builder.equal(root.get("documentalsSupports"),
-					documentalsSupports));
+		String mail = this.example.getMail();
+		if (mail != null && !"".equals(mail)) {
+			predicatesList.add(builder.like(
+					builder.lower(root.<String> get("mail")),
+					'%' + mail.toLowerCase() + '%'));
 		}
-		DocumentsTypes documentsTypes = this.example.getDocumentsTypes();
-		if (documentsTypes != null) {
-			predicatesList.add(builder.equal(root.get("documentsTypes"),
-					documentsTypes));
+		String notes = this.example.getNotes();
+		if (notes != null && !"".equals(notes)) {
+			predicatesList.add(builder.like(
+					builder.lower(root.<String> get("notes")),
+					'%' + notes.toLowerCase() + '%'));
 		}
 
 		return predicatesList.toArray(new Predicate[predicatesList.size()]);

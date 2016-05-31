@@ -311,48 +311,26 @@ public class FindBean {
         return finalDisposition;
     }
 
-//      ---------------------- DocumentsTypes ------------------------
+//      ---------------------- ConservationUnitsTypes ------------------------
 
-    public List<DocumentsTypes> AllDocumentsTypes() {
-        List<DocumentsTypes> results = em.createQuery("SELECT o FROM DocumentsTypes o").getResultList();
+    public List<ConservationUnitsTypes> AllConservationUnitsTypes() {
+        List<ConservationUnitsTypes> results = em.createQuery("SELECT o FROM ConservationUnitsTypes o").getResultList();
         if (results.isEmpty()) {
-            return new ArrayList<DocumentsTypes>();
+            return new ArrayList<ConservationUnitsTypes>();
         }
         return results;
     }
 
-    public DocumentsTypes idDocumentsTypes(Long id) {
+    public ConservationUnitsTypes idConservationUnitsTypes(Long id) {
 
-        DocumentsTypes documentsTypes = new DocumentsTypes();
-        List<DocumentsTypes> results = em.createQuery("SELECT o FROM DocumentsTypes o WHERE o.id LIKE :custId").setParameter("custId", id).getResultList();
-
-        if (!results.isEmpty()) {
-
-           documentsTypes = results.get(0);
-        }
-        return documentsTypes;
-    }
-
-//      ---------------------- Trd ------------------------
-
-    public List<Trd> AllTrd() {
-        List<Trd> results = em.createQuery("SELECT o FROM Trd o").getResultList();
-        if (results.isEmpty()) {
-            return new ArrayList<Trd>();
-        }
-        return results;
-    }
-
-    public Trd idTrd(Long id) {
-
-        Trd trd = new Trd();
-        List<Trd> results = em.createQuery("SELECT o FROM Trd o WHERE o.id LIKE :custId").setParameter("custId", id).getResultList();
+        ConservationUnitsTypes conservationUnitsTypes = new ConservationUnitsTypes();
+        List<ConservationUnitsTypes> results = em.createQuery("SELECT o FROM ConservationUnitsTypes o WHERE o.id LIKE :custId").setParameter("custId", id).getResultList();
 
         if (!results.isEmpty()) {
 
-           trd = results.get(0);
+           conservationUnitsTypes = results.get(0);
         }
-        return trd;
+        return conservationUnitsTypes;
     }
 
 //      ---------------------- OriginalOrder ------------------------

@@ -30,13 +30,6 @@
                                 <h:panelGroup styleClass="search">
 
                                         <h:panelGrid columnClasses="label,component,required" columns="3">
-                                                <h:outputLabel for="sectionsBeanExampleEmail" value="Email:"/>
-                                                <h:panelGroup>
-                                                        <h:inputText id="sectionsBeanExampleEmail" value="#{sectionsBean.example.email}"/>
-                                                        <h:message for="sectionsBeanExampleEmail" styleClass="error"/>
-                                                </h:panelGroup>
-                                                <h:outputText/>
-
                                                 <h:outputLabel for="sectionsBeanExampleCode" value="Code:"/>
                                                 <h:panelGroup>
                                                         <h:inputText id="sectionsBeanExampleCode" value="#{sectionsBean.example.code}"/>
@@ -60,17 +53,6 @@
                         </f:validateBean>
 
                         <h:dataTable id="sectionsBeanPageItems" styleClass="data-table" value="#{sectionsBean.pageItems}" var="_item">
-
-                                <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="Email"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/sections/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemEmail" value="#{_item.email}"/>
-                                        </h:link>
-                                </h:column>
-
 
                                 <h:column>
                                         <f:facet name="header">

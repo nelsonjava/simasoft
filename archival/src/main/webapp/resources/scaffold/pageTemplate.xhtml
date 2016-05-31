@@ -32,15 +32,46 @@
 	<div class="container forgecontainer">
 		<div id="navigation">
 			<h:link id="homeLink" outcome="/index.xhtml">
-				<h:graphicImage value='#{resource["forge-logo.png"]}' alt="Forge... get hammered" border="0" />	
+				<h:graphicImage value='#{resource["forge-logo.png"]}' alt="Forge... get hammered" border="0" />
 			</h:link>
 			<ul>
 				<li>
-					<h:link outcome="/admin/conservationUnits/search" value="Conservation Units"/>
+					<h:link outcome="/admin/sections/search" value="Sections"/>
+				</li>
+				<li>
+					<h:link outcome="/admin/series/search" value="Series"/>
+				</li>
+				<li>
+					<h:link outcome="/admin/documentalsUnits/search" value="Documentals Units"/>
+				</li>
+				<li>
+					<h:link outcome="/admin/originalOrder/search" value="Original Order"/>
+				</li>
+
+				<li>
+                                        <p>====================</p>
 				</li>
 				<li>
 					<h:link outcome="/admin/documentalInventory/search" value="Documental Inventory"/>
 				</li>
+
+				<li>
+					<h:link outcome="/admin/conservationUnits/search" value="Conservation Units"/>
+				</li>
+				
+				<li>
+					<h:link outcome="/admin/inventoryFinality/search" value="Inventory Finality"/>
+				</li>
+
+				<li>
+                                        <p>====================</p>
+				</li>
+
+
+				<li>
+					<h:link outcome="/admin/conservationUnitsTypes/search" value="Conservation Units Types"/>
+				</li>
+
 				<li>
 					<h:link outcome="/admin/documentalRetention/search" value="Documental Retention"/>
 				</li>
@@ -48,40 +79,24 @@
 					<h:link outcome="/admin/documentalsSupports/search" value="Documentals Supports"/>
 				</li>
 				<li>
-					<h:link outcome="/admin/documentalsUnits/search" value="Documentals Units"/>
-				</li>
-				<li>
-					<h:link outcome="/admin/documentsTypes/search" value="Documents Types"/>
-				</li>
-				<li>
 					<h:link outcome="/admin/finalDisposition/search" value="Final Disposition"/>
 				</li>
 				<li>
 					<h:link outcome="/admin/frequentlyQuery/search" value="Frequently Query"/>
 				</li>
+
+
 				<li>
 					<h:link outcome="/admin/funds/search" value="Funds"/>
 				</li>
 				<li>
 					<h:link outcome="/admin/fundsLife/search" value="Funds Life"/>
 				</li>
-				<li>
-					<h:link outcome="/admin/inventoryFinality/search" value="Inventory Finality"/>
-				</li>
-				<li>
-					<h:link outcome="/admin/originalOrder/search" value="Original Order"/>
-				</li>
-				<li>
-					<h:link outcome="/admin/sections/search" value="Sections"/>
-				</li>
+
+
+
 				<li>
 					<h:link outcome="/admin/sectionsTypes/search" value="Sections Types"/>
-				</li>
-				<li>
-					<h:link outcome="/admin/series/search" value="Series"/>
-				</li>
-				<li>
-					<h:link outcome="/admin/trd/search" value="Trd"/>
 				</li>
 			</ul>
 		</div>

@@ -46,51 +46,17 @@
                                 </h:panelGroup>
                                 <h:outputText/>
 
-                                <h:outputLabel for="documentalInventoryBeanDocumentalInventoryFolios" value="Folios:"/>
+                                <h:outputLabel for="documentalInventoryBeanDocumentalInventoryTransferNumber" value="TransferNumber:"/>
                                 <h:panelGroup>
-                                        <h:inputText id="documentalInventoryBeanDocumentalInventoryFolios" value="#{documentalInventoryBean.documentalInventory.folios}"/>
-                                        <h:message for="documentalInventoryBeanDocumentalInventoryFolios" styleClass="error"/>
+                                        <h:inputText id="documentalInventoryBeanDocumentalInventoryTransferNumber" value="#{documentalInventoryBean.documentalInventory.transferNumber}"/>
+                                        <h:message for="documentalInventoryBeanDocumentalInventoryTransferNumber" styleClass="error"/>
                                 </h:panelGroup>
                                 <h:outputText/>
 
-                                <h:outputLabel for="documentalInventoryBeanDocumentalInventoryQuantity" value="Quantity:"/>
+                                <h:outputLabel for="documentalInventoryBeanDocumentalInventoryObject" value="Object:"/>
                                 <h:panelGroup>
-                                        <h:inputText id="documentalInventoryBeanDocumentalInventoryQuantity" value="#{documentalInventoryBean.documentalInventory.quantity}"/>
-                                        <h:message for="documentalInventoryBeanDocumentalInventoryQuantity" styleClass="error"/>
-                                </h:panelGroup>
-                                <h:outputText/>
-
-                                <h:outputLabel for="documentalInventoryBeanDocumentalInventoryStartDate" value="StartDate:"/>
-                                <h:panelGroup>
-                                <p:calendar id="developmentsBeanDevelopmentsStartDate"
-                                            showButtonPanel="true"
-                                            pattern="dd/MM/yyyy HH:mm a"
-                                            value="#{documentalInventoryBean.documentalInventory.startDate}"/>
-                                </h:panelGroup>
-                                <h:outputText/>
-
-                                <h:outputLabel for="documentalInventoryBeanDocumentalInventoryFinalDate" value="FinalDate:"/>
-                                <h:panelGroup>
-                                <p:calendar id="developmentsBeanDevelopmentsFinalDate"
-                                            showButtonPanel="true"
-                                            pattern="dd/MM/yyyy HH:mm a"
-                                            value="#{documentalInventoryBean.documentalInventory.finalDate}"/>
-                                </h:panelGroup>
-                                <h:outputText/>
-
-                                <h:outputLabel for="documentalInventoryBeanDocumentalInventoryDebugDate" value="DebugDate:"/>
-                                <h:panelGroup>
-                                <p:calendar id="developmentsBeanDevelopmentsDebugDate"
-                                            showButtonPanel="true"
-                                            pattern="dd/MM/yyyy HH:mm a"
-                                            value="#{documentalInventoryBean.documentalInventory.debugDate}"/>
-                                </h:panelGroup>
-                                <h:outputText/>
-
-                                <h:outputLabel for="documentalInventoryBeanDocumentalInventoryFinalDisposition" value="FinalDisposition:"/>
-                                <h:panelGroup>
-                                        <h:inputText id="documentalInventoryBeanDocumentalInventoryFinalDisposition" value="#{documentalInventoryBean.documentalInventory.finalDisposition}"/>
-                                        <h:message for="documentalInventoryBeanDocumentalInventoryFinalDisposition" styleClass="error"/>
+                                        <h:inputText id="documentalInventoryBeanDocumentalInventoryObject" value="#{documentalInventoryBean.documentalInventory.object}"/>
+                                        <h:message for="documentalInventoryBeanDocumentalInventoryObject" styleClass="error"/>
                                 </h:panelGroup>
                                 <h:outputText/>
 
@@ -103,28 +69,21 @@
                                 </h:panelGroup>
                                 <h:outputText/>
 
-                                <h:outputLabel for="documentalInventoryBeanDocumentalInventoryTransferNumber" value="TransferNumber:"/>
+                                <h:outputLabel for="documentalInventoryBeanDocumentalInventoryDebugDate" value="DebugDate:"/>
                                 <h:panelGroup>
-                                        <h:inputText id="documentalInventoryBeanDocumentalInventoryTransferNumber" value="#{documentalInventoryBean.documentalInventory.transferNumber}"/>
-                                        <h:message for="documentalInventoryBeanDocumentalInventoryTransferNumber" styleClass="error"/>
+                                <p:calendar id="developmentsBeanDevelopmentsDebugDate"
+                                            showButtonPanel="true"
+                                            pattern="dd/MM/yyyy HH:mm a"
+                                            value="#{documentalInventoryBean.documentalInventory.debugDate}"/>
                                 </h:panelGroup>
                                 <h:outputText/>
 
-                                <h:outputLabel for="documentalInventoryBeandocumentalInventoryDocumentalsUnits" value="DocumentalsUnits:"/>
-                                <h:panelGroup>
-                                         <h:selectOneMenu converter="#{documentalsUnitsBean.converter}" id="documentalInventoryBeanDocumentalInventoryDocumentalsUnits" value="#{documentalInventoryBean.documentalInventory.documentalsUnits}">
-                                                <f:selectItem/>
-                                                <f:selectItems itemLabel="#{forgeview:display(_item.creationDate)}" itemValue="#{_item}" value="#{documentalsUnitsBean.all}" var="_item"/>
-                                        </h:selectOneMenu>
-                                        <h:message for="entitiesBeanEntitiesIsSimplified" styleClass="error"/>
-                                </h:panelGroup>
-                                <h:outputText/>
 
                                 <h:outputLabel for="documentalInventoryBeandocumentalInventoryInventoryFinality" value="InventoryFinality:"/>
                                 <h:panelGroup>
                                          <h:selectOneMenu converter="#{inventoryFinalityBean.converter}" id="documentalInventoryBeanDocumentalInventoryInventoryFinality" value="#{documentalInventoryBean.documentalInventory.inventoryFinality}">
                                                 <f:selectItem/>
-                                                <f:selectItems itemLabel="#{forgeview:display(_item.name)}" itemValue="#{_item.name}" value="#{inventoryFinalityBean.all}" var="_item"/>
+                                                <f:selectItems itemLabel="#{forgeview:display(_item.name)}" itemValue="#{_item}" value="#{inventoryFinalityBean.all}" var="_item"/>
                                         </h:selectOneMenu>
                                         <h:message for="entitiesBeanEntitiesIsSimplified" styleClass="error"/>
                                 </h:panelGroup>

@@ -26,6 +26,7 @@ import javax.persistence.criteria.Root;
 
 import co.simasoft.models.FinalDisposition;
 import co.simasoft.models.Series;
+import java.util.Iterator;
 
 /**
  * Backing bean for FinalDisposition entities.
@@ -132,10 +133,14 @@ public class FinalDispositionBean implements Serializable {
 
 		try {
 			FinalDisposition deletableEntity = findById(getId());
-			Series series = deletableEntity.getSeries();
-			series.getFinalDisposition().remove(deletableEntity);
-			deletableEntity.setSeries(null);
-			this.entityManager.merge(series);
+			Iterator<Series> iterSeries = deletableEntity.getSeries()
+					.iterator();
+			for (; iterSeries.hasNext();) {
+				Series nextInSeries = iterSeries.next();
+				nextInSeries.setFinalDisposition(null);
+				iterSeries.remove();
+				this.entityManager.merge(nextInSeries);
+			}
 			this.entityManager.remove(deletableEntity);
 			this.entityManager.flush();
 			return "search?faces-redirect=true";
@@ -165,7 +170,7 @@ public class FinalDispositionBean implements Serializable {
 	}
 
 	public int getPageSize() {
-		return 1000;
+		return 10;
 	}
 
 	public FinalDisposition getExample() {
@@ -224,10 +229,6 @@ public class FinalDispositionBean implements Serializable {
 			predicatesList.add(builder.like(
 					builder.lower(root.<String> get("name")),
 					'%' + name.toLowerCase() + '%'));
-		}
-		Series series = this.example.getSeries();
-		if (series != null) {
-			predicatesList.add(builder.equal(root.get("series"), series));
 		}
 
 		return predicatesList.toArray(new Predicate[predicatesList.size()]);

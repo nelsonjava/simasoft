@@ -32,8 +32,16 @@
                         <h:outputText id="seriesBeanSeriesOrden" value="#{seriesBean.series.orden}"/>
                         <h:outputText/>
 
+                        <h:outputLabel for="seriesBeanSeriesProcedures" value="Procedures:"/>
+                        <h:outputText id="seriesBeanSeriesProcedures" value="#{seriesBean.series.procedures}"/>
+                        <h:outputText/>
+
                         <h:outputLabel for="seriesBeanSeriesName" value="Name:"/>
                         <h:outputText id="seriesBeanSeriesName" value="#{seriesBean.series.name}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="seriesBeanSeriesDir" value="Dir:"/>
+                        <h:outputText id="seriesBeanSeriesDir" value="#{seriesBean.series.dir}"/>
                         <h:outputText/>
 
                         <h:outputLabel for="seriesBeanSeriesCode" value="Code:"/>
@@ -103,6 +111,16 @@
 
                                      <h:column>
                                         <f:facet name="header">
+                                                <h:outputText value="Code"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/documentalsUnits/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemCode" value="#{_item.code}"/>
+                                        </h:link>
+                                     </h:column>
+
+                                     <h:column>
+                                        <f:facet name="header">
                                                 <h:outputText value="Name"/>
                                         </f:facet>
                                         <h:link outcome="/admin/documentalsUnits/view">
@@ -114,53 +132,33 @@
                         </h:dataTable>
                         <h:outputText/>
 
-                        <h:outputLabel for="SeriesBeanSeriesFinalDisposition" value="FinalDisposition:"/>
-                        <h:dataTable id="seriesBeanSeriesfinalDisposition" styleClass="data-table" value="#{forgeview:asList(seriesBean.series.finalDisposition)}" var="_item">
-
-                                     <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="Orden"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/finalDisposition/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemOrden" value="#{_item.orden}"/>
-                                        </h:link>
-                                     </h:column>
-
-                                     <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="Name"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/finalDisposition/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemName" value="#{_item.name}"/>
-                                        </h:link>
-                                     </h:column>
-
-                        </h:dataTable>
-                        <h:outputText/>
-
-                        <h:outputLabel for="seriesBeanSeriesDocumentsTypes" value="documentsTypes:"/>
-                        <h:link id="seriesBeanSeriesDocumentsTypes" outcome="/admin/documentsTypes/view" rendered="#{!empty seriesBean.series.documentsTypes}" value="#{seriesBean.series.documentsTypes.name}">
-                                <f:param name="id" value="#{seriesBean.series.documentsTypes.id}"/>
+                        <h:outputLabel for="seriesBeanSeriesFinalDisposition" value="finalDisposition:"/>
+                        <h:link id="seriesBeanSeriesFinalDisposition" outcome="/admin/finalDisposition/view" rendered="#{!empty seriesBean.series.finalDisposition}" value="#{seriesBean.series.finalDisposition.name}">
+                                <f:param name="id" value="#{seriesBean.series.finalDisposition.id}"/>
                         </h:link>
                         <h:outputText/>
 
-                        <h:outputLabel for="seriesBeanSeriesSeries" value="series:"/>
-                        <h:link id="seriesBeanSeriesSeries" outcome="/admin/series/view" rendered="#{!empty seriesBean.series.objPadre}" value="#{seriesBean.series.objPadre}">
+                        <h:outputLabel for="seriesBeanSeriesobjPadre" value="series:"/>
+                        <h:link id="seriesBeanSeriesobjPadre" outcome="/admin/series/view" rendered="#{!empty seriesBean.series.objPadre}" value="#{seriesBean.series.objPadre}">
                                 <f:param name="id" value="#{seriesBean.series.objPadre.id}"/>
-                        </h:link>
-                        <h:outputText/>
-
-                        <h:outputLabel for="seriesBeanSeriesTrd" value="trd:"/>
-                        <h:link id="seriesBeanSeriesTrd" outcome="/admin/trd/view" rendered="#{!empty seriesBean.series.trd}" value="#{seriesBean.series.trd.procedures}">
-                                <f:param name="id" value="#{seriesBean.series.trd.id}"/>
                         </h:link>
                         <h:outputText/>
 
                         <h:outputLabel for="seriesBeanSeriesSections" value="sections:"/>
                         <h:link id="seriesBeanSeriesSections" outcome="/admin/sections/view" rendered="#{!empty seriesBean.series.sections}" value="#{seriesBean.series.sections.name}">
                                 <f:param name="id" value="#{seriesBean.series.sections.id}"/>
+                        </h:link>
+                        <h:outputText/>
+
+                        <h:outputLabel for="seriesBeanSeriesGestion" value="gestion:"/>
+                        <h:link id="seriesBeanSeriesGestion" outcome="/admin/documentalRetention/view" rendered="#{!empty seriesBean.series.gestion}" value="#{seriesBean.series.gestion.name}">
+                                <f:param name="id" value="#{seriesBean.series.gestion.id}"/>
+                        </h:link>
+                        <h:outputText/>
+
+                        <h:outputLabel for="seriesBeanSeriesCentral" value="central:"/>
+                        <h:link id="seriesBeanSeriesCentral" outcome="/admin/documentalRetention/view" rendered="#{!empty seriesBean.series.central}" value="#{seriesBean.series.central.name}">
+                                <f:param name="id" value="#{seriesBean.series.central.id}"/>
                         </h:link>
                         <h:outputText/>
 

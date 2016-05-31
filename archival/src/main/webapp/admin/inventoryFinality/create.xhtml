@@ -53,6 +53,13 @@
                                 </h:panelGroup>
                                 <h:outputText/>
 
+                                <h:outputLabel for="inventoryFinalityBeanInventoryFinalityYear" value="Year:"/>
+                                <h:panelGroup>
+                                        <h:inputText id="inventoryFinalityBeanInventoryFinalityYear" value="#{inventoryFinalityBean.inventoryFinality.year}"/>
+                                        <h:message for="inventoryFinalityBeanInventoryFinalityYear" styleClass="error"/>
+                                </h:panelGroup>
+                                <h:outputText/>
+
 
                                 <h:outputLabel for="inventoryFinalityBeanInventoryFinalityObservations" value="Observations:"/>
                                 <h:panelGroup>

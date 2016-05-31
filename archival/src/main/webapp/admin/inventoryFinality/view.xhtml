@@ -36,6 +36,10 @@
                         <h:outputText id="inventoryFinalityBeanInventoryFinalityName" value="#{inventoryFinalityBean.inventoryFinality.name}"/>
                         <h:outputText/>
 
+                        <h:outputLabel for="inventoryFinalityBeanInventoryFinalityYear" value="Year:"/>
+                        <h:outputText id="inventoryFinalityBeanInventoryFinalityYear" value="#{inventoryFinalityBean.inventoryFinality.year}"/>
+                        <h:outputText/>
+
                         <h:outputLabel for="inventoryFinalityBeanInventoryFinalityObservations" value="Observations:"/>
                         <h:outputText id="inventoryFinalityBeanInventoryFinalityObservations" value="#{inventoryFinalityBean.inventoryFinality.observations}" escape="false" />
                         <h:outputText/>
@@ -55,50 +59,6 @@
 
                                      <h:column>
                                         <f:facet name="header">
-                                                <h:outputText value="Folios"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/documentalInventory/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemFolios" value="#{_item.folios}"/>
-                                        </h:link>
-                                     </h:column>
-
-                                     <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="Quantity"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/documentalInventory/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemQuantity" value="#{_item.quantity}"/>
-                                        </h:link>
-                                     </h:column>
-
-                                     <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="StartDate"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/documentalInventory/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemStartDate" value="#{_item.startDate}"/>
-                                                        <f:convertDateTime type="date"/>
-                                               <h:outputText/>
-                                        </h:link>
-                                     </h:column>
-
-                                     <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="FinalDate"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/documentalInventory/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemFinalDate" value="#{_item.finalDate}"/>
-                                                        <f:convertDateTime type="date"/>
-                                               <h:outputText/>
-                                        </h:link>
-                                     </h:column>
-
-                                     <h:column>
-                                        <f:facet name="header">
                                                 <h:outputText value="DebugDate"/>
                                         </f:facet>
                                         <h:link outcome="/admin/documentalInventory/view">
@@ -111,11 +71,11 @@
 
                                      <h:column>
                                         <f:facet name="header">
-                                                <h:outputText value="FinalDisposition"/>
+                                                <h:outputText value="Object"/>
                                         </f:facet>
                                         <h:link outcome="/admin/documentalInventory/view">
                                                 <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemFinalDisposition" value="#{_item.finalDisposition}"/>
+                                                <h:outputText id="itemObject" value="#{_item.object}"/>
                                         </h:link>
                                      </h:column>
 

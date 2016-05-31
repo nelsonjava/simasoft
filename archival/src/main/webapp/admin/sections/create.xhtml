@@ -46,13 +46,6 @@
                                 </h:panelGroup>
                                 <h:outputText/>
 
-                                <h:outputLabel for="sectionsBeanSectionsEmail" value="Email:"/>
-                                <h:panelGroup>
-                                        <h:inputText id="sectionsBeanSectionsEmail" value="#{sectionsBean.sections.email}"/>
-                                        <h:message for="sectionsBeanSectionsEmail" styleClass="error"/>
-                                </h:panelGroup>
-                                <h:outputText/>
-
                                 <h:outputLabel for="sectionsBeanSectionsCode" value="Code:"/>
                                 <h:panelGroup>
                                         <h:inputText id="sectionsBeanSectionsCode" value="#{sectionsBean.sections.code}"/>
@@ -64,6 +57,13 @@
                                 <h:panelGroup>
                                         <h:inputText id="sectionsBeanSectionsName" value="#{sectionsBean.sections.name}"/>
                                         <h:message for="sectionsBeanSectionsName" styleClass="error"/>
+                                </h:panelGroup>
+                                <h:outputText/>
+
+                                <h:outputLabel for="sectionsBeanSectionsEmail" value="Email:"/>
+                                <h:panelGroup>
+                                        <h:inputText id="sectionsBeanSectionsEmail" value="#{sectionsBean.sections.email}"/>
+                                        <h:message for="sectionsBeanSectionsEmail" styleClass="error"/>
                                 </h:panelGroup>
                                 <h:outputText/>
 
@@ -83,7 +83,7 @@
                                 <h:panelGroup>
                                          <h:selectOneMenu converter="#{fundsBean.converter}" id="sectionsBeanSectionsFunds" value="#{sectionsBean.sections.funds}">
                                                 <f:selectItem/>
-                                                <f:selectItems itemLabel="#{forgeview:display(_item.code)}" itemValue="#{_item}" value="#{fundsBean.all}" var="_item"/>
+                                                <f:selectItems itemLabel="#{forgeview:display(_item.name)}" itemValue="#{_item}" value="#{fundsBean.all}" var="_item"/>
                                         </h:selectOneMenu>
                                         <h:message for="entitiesBeanEntitiesIsSimplified" styleClass="error"/>
                                 </h:panelGroup>

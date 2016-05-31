@@ -22,8 +22,7 @@
     <class>co.simasoft.models.DocumentalInventory</class>
     <class>co.simasoft.models.FundsLife</class>
     <class>co.simasoft.models.FinalDisposition</class>
-    <class>co.simasoft.models.DocumentsTypes</class>
-    <class>co.simasoft.models.Trd</class>
+    <class>co.simasoft.models.ConservationUnitsTypes</class>
     <class>co.simasoft.models.OriginalOrder</class>
 
     <exclude-unlisted-classes>true</exclude-unlisted-classes>

@@ -46,13 +46,6 @@
                                 </h:panelGroup>
                                 <h:outputText/>
 
-                                <h:outputLabel for="seriesBeanSeriesName" value="Name:"/>
-                                <h:panelGroup>
-                                        <h:inputText id="seriesBeanSeriesName" value="#{seriesBean.series.name}"/>
-                                        <h:message for="seriesBeanSeriesName" styleClass="error"/>
-                                </h:panelGroup>
-                                <h:outputText/>
-
                                 <h:outputLabel for="seriesBeanSeriesCode" value="Code:"/>
                                 <h:panelGroup>
                                         <h:inputText id="seriesBeanSeriesCode" value="#{seriesBean.series.code}"/>
@@ -60,10 +53,17 @@
                                 </h:panelGroup>
                                 <h:outputText/>
 
-                                <h:outputLabel for="seriesBeanSeriesLink" value="Link:"/>
+                                <h:outputLabel for="seriesBeanSeriesName" value="Name:"/>
                                 <h:panelGroup>
-                                        <h:inputText id="seriesBeanSeriesLink" value="#{seriesBean.series.link}"/>
-                                        <h:message for="seriesBeanSeriesLink" styleClass="error"/>
+                                        <h:inputText id="seriesBeanSeriesName" value="#{seriesBean.series.name}"/>
+                                        <h:message for="seriesBeanSeriesName" styleClass="error"/>
+                                </h:panelGroup>
+                                <h:outputText/>
+
+                                <h:outputLabel for="seriesBeanSeriesDir" value="Dir:"/>
+                                <h:panelGroup>
+                                        <h:inputText id="seriesBeanSeriesDir" value="#{seriesBean.series.dir}"/>
+                                        <h:message for="seriesBeanSeriesDir" styleClass="error"/>
                                 </h:panelGroup>
                                 <h:outputText/>
 
@@ -74,14 +74,27 @@
                                 </h:panelGroup>
                                 <h:outputText/>
 
-
-
-
-                                <h:outputLabel for="seriesBeanseriesDocumentsTypes" value="DocumentsTypes:"/>
+                                <h:outputLabel for="seriesBeanSeriesLink" value="Link:"/>
                                 <h:panelGroup>
-                                         <h:selectOneMenu converter="#{documentsTypesBean.converter}" id="seriesBeanSeriesDocumentsTypes" value="#{seriesBean.series.documentsTypes}">
+                                        <h:inputText id="seriesBeanSeriesLink" value="#{seriesBean.series.link}"/>
+                                        <h:message for="seriesBeanSeriesLink" styleClass="error"/>
+                                </h:panelGroup>
+                                <h:outputText/>
+
+                                <h:outputLabel for="seriesBeanSeriesProcedures" value="Procedures:"/>
+                                <h:panelGroup>
+                                        <h:inputText id="seriesBeanSeriesProcedures" value="#{seriesBean.series.procedures}"/>
+                                        <h:message for="seriesBeanSeriesProcedures" styleClass="error"/>
+                                </h:panelGroup>
+                                <h:outputText/>
+
+
+
+                                <h:outputLabel for="seriesBeanseriesFinalDisposition" value="FinalDisposition:"/>
+                                <h:panelGroup>
+                                         <h:selectOneMenu converter="#{finalDispositionBean.converter}" id="seriesBeanSeriesFinalDisposition" value="#{seriesBean.series.finalDisposition}">
                                                 <f:selectItem/>
-                                                <f:selectItems itemLabel="#{forgeview:display(_item.name)}" itemValue="#{_item}" value="#{documentsTypesBean.all}" var="_item"/>
+                                                <f:selectItems itemLabel="#{forgeview:display(_item.name)}" itemValue="#{_item}" value="#{finalDispositionBean.all}" var="_item"/>
                                         </h:selectOneMenu>
                                         <h:message for="entitiesBeanEntitiesIsSimplified" styleClass="error"/>
                                 </h:panelGroup>
@@ -97,21 +110,31 @@
                                 </h:panelGroup>
                                 <h:outputText/>
 
-                                <h:outputLabel for="seriesBeanseriesTrd" value="Trd:"/>
-                                <h:panelGroup>
-                                         <h:selectOneMenu converter="#{trdBean.converter}" id="seriesBeanSeriesTrd" value="#{seriesBean.series.trd}">
-                                                <f:selectItem/>
-                                                <f:selectItems itemLabel="#{forgeview:display(_item.procedures)}" itemValue="#{_item}" value="#{trdBean.all}" var="_item"/>
-                                        </h:selectOneMenu>
-                                        <h:message for="entitiesBeanEntitiesIsSimplified" styleClass="error"/>
-                                </h:panelGroup>
-                                <h:outputText/>
-
                                 <h:outputLabel for="seriesBeanseriesSections" value="Sections:"/>
                                 <h:panelGroup>
                                          <h:selectOneMenu converter="#{sectionsBean.converter}" id="seriesBeanSeriesSections" value="#{seriesBean.series.sections}">
                                                 <f:selectItem/>
                                                 <f:selectItems itemLabel="#{forgeview:display(_item.name)}" itemValue="#{_item}" value="#{sectionsBean.all}" var="_item"/>
+                                        </h:selectOneMenu>
+                                        <h:message for="entitiesBeanEntitiesIsSimplified" styleClass="error"/>
+                                </h:panelGroup>
+                                <h:outputText/>
+
+                                <h:outputLabel for="seriesBeanseriesgestion" value="gestion:"/>
+                                <h:panelGroup>
+                                         <h:selectOneMenu converter="#{gestionBean.converter}" id="seriesBeanSeriesgestion" value="#{seriesBean.series.gestion}">
+                                                <f:selectItem/>
+                                                <f:selectItems itemLabel="#{forgeview:display(_item.name)}" itemValue="#{_item}" value="#{documentalRetentionBean.all}" var="_item"/>
+                                        </h:selectOneMenu>
+                                        <h:message for="entitiesBeanEntitiesIsSimplified" styleClass="error"/>
+                                </h:panelGroup>
+                                <h:outputText/>
+
+                                <h:outputLabel for="seriesBeanseriescentral" value="central:"/>
+                                <h:panelGroup>
+                                         <h:selectOneMenu converter="#{centralBean.converter}" id="seriesBeanSeriescentral" value="#{seriesBean.series.central}">
+                                                <f:selectItem/>
+                                                <f:selectItems itemLabel="#{forgeview:display(_item.name)}" itemValue="#{_item}" value="#{documentalRetentionBean.all}" var="_item"/>
                                         </h:selectOneMenu>
                                         <h:message for="entitiesBeanEntitiesIsSimplified" styleClass="error"/>
                                 </h:panelGroup>

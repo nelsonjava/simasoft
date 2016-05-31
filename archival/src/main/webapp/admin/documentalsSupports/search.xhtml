@@ -30,17 +30,17 @@
                                 <h:panelGroup styleClass="search">
 
                                         <h:panelGrid columnClasses="label,component,required" columns="3">
-                                                <h:outputLabel for="documentalsSupportsBeanExampleName" value="Name:"/>
-                                                <h:panelGroup>
-                                                        <h:inputText id="documentalsSupportsBeanExampleName" value="#{documentalsSupportsBean.example.name}"/>
-                                                        <h:message for="documentalsSupportsBeanExampleName" styleClass="error"/>
-                                                </h:panelGroup>
-                                                <h:outputText/>
-
                                                 <h:outputLabel for="documentalsSupportsBeanExampleCode" value="Code:"/>
                                                 <h:panelGroup>
                                                         <h:inputText id="documentalsSupportsBeanExampleCode" value="#{documentalsSupportsBean.example.code}"/>
                                                         <h:message for="documentalsSupportsBeanExampleCode" styleClass="error"/>
+                                                </h:panelGroup>
+                                                <h:outputText/>
+
+                                                <h:outputLabel for="documentalsSupportsBeanExampleName" value="Name:"/>
+                                                <h:panelGroup>
+                                                        <h:inputText id="documentalsSupportsBeanExampleName" value="#{documentalsSupportsBean.example.name}"/>
+                                                        <h:message for="documentalsSupportsBeanExampleName" styleClass="error"/>
                                                 </h:panelGroup>
                                                 <h:outputText/>
 
@@ -56,22 +56,22 @@
 
                                 <h:column>
                                         <f:facet name="header">
-                                                <h:outputText value="Name"/>
+                                                <h:outputText value="Code"/>
                                         </f:facet>
                                         <h:link outcome="/admin/documentalsSupports/view">
                                                 <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemName" value="#{_item.name}"/>
+                                                <h:outputText id="itemCode" value="#{_item.code}"/>
                                         </h:link>
                                 </h:column>
 
 
                                 <h:column>
                                         <f:facet name="header">
-                                                <h:outputText value="Code"/>
+                                                <h:outputText value="Name"/>
                                         </f:facet>
                                         <h:link outcome="/admin/documentalsSupports/view">
                                                 <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemCode" value="#{_item.code}"/>
+                                                <h:outputText id="itemName" value="#{_item.name}"/>
                                         </h:link>
                                 </h:column>
 

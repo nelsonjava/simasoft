@@ -25,11 +25,10 @@ import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
 import co.simasoft.models.Series;
+import co.simasoft.models.DocumentalRetention;
 import co.simasoft.models.DocumentalsUnits;
-import co.simasoft.models.DocumentsTypes;
 import co.simasoft.models.FinalDisposition;
 import co.simasoft.models.Sections;
-import co.simasoft.models.Trd;
 import java.util.Iterator;
 
 /**
@@ -153,31 +152,27 @@ public class SeriesBean implements Serializable {
 				iterDocumentalsUnits.remove();
 				this.entityManager.merge(nextInDocumentalsUnits);
 			}
-			Iterator<FinalDisposition> iterFinalDisposition = deletableEntity
-					.getFinalDisposition().iterator();
-			for (; iterFinalDisposition.hasNext();) {
-				FinalDisposition nextInFinalDisposition = iterFinalDisposition
-						.next();
-				nextInFinalDisposition.setSeries(null);
-				iterFinalDisposition.remove();
-				this.entityManager.merge(nextInFinalDisposition);
-			}
-			DocumentsTypes documentsTypes = deletableEntity.getDocumentsTypes();
-			documentsTypes.getSeries().remove(deletableEntity);
-			deletableEntity.setDocumentsTypes(null);
-			this.entityManager.merge(documentsTypes);
+			FinalDisposition finalDisposition = deletableEntity
+					.getFinalDisposition();
+			finalDisposition.getSeries().remove(deletableEntity);
+			deletableEntity.setFinalDisposition(null);
+			this.entityManager.merge(finalDisposition);
 			Series objPadre = deletableEntity.getObjPadre();
 			objPadre.getObjHijos().remove(deletableEntity);
 			deletableEntity.setObjPadre(null);
 			this.entityManager.merge(objPadre);
-			Trd trd = deletableEntity.getTrd();
-			trd.getSeries().remove(deletableEntity);
-			deletableEntity.setTrd(null);
-			this.entityManager.merge(trd);
 			Sections sections = deletableEntity.getSections();
 			sections.getSeries().remove(deletableEntity);
 			deletableEntity.setSections(null);
 			this.entityManager.merge(sections);
+			DocumentalRetention gestion = deletableEntity.getGestion();
+			gestion.getGestion().remove(deletableEntity);
+			deletableEntity.setGestion(null);
+			this.entityManager.merge(gestion);
+			DocumentalRetention central = deletableEntity.getCentral();
+			central.getCentral().remove(deletableEntity);
+			deletableEntity.setCentral(null);
+			this.entityManager.merge(central);
 			this.entityManager.remove(deletableEntity);
 			this.entityManager.flush();
 			return "search?faces-redirect=true";
@@ -207,7 +202,7 @@ public class SeriesBean implements Serializable {
 	}
 
 	public int getPageSize() {
-		return 1000;
+		return 10;
 	}
 
 	public Series getExample() {
@@ -258,29 +253,29 @@ public class SeriesBean implements Serializable {
 					builder.lower(root.<String> get("observations")),
 					'%' + observations.toLowerCase() + '%'));
 		}
+		String procedures = this.example.getProcedures();
+		if (procedures != null && !"".equals(procedures)) {
+			predicatesList.add(builder.like(
+					builder.lower(root.<String> get("procedures")),
+					'%' + procedures.toLowerCase() + '%'));
+		}
 		String name = this.example.getName();
 		if (name != null && !"".equals(name)) {
 			predicatesList.add(builder.like(
 					builder.lower(root.<String> get("name")),
 					'%' + name.toLowerCase() + '%'));
 		}
+		String dir = this.example.getDir();
+		if (dir != null && !"".equals(dir)) {
+			predicatesList.add(builder.like(
+					builder.lower(root.<String> get("dir")),
+					'%' + dir.toLowerCase() + '%'));
+		}
 		String code = this.example.getCode();
 		if (code != null && !"".equals(code)) {
 			predicatesList.add(builder.like(
 					builder.lower(root.<String> get("code")),
 					'%' + code.toLowerCase() + '%'));
-		}
-		String link = this.example.getLink();
-		if (link != null && !"".equals(link)) {
-			predicatesList.add(builder.like(
-					builder.lower(root.<String> get("link")),
-					'%' + link.toLowerCase() + '%'));
-		}
-		String located = this.example.getLocated();
-		if (located != null && !"".equals(located)) {
-			predicatesList.add(builder.like(
-					builder.lower(root.<String> get("located")),
-					'%' + located.toLowerCase() + '%'));
 		}
 
 		return predicatesList.toArray(new Predicate[predicatesList.size()]);

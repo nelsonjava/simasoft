@@ -1,9 +1,11 @@
 package co.simasoft.utils;
 
 import java.io.*;
+import java.lang.*;
 
-public class Atributos{
+public class Atributos implements Comparable<Atributos>{
 
+     private double orden;
      private String field = "";
      private String description = "";
      private String type = "";
@@ -41,6 +43,13 @@ public class Atributos{
          this.length = length;
          this.nulo = nulo;
          this.unique = unique;
+    }
+
+    public double getOrden(){
+        return orden;
+    }
+    public void setOrden(double orden){
+        this.orden = orden;
     }
 
     public String getField(){
@@ -145,6 +154,17 @@ public class Atributos{
     }
     public void setIsViewRelation(Boolean isViewRelation) {
         this.isViewRelation = isViewRelation;
+    }
+
+    @Override
+    public int compareTo(Atributos a) {
+           if (orden < a.orden) {
+              return -1;
+           }
+           if (orden > a.orden) {
+              return 1;
+           }
+           return 0;
     }
 
     public String typeField(String type){

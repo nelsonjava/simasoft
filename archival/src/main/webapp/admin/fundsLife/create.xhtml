@@ -46,6 +46,13 @@
                                 </h:panelGroup>
                                 <h:outputText/>
 
+                                <h:outputLabel for="fundsLifeBeanFundsLifeName" value="Name:"/>
+                                <h:panelGroup>
+                                        <h:inputText id="fundsLifeBeanFundsLifeName" value="#{fundsLifeBean.fundsLife.name}"/>
+                                        <h:message for="fundsLifeBeanFundsLifeName" styleClass="error"/>
+                                </h:panelGroup>
+                                <h:outputText/>
+
                                 <h:outputLabel for="fundsLifeBeanFundsLifeIsOpen" value="IsOpen:"/>
                                 <h:panelGroup>
                                         <h:selectOneMenu id="fundsLifeBeanFundsLifeIsOpen" value="#{fundsLifeBean.fundsLife.isOpen}">
@@ -54,13 +61,6 @@
                                                 <f:selectItem itemLabel="No" itemValue="false"/>
                                         </h:selectOneMenu>
                                         <h:message for="entitiesBeanEntitiesIsSimplified" styleClass="error"/>
-                                </h:panelGroup>
-                                <h:outputText/>
-
-                                <h:outputLabel for="fundsLifeBeanFundsLifeName" value="Name:"/>
-                                <h:panelGroup>
-                                        <h:inputText id="fundsLifeBeanFundsLifeName" value="#{fundsLifeBean.fundsLife.name}"/>
-                                        <h:message for="fundsLifeBeanFundsLifeName" styleClass="error"/>
                                 </h:panelGroup>
                                 <h:outputText/>
 

@@ -61,6 +61,16 @@
                                 <h:outputText/>
 
 
+                                <h:outputLabel for="conservationUnitsBeanconservationUnitsConservationUnitsTypes" value="ConservationUnitsTypes:"/>
+                                <h:panelGroup>
+                                         <h:selectOneMenu converter="#{conservationUnitsTypesBean.converter}" id="conservationUnitsBeanConservationUnitsConservationUnitsTypes" value="#{conservationUnitsBean.conservationUnits.conservationUnitsTypes}">
+                                                <f:selectItem/>
+                                                <f:selectItems itemLabel="#{forgeview:display(_item.name)}" itemValue="#{_item}" value="#{conservationUnitsTypesBean.all}" var="_item"/>
+                                        </h:selectOneMenu>
+                                        <h:message for="entitiesBeanEntitiesIsSimplified" styleClass="error"/>
+                                </h:panelGroup>
+                                <h:outputText/>
+
                                 <h:outputLabel for="conservationUnitsBeanConservationUnitsObservations" value="Observations:"/>
                                 <h:panelGroup>
                                         <p:editor id="conservationUnitsBeanConservationUnitsObservations" value="#{conservationUnitsBean.conservationUnits.observations}"/>

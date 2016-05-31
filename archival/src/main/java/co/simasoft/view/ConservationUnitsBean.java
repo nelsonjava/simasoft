@@ -25,7 +25,8 @@ import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
 import co.simasoft.models.ConservationUnits;
-import co.simasoft.models.DocumentalsUnits;
+import co.simasoft.models.ConservationUnitsTypes;
+import co.simasoft.models.OriginalOrder;
 import java.util.Iterator;
 
 /**
@@ -133,15 +134,20 @@ public class ConservationUnitsBean implements Serializable {
 
 		try {
 			ConservationUnits deletableEntity = findById(getId());
-			Iterator<DocumentalsUnits> iterDocumentalsUnits = deletableEntity
-					.getDocumentalsUnits().iterator();
-			for (; iterDocumentalsUnits.hasNext();) {
-				DocumentalsUnits nextInDocumentalsUnits = iterDocumentalsUnits
-						.next();
-				nextInDocumentalsUnits.setConservationUnits(null);
-				iterDocumentalsUnits.remove();
-				this.entityManager.merge(nextInDocumentalsUnits);
+			Iterator<OriginalOrder> iterOriginalOrder = deletableEntity
+					.getOriginalOrder().iterator();
+			for (; iterOriginalOrder.hasNext();) {
+				OriginalOrder nextInOriginalOrder = iterOriginalOrder.next();
+				nextInOriginalOrder.setConservationUnits(null);
+				iterOriginalOrder.remove();
+				this.entityManager.merge(nextInOriginalOrder);
 			}
+			ConservationUnitsTypes conservationUnitsTypes = deletableEntity
+					.getConservationUnitsTypes();
+			conservationUnitsTypes.getConservationUnits().remove(
+					deletableEntity);
+			deletableEntity.setConservationUnitsTypes(null);
+			this.entityManager.merge(conservationUnitsTypes);
 			this.entityManager.remove(deletableEntity);
 			this.entityManager.flush();
 			return "search?faces-redirect=true";
@@ -171,7 +177,7 @@ public class ConservationUnitsBean implements Serializable {
 	}
 
 	public int getPageSize() {
-		return 1000;
+		return 10;
 	}
 
 	public ConservationUnits getExample() {
@@ -236,6 +242,13 @@ public class ConservationUnitsBean implements Serializable {
 			predicatesList.add(builder.like(
 					builder.lower(root.<String> get("name")),
 					'%' + name.toLowerCase() + '%'));
+		}
+		ConservationUnitsTypes conservationUnitsTypes = this.example
+				.getConservationUnitsTypes();
+		if (conservationUnitsTypes != null) {
+			predicatesList
+					.add(builder.equal(root.get("conservationUnitsTypes"),
+							conservationUnitsTypes));
 		}
 
 		return predicatesList.toArray(new Predicate[predicatesList.size()]);

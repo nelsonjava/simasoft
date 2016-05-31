@@ -232,24 +232,13 @@ public class SearchBean {
         return results;
     }
 
-    public List<DocumentsTypes> selectAllDocumentsTypes(EntityManager em) {
-        prepare(DocumentsTypes.class,em);
+    public List<ConservationUnitsTypes> selectAllConservationUnitsTypes(EntityManager em) {
+        prepare(ConservationUnitsTypes.class,em);
 
         Query query = qb.all().createQuery();
 
-        List<DocumentsTypes> results = execute(query,
-                                              new Class[]{DocumentsTypes.class}, null,
-                                              new SortField("orden", SortField.DOUBLE));
-        return results;
-    }
-
-    public List<Trd> selectAllTrd(EntityManager em) {
-        prepare(Trd.class,em);
-
-        Query query = qb.all().createQuery();
-
-        List<Trd> results = execute(query,
-                                              new Class[]{Trd.class}, null,
+        List<ConservationUnitsTypes> results = execute(query,
+                                              new Class[]{ConservationUnitsTypes.class}, null,
                                               new SortField("orden", SortField.DOUBLE));
         return results;
     }

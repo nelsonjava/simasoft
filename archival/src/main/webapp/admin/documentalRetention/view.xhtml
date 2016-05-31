@@ -44,14 +44,14 @@
                         <h:outputText id="documentalRetentionBeanDocumentalRetentionObservations" value="#{documentalRetentionBean.documentalRetention.observations}" escape="false" />
                         <h:outputText/>
 
-                        <h:outputLabel for="DocumentalRetentionBeanDocumentalRetentionTrd" value="Trd:"/>
-                        <h:dataTable id="documentalRetentionBeanDocumentalRetentiontrd" styleClass="data-table" value="#{forgeview:asList(documentalRetentionBean.documentalRetention.trd)}" var="_item">
+                        <h:outputLabel for="DocumentalRetentionBeanDocumentalRetentionSeries" value="Series:"/>
+                        <h:dataTable id="documentalRetentionBeanDocumentalRetentionseries" styleClass="data-table" value="#{forgeview:asList(documentalRetentionBean.documentalRetention.series)}" var="_item">
 
                                      <h:column>
                                         <f:facet name="header">
                                                 <h:outputText value="Orden"/>
                                         </f:facet>
-                                        <h:link outcome="/admin/trd/view">
+                                        <h:link outcome="/admin/series/view">
                                                 <f:param name="id" value="#{_item.id}"/>
                                                 <h:outputText id="itemOrden" value="#{_item.orden}"/>
                                         </h:link>
@@ -59,25 +59,35 @@
 
                                      <h:column>
                                         <f:facet name="header">
-                                                <h:outputText value="Procedures"/>
+                                                <h:outputText value="Code"/>
                                         </f:facet>
-                                        <h:link outcome="/admin/trd/view">
+                                        <h:link outcome="/admin/series/view">
                                                 <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemProcedures" value="#{_item.procedures}"/>
+                                                <h:outputText id="itemCode" value="#{_item.code}"/>
+                                        </h:link>
+                                     </h:column>
+
+                                     <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Name"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/series/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemName" value="#{_item.name}"/>
                                         </h:link>
                                      </h:column>
 
                         </h:dataTable>
                         <h:outputText/>
 
-                        <h:outputLabel for="DocumentalRetentionBeanDocumentalRetentionTrd" value="Trd:"/>
-                        <h:dataTable id="documentalRetentionBeanDocumentalRetentiontrd" styleClass="data-table" value="#{forgeview:asList(documentalRetentionBean.documentalRetention.trd)}" var="_item">
+                        <h:outputLabel for="DocumentalRetentionBeanDocumentalRetentionSeries" value="Series:"/>
+                        <h:dataTable id="documentalRetentionBeanDocumentalRetentionseries" styleClass="data-table" value="#{forgeview:asList(documentalRetentionBean.documentalRetention.series)}" var="_item">
 
                                      <h:column>
                                         <f:facet name="header">
                                                 <h:outputText value="Orden"/>
                                         </f:facet>
-                                        <h:link outcome="/admin/trd/view">
+                                        <h:link outcome="/admin/series/view">
                                                 <f:param name="id" value="#{_item.id}"/>
                                                 <h:outputText id="itemOrden" value="#{_item.orden}"/>
                                         </h:link>
@@ -85,11 +95,21 @@
 
                                      <h:column>
                                         <f:facet name="header">
-                                                <h:outputText value="Procedures"/>
+                                                <h:outputText value="Code"/>
                                         </f:facet>
-                                        <h:link outcome="/admin/trd/view">
+                                        <h:link outcome="/admin/series/view">
                                                 <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemProcedures" value="#{_item.procedures}"/>
+                                                <h:outputText id="itemCode" value="#{_item.code}"/>
+                                        </h:link>
+                                     </h:column>
+
+                                     <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Name"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/series/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemName" value="#{_item.name}"/>
                                         </h:link>
                                      </h:column>
 

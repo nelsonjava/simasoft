@@ -111,9 +111,12 @@ line("                        <h:panelGrid columnClasses=\"label,component,requi
 
 line(entity.attributeEdit("orden","double",true));
 
+      Collections.sort(atributos);
       for(Atributos atributo : atributos) {
 
-line(entity.attributeEdit(atributo.getField(),atributo.getType(),atributo.getNulo()));
+//       line(String.valueOf(atributo.getOrden()));
+
+         line(entity.attributeEdit(atributo.getField(),atributo.getType(),atributo.getNulo()));
 
       } // for: atributos
 
@@ -122,9 +125,9 @@ line(entity.attributeEdit(atributo.getField(),atributo.getType(),atributo.getNul
 line(entity.relationEdit(relation));
 
           } // relations
-          
+
 line(entity.attributeEdit("observations","Text",true));
-          
+
 
 line("                        </h:panelGrid>\n");
 

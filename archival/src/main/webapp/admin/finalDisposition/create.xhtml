@@ -53,15 +53,6 @@
                                 </h:panelGroup>
                                 <h:outputText/>
 
-                                <h:outputLabel for="finalDispositionBeanfinalDispositionSeries" value="Series:"/>
-                                <h:panelGroup>
-                                         <h:selectOneMenu converter="#{seriesBean.converter}" id="finalDispositionBeanFinalDispositionSeries" value="#{finalDispositionBean.finalDisposition.series}">
-                                                <f:selectItem/>
-                                                <f:selectItems itemLabel="#{forgeview:display(_item.name)}" itemValue="#{_item}" value="#{seriesBean.all}" var="_item"/>
-                                        </h:selectOneMenu>
-                                        <h:message for="entitiesBeanEntitiesIsSimplified" styleClass="error"/>
-                                </h:panelGroup>
-                                <h:outputText/>
 
                                 <h:outputLabel for="finalDispositionBeanFinalDispositionObservations" value="Observations:"/>
                                 <h:panelGroup>

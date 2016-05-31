@@ -40,10 +40,40 @@
                         <h:outputText id="finalDispositionBeanFinalDispositionObservations" value="#{finalDispositionBean.finalDisposition.observations}" escape="false" />
                         <h:outputText/>
 
-                        <h:outputLabel for="finalDispositionBeanFinalDispositionSeries" value="series:"/>
-                        <h:link id="finalDispositionBeanFinalDispositionSeries" outcome="/admin/series/view" rendered="#{!empty finalDispositionBean.finalDisposition.series}" value="#{finalDispositionBean.finalDisposition.series.name}">
-                                <f:param name="id" value="#{finalDispositionBean.finalDisposition.series.id}"/>
-                        </h:link>
+                        <h:outputLabel for="FinalDispositionBeanFinalDispositionSeries" value="Series:"/>
+                        <h:dataTable id="finalDispositionBeanFinalDispositionseries" styleClass="data-table" value="#{forgeview:asList(finalDispositionBean.finalDisposition.series)}" var="_item">
+
+                                     <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Orden"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/series/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemOrden" value="#{_item.orden}"/>
+                                        </h:link>
+                                     </h:column>
+
+                                     <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Code"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/series/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemCode" value="#{_item.code}"/>
+                                        </h:link>
+                                     </h:column>
+
+                                     <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Name"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/series/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemName" value="#{_item.name}"/>
+                                        </h:link>
+                                     </h:column>
+
+                        </h:dataTable>
                         <h:outputText/>
 
                 </h:panelGrid>

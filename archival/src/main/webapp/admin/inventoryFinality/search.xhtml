@@ -37,6 +37,13 @@
                                                 </h:panelGroup>
                                                 <h:outputText/>
 
+                                                <h:outputLabel for="inventoryFinalityBeanExampleYear" value="Year:"/>
+                                                <h:panelGroup>
+                                                        <h:inputText id="inventoryFinalityBeanExampleYear" value="#{inventoryFinalityBean.example.year}"/>
+                                                        <h:message for="inventoryFinalityBeanExampleYear" styleClass="error"/>
+                                                </h:panelGroup>
+                                                <h:outputText/>
+
                                         </h:panelGrid>
                                         <h:panelGroup styleClass="buttons">
                                                 <h:commandLink value="Search" action='#{inventoryFinalityBean.search}' styleClass="btn btn-primary"/>

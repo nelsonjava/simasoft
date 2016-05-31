@@ -25,8 +25,6 @@ import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
 import co.simasoft.models.DocumentalsUnits;
-import co.simasoft.models.ConservationUnits;
-import co.simasoft.models.DocumentalInventory;
 import co.simasoft.models.FrequentlyQuery;
 import co.simasoft.models.OriginalOrder;
 import co.simasoft.models.Series;
@@ -137,15 +135,6 @@ public class DocumentalsUnitsBean implements Serializable {
 
 		try {
 			DocumentalsUnits deletableEntity = findById(getId());
-			Iterator<DocumentalInventory> iterDocumentalInventory = deletableEntity
-					.getDocumentalInventory().iterator();
-			for (; iterDocumentalInventory.hasNext();) {
-				DocumentalInventory nextInDocumentalInventory = iterDocumentalInventory
-						.next();
-				nextInDocumentalInventory.setDocumentalsUnits(null);
-				iterDocumentalInventory.remove();
-				this.entityManager.merge(nextInDocumentalInventory);
-			}
 			Iterator<OriginalOrder> iterOriginalOrder = deletableEntity
 					.getOriginalOrder().iterator();
 			for (; iterOriginalOrder.hasNext();) {
@@ -154,11 +143,14 @@ public class DocumentalsUnitsBean implements Serializable {
 				iterOriginalOrder.remove();
 				this.entityManager.merge(nextInOriginalOrder);
 			}
-			ConservationUnits conservationUnits = deletableEntity
-					.getConservationUnits();
-			conservationUnits.getDocumentalsUnits().remove(deletableEntity);
-			deletableEntity.setConservationUnits(null);
-			this.entityManager.merge(conservationUnits);
+			Iterator<DocumentalsUnits> iterObjHijos = deletableEntity
+					.getObjHijos().iterator();
+			for (; iterObjHijos.hasNext();) {
+				DocumentalsUnits nextInObjHijos = iterObjHijos.next();
+				nextInObjHijos.setObjPadre(null);
+				iterObjHijos.remove();
+				this.entityManager.merge(nextInObjHijos);
+			}
 			FrequentlyQuery frequentlyQuery = deletableEntity
 					.getFrequentlyQuery();
 			frequentlyQuery.getDocumentalsUnits().remove(deletableEntity);
@@ -168,6 +160,10 @@ public class DocumentalsUnitsBean implements Serializable {
 			series.getDocumentalsUnits().remove(deletableEntity);
 			deletableEntity.setSeries(null);
 			this.entityManager.merge(series);
+			DocumentalsUnits objPadre = deletableEntity.getObjPadre();
+			objPadre.getObjHijos().remove(deletableEntity);
+			deletableEntity.setObjPadre(null);
+			this.entityManager.merge(objPadre);
 			this.entityManager.remove(deletableEntity);
 			this.entityManager.flush();
 			return "search?faces-redirect=true";
@@ -197,7 +193,7 @@ public class DocumentalsUnitsBean implements Serializable {
 	}
 
 	public int getPageSize() {
-		return 1000;
+		return 10;
 	}
 
 	public DocumentalsUnits getExample() {
@@ -251,17 +247,17 @@ public class DocumentalsUnitsBean implements Serializable {
 					builder.lower(root.<String> get("observations")),
 					'%' + observations.toLowerCase() + '%'));
 		}
+		String code = this.example.getCode();
+		if (code != null && !"".equals(code)) {
+			predicatesList.add(builder.like(
+					builder.lower(root.<String> get("code")),
+					'%' + code.toLowerCase() + '%'));
+		}
 		String name = this.example.getName();
 		if (name != null && !"".equals(name)) {
 			predicatesList.add(builder.like(
 					builder.lower(root.<String> get("name")),
 					'%' + name.toLowerCase() + '%'));
-		}
-		ConservationUnits conservationUnits = this.example
-				.getConservationUnits();
-		if (conservationUnits != null) {
-			predicatesList.add(builder.equal(root.get("conservationUnits"),
-					conservationUnits));
 		}
 		FrequentlyQuery frequentlyQuery = this.example.getFrequentlyQuery();
 		if (frequentlyQuery != null) {

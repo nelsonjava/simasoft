@@ -30,186 +30,217 @@ import javax.persistence.TemporalType;
 import org.hibernate.search.annotations.DateBridge;
 import org.hibernate.search.annotations.Resolution;
 
+
 // @Indexed
 @Entity
 @XmlRootElement
 public class OriginalOrder implements Serializable {
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	@Id
-	@DocumentId
-	@GeneratedValue(strategy = GenerationType.TABLE)
-	private Long id;
+    @Id
+    @DocumentId
+    @GeneratedValue(strategy=GenerationType.TABLE)
+    private Long id;
 
-	@Version
-	private Integer optlock;
+    @Version
+    private Integer optlock;
 
-	private double orden;
+    private double orden;
 
-	@Lob
-	@Column(nullable = true, unique = false)
-	// @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-	private String observations;
+    @Lob
+    @Column(nullable = true, unique = false)
+    // @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+    private String observations;
 
-	@Column(nullable = true, unique = false)
-	@Temporal(TemporalType.DATE)
-	@DateBridge(resolution = Resolution.YEAR)
-	private Date finalDate;
+    @Column(nullable = true, unique = false)
+    @Temporal(TemporalType.DATE)
+    @DateBridge(resolution = Resolution.YEAR)
+    private Date finalDate;
 
-	@Column(nullable = true, unique = false)
-	private Integer folios;
+    @Column(nullable = true, unique = false)
+    private Integer folios;
 
-	@Column(nullable = true, unique = false)
-	// @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-	private String located;
+    @Column(nullable = true, unique = false)
+    // @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+    private String located;
 
-	@Column(nullable = true, unique = false)
-	@Temporal(TemporalType.DATE)
-	@DateBridge(resolution = Resolution.YEAR)
-	private Date entryDate;
+    @Column(nullable = true, unique = false)
+    // @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+    private String mail;
 
-	@Column(nullable = true, unique = false)
-	@Temporal(TemporalType.DATE)
-	@DateBridge(resolution = Resolution.YEAR)
-	private Date startDate;
+    @Column(nullable = true, unique = false)
+    // @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+    private String notes;
 
-	@ManyToOne
-	private DocumentalsSupports documentalsSupports;
+    @Column(nullable = true, unique = false)
+    @Temporal(TemporalType.DATE)
+    @DateBridge(resolution = Resolution.YEAR)
+    private Date entryDate;
 
-	@ManyToOne
-	private DocumentsTypes documentsTypes;
+    @Column(nullable = true, unique = false)
+    @Temporal(TemporalType.DATE)
+    @DateBridge(resolution = Resolution.YEAR)
+    private Date startDate;
 
-	@ManyToOne
-	private DocumentalsUnits documentalsUnits;
+    @ManyToOne
+    private DocumentalInventory documentalInventory;
 
-	public OriginalOrder() {
-	}
+    @ManyToOne
+    private DocumentalsSupports documentalsSupports;
 
-	public OriginalOrder(Date finalDate, Integer folios, String located,
-			Date entryDate, Date startDate) {
-		this.finalDate = finalDate;
-		this.folios = folios;
-		this.located = located;
-		this.entryDate = entryDate;
-		this.startDate = startDate;
-	}
+    @ManyToOne
+    private ConservationUnits conservationUnits;
 
-	public Long getId() {
-		return this.id;
-	}
-	public void setId(Long id) {
-		this.id = id;
-	}
+    @ManyToOne
+    private DocumentalsUnits documentalsUnits;
 
-	public Integer getOptlock() {
-		return this.optlock;
-	}
-	public void setOptlock(Integer optlock) {
-		this.optlock = optlock;
-	}
+    public OriginalOrder() {
+    }
 
-	public double getOrden() {
-		return this.orden;
-	}
-	public void setOrden(double orden) {
-		this.orden = orden;
-	}
+    public OriginalOrder(Date finalDate,Integer folios,String located,String mail,String notes,Date entryDate,Date startDate) {
+        this.finalDate = finalDate;
+        this.folios = folios;
+        this.located = located;
+        this.mail = mail;
+        this.notes = notes;
+        this.entryDate = entryDate;
+        this.startDate = startDate;
+    }
 
-	public String getObservations() {
-		return observations;
-	}
-	public void setObservations(String observations) {
-		this.observations = observations;
-	}
-	public Date getFinalDate() {
-		return finalDate;
-	}
-	public void setFinalDate(Date finalDate) {
-		this.finalDate = finalDate;
-	}
+    public Long getId() {
+        return this.id;
+    }
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	public Integer getFolios() {
-		return folios;
-	}
-	public void setFolios(Integer folios) {
-		this.folios = folios;
-	}
+    public Integer getOptlock() {
+        return this.optlock;
+    }
+    public void setOptlock(Integer optlock) {
+        this.optlock = optlock;
+    }
 
-	public String getLocated() {
-		return located;
-	}
-	public void setLocated(String located) {
-		this.located = located;
-	}
+    public double getOrden() {
+        return this.orden;
+    }
+    public void setOrden(double orden) {
+        this.orden = orden;
+    }
 
-	public Date getEntryDate() {
-		return entryDate;
-	}
-	public void setEntryDate(Date entryDate) {
-		this.entryDate = entryDate;
-	}
+    public String getObservations() {
+        return observations;
+    }
+    public void setObservations(String observations) {
+        this.observations = observations;
+    }
+    public Date getFinalDate() {
+        return finalDate;
+    }
+    public void setFinalDate(Date finalDate) {
+        this.finalDate = finalDate;
+    }
 
-	public Date getStartDate() {
-		return startDate;
-	}
-	public void setStartDate(Date startDate) {
-		this.startDate = startDate;
-	}
+    public Integer getFolios() {
+        return folios;
+    }
+    public void setFolios(Integer folios) {
+        this.folios = folios;
+    }
 
-	public DocumentalsSupports getDocumentalsSupports() {
-		return documentalsSupports;
-	}
-	public void setDocumentalsSupports(DocumentalsSupports documentalsSupports) {
-		this.documentalsSupports = documentalsSupports;
-	}
+    public String getLocated() {
+        return located;
+    }
+    public void setLocated(String located) {
+        this.located = located;
+    }
 
-	public DocumentsTypes getDocumentsTypes() {
-		return documentsTypes;
-	}
-	public void setDocumentsTypes(DocumentsTypes documentsTypes) {
-		this.documentsTypes = documentsTypes;
-	}
+    public String getMail() {
+        return mail;
+    }
+    public void setMail(String mail) {
+        this.mail = mail;
+    }
 
-	public DocumentalsUnits getDocumentalsUnits() {
-		return documentalsUnits;
-	}
-	public void setDocumentalsUnits(DocumentalsUnits documentalsUnits) {
-		this.documentalsUnits = documentalsUnits;
-	}
+    public String getNotes() {
+        return notes;
+    }
+    public void setNotes(String notes) {
+        this.notes = notes;
+    }
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
+    public Date getEntryDate() {
+        return entryDate;
+    }
+    public void setEntryDate(Date entryDate) {
+        this.entryDate = entryDate;
+    }
 
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
+    public Date getStartDate() {
+        return startDate;
+    }
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
+    }
 
-		return result;
-	}
+    public DocumentalInventory getDocumentalInventory() {
+        return documentalInventory;
+    }
+    public void setDocumentalInventory(DocumentalInventory documentalInventory) {
+        this.documentalInventory = documentalInventory;
+    }
 
-	@Override
-	public boolean equals(Object ojt) {
-		if (this == ojt)
-			return true;
-		if (ojt == null)
-			return false;
-		if (getClass() != ojt.getClass())
-			return false;
+    public DocumentalsSupports getDocumentalsSupports() {
+        return documentalsSupports;
+    }
+    public void setDocumentalsSupports(DocumentalsSupports documentalsSupports) {
+        this.documentalsSupports = documentalsSupports;
+    }
 
-		OriginalOrder other = (OriginalOrder) ojt;
-		if (id == null) {
-			if (other.id != null) {
-				return false;
-			}
-		} else {
-			if (!id.equals(other.id)) {
-				return false;
-			}
-		}
+    public ConservationUnits getConservationUnits() {
+        return conservationUnits;
+    }
+    public void setConservationUnits(ConservationUnits conservationUnits) {
+        this.conservationUnits = conservationUnits;
+    }
 
-		return true;
-	}
+    public DocumentalsUnits getDocumentalsUnits() {
+        return documentalsUnits;
+    }
+    public void setDocumentalsUnits(DocumentalsUnits documentalsUnits) {
+        this.documentalsUnits = documentalsUnits;
+    }
+
+   @Override
+   public int hashCode() {
+      final int prime  = 31;
+            int result =  1;
+
+      result = prime * result + ((id == null) ? 0 : id.hashCode());
+
+      return result;
+   }
+
+   @Override
+   public boolean equals(Object ojt) {
+      if (      this == ojt           ) return true;
+      if (       ojt == null          ) return false;
+      if (getClass() != ojt.getClass()) return false;
+
+      OriginalOrder other = (OriginalOrder) ojt;
+      if (id == null) {
+         if (other.id != null) {
+            return false;
+         }
+      } else {
+         if (!id.equals(other.id)) {
+            return false;
+         }
+      }
+
+      return true;
+   }
 
 } // entity
 

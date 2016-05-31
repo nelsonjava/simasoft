@@ -44,6 +44,14 @@
                         <h:outputText id="originalOrderBeanOriginalOrderLocated" value="#{originalOrderBean.originalOrder.located}"/>
                         <h:outputText/>
 
+                        <h:outputLabel for="originalOrderBeanOriginalOrderMail" value="Mail:"/>
+                        <h:outputText id="originalOrderBeanOriginalOrderMail" value="#{originalOrderBean.originalOrder.mail}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="originalOrderBeanOriginalOrderNotes" value="Notes:"/>
+                        <h:outputText id="originalOrderBeanOriginalOrderNotes" value="#{originalOrderBean.originalOrder.notes}"/>
+                        <h:outputText/>
+
                         <h:outputLabel for="originalOrderBeanOriginalOrderEntryDate" value="EntryDate:"/>
                         <h:outputText id="originalOrderBeanOriginalOrderEntryDate" value="Pendiente"/>
                         <h:outputText/>
@@ -56,20 +64,26 @@
                         <h:outputText id="originalOrderBeanOriginalOrderObservations" value="#{originalOrderBean.originalOrder.observations}" escape="false" />
                         <h:outputText/>
 
+                        <h:outputLabel for="originalOrderBeanOriginalOrderDocumentalInventory" value="documentalInventory:"/>
+                        <h:link id="originalOrderBeanOriginalOrderDocumentalInventory" outcome="/admin/documentalInventory/view" rendered="#{!empty originalOrderBean.originalOrder.documentalInventory}" value="#{originalOrderBean.originalOrder.documentalInventory.object}">
+                                <f:param name="id" value="#{originalOrderBean.originalOrder.documentalInventory.id}"/>
+                        </h:link>
+                        <h:outputText/>
+
                         <h:outputLabel for="originalOrderBeanOriginalOrderDocumentalsSupports" value="documentalsSupports:"/>
                         <h:link id="originalOrderBeanOriginalOrderDocumentalsSupports" outcome="/admin/documentalsSupports/view" rendered="#{!empty originalOrderBean.originalOrder.documentalsSupports}" value="#{originalOrderBean.originalOrder.documentalsSupports.name}">
                                 <f:param name="id" value="#{originalOrderBean.originalOrder.documentalsSupports.id}"/>
                         </h:link>
                         <h:outputText/>
 
-                        <h:outputLabel for="originalOrderBeanOriginalOrderDocumentsTypes" value="documentsTypes:"/>
-                        <h:link id="originalOrderBeanOriginalOrderDocumentsTypes" outcome="/admin/documentsTypes/view" rendered="#{!empty originalOrderBean.originalOrder.documentsTypes}" value="#{originalOrderBean.originalOrder.documentsTypes.name}">
-                                <f:param name="id" value="#{originalOrderBean.originalOrder.documentsTypes.id}"/>
+                        <h:outputLabel for="originalOrderBeanOriginalOrderConservationUnits" value="conservationUnits:"/>
+                        <h:link id="originalOrderBeanOriginalOrderConservationUnits" outcome="/admin/conservationUnits/view" rendered="#{!empty originalOrderBean.originalOrder.conservationUnits}" value="#{originalOrderBean.originalOrder.conservationUnits.name}">
+                                <f:param name="id" value="#{originalOrderBean.originalOrder.conservationUnits.id}"/>
                         </h:link>
                         <h:outputText/>
 
                         <h:outputLabel for="originalOrderBeanOriginalOrderDocumentalsUnits" value="documentalsUnits:"/>
-                        <h:link id="originalOrderBeanOriginalOrderDocumentalsUnits" outcome="/admin/documentalsUnits/view" rendered="#{!empty originalOrderBean.originalOrder.documentalsUnits}" value="#{originalOrderBean.originalOrder.documentalsUnits.creationDate}">
+                        <h:link id="originalOrderBeanOriginalOrderDocumentalsUnits" outcome="/admin/documentalsUnits/view" rendered="#{!empty originalOrderBean.originalOrder.documentalsUnits}" value="#{originalOrderBean.originalOrder.documentalsUnits.name}">
                                 <f:param name="id" value="#{originalOrderBean.originalOrder.documentalsUnits.id}"/>
                         </h:link>
                         <h:outputText/>

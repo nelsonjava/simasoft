@@ -30,211 +30,233 @@ import javax.persistence.TemporalType;
 import org.hibernate.search.annotations.DateBridge;
 import org.hibernate.search.annotations.Resolution;
 
+
 // @Indexed
 @Entity
 @XmlRootElement
 public class Series implements Serializable {
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	@Id
-	@DocumentId
-	@GeneratedValue(strategy = GenerationType.TABLE)
-	private Long id;
+    @Id
+    @DocumentId
+    @GeneratedValue(strategy=GenerationType.TABLE)
+    private Long id;
 
-	@Version
-	private Integer optlock;
+    @Version
+    private Integer optlock;
 
-	private double orden;
+    private double orden;
 
-	@Lob
-	@Column(nullable = true, unique = false)
-	// @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-	private String observations;
+    @Lob
+    @Column(nullable = true, unique = false)
+    // @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+    private String observations;
 
-	@Column(nullable = true, unique = false)
-	// @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-	private String name;
+    @Column(nullable = true, unique = false)
+    // @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+    private String procedures;
 
-	@Column(nullable = true, unique = false)
-	// @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-	private String code;
+    @Column(nullable = true, unique = false)
+    // @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+    private String name;
 
-	@Column(nullable = true, unique = false)
-	// @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-	private String link;
+    @Column(nullable = true, unique = false)
+    // @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+    private String dir;
 
-	@Column(nullable = true, unique = false)
-	// @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-	private String located;
+    @Column(nullable = true, unique = false)
+    // @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+    private String code;
 
-	@OneToMany(mappedBy = "objPadre")
-	private Set<Series> objHijos = new HashSet<Series>();
+    @Column(nullable = true, unique = false)
+    // @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+    private String link;
 
-	@OneToMany(mappedBy = "series")
-	private Set<DocumentalsUnits> documentalsUnits = new HashSet<DocumentalsUnits>();
+    @Column(nullable = true, unique = false)
+    // @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+    private String located;
 
-	@OneToMany(mappedBy = "series")
-	private Set<FinalDisposition> finalDisposition = new HashSet<FinalDisposition>();
+    @OneToMany(mappedBy = "objPadre")
+    private Set<Series> objHijos = new HashSet<Series>();
 
-	@ManyToOne
-	private DocumentsTypes documentsTypes;
+    @OneToMany(mappedBy = "series")
+    private Set<DocumentalsUnits> documentalsUnits = new HashSet<DocumentalsUnits>();
 
-	@ManyToOne
-	private Series objPadre;
+    @ManyToOne
+    private FinalDisposition finalDisposition;
 
-	@ManyToOne
-	private Trd trd;
+    @ManyToOne
+    private Series objPadre;
 
-	@ManyToOne
-	private Sections sections;
+    @ManyToOne
+    private Sections sections;
 
-	public Series() {
-	}
+    @ManyToOne
+    private DocumentalRetention gestion;
 
-	public Series(String name, String code, String link, String located) {
-		this.name = name;
-		this.code = code;
-		this.link = link;
-		this.located = located;
-	}
+    @ManyToOne
+    private DocumentalRetention central;
 
-	public Long getId() {
-		return this.id;
-	}
-	public void setId(Long id) {
-		this.id = id;
-	}
+    public Series() {
+    }
 
-	public Integer getOptlock() {
-		return this.optlock;
-	}
-	public void setOptlock(Integer optlock) {
-		this.optlock = optlock;
-	}
+    public Series(String procedures,String name,String dir,String code,String link,String located) {
+        this.procedures = procedures;
+        this.name = name;
+        this.dir = dir;
+        this.code = code;
+        this.link = link;
+        this.located = located;
+    }
 
-	public double getOrden() {
-		return this.orden;
-	}
-	public void setOrden(double orden) {
-		this.orden = orden;
-	}
+    public Long getId() {
+        return this.id;
+    }
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	public String getObservations() {
-		return observations;
-	}
-	public void setObservations(String observations) {
-		this.observations = observations;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
+    public Integer getOptlock() {
+        return this.optlock;
+    }
+    public void setOptlock(Integer optlock) {
+        this.optlock = optlock;
+    }
 
-	public String getCode() {
-		return code;
-	}
-	public void setCode(String code) {
-		this.code = code;
-	}
+    public double getOrden() {
+        return this.orden;
+    }
+    public void setOrden(double orden) {
+        this.orden = orden;
+    }
 
-	public String getLink() {
-		return link;
-	}
-	public void setLink(String link) {
-		this.link = link;
-	}
+    public String getObservations() {
+        return observations;
+    }
+    public void setObservations(String observations) {
+        this.observations = observations;
+    }
+    public String getProcedures() {
+        return procedures;
+    }
+    public void setProcedures(String procedures) {
+        this.procedures = procedures;
+    }
 
-	public String getLocated() {
-		return located;
-	}
-	public void setLocated(String located) {
-		this.located = located;
-	}
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public Set<Series> getObjHijos() {
-		return this.objHijos;
-	}
-	public void setObjHijos(Set<Series> objHijos) {
-		this.objHijos = objHijos;
-	}
+    public String getDir() {
+        return dir;
+    }
+    public void setDir(String dir) {
+        this.dir = dir;
+    }
 
-	public Set<DocumentalsUnits> getDocumentalsUnits() {
-		return documentalsUnits;
-	}
-	public void setDocumentalsUnits(Set<DocumentalsUnits> documentalsUnits) {
-		this.documentalsUnits = documentalsUnits;
-	}
+    public String getCode() {
+        return code;
+    }
+    public void setCode(String code) {
+        this.code = code;
+    }
 
-	public Set<FinalDisposition> getFinalDisposition() {
-		return finalDisposition;
-	}
-	public void setFinalDisposition(Set<FinalDisposition> finalDisposition) {
-		this.finalDisposition = finalDisposition;
-	}
+    public String getLink() {
+        return link;
+    }
+    public void setLink(String link) {
+        this.link = link;
+    }
 
-	public DocumentsTypes getDocumentsTypes() {
-		return documentsTypes;
-	}
-	public void setDocumentsTypes(DocumentsTypes documentsTypes) {
-		this.documentsTypes = documentsTypes;
-	}
+    public String getLocated() {
+        return located;
+    }
+    public void setLocated(String located) {
+        this.located = located;
+    }
 
-	public Series getObjPadre() {
-		return this.objPadre;
-	}
-	public void setObjPadre(Series objPadre) {
-		this.objPadre = objPadre;
-	}
+    public Set<Series> getObjHijos() {
+        return this.objHijos;
+    }
+    public void setObjHijos(Set<Series> objHijos) {
+        this.objHijos = objHijos;
+    }
 
-	public Trd getTrd() {
-		return trd;
-	}
-	public void setTrd(Trd trd) {
-		this.trd = trd;
-	}
+    public Set<DocumentalsUnits> getDocumentalsUnits() {
+        return documentalsUnits;
+    }
+    public void setDocumentalsUnits(Set<DocumentalsUnits> documentalsUnits) {
+        this.documentalsUnits = documentalsUnits;
+    }
 
-	public Sections getSections() {
-		return sections;
-	}
-	public void setSections(Sections sections) {
-		this.sections = sections;
-	}
+    public FinalDisposition getFinalDisposition() {
+        return finalDisposition;
+    }
+    public void setFinalDisposition(FinalDisposition finalDisposition) {
+        this.finalDisposition = finalDisposition;
+    }
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
+    public Series getObjPadre() {
+        return this.objPadre;
+    }
+    public void setObjPadre(Series objPadre) {
+        this.objPadre = objPadre;
+    }
 
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
+    public Sections getSections() {
+        return sections;
+    }
+    public void setSections(Sections sections) {
+        this.sections = sections;
+    }
 
-		return result;
-	}
+    public DocumentalRetention getGestion() {
+        return gestion;
+    }
+    public void setGestion(DocumentalRetention gestion) {
+        this.gestion = gestion;
+    }
 
-	@Override
-	public boolean equals(Object ojt) {
-		if (this == ojt)
-			return true;
-		if (ojt == null)
-			return false;
-		if (getClass() != ojt.getClass())
-			return false;
+    public DocumentalRetention getCentral() {
+        return central;
+    }
+    public void setCentral(DocumentalRetention central) {
+        this.central = central;
+    }
 
-		Series other = (Series) ojt;
-		if (id == null) {
-			if (other.id != null) {
-				return false;
-			}
-		} else {
-			if (!id.equals(other.id)) {
-				return false;
-			}
-		}
+   @Override
+   public int hashCode() {
+      final int prime  = 31;
+            int result =  1;
 
-		return true;
-	}
+      result = prime * result + ((id == null) ? 0 : id.hashCode());
+
+      return result;
+   }
+
+   @Override
+   public boolean equals(Object ojt) {
+      if (      this == ojt           ) return true;
+      if (       ojt == null          ) return false;
+      if (getClass() != ojt.getClass()) return false;
+
+      Series other = (Series) ojt;
+      if (id == null) {
+         if (other.id != null) {
+            return false;
+         }
+      } else {
+         if (!id.equals(other.id)) {
+            return false;
+         }
+      }
+
+      return true;
+   }
 
 } // entity
 

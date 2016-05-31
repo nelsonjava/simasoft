@@ -99,21 +99,21 @@
 
                                      <h:column>
                                         <f:facet name="header">
-                                                <h:outputText value="Name"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/series/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemName" value="#{_item.name}"/>
-                                        </h:link>
-                                     </h:column>
-
-                                     <h:column>
-                                        <f:facet name="header">
                                                 <h:outputText value="Code"/>
                                         </f:facet>
                                         <h:link outcome="/admin/series/view">
                                                 <f:param name="id" value="#{_item.id}"/>
                                                 <h:outputText id="itemCode" value="#{_item.code}"/>
+                                        </h:link>
+                                     </h:column>
+
+                                     <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Name"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/series/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemName" value="#{_item.name}"/>
                                         </h:link>
                                      </h:column>
 
@@ -127,14 +127,14 @@
                         <h:outputText/>
 
                         <h:outputLabel for="sectionsBeanSectionsFunds" value="funds:"/>
-                        <h:link id="sectionsBeanSectionsFunds" outcome="/admin/funds/view" rendered="#{!empty sectionsBean.sections.funds}" value="#{sectionsBean.sections.funds.code}">
+                        <h:link id="sectionsBeanSectionsFunds" outcome="/admin/funds/view" rendered="#{!empty sectionsBean.sections.funds}" value="#{sectionsBean.sections.funds.name}">
                                 <f:param name="id" value="#{sectionsBean.sections.funds.id}"/>
                         </h:link>
                         <h:outputText/>
 
-                        <h:outputLabel for="sectionsBeanSectionsSections" value="sections:"/>
-                        <h:link id="sectionsBeanSectionsSections" outcome="/admin/sections/view" rendered="#{!empty sectionsBean.sections.objPadre}" value="#{sectionsBean.sections.sections}">
-                                <f:param name="id" value="#{sectionsBean.sections.sections.id}"/>
+                        <h:outputLabel for="sectionsBeanSectionsobjPadre" value="sections:"/>
+                        <h:link id="sectionsBeanSectionsobjPadre" outcome="/admin/sections/view" rendered="#{!empty sectionsBean.sections.objPadre}" value="#{sectionsBean.sections.objPadre}">
+                                <f:param name="id" value="#{sectionsBean.sections.objPadre.id}"/>
                         </h:link>
                         <h:outputText/>
 

@@ -102,6 +102,7 @@ public class DevelopmentsGen extends FileTxt {
                       for (Attributes attribute : groupIdsEntities.getEntities().getAttributes()) {
 
                            Atributos atributos = new Atributos();
+                           atributos.setOrden(attribute.getOrden());
                            atributos.setField(attribute.getName());
                            atributos.setDescription(attribute.getDescription());
                            atributos.setType(attribute.getAttributesTypes().getType());

@@ -174,7 +174,7 @@ public class FundsBean implements Serializable {
 	}
 
 	public int getPageSize() {
-		return 1000;
+		return 10;
 	}
 
 	public Funds getExample() {

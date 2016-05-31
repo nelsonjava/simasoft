@@ -25,7 +25,7 @@ import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
 import co.simasoft.models.DocumentalRetention;
-import co.simasoft.models.Trd;
+import co.simasoft.models.Series;
 import java.util.Iterator;
 
 /**
@@ -133,16 +133,18 @@ public class DocumentalRetentionBean implements Serializable {
 
 		try {
 			DocumentalRetention deletableEntity = findById(getId());
-			Iterator<Trd> iterGestion = deletableEntity.getGestion().iterator();
+			Iterator<Series> iterGestion = deletableEntity.getGestion()
+					.iterator();
 			for (; iterGestion.hasNext();) {
-				Trd nextInGestion = iterGestion.next();
+				Series nextInGestion = iterGestion.next();
 				nextInGestion.setGestion(null);
 				iterGestion.remove();
 				this.entityManager.merge(nextInGestion);
 			}
-			Iterator<Trd> iterCentral = deletableEntity.getCentral().iterator();
+			Iterator<Series> iterCentral = deletableEntity.getCentral()
+					.iterator();
 			for (; iterCentral.hasNext();) {
-				Trd nextInCentral = iterCentral.next();
+				Series nextInCentral = iterCentral.next();
 				nextInCentral.setCentral(null);
 				iterCentral.remove();
 				this.entityManager.merge(nextInCentral);
@@ -176,7 +178,7 @@ public class DocumentalRetentionBean implements Serializable {
 	}
 
 	public int getPageSize() {
-		return 1000;
+		return 10;
 	}
 
 	public DocumentalRetention getExample() {

@@ -30,6 +30,12 @@
                                 <h:panelGroup styleClass="search">
 
                                         <h:panelGrid columnClasses="label,component,required" columns="3">
+                                                <h:outputLabel for="documentalsUnitsBeanExampleCode" value="Code:"/>
+                                                <h:panelGroup>
+                                                        <h:inputText id="documentalsUnitsBeanExampleCode" value="#{documentalsUnitsBean.example.code}"/>
+                                                        <h:message for="documentalsUnitsBeanExampleCode" styleClass="error"/>
+                                                </h:panelGroup>
+                                                <h:outputText/>
 
                                                 <h:outputLabel for="documentalsUnitsBeanExampleName" value="Name:"/>
                                                 <h:panelGroup>
@@ -50,13 +56,11 @@
 
                                 <h:column>
                                         <f:facet name="header">
-                                                <h:outputText value="CreationDate"/>
+                                                <h:outputText value="Code"/>
                                         </f:facet>
                                         <h:link outcome="/admin/documentalsUnits/view">
                                                 <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemCreationDate" value="#{_item.creationDate}"/>
-                                                        <f:convertDateTime type="date"/>
-                                               <h:outputText/>
+                                                <h:outputText id="itemCode" value="#{_item.code}"/>
                                         </h:link>
                                 </h:column>
 

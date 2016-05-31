@@ -30,6 +30,13 @@
                                 <h:panelGroup styleClass="search">
 
                                         <h:panelGrid columnClasses="label,component,required" columns="3">
+                                                <h:outputLabel for="fundsLifeBeanExampleName" value="Name:"/>
+                                                <h:panelGroup>
+                                                        <h:inputText id="fundsLifeBeanExampleName" value="#{fundsLifeBean.example.name}"/>
+                                                        <h:message for="fundsLifeBeanExampleName" styleClass="error"/>
+                                                </h:panelGroup>
+                                                <h:outputText/>
+
                                                 <h:outputLabel for="fundsLifeBeanExampleIsOpen" value="IsOpen:"/>
                                                 <h:panelGroup>
                                                         <h:selectOneMenu id="fundsLifeBeanExampleIsOpen" value="#{fundsLifeBean.example.isOpen}">
@@ -38,13 +45,6 @@
                                                                 <f:selectItem itemLabel="No" itemValue="false"/>
                                                         </h:selectOneMenu>
                                                         <h:message for="entitiesBeanExampleIsSimplified" styleClass="error"/>
-                                                </h:panelGroup>
-                                                <h:outputText/>
-
-                                                <h:outputLabel for="fundsLifeBeanExampleName" value="Name:"/>
-                                                <h:panelGroup>
-                                                        <h:inputText id="fundsLifeBeanExampleName" value="#{fundsLifeBean.example.name}"/>
-                                                        <h:message for="fundsLifeBeanExampleName" styleClass="error"/>
                                                 </h:panelGroup>
                                                 <h:outputText/>
 
@@ -60,22 +60,22 @@
 
                                 <h:column>
                                         <f:facet name="header">
-                                                <h:outputText value="IsOpen"/>
+                                                <h:outputText value="Name"/>
                                         </f:facet>
                                         <h:link outcome="/admin/fundsLife/view">
                                                 <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemIsOpen" value="#{_item.isOpen}"/>
+                                                <h:outputText id="itemName" value="#{_item.name}"/>
                                         </h:link>
                                 </h:column>
 
 
                                 <h:column>
                                         <f:facet name="header">
-                                                <h:outputText value="Name"/>
+                                                <h:outputText value="IsOpen"/>
                                         </f:facet>
                                         <h:link outcome="/admin/fundsLife/view">
                                                 <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemName" value="#{_item.name}"/>
+                                                <h:outputText id="itemIsOpen" value="#{_item.isOpen}"/>
                                         </h:link>
                                 </h:column>
 

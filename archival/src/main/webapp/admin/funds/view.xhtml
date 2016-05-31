@@ -81,7 +81,7 @@
                         <h:outputText/>
 
                         <h:outputLabel for="fundsBeanFundsFundsLife" value="fundsLife:"/>
-                        <h:link id="fundsBeanFundsFundsLife" outcome="/admin/fundsLife/view" rendered="#{!empty fundsBean.funds.fundsLife}" value="#{fundsBean.funds.fundsLife.isOpen}">
+                        <h:link id="fundsBeanFundsFundsLife" outcome="/admin/fundsLife/view" rendered="#{!empty fundsBean.funds.fundsLife}" value="#{fundsBean.funds.fundsLife.name}">
                                 <f:param name="id" value="#{fundsBean.funds.fundsLife.id}"/>
                         </h:link>
                         <h:outputText/>

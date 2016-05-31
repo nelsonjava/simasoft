@@ -25,8 +25,9 @@ import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
 import co.simasoft.models.DocumentalInventory;
-import co.simasoft.models.DocumentalsUnits;
 import co.simasoft.models.InventoryFinality;
+import co.simasoft.models.OriginalOrder;
+import java.util.Iterator;
 
 /**
  * Backing bean for DocumentalInventory entities.
@@ -133,11 +134,14 @@ public class DocumentalInventoryBean implements Serializable {
 
 		try {
 			DocumentalInventory deletableEntity = findById(getId());
-			DocumentalsUnits documentalsUnits = deletableEntity
-					.getDocumentalsUnits();
-			documentalsUnits.getDocumentalInventory().remove(deletableEntity);
-			deletableEntity.setDocumentalsUnits(null);
-			this.entityManager.merge(documentalsUnits);
+			Iterator<OriginalOrder> iterOriginalOrder = deletableEntity
+					.getOriginalOrder().iterator();
+			for (; iterOriginalOrder.hasNext();) {
+				OriginalOrder nextInOriginalOrder = iterOriginalOrder.next();
+				nextInOriginalOrder.setDocumentalInventory(null);
+				iterOriginalOrder.remove();
+				this.entityManager.merge(nextInOriginalOrder);
+			}
 			InventoryFinality inventoryFinality = deletableEntity
 					.getInventoryFinality();
 			inventoryFinality.getDocumentalInventory().remove(deletableEntity);
@@ -172,7 +176,7 @@ public class DocumentalInventoryBean implements Serializable {
 	}
 
 	public int getPageSize() {
-		return 1000;
+		return 10;
 	}
 
 	public DocumentalInventory getExample() {
@@ -226,24 +230,22 @@ public class DocumentalInventoryBean implements Serializable {
 					builder.lower(root.<String> get("observations")),
 					'%' + observations.toLowerCase() + '%'));
 		}
-		Integer folios = this.example.getFolios();
-		if (folios != null && folios.intValue() != 0) {
-			predicatesList.add(builder.equal(root.get("folios"), folios));
-		}
-		Integer quantity = this.example.getQuantity();
-		if (quantity != null && quantity.intValue() != 0) {
-			predicatesList.add(builder.equal(root.get("quantity"), quantity));
-		}
-		String finalDisposition = this.example.getFinalDisposition();
-		if (finalDisposition != null && !"".equals(finalDisposition)) {
+		String object = this.example.getObject();
+		if (object != null && !"".equals(object)) {
 			predicatesList.add(builder.like(
-					builder.lower(root.<String> get("finalDisposition")),
-					'%' + finalDisposition.toLowerCase() + '%'));
+					builder.lower(root.<String> get("object")),
+					'%' + object.toLowerCase() + '%'));
 		}
 		Integer transferNumber = this.example.getTransferNumber();
 		if (transferNumber != null && transferNumber.intValue() != 0) {
 			predicatesList.add(builder.equal(root.get("transferNumber"),
 					transferNumber));
+		}
+		InventoryFinality inventoryFinality = this.example
+				.getInventoryFinality();
+		if (inventoryFinality != null) {
+			predicatesList.add(builder.equal(root.get("inventoryFinality"),
+					inventoryFinality));
 		}
 
 		return predicatesList.toArray(new Predicate[predicatesList.size()]);

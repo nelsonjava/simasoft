@@ -31,20 +31,13 @@
 
                                         <h:panelGrid columnClasses="label,component,required" columns="3">
 
+
                                                 <h:outputLabel for="originalOrderBeanExampleFolios" value="Folios:"/>
                                                 <h:panelGroup>
                                                         <h:inputText id="originalOrderBeanExampleFolios" value="#{originalOrderBean.example.folios}"/>
                                                         <h:message for="originalOrderBeanExampleFolios" styleClass="error"/>
                                                 </h:panelGroup>
                                                 <h:outputText/>
-
-                                                <h:outputLabel for="originalOrderBeanExampleLocated" value="Located:"/>
-                                                <h:panelGroup>
-                                                        <h:inputText id="originalOrderBeanExampleLocated" value="#{originalOrderBean.example.located}"/>
-                                                        <h:message for="originalOrderBeanExampleLocated" styleClass="error"/>
-                                                </h:panelGroup>
-                                                <h:outputText/>
-
 
 
                                         </h:panelGrid>
@@ -56,6 +49,19 @@
                         </f:validateBean>
 
                         <h:dataTable id="originalOrderBeanPageItems" styleClass="data-table" value="#{originalOrderBean.pageItems}" var="_item">
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="StartDate"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/originalOrder/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemStartDate" value="#{_item.startDate}"/>
+                                                        <f:convertDateTime type="date"/>
+                                               <h:outputText/>
+                                        </h:link>
+                                </h:column>
+
 
                                 <h:column>
                                         <f:facet name="header">
@@ -83,35 +89,11 @@
 
                                 <h:column>
                                         <f:facet name="header">
-                                                <h:outputText value="Located"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/originalOrder/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemLocated" value="#{_item.located}"/>
-                                        </h:link>
-                                </h:column>
-
-
-                                <h:column>
-                                        <f:facet name="header">
                                                 <h:outputText value="EntryDate"/>
                                         </f:facet>
                                         <h:link outcome="/admin/originalOrder/view">
                                                 <f:param name="id" value="#{_item.id}"/>
                                                 <h:outputText id="itemEntryDate" value="#{_item.entryDate}"/>
-                                                        <f:convertDateTime type="date"/>
-                                               <h:outputText/>
-                                        </h:link>
-                                </h:column>
-
-
-                                <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="StartDate"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/originalOrder/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemStartDate" value="#{_item.startDate}"/>
                                                         <f:convertDateTime type="date"/>
                                                <h:outputText/>
                                         </h:link>

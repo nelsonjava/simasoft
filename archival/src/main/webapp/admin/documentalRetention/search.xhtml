@@ -30,17 +30,17 @@
                                 <h:panelGroup styleClass="search">
 
                                         <h:panelGrid columnClasses="label,component,required" columns="3">
-                                                <h:outputLabel for="documentalRetentionBeanExampleYear" value="Year:"/>
-                                                <h:panelGroup>
-                                                        <h:inputText id="documentalRetentionBeanExampleYear" value="#{documentalRetentionBean.example.year}"/>
-                                                        <h:message for="documentalRetentionBeanExampleYear" styleClass="error"/>
-                                                </h:panelGroup>
-                                                <h:outputText/>
-
                                                 <h:outputLabel for="documentalRetentionBeanExampleName" value="Name:"/>
                                                 <h:panelGroup>
                                                         <h:inputText id="documentalRetentionBeanExampleName" value="#{documentalRetentionBean.example.name}"/>
                                                         <h:message for="documentalRetentionBeanExampleName" styleClass="error"/>
+                                                </h:panelGroup>
+                                                <h:outputText/>
+
+                                                <h:outputLabel for="documentalRetentionBeanExampleYear" value="Year:"/>
+                                                <h:panelGroup>
+                                                        <h:inputText id="documentalRetentionBeanExampleYear" value="#{documentalRetentionBean.example.year}"/>
+                                                        <h:message for="documentalRetentionBeanExampleYear" styleClass="error"/>
                                                 </h:panelGroup>
                                                 <h:outputText/>
 
@@ -56,22 +56,22 @@
 
                                 <h:column>
                                         <f:facet name="header">
-                                                <h:outputText value="Year"/>
+                                                <h:outputText value="Name"/>
                                         </f:facet>
                                         <h:link outcome="/admin/documentalRetention/view">
                                                 <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemYear" value="#{_item.year}"/>
+                                                <h:outputText id="itemName" value="#{_item.name}"/>
                                         </h:link>
                                 </h:column>
 
 
                                 <h:column>
                                         <f:facet name="header">
-                                                <h:outputText value="Name"/>
+                                                <h:outputText value="Year"/>
                                         </f:facet>
                                         <h:link outcome="/admin/documentalRetention/view">
                                                 <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemName" value="#{_item.name}"/>
+                                                <h:outputText id="itemYear" value="#{_item.year}"/>
                                         </h:link>
                                 </h:column>
 

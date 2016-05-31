@@ -46,6 +46,15 @@
                                 </h:panelGroup>
                                 <h:outputText/>
 
+                                <h:outputLabel for="originalOrderBeanOriginalOrderStartDate" value="StartDate:"/>
+                                <h:panelGroup>
+                                <p:calendar id="developmentsBeanDevelopmentsStartDate"
+                                            showButtonPanel="true"
+                                            pattern="dd/MM/yyyy HH:mm a"
+                                            value="#{originalOrderBean.originalOrder.startDate}"/>
+                                </h:panelGroup>
+                                <h:outputText/>
+
                                 <h:outputLabel for="originalOrderBeanOriginalOrderFinalDate" value="FinalDate:"/>
                                 <h:panelGroup>
                                 <p:calendar id="developmentsBeanDevelopmentsFinalDate"
@@ -62,13 +71,6 @@
                                 </h:panelGroup>
                                 <h:outputText/>
 
-                                <h:outputLabel for="originalOrderBeanOriginalOrderLocated" value="Located:"/>
-                                <h:panelGroup>
-                                        <h:inputText id="originalOrderBeanOriginalOrderLocated" value="#{originalOrderBean.originalOrder.located}"/>
-                                        <h:message for="originalOrderBeanOriginalOrderLocated" styleClass="error"/>
-                                </h:panelGroup>
-                                <h:outputText/>
-
                                 <h:outputLabel for="originalOrderBeanOriginalOrderEntryDate" value="EntryDate:"/>
                                 <h:panelGroup>
                                 <p:calendar id="developmentsBeanDevelopmentsEntryDate"
@@ -78,12 +80,34 @@
                                 </h:panelGroup>
                                 <h:outputText/>
 
-                                <h:outputLabel for="originalOrderBeanOriginalOrderStartDate" value="StartDate:"/>
+                                <h:outputLabel for="originalOrderBeanOriginalOrderLocated" value="Located:"/>
                                 <h:panelGroup>
-                                <p:calendar id="developmentsBeanDevelopmentsStartDate"
-                                            showButtonPanel="true"
-                                            pattern="dd/MM/yyyy HH:mm a"
-                                            value="#{originalOrderBean.originalOrder.startDate}"/>
+                                        <h:inputText id="originalOrderBeanOriginalOrderLocated" value="#{originalOrderBean.originalOrder.located}"/>
+                                        <h:message for="originalOrderBeanOriginalOrderLocated" styleClass="error"/>
+                                </h:panelGroup>
+                                <h:outputText/>
+
+                                <h:outputLabel for="originalOrderBeanOriginalOrderMail" value="Mail:"/>
+                                <h:panelGroup>
+                                        <h:inputText id="originalOrderBeanOriginalOrderMail" value="#{originalOrderBean.originalOrder.mail}"/>
+                                        <h:message for="originalOrderBeanOriginalOrderMail" styleClass="error"/>
+                                </h:panelGroup>
+                                <h:outputText/>
+
+                                <h:outputLabel for="originalOrderBeanOriginalOrderNotes" value="Notes:"/>
+                                <h:panelGroup>
+                                        <h:inputText id="originalOrderBeanOriginalOrderNotes" value="#{originalOrderBean.originalOrder.notes}"/>
+                                        <h:message for="originalOrderBeanOriginalOrderNotes" styleClass="error"/>
+                                </h:panelGroup>
+                                <h:outputText/>
+
+                                <h:outputLabel for="originalOrderBeanoriginalOrderDocumentalInventory" value="DocumentalInventory:"/>
+                                <h:panelGroup>
+                                         <h:selectOneMenu converter="#{documentalInventoryBean.converter}" id="originalOrderBeanOriginalOrderDocumentalInventory" value="#{originalOrderBean.originalOrder.documentalInventory}">
+                                                <f:selectItem/>
+                                                <f:selectItems itemLabel="#{forgeview:display(_item.object)}" itemValue="#{_item}" value="#{documentalInventoryBean.all}" var="_item"/>
+                                        </h:selectOneMenu>
+                                        <h:message for="entitiesBeanEntitiesIsSimplified" styleClass="error"/>
                                 </h:panelGroup>
                                 <h:outputText/>
 
@@ -97,11 +121,11 @@
                                 </h:panelGroup>
                                 <h:outputText/>
 
-                                <h:outputLabel for="originalOrderBeanoriginalOrderDocumentsTypes" value="DocumentsTypes:"/>
+                                <h:outputLabel for="originalOrderBeanoriginalOrderConservationUnits" value="ConservationUnits:"/>
                                 <h:panelGroup>
-                                         <h:selectOneMenu converter="#{documentsTypesBean.converter}" id="originalOrderBeanOriginalOrderDocumentsTypes" value="#{originalOrderBean.originalOrder.documentsTypes}">
+                                         <h:selectOneMenu converter="#{conservationUnitsBean.converter}" id="originalOrderBeanOriginalOrderConservationUnits" value="#{originalOrderBean.originalOrder.conservationUnits}">
                                                 <f:selectItem/>
-                                                <f:selectItems itemLabel="#{forgeview:display(_item.name)}" itemValue="#{_item}" value="#{documentsTypesBean.all}" var="_item"/>
+                                                <f:selectItems itemLabel="#{forgeview:display(_item.name)}" itemValue="#{_item}" value="#{conservationUnitsBean.all}" var="_item"/>
                                         </h:selectOneMenu>
                                         <h:message for="entitiesBeanEntitiesIsSimplified" styleClass="error"/>
                                 </h:panelGroup>
@@ -111,7 +135,7 @@
                                 <h:panelGroup>
                                          <h:selectOneMenu converter="#{documentalsUnitsBean.converter}" id="originalOrderBeanOriginalOrderDocumentalsUnits" value="#{originalOrderBean.originalOrder.documentalsUnits}">
                                                 <f:selectItem/>
-                                                <f:selectItems itemLabel="#{forgeview:display(_item.creationDate)}" itemValue="#{_item}" value="#{documentalsUnitsBean.all}" var="_item"/>
+                                                <f:selectItems itemLabel="#{forgeview:display(_item.name)}" itemValue="#{_item}" value="#{documentalsUnitsBean.all}" var="_item"/>
                                         </h:selectOneMenu>
                                         <h:message for="entitiesBeanEntitiesIsSimplified" styleClass="error"/>
                                 </h:panelGroup>

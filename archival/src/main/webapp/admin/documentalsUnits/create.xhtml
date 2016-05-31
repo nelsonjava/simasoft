@@ -46,12 +46,10 @@
                                 </h:panelGroup>
                                 <h:outputText/>
 
-                                <h:outputLabel for="documentalsUnitsBeanDocumentalsUnitsCreationDate" value="CreationDate:"/>
+                                <h:outputLabel for="documentalsUnitsBeanDocumentalsUnitsCode" value="Code:"/>
                                 <h:panelGroup>
-                                <p:calendar id="developmentsBeanDevelopmentsCreationDate"
-                                            showButtonPanel="true"
-                                            pattern="dd/MM/yyyy HH:mm a"
-                                            value="#{documentalsUnitsBean.documentalsUnits.creationDate}"/>
+                                        <h:inputText id="documentalsUnitsBeanDocumentalsUnitsCode" value="#{documentalsUnitsBean.documentalsUnits.code}"/>
+                                        <h:message for="documentalsUnitsBeanDocumentalsUnitsCode" styleClass="error"/>
                                 </h:panelGroup>
                                 <h:outputText/>
 
@@ -63,16 +61,6 @@
                                 <h:outputText/>
 
 
-
-                                <h:outputLabel for="documentalsUnitsBeandocumentalsUnitsConservationUnits" value="ConservationUnits:"/>
-                                <h:panelGroup>
-                                         <h:selectOneMenu converter="#{conservationUnitsBean.converter}" id="documentalsUnitsBeanDocumentalsUnitsConservationUnits" value="#{documentalsUnitsBean.documentalsUnits.conservationUnits}">
-                                                <f:selectItem/>
-                                                <f:selectItems itemLabel="#{forgeview:display(_item.code)}" itemValue="#{_item}" value="#{conservationUnitsBean.all}" var="_item"/>
-                                        </h:selectOneMenu>
-                                        <h:message for="entitiesBeanEntitiesIsSimplified" styleClass="error"/>
-                                </h:panelGroup>
-                                <h:outputText/>
 
                                 <h:outputLabel for="documentalsUnitsBeandocumentalsUnitsFrequentlyQuery" value="FrequentlyQuery:"/>
                                 <h:panelGroup>
@@ -89,6 +77,16 @@
                                          <h:selectOneMenu converter="#{seriesBean.converter}" id="documentalsUnitsBeanDocumentalsUnitsSeries" value="#{documentalsUnitsBean.documentalsUnits.series}">
                                                 <f:selectItem/>
                                                 <f:selectItems itemLabel="#{forgeview:display(_item.name)}" itemValue="#{_item}" value="#{seriesBean.all}" var="_item"/>
+                                        </h:selectOneMenu>
+                                        <h:message for="entitiesBeanEntitiesIsSimplified" styleClass="error"/>
+                                </h:panelGroup>
+                                <h:outputText/>
+
+                                <h:outputLabel for="documentalsUnitsBeandocumentalsUnitsDocumentalsUnits" value="DocumentalsUnits:"/>
+                                <h:panelGroup>
+                                         <h:selectOneMenu converter="#{documentalsUnitsBean.converter}" id="documentalsUnitsBeanDocumentalsUnitsDocumentalsUnits" value="#{documentalsUnitsBean.documentalsUnits.objPadre}">
+                                                <f:selectItem/>
+                                                <f:selectItems itemLabel="#{forgeview:display(_item.name)}" itemValue="#{_item}" value="#{documentalsUnitsBean.all}" var="_item"/>
                                         </h:selectOneMenu>
                                         <h:message for="entitiesBeanEntitiesIsSimplified" styleClass="error"/>
                                 </h:panelGroup>

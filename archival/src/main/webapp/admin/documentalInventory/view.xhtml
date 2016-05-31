@@ -32,28 +32,12 @@
                         <h:outputText id="documentalInventoryBeanDocumentalInventoryOrden" value="#{documentalInventoryBean.documentalInventory.orden}"/>
                         <h:outputText/>
 
-                        <h:outputLabel for="documentalInventoryBeanDocumentalInventoryFolios" value="Folios:"/>
-                        <h:outputText id="documentalInventoryBeanDocumentalInventoryFolios" value="#{documentalInventoryBean.documentalInventory.folios}"/>
-                        <h:outputText/>
-
-                        <h:outputLabel for="documentalInventoryBeanDocumentalInventoryQuantity" value="Quantity:"/>
-                        <h:outputText id="documentalInventoryBeanDocumentalInventoryQuantity" value="#{documentalInventoryBean.documentalInventory.quantity}"/>
-                        <h:outputText/>
-
-                        <h:outputLabel for="documentalInventoryBeanDocumentalInventoryStartDate" value="StartDate:"/>
-                        <h:outputText id="documentalInventoryBeanDocumentalInventoryStartDate" value="Pendiente"/>
-                        <h:outputText/>
-
-                        <h:outputLabel for="documentalInventoryBeanDocumentalInventoryFinalDate" value="FinalDate:"/>
-                        <h:outputText id="documentalInventoryBeanDocumentalInventoryFinalDate" value="Pendiente"/>
-                        <h:outputText/>
-
                         <h:outputLabel for="documentalInventoryBeanDocumentalInventoryDebugDate" value="DebugDate:"/>
                         <h:outputText id="documentalInventoryBeanDocumentalInventoryDebugDate" value="Pendiente"/>
                         <h:outputText/>
 
-                        <h:outputLabel for="documentalInventoryBeanDocumentalInventoryFinalDisposition" value="FinalDisposition:"/>
-                        <h:outputText id="documentalInventoryBeanDocumentalInventoryFinalDisposition" value="#{documentalInventoryBean.documentalInventory.finalDisposition}"/>
+                        <h:outputLabel for="documentalInventoryBeanDocumentalInventoryObject" value="Object:"/>
+                        <h:outputText id="documentalInventoryBeanDocumentalInventoryObject" value="#{documentalInventoryBean.documentalInventory.object}"/>
                         <h:outputText/>
 
                         <h:outputLabel for="documentalInventoryBeanDocumentalInventoryDeliveryDate" value="DeliveryDate:"/>
@@ -68,10 +52,66 @@
                         <h:outputText id="documentalInventoryBeanDocumentalInventoryObservations" value="#{documentalInventoryBean.documentalInventory.observations}" escape="false" />
                         <h:outputText/>
 
-                        <h:outputLabel for="documentalInventoryBeanDocumentalInventoryDocumentalsUnits" value="documentalsUnits:"/>
-                        <h:link id="documentalInventoryBeanDocumentalInventoryDocumentalsUnits" outcome="/admin/documentalsUnits/view" rendered="#{!empty documentalInventoryBean.documentalInventory.documentalsUnits}" value="#{documentalInventoryBean.documentalInventory.documentalsUnits.creationDate}">
-                                <f:param name="id" value="#{documentalInventoryBean.documentalInventory.documentalsUnits.id}"/>
-                        </h:link>
+                        <h:outputLabel for="DocumentalInventoryBeanDocumentalInventoryOriginalOrder" value="OriginalOrder:"/>
+                        <h:dataTable id="documentalInventoryBeanDocumentalInventoryoriginalOrder" styleClass="data-table" value="#{forgeview:asList(documentalInventoryBean.documentalInventory.originalOrder)}" var="_item">
+
+                                     <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Orden"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/originalOrder/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemOrden" value="#{_item.orden}"/>
+                                        </h:link>
+                                     </h:column>
+
+                                     <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="FinalDate"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/originalOrder/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemFinalDate" value="#{_item.finalDate}"/>
+                                                        <f:convertDateTime type="date"/>
+                                               <h:outputText/>
+                                        </h:link>
+                                     </h:column>
+
+                                     <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Folios"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/originalOrder/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemFolios" value="#{_item.folios}"/>
+                                        </h:link>
+                                     </h:column>
+
+                                     <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="EntryDate"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/originalOrder/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemEntryDate" value="#{_item.entryDate}"/>
+                                                        <f:convertDateTime type="date"/>
+                                               <h:outputText/>
+                                        </h:link>
+                                     </h:column>
+
+                                     <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="StartDate"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/originalOrder/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemStartDate" value="#{_item.startDate}"/>
+                                                        <f:convertDateTime type="date"/>
+                                               <h:outputText/>
+                                        </h:link>
+                                     </h:column>
+
+                        </h:dataTable>
                         <h:outputText/>
 
                         <h:outputLabel for="documentalInventoryBeanDocumentalInventoryInventoryFinality" value="inventoryFinality:"/>

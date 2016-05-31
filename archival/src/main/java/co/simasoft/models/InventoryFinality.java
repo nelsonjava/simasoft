@@ -30,116 +30,124 @@ import javax.persistence.TemporalType;
 import org.hibernate.search.annotations.DateBridge;
 import org.hibernate.search.annotations.Resolution;
 
+
 // @Indexed
 @Entity
 @XmlRootElement
 public class InventoryFinality implements Serializable {
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	@Id
-	@DocumentId
-	@GeneratedValue(strategy = GenerationType.TABLE)
-	private Long id;
+    @Id
+    @DocumentId
+    @GeneratedValue(strategy=GenerationType.TABLE)
+    private Long id;
 
-	@Version
-	private Integer optlock;
+    @Version
+    private Integer optlock;
 
-	private double orden;
+    private double orden;
 
-	@Lob
-	@Column(nullable = true, unique = false)
-	// @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-	private String observations;
+    @Lob
+    @Column(nullable = true, unique = false)
+    // @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+    private String observations;
 
-	@Column(nullable = true, unique = false)
-	// @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-	private String name;
+    @Column(nullable = true, unique = false)
+    // @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+    private String name;
 
-	@OneToMany(mappedBy = "inventoryFinality")
-	private Set<DocumentalInventory> documentalInventory = new HashSet<DocumentalInventory>();
+    @Column(nullable = true, unique = false)
+    private Integer year;
 
-	public InventoryFinality() {
-	}
+    @OneToMany(mappedBy = "inventoryFinality")
+    private Set<DocumentalInventory> documentalInventory = new HashSet<DocumentalInventory>();
 
-	public InventoryFinality(String name) {
-		this.name = name;
-	}
+    public InventoryFinality() {
+    }
 
-	public Long getId() {
-		return this.id;
-	}
-	public void setId(Long id) {
-		this.id = id;
-	}
+    public InventoryFinality(String name,Integer year) {
+        this.name = name;
+        this.year = year;
+    }
 
-	public Integer getOptlock() {
-		return this.optlock;
-	}
-	public void setOptlock(Integer optlock) {
-		this.optlock = optlock;
-	}
+    public Long getId() {
+        return this.id;
+    }
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	public double getOrden() {
-		return this.orden;
-	}
-	public void setOrden(double orden) {
-		this.orden = orden;
-	}
+    public Integer getOptlock() {
+        return this.optlock;
+    }
+    public void setOptlock(Integer optlock) {
+        this.optlock = optlock;
+    }
 
-	public String getObservations() {
-		return observations;
-	}
-	public void setObservations(String observations) {
-		this.observations = observations;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
+    public double getOrden() {
+        return this.orden;
+    }
+    public void setOrden(double orden) {
+        this.orden = orden;
+    }
 
-	public Set<DocumentalInventory> getDocumentalInventory() {
-		return documentalInventory;
-	}
-	public void setDocumentalInventory(
-			Set<DocumentalInventory> documentalInventory) {
-		this.documentalInventory = documentalInventory;
-	}
+    public String getObservations() {
+        return observations;
+    }
+    public void setObservations(String observations) {
+        this.observations = observations;
+    }
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
+    public Integer getYear() {
+        return year;
+    }
+    public void setYear(Integer year) {
+        this.year = year;
+    }
 
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
+    public Set<DocumentalInventory> getDocumentalInventory() {
+        return documentalInventory;
+    }
+    public void setDocumentalInventory(Set<DocumentalInventory> documentalInventory) {
+        this.documentalInventory = documentalInventory;
+    }
 
-		return result;
-	}
+   @Override
+   public int hashCode() {
+      final int prime  = 31;
+            int result =  1;
 
-	@Override
-	public boolean equals(Object ojt) {
-		if (this == ojt)
-			return true;
-		if (ojt == null)
-			return false;
-		if (getClass() != ojt.getClass())
-			return false;
+      result = prime * result + ((id == null) ? 0 : id.hashCode());
 
-		InventoryFinality other = (InventoryFinality) ojt;
-		if (id == null) {
-			if (other.id != null) {
-				return false;
-			}
-		} else {
-			if (!id.equals(other.id)) {
-				return false;
-			}
-		}
+      return result;
+   }
 
-		return true;
-	}
+   @Override
+   public boolean equals(Object ojt) {
+      if (      this == ojt           ) return true;
+      if (       ojt == null          ) return false;
+      if (getClass() != ojt.getClass()) return false;
+
+      InventoryFinality other = (InventoryFinality) ojt;
+      if (id == null) {
+         if (other.id != null) {
+            return false;
+         }
+      } else {
+         if (!id.equals(other.id)) {
+            return false;
+         }
+      }
+
+      return true;
+   }
 
 } // entity
 

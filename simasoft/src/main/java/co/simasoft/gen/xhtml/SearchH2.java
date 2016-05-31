@@ -101,7 +101,9 @@ line("                                        <h:panelGrid columnClasses=\"label
 
       for(Atributos atributo : atributos) {
 
-line(entity.attributeSearch(atributo.getField(),atributo.getType(),atributo.getNulo()));
+         if (atributo.getIsSearch()){
+             line(entity.attributeSearch(atributo.getField(),atributo.getType(),atributo.getNulo()));
+         }
 
       } // for: atributos
 
@@ -118,7 +120,11 @@ line("                        <h:dataTable id=\""+Utils._1raMin(entity.getName()
 
       for(Atributos atributo : atributos) {
 
-line(entity.columnSearch(atributo.getField(),atributo.getType()));
+         if (atributo.getIsViewColumn()){
+             line(entity.columnSearch(atributo.getField(),atributo.getType()));
+         }
+
+
 
       } // for: atributos
 
