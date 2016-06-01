@@ -89,9 +89,9 @@
                                 </h:panelGroup>
                                 <h:outputText/>
 
-                                <h:outputLabel for="sectionsBeansectionsSections" value="Sections:"/>
+                                <h:outputLabel for="sectionsBeansectionsobjPadre" value="Sections:"/>
                                 <h:panelGroup>
-                                         <h:selectOneMenu converter="#{sectionsBean.converter}" id="sectionsBeanSectionsSections" value="#{sectionsBean.sections.objPadre}">
+                                         <h:selectOneMenu converter="#{sectionsBean.converter}" id="sectionsBeanSectionsobjPadre" value="#{sectionsBean.sections.objPadre}">
                                                 <f:selectItem/>
                                                 <f:selectItems itemLabel="#{forgeview:display(_item.name)}" itemValue="#{_item}" value="#{sectionsBean.all}" var="_item"/>
                                         </h:selectOneMenu>

@@ -74,6 +74,10 @@ public class OriginalOrder implements Serializable {
     private String notes;
 
     @Column(nullable = true, unique = false)
+    // @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+    private String subject;
+
+    @Column(nullable = true, unique = false)
     @Temporal(TemporalType.DATE)
     @DateBridge(resolution = Resolution.YEAR)
     private Date entryDate;
@@ -98,12 +102,13 @@ public class OriginalOrder implements Serializable {
     public OriginalOrder() {
     }
 
-    public OriginalOrder(Date finalDate,Integer folios,String located,String mail,String notes,Date entryDate,Date startDate) {
+    public OriginalOrder(Date finalDate,Integer folios,String located,String mail,String notes,String subject,Date entryDate,Date startDate) {
         this.finalDate = finalDate;
         this.folios = folios;
         this.located = located;
         this.mail = mail;
         this.notes = notes;
+        this.subject = subject;
         this.entryDate = entryDate;
         this.startDate = startDate;
     }
@@ -168,6 +173,13 @@ public class OriginalOrder implements Serializable {
     }
     public void setNotes(String notes) {
         this.notes = notes;
+    }
+
+    public String getSubject() {
+        return subject;
+    }
+    public void setSubject(String subject) {
+        this.subject = subject;
     }
 
     public Date getEntryDate() {

@@ -178,7 +178,7 @@ public class DocumentalRetentionBean implements Serializable {
 	}
 
 	public int getPageSize() {
-		return 1000;
+		return 10;
 	}
 
 	public DocumentalRetention getExample() {

@@ -30,14 +30,14 @@
                                 <h:panelGroup styleClass="search">
 
                                         <h:panelGrid columnClasses="label,component,required" columns="3">
-
-
-                                                <h:outputLabel for="originalOrderBeanExampleFolios" value="Folios:"/>
+                                                <h:outputLabel for="originalOrderBeanExampleSubject" value="Subject:"/>
                                                 <h:panelGroup>
-                                                        <h:inputText id="originalOrderBeanExampleFolios" value="#{originalOrderBean.example.folios}"/>
-                                                        <h:message for="originalOrderBeanExampleFolios" styleClass="error"/>
+                                                        <h:inputText id="originalOrderBeanExampleSubject" value="#{originalOrderBean.example.subject}"/>
+                                                        <h:message for="originalOrderBeanExampleSubject" styleClass="error"/>
                                                 </h:panelGroup>
                                                 <h:outputText/>
+
+
 
 
                                         </h:panelGrid>
@@ -49,6 +49,16 @@
                         </f:validateBean>
 
                         <h:dataTable id="originalOrderBeanPageItems" styleClass="data-table" value="#{originalOrderBean.pageItems}" var="_item">
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Orden"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/originalOrder/view">
+                                                <f:param name="id" value="#{_item.orden}"/>
+                                                <h:outputText id="itemOrden" value="#{_item.orden}"/>
+                                        </h:link>
+                                </h:column>
 
                                 <h:column>
                                         <f:facet name="header">

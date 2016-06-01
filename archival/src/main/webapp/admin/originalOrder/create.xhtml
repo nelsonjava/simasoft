@@ -46,6 +46,13 @@
                                 </h:panelGroup>
                                 <h:outputText/>
 
+                                <h:outputLabel for="originalOrderBeanOriginalOrderSubject" value="Subject:"/>
+                                <h:panelGroup>
+                                        <h:inputText id="originalOrderBeanOriginalOrderSubject" value="#{originalOrderBean.originalOrder.subject}"/>
+                                        <h:message for="originalOrderBeanOriginalOrderSubject" styleClass="error"/>
+                                </h:panelGroup>
+                                <h:outputText/>
+
                                 <h:outputLabel for="originalOrderBeanOriginalOrderStartDate" value="StartDate:"/>
                                 <h:panelGroup>
                                 <p:calendar id="developmentsBeanDevelopmentsStartDate"

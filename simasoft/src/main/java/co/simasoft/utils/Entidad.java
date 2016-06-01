@@ -834,9 +834,9 @@ xhtml +=  space+"<!-- to:"+to+" -->\n";
 
                  if (getName().equals(From)){ // relación Unitaria
 
-                     xhtml =  space+"<h:outputLabel for=\""+from+"Bean"+from+To+"\" value=\""+To+":\"/>"+"\n";
+                     xhtml =  space+"<h:outputLabel for=\""+from+"Bean"+from+"objPadre\" value=\""+To+":\"/>"+"\n";
                      xhtml += space+"<h:panelGroup>\n";
-                     xhtml += space+"         <h:selectOneMenu converter=\"#{"+to+"Bean.converter}\" id=\""+from+"Bean"+From+To+"\" value=\"#{"+from+"Bean."+from+".objPadre}\">\n";
+                     xhtml += space+"         <h:selectOneMenu converter=\"#{"+to+"Bean.converter}\" id=\""+from+"Bean"+From+"objPadre\" value=\"#{"+from+"Bean."+from+".objPadre}\">\n";
                      xhtml += space+"                <f:selectItem/>\n";
                      xhtml += space+"                <f:selectItems itemLabel=\"#{forgeview:display(_item."+atribute+")}\" itemValue=\"#{_item}\" value=\"#{"+to+"Bean.all}\" var=\"_item\"/>\n";
                      xhtml += space+"        </h:selectOneMenu>\n";
@@ -861,7 +861,7 @@ xhtml +=  space+"<!-- to:"+to+" -->\n";
                       else{
                           xhtml =  space+"<h:outputLabel for=\""+to+"Bean"+to+relation.getName()+"\" value=\""+relation.getName()+":\"/>"+"\n";
                           xhtml += space+"<h:panelGroup>\n";
-                          xhtml += space+"         <h:selectOneMenu converter=\"#{"+relation.getName()+"Bean.converter}\" id=\""+to+"Bean"+To+relation.getName()+"\" value=\"#{"+to+"Bean."+to+"."+relation.getName()+"}\">\n";
+                          xhtml += space+"         <h:selectOneMenu converter=\"#{"+from+"Bean.converter}\" id=\""+to+"Bean"+To+relation.getName()+"\" value=\"#{"+to+"Bean."+to+"."+relation.getName()+"}\">\n";
                           xhtml += space+"                <f:selectItem/>\n";
                           xhtml += space+"                <f:selectItems itemLabel=\"#{forgeview:display(_item."+relation.getEntityFrom().getFieldCreate()+")}\" itemValue=\"#{_item}\" value=\"#{"+from+"Bean.all}\" var=\"_item\"/>\n";
                           xhtml += space+"        </h:selectOneMenu>\n";

@@ -117,6 +117,27 @@
                                         </h:link>
                                      </h:column>
 
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Gestion"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/series/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemGestion" value="#{_item.gestion.name}"/>
+                                        </h:link>
+                                </h:column>
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Central"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/series/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemCentral" value="#{_item.central.name}"/>
+                                        </h:link>
+                                </h:column>
+
+
                         </h:dataTable>
                         <h:outputText/>
 

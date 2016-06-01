@@ -118,6 +118,18 @@ line("                        </f:validateBean>\n");
 
 line("                        <h:dataTable id=\""+Utils._1raMin(entity.getName())+"BeanPageItems\" styleClass=\"data-table\" value=\"#{"+Utils._1raMin(entity.getName())+"Bean.pageItems}\" var=\"_item\">\n");
 
+
+line("                                <h:column>");
+line("                                        <f:facet name=\"header\">");
+line("                                                <h:outputText value=\"Orden\"/>");
+line("                                        </f:facet>");
+line("                                        <h:link outcome=\"/admin/"+Utils._1raMin(entity.getName())+"/view\">");
+line("                                                <f:param name=\"id\" value=\"#{_item.orden}\"/>");
+line("                                                <h:outputText id=\"itemOrden\" value=\"#{_item.orden}\"/>");
+line("                                        </h:link>");
+line("                                </h:column>\n");
+
+
       for(Atributos atributo : atributos) {
 
          if (atributo.getIsViewColumn()){

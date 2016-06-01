@@ -54,6 +54,11 @@ public class DocumentalsUnits implements Serializable {
     private String observations;
 
     @Column(nullable = true, unique = false)
+    @Temporal(TemporalType.DATE)
+    @DateBridge(resolution = Resolution.YEAR)
+    private Date startDate;
+
+    @Column(nullable = true, unique = false)
     // @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
     private String code;
 
@@ -79,7 +84,8 @@ public class DocumentalsUnits implements Serializable {
     public DocumentalsUnits() {
     }
 
-    public DocumentalsUnits(String code,String name) {
+    public DocumentalsUnits(Date startDate,String code,String name) {
+        this.startDate = startDate;
         this.code = code;
         this.name = name;
     }
@@ -111,6 +117,13 @@ public class DocumentalsUnits implements Serializable {
     public void setObservations(String observations) {
         this.observations = observations;
     }
+    public Date getStartDate() {
+        return startDate;
+    }
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
+    }
+
     public String getCode() {
         return code;
     }

@@ -60,6 +60,15 @@
                                 </h:panelGroup>
                                 <h:outputText/>
 
+                                <h:outputLabel for="documentalsUnitsBeanDocumentalsUnitsStartDate" value="StartDate:"/>
+                                <h:panelGroup>
+                                <p:calendar id="developmentsBeanDevelopmentsStartDate"
+                                            showButtonPanel="true"
+                                            pattern="dd/MM/yyyy HH:mm a"
+                                            value="#{documentalsUnitsBean.documentalsUnits.startDate}"/>
+                                </h:panelGroup>
+                                <h:outputText/>
+
 
 
                                 <h:outputLabel for="documentalsUnitsBeandocumentalsUnitsFrequentlyQuery" value="FrequentlyQuery:"/>
@@ -82,9 +91,9 @@
                                 </h:panelGroup>
                                 <h:outputText/>
 
-                                <h:outputLabel for="documentalsUnitsBeandocumentalsUnitsDocumentalsUnits" value="DocumentalsUnits:"/>
+                                <h:outputLabel for="documentalsUnitsBeandocumentalsUnitsobjPadre" value="DocumentalsUnits:"/>
                                 <h:panelGroup>
-                                         <h:selectOneMenu converter="#{documentalsUnitsBean.converter}" id="documentalsUnitsBeanDocumentalsUnitsDocumentalsUnits" value="#{documentalsUnitsBean.documentalsUnits.objPadre}">
+                                         <h:selectOneMenu converter="#{documentalsUnitsBean.converter}" id="documentalsUnitsBeanDocumentalsUnitsobjPadre" value="#{documentalsUnitsBean.documentalsUnits.objPadre}">
                                                 <f:selectItem/>
                                                 <f:selectItems itemLabel="#{forgeview:display(_item.name)}" itemValue="#{_item}" value="#{documentalsUnitsBean.all}" var="_item"/>
                                         </h:selectOneMenu>

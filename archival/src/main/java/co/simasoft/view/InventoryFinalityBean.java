@@ -171,7 +171,7 @@ public class InventoryFinalityBean implements Serializable {
 	}
 
 	public int getPageSize() {
-		return 1000;
+		return 10;
 	}
 
 	public InventoryFinality getExample() {
@@ -230,6 +230,10 @@ public class InventoryFinalityBean implements Serializable {
 			predicatesList.add(builder.like(
 					builder.lower(root.<String> get("name")),
 					'%' + name.toLowerCase() + '%'));
+		}
+		Integer year = this.example.getYear();
+		if (year != null && year.intValue() != 0) {
+			predicatesList.add(builder.equal(root.get("year"), year));
 		}
 
 		return predicatesList.toArray(new Predicate[predicatesList.size()]);
