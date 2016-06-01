@@ -1,0 +1,220 @@
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for co.simasoft:archival:war:1.0.0-SNAPSHOT
+[WARNING] 'dependencies.dependency.type' for org.primefaces:primefaces:jar must be 'pom' to import the managed dependencies. @ line 102, column 17
+[WARNING] 'dependencies.dependency.scope' for org.primefaces:primefaces:jar must be one of [provided, compile, runtime, test, system] but is 'import'. @ line 106, column 14
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building archival 1.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ archival ---
+[INFO] Deleting d:\dev\njava\simasoft\archival\target
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ archival ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ archival ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 38 source files to d:\dev\njava\simasoft\archival\target\classes
+[INFO] -------------------------------------------------------------
+[WARNING] COMPILATION WARNING : 
+[INFO] -------------------------------------------------------------
+[WARNING] /d:/dev/njava/simasoft/archival/src/main/java/co/simasoft/Beans/FindBean.java: Some input files use unchecked or unsafe operations.
+[WARNING] /d:/dev/njava/simasoft/archival/src/main/java/co/simasoft/Beans/FindBean.java: Recompile with -Xlint:unchecked for details.
+[INFO] 2 warnings 
+[INFO] -------------------------------------------------------------
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /d:/dev/njava/simasoft/archival/src/main/java/co/simasoft/Setup/DevelopmentsGen.java:[259,71] unmappable character for encoding UTF-8
+[ERROR] /d:/dev/njava/simasoft/archival/src/main/java/co/simasoft/Setup/DevelopmentsGen.java:[16,1] package co.simasoft.models.dev.naifg does not exist
+[ERROR] /d:/dev/njava/simasoft/archival/src/main/java/co/simasoft/Setup/DevelopmentsGen.java:[17,1] package co.simasoft.models.dev.naifg.dependencies does not exist
+[ERROR] /d:/dev/njava/simasoft/archival/src/main/java/co/simasoft/Setup/DevelopmentsGen.java:[69,22] cannot find symbol
+  symbol:   class Developments
+  location: class co.simasoft.setup.DevelopmentsGen
+[ERROR] /d:/dev/njava/simasoft/archival/src/main/java/co/simasoft/Setup/DevelopmentsGen.java:[429,12] cannot find symbol
+  symbol:   class AttributesProperties
+  location: class co.simasoft.setup.DevelopmentsGen
+[ERROR] /d:/dev/njava/simasoft/archival/src/main/java/co/simasoft/Setup/DevelopmentsGen.java:[442,21] cannot find symbol
+  symbol:   class Developments
+  location: class co.simasoft.setup.DevelopmentsGen
+[ERROR] /d:/dev/njava/simasoft/archival/src/main/java/co/simasoft/Setup/DevelopmentsGen.java:[478,26] cannot find symbol
+  symbol:   class Developments
+  location: class co.simasoft.setup.DevelopmentsGen
+[ERROR] /d:/dev/njava/simasoft/archival/src/main/java/co/simasoft/Setup/DevelopmentsGen.java:[488,26] cannot find symbol
+  symbol:   class Developments
+  location: class co.simasoft.setup.DevelopmentsGen
+[ERROR] /d:/dev/njava/simasoft/archival/src/main/java/co/simasoft/Setup/DevelopmentsGen.java:[498,27] cannot find symbol
+  symbol:   class Developments
+  location: class co.simasoft.setup.DevelopmentsGen
+[ERROR] /d:/dev/njava/simasoft/archival/src/main/java/co/simasoft/Setup/DevelopmentsGen.java:[510,34] cannot find symbol
+  symbol:   class Developments
+  location: class co.simasoft.setup.DevelopmentsGen
+[ERROR] /d:/dev/njava/simasoft/archival/src/main/java/co/simasoft/Setup/DevelopmentsGen.java:[521,44] cannot find symbol
+  symbol:   class Developments
+  location: class co.simasoft.setup.DevelopmentsGen
+[ERROR] /d:/dev/njava/simasoft/archival/src/main/java/co/simasoft/Setup/DevelopmentsGen.java:[82,14] cannot find symbol
+  symbol:   class Models
+  location: class co.simasoft.setup.DevelopmentsGen
+[ERROR] /d:/dev/njava/simasoft/archival/src/main/java/co/simasoft/Setup/DevelopmentsGen.java:[84,19] cannot find symbol
+  symbol:   class ModelsGroupIds
+  location: class co.simasoft.setup.DevelopmentsGen
+[ERROR] /d:/dev/njava/simasoft/archival/src/main/java/co/simasoft/Setup/DevelopmentsGen.java:[92,14] cannot find symbol
+  symbol:   class Models
+  location: class co.simasoft.setup.DevelopmentsGen
+[ERROR] /d:/dev/njava/simasoft/archival/src/main/java/co/simasoft/Setup/DevelopmentsGen.java:[94,19] cannot find symbol
+  symbol:   class ModelsGroupIds
+  location: class co.simasoft.setup.DevelopmentsGen
+[ERROR] /d:/dev/njava/simasoft/archival/src/main/java/co/simasoft/Setup/DevelopmentsGen.java:[98,23] cannot find symbol
+  symbol:   class GroupIdsEntities
+  location: class co.simasoft.setup.DevelopmentsGen
+[ERROR] /d:/dev/njava/simasoft/archival/src/main/java/co/simasoft/Setup/DevelopmentsGen.java:[102,28] cannot find symbol
+  symbol:   class Attributes
+  location: class co.simasoft.setup.DevelopmentsGen
+[ERROR] /d:/dev/njava/simasoft/archival/src/main/java/co/simasoft/Setup/DevelopmentsGen.java:[127,28] cannot find symbol
+  symbol:   class AttributesProperties
+  location: class co.simasoft.setup.DevelopmentsGen
+[ERROR] /d:/dev/njava/simasoft/archival/src/main/java/co/simasoft/Setup/DevelopmentsGen.java:[127,66] cannot find symbol
+  symbol:   class AttributesProperties
+  location: class co.simasoft.setup.DevelopmentsGen
+[ERROR] /d:/dev/njava/simasoft/archival/src/main/java/co/simasoft/Setup/DevelopmentsGen.java:[145,32] cannot find symbol
+  symbol:   class AttributesProperties
+  location: class co.simasoft.setup.DevelopmentsGen
+[ERROR] /d:/dev/njava/simasoft/archival/src/main/java/co/simasoft/Setup/DevelopmentsGen.java:[151,33] cannot find symbol
+  symbol:   class AttributesProperties
+  location: class co.simasoft.setup.DevelopmentsGen
+[ERROR] /d:/dev/njava/simasoft/archival/src/main/java/co/simasoft/Setup/DevelopmentsGen.java:[156,37] cannot find symbol
+  symbol:   class Imports
+  location: class co.simasoft.setup.DevelopmentsGen
+[ERROR] /d:/dev/njava/simasoft/archival/src/main/java/co/simasoft/Setup/DevelopmentsGen.java:[166,28] cannot find symbol
+  symbol:   class Relationships
+  location: class co.simasoft.setup.DevelopmentsGen
+[ERROR] /d:/dev/njava/simasoft/archival/src/main/java/co/simasoft/Setup/DevelopmentsGen.java:[237,28] cannot find symbol
+  symbol:   class Relationships
+  location: class co.simasoft.setup.DevelopmentsGen
+[ERROR] /d:/dev/njava/simasoft/archival/src/main/java/co/simasoft/Setup/DevelopmentsGen.java:[431,9] cannot find symbol
+  symbol:   class AttributesProperties
+  location: class co.simasoft.setup.DevelopmentsGen
+[ERROR] /d:/dev/njava/simasoft/archival/src/main/java/co/simasoft/Setup/DevelopmentsGen.java:[431,57] cannot find symbol
+  symbol:   class AttributesProperties
+  location: class co.simasoft.setup.DevelopmentsGen
+[ERROR] /d:/dev/njava/simasoft/archival/src/main/java/co/simasoft/Setup/DevelopmentsGen.java:[432,14] cannot find symbol
+  symbol:   class AttributesProperties
+  location: class co.simasoft.setup.DevelopmentsGen
+[ERROR] /d:/dev/njava/simasoft/archival/src/main/java/co/simasoft/Setup/DevelopmentsGen.java:[523,14] cannot find symbol
+  symbol:   class Models
+  location: class co.simasoft.setup.DevelopmentsGen
+[ERROR] /d:/dev/njava/simasoft/archival/src/main/java/co/simasoft/Setup/DevelopmentsGen.java:[524,18] cannot find symbol
+  symbol:   class ModelsGroupIds
+  location: class co.simasoft.setup.DevelopmentsGen
+[ERROR] /d:/dev/njava/simasoft/archival/src/main/java/co/simasoft/Setup/DevelopmentsGen.java:[525,22] cannot find symbol
+  symbol:   class GroupIdsEntities
+  location: class co.simasoft.setup.DevelopmentsGen
+[INFO] 30 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 2.719s
+[INFO] Finished at: Wed Jun 01 16:17:20 COT 2016
+[INFO] Final Memory: 18M/48M
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.1:compile (default-compile) on project archival: Compilation failure: Compilation failure:
+[ERROR] /d:/dev/njava/simasoft/archival/src/main/java/co/simasoft/Setup/DevelopmentsGen.java:[259,71] unmappable character for encoding UTF-8
+[ERROR] /d:/dev/njava/simasoft/archival/src/main/java/co/simasoft/Setup/DevelopmentsGen.java:[16,1] package co.simasoft.models.dev.naifg does not exist
+[ERROR] /d:/dev/njava/simasoft/archival/src/main/java/co/simasoft/Setup/DevelopmentsGen.java:[17,1] package co.simasoft.models.dev.naifg.dependencies does not exist
+[ERROR] /d:/dev/njava/simasoft/archival/src/main/java/co/simasoft/Setup/DevelopmentsGen.java:[69,22] cannot find symbol
+[ERROR] symbol:   class Developments
+[ERROR] location: class co.simasoft.setup.DevelopmentsGen
+[ERROR] /d:/dev/njava/simasoft/archival/src/main/java/co/simasoft/Setup/DevelopmentsGen.java:[429,12] cannot find symbol
+[ERROR] symbol:   class AttributesProperties
+[ERROR] location: class co.simasoft.setup.DevelopmentsGen
+[ERROR] /d:/dev/njava/simasoft/archival/src/main/java/co/simasoft/Setup/DevelopmentsGen.java:[442,21] cannot find symbol
+[ERROR] symbol:   class Developments
+[ERROR] location: class co.simasoft.setup.DevelopmentsGen
+[ERROR] /d:/dev/njava/simasoft/archival/src/main/java/co/simasoft/Setup/DevelopmentsGen.java:[478,26] cannot find symbol
+[ERROR] symbol:   class Developments
+[ERROR] location: class co.simasoft.setup.DevelopmentsGen
+[ERROR] /d:/dev/njava/simasoft/archival/src/main/java/co/simasoft/Setup/DevelopmentsGen.java:[488,26] cannot find symbol
+[ERROR] symbol:   class Developments
+[ERROR] location: class co.simasoft.setup.DevelopmentsGen
+[ERROR] /d:/dev/njava/simasoft/archival/src/main/java/co/simasoft/Setup/DevelopmentsGen.java:[498,27] cannot find symbol
+[ERROR] symbol:   class Developments
+[ERROR] location: class co.simasoft.setup.DevelopmentsGen
+[ERROR] /d:/dev/njava/simasoft/archival/src/main/java/co/simasoft/Setup/DevelopmentsGen.java:[510,34] cannot find symbol
+[ERROR] symbol:   class Developments
+[ERROR] location: class co.simasoft.setup.DevelopmentsGen
+[ERROR] /d:/dev/njava/simasoft/archival/src/main/java/co/simasoft/Setup/DevelopmentsGen.java:[521,44] cannot find symbol
+[ERROR] symbol:   class Developments
+[ERROR] location: class co.simasoft.setup.DevelopmentsGen
+[ERROR] /d:/dev/njava/simasoft/archival/src/main/java/co/simasoft/Setup/DevelopmentsGen.java:[82,14] cannot find symbol
+[ERROR] symbol:   class Models
+[ERROR] location: class co.simasoft.setup.DevelopmentsGen
+[ERROR] /d:/dev/njava/simasoft/archival/src/main/java/co/simasoft/Setup/DevelopmentsGen.java:[84,19] cannot find symbol
+[ERROR] symbol:   class ModelsGroupIds
+[ERROR] location: class co.simasoft.setup.DevelopmentsGen
+[ERROR] /d:/dev/njava/simasoft/archival/src/main/java/co/simasoft/Setup/DevelopmentsGen.java:[92,14] cannot find symbol
+[ERROR] symbol:   class Models
+[ERROR] location: class co.simasoft.setup.DevelopmentsGen
+[ERROR] /d:/dev/njava/simasoft/archival/src/main/java/co/simasoft/Setup/DevelopmentsGen.java:[94,19] cannot find symbol
+[ERROR] symbol:   class ModelsGroupIds
+[ERROR] location: class co.simasoft.setup.DevelopmentsGen
+[ERROR] /d:/dev/njava/simasoft/archival/src/main/java/co/simasoft/Setup/DevelopmentsGen.java:[98,23] cannot find symbol
+[ERROR] symbol:   class GroupIdsEntities
+[ERROR] location: class co.simasoft.setup.DevelopmentsGen
+[ERROR] /d:/dev/njava/simasoft/archival/src/main/java/co/simasoft/Setup/DevelopmentsGen.java:[102,28] cannot find symbol
+[ERROR] symbol:   class Attributes
+[ERROR] location: class co.simasoft.setup.DevelopmentsGen
+[ERROR] /d:/dev/njava/simasoft/archival/src/main/java/co/simasoft/Setup/DevelopmentsGen.java:[127,28] cannot find symbol
+[ERROR] symbol:   class AttributesProperties
+[ERROR] location: class co.simasoft.setup.DevelopmentsGen
+[ERROR] /d:/dev/njava/simasoft/archival/src/main/java/co/simasoft/Setup/DevelopmentsGen.java:[127,66] cannot find symbol
+[ERROR] symbol:   class AttributesProperties
+[ERROR] location: class co.simasoft.setup.DevelopmentsGen
+[ERROR] /d:/dev/njava/simasoft/archival/src/main/java/co/simasoft/Setup/DevelopmentsGen.java:[145,32] cannot find symbol
+[ERROR] symbol:   class AttributesProperties
+[ERROR] location: class co.simasoft.setup.DevelopmentsGen
+[ERROR] /d:/dev/njava/simasoft/archival/src/main/java/co/simasoft/Setup/DevelopmentsGen.java:[151,33] cannot find symbol
+[ERROR] symbol:   class AttributesProperties
+[ERROR] location: class co.simasoft.setup.DevelopmentsGen
+[ERROR] /d:/dev/njava/simasoft/archival/src/main/java/co/simasoft/Setup/DevelopmentsGen.java:[156,37] cannot find symbol
+[ERROR] symbol:   class Imports
+[ERROR] location: class co.simasoft.setup.DevelopmentsGen
+[ERROR] /d:/dev/njava/simasoft/archival/src/main/java/co/simasoft/Setup/DevelopmentsGen.java:[166,28] cannot find symbol
+[ERROR] symbol:   class Relationships
+[ERROR] location: class co.simasoft.setup.DevelopmentsGen
+[ERROR] /d:/dev/njava/simasoft/archival/src/main/java/co/simasoft/Setup/DevelopmentsGen.java:[237,28] cannot find symbol
+[ERROR] symbol:   class Relationships
+[ERROR] location: class co.simasoft.setup.DevelopmentsGen
+[ERROR] /d:/dev/njava/simasoft/archival/src/main/java/co/simasoft/Setup/DevelopmentsGen.java:[431,9] cannot find symbol
+[ERROR] symbol:   class AttributesProperties
+[ERROR] location: class co.simasoft.setup.DevelopmentsGen
+[ERROR] /d:/dev/njava/simasoft/archival/src/main/java/co/simasoft/Setup/DevelopmentsGen.java:[431,57] cannot find symbol
+[ERROR] symbol:   class AttributesProperties
+[ERROR] location: class co.simasoft.setup.DevelopmentsGen
+[ERROR] /d:/dev/njava/simasoft/archival/src/main/java/co/simasoft/Setup/DevelopmentsGen.java:[432,14] cannot find symbol
+[ERROR] symbol:   class AttributesProperties
+[ERROR] location: class co.simasoft.setup.DevelopmentsGen
+[ERROR] /d:/dev/njava/simasoft/archival/src/main/java/co/simasoft/Setup/DevelopmentsGen.java:[523,14] cannot find symbol
+[ERROR] symbol:   class Models
+[ERROR] location: class co.simasoft.setup.DevelopmentsGen
+[ERROR] /d:/dev/njava/simasoft/archival/src/main/java/co/simasoft/Setup/DevelopmentsGen.java:[524,18] cannot find symbol
+[ERROR] symbol:   class ModelsGroupIds
+[ERROR] location: class co.simasoft.setup.DevelopmentsGen
+[ERROR] /d:/dev/njava/simasoft/archival/src/main/java/co/simasoft/Setup/DevelopmentsGen.java:[525,22] cannot find symbol
+[ERROR] symbol:   class GroupIdsEntities
+[ERROR] location: class co.simasoft.setup.DevelopmentsGen
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

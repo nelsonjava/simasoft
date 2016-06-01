@@ -75,6 +75,13 @@
 
                         </h:dataTable>
                         <h:outputText/>
+                        
+			<h:outputLabel for="DevelopmentsGenerate" value="Generate:"/>
+                        <h:form>                                                                  
+                          <h:commandButton value="inventory entry" action="#{DevelopmentsGen.data(developmentsBean.developments)}" />
+                        </h:form>
+			<h:outputText/>
+
 
                 </h:panelGrid>
 
