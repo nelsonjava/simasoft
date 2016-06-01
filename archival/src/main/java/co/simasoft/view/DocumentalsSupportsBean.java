@@ -170,7 +170,7 @@ public class DocumentalsSupportsBean implements Serializable {
 	}
 
 	public int getPageSize() {
-		return 10;
+		return 1000;
 	}
 
 	public DocumentalsSupports getExample() {

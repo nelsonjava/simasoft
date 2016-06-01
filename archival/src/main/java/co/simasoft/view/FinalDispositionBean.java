@@ -170,7 +170,7 @@ public class FinalDispositionBean implements Serializable {
 	}
 
 	public int getPageSize() {
-		return 10;
+		return 1000;
 	}
 
 	public FinalDisposition getExample() {
