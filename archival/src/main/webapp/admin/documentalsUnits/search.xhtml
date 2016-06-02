@@ -52,6 +52,9 @@
                                 </h:panelGroup>
                         </f:validateBean>
 
+			<h:outputLabel for="DevelopmentsGenerate" value="Generate:-3"/>
+                        <h:commandButton value="inventory entry" action="#{Generator.DocumentalsUnits(documentalsUnitsBean.getAll())}" />
+
                         <h:dataTable id="documentalsUnitsBeanPageItems" styleClass="data-table" value="#{documentalsUnitsBean.pageItems}" var="_item">
 
                                 <h:column>
@@ -84,6 +87,27 @@
                                                 <h:outputText id="itemName" value="#{_item.name}"/>
                                         </h:link>
                                 </h:column>
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Gestion"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/series/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemGestion" value="#{_item.series.gestion.name}"/>
+                                        </h:link>
+                                </h:column>
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Central"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/series/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemCentral" value="#{_item.series.central.name}"/>
+                                        </h:link>
+                                </h:column>
+
 
 
                         </h:dataTable>
