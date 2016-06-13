@@ -37,7 +37,8 @@
     <delete dir="naifgg/target" failonerror="no"/>
     <delete dir="naifg/target" failonerror="no"/>
     <delete dir="archival/target" failonerror="no"/>
-    
+    <delete dir="legis/target" failonerror="no"/>
+
     <delete dir="naifgm/target" failonerror="no"/>
     <delete dir="naifg1/target" failonerror="no"/>
     <delete dir="naifg2/target" failonerror="no"/>
