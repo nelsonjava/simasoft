@@ -1,0 +1,53 @@
+[[wildfly-instalacion]]
+////
+a=&#225; e=&#233; i=&#237; o=&#243; u=&#250;
+A=&#193; E=&#201; I=&#205; O=&#211; U=&#218;
+n=&#241; N=&#209;
+////
+== MODELO
+image::images/modelo.jpg[]
+== ENTITY:ScopeCanvas
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|name||String|null|null|false|true|false|true|true|true|true|true
+|===
+*RELATIONS:* 3
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|ScopeCanvas|1..*|ScopeCanvas|true|false|
+|ScopeCanvas|1..*|Postits|true|false|
+|ScopeCanvas|*..1|ScopeCanvas|true|false|
+|===
+== ENTITY:Postits
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|note||String|null|null|true|false|false|true|true|true|true|true
+|isValid||Boolean|null|null|true|false|false|false|true|true|true|true
+|===
+*RELATIONS:* 4
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|Postits|1..*|Postits|true|false|
+|ScopeCanvas|*..1|Postits|true|false|
+|Postits|*..1|Postits|true|false|
+|SectionsScopeCanvas|*..1|Postits|true|false|
+|===
+== ENTITY:SectionsScopeCanvas
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|name||String|null|null|false|true|false|true|true|true|true|true
+|===
+*RELATIONS:* 1
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|SectionsScopeCanvas|1..*|Postits|true|false|
+|===

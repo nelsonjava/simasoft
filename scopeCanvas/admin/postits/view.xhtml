@@ -1,0 +1,108 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:forgeview="http://jboss.org/forge/view"
+        template="/resources/scaffold/pageTemplate.xhtml">
+
+        <f:metadata>
+                <f:viewParam name="id" value='#{postitsBean.id}'/>
+                <f:event type="preRenderView" listener='#{postitsBean.retrieve}'/>
+        </f:metadata>
+
+        <ui:param name="pageTitle" value="View Postits"/>
+
+        <ui:define name="header">
+                Postits
+        </ui:define>
+
+        <ui:define name="subheader">
+                View existing Postits
+        </ui:define>
+
+        <ui:define name="footer"/>
+
+        <ui:define name="main">
+                <h:panelGrid columnClasses="label,component,required" columns="3">
+
+                        <h:outputLabel for="postitsBeanPostitsOrden" value="Orden:"/>
+                        <h:outputText id="postitsBeanPostitsOrden" value="#{postitsBean.postits.orden}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="postitsBeanPostitsNote" value="Note:"/>
+                        <h:outputText id="postitsBeanPostitsNote" value="#{postitsBean.postits.note}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="postitsBeanPostitsIsValid" value="IsValid:"/>
+                        <h:outputText id="postitsBeanPostitsIsValid" value="#{postitsBean.postits.isValid}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="postitsBeanPostitsObservations" value="Observations:"/>
+                        <h:outputText id="postitsBeanPostitsObservations" value="#{postitsBean.postits.observations}" escape="false" />
+                        <h:outputText/>
+
+                        <h:outputLabel for="PostitsBeanPostitsPostits" value="Postits:"/>
+                        <h:dataTable id="postitsBeanPostitspostits" styleClass="data-table" value="#{forgeview:asList(postitsBean.postits.objHijos)}" var="_item">
+
+                                     <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Orden"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/postits/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemOrden" value="#{_item.orden}"/>
+                                        </h:link>
+                                     </h:column>
+
+                                     <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Note"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/postits/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemNote" value="#{_item.note}"/>
+                                        </h:link>
+                                     </h:column>
+
+                                     <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="IsValid"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/postits/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText styleClass="#{_item.isValid ? 'boolean-true' : 'boolean-false'}" value=""/>                                        </h:link>
+                                     </h:column>
+
+                        </h:dataTable>
+                        <h:outputText/>
+
+                        <h:outputLabel for="postitsBeanPostitsScopeCanvas" value="scopeCanvas:"/>
+                        <h:link id="postitsBeanPostitsScopeCanvas" outcome="/admin/scopeCanvas/view" rendered="#{!empty postitsBean.postits.scopeCanvas}" value="#{postitsBean.postits.scopeCanvas.name}">
+                                <f:param name="id" value="#{postitsBean.postits.scopeCanvas.id}"/>
+                        </h:link>
+                        <h:outputText/>
+
+                        <h:outputLabel for="postitsBeanPostitsobjPadre" value="postits:"/>
+                        <h:link id="postitsBeanPostitsobjPadre" outcome="/admin/postits/view" rendered="#{!empty postitsBean.postits.objPadre}" value="#{postitsBean.postits.objPadre}">
+                                <f:param name="id" value="#{postitsBean.postits.objPadre.id}"/>
+                        </h:link>
+                        <h:outputText/>
+
+                        <h:outputLabel for="postitsBeanPostitsSectionsScopeCanvas" value="sectionsScopeCanvas:"/>
+                        <h:link id="postitsBeanPostitsSectionsScopeCanvas" outcome="/admin/sectionsScopeCanvas/view" rendered="#{!empty postitsBean.postits.sectionsScopeCanvas}" value="#{postitsBean.postits.sectionsScopeCanvas.name}">
+                                <f:param name="id" value="#{postitsBean.postits.sectionsScopeCanvas.id}"/>
+                        </h:link>
+                        <h:outputText/>
+
+                </h:panelGrid>
+
+                <div class="buttons">
+                        <h:link value="View All" outcome="search" styleClass="btn btn-primary"/>
+                        <h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
+                        <h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
+                </div>
+        </ui:define>
+</ui:composition>
