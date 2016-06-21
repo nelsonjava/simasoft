@@ -29,7 +29,7 @@ import javax.persistence.ManyToOne;
 // @Indexed
 @Entity
 @XmlRootElement
-public class Postits implements Serializable {
+public class Postits implements Serializable , Comparable<Postits> {
 
 	private static final long serialVersionUID = 1L;
 
@@ -143,6 +143,17 @@ public class Postits implements Serializable {
 	public void setSectionsScopeCanvas(SectionsScopeCanvas sectionsScopeCanvas) {
 		this.sectionsScopeCanvas = sectionsScopeCanvas;
 	}
+
+        @Override
+        public int compareTo(Postits a) {
+           if (orden < a.orden) {
+              return -1;
+           }
+           if (orden > a.orden) {
+              return 1;
+           }
+           return 0;
+        }
 
 	@Override
 	public int hashCode() {

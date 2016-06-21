@@ -11,6 +11,11 @@ import co.simasoft.models.*;
 
 import java.io.*;
 import java.util.*;
+import java.lang.*;
+
+import java.util.HashSet;
+import java.util.Set;
+
 
 import java.util.Calendar;
 import java.util.Random;
@@ -54,15 +59,21 @@ public class Generator extends FileTxt {
     try {
 
         clearFileTxt();
-        
+
         for (SectionsScopeCanvas section : sectionsScopeCanvas){
+
             line(section.getName().toUpperCase());
-            for (Postits postit : section.getPostits()){
+
+            List<Postits> postits = new ArrayList<Postits>(section.getPostits());
+            Collections.sort(postits);
+
+            for (Postits postit : postits){
                 line("* "+postit.getNote()+","+Boolean.toString(postit.getIsValid()));
             }
         } // sectionsScopeCanvas
 
         saveFile("\\docs", "scopeCanvas.csv");
+        saveFile("\\docs", "scopeCanvas.txt");
 
 
     }
