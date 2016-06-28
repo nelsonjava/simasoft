@@ -91,7 +91,7 @@ line("          <h:outputText value=\", #{request.userPrincipal.name}\" rendered
 line("        </h:link>");
 line("        <div class=\"nav-collapse collapse\">");
 line("          <ul class=\"nav\">");
-line("            <li><a href=\"http://forge.jboss.org/docs/important_plugins/ui-scaffolding.html\">How to Customize</a></li>");
+line("            <li><a href=\"http://forge.jboss.org/docs/important_plugins/ui-scaffolding.html\">How to CustomizeEE</a></li>");
 line("          </ul>");
 line("        </div>");
 line("      </div>");

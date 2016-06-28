@@ -1,0 +1,17 @@
+co\simasoft\beans\FindBean.class
+co\simasoft\models\ScopeCanvas.class
+co\simasoft\authentication\Resources.class
+co\simasoft\models\SectionsScopeCanvas.class
+co\simasoft\view\PostitsBean$1.class
+co\simasoft\setup\Generator.class
+co\simasoft\models\Postits.class
+co\simasoft\authentication\PropertyBean.class
+co\simasoft\authentication\SimpleAuthenticator.class
+co\simasoft\view\ScopeCanvasBean.class
+co\simasoft\view\ScopeCanvasBean$1.class
+co\simasoft\beans\SearchBean.class
+co\simasoft\setup\Setup.class
+co\simasoft\view\SectionsScopeCanvasBean$1.class
+co\simasoft\view\SectionsScopeCanvasBean.class
+co\simasoft\view\ViewUtils.class
+co\simasoft\view\PostitsBean.class

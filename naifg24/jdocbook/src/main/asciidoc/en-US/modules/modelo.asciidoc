@@ -1,0 +1,310 @@
+[[wildfly-instalacion]]
+////
+a=&#225; e=&#233; i=&#237; o=&#243; u=&#250;
+A=&#193; E=&#201; I=&#205; O=&#211; U=&#218;
+n=&#241; N=&#209;
+////
+== MODELO
+image::images/modelo.jpg[]
+== ENTITY:Sites
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|abc|null|String|null|null|true|false|false|false|true|true|false|true
+|link|null|String|null|null|false|true|false|false|true|true|true|true
+|title|null|String|null|null|true|false|false|true|true|true|true|true
+|===
+*RELATIONS:* 10
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|Sites|1..*|SitesTypes|true|false|
+|Sites|*..*|AttributesTypes|true|false|
+|Sites|*..*|Imports|true|false|
+|Sites|*..*|Dependencies|true|false|
+|Sites|*..*|AttributesProperties|true|false|
+|Sites|1..*|Models|true|false|
+|Sites|*..*|Developments|true|false|
+|Sites|*..*|Entities|true|false|
+|Sites|*..*|Attributes|true|false|
+|Sites|*..*|Cardinalities|true|false|
+|===
+== ENTITY:SitesTypes
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|name|null|String|null|null|true|false|false|true|true|true|true|true
+|===
+*RELATIONS:* 3
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|SitesTypes|1..*|SitesTypes|true|false|
+|Sites|*..1|SitesTypes|true|false|
+|SitesTypes|*..1|SitesTypes|true|false|
+|===
+== ENTITY:Models
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|artifactId|null|String|null|null|false|true|false|true|true|true|true|true
+|groupId|null|String|null|null|false|true|false|true|true|true|true|true
+|version|null|String|null|null|true|false|false|true|true|true|true|true
+|code|null|String|null|null|true|false|false|true|true|true|true|true
+|date|null|Date|null|null|true|false|false|true|true|true|true|true
+|===
+*RELATIONS:* 3
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|Models|1..*|ModelsGroupIds|true|false|
+|Sites|*..1|Models|true|false|
+|Developments|*..*|Models|true|false|
+|===
+== ENTITY:ModelsGroupIds
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|isSimplified|null|Boolean|null|null|true|false|false|true|true|true|true|true
+|isIsolated|null|Boolean|null|null|true|false|false|true|true|true|true|true
+|===
+*RELATIONS:* 2
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|Models|*..1|ModelsGroupIds|true|false|
+|GroupIds|*..1|ModelsGroupIds|true|false|
+|===
+== ENTITY:GroupIds
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|artifactId|null|String|null|null|false|true|false|true|true|true|true|true
+|groupId|null|String|null|null|false|true|false|true|true|true|true|true
+|version|null|String|null|null|true|false|false|true|true|true|true|true
+|code|null|String|null|null|true|false|false|true|true|true|true|true
+|date|null|Date|null|null|true|false|false|true|true|true|true|true
+|===
+*RELATIONS:* 2
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|GroupIds|1..*|GroupIdsEntities|true|false|
+|GroupIds|1..*|ModelsGroupIds|true|false|
+|===
+== ENTITY:GroupIdsEntities
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|isIsolated|null|Boolean|null|null|true|false|false|true|true|true|true|true
+|isSimplified|null|Boolean|null|null|true|false|false|true|true|true|true|true
+|===
+*RELATIONS:* 2
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|GroupIds|*..1|GroupIdsEntities|true|false|
+|Relationships|*..1|GroupIdsEntities|true|false|
+|===
+== ENTITY:Entities
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|description|null|String|null|null|true|false|false|true|true|true|true|true
+|name|null|String|null|null|false|true|false|true|true|true|true|true
+|groupId|null|String|null|null|false|false|false|true|true|true|true|true
+|serialID|null|String|null|null|true|false|false|true|true|true|true|true
+|table|null|String|null|null|true|false|false|true|true|true|true|true
+|===
+*RELATIONS:* 7
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|Entities|1..*|Relationships|true|false|
+|Entities|*..*|AttributesProperties|true|false|
+|Entities|1..*|Relationships|true|false|
+|Entities|1..*|Attributes|true|false|
+|Entities|1..*|NameQueries|true|false|
+|Entities|*..*|Imports|true|false|
+|Sites|*..*|Entities|true|false|
+|===
+== ENTITY:Attributes
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|name|null|String|null|null|false|false|false|true|true|true|true|true
+|description|null|String|null|null|true|false|false|true|true|true|true|true
+|length|null|Integer|null|null|true|false|false|true|true|true|true|true
+|precision|null|Integer|null|null|true|false|false|true|true|true|true|true
+|isNullable|null|Boolean|null|null|true|false|false|true|true|true|true|true
+|isUnique|null|Boolean|null|null|true|false|false|true|true|true|true|true
+|isSimplified|null|Boolean|null|null|true|false|false|true|true|true|true|true
+|isCreate|null|Boolean|null|null|true|false|false|true|true|true|true|true
+|isSearch|null|Boolean|null|null|true|false|false|true|true|true|true|true
+|isView|null|Boolean|null|null|true|false|false|true|true|true|true|true
+|isViewColumn|null|Boolean|null|null|true|false|false|true|true|true|true|true
+|isViewRelation|null|Boolean|null|null|true|false|false|true|true|true|true|true
+|===
+*RELATIONS:* 4
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|Attributes|*..*|AttributesProperties|true|false|
+|AttributesTypes|*..1|Attributes|true|false|
+|Entities|*..1|Attributes|true|false|
+|Sites|*..*|Attributes|true|false|
+|===
+== ENTITY:Cardinalities
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|cardinality|null|String|null|null|false|false|false|true|true|true|true|true
+|isUnidirectional|null|Boolean|null|null|true|false|false|true|true|true|true|true
+|name|null|String|null|null|false|true|false|true|true|true|true|true
+|===
+*RELATIONS:* 3
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|Cardinalities|*..*|Imports|true|false|
+|Cardinalities|1..*|Relationships|true|false|
+|Sites|*..*|Cardinalities|true|false|
+|===
+== ENTITY:NameQueries
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|name|null|String|null|null|false|true|false|true|true|true|true|true
+|query|null|String|null|null|false|true|false|true|true|true|true|true
+|===
+*RELATIONS:* 1
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|Entities|*..1|NameQueries|true|false|
+|===
+== ENTITY:Relationships
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|isSimplified|null|Boolean|null|null|true|false|false|true|true|true|true|true
+|isCreate|null|Boolean|null|null|true|false|false|true|true|true|true|true
+|isSearch|null|Boolean|null|null|true|false|false|true|true|true|true|true
+|isView|null|Boolean|null|null|true|false|false|true|true|true|true|true
+|name|null|String|null|null|true|false|false|true|true|true|true|true
+|isOptionality|null|Boolean|null|null|true|false|false|true|true|true|true|true
+|isEmbedded|null|Boolean|null|null|true|false|false|true|true|true|true|true
+|===
+*RELATIONS:* 5
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|Relationships|*..*|AttributesProperties|true|false|
+|Relationships|1..*|GroupIdsEntities|true|false|
+|Cardinalities|*..1|Relationships|true|false|
+|Entities|*..1|Relationships|true|false|
+|Entities|*..1|Relationships|true|false|
+|===
+== ENTITY:Developments
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|version|null|String|null|null|true|false|false|true|true|true|true|true
+|code|null|String|null|null|true|false|false|true|true|true|true|true
+|date|null|Date|null|null|true|false|false|true|true|true|true|true
+|artifactId|null|String|null|null|false|true|false|true|true|true|true|true
+|groupId|null|String|null|null|true|false|false|true|true|true|true|true
+|===
+*RELATIONS:* 2
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|Developments|*..*|Models|true|false|
+|Sites|*..*|Developments|true|false|
+|===
+== ENTITY:Dependencies
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|maven|null|String|null|null|false|true|false|true|true|true|true|true
+|groupId|null|String|null|null|false|false|false|true|true|true|true|true
+|artifactId|null|String|null|null|false|false|false|true|true|true|true|true
+|version|null|String|null|null|true|false|false|true|true|true|true|true
+|type|null|String|null|null|true|false|false|true|true|true|true|true
+|scope|null|String|null|null|true|false|false|true|true|true|true|true
+|===
+*RELATIONS:* 2
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|Dependencies|1..*|Imports|true|false|
+|Sites|*..*|Dependencies|true|false|
+|===
+== ENTITY:Imports
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|name|null|String|null|null|false|true|false|true|true|true|true|true
+|===
+*RELATIONS:* 5
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|Cardinalities|*..*|Imports|true|false|
+|Sites|*..*|Imports|true|false|
+|Entities|*..*|Imports|true|false|
+|Dependencies|*..1|Imports|true|false|
+|AttributesProperties|*..*|Imports|true|false|
+|===
+== ENTITY:AttributesProperties
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|value|null|String|null|null|false|true|false|true|true|true|true|true
+|name|null|String|null|null|false|true|false|true|true|true|true|true
+|===
+*RELATIONS:* 6
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|AttributesProperties|*..*|Imports|true|false|
+|Relationships|*..*|AttributesProperties|true|false|
+|Entities|*..*|AttributesProperties|true|false|
+|AttributesTypes|*..*|AttributesProperties|true|false|
+|Sites|*..*|AttributesProperties|true|false|
+|Attributes|*..*|AttributesProperties|true|false|
+|===
+== ENTITY:AttributesTypes
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|name|null|String|null|null|false|true|false|true|true|true|true|true
+|type|null|String|null|null|false|false|false|true|true|true|true|true
+|length|null|Integer|null|null|true|false|false|true|true|true|true|true
+|precision|null|Integer|null|null|true|false|false|true|true|true|true|true
+|annotations|null|String|null|null|true|false|false|true|true|true|true|true
+|===
+*RELATIONS:* 3
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|AttributesTypes|1..*|Attributes|true|false|
+|AttributesTypes|*..*|AttributesProperties|true|false|
+|Sites|*..*|AttributesTypes|true|false|
+|===
