@@ -7,12 +7,13 @@ package by.creepid.jsf.fileupload.bean;
 
 import by.creepid.jsf.fileupload.UploadedFile;
 import javax.faces.bean.ManagedBean;
+import javax.inject.Named;
 
 /**
  *
  * @author rusakovich
  */
-@ManagedBean(name = "demo")
+@Named("demo")
 public class Demo {
 
     private String firstName;
