@@ -74,22 +74,31 @@
 
                                 <h:column>
                                         <f:facet name="header">
-                                                <h:outputText value="IsIsolated"/>
+                                                <h:outputText value="From"/>
                                         </f:facet>
                                         <h:link outcome="/admin/groupIdsEntities/view">
                                                 <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemIsIsolated" value="#{_item.isIsolated}"/>
+                                                <h:outputText id="itemFrom" value="#{_item.relationships.from.name}"/>
                                         </h:link>
                                 </h:column>
 
-
                                 <h:column>
                                         <f:facet name="header">
-                                                <h:outputText value="IsSimplified"/>
+                                                <h:outputText value="Cardinalities"/>
                                         </f:facet>
                                         <h:link outcome="/admin/groupIdsEntities/view">
                                                 <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemIsSimplified" value="#{_item.isSimplified}"/>
+                                                <h:outputText id="itemCardinalities" value="#{_item.relationships.cardinalities.name}"/>
+                                        </h:link>
+                                </h:column>
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="To"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/groupIdsEntities/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemTo" value="#{_item.relationships.to.name}"/>
                                         </h:link>
                                 </h:column>
 

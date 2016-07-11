@@ -78,6 +78,27 @@
                                                 <h:outputText id="itemOrden" value="#{_item.orden}"/>
                                         </h:link>
                                 </h:column>
+                                
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="ArtifactId"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/developments/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemArtifactId" value="#{_item.artifactId}"/>
+                                        </h:link>
+                                </h:column>
+
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="GroupId"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/developments/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemGroupId" value="#{_item.groupId}"/>
+                                        </h:link>
+                                </h:column>
 
                                 <h:column>
                                         <f:facet name="header">
@@ -110,28 +131,6 @@
                                                 <h:outputText id="itemDate" value="#{_item.date}"/>
                                                         <f:convertDateTime type="date"/>
                                                <h:outputText/>
-                                        </h:link>
-                                </h:column>
-
-
-                                <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="ArtifactId"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/developments/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemArtifactId" value="#{_item.artifactId}"/>
-                                        </h:link>
-                                </h:column>
-
-
-                                <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="GroupId"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/developments/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemGroupId" value="#{_item.groupId}"/>
                                         </h:link>
                                 </h:column>
 

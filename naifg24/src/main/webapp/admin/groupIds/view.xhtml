@@ -56,7 +56,7 @@
                         <h:outputText id="groupIdsBeanGroupIdsObservations" value="#{groupIdsBean.groupIds.observations}" escape="false" />
                         <h:outputText/>
 
-                        <h:outputLabel for="GroupIdsBeanGroupIdsGroupIdsEntities" value="GroupIdsEntities:"/>
+                        <h:outputLabel for="GroupIdsBeanGroupIdsGroupIdsEntities" value="groupIdsRelationships:"/>
                         <h:dataTable id="groupIdsBeanGroupIdsgroupIdsEntities" styleClass="data-table" value="#{forgeview:asList(groupIdsBean.groupIds.groupIdsEntities)}" var="_item">
 
                                      <h:column>
@@ -69,23 +69,36 @@
                                         </h:link>
                                      </h:column>
 
-                                     <h:column>
+                                <h:column>
                                         <f:facet name="header">
-                                                <h:outputText value="IsIsolated"/>
+                                                <h:outputText value="From"/>
                                         </f:facet>
                                         <h:link outcome="/admin/groupIdsEntities/view">
                                                 <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText styleClass="#{_item.isIsolated ? 'boolean-true' : 'boolean-false'}" value=""/>                                        </h:link>
-                                     </h:column>
+                                                <h:outputText id="itemFrom" value="#{_item.relationships.from.name}"/>
+                                        </h:link>
+                                </h:column>
 
-                                     <h:column>
+                                <h:column>
                                         <f:facet name="header">
-                                                <h:outputText value="IsSimplified"/>
+                                                <h:outputText value="Cardinalities"/>
                                         </f:facet>
                                         <h:link outcome="/admin/groupIdsEntities/view">
                                                 <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText styleClass="#{_item.isSimplified ? 'boolean-true' : 'boolean-false'}" value=""/>                                        </h:link>
-                                     </h:column>
+                                                <h:outputText id="itemCardinalities" value="#{_item.relationships.cardinalities.name}"/>
+                                        </h:link>
+                                </h:column>
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="To"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/groupIdsEntities/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemTo" value="#{_item.relationships.to.name}"/>
+                                        </h:link>
+                                </h:column>
+
 
                         </h:dataTable>
                         <h:outputText/>
@@ -102,24 +115,27 @@
                                                 <h:outputText id="itemOrden" value="#{_item.orden}"/>
                                         </h:link>
                                      </h:column>
-
-                                     <h:column>
+                                     
+                                <h:column>
                                         <f:facet name="header">
-                                                <h:outputText value="IsSimplified"/>
+                                                <h:outputText value="Models"/>
                                         </f:facet>
                                         <h:link outcome="/admin/modelsGroupIds/view">
                                                 <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText styleClass="#{_item.isSimplified ? 'boolean-true' : 'boolean-false'}" value=""/>                                        </h:link>
-                                     </h:column>
+                                                <h:outputText id="itemModels" value="#{_item.models.artifactId}"/>
+                                        </h:link>
+                                </h:column>
 
-                                     <h:column>
+                                <h:column>
                                         <f:facet name="header">
-                                                <h:outputText value="IsIsolated"/>
+                                                <h:outputText value="groupIds"/>
                                         </f:facet>
                                         <h:link outcome="/admin/modelsGroupIds/view">
                                                 <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText styleClass="#{_item.isIsolated ? 'boolean-true' : 'boolean-false'}" value=""/>                                        </h:link>
-                                     </h:column>
+                                                <h:outputText id="itemGroupIds" value="#{_item.groupIds.artifactId}"/>
+                                        </h:link>
+                                </h:column>
+
 
                         </h:dataTable>
                         <h:outputText/>

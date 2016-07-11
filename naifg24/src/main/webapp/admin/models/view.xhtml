@@ -68,32 +68,29 @@
                                                 <h:outputText id="itemOrden" value="#{_item.orden}"/>
                                         </h:link>
                                      </h:column>
-
-                                     <h:column>
+                                     
+                                <h:column>
                                         <f:facet name="header">
-                                                <h:outputText value="IsSimplified"/>
+                                                <h:outputText value="Models"/>
                                         </f:facet>
                                         <h:link outcome="/admin/modelsGroupIds/view">
                                                 <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText styleClass="#{_item.isSimplified ? 'boolean-true' : 'boolean-false'}" value=""/>                                        </h:link>
-                                     </h:column>
+                                                <h:outputText id="itemModels" value="#{_item.models.artifactId}"/>
+                                        </h:link>
+                                </h:column>
 
-                                     <h:column>
+                                <h:column>
                                         <f:facet name="header">
-                                                <h:outputText value="IsIsolated"/>
+                                                <h:outputText value="groupIds"/>
                                         </f:facet>
                                         <h:link outcome="/admin/modelsGroupIds/view">
                                                 <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText styleClass="#{_item.isIsolated ? 'boolean-true' : 'boolean-false'}" value=""/>                                        </h:link>
-                                     </h:column>
+                                                <h:outputText id="itemGroupIds" value="#{_item.groupIds.artifactId}"/>
+                                        </h:link>
+                                </h:column>
+
 
                         </h:dataTable>
-                        <h:outputText/>
-
-                        <h:outputLabel for="modelsBeanModelsSites" value="sites:"/>
-                        <h:link id="modelsBeanModelsSites" outcome="/admin/sites/view" rendered="#{!empty modelsBean.models.sites}" value="#{modelsBean.models.sites.title}">
-                                <f:param name="id" value="#{modelsBean.models.sites.id}"/>
-                        </h:link>
                         <h:outputText/>
 
                         <h:outputLabel for="modelsBeanModelsDevelopments" value="Developments:"/>
@@ -162,6 +159,12 @@
                                      </h:column>
 
                         </h:dataTable>
+                        <h:outputText/>
+                        
+                        <h:outputLabel for="modelsBeanModelsSites" value="sites:"/>
+                        <h:link id="modelsBeanModelsSites" outcome="/admin/sites/view" rendered="#{!empty modelsBean.models.sites}" value="#{modelsBean.models.sites.title}">
+                                <f:param name="id" value="#{modelsBean.models.sites.id}"/>
+                        </h:link>
                         <h:outputText/>
 
                 </h:panelGrid>
