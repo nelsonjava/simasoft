@@ -167,7 +167,7 @@ public void relations() throws IOException {
         i++;
 
     } // relations()
-    line("  ],");
+    line("  ]");
 
     line("}");
 
