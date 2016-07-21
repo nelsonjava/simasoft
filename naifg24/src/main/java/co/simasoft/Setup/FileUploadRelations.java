@@ -113,7 +113,12 @@ public class FileUploadRelations {
                  cardinality = findBean.nameCardinalities(cardinalities,em);
                  relationships.setCardinalities(cardinality);
 
-                 f.line(relationships.getFrom().getName()+" "+relationships.getCardinalities().getName()+" "+relationships.getTo().getName());
+
+                 f.line(String.valueOf(relationships.getFrom().getId())+":"+
+                        relationships.getFrom().getName()+" "+
+                        relationships.getCardinalities().getName()+" "+
+                        String.valueOf(relationships.getTo().getId())+":"+
+                        relationships.getTo().getName());
                  f.line("");
 
                  em.persist(relationships);

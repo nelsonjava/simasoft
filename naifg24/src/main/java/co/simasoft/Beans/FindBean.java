@@ -418,5 +418,4 @@ public class FindBean {
         return attributesProperties;
     }
 
-
 } // Fin de clase
