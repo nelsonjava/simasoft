@@ -47,6 +47,10 @@ public class GroupIdsEntities implements Serializable {
 	private Integer optlock;
 
 	private double orden;
+	
+	@Column(nullable = true, unique = false)
+	// @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+	private String name;
 
 	@Lob
 	@Column(nullable = true, unique = false)
@@ -92,6 +96,13 @@ public class GroupIdsEntities implements Serializable {
 	}
 	public void setOrden(double orden) {
 		this.orden = orden;
+	}
+	
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public String getObservations() {

@@ -46,6 +46,13 @@
                                 </h:panelGroup>
                                 <h:outputText/>
 
+                                <h:outputLabel for="groupIdsEntitiesBeanGroupIdsEntitiesName" value="Name:"/>
+                                <h:panelGroup>
+                                        <h:inputText id="groupIdsEntitiesBeanGroupIdsEntitiesName" value="#{groupIdsEntitiesBean.groupIdsEntities.name}"/>
+                                        <h:message for="groupIdsEntitiesBeanGroupIdsEntitiesName" styleClass="error"/>
+                                </h:panelGroup>
+                                <h:outputText/>
+
                                 <h:outputLabel for="groupIdsEntitiesBeanGroupIdsEntitiesIsIsolated" value="IsIsolated:"/>
                                 <h:panelGroup>
                                         <h:selectOneMenu id="groupIdsEntitiesBeanGroupIdsEntitiesIsIsolated" value="#{groupIdsEntitiesBean.groupIdsEntities.isIsolated}">
