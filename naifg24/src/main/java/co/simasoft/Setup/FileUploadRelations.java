@@ -113,7 +113,6 @@ public class FileUploadRelations {
                  cardinality = findBean.nameCardinalities(cardinalities,em);
                  relationships.setCardinalities(cardinality);
 
-
                  f.line(String.valueOf(relationships.getFrom().getId())+":"+
                         relationships.getFrom().getName()+" "+
                         relationships.getCardinalities().getName()+" "+
@@ -123,6 +122,39 @@ public class FileUploadRelations {
 
                  em.persist(relationships);
                  em.flush();
+
+                 Relationships relations = new Relationships();
+//                 relations = findBean.relationships(relationships.getFrom().getId(),relationships.getTo().getId(),relationships.getCardinalities().getId(),em);
+
+/*
+                 Long ff = 112L;
+                 Long tt = 117L;
+                 Long cc = 81L;
+*/
+
+                 Long ff = entityFrom.getId();
+                 Long tt = entityTo.getId();
+                 Long cc = cardinality.getId();
+
+
+                 relations = findBean.xrelationships(ff,tt,cc,em);
+
+                 f.line("---");
+                 f.line(String.valueOf(relations.getId()));
+                 f.line(String.valueOf(relations.getFrom().getId()));
+                 f.line(String.valueOf(relations.getTo().getId()));
+                 f.line(String.valueOf(relations.getCardinalities().getId()));
+
+                 GroupIds groupIds = new GroupIds();
+                 groupIds = findBean.artifactIdGroupIds("tem",em);
+
+                 GroupIdsEntities groupIdsEntities = new GroupIdsEntities();
+                 groupIdsEntities.setGroupIds(groupIds);
+                 groupIdsEntities.setRelationships(relations);
+
+                 em.persist(groupIdsEntities);
+                 em.flush();
+
 
            } // while
 

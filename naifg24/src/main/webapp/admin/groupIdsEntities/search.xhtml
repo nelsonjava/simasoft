@@ -74,6 +74,16 @@
 
                                 <h:column>
                                         <f:facet name="header">
+                                                <h:outputText value="groupIds"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/groupIdsEntities/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemgroupIds" value="#{_item.groupIds.artifactId}"/>
+                                        </h:link>
+                                </h:column>
+
+                                <h:column>
+                                        <f:facet name="header">
                                                 <h:outputText value="From"/>
                                         </f:facet>
                                         <h:link outcome="/admin/groupIdsEntities/view">

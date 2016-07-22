@@ -24,7 +24,7 @@ public class FindBean {
 
     @PersistenceContext(unitName = "naifg24PU-JTA")
     private EntityManager em;
-
+    
 //      ---------------------- Developments ------------------------
 
     public Developments artifactIdDevelopments(String search,EntityManager em) {
@@ -330,6 +330,54 @@ public class FindBean {
 
         Relationships relationships = new Relationships();
         List<Relationships> results = em.createQuery("SELECT o FROM Relationships o WHERE o.id LIKE :custId").setParameter("custId", id).getResultList();
+
+        if (!results.isEmpty()) {
+
+           relationships = results.get(0);
+        }
+        return relationships;
+    }
+
+    public Relationships relationships(Long idFrom,Long idTo,Long idCardinalities,EntityManager em) {
+
+        Relationships relationships = new Relationships();
+
+        String query = "SELECT o"+
+                       "FROM Relationships o "+
+                       "WHERE o.from.id          LIKE :idFrom and "+
+                             "o.to.id            LIKE :idTo   and "+
+                             "o.cardinalities.id LIKE :idCardinalities";
+        List<Relationships> results = em.createQuery(query).
+                                         setParameter("idFrom", idFrom).
+                                         setParameter("idTo", idTo).
+                                         setParameter("idCardinalities", idCardinalities).
+                                         getResultList();
+
+        if (!results.isEmpty()) {
+
+           relationships = results.get(0);
+        }
+        return relationships;
+    }
+
+    public Relationships xrelationships(Long idFrom,Long idTo,Long idCardinalities,EntityManager em) {
+
+        Relationships relationships = new Relationships();
+
+/*
+        String query = "SELECT o"+
+                       "FROM Relationships o "+
+                       "WHERE o.from.id          LIKE :idFrom";
+*/
+
+
+        String query = "SELECT o FROM Relationships o WHERE o.from.id LIKE :fromId and o.to.id LIKE :toId and o.cardinalities.id LIKE :cardinalitiesId";
+
+        List<Relationships> results = em.createQuery(query).
+                                         setParameter("fromId", idFrom).
+                                         setParameter("toId", idTo).
+                                         setParameter("cardinalitiesId", idCardinalities).
+                                         getResultList();
 
         if (!results.isEmpty()) {
 

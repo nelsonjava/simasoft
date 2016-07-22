@@ -100,20 +100,21 @@ public class DevelopmentsGen extends FileTxt {
             line(texto);
 
             for (ModelsGroupIds modelsGroupIds : models.getModelsGroupIds()){
-
+              
                 line("");
-                texto = "==== RELACIONES:"+modelsGroupIds.getGroupIds().getArtifactId()+" ====";
+                texto = "==== RELACIONES:"+modelsGroupIds.getGroupIds().getArtifactId()+" ====:"+Integer.toString(modelsGroupIds.getGroupIds().getGroupIdsEntities().size());
                 log.info(texto);
                 line(texto);
 
                 for (GroupIdsEntities groupIdsEntities : modelsGroupIds.getGroupIds().getGroupIdsEntities()){
 
                     Relationships relation = groupIdsEntities.getRelationships();
-                    relation.setName(groupIdsEntities.getName());
+                    relation.setName(groupIdsEntities.getRelationships().getName());
 
-                    texto = relation.getFrom().getName()+" "+
+                    texto = String.valueOf(relation.getId())+":"+
+                            relation.getFrom().getName()+" "+
                             relation.getCardinalities().getCardinality()+" "+
-                            relation.getTo().getName()+" ** "+
+                            relation.getTo().getName()+" *** "+
                             relation.getName();
                     log.info(texto);
                     line(texto);
@@ -199,7 +200,7 @@ public class DevelopmentsGen extends FileTxt {
                relation.setUnidireccional(true);
 
                relations.add(relation);
-               
+
                imports.add("import javax.persistence.OneToMany;");
                imports.add("import javax.persistence.ManyToOne;");
 
