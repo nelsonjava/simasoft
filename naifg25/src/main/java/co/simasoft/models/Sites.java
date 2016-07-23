@@ -66,25 +66,16 @@ public class Sites implements Serializable {
 	private String abc;
 
 	@ManyToOne
-	private Attributes attributes;
-
-	@ManyToOne
 	private Developments developments;
-
-	@ManyToOne
-	private Models models;
-
-	@ManyToOne
-	private Entities entities;
 
 	@ManyToOne
 	private SitesTypes sitesTypes;
 
 	@ManyToOne
-	private AttributesTypes attributesTypes;
+	private Dependencies dependencies;
 
 	@ManyToOne
-	private Dependencies dependencies;
+	private AttributesTypes attributesTypes;
 
 	@ManyToOne
 	private Imports imports;
@@ -93,7 +84,16 @@ public class Sites implements Serializable {
 	private AttributesProperties attributesProperties;
 
 	@ManyToOne
+	private Entities entities;
+
+	@ManyToOne
 	private Cardinalities cardinalities;
+
+	@ManyToOne
+	private Attributes attributes;
+
+	@ManyToOne
+	private Models models;
 
 	public Sites() {
 	}
@@ -152,32 +152,11 @@ public class Sites implements Serializable {
 		this.abc = abc;
 	}
 
-	public Attributes getAttributes() {
-		return attributes;
-	}
-	public void setAttributes(Attributes attributes) {
-		this.attributes = attributes;
-	}
-
 	public Developments getDevelopments() {
 		return developments;
 	}
 	public void setDevelopments(Developments developments) {
 		this.developments = developments;
-	}
-
-	public Models getModels() {
-		return models;
-	}
-	public void setModels(Models models) {
-		this.models = models;
-	}
-
-	public Entities getEntities() {
-		return entities;
-	}
-	public void setEntities(Entities entities) {
-		this.entities = entities;
 	}
 
 	public SitesTypes getSitesTypes() {
@@ -187,18 +166,18 @@ public class Sites implements Serializable {
 		this.sitesTypes = sitesTypes;
 	}
 
-	public AttributesTypes getAttributesTypes() {
-		return attributesTypes;
-	}
-	public void setAttributesTypes(AttributesTypes attributesTypes) {
-		this.attributesTypes = attributesTypes;
-	}
-
 	public Dependencies getDependencies() {
 		return dependencies;
 	}
 	public void setDependencies(Dependencies dependencies) {
 		this.dependencies = dependencies;
+	}
+
+	public AttributesTypes getAttributesTypes() {
+		return attributesTypes;
+	}
+	public void setAttributesTypes(AttributesTypes attributesTypes) {
+		this.attributesTypes = attributesTypes;
 	}
 
 	public Imports getImports() {
@@ -216,11 +195,32 @@ public class Sites implements Serializable {
 		this.attributesProperties = attributesProperties;
 	}
 
+	public Entities getEntities() {
+		return entities;
+	}
+	public void setEntities(Entities entities) {
+		this.entities = entities;
+	}
+
 	public Cardinalities getCardinalities() {
 		return cardinalities;
 	}
 	public void setCardinalities(Cardinalities cardinalities) {
 		this.cardinalities = cardinalities;
+	}
+
+	public Attributes getAttributes() {
+		return attributes;
+	}
+	public void setAttributes(Attributes attributes) {
+		this.attributes = attributes;
+	}
+
+	public Models getModels() {
+		return models;
+	}
+	public void setModels(Models models) {
+		this.models = models;
 	}
 
 	@Override

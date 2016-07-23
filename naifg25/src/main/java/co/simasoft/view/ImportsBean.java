@@ -25,7 +25,7 @@ import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
 import co.simasoft.models.Imports;
-import co.simasoft.models.Cardinalities;
+import co.simasoft.models.AttributesProperties;
 import co.simasoft.models.Dependencies;
 import co.simasoft.models.Entities;
 
@@ -223,19 +223,20 @@ public class ImportsBean implements Serializable {
 					builder.lower(root.<String> get("name")),
 					'%' + name.toLowerCase() + '%'));
 		}
-		Entities entities = this.example.getEntities();
-		if (entities != null) {
-			predicatesList.add(builder.equal(root.get("entities"), entities));
-		}
-		Cardinalities cardinalities = this.example.getCardinalities();
-		if (cardinalities != null) {
-			predicatesList.add(builder.equal(root.get("cardinalities"),
-					cardinalities));
-		}
 		Dependencies dependencies = this.example.getDependencies();
 		if (dependencies != null) {
 			predicatesList.add(builder.equal(root.get("dependencies"),
 					dependencies));
+		}
+		AttributesProperties attributesProperties = this.example
+				.getAttributesProperties();
+		if (attributesProperties != null) {
+			predicatesList.add(builder.equal(root.get("attributesProperties"),
+					attributesProperties));
+		}
+		Entities entities = this.example.getEntities();
+		if (entities != null) {
+			predicatesList.add(builder.equal(root.get("entities"), entities));
 		}
 
 		return predicatesList.toArray(new Predicate[predicatesList.size()]);

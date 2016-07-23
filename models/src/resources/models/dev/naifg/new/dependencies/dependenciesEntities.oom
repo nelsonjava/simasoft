@@ -1410,7 +1410,7 @@ LABL 0 Arial,8,N</a:FontList>
 <o:ClassSymbol Id="o15">
 <a:CreationDate>1469129457</a:CreationDate>
 <a:ModificationDate>1469129678</a:ModificationDate>
-<a:Rect>((-5974,-17623), (3270,-10581))</a:Rect>
+<a:Rect>((-6089,-17623), (3385,-10581))</a:Rect>
 <a:LineColor>16744448</a:LineColor>
 <a:FillColor>16770222</a:FillColor>
 <a:ShadowColor>12632256</a:ShadowColor>
@@ -1451,9 +1451,9 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Code>_name</a:Code>
 <a:CreationDate>1238074499</a:CreationDate>
 <a:Creator>SISTEMAS1</a:Creator>
-<a:ModificationDate>1432598407</a:ModificationDate>
+<a:ModificationDate>1469254054</a:ModificationDate>
 <a:Modifier>admin</a:Modifier>
-<a:DataType>*String</a:DataType>
+<a:DataType>*String*</a:DataType>
 <a:Attribute.Visibility>-</a:Attribute.Visibility>
 </o:Attribute>
 <o:Attribute Id="o18">
@@ -1510,9 +1510,9 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Code>_type</a:Code>
 <a:CreationDate>1430868811</a:CreationDate>
 <a:Creator>admin</a:Creator>
-<a:ModificationDate>1432242760</a:ModificationDate>
+<a:ModificationDate>1469254101</a:ModificationDate>
 <a:Modifier>admin</a:Modifier>
-<a:DataType>String</a:DataType>
+<a:DataType>String*</a:DataType>
 <a:Attribute.Visibility>-</a:Attribute.Visibility>
 </o:Attribute>
 <o:Attribute Id="o22">
@@ -1566,9 +1566,9 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Code>_name</a:Code>
 <a:CreationDate>1431091992</a:CreationDate>
 <a:Creator>admin</a:Creator>
-<a:ModificationDate>1432242645</a:ModificationDate>
+<a:ModificationDate>1469254039</a:ModificationDate>
 <a:Modifier>admin</a:Modifier>
-<a:DataType>*String</a:DataType>
+<a:DataType>*String*</a:DataType>
 <a:Attribute.Visibility>-</a:Attribute.Visibility>
 </o:Attribute>
 </c:Attributes>
@@ -1600,9 +1600,9 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Code>_artifactId</a:Code>
 <a:CreationDate>1431097293</a:CreationDate>
 <a:Creator>admin</a:Creator>
-<a:ModificationDate>1432242707</a:ModificationDate>
+<a:ModificationDate>1469254023</a:ModificationDate>
 <a:Modifier>admin</a:Modifier>
-<a:DataType>String</a:DataType>
+<a:DataType>String*</a:DataType>
 <a:Attribute.Visibility>-</a:Attribute.Visibility>
 </o:Attribute>
 <o:Attribute Id="o28">
@@ -1667,9 +1667,9 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Code>_name</a:Code>
 <a:CreationDate>1469129485</a:CreationDate>
 <a:Creator>admin</a:Creator>
-<a:ModificationDate>1469129485</a:ModificationDate>
+<a:ModificationDate>1469254118</a:ModificationDate>
 <a:Modifier>admin</a:Modifier>
-<a:DataType>*String</a:DataType>
+<a:DataType>*String*</a:DataType>
 <a:Attribute.Visibility>-</a:Attribute.Visibility>
 </o:Attribute>
 <o:Attribute Id="o33">

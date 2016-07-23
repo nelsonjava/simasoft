@@ -75,11 +75,11 @@ public class Relationships implements Serializable {
 	@Column(nullable = true, unique = false)
 	private Boolean isSimplified;
 
-	@ManyToMany
-	private Set<AttributesProperties> attributesProperties = new HashSet<AttributesProperties>();
-
 	@OneToMany(mappedBy = "relationships")
 	private Set<GroupIdsRelationships> groupIdsRelationships = new HashSet<GroupIdsRelationships>();
+
+	@ManyToMany
+	private Set<AttributesProperties> attributesProperties = new HashSet<AttributesProperties>();
 
 	@ManyToOne
 	private Entities from;
@@ -181,20 +181,20 @@ public class Relationships implements Serializable {
 		this.isSimplified = isSimplified;
 	}
 
-	public Set<AttributesProperties> getAttributesProperties() {
-		return attributesProperties;
-	}
-	public void setAttributesProperties(
-			Set<AttributesProperties> attributesProperties) {
-		this.attributesProperties = attributesProperties;
-	}
-
 	public Set<GroupIdsRelationships> getGroupIdsRelationships() {
 		return groupIdsRelationships;
 	}
 	public void setGroupIdsRelationships(
 			Set<GroupIdsRelationships> groupIdsRelationships) {
 		this.groupIdsRelationships = groupIdsRelationships;
+	}
+
+	public Set<AttributesProperties> getAttributesProperties() {
+		return attributesProperties;
+	}
+	public void setAttributesProperties(
+			Set<AttributesProperties> attributesProperties) {
+		this.attributesProperties = attributesProperties;
 	}
 
 	public Entities getFrom() {

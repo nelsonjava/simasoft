@@ -134,19 +134,19 @@ public class ModelsBean implements Serializable{
 
                 try {
                         Models deletableEntity = findById(getId());
-                        Iterator<DevelopmentsModels> iterDevelopmentsModels = deletableEntity.getDevelopmentsModels().iterator();
-                        for (; iterDevelopmentsModels.hasNext();){
-                               DevelopmentsModels nextInDevelopmentsModels = iterDevelopmentsModels.next();
-                                nextInDevelopmentsModels.setModels(null);
-                               iterDevelopmentsModels.remove();
-                               this.entityManager.merge(nextInDevelopmentsModels);
-                        }
                         Iterator<ModelsGroupIds> iterModelsGroupIds = deletableEntity.getModelsGroupIds().iterator();
                         for (; iterModelsGroupIds.hasNext();){
                                ModelsGroupIds nextInModelsGroupIds = iterModelsGroupIds.next();
                                 nextInModelsGroupIds.setModels(null);
                                iterModelsGroupIds.remove();
                                this.entityManager.merge(nextInModelsGroupIds);
+                        }
+                        Iterator<DevelopmentsModels> iterDevelopmentsModels = deletableEntity.getDevelopmentsModels().iterator();
+                        for (; iterDevelopmentsModels.hasNext();){
+                               DevelopmentsModels nextInDevelopmentsModels = iterDevelopmentsModels.next();
+                                nextInDevelopmentsModels.setModels(null);
+                               iterDevelopmentsModels.remove();
+                               this.entityManager.merge(nextInDevelopmentsModels);
                         }
                         this.entityManager.remove(deletableEntity);
                         this.entityManager.flush();

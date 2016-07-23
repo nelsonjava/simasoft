@@ -89,50 +89,6 @@ public class SearchBean {
 
     // QUERIES //
 
-    public List<AttributesProperties> selectAllAttributesProperties(EntityManager em) {
-        prepare(AttributesProperties.class,em);
-
-        Query query = qb.all().createQuery();
-
-        List<AttributesProperties> results = execute(query,
-                                              new Class[]{AttributesProperties.class}, null,
-                                              new SortField("orden", SortField.DOUBLE));
-        return results;
-    }
-
-    public List<ModelsGroupIds> selectAllModelsGroupIds(EntityManager em) {
-        prepare(ModelsGroupIds.class,em);
-
-        Query query = qb.all().createQuery();
-
-        List<ModelsGroupIds> results = execute(query,
-                                              new Class[]{ModelsGroupIds.class}, null,
-                                              new SortField("orden", SortField.DOUBLE));
-        return results;
-    }
-
-    public List<Attributes> selectAllAttributes(EntityManager em) {
-        prepare(Attributes.class,em);
-
-        Query query = qb.all().createQuery();
-
-        List<Attributes> results = execute(query,
-                                              new Class[]{Attributes.class}, null,
-                                              new SortField("orden", SortField.DOUBLE));
-        return results;
-    }
-
-    public List<Imports> selectAllImports(EntityManager em) {
-        prepare(Imports.class,em);
-
-        Query query = qb.all().createQuery();
-
-        List<Imports> results = execute(query,
-                                              new Class[]{Imports.class}, null,
-                                              new SortField("orden", SortField.DOUBLE));
-        return results;
-    }
-
     public List<Sites> selectAllSites(EntityManager em) {
         prepare(Sites.class,em);
 
@@ -140,94 +96,6 @@ public class SearchBean {
 
         List<Sites> results = execute(query,
                                               new Class[]{Sites.class}, null,
-                                              new SortField("orden", SortField.DOUBLE));
-        return results;
-    }
-
-    public List<Entities> selectAllEntities(EntityManager em) {
-        prepare(Entities.class,em);
-
-        Query query = qb.all().createQuery();
-
-        List<Entities> results = execute(query,
-                                              new Class[]{Entities.class}, null,
-                                              new SortField("orden", SortField.DOUBLE));
-        return results;
-    }
-
-    public List<GroupIds> selectAllGroupIds(EntityManager em) {
-        prepare(GroupIds.class,em);
-
-        Query query = qb.all().createQuery();
-
-        List<GroupIds> results = execute(query,
-                                              new Class[]{GroupIds.class}, null,
-                                              new SortField("orden", SortField.DOUBLE));
-        return results;
-    }
-
-    public List<Relationships> selectAllRelationships(EntityManager em) {
-        prepare(Relationships.class,em);
-
-        Query query = qb.all().createQuery();
-
-        List<Relationships> results = execute(query,
-                                              new Class[]{Relationships.class}, null,
-                                              new SortField("orden", SortField.DOUBLE));
-        return results;
-    }
-
-    public List<Fields> selectAllFields(EntityManager em) {
-        prepare(Fields.class,em);
-
-        Query query = qb.all().createQuery();
-
-        List<Fields> results = execute(query,
-                                              new Class[]{Fields.class}, null,
-                                              new SortField("orden", SortField.DOUBLE));
-        return results;
-    }
-
-    public List<DevelopmentsModels> selectAllDevelopmentsModels(EntityManager em) {
-        prepare(DevelopmentsModels.class,em);
-
-        Query query = qb.all().createQuery();
-
-        List<DevelopmentsModels> results = execute(query,
-                                              new Class[]{DevelopmentsModels.class}, null,
-                                              new SortField("orden", SortField.DOUBLE));
-        return results;
-    }
-
-    public List<AttributesTypes> selectAllAttributesTypes(EntityManager em) {
-        prepare(AttributesTypes.class,em);
-
-        Query query = qb.all().createQuery();
-
-        List<AttributesTypes> results = execute(query,
-                                              new Class[]{AttributesTypes.class}, null,
-                                              new SortField("orden", SortField.DOUBLE));
-        return results;
-    }
-
-    public List<Cardinalities> selectAllCardinalities(EntityManager em) {
-        prepare(Cardinalities.class,em);
-
-        Query query = qb.all().createQuery();
-
-        List<Cardinalities> results = execute(query,
-                                              new Class[]{Cardinalities.class}, null,
-                                              new SortField("orden", SortField.DOUBLE));
-        return results;
-    }
-
-    public List<GroupIdsRelationships> selectAllGroupIdsRelationships(EntityManager em) {
-        prepare(GroupIdsRelationships.class,em);
-
-        Query query = qb.all().createQuery();
-
-        List<GroupIdsRelationships> results = execute(query,
-                                              new Class[]{GroupIdsRelationships.class}, null,
                                               new SortField("orden", SortField.DOUBLE));
         return results;
     }
@@ -254,13 +122,68 @@ public class SearchBean {
         return results;
     }
 
-    public List<Dependencies> selectAllDependencies(EntityManager em) {
-        prepare(Dependencies.class,em);
+    public List<ModelsGroupIds> selectAllModelsGroupIds(EntityManager em) {
+        prepare(ModelsGroupIds.class,em);
 
         Query query = qb.all().createQuery();
 
-        List<Dependencies> results = execute(query,
-                                              new Class[]{Dependencies.class}, null,
+        List<ModelsGroupIds> results = execute(query,
+                                              new Class[]{ModelsGroupIds.class}, null,
+                                              new SortField("orden", SortField.DOUBLE));
+        return results;
+    }
+
+    public List<GroupIds> selectAllGroupIds(EntityManager em) {
+        prepare(GroupIds.class,em);
+
+        Query query = qb.all().createQuery();
+
+        List<GroupIds> results = execute(query,
+                                              new Class[]{GroupIds.class}, null,
+                                              new SortField("orden", SortField.DOUBLE));
+        return results;
+    }
+
+    public List<GroupIdsRelationships> selectAllGroupIdsRelationships(EntityManager em) {
+        prepare(GroupIdsRelationships.class,em);
+
+        Query query = qb.all().createQuery();
+
+        List<GroupIdsRelationships> results = execute(query,
+                                              new Class[]{GroupIdsRelationships.class}, null,
+                                              new SortField("orden", SortField.DOUBLE));
+        return results;
+    }
+
+    public List<Entities> selectAllEntities(EntityManager em) {
+        prepare(Entities.class,em);
+
+        Query query = qb.all().createQuery();
+
+        List<Entities> results = execute(query,
+                                              new Class[]{Entities.class}, null,
+                                              new SortField("orden", SortField.DOUBLE));
+        return results;
+    }
+
+    public List<Attributes> selectAllAttributes(EntityManager em) {
+        prepare(Attributes.class,em);
+
+        Query query = qb.all().createQuery();
+
+        List<Attributes> results = execute(query,
+                                              new Class[]{Attributes.class}, null,
+                                              new SortField("orden", SortField.DOUBLE));
+        return results;
+    }
+
+    public List<Cardinalities> selectAllCardinalities(EntityManager em) {
+        prepare(Cardinalities.class,em);
+
+        Query query = qb.all().createQuery();
+
+        List<Cardinalities> results = execute(query,
+                                              new Class[]{Cardinalities.class}, null,
                                               new SortField("orden", SortField.DOUBLE));
         return results;
     }
@@ -276,6 +199,17 @@ public class SearchBean {
         return results;
     }
 
+    public List<Relationships> selectAllRelationships(EntityManager em) {
+        prepare(Relationships.class,em);
+
+        Query query = qb.all().createQuery();
+
+        List<Relationships> results = execute(query,
+                                              new Class[]{Relationships.class}, null,
+                                              new SortField("orden", SortField.DOUBLE));
+        return results;
+    }
+
     public List<Developments> selectAllDevelopments(EntityManager em) {
         prepare(Developments.class,em);
 
@@ -283,6 +217,50 @@ public class SearchBean {
 
         List<Developments> results = execute(query,
                                               new Class[]{Developments.class}, null,
+                                              new SortField("orden", SortField.DOUBLE));
+        return results;
+    }
+
+    public List<Dependencies> selectAllDependencies(EntityManager em) {
+        prepare(Dependencies.class,em);
+
+        Query query = qb.all().createQuery();
+
+        List<Dependencies> results = execute(query,
+                                              new Class[]{Dependencies.class}, null,
+                                              new SortField("orden", SortField.DOUBLE));
+        return results;
+    }
+
+    public List<Imports> selectAllImports(EntityManager em) {
+        prepare(Imports.class,em);
+
+        Query query = qb.all().createQuery();
+
+        List<Imports> results = execute(query,
+                                              new Class[]{Imports.class}, null,
+                                              new SortField("orden", SortField.DOUBLE));
+        return results;
+    }
+
+    public List<AttributesProperties> selectAllAttributesProperties(EntityManager em) {
+        prepare(AttributesProperties.class,em);
+
+        Query query = qb.all().createQuery();
+
+        List<AttributesProperties> results = execute(query,
+                                              new Class[]{AttributesProperties.class}, null,
+                                              new SortField("orden", SortField.DOUBLE));
+        return results;
+    }
+
+    public List<AttributesTypes> selectAllAttributesTypes(EntityManager em) {
+        prepare(AttributesTypes.class,em);
+
+        Query query = qb.all().createQuery();
+
+        List<AttributesTypes> results = execute(query,
+                                              new Class[]{AttributesTypes.class}, null,
                                               new SortField("orden", SortField.DOUBLE));
         return results;
     }

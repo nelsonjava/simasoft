@@ -134,14 +134,14 @@ public class ModelsGroupIdsBean implements Serializable{
 
                 try {
                         ModelsGroupIds deletableEntity = findById(getId());
-                        GroupIds groupIds = deletableEntity.getGroupIds();
-                        groupIds.getModelsGroupIds().remove(deletableEntity);
-                        deletableEntity.setGroupIds(null);
-                        this.entityManager.merge(groupIds);
                         Models models = deletableEntity.getModels();
                         models.getModelsGroupIds().remove(deletableEntity);
                         deletableEntity.setModels(null);
                         this.entityManager.merge(models);
+                        GroupIds groupIds = deletableEntity.getGroupIds();
+                        groupIds.getModelsGroupIds().remove(deletableEntity);
+                        deletableEntity.setGroupIds(null);
+                        this.entityManager.merge(groupIds);
                         this.entityManager.remove(deletableEntity);
                         this.entityManager.flush();
                         return "search?faces-redirect=true";

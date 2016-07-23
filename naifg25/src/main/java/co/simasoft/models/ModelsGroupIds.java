@@ -60,10 +60,10 @@ public class ModelsGroupIds implements Serializable {
 	private Boolean isSimplified;
 
 	@ManyToOne
-	private GroupIds groupIds;
+	private Models models;
 
 	@ManyToOne
-	private Models models;
+	private GroupIds groupIds;
 
 	public ModelsGroupIds() {
 	}
@@ -114,18 +114,18 @@ public class ModelsGroupIds implements Serializable {
 		this.isSimplified = isSimplified;
 	}
 
-	public GroupIds getGroupIds() {
-		return groupIds;
-	}
-	public void setGroupIds(GroupIds groupIds) {
-		this.groupIds = groupIds;
-	}
-
 	public Models getModels() {
 		return models;
 	}
 	public void setModels(Models models) {
 		this.models = models;
+	}
+
+	public GroupIds getGroupIds() {
+		return groupIds;
+	}
+	public void setGroupIds(GroupIds groupIds) {
+		this.groupIds = groupIds;
 	}
 
 	@Override

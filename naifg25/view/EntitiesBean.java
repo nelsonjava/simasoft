@@ -134,13 +134,6 @@ public class EntitiesBean implements Serializable{
 
                 try {
                         Entities deletableEntity = findById(getId());
-                        Iterator<NameQueries> iterNameQueries = deletableEntity.getNameQueries().iterator();
-                        for (; iterNameQueries.hasNext();){
-                               NameQueries nextInNameQueries = iterNameQueries.next();
-                                nextInNameQueries.setEntities(null);
-                               iterNameQueries.remove();
-                               this.entityManager.merge(nextInNameQueries);
-                        }
    5      Iterator<Relationships> iterFrom = deletableEntity.getFrom().iterator();
    5      for (; iterFrom.hasNext();){
    5         Relationships nextInFrom = iterFrom.next();
@@ -161,6 +154,13 @@ public class EntitiesBean implements Serializable{
                                 nextInAttributes.setEntities(null);
                                iterAttributes.remove();
                                this.entityManager.merge(nextInAttributes);
+                        }
+                        Iterator<NameQueries> iterNameQueries = deletableEntity.getNameQueries().iterator();
+                        for (; iterNameQueries.hasNext();){
+                               NameQueries nextInNameQueries = iterNameQueries.next();
+                                nextInNameQueries.setEntities(null);
+                               iterNameQueries.remove();
+                               this.entityManager.merge(nextInNameQueries);
                         }
                         this.entityManager.remove(deletableEntity);
                         this.entityManager.flush();

@@ -76,7 +76,7 @@ public class FileGenJson {
            f.line(Utils.typeField("*String****"));
 */
 
-           f.saveFile("\\docs", "Pruebas.txt");
+//           f.saveFile("\\docs", "Pruebas.txt");
 
         }
 

@@ -25,7 +25,7 @@ import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
 import co.simasoft.models.AttributesProperties;
-import co.simasoft.models.Attributes;
+import co.simasoft.models.AttributesTypes;
 import co.simasoft.models.Relationships;
 
 /**
@@ -230,15 +230,15 @@ public class AttributesPropertiesBean implements Serializable {
 					builder.lower(root.<String> get("value")),
 					'%' + value.toLowerCase() + '%'));
 		}
+		AttributesTypes attributesTypes = this.example.getAttributesTypes();
+		if (attributesTypes != null) {
+			predicatesList.add(builder.equal(root.get("attributesTypes"),
+					attributesTypes));
+		}
 		Relationships relationships = this.example.getRelationships();
 		if (relationships != null) {
 			predicatesList.add(builder.equal(root.get("relationships"),
 					relationships));
-		}
-		Attributes attributes = this.example.getAttributes();
-		if (attributes != null) {
-			predicatesList
-					.add(builder.equal(root.get("attributes"), attributes));
 		}
 
 		return predicatesList.toArray(new Predicate[predicatesList.size()]);

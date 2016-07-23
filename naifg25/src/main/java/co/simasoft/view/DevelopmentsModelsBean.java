@@ -133,14 +133,14 @@ public class DevelopmentsModelsBean implements Serializable {
 
 		try {
 			DevelopmentsModels deletableEntity = findById(getId());
-			Models models = deletableEntity.getModels();
-			models.getDevelopmentsModels().remove(deletableEntity);
-			deletableEntity.setModels(null);
-			this.entityManager.merge(models);
 			Developments developments = deletableEntity.getDevelopments();
 			developments.getDevelopmentsModels().remove(deletableEntity);
 			deletableEntity.setDevelopments(null);
 			this.entityManager.merge(developments);
+			Models models = deletableEntity.getModels();
+			models.getDevelopmentsModels().remove(deletableEntity);
+			deletableEntity.setModels(null);
+			this.entityManager.merge(models);
 			this.entityManager.remove(deletableEntity);
 			this.entityManager.flush();
 			return "search?faces-redirect=true";
@@ -236,14 +236,14 @@ public class DevelopmentsModelsBean implements Serializable {
 					builder.lower(root.<String> get("name")),
 					'%' + name.toLowerCase() + '%'));
 		}
-		Models models = this.example.getModels();
-		if (models != null) {
-			predicatesList.add(builder.equal(root.get("models"), models));
-		}
 		Developments developments = this.example.getDevelopments();
 		if (developments != null) {
 			predicatesList.add(builder.equal(root.get("developments"),
 					developments));
+		}
+		Models models = this.example.getModels();
+		if (models != null) {
+			predicatesList.add(builder.equal(root.get("models"), models));
 		}
 
 		return predicatesList.toArray(new Predicate[predicatesList.size()]);

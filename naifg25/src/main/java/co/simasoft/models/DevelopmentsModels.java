@@ -62,10 +62,10 @@ public class DevelopmentsModels implements Serializable {
 	private String name;
 
 	@ManyToOne
-	private Models models;
+	private Developments developments;
 
 	@ManyToOne
-	private Developments developments;
+	private Models models;
 
 	public DevelopmentsModels() {
 	}
@@ -116,18 +116,18 @@ public class DevelopmentsModels implements Serializable {
 		this.name = name;
 	}
 
-	public Models getModels() {
-		return models;
-	}
-	public void setModels(Models models) {
-		this.models = models;
-	}
-
 	public Developments getDevelopments() {
 		return developments;
 	}
 	public void setDevelopments(Developments developments) {
 		this.developments = developments;
+	}
+
+	public Models getModels() {
+		return models;
+	}
+	public void setModels(Models models) {
+		this.models = models;
 	}
 
 	@Override

@@ -71,17 +71,17 @@ public class AttributesTypes implements Serializable {
 	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
 	private String annotations;
 
-	@OneToMany(mappedBy = "attributesTypes")
-	private Set<Attributes> attributes = new HashSet<Attributes>();
+	@ManyToMany
+	private Set<AttributesProperties> attributesProperties = new HashSet<AttributesProperties>();
 
 	@OneToMany(mappedBy = "attributesTypes")
 	private Set<Fields> fields = new HashSet<Fields>();
 
 	@ManyToMany
-	private Set<AttributesProperties> attributesProperties = new HashSet<AttributesProperties>();
-
-	@ManyToMany
 	private Set<Sites> sites = new HashSet<Sites>();
+
+	@OneToMany(mappedBy = "attributesTypes")
+	private Set<Attributes> attributes = new HashSet<Attributes>();
 
 	public AttributesTypes() {
 	}
@@ -157,11 +157,12 @@ public class AttributesTypes implements Serializable {
 		this.annotations = annotations;
 	}
 
-	public Set<Attributes> getAttributes() {
-		return attributes;
+	public Set<AttributesProperties> getAttributesProperties() {
+		return attributesProperties;
 	}
-	public void setAttributes(Set<Attributes> attributes) {
-		this.attributes = attributes;
+	public void setAttributesProperties(
+			Set<AttributesProperties> attributesProperties) {
+		this.attributesProperties = attributesProperties;
 	}
 
 	public Set<Fields> getFields() {
@@ -171,19 +172,18 @@ public class AttributesTypes implements Serializable {
 		this.fields = fields;
 	}
 
-	public Set<AttributesProperties> getAttributesProperties() {
-		return attributesProperties;
-	}
-	public void setAttributesProperties(
-			Set<AttributesProperties> attributesProperties) {
-		this.attributesProperties = attributesProperties;
-	}
-
 	public Set<Sites> getSites() {
 		return sites;
 	}
 	public void setSites(Set<Sites> sites) {
 		this.sites = sites;
+	}
+
+	public Set<Attributes> getAttributes() {
+		return attributes;
+	}
+	public void setAttributes(Set<Attributes> attributes) {
+		this.attributes = attributes;
 	}
 
 	@Override

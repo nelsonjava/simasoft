@@ -17,15 +17,15 @@
     <class>co.simasoft.models.Entities</class>
     <class>co.simasoft.models.GroupIds</class>
     <class>co.simasoft.models.Relationships</class>
-    <class>co.simasoft.models.Fields</class>
     <class>co.simasoft.models.DevelopmentsModels</class>
-    <class>co.simasoft.models.AttributesTypes</class>
+    <class>co.simasoft.models.Fields</class>
     <class>co.simasoft.models.Cardinalities</class>
     <class>co.simasoft.models.GroupIdsRelationships</class>
+    <class>co.simasoft.models.AttributesTypes</class>
     <class>co.simasoft.models.SitesTypes</class>
     <class>co.simasoft.models.Models</class>
-    <class>co.simasoft.models.Dependencies</class>
     <class>co.simasoft.models.NameQueries</class>
+    <class>co.simasoft.models.Dependencies</class>
     <class>co.simasoft.models.Developments</class>
 
     <exclude-unlisted-classes>true</exclude-unlisted-classes>

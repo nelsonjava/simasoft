@@ -134,14 +134,14 @@ public class DevelopmentsModelsBean implements Serializable{
 
                 try {
                         DevelopmentsModels deletableEntity = findById(getId());
-                        Models models = deletableEntity.getModels();
-                        models.getDevelopmentsModels().remove(deletableEntity);
-                        deletableEntity.setModels(null);
-                        this.entityManager.merge(models);
                         Developments developments = deletableEntity.getDevelopments();
                         developments.getDevelopmentsModels().remove(deletableEntity);
                         deletableEntity.setDevelopments(null);
                         this.entityManager.merge(developments);
+                        Models models = deletableEntity.getModels();
+                        models.getDevelopmentsModels().remove(deletableEntity);
+                        deletableEntity.setModels(null);
+                        this.entityManager.merge(models);
                         this.entityManager.remove(deletableEntity);
                         this.entityManager.flush();
                         return "search?faces-redirect=true";

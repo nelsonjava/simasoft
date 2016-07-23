@@ -68,7 +68,7 @@ public JsonGenPower(String fileOom) throws IOException {
 
 } // Constructor
 
-public void entities() throws IOException {
+public void entities(String fileJson) throws IOException {
     try {
 
     line("{");
@@ -90,7 +90,7 @@ public void entities() throws IOException {
     attributes();
     line("}");
 
-    saveFile("\\docs","entities.json");
+    saveFile("\\docs",fileJson+"entities.json");
 
     } // try
     catch(Exception ioe) {
@@ -116,7 +116,7 @@ public void attributes() throws IOException {
            line("      \"isUnique\": "+attri.getUnique()+",");
            line("      \"AttributesTypes\": \""+attri.getType()+"\",");
            line("      \"isSimplified\": false,");
-           line("      \"isCreate\": false,");
+           line("      \"isCreate\": "+attri.getIsCreate()+",");
            line("      \"isSearch\": true,");
            line("      \"isView\": true,");
            line("      \"isViewRelation\": true,");
@@ -141,7 +141,7 @@ public void attributes() throws IOException {
 
 } // attributes()
 
-public void relations() throws IOException {
+public void relations(String fileJson) throws IOException {
     try {
 
     line("{");
@@ -171,7 +171,7 @@ public void relations() throws IOException {
 
     line("}");
 
-    saveFile("\\docs","relations.json");
+    saveFile("\\docs",fileJson+"relations.json");
 
     } // try
     catch(Exception ioe) {

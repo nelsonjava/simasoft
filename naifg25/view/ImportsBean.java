@@ -134,14 +134,6 @@ public class ImportsBean implements Serializable{
 
                 try {
                         Imports deletableEntity = findById(getId());
-                        Entities entities = deletableEntity.getEntities();
-                        entities.getImports().remove(deletableEntity);
-                        deletableEntity.setEntities(null);
-                        this.entityManager.merge(entities);
-                        Cardinalities cardinalities = deletableEntity.getCardinalities();
-                        cardinalities.getImports().remove(deletableEntity);
-                        deletableEntity.setCardinalities(null);
-                        this.entityManager.merge(cardinalities);
                         Dependencies dependencies = deletableEntity.getDependencies();
                         dependencies.getImports().remove(deletableEntity);
                         deletableEntity.setDependencies(null);
@@ -150,6 +142,14 @@ public class ImportsBean implements Serializable{
                         attributesProperties.getImports().remove(deletableEntity);
                         deletableEntity.setAttributesProperties(null);
                         this.entityManager.merge(attributesProperties);
+                        Entities entities = deletableEntity.getEntities();
+                        entities.getImports().remove(deletableEntity);
+                        deletableEntity.setEntities(null);
+                        this.entityManager.merge(entities);
+                        Cardinalities cardinalities = deletableEntity.getCardinalities();
+                        cardinalities.getImports().remove(deletableEntity);
+                        deletableEntity.setCardinalities(null);
+                        this.entityManager.merge(cardinalities);
                         this.entityManager.remove(deletableEntity);
                         this.entityManager.flush();
                         return "search?faces-redirect=true";

@@ -61,16 +61,16 @@ public class Imports implements Serializable {
 	private Set<Sites> sites = new HashSet<Sites>();
 
 	@ManyToOne
-	private Entities entities;
-
-	@ManyToOne
-	private Cardinalities cardinalities;
-
-	@ManyToOne
 	private Dependencies dependencies;
 
 	@ManyToOne
 	private AttributesProperties attributesProperties;
+
+	@ManyToOne
+	private Entities entities;
+
+	@ManyToOne
+	private Cardinalities cardinalities;
 
 	public Imports() {
 	}
@@ -120,20 +120,6 @@ public class Imports implements Serializable {
 		this.sites = sites;
 	}
 
-	public Entities getEntities() {
-		return entities;
-	}
-	public void setEntities(Entities entities) {
-		this.entities = entities;
-	}
-
-	public Cardinalities getCardinalities() {
-		return cardinalities;
-	}
-	public void setCardinalities(Cardinalities cardinalities) {
-		this.cardinalities = cardinalities;
-	}
-
 	public Dependencies getDependencies() {
 		return dependencies;
 	}
@@ -147,6 +133,20 @@ public class Imports implements Serializable {
 	public void setAttributesProperties(
 			AttributesProperties attributesProperties) {
 		this.attributesProperties = attributesProperties;
+	}
+
+	public Entities getEntities() {
+		return entities;
+	}
+	public void setEntities(Entities entities) {
+		this.entities = entities;
+	}
+
+	public Cardinalities getCardinalities() {
+		return cardinalities;
+	}
+	public void setCardinalities(Cardinalities cardinalities) {
+		this.cardinalities = cardinalities;
 	}
 
 	@Override

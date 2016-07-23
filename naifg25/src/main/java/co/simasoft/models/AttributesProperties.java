@@ -68,16 +68,16 @@ public class AttributesProperties implements Serializable {
 	private Set<Sites> sites = new HashSet<Sites>();
 
 	@ManyToOne
-	private Relationships relationships;
+	private AttributesTypes attributesTypes;
 
 	@ManyToOne
-	private Attributes attributes;
+	private Relationships relationships;
 
 	@ManyToOne
 	private Entities entities;
 
 	@ManyToOne
-	private AttributesTypes attributesTypes;
+	private Attributes attributes;
 
 	public AttributesProperties() {
 	}
@@ -142,18 +142,18 @@ public class AttributesProperties implements Serializable {
 		this.sites = sites;
 	}
 
+	public AttributesTypes getAttributesTypes() {
+		return attributesTypes;
+	}
+	public void setAttributesTypes(AttributesTypes attributesTypes) {
+		this.attributesTypes = attributesTypes;
+	}
+
 	public Relationships getRelationships() {
 		return relationships;
 	}
 	public void setRelationships(Relationships relationships) {
 		this.relationships = relationships;
-	}
-
-	public Attributes getAttributes() {
-		return attributes;
-	}
-	public void setAttributes(Attributes attributes) {
-		this.attributes = attributes;
 	}
 
 	public Entities getEntities() {
@@ -163,11 +163,11 @@ public class AttributesProperties implements Serializable {
 		this.entities = entities;
 	}
 
-	public AttributesTypes getAttributesTypes() {
-		return attributesTypes;
+	public Attributes getAttributes() {
+		return attributes;
 	}
-	public void setAttributesTypes(AttributesTypes attributesTypes) {
-		this.attributesTypes = attributesTypes;
+	public void setAttributes(Attributes attributes) {
+		this.attributes = attributes;
 	}
 
 	@Override

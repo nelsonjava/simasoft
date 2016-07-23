@@ -64,14 +64,14 @@ public class Cardinalities implements Serializable {
 	@Column(nullable = true, unique = false)
 	private Boolean isUnidirectional;
 
-	@ManyToMany
-	private Set<Imports> imports = new HashSet<Imports>();
-
 	@OneToMany(mappedBy = "cardinalities")
 	private Set<Relationships> relationships = new HashSet<Relationships>();
 
 	@ManyToMany
 	private Set<Sites> sites = new HashSet<Sites>();
+
+	@ManyToMany
+	private Set<Imports> imports = new HashSet<Imports>();
 
 	public Cardinalities() {
 	}
@@ -131,13 +131,6 @@ public class Cardinalities implements Serializable {
 		this.isUnidirectional = isUnidirectional;
 	}
 
-	public Set<Imports> getImports() {
-		return imports;
-	}
-	public void setImports(Set<Imports> imports) {
-		this.imports = imports;
-	}
-
 	public Set<Relationships> getRelationships() {
 		return relationships;
 	}
@@ -150,6 +143,13 @@ public class Cardinalities implements Serializable {
 	}
 	public void setSites(Set<Sites> sites) {
 		this.sites = sites;
+	}
+
+	public Set<Imports> getImports() {
+		return imports;
+	}
+	public void setImports(Set<Imports> imports) {
+		this.imports = imports;
 	}
 
 	@Override

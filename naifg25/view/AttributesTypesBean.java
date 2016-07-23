@@ -134,19 +134,19 @@ public class AttributesTypesBean implements Serializable{
 
                 try {
                         AttributesTypes deletableEntity = findById(getId());
-                        Iterator<Attributes> iterAttributes = deletableEntity.getAttributes().iterator();
-                        for (; iterAttributes.hasNext();){
-                               Attributes nextInAttributes = iterAttributes.next();
-                                nextInAttributes.setAttributesTypes(null);
-                               iterAttributes.remove();
-                               this.entityManager.merge(nextInAttributes);
-                        }
                         Iterator<Fields> iterFields = deletableEntity.getFields().iterator();
                         for (; iterFields.hasNext();){
                                Fields nextInFields = iterFields.next();
                                 nextInFields.setAttributesTypes(null);
                                iterFields.remove();
                                this.entityManager.merge(nextInFields);
+                        }
+                        Iterator<Attributes> iterAttributes = deletableEntity.getAttributes().iterator();
+                        for (; iterAttributes.hasNext();){
+                               Attributes nextInAttributes = iterAttributes.next();
+                                nextInAttributes.setAttributesTypes(null);
+                               iterAttributes.remove();
+                               this.entityManager.merge(nextInAttributes);
                         }
                         this.entityManager.remove(deletableEntity);
                         this.entityManager.flush();

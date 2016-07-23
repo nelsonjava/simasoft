@@ -105,6 +105,7 @@ public class PowerDesigner {
                                       type = campo.getTextContent();
                                       if (atri.getField().equals(null)) {}
                                       else {
+                                           atri.setIsCreate(Utils.isCreate(type));
                                            atri.setType(Utils.typeField(type));
 //                                           atri.setLength(Utils.lenField(type));
                                            atri.setUnique(Utils.isFieldNull(type));

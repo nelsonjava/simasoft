@@ -73,18 +73,6 @@ public class Entities implements Serializable {
 	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
 	private String description;
 
-	@ManyToMany
-	private Set<Imports> imports = new HashSet<Imports>();
-
-	@ManyToMany
-	private Set<AttributesProperties> attributesProperties = new HashSet<AttributesProperties>();
-
-	@ManyToMany
-	private Set<Sites> sites = new HashSet<Sites>();
-
-	@OneToMany(mappedBy = "entities")
-	private Set<NameQueries> nameQueries = new HashSet<NameQueries>();
-
 	@OneToMany(mappedBy = "from")
 	private Set<Relationships> from = new HashSet<Relationships>();
 
@@ -93,6 +81,18 @@ public class Entities implements Serializable {
 
 	@OneToMany(mappedBy = "entities")
 	private Set<Attributes> attributes = new HashSet<Attributes>();
+
+	@OneToMany(mappedBy = "entities")
+	private Set<NameQueries> nameQueries = new HashSet<NameQueries>();
+
+	@ManyToMany
+	private Set<Sites> sites = new HashSet<Sites>();
+
+	@ManyToMany
+	private Set<Imports> imports = new HashSet<Imports>();
+
+	@ManyToMany
+	private Set<AttributesProperties> attributesProperties = new HashSet<AttributesProperties>();
 
 	public Entities() {
 	}
@@ -168,35 +168,6 @@ public class Entities implements Serializable {
 		this.description = description;
 	}
 
-	public Set<Imports> getImports() {
-		return imports;
-	}
-	public void setImports(Set<Imports> imports) {
-		this.imports = imports;
-	}
-
-	public Set<AttributesProperties> getAttributesProperties() {
-		return attributesProperties;
-	}
-	public void setAttributesProperties(
-			Set<AttributesProperties> attributesProperties) {
-		this.attributesProperties = attributesProperties;
-	}
-
-	public Set<Sites> getSites() {
-		return sites;
-	}
-	public void setSites(Set<Sites> sites) {
-		this.sites = sites;
-	}
-
-	public Set<NameQueries> getNameQueries() {
-		return nameQueries;
-	}
-	public void setNameQueries(Set<NameQueries> nameQueries) {
-		this.nameQueries = nameQueries;
-	}
-
 	public Set<Relationships> getFrom() {
 		return from;
 	}
@@ -216,6 +187,35 @@ public class Entities implements Serializable {
 	}
 	public void setAttributes(Set<Attributes> attributes) {
 		this.attributes = attributes;
+	}
+
+	public Set<NameQueries> getNameQueries() {
+		return nameQueries;
+	}
+	public void setNameQueries(Set<NameQueries> nameQueries) {
+		this.nameQueries = nameQueries;
+	}
+
+	public Set<Sites> getSites() {
+		return sites;
+	}
+	public void setSites(Set<Sites> sites) {
+		this.sites = sites;
+	}
+
+	public Set<Imports> getImports() {
+		return imports;
+	}
+	public void setImports(Set<Imports> imports) {
+		this.imports = imports;
+	}
+
+	public Set<AttributesProperties> getAttributesProperties() {
+		return attributesProperties;
+	}
+	public void setAttributesProperties(
+			Set<AttributesProperties> attributesProperties) {
+		this.attributesProperties = attributesProperties;
 	}
 
 	@Override

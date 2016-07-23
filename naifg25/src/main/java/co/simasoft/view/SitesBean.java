@@ -25,7 +25,7 @@ import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
 import co.simasoft.models.Sites;
-import co.simasoft.models.Attributes;
+import co.simasoft.models.Developments;
 
 /**
  * Backing bean for Sites entities.
@@ -230,10 +230,10 @@ public class SitesBean implements Serializable {
 					builder.lower(root.<String> get("abc")),
 					'%' + abc.toLowerCase() + '%'));
 		}
-		Attributes attributes = this.example.getAttributes();
-		if (attributes != null) {
-			predicatesList
-					.add(builder.equal(root.get("attributes"), attributes));
+		Developments developments = this.example.getDevelopments();
+		if (developments != null) {
+			predicatesList.add(builder.equal(root.get("developments"),
+					developments));
 		}
 
 		return predicatesList.toArray(new Predicate[predicatesList.size()]);

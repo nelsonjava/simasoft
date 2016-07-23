@@ -74,14 +74,14 @@ public class Models implements Serializable {
 	@DateBridge(resolution = Resolution.YEAR)
 	private Date date;
 
-	@ManyToMany
-	private Set<Sites> sites = new HashSet<Sites>();
+	@OneToMany(mappedBy = "models")
+	private Set<ModelsGroupIds> modelsGroupIds = new HashSet<ModelsGroupIds>();
 
 	@OneToMany(mappedBy = "models")
 	private Set<DevelopmentsModels> developmentsModels = new HashSet<DevelopmentsModels>();
 
-	@OneToMany(mappedBy = "models")
-	private Set<ModelsGroupIds> modelsGroupIds = new HashSet<ModelsGroupIds>();
+	@ManyToMany
+	private Set<Sites> sites = new HashSet<Sites>();
 
 	public Models() {
 	}
@@ -157,11 +157,11 @@ public class Models implements Serializable {
 		this.date = date;
 	}
 
-	public Set<Sites> getSites() {
-		return sites;
+	public Set<ModelsGroupIds> getModelsGroupIds() {
+		return modelsGroupIds;
 	}
-	public void setSites(Set<Sites> sites) {
-		this.sites = sites;
+	public void setModelsGroupIds(Set<ModelsGroupIds> modelsGroupIds) {
+		this.modelsGroupIds = modelsGroupIds;
 	}
 
 	public Set<DevelopmentsModels> getDevelopmentsModels() {
@@ -171,11 +171,11 @@ public class Models implements Serializable {
 		this.developmentsModels = developmentsModels;
 	}
 
-	public Set<ModelsGroupIds> getModelsGroupIds() {
-		return modelsGroupIds;
+	public Set<Sites> getSites() {
+		return sites;
 	}
-	public void setModelsGroupIds(Set<ModelsGroupIds> modelsGroupIds) {
-		this.modelsGroupIds = modelsGroupIds;
+	public void setSites(Set<Sites> sites) {
+		this.sites = sites;
 	}
 
 	@Override

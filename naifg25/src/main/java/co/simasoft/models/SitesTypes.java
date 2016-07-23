@@ -57,11 +57,11 @@ public class SitesTypes implements Serializable {
 	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
 	private String name;
 
-	@OneToMany(mappedBy = "objPadre")
-	private Set<SitesTypes> objHijos = new HashSet<SitesTypes>();
-
 	@ManyToMany
 	private Set<Sites> sites = new HashSet<Sites>();
+
+	@OneToMany(mappedBy = "objPadre")
+	private Set<SitesTypes> objHijos = new HashSet<SitesTypes>();
 
 	@ManyToOne
 	private SitesTypes objPadre;
@@ -107,18 +107,18 @@ public class SitesTypes implements Serializable {
 		this.name = name;
 	}
 
-	public Set<SitesTypes> getObjHijos() {
-		return this.objHijos;
-	}
-	public void setObjHijos(Set<SitesTypes> objHijos) {
-		this.objHijos = objHijos;
-	}
-
 	public Set<Sites> getSites() {
 		return sites;
 	}
 	public void setSites(Set<Sites> sites) {
 		this.sites = sites;
+	}
+
+	public Set<SitesTypes> getObjHijos() {
+		return this.objHijos;
+	}
+	public void setObjHijos(Set<SitesTypes> objHijos) {
+		this.objHijos = objHijos;
 	}
 
 	public SitesTypes getObjPadre() {

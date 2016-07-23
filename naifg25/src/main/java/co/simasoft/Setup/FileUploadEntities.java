@@ -44,7 +44,7 @@ public class FileUploadEntities {
 
     private String filePath = "";
 
-    @PersistenceContext(unitName = "naifg24PU-JTA")
+    @PersistenceContext(unitName = "naifg25PU-JTA")
     private EntityManager em;
 
     FindBean findBean = new FindBean();

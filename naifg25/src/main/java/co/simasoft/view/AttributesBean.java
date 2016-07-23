@@ -133,15 +133,15 @@ public class AttributesBean implements Serializable {
 
 		try {
 			Attributes deletableEntity = findById(getId());
+			Entities entities = deletableEntity.getEntities();
+			entities.getAttributes().remove(deletableEntity);
+			deletableEntity.setEntities(null);
+			this.entityManager.merge(entities);
 			AttributesTypes attributesTypes = deletableEntity
 					.getAttributesTypes();
 			attributesTypes.getAttributes().remove(deletableEntity);
 			deletableEntity.setAttributesTypes(null);
 			this.entityManager.merge(attributesTypes);
-			Entities entities = deletableEntity.getEntities();
-			entities.getAttributes().remove(deletableEntity);
-			deletableEntity.setEntities(null);
-			this.entityManager.merge(entities);
 			this.entityManager.remove(deletableEntity);
 			this.entityManager.flush();
 			return "search?faces-redirect=true";

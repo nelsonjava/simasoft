@@ -134,22 +134,22 @@ public class AttributesPropertiesBean implements Serializable{
 
                 try {
                         AttributesProperties deletableEntity = findById(getId());
-                        Relationships relationships = deletableEntity.getRelationships();
-                        relationships.getAttributesProperties().remove(deletableEntity);
-                        deletableEntity.setRelationships(null);
-                        this.entityManager.merge(relationships);
-                        Attributes attributes = deletableEntity.getAttributes();
-                        attributes.getAttributesProperties().remove(deletableEntity);
-                        deletableEntity.setAttributes(null);
-                        this.entityManager.merge(attributes);
-                        Entities entities = deletableEntity.getEntities();
-                        entities.getAttributesProperties().remove(deletableEntity);
-                        deletableEntity.setEntities(null);
-                        this.entityManager.merge(entities);
                         AttributesTypes attributesTypes = deletableEntity.getAttributesTypes();
                         attributesTypes.getAttributesProperties().remove(deletableEntity);
                         deletableEntity.setAttributesTypes(null);
                         this.entityManager.merge(attributesTypes);
+                        Relationships relationships = deletableEntity.getRelationships();
+                        relationships.getAttributesProperties().remove(deletableEntity);
+                        deletableEntity.setRelationships(null);
+                        this.entityManager.merge(relationships);
+                        Entities entities = deletableEntity.getEntities();
+                        entities.getAttributesProperties().remove(deletableEntity);
+                        deletableEntity.setEntities(null);
+                        this.entityManager.merge(entities);
+                        Attributes attributes = deletableEntity.getAttributes();
+                        attributes.getAttributesProperties().remove(deletableEntity);
+                        deletableEntity.setAttributes(null);
+                        this.entityManager.merge(attributes);
                         this.entityManager.remove(deletableEntity);
                         this.entityManager.flush();
                         return "search?faces-redirect=true";

@@ -16,7 +16,7 @@ public class Atributos implements Comparable<Atributos>{
      private String annotations = "";
 
      private Boolean isSimplified = false;
-     private Boolean isCreate = true;
+     private Boolean isCreate = false;
      private Boolean isSearch = false;
      private Boolean isView = false;
      private Boolean isViewColumn = false;

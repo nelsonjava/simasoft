@@ -16,7 +16,7 @@ import java.io.ObjectStreamClass;
 // Dic 13/2014 Hora:09:45 Sabado
 
 public class Utils {
-  
+
     public static Boolean isEmpty(String text) {
         if (text == null || text.isEmpty()){
            return true;
@@ -280,15 +280,30 @@ System.out.println("dirDest="+dirDest);
         }
     }
 
+    public static boolean isCreate(String type) {
+        if (type.substring(type.length()-1, type.length()).equals("*")) { // último caracter es *
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public static String typeField(String type) {
 
         // In case of type field WITHOUT length
+        String typeField;
         if (!type.contains("(")) {
             if (isFieldNull(type)) {
-                return type.substring( 1 , (type.length()) );
+                typeField = type.substring( 1 , (type.length()) );
             } else {
-                return type;
+                typeField = type;
             }
+
+            if (typeField.substring(typeField.length()-1, typeField.length()).equals("*")) { // último caracter es *
+                typeField = typeField.substring(typeField.length()-typeField.length(), typeField.length()-1); // Elimina el caracter *
+            }
+
+            return typeField;
         }
 
         // For a type field WITH length
@@ -303,6 +318,10 @@ System.out.println("dirDest="+dirDest);
             field = fieldAndLength[0].substring( 1 , (fieldAndLength[0].length()) );
         } else {
             field = fieldAndLength[0];
+        }
+
+        if (field.substring(field.length()-1, field.length()).equals("*")) { // último caracter es *
+            field = field.substring(field.length()-field.length(), field.length()-1); // Elimina el caracter *
         }
 
         return field;

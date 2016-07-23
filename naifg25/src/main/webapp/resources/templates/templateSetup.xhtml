@@ -17,7 +17,7 @@
 			<div class="container">
 				<h:link id="brandLink" outcome="/index.xhtml" styleClass="brand">
 					<h:outputText value="Welcome to " rendered=" #{request.userPrincipal !=null} "/>
-                    Naifg 25
+                    Naifg25
                     <h:outputText value=",  #{request.userPrincipal.name}" rendered="#{request.userPrincipal !=null} "/>
 				</h:link>
 				<div class="nav-collapse collapse">
@@ -42,6 +42,27 @@
                               <h:commandButton value="Click Me to Populate Data Setup Init!" action="#{Setup.data()}" />
                             </h:form>
                           </li>
+                          
+                          <li>
+                            <h:form enctype="multipart/form-data">
+                              <p:growl id="messages" showDetail="true" />
+                              <p:fileUpload value="#{fileGenJson.file}"
+                                            mode="simple"
+                                            skinSimple="true"/>
+                              <p:commandButton value="PowerDesigner" ajax="false" actionListener="#{fileGenJson.upload}" disabled="false" />
+                            </h:form>
+                          </li>
+
+                          <li>
+                            <h:form enctype="multipart/form-data">
+                              <p:growl id="messages" showDetail="true" />
+                              <p:fileUpload value="#{fileUploadEntities.file}"
+                                            mode="simple"
+                                            skinSimple="true"/>
+                              <p:commandButton value="EntitiesJson" ajax="false" actionListener="#{fileUploadEntities.upload}" disabled="false" />
+                            </h:form>
+                          </li>
+                          
 
 			</ul>
 		</div>

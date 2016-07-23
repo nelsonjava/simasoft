@@ -82,7 +82,7 @@
                                         <h:panelGrid columnClasses=",remove-column" columns="2" styleClass="data-table-footer">
                                            <h:selectOneMenu converter="#{importsBean.converter}" id="attributesPropertiesBeanAttributesPropertiesImportsSelect" value="#{requestScope['attributesPropertiesBeanAttributesPropertiesImportsSelect']}">
                                              <f:selectItem/>
-                                             <f:selectItems itemLabel="#{forgeview:display(_item.)}" itemValue="#{_item}" value="#{importsBean.all}" var="_item"/>
+                                             <f:selectItems itemLabel="#{forgeview:display(_item.name)}" itemValue="#{_item}" value="#{importsBean.all}" var="_item"/>
                                            </h:selectOneMenu>
                                            <h:commandLink action="#{_collection.add(requestScope['attributesPropertiesBeanAttributesPropertiesImportsSelect'])}" id="attributesPropertiesBeanAttributesPropertiesImportsAdd" onclick="if (document.getElementById(document.forms[0].id+':attributesPropertiesBeanAttributesPropertiesImportsSelect').selectedIndex &lt; 1) { alert('Must select a Imports'); return false; }" styleClass="add-button"/>
                                         </h:panelGrid>
@@ -131,10 +131,20 @@
                                         <h:panelGrid columnClasses=",remove-column" columns="2" styleClass="data-table-footer">
                                            <h:selectOneMenu converter="#{sitesBean.converter}" id="attributesPropertiesBeanAttributesPropertiesSitesSelect" value="#{requestScope['attributesPropertiesBeanAttributesPropertiesSitesSelect']}">
                                              <f:selectItem/>
-                                             <f:selectItems itemLabel="#{forgeview:display(_item.)}" itemValue="#{_item}" value="#{sitesBean.all}" var="_item"/>
+                                             <f:selectItems itemLabel="#{forgeview:display(_item.link)}" itemValue="#{_item}" value="#{sitesBean.all}" var="_item"/>
                                            </h:selectOneMenu>
                                            <h:commandLink action="#{_collection.add(requestScope['attributesPropertiesBeanAttributesPropertiesSitesSelect'])}" id="attributesPropertiesBeanAttributesPropertiesSitesAdd" onclick="if (document.getElementById(document.forms[0].id+':attributesPropertiesBeanAttributesPropertiesSitesSelect').selectedIndex &lt; 1) { alert('Must select a Sites'); return false; }" styleClass="add-button"/>
                                         </h:panelGrid>
+                                </h:panelGroup>
+                                <h:outputText/>
+
+                                <h:outputLabel for="attributesPropertiesBeanattributesPropertiesAttributesTypes" value="AttributesTypes:"/>
+                                <h:panelGroup>
+                                         <h:selectOneMenu converter="#{attributesTypesBean.converter}" id="attributesPropertiesBeanAttributesPropertiesAttributesTypes" value="#{attributesPropertiesBean.attributesProperties.attributesTypes}">
+                                                <f:selectItem/>
+                                                <f:selectItems itemLabel="#{forgeview:display(_item.type)}" itemValue="#{_item}" value="#{attributesTypesBean.all}" var="_item"/>
+                                        </h:selectOneMenu>
+                                        <h:message for="entitiesBeanEntitiesIsSimplified" styleClass="error"/>
                                 </h:panelGroup>
                                 <h:outputText/>
 
@@ -142,17 +152,7 @@
                                 <h:panelGroup>
                                          <h:selectOneMenu converter="#{relationshipsBean.converter}" id="attributesPropertiesBeanAttributesPropertiesRelationships" value="#{attributesPropertiesBean.attributesProperties.relationships}">
                                                 <f:selectItem/>
-                                                <f:selectItems itemLabel="#{forgeview:display(_item.)}" itemValue="#{_item}" value="#{relationshipsBean.all}" var="_item"/>
-                                        </h:selectOneMenu>
-                                        <h:message for="entitiesBeanEntitiesIsSimplified" styleClass="error"/>
-                                </h:panelGroup>
-                                <h:outputText/>
-
-                                <h:outputLabel for="attributesPropertiesBeanattributesPropertiesAttributes" value="Attributes:"/>
-                                <h:panelGroup>
-                                         <h:selectOneMenu converter="#{attributesBean.converter}" id="attributesPropertiesBeanAttributesPropertiesAttributes" value="#{attributesPropertiesBean.attributesProperties.attributes}">
-                                                <f:selectItem/>
-                                                <f:selectItems itemLabel="#{forgeview:display(_item.)}" itemValue="#{_item}" value="#{attributesBean.all}" var="_item"/>
+                                                <f:selectItems itemLabel="#{forgeview:display(_item.name)}" itemValue="#{_item}" value="#{relationshipsBean.all}" var="_item"/>
                                         </h:selectOneMenu>
                                         <h:message for="entitiesBeanEntitiesIsSimplified" styleClass="error"/>
                                 </h:panelGroup>
@@ -162,17 +162,17 @@
                                 <h:panelGroup>
                                          <h:selectOneMenu converter="#{entitiesBean.converter}" id="attributesPropertiesBeanAttributesPropertiesEntities" value="#{attributesPropertiesBean.attributesProperties.entities}">
                                                 <f:selectItem/>
-                                                <f:selectItems itemLabel="#{forgeview:display(_item.)}" itemValue="#{_item}" value="#{entitiesBean.all}" var="_item"/>
+                                                <f:selectItems itemLabel="#{forgeview:display(_item.name)}" itemValue="#{_item}" value="#{entitiesBean.all}" var="_item"/>
                                         </h:selectOneMenu>
                                         <h:message for="entitiesBeanEntitiesIsSimplified" styleClass="error"/>
                                 </h:panelGroup>
                                 <h:outputText/>
 
-                                <h:outputLabel for="attributesPropertiesBeanattributesPropertiesAttributesTypes" value="AttributesTypes:"/>
+                                <h:outputLabel for="attributesPropertiesBeanattributesPropertiesAttributes" value="Attributes:"/>
                                 <h:panelGroup>
-                                         <h:selectOneMenu converter="#{attributesTypesBean.converter}" id="attributesPropertiesBeanAttributesPropertiesAttributesTypes" value="#{attributesPropertiesBean.attributesProperties.attributesTypes}">
+                                         <h:selectOneMenu converter="#{attributesBean.converter}" id="attributesPropertiesBeanAttributesPropertiesAttributes" value="#{attributesPropertiesBean.attributesProperties.attributes}">
                                                 <f:selectItem/>
-                                                <f:selectItems itemLabel="#{forgeview:display(_item.)}" itemValue="#{_item}" value="#{attributesTypesBean.all}" var="_item"/>
+                                                <f:selectItems itemLabel="#{forgeview:display(_item.name)}" itemValue="#{_item}" value="#{attributesBean.all}" var="_item"/>
                                         </h:selectOneMenu>
                                         <h:message for="entitiesBeanEntitiesIsSimplified" styleClass="error"/>
                                 </h:panelGroup>
