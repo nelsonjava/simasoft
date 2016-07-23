@@ -165,7 +165,7 @@ public class NameQueriesBean implements Serializable {
 	}
 
 	public int getPageSize() {
-		return 10;
+		return 1000;
 	}
 
 	public NameQueries getExample() {

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:p="http://primefaces.org/ui"
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 
 <h:head>
@@ -42,7 +43,7 @@
                               <h:commandButton value="Click Me to Populate Data Setup Init!" action="#{Setup.data()}" />
                             </h:form>
                           </li>
-                          
+
                           <li>
                             <h:form enctype="multipart/form-data">
                               <p:growl id="messages" showDetail="true" />
@@ -62,7 +63,7 @@
                               <p:commandButton value="EntitiesJson" ajax="false" actionListener="#{fileUploadEntities.upload}" disabled="false" />
                             </h:form>
                           </li>
-                          
+
 
 			</ul>
 		</div>
