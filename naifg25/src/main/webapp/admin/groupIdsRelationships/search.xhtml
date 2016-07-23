@@ -1,0 +1,105 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        template="/resources/scaffold/pageTemplate.xhtml">
+
+        <f:metadata>
+                <f:viewParam name="page" value='#{groupIdsRelationshipsBean.page}'/>
+                <f:event type="preRenderView" listener='#{groupIdsRelationshipsBean.paginate}'/>
+        </f:metadata>
+
+        <ui:param name="pageTitle" value="Search GroupIdsRelationships entities"/>
+
+        <ui:define name="header">
+                GroupIdsRelationships
+        </ui:define>
+
+        <ui:define name="subheader">
+                Search GroupIdsRelationships entities
+        </ui:define>
+
+        <ui:define name="footer"/>
+
+        <ui:define name="main">
+                <h:form id="search">
+                        <f:validateBean disabled="true">
+                                <h:panelGroup styleClass="search">
+
+                                        <h:panelGrid columnClasses="label,component,required" columns="3">
+                                                <h:outputLabel for="groupIdsRelationshipsBeanExampleIsIsolated" value="IsIsolated:"/>
+                                                <h:panelGroup>
+                                                        <h:selectOneMenu id="groupIdsRelationshipsBeanExampleIsIsolated" value="#{groupIdsRelationshipsBean.example.isIsolated}">
+                                                                <f:selectItem/>
+                                                                <f:selectItem itemLabel="Yes" itemValue="true"/>
+                                                                <f:selectItem itemLabel="No" itemValue="false"/>
+                                                        </h:selectOneMenu>
+                                                        <h:message for="entitiesBeanExampleIsSimplified" styleClass="error"/>
+                                                </h:panelGroup>
+                                                <h:outputText/>
+
+                                                <h:outputLabel for="groupIdsRelationshipsBeanExampleIsSimplified" value="IsSimplified:"/>
+                                                <h:panelGroup>
+                                                        <h:selectOneMenu id="groupIdsRelationshipsBeanExampleIsSimplified" value="#{groupIdsRelationshipsBean.example.isSimplified}">
+                                                                <f:selectItem/>
+                                                                <f:selectItem itemLabel="Yes" itemValue="true"/>
+                                                                <f:selectItem itemLabel="No" itemValue="false"/>
+                                                        </h:selectOneMenu>
+                                                        <h:message for="entitiesBeanExampleIsSimplified" styleClass="error"/>
+                                                </h:panelGroup>
+                                                <h:outputText/>
+
+                                        </h:panelGrid>
+                                        <h:panelGroup styleClass="buttons">
+                                                <h:commandLink value="Search" action='#{groupIdsRelationshipsBean.search}' styleClass="btn btn-primary"/>
+                                                <h:commandLink value="Create New" action='#{groupIdsRelationshipsBean.create}' styleClass="btn btn-primary"/>
+                                        </h:panelGroup>
+                                </h:panelGroup>
+                        </f:validateBean>
+
+                        <h:dataTable id="groupIdsRelationshipsBeanPageItems" styleClass="data-table" value="#{groupIdsRelationshipsBean.pageItems}" var="_item">
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Orden"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/groupIdsRelationships/view">
+                                                <f:param name="id" value="#{_item.orden}"/>
+                                                <h:outputText id="itemOrden" value="#{_item.orden}"/>
+                                        </h:link>
+                                </h:column>
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="IsIsolated"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/groupIdsRelationships/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemIsIsolated" value="#{_item.isIsolated}"/>
+                                        </h:link>
+                                </h:column>
+
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="IsSimplified"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/groupIdsRelationships/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemIsSimplified" value="#{_item.isSimplified}"/>
+                                        </h:link>
+                                </h:column>
+
+
+                        </h:dataTable>
+                        <ui:include src="/resources/scaffold/paginator.xhtml">
+                                <ui:param name="paginatorBean" value='#{groupIdsRelationshipsBean}'/>
+                        </ui:include>
+                </h:form>
+
+        </ui:define>
+
+</ui:composition>

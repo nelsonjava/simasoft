@@ -100,7 +100,7 @@ public class DevelopmentsGen extends FileTxt {
             line(texto);
 
             for (ModelsGroupIds modelsGroupIds : models.getModelsGroupIds()){
-              
+
                 line("");
                 texto = "==== RELACIONES:"+modelsGroupIds.getGroupIds().getArtifactId()+" ====:"+Integer.toString(modelsGroupIds.getGroupIds().getGroupIdsEntities().size());
                 log.info(texto);
@@ -203,6 +203,7 @@ public class DevelopmentsGen extends FileTxt {
 
                imports.add("import javax.persistence.OneToMany;");
                imports.add("import javax.persistence.ManyToOne;");
+               imports.add("import javax.persistence.ManyToMany;");
 
 
                texto = "      "+
