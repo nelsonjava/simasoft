@@ -31,156 +31,153 @@ import javax.persistence.TemporalType;
 import org.hibernate.search.annotations.DateBridge;
 import org.hibernate.search.annotations.Resolution;
 
+
 // @Indexed
 @Entity
 @XmlRootElement
 public class Imports implements Serializable {
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	@Id
-	@DocumentId
-	@GeneratedValue(strategy = GenerationType.TABLE)
-	private Long id;
+    @Id
+    @DocumentId
+    @GeneratedValue(strategy=GenerationType.TABLE)
+    private Long id;
 
-	@Version
-	private Integer optlock;
+    @Version
+    private Integer optlock;
 
-	private double orden;
+    private double orden;
 
-	@Lob
-	@Column(nullable = true, unique = false)
-	// @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-	private String observations;
+    @Lob
+    @Column(nullable = true, unique = false)
+    // @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+    private String observations;
 
-	@Column(nullable = false, unique = true)
-	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-	private String name;
+    @Column(nullable = false, unique = true)
+    // @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+    private String name;
 
-	@ManyToMany
-	private Set<Sites> sites = new HashSet<Sites>();
+    @ManyToMany
+    private Set<Sites> sites = new HashSet<Sites>();
 
-	@ManyToOne
-	private Dependencies dependencies;
+    @ManyToOne
+    private Dependencies dependencies;
 
-	@ManyToOne
-	private AttributesProperties attributesProperties;
+    @ManyToOne
+    private AttributesProperties attributesProperties;
 
-	@ManyToOne
-	private Entities entities;
+    @ManyToOne
+    private Entities entities;
 
-	@ManyToOne
-	private Cardinalities cardinalities;
+    @ManyToOne
+    private Cardinalities cardinalities;
 
-	public Imports() {
-	}
+    public Imports() {
+    }
 
-	public Imports(String name) {
-		this.name = name;
-	}
+    public Imports(String name) {
+        this.name = name;
+    }
 
-	public Long getId() {
-		return this.id;
-	}
-	public void setId(Long id) {
-		this.id = id;
-	}
+    public Long getId() {
+        return this.id;
+    }
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	public Integer getOptlock() {
-		return this.optlock;
-	}
-	public void setOptlock(Integer optlock) {
-		this.optlock = optlock;
-	}
+    public Integer getOptlock() {
+        return this.optlock;
+    }
+    public void setOptlock(Integer optlock) {
+        this.optlock = optlock;
+    }
 
-	public double getOrden() {
-		return this.orden;
-	}
-	public void setOrden(double orden) {
-		this.orden = orden;
-	}
+    public double getOrden() {
+        return this.orden;
+    }
+    public void setOrden(double orden) {
+        this.orden = orden;
+    }
 
-	public String getObservations() {
-		return observations;
-	}
-	public void setObservations(String observations) {
-		this.observations = observations;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
+    public String getObservations() {
+        return observations;
+    }
+    public void setObservations(String observations) {
+        this.observations = observations;
+    }
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public Set<Sites> getSites() {
-		return sites;
-	}
-	public void setSites(Set<Sites> sites) {
-		this.sites = sites;
-	}
+    public Set<Sites> getSites() {
+        return sites;
+    }
+    public void setSites(Set<Sites> sites) {
+        this.sites = sites;
+    }
 
-	public Dependencies getDependencies() {
-		return dependencies;
-	}
-	public void setDependencies(Dependencies dependencies) {
-		this.dependencies = dependencies;
-	}
+    public Dependencies getDependencies() {
+        return dependencies;
+    }
+    public void setDependencies(Dependencies dependencies) {
+        this.dependencies = dependencies;
+    }
 
-	public AttributesProperties getAttributesProperties() {
-		return attributesProperties;
-	}
-	public void setAttributesProperties(
-			AttributesProperties attributesProperties) {
-		this.attributesProperties = attributesProperties;
-	}
+    public AttributesProperties getAttributesProperties() {
+        return attributesProperties;
+    }
+    public void setAttributesProperties(AttributesProperties attributesProperties) {
+        this.attributesProperties = attributesProperties;
+    }
 
-	public Entities getEntities() {
-		return entities;
-	}
-	public void setEntities(Entities entities) {
-		this.entities = entities;
-	}
+    public Entities getEntities() {
+        return entities;
+    }
+    public void setEntities(Entities entities) {
+        this.entities = entities;
+    }
 
-	public Cardinalities getCardinalities() {
-		return cardinalities;
-	}
-	public void setCardinalities(Cardinalities cardinalities) {
-		this.cardinalities = cardinalities;
-	}
+    public Cardinalities getCardinalities() {
+        return cardinalities;
+    }
+    public void setCardinalities(Cardinalities cardinalities) {
+        this.cardinalities = cardinalities;
+    }
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
+   @Override
+   public int hashCode() {
+      final int prime  = 31;
+            int result =  1;
 
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
+      result = prime * result + ((id == null) ? 0 : id.hashCode());
 
-		return result;
-	}
+      return result;
+   }
 
-	@Override
-	public boolean equals(Object ojt) {
-		if (this == ojt)
-			return true;
-		if (ojt == null)
-			return false;
-		if (getClass() != ojt.getClass())
-			return false;
+   @Override
+   public boolean equals(Object ojt) {
+      if (      this == ojt           ) return true;
+      if (       ojt == null          ) return false;
+      if (getClass() != ojt.getClass()) return false;
 
-		Imports other = (Imports) ojt;
-		if (id == null) {
-			if (other.id != null) {
-				return false;
-			}
-		} else {
-			if (!id.equals(other.id)) {
-				return false;
-			}
-		}
+      Imports other = (Imports) ojt;
+      if (id == null) {
+         if (other.id != null) {
+            return false;
+         }
+      } else {
+         if (!id.equals(other.id)) {
+            return false;
+         }
+      }
 
-		return true;
-	}
+      return true;
+   }
 
 } // entity
 

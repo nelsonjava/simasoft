@@ -88,6 +88,7 @@ public class FileUploadEntities {
 
                  Entities entity = new Entities();
                  entity.setName(entityName);
+                 entity.setGroupId("co.simasoft.models");
 
                  f.line("name:"+entity.getName());
 
@@ -95,6 +96,7 @@ public class FileUploadEntities {
                  em.flush();
 
            } // while
+
 
            f.line("");
 
@@ -147,6 +149,7 @@ public class FileUploadEntities {
                  em.flush();
 
            } // while
+
 
            f.saveFile("\\docs", "Entities.txt");
 

@@ -63,7 +63,16 @@
                               <p:commandButton value="EntitiesJson" ajax="false" actionListener="#{fileUploadEntities.upload}" disabled="false" />
                             </h:form>
                           </li>
-
+                          
+                          <li>
+                            <h:form enctype="multipart/form-data">
+                              <p:growl id="messages" showDetail="true" />
+                              <p:fileUpload value="#{fileUploadRelations.file}"
+                                            mode="simple"
+                                            skinSimple="true"/>
+                              <p:commandButton value="RelationsJson" ajax="false" actionListener="#{fileUploadRelations.upload}" disabled="false" />
+                            </h:form>
+                          </li>
 
 			</ul>
 		</div>

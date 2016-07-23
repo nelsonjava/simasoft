@@ -31,175 +31,172 @@ import javax.persistence.TemporalType;
 import org.hibernate.search.annotations.DateBridge;
 import org.hibernate.search.annotations.Resolution;
 
+
 // @Indexed
 @Entity
 @XmlRootElement
 public class Developments implements Serializable {
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	@Id
-	@DocumentId
-	@GeneratedValue(strategy = GenerationType.TABLE)
-	private Long id;
+    @Id
+    @DocumentId
+    @GeneratedValue(strategy=GenerationType.TABLE)
+    private Long id;
 
-	@Version
-	private Integer optlock;
+    @Version
+    private Integer optlock;
 
-	private double orden;
+    private double orden;
 
-	@Lob
-	@Column(nullable = true, unique = false)
-	// @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-	private String observations;
+    @Lob
+    @Column(nullable = true, unique = false)
+    // @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+    private String observations;
 
-	@Column(nullable = true, unique = false)
-	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-	private String code;
+    @Column(nullable = true, unique = false)
+    // @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+    private String code;
 
-	@Column(nullable = true, unique = false)
-	@Temporal(TemporalType.DATE)
-	@DateBridge(resolution = Resolution.YEAR)
-	private Date date;
+    @Column(nullable = true, unique = false)
+    @Temporal(TemporalType.DATE)
+    @DateBridge(resolution = Resolution.YEAR)
+    private Date date;
 
-	@Column(nullable = false, unique = true)
-	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-	private String artifactId;
+    @Column(nullable = false, unique = true)
+    // @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+    private String artifactId;
 
-	@Column(nullable = true, unique = false)
-	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-	private String groupId;
+    @Column(nullable = true, unique = false)
+    // @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+    private String groupId;
 
-	@Column(nullable = true, unique = false)
-	@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-	private String version;
+    @Column(nullable = true, unique = false)
+    // @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+    private String version;
 
-	@ManyToMany
-	private Set<Sites> sites = new HashSet<Sites>();
+    @ManyToMany
+    private Set<Sites> sites = new HashSet<Sites>();
 
-	@OneToMany(mappedBy = "developments")
-	private Set<DevelopmentsModels> developmentsModels = new HashSet<DevelopmentsModels>();
+    @OneToMany(mappedBy = "developments")
+    private Set<DevelopmentsModels> developmentsModels = new HashSet<DevelopmentsModels>();
 
-	public Developments() {
-	}
+    public Developments() {
+    }
 
-	public Developments(String code, Date date, String artifactId,
-			String groupId, String version) {
-		this.code = code;
-		this.date = date;
-		this.artifactId = artifactId;
-		this.groupId = groupId;
-		this.version = version;
-	}
+    public Developments(String code,Date date,String artifactId,String groupId,String version) {
+        this.code = code;
+        this.date = date;
+        this.artifactId = artifactId;
+        this.groupId = groupId;
+        this.version = version;
+    }
 
-	public Long getId() {
-		return this.id;
-	}
-	public void setId(Long id) {
-		this.id = id;
-	}
+    public Long getId() {
+        return this.id;
+    }
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	public Integer getOptlock() {
-		return this.optlock;
-	}
-	public void setOptlock(Integer optlock) {
-		this.optlock = optlock;
-	}
+    public Integer getOptlock() {
+        return this.optlock;
+    }
+    public void setOptlock(Integer optlock) {
+        this.optlock = optlock;
+    }
 
-	public double getOrden() {
-		return this.orden;
-	}
-	public void setOrden(double orden) {
-		this.orden = orden;
-	}
+    public double getOrden() {
+        return this.orden;
+    }
+    public void setOrden(double orden) {
+        this.orden = orden;
+    }
 
-	public String getObservations() {
-		return observations;
-	}
-	public void setObservations(String observations) {
-		this.observations = observations;
-	}
-	public String getCode() {
-		return code;
-	}
-	public void setCode(String code) {
-		this.code = code;
-	}
+    public String getObservations() {
+        return observations;
+    }
+    public void setObservations(String observations) {
+        this.observations = observations;
+    }
+    public String getCode() {
+        return code;
+    }
+    public void setCode(String code) {
+        this.code = code;
+    }
 
-	public Date getDate() {
-		return date;
-	}
-	public void setDate(Date date) {
-		this.date = date;
-	}
+    public Date getDate() {
+        return date;
+    }
+    public void setDate(Date date) {
+        this.date = date;
+    }
 
-	public String getArtifactId() {
-		return artifactId;
-	}
-	public void setArtifactId(String artifactId) {
-		this.artifactId = artifactId;
-	}
+    public String getArtifactId() {
+        return artifactId;
+    }
+    public void setArtifactId(String artifactId) {
+        this.artifactId = artifactId;
+    }
 
-	public String getGroupId() {
-		return groupId;
-	}
-	public void setGroupId(String groupId) {
-		this.groupId = groupId;
-	}
+    public String getGroupId() {
+        return groupId;
+    }
+    public void setGroupId(String groupId) {
+        this.groupId = groupId;
+    }
 
-	public String getVersion() {
-		return version;
-	}
-	public void setVersion(String version) {
-		this.version = version;
-	}
+    public String getVersion() {
+        return version;
+    }
+    public void setVersion(String version) {
+        this.version = version;
+    }
 
-	public Set<Sites> getSites() {
-		return sites;
-	}
-	public void setSites(Set<Sites> sites) {
-		this.sites = sites;
-	}
+    public Set<Sites> getSites() {
+        return sites;
+    }
+    public void setSites(Set<Sites> sites) {
+        this.sites = sites;
+    }
 
-	public Set<DevelopmentsModels> getDevelopmentsModels() {
-		return developmentsModels;
-	}
-	public void setDevelopmentsModels(Set<DevelopmentsModels> developmentsModels) {
-		this.developmentsModels = developmentsModels;
-	}
+    public Set<DevelopmentsModels> getDevelopmentsModels() {
+        return developmentsModels;
+    }
+    public void setDevelopmentsModels(Set<DevelopmentsModels> developmentsModels) {
+        this.developmentsModels = developmentsModels;
+    }
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
+   @Override
+   public int hashCode() {
+      final int prime  = 31;
+            int result =  1;
 
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
+      result = prime * result + ((id == null) ? 0 : id.hashCode());
 
-		return result;
-	}
+      return result;
+   }
 
-	@Override
-	public boolean equals(Object ojt) {
-		if (this == ojt)
-			return true;
-		if (ojt == null)
-			return false;
-		if (getClass() != ojt.getClass())
-			return false;
+   @Override
+   public boolean equals(Object ojt) {
+      if (      this == ojt           ) return true;
+      if (       ojt == null          ) return false;
+      if (getClass() != ojt.getClass()) return false;
 
-		Developments other = (Developments) ojt;
-		if (id == null) {
-			if (other.id != null) {
-				return false;
-			}
-		} else {
-			if (!id.equals(other.id)) {
-				return false;
-			}
-		}
+      Developments other = (Developments) ojt;
+      if (id == null) {
+         if (other.id != null) {
+            return false;
+         }
+      } else {
+         if (!id.equals(other.id)) {
+            return false;
+         }
+      }
 
-		return true;
-	}
+      return true;
+   }
 
 } // entity
 

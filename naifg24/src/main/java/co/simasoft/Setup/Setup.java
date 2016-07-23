@@ -396,7 +396,7 @@ public class Setup {
 
         AttributesProperties attributesProperties40 = new AttributesProperties();
         attributesProperties40.setName("@Field1");
-        attributesProperties40.setValue("@Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)");
+        attributesProperties40.setValue("// @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)");
         Set<Imports> attributesPropertiesImports40 = new HashSet<Imports>();
 //      ...................... import org.hibernate.search.annotations.Analyze; ........................
         Imports attributePropertyImports21 = findBean.nameImports("import org.hibernate.search.annotations.Analyze;",em);
@@ -422,7 +422,7 @@ public class Setup {
 
         AttributesProperties attributesProperties41 = new AttributesProperties();
         attributesProperties41.setName("@Field2");
-        attributesProperties41.setValue("@Field(index = Index.YES, analyze = Analyze.YES, store = Store.YES)");
+        attributesProperties41.setValue("// @Field(index = Index.YES, analyze = Analyze.YES, store = Store.YES)");
         Set<Imports> attributesPropertiesImports41 = new HashSet<Imports>();
 //      ...................... import org.hibernate.search.annotations.Field; ........................
         Imports attributePropertyImports27 = findBean.nameImports("import org.hibernate.search.annotations.Field;",em);
