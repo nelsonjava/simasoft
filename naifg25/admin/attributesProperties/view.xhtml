@@ -44,10 +44,31 @@
                         <h:outputText id="attributesPropertiesBeanAttributesPropertiesObservations" value="#{attributesPropertiesBean.attributesProperties.observations}" escape="false" />
                         <h:outputText/>
 
+                        <h:outputLabel for="attributesPropertiesBeanAttributesPropertiesImports" value="Imports:"/>
+                        <h:dataTable id="attributesPropertiesBeanAttributesPropertiesimports" styleClass="data-table" value="#{forgeview:asList(attributesPropertiesBean.attributesProperties.imports)}" var="_item">
 
+                                     <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Orden"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/imports/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemOrden" value="#{_item.orden}"/>
+                                        </h:link>
+                                     </h:column>
 
+                                     <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Name"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/imports/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemName" value="#{_item.name}"/>
+                                        </h:link>
+                                     </h:column>
 
-
+                        </h:dataTable>
+                        <h:outputText/>
 
 
                 </h:panelGrid>

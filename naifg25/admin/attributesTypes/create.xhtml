@@ -113,59 +113,9 @@
                                         <h:panelGrid columnClasses=",remove-column" columns="2" styleClass="data-table-footer">
                                            <h:selectOneMenu converter="#{attributesPropertiesBean.converter}" id="attributesTypesBeanAttributesTypesAttributesPropertiesSelect" value="#{requestScope['attributesTypesBeanAttributesTypesAttributesPropertiesSelect']}">
                                              <f:selectItem/>
-                                             <f:selectItems itemLabel="#{forgeview:display(_item.name)}" itemValue="#{_item}" value="#{attributesPropertiesBean.all}" var="_item"/>
+                                             <f:selectItems itemLabel="#{forgeview:display(_item.)}" itemValue="#{_item}" value="#{attributesPropertiesBean.all}" var="_item"/>
                                            </h:selectOneMenu>
                                            <h:commandLink action="#{_collection.add(requestScope['attributesTypesBeanAttributesTypesAttributesPropertiesSelect'])}" id="attributesTypesBeanAttributesTypesAttributesPropertiesAdd" onclick="if (document.getElementById(document.forms[0].id+':attributesTypesBeanAttributesTypesAttributesPropertiesSelect').selectedIndex &lt; 1) { alert('Must select a AttributesProperties'); return false; }" styleClass="add-button"/>
-                                        </h:panelGrid>
-                                </h:panelGroup>
-                                <h:outputText/>
-
-
-                                <h:outputLabel for="attributesTypesBeanattributesTypesSites" value="Sites:"/>
-                                <h:panelGroup>
-                                        <ui:param name="_collection" value="#{attributesTypesBean.attributesTypes.sites}"/>
-                                        <h:dataTable id="attributesTypesBeanAttributesTypesSites" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
-                                     <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="Title"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/sites/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemTitle" value="#{_item.title}"/>
-                                        </h:link>
-                                     </h:column>
-
-                                     <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="Link"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/sites/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemLink" value="#{_item.link}"/>
-                                        </h:link>
-                                     </h:column>
-
-                                     <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="Abc"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/sites/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemAbc" value="#{_item.abc}"/>
-                                        </h:link>
-                                     </h:column>
-
-                                     <h:column footerClass="remove-column" headerClass="remove-column">
-                                        <h:commandLink action="#{_collection.remove(_item)}" styleClass="remove-button"/>
-                                     </h:column>
-                                        </h:dataTable>
-
-                                        <h:panelGrid columnClasses=",remove-column" columns="2" styleClass="data-table-footer">
-                                           <h:selectOneMenu converter="#{sitesBean.converter}" id="attributesTypesBeanAttributesTypesSitesSelect" value="#{requestScope['attributesTypesBeanAttributesTypesSitesSelect']}">
-                                             <f:selectItem/>
-                                             <f:selectItems itemLabel="#{forgeview:display(_item.link)}" itemValue="#{_item}" value="#{sitesBean.all}" var="_item"/>
-                                           </h:selectOneMenu>
-                                           <h:commandLink action="#{_collection.add(requestScope['attributesTypesBeanAttributesTypesSitesSelect'])}" id="attributesTypesBeanAttributesTypesSitesAdd" onclick="if (document.getElementById(document.forms[0].id+':attributesTypesBeanAttributesTypesSitesSelect').selectedIndex &lt; 1) { alert('Must select a Sites'); return false; }" styleClass="add-button"/>
                                         </h:panelGrid>
                                 </h:panelGroup>
                                 <h:outputText/>

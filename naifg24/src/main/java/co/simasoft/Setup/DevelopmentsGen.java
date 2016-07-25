@@ -196,6 +196,7 @@ public class DevelopmentsGen extends FileTxt {
                relation.setFrom(relationship.getFrom().getName());
                relation.setTo(relationship.getTo().getName());
                relation.setCardinality(relationship.getCardinalities().getCardinality());
+               relation.setNameCardinality(relationship.getCardinalities().getName());
                relation.setName(relationship.getName());
                relation.setUnidireccional(true);
 

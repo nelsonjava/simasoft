@@ -162,109 +162,11 @@
                                 </h:panelGroup>
                                 <h:outputText/>
 
-                                <h:outputLabel for="attributesBeanattributesSites" value="Sites:"/>
-                                <h:panelGroup>
-                                        <ui:param name="_collection" value="#{attributesBean.attributes.sites}"/>
-                                        <h:dataTable id="attributesBeanAttributesSites" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
-                                     <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="Title"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/sites/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemTitle" value="#{_item.title}"/>
-                                        </h:link>
-                                     </h:column>
-
-                                     <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="Link"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/sites/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemLink" value="#{_item.link}"/>
-                                        </h:link>
-                                     </h:column>
-
-                                     <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="Abc"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/sites/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemAbc" value="#{_item.abc}"/>
-                                        </h:link>
-                                     </h:column>
-
-                                     <h:column footerClass="remove-column" headerClass="remove-column">
-                                        <h:commandLink action="#{_collection.remove(_item)}" styleClass="remove-button"/>
-                                     </h:column>
-                                        </h:dataTable>
-
-                                        <h:panelGrid columnClasses=",remove-column" columns="2" styleClass="data-table-footer">
-                                           <h:selectOneMenu converter="#{sitesBean.converter}" id="attributesBeanAttributesSitesSelect" value="#{requestScope['attributesBeanAttributesSitesSelect']}">
-                                             <f:selectItem/>
-                                             <f:selectItems itemLabel="#{forgeview:display(_item.link)}" itemValue="#{_item}" value="#{sitesBean.all}" var="_item"/>
-                                           </h:selectOneMenu>
-                                           <h:commandLink action="#{_collection.add(requestScope['attributesBeanAttributesSitesSelect'])}" id="attributesBeanAttributesSitesAdd" onclick="if (document.getElementById(document.forms[0].id+':attributesBeanAttributesSitesSelect').selectedIndex &lt; 1) { alert('Must select a Sites'); return false; }" styleClass="add-button"/>
-                                        </h:panelGrid>
-                                </h:panelGroup>
-                                <h:outputText/>
-
-                                <h:outputLabel for="attributesBeanattributesAttributesProperties" value="AttributesProperties:"/>
-                                <h:panelGroup>
-                                        <ui:param name="_collection" value="#{attributesBean.attributes.attributesProperties}"/>
-                                        <h:dataTable id="attributesBeanAttributesAttributesProperties" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
-                                     <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="Name"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/attributesProperties/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemName" value="#{_item.name}"/>
-                                        </h:link>
-                                     </h:column>
-
-                                     <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="Value"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/attributesProperties/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemValue" value="#{_item.value}"/>
-                                        </h:link>
-                                     </h:column>
-
-                                     <h:column footerClass="remove-column" headerClass="remove-column">
-                                        <h:commandLink action="#{_collection.remove(_item)}" styleClass="remove-button"/>
-                                     </h:column>
-                                        </h:dataTable>
-
-                                        <h:panelGrid columnClasses=",remove-column" columns="2" styleClass="data-table-footer">
-                                           <h:selectOneMenu converter="#{attributesPropertiesBean.converter}" id="attributesBeanAttributesAttributesPropertiesSelect" value="#{requestScope['attributesBeanAttributesAttributesPropertiesSelect']}">
-                                             <f:selectItem/>
-                                             <f:selectItems itemLabel="#{forgeview:display(_item.name)}" itemValue="#{_item}" value="#{attributesPropertiesBean.all}" var="_item"/>
-                                           </h:selectOneMenu>
-                                           <h:commandLink action="#{_collection.add(requestScope['attributesBeanAttributesAttributesPropertiesSelect'])}" id="attributesBeanAttributesAttributesPropertiesAdd" onclick="if (document.getElementById(document.forms[0].id+':attributesBeanAttributesAttributesPropertiesSelect').selectedIndex &lt; 1) { alert('Must select a AttributesProperties'); return false; }" styleClass="add-button"/>
-                                        </h:panelGrid>
-                                </h:panelGroup>
-                                <h:outputText/>
-
                                 <h:outputLabel for="attributesBeanattributesEntities" value="Entities:"/>
                                 <h:panelGroup>
                                          <h:selectOneMenu converter="#{entitiesBean.converter}" id="attributesBeanAttributesEntities" value="#{attributesBean.attributes.entities}">
                                                 <f:selectItem/>
-                                                <f:selectItems itemLabel="#{forgeview:display(_item.name)}" itemValue="#{_item}" value="#{entitiesBean.all}" var="_item"/>
-                                        </h:selectOneMenu>
-                                        <h:message for="entitiesBeanEntitiesIsSimplified" styleClass="error"/>
-                                </h:panelGroup>
-                                <h:outputText/>
-
-                                <h:outputLabel for="attributesBeanattributesAttributesTypes" value="AttributesTypes:"/>
-                                <h:panelGroup>
-                                         <h:selectOneMenu converter="#{attributesTypesBean.converter}" id="attributesBeanAttributesAttributesTypes" value="#{attributesBean.attributes.attributesTypes}">
-                                                <f:selectItem/>
-                                                <f:selectItems itemLabel="#{forgeview:display(_item.type)}" itemValue="#{_item}" value="#{attributesTypesBean.all}" var="_item"/>
+                                                <f:selectItems itemLabel="#{forgeview:display(_item.)}" itemValue="#{_item}" value="#{entitiesBean.all}" var="_item"/>
                                         </h:selectOneMenu>
                                         <h:message for="entitiesBeanEntitiesIsSimplified" styleClass="error"/>
                                 </h:panelGroup>

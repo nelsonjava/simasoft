@@ -53,52 +53,13 @@
                                 </h:panelGroup>
                                 <h:outputText value="*"/>
 
-                                <h:outputLabel for="importsBeanimportsSites" value="Sites:"/>
+                                <h:outputLabel for="importsBeanimportsAttributesProperties" value="AttributesProperties:"/>
                                 <h:panelGroup>
-                                        <ui:param name="_collection" value="#{importsBean.imports.sites}"/>
-                                        <h:dataTable id="importsBeanImportsSites" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
-                                     <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="Title"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/sites/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemTitle" value="#{_item.title}"/>
-                                        </h:link>
-                                     </h:column>
-
-                                     <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="Link"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/sites/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemLink" value="#{_item.link}"/>
-                                        </h:link>
-                                     </h:column>
-
-                                     <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="Abc"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/sites/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemAbc" value="#{_item.abc}"/>
-                                        </h:link>
-                                     </h:column>
-
-                                     <h:column footerClass="remove-column" headerClass="remove-column">
-                                        <h:commandLink action="#{_collection.remove(_item)}" styleClass="remove-button"/>
-                                     </h:column>
-                                        </h:dataTable>
-
-                                        <h:panelGrid columnClasses=",remove-column" columns="2" styleClass="data-table-footer">
-                                           <h:selectOneMenu converter="#{sitesBean.converter}" id="importsBeanImportsSitesSelect" value="#{requestScope['importsBeanImportsSitesSelect']}">
-                                             <f:selectItem/>
-                                             <f:selectItems itemLabel="#{forgeview:display(_item.link)}" itemValue="#{_item}" value="#{sitesBean.all}" var="_item"/>
-                                           </h:selectOneMenu>
-                                           <h:commandLink action="#{_collection.add(requestScope['importsBeanImportsSitesSelect'])}" id="importsBeanImportsSitesAdd" onclick="if (document.getElementById(document.forms[0].id+':importsBeanImportsSitesSelect').selectedIndex &lt; 1) { alert('Must select a Sites'); return false; }" styleClass="add-button"/>
-                                        </h:panelGrid>
+                                         <h:selectOneMenu converter="#{attributesPropertiesBean.converter}" id="importsBeanImportsAttributesProperties" value="#{importsBean.imports.attributesProperties}">
+                                                <f:selectItem/>
+                                                <f:selectItems itemLabel="#{forgeview:display(_item.)}" itemValue="#{_item}" value="#{attributesPropertiesBean.all}" var="_item"/>
+                                        </h:selectOneMenu>
+                                        <h:message for="entitiesBeanEntitiesIsSimplified" styleClass="error"/>
                                 </h:panelGroup>
                                 <h:outputText/>
 
@@ -106,37 +67,7 @@
                                 <h:panelGroup>
                                          <h:selectOneMenu converter="#{dependenciesBean.converter}" id="importsBeanImportsDependencies" value="#{importsBean.imports.dependencies}">
                                                 <f:selectItem/>
-                                                <f:selectItems itemLabel="#{forgeview:display(_item.artifactId)}" itemValue="#{_item}" value="#{dependenciesBean.all}" var="_item"/>
-                                        </h:selectOneMenu>
-                                        <h:message for="entitiesBeanEntitiesIsSimplified" styleClass="error"/>
-                                </h:panelGroup>
-                                <h:outputText/>
-
-                                <h:outputLabel for="importsBeanimportsAttributesProperties" value="AttributesProperties:"/>
-                                <h:panelGroup>
-                                         <h:selectOneMenu converter="#{attributesPropertiesBean.converter}" id="importsBeanImportsAttributesProperties" value="#{importsBean.imports.attributesProperties}">
-                                                <f:selectItem/>
-                                                <f:selectItems itemLabel="#{forgeview:display(_item.name)}" itemValue="#{_item}" value="#{attributesPropertiesBean.all}" var="_item"/>
-                                        </h:selectOneMenu>
-                                        <h:message for="entitiesBeanEntitiesIsSimplified" styleClass="error"/>
-                                </h:panelGroup>
-                                <h:outputText/>
-
-                                <h:outputLabel for="importsBeanimportsEntities" value="Entities:"/>
-                                <h:panelGroup>
-                                         <h:selectOneMenu converter="#{entitiesBean.converter}" id="importsBeanImportsEntities" value="#{importsBean.imports.entities}">
-                                                <f:selectItem/>
-                                                <f:selectItems itemLabel="#{forgeview:display(_item.name)}" itemValue="#{_item}" value="#{entitiesBean.all}" var="_item"/>
-                                        </h:selectOneMenu>
-                                        <h:message for="entitiesBeanEntitiesIsSimplified" styleClass="error"/>
-                                </h:panelGroup>
-                                <h:outputText/>
-
-                                <h:outputLabel for="importsBeanimportsCardinalities" value="Cardinalities:"/>
-                                <h:panelGroup>
-                                         <h:selectOneMenu converter="#{cardinalitiesBean.converter}" id="importsBeanImportsCardinalities" value="#{importsBean.imports.cardinalities}">
-                                                <f:selectItem/>
-                                                <f:selectItems itemLabel="#{forgeview:display(_item.name)}" itemValue="#{_item}" value="#{cardinalitiesBean.all}" var="_item"/>
+                                                <f:selectItems itemLabel="#{forgeview:display(_item.)}" itemValue="#{_item}" value="#{dependenciesBean.all}" var="_item"/>
                                         </h:selectOneMenu>
                                         <h:message for="entitiesBeanEntitiesIsSimplified" styleClass="error"/>
                                 </h:panelGroup>

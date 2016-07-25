@@ -56,7 +56,41 @@
                         <h:outputText id="developmentsBeanDevelopmentsObservations" value="#{developmentsBean.developments.observations}" escape="false" />
                         <h:outputText/>
 
+                        <h:outputLabel for="DevelopmentsBeanDevelopmentsDevelopmentsModels" value="DevelopmentsModels:"/>
+                        <h:dataTable id="developmentsBeanDevelopmentsdevelopmentsModels" styleClass="data-table" value="#{forgeview:asList(developmentsBean.developments.developmentsModels)}" var="_item">
 
+                                     <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Orden"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/developmentsModels/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemOrden" value="#{_item.orden}"/>
+                                        </h:link>
+                                     </h:column>
+
+                                     <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Code"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/developmentsModels/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemCode" value="#{_item.code}"/>
+                                        </h:link>
+                                     </h:column>
+
+                                     <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Name"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/developmentsModels/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemName" value="#{_item.name}"/>
+                                        </h:link>
+                                     </h:column>
+
+                        </h:dataTable>
+                        <h:outputText/>
 
                 </h:panelGrid>
 

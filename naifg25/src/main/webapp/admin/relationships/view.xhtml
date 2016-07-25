@@ -64,7 +64,39 @@
                         <h:outputText id="relationshipsBeanRelationshipsObservations" value="#{relationshipsBean.relationships.observations}" escape="false" />
                         <h:outputText/>
 
+                        <h:outputLabel for="RelationshipsBeanRelationshipsGroupIdsRelationships" value="GroupIdsRelationships:"/>
+                        <h:dataTable id="relationshipsBeanRelationshipsgroupIdsRelationships" styleClass="data-table" value="#{forgeview:asList(relationshipsBean.relationships.groupIdsRelationships)}" var="_item">
 
+                                     <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Orden"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/groupIdsRelationships/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemOrden" value="#{_item.orden}"/>
+                                        </h:link>
+                                     </h:column>
+
+                                     <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="IsIsolated"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/groupIdsRelationships/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText styleClass="#{_item.isIsolated ? 'boolean-true' : 'boolean-false'}" value=""/>                                        </h:link>
+                                     </h:column>
+
+                                     <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="IsSimplified"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/groupIdsRelationships/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText styleClass="#{_item.isSimplified ? 'boolean-true' : 'boolean-false'}" value=""/>                                        </h:link>
+                                     </h:column>
+
+                        </h:dataTable>
+                        <h:outputText/>
 
 
 
