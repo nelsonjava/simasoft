@@ -1760,7 +1760,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Code>Developments</a:Code>
 <a:CreationDate>1438225863</a:CreationDate>
 <a:Creator>admin</a:Creator>
-<a:ModificationDate>1469476681</a:ModificationDate>
+<a:ModificationDate>1469497714</a:ModificationDate>
 <a:Modifier>admin</a:Modifier>
 <a:UseParentNamespace>0</a:UseParentNamespace>
 </o:Class>
@@ -1770,7 +1770,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Code>GroupsModels</a:Code>
 <a:CreationDate>1438225884</a:CreationDate>
 <a:Creator>admin</a:Creator>
-<a:ModificationDate>1469476728</a:ModificationDate>
+<a:ModificationDate>1469497897</a:ModificationDate>
 <a:Modifier>admin</a:Modifier>
 <a:UseParentNamespace>0</a:UseParentNamespace>
 </o:Class>
@@ -1780,7 +1780,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Code>Models</a:Code>
 <a:CreationDate>1438225886</a:CreationDate>
 <a:Creator>admin</a:Creator>
-<a:ModificationDate>1469476728</a:ModificationDate>
+<a:ModificationDate>1469497897</a:ModificationDate>
 <a:Modifier>admin</a:Modifier>
 <a:UseParentNamespace>0</a:UseParentNamespace>
 </o:Class>
@@ -1990,11 +1990,11 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Code>association7</a:Code>
 <a:CreationDate>1469476664</a:CreationDate>
 <a:Creator>admin</a:Creator>
-<a:ModificationDate>1469476681</a:ModificationDate>
+<a:ModificationDate>1469497714</a:ModificationDate>
 <a:Modifier>admin</a:Modifier>
 <a:RoleAName>from</a:RoleAName>
 <a:RoleBName>to</a:RoleBName>
-<a:RoleAMultiplicity>0..1</a:RoleAMultiplicity>
+<a:RoleAMultiplicity>0..*</a:RoleAMultiplicity>
 <a:RoleBMultiplicity>0..*</a:RoleBMultiplicity>
 <a:RoleBNavigability>0</a:RoleBNavigability>
 <a:ExtendedAttributesText>{D824A738-E160-11D2-B693-0008C7EA924D},Java,224={72FA5C48-5524-4DF7-8187-ABB19AB5AF9E},roleAContainer,6=&lt;None&gt;
@@ -2015,11 +2015,11 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Code>association8</a:Code>
 <a:CreationDate>1469476706</a:CreationDate>
 <a:Creator>admin</a:Creator>
-<a:ModificationDate>1469476728</a:ModificationDate>
+<a:ModificationDate>1469497897</a:ModificationDate>
 <a:Modifier>admin</a:Modifier>
 <a:RoleAName>from</a:RoleAName>
 <a:RoleBName>to</a:RoleBName>
-<a:RoleAMultiplicity>0..1</a:RoleAMultiplicity>
+<a:RoleAMultiplicity>0..*</a:RoleAMultiplicity>
 <a:RoleBMultiplicity>0..*</a:RoleBMultiplicity>
 <a:RoleBNavigability>0</a:RoleBNavigability>
 <a:ExtendedAttributesText>{D824A738-E160-11D2-B693-0008C7EA924D},Java,224={72FA5C48-5524-4DF7-8187-ABB19AB5AF9E},roleAContainer,6=&lt;None&gt;

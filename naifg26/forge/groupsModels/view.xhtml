@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="id" value='#{groupsModelsBean.id}'/>
+		<f:event type="preRenderView" listener='#{groupsModelsBean.retrieve}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="View Groups Models"/>
+
+	<ui:define name="header">
+		Groups Models
+	</ui:define>
+
+	<ui:define name="subheader">
+		View existing Groups Models
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:panelGrid columnClasses="label,component,required" columns="3">
+			<h:outputLabel for="groupsModelsBeanGroupsModelsOrden" value="Orden:"/>
+			<h:outputText id="groupsModelsBeanGroupsModelsOrden" value="#{groupsModelsBean.groupsModels.orden}"/>
+			<h:outputText/>
+			<h:outputLabel for="groupsModelsBeanGroupsModelsObservations" value="Observations:"/>
+			<h:inputTextarea id="groupsModelsBeanGroupsModelsObservations" value="#{groupsModelsBean.groupsModels.observations}"/>
+			<h:outputText/>
+			<h:outputLabel for="groupsModelsBeanGroupsModelsName" value="Name:"/>
+			<h:outputText id="groupsModelsBeanGroupsModelsName" value="#{groupsModelsBean.groupsModels.name}"/>
+			<h:outputText/>
+			<h:outputLabel for="groupsModelsBeanGroupsModelsCode" value="Code:"/>
+			<h:outputText id="groupsModelsBeanGroupsModelsCode" value="#{groupsModelsBean.groupsModels.code}"/>
+			<h:outputText/>
+			<h:outputLabel for="groupsModelsBeanGroupsModelsModels" value="Models:"/>
+			<h:link id="groupsModelsBeanGroupsModelsModels" outcome="/admin/models/view" rendered="#{!empty groupsModelsBean.groupsModels.models}" value="#{groupsModelsBean.groupsModels.models}">
+				<f:param name="id" value="#{groupsModelsBean.groupsModels.models.id}"/>
+			</h:link>
+			<h:outputText/>
+			<h:outputLabel for="groupsModelsBeanGroupsModelsGroups" value="Groups:"/>
+			<h:link id="groupsModelsBeanGroupsModelsGroups" outcome="/admin/groups/view" rendered="#{!empty groupsModelsBean.groupsModels.groups}" value="#{groupsModelsBean.groupsModels.groups}">
+				<f:param name="id" value="#{groupsModelsBean.groupsModels.groups.id}"/>
+			</h:link>
+			<h:outputText/>
+		</h:panelGrid>
+
+		<div class="buttons">
+			<h:link value="View All" outcome="search" styleClass="btn btn-primary"/> 
+			<h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
+			<h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
+		</div>
+	</ui:define>
+
+</ui:composition>

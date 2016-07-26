@@ -1,0 +1,218 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:forgeview="http://jboss.org/forge/view"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="id" value='#{attributesTypesBean.id}'/>
+		<f:event type="preRenderView" listener='#{attributesTypesBean.retrieve}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="Create Attributes Types"/>
+
+	<ui:define name="header">
+		Attributes Types
+	</ui:define>
+
+	<ui:define name="subheader">
+		<c:choose>
+			<c:when test='#{!empty attributesTypesBean.id}'>
+				Edit existing Attributes Types
+			</c:when>
+			<c:otherwise>
+				Create a new Attributes Types
+			</c:otherwise>
+		</c:choose>
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:form id="create">
+			<h:messages globalOnly="true" styleClass="error"/>
+
+			<h:panelGrid columnClasses="label,component,required" columns="3">
+				<h:outputLabel for="attributesTypesBeanAttributesTypesOrden" value="Orden:"/>
+				<h:panelGroup>
+					<h:inputText id="attributesTypesBeanAttributesTypesOrden" value="#{attributesTypesBean.attributesTypes.orden}"/>
+					<h:message for="attributesTypesBeanAttributesTypesOrden" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="attributesTypesBeanAttributesTypesObservations" value="Observations:"/>
+				<h:panelGroup>
+					<h:inputTextarea id="attributesTypesBeanAttributesTypesObservations" value="#{attributesTypesBean.attributesTypes.observations}"/>
+					<h:message for="attributesTypesBeanAttributesTypesObservations" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="attributesTypesBeanAttributesTypesName" value="Name:"/>
+				<h:panelGroup>
+					<h:inputText id="attributesTypesBeanAttributesTypesName" required="true" value="#{attributesTypesBean.attributesTypes.name}"/>
+					<h:message for="attributesTypesBeanAttributesTypesName" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText value="*"/>
+				<h:outputLabel for="attributesTypesBeanAttributesTypesType" value="Type:"/>
+				<h:panelGroup>
+					<h:inputText id="attributesTypesBeanAttributesTypesType" required="true" value="#{attributesTypesBean.attributesTypes.type}"/>
+					<h:message for="attributesTypesBeanAttributesTypesType" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText value="*"/>
+				<h:outputLabel for="attributesTypesBeanAttributesTypesLength" value="Length:"/>
+				<h:panelGroup>
+					<h:inputText id="attributesTypesBeanAttributesTypesLength" value="#{attributesTypesBean.attributesTypes.length}"/>
+					<h:message for="attributesTypesBeanAttributesTypesLength" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="attributesTypesBeanAttributesTypesPrecision" value="Precision:"/>
+				<h:panelGroup>
+					<h:inputText id="attributesTypesBeanAttributesTypesPrecision" value="#{attributesTypesBean.attributesTypes.precision}"/>
+					<h:message for="attributesTypesBeanAttributesTypesPrecision" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="attributesTypesBeanAttributesTypesAnnotations" value="Annotations:"/>
+				<h:panelGroup>
+					<h:inputText id="attributesTypesBeanAttributesTypesAnnotations" value="#{attributesTypesBean.attributesTypes.annotations}"/>
+					<h:message for="attributesTypesBeanAttributesTypesAnnotations" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="attributesTypesBeanAttributesTypesAttributesProperties" value="Attributes Properties:"/>
+				<h:panelGroup>
+					<ui:param name="_collection" value="#{attributesTypesBean.attributesTypes.attributesProperties}"/>
+					<h:dataTable id="attributesTypesBeanAttributesTypesAttributesProperties" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Name"/>
+							</f:facet>
+							<h:link outcome="/admin/attributesProperties/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemName" value="#{_item.name}"/>
+							</h:link>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Value"/>
+							</f:facet>
+							<h:link outcome="/admin/attributesProperties/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemValue" value="#{_item.value}"/>
+							</h:link>
+						</h:column>
+						<h:column footerClass="remove-column" headerClass="remove-column">
+							<h:commandLink action="#{_collection.remove(_item)}" styleClass="remove-button"/>
+						</h:column>
+					</h:dataTable>
+					<h:panelGrid columnClasses=",remove-column" columns="2" styleClass="data-table-footer">
+						<h:selectOneMenu converter="#{attributesPropertiesBean.converter}" id="attributesTypesBeanAttributesTypesAttributesPropertiesSelect" value="#{requestScope['attributesTypesBeanAttributesTypesAttributesPropertiesSelect']}">
+							<f:selectItem/>
+							<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{attributesPropertiesBean.all}" var="_item"/>
+						</h:selectOneMenu>
+						<h:commandLink action="#{_collection.add(requestScope['attributesTypesBeanAttributesTypesAttributesPropertiesSelect'])}" id="attributesTypesBeanAttributesTypesAttributesPropertiesAdd" onclick="if (document.getElementById(document.forms[0].id+':attributesTypesBeanAttributesTypesAttributesPropertiesSelect').selectedIndex &lt; 1) { alert('Must select a Attributes Properties'); return false; }" styleClass="add-button"/>
+					</h:panelGrid>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="attributesTypesBeanAttributesTypesFields" value="Fields:"/>
+				<h:panelGroup>
+					<ui:param name="_collection" value="#{attributesTypesBean.attributesTypes.fields}"/>
+					<h:dataTable id="attributesTypesBeanAttributesTypesFields" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Name"/>
+							</f:facet>
+							<h:link outcome="/admin/fields/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemName" value="#{_item.name}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="fieldsBeanAddName" value="#{fieldsBean.add.name}"/>
+								<h:message for="fieldsBeanAddName" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column footerClass="remove-column" headerClass="remove-column">
+							<h:commandLink action="#{_collection.remove(_item)}" styleClass="remove-button"/>
+							<f:facet name="footer">
+								<h:commandLink action="#{_collection.add(fieldsBean.added)}" id="attributesTypesBeanAttributesTypesFieldsAdd" styleClass="add-button">
+									<f:setPropertyActionListener target="#{fieldsBean.add.attributesTypes}" value="#{attributesTypesBean.attributesTypes}"/>
+								</h:commandLink>
+							</f:facet>
+						</h:column>
+					</h:dataTable>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="attributesTypesBeanAttributesTypesSites" value="Sites:"/>
+				<h:panelGroup>
+					<ui:param name="_collection" value="#{attributesTypesBean.attributesTypes.sites}"/>
+					<h:dataTable id="attributesTypesBeanAttributesTypesSites" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Link"/>
+							</f:facet>
+							<h:link outcome="/admin/sites/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemLink" value="#{_item.link}"/>
+							</h:link>
+						</h:column>
+						<h:column footerClass="remove-column" headerClass="remove-column">
+							<h:commandLink action="#{_collection.remove(_item)}" styleClass="remove-button"/>
+						</h:column>
+					</h:dataTable>
+					<h:panelGrid columnClasses=",remove-column" columns="2" styleClass="data-table-footer">
+						<h:selectOneMenu converter="#{sitesBean.converter}" id="attributesTypesBeanAttributesTypesSitesSelect" value="#{requestScope['attributesTypesBeanAttributesTypesSitesSelect']}">
+							<f:selectItem/>
+							<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{sitesBean.all}" var="_item"/>
+						</h:selectOneMenu>
+						<h:commandLink action="#{_collection.add(requestScope['attributesTypesBeanAttributesTypesSitesSelect'])}" id="attributesTypesBeanAttributesTypesSitesAdd" onclick="if (document.getElementById(document.forms[0].id+':attributesTypesBeanAttributesTypesSitesSelect').selectedIndex &lt; 1) { alert('Must select a Sites'); return false; }" styleClass="add-button"/>
+					</h:panelGrid>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="attributesTypesBeanAttributesTypesAttributes" value="Attributes:"/>
+				<h:panelGroup>
+					<ui:param name="_collection" value="#{attributesTypesBean.attributesTypes.attributes}"/>
+					<h:dataTable id="attributesTypesBeanAttributesTypesAttributes" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Name"/>
+							</f:facet>
+							<h:link outcome="/admin/attributes/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemName" value="#{_item.name}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="attributesBeanAddName" value="#{attributesBean.add.name}"/>
+								<h:message for="attributesBeanAddName" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column footerClass="remove-column" headerClass="remove-column">
+							<h:commandLink action="#{_collection.remove(_item)}" styleClass="remove-button"/>
+							<f:facet name="footer">
+								<h:commandLink action="#{_collection.add(attributesBean.added)}" id="attributesTypesBeanAttributesTypesAttributesAdd" styleClass="add-button">
+									<f:setPropertyActionListener target="#{attributesBean.add.attributesTypes}" value="#{attributesTypesBean.attributesTypes}"/>
+								</h:commandLink>
+							</f:facet>
+						</h:column>
+					</h:dataTable>
+				</h:panelGroup>
+				<h:outputText/>
+			</h:panelGrid>
+
+			<div class="buttons">
+				<h:commandLink value="Save" action='#{attributesTypesBean.update}' styleClass="btn btn-primary"/>
+				<c:choose>
+					<c:when test='#{!empty attributesTypesBean.id}'>
+						<h:link value="Cancel" outcome="view" styleClass="btn btn-primary">
+							<f:param name="id" value='#{attributesTypesBean.id}'/>
+						</h:link>
+						<h:commandLink value="Delete" action='#{attributesTypesBean.delete}' styleClass="btn btn-primary"/>
+					</c:when>
+					<c:otherwise>
+						<h:link value="Cancel" outcome="search" styleClass="btn btn-primary"/>
+					</c:otherwise>
+				</c:choose>
+			</div>
+		</h:form>
+	</ui:define>
+
+</ui:composition>
