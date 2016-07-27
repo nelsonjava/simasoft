@@ -145,12 +145,11 @@ public class FileUploadRelations {
                  f.line(String.valueOf(relations.getTo().getId()));
                  f.line(String.valueOf(relations.getCardinalities().getId()));
 
-                 GroupIds groupIds = new GroupIds();
-                 groupIds = findBean.artifactIdGroupIds("tem",em);
+                 Models models = new Models();
+                 models = findBean.nameModels("tem",em);
 
-                 GroupIdsRelationships groupIdsRelationships = new GroupIdsRelationships();
-                 groupIdsRelationships.setGroupIds(groupIds);
-                 groupIdsRelationships.setRelationships(relations);
+                 ModelRelationships modelRelationships = new ModelRelationships();
+                 modelRelationships.setRelationships(relations);
 
                  em.persist(groupIdsRelationships);
                  em.flush();

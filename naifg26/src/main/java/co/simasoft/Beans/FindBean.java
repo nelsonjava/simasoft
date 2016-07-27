@@ -150,15 +150,15 @@ public class FindBean {
         return groupIds;
     }
 
-    public GroupIds artifactIdGroupIds(String search,EntityManager em) {
+    public Models nameModels(String search,EntityManager em) {
 
-        GroupIds groupIds = new GroupIds();
-        List<GroupIds> results = em.createQuery("SELECT o FROM GroupIds o WHERE o.artifactId LIKE :field").setParameter("field", search).getResultList();
+        Models models = new Models();
+        List<Models> results = em.createQuery("SELECT o FROM Models o WHERE o.name LIKE :field").setParameter("field", search).getResultList();
 
         if (!results.isEmpty()) {
-           groupIds = results.get(0);
+           models = results.get(0);
         }
-        return groupIds;
+        return models;
     }
 
 

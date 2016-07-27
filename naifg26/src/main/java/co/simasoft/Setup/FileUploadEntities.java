@@ -88,7 +88,6 @@ public class FileUploadEntities {
 
                  Entities entity = new Entities();
                  entity.setName(entityName);
-                 entity.setGroupId("co.simasoft.models");
 
                  f.line("name:"+entity.getName());
 
