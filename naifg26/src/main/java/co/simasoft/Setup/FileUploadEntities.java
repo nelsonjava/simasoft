@@ -85,11 +85,16 @@ public class FileUploadEntities {
                  JSONObject entityObj = (JSONObject) iteEntities.next();
 
                  String entityName = (String)entityObj.get("name");
+                 
+                 GroupIds groupIds = new GroupIds();
+                 groupIds = findBean.artifactIdGroupIds("tem",em);
 
                  Entities entity = new Entities();
                  entity.setName(entityName);
+                 entity.setGroupIds(groupIds);
 
                  f.line("name:"+entity.getName());
+
 
                  em.persist(entity);
                  em.flush();

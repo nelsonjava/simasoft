@@ -149,9 +149,11 @@ public class FileUploadRelations {
                  models = findBean.nameModels("tem",em);
 
                  ModelRelationships modelRelationships = new ModelRelationships();
+                 modelRelationships.setName(Utils.nameRandom());
+                 modelRelationships.setModels(models);
                  modelRelationships.setRelationships(relations);
 
-                 em.persist(groupIdsRelationships);
+                 em.persist(modelRelationships);
                  em.flush();
 
 
