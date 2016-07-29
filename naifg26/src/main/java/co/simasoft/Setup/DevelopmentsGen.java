@@ -108,8 +108,15 @@ public class DevelopmentsGen extends FileTxt {
                       texto = String.valueOf(relation.getId())+":"+
                               relation.getFrom().getName()+" "+
                               relation.getCardinalities().getCardinality()+" "+
-                              relation.getTo().getName()+" *** "+
+                              relation.getTo().getName()+
                               relation.getName();
+                              if(relation.getCardinalities().getIsUnidirectional()){
+                                 texto += " Unidirectional";
+                              }
+                              else {
+                                 texto += " Bidirectional";
+                              }
+
                       log.info(texto);
                       line(texto);
 
@@ -181,15 +188,18 @@ public class DevelopmentsGen extends FileTxt {
         for(Relationships relationship : relationships){
 
             if(entidad.getName().equals(relationship.getFrom().getName())){
-               Relation relation = new Relation();
-               relation.setFrom(relationship.getFrom().getName());
-               relation.setTo(relationship.getTo().getName());
-               relation.setCardinality(relationship.getCardinalities().getCardinality());
-               relation.setNameCardinality(relationship.getCardinalities().getName());
-               relation.setName(relationship.getName());
-               relation.setUnidireccional(true);
 
-               relations.add(relation);
+               Relation relationFrom = new Relation();
+               relationFrom.setFrom(relationship.getFrom().getName());
+               relationFrom.setTo(relationship.getTo().getName());
+
+               Cardinalities cardinalitiesFrom = relationship.getCardinalities();
+               relationFrom.setCardinality(cardinalitiesFrom.getCardinality());
+               relationFrom.setNameCardinality(cardinalitiesFrom.getName());
+               relationFrom.setName(relationship.getName());
+               relationFrom.setUnidireccional(true);
+
+               relations.add(relationFrom);
 
                imports.add("import javax.persistence.OneToMany;");
                imports.add("import javax.persistence.ManyToOne;");
@@ -197,16 +207,46 @@ public class DevelopmentsGen extends FileTxt {
 
 
                texto = "      "+
-                       relation.getFrom()+" "+
-                       relation.getCardinality()+" "+
-                       relation.getTo();
+                       relationFrom.getFrom()+" "+
+                       relationFrom.getCardinality()+" "+
+                       relationFrom.getTo();
+
+                       if(cardinalitiesFrom.getIsUnidirectional()){
+                          texto += " Unidirectional";
+                       }
+                       else {
+                          texto += " Bidirectional";
+                       }
 
                log.info(texto);
                line(texto);
-            }
 
-        }
+               if (!cardinalitiesFrom.getIsUnidirectional()){ // Bidireccional
 
+                   Relation relationTo = new Relation();
+                   relationTo.setFrom(relationship.getTo().getName());
+                   relationTo.setTo(relationship.getFrom().getName());
+
+                   Cardinalities cardinalitiesTo = cardinalitiesFrom.getObjPadre();
+                   relationTo.setCardinality(cardinalitiesTo.getCardinality());
+                   relationTo.setName(relationship.getName());
+                   relationTo.setUnidireccional(true);
+
+                   texto = "      "+
+                           relationTo.getFrom()+" "+
+                           relationTo.getCardinality()+" "+
+                           relationTo.getTo()+
+                           " Unidirectional.";
+
+                   log.info(texto);
+                   line(texto);
+               }
+
+            } // if
+
+        } // for relationship
+
+/*
         for(Relationships relationship : relationships){
 
             if(entidad.getName().equals(relationship.getTo().getName())){
@@ -229,6 +269,7 @@ public class DevelopmentsGen extends FileTxt {
             }
 
         }
+*/
 
         return relations;
     } // function

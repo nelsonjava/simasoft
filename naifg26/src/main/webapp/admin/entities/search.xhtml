@@ -44,13 +44,6 @@
                                                 </h:panelGroup>
                                                 <h:outputText/>
 
-                                                <h:outputLabel for="entitiesBeanExampleGroupId" value="GroupId:"/>
-                                                <h:panelGroup>
-                                                        <h:inputText id="entitiesBeanExampleGroupId" value="#{entitiesBean.example.groupId}"/>
-                                                        <h:message for="entitiesBeanExampleGroupId" styleClass="error"/>
-                                                </h:panelGroup>
-                                                <h:outputText/>
-
                                                 <h:outputLabel for="entitiesBeanExampleSerialID" value="SerialID:"/>
                                                 <h:panelGroup>
                                                         <h:inputText id="entitiesBeanExampleSerialID" value="#{entitiesBean.example.serialID}"/>
@@ -105,18 +98,6 @@
                                                 <h:outputText id="itemName" value="#{_item.name}"/>
                                         </h:link>
                                 </h:column>
-
-
-                                <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="GroupId"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/entities/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemGroupId" value="#{_item.groupId}"/>
-                                        </h:link>
-                                </h:column>
-
 
                                 <h:column>
                                         <f:facet name="header">

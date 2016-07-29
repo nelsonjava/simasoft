@@ -166,7 +166,17 @@
                         </h:dataTable>
                         <h:outputText/>
 
+                        <h:outputLabel for="attributesBeanAttributesAttributesTypes" value="attributesTypes:"/>
+                        <h:link id="attributesBeanAttributesAttributesTypes" outcome="/admin/attributesTypes/view" rendered="#{!empty attributesBean.attributes.attributesTypes}" value="#{attributesBean.attributes.attributesTypes.type}">
+                                <f:param name="id" value="#{attributesBean.attributes.attributesTypes.id}"/>
+                        </h:link>
+                        <h:outputText/>
 
+                        <h:outputLabel for="attributesBeanAttributesEntities" value="entities:"/>
+                        <h:link id="attributesBeanAttributesEntities" outcome="/admin/entities/view" rendered="#{!empty attributesBean.attributes.entities}" value="#{attributesBean.attributes.entities.name}">
+                                <f:param name="id" value="#{attributesBean.attributes.entities.id}"/>
+                        </h:link>
+                        <h:outputText/>
 
                 </h:panelGrid>
 

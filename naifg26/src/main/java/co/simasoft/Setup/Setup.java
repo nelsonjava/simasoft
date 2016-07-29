@@ -60,6 +60,38 @@ public class Setup {
 
 //      ---------------------- Imports ------------------------
 
+        Imports imports_1 = new Imports();
+        imports_1.setName("import javax.persistence.OneToOne;");
+        Dependencies dependencyImports_1 = new Dependencies();
+        dependencyImports_1 = findBean.artifactIdDependency("persistence-api",em);
+        imports_1.setDependencies(dependencyImports_1);
+        em.persist(imports_1);
+        em.flush();
+
+        Imports imports_2 = new Imports();
+        imports_2.setName("import javax.persistence.OneToMany;");
+        Dependencies dependencyImports_2 = new Dependencies();
+        dependencyImports_2 = findBean.artifactIdDependency("persistence-api",em);
+        imports_2.setDependencies(dependencyImports_2);
+        em.persist(imports_2);
+        em.flush();
+
+        Imports imports_3 = new Imports();
+        imports_3.setName("import javax.persistence.ManyToOne;");
+        Dependencies dependencyImports_3 = new Dependencies();
+        dependencyImports_3 = findBean.artifactIdDependency("persistence-api",em);
+        imports_3.setDependencies(dependencyImports_3);
+        em.persist(imports_3);
+        em.flush();
+
+        Imports imports_4 = new Imports();
+        imports_4.setName("import javax.persistence.ManyToMany;");
+        Dependencies dependencyImports_4 = new Dependencies();
+        dependencyImports_4 = findBean.artifactIdDependency("persistence-api",em);
+        imports_4.setDependencies(dependencyImports_4);
+        em.persist(imports_4);
+        em.flush();
+
         Imports imports1 = new Imports();
         imports1.setName("import javax.persistence.Column;");
         Dependencies dependencyImports1 = new Dependencies();
