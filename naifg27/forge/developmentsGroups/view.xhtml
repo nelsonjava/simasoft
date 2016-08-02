@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="id" value='#{developmentsGroupsBean.id}'/>
+		<f:event type="preRenderView" listener='#{developmentsGroupsBean.retrieve}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="View Developments Groups"/>
+
+	<ui:define name="header">
+		Developments Groups
+	</ui:define>
+
+	<ui:define name="subheader">
+		View existing Developments Groups
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:panelGrid columnClasses="label,component,required" columns="3">
+			<h:outputLabel for="developmentsGroupsBeanDevelopmentsGroupsOrden" value="Orden:"/>
+			<h:outputText id="developmentsGroupsBeanDevelopmentsGroupsOrden" value="#{developmentsGroupsBean.developmentsGroups.orden}"/>
+			<h:outputText/>
+			<h:outputLabel for="developmentsGroupsBeanDevelopmentsGroupsObservations" value="Observations:"/>
+			<h:inputTextarea id="developmentsGroupsBeanDevelopmentsGroupsObservations" value="#{developmentsGroupsBean.developmentsGroups.observations}"/>
+			<h:outputText/>
+			<h:outputLabel for="developmentsGroupsBeanDevelopmentsGroupsName" value="Name:"/>
+			<h:outputText id="developmentsGroupsBeanDevelopmentsGroupsName" value="#{developmentsGroupsBean.developmentsGroups.name}"/>
+			<h:outputText/>
+			<h:outputLabel for="developmentsGroupsBeanDevelopmentsGroupsCode" value="Code:"/>
+			<h:outputText id="developmentsGroupsBeanDevelopmentsGroupsCode" value="#{developmentsGroupsBean.developmentsGroups.code}"/>
+			<h:outputText/>
+			<h:outputLabel for="developmentsGroupsBeanDevelopmentsGroupsDevelopments" value="Developments:"/>
+			<h:link id="developmentsGroupsBeanDevelopmentsGroupsDevelopments" outcome="/admin/developments/view" rendered="#{!empty developmentsGroupsBean.developmentsGroups.developments}" value="#{developmentsGroupsBean.developmentsGroups.developments}">
+				<f:param name="id" value="#{developmentsGroupsBean.developmentsGroups.developments.id}"/>
+			</h:link>
+			<h:outputText/>
+			<h:outputLabel for="developmentsGroupsBeanDevelopmentsGroupsGroups" value="Groups:"/>
+			<h:link id="developmentsGroupsBeanDevelopmentsGroupsGroups" outcome="/admin/groups/view" rendered="#{!empty developmentsGroupsBean.developmentsGroups.groups}" value="#{developmentsGroupsBean.developmentsGroups.groups}">
+				<f:param name="id" value="#{developmentsGroupsBean.developmentsGroups.groups.id}"/>
+			</h:link>
+			<h:outputText/>
+		</h:panelGrid>
+
+		<div class="buttons">
+			<h:link value="View All" outcome="search" styleClass="btn btn-primary"/> 
+			<h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
+			<h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
+		</div>
+	</ui:define>
+
+</ui:composition>

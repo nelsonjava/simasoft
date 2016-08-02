@@ -108,14 +108,14 @@ public class DevelopmentsGen extends FileTxt {
                       texto = String.valueOf(relation.getId())+":"+
                               relation.getFrom().getName()+" "+
                               relation.getCardinalities().getCardinality()+" "+
-                              relation.getTo().getName()+
-                              relation.getName();
+                              relation.getTo().getName();
                               if(relation.getCardinalities().getIsUnidirectional()){
-                                 texto += " Unidirectional";
+                                 texto += " Unidirectional ";
                               }
                               else {
-                                 texto += " Bidirectional";
+                                 texto += " Bidirectional ";
                               }
+                              texto += relation.getName();
 
                       log.info(texto);
                       line(texto);
@@ -179,6 +179,7 @@ public class DevelopmentsGen extends FileTxt {
     public ArrayList<Relation> AddRelations(Entidad entidad) {
 
         ArrayList<Relation> relations = new ArrayList<Relation>(0);
+        Cardinalities cardinalitiesFrom = new Cardinalities();
 
         texto = "   ***Relationships:";
         log.info(texto);
@@ -193,7 +194,7 @@ public class DevelopmentsGen extends FileTxt {
                relationFrom.setFrom(relationship.getFrom().getName());
                relationFrom.setTo(relationship.getTo().getName());
 
-               Cardinalities cardinalitiesFrom = relationship.getCardinalities();
+               cardinalitiesFrom = relationship.getCardinalities();
                relationFrom.setCardinality(cardinalitiesFrom.getCardinality());
                relationFrom.setNameCardinality(cardinalitiesFrom.getName());
                relationFrom.setName(relationship.getName());
@@ -221,6 +222,7 @@ public class DevelopmentsGen extends FileTxt {
                log.info(texto);
                line(texto);
 
+/*
                if (!cardinalitiesFrom.getIsUnidirectional()){ // Bidireccional
 
                    Relation relationTo = new Relation();
@@ -232,6 +234,8 @@ public class DevelopmentsGen extends FileTxt {
                    relationTo.setName(relationship.getName());
                    relationTo.setUnidireccional(true);
 
+                   relations.add(relationTo);
+
                    texto = "      "+
                            relationTo.getFrom()+" "+
                            relationTo.getCardinality()+" "+
@@ -241,10 +245,48 @@ public class DevelopmentsGen extends FileTxt {
                    log.info(texto);
                    line(texto);
                }
+*/
 
             } // if
 
         } // for relationship
+
+
+        for(Relationships relationship : relationships){
+
+            if (entidad.getName().equals(relationship.getTo().getName())){
+
+                cardinalitiesFrom = relationship.getCardinalities();
+
+                if (!cardinalitiesFrom.getIsUnidirectional()){ // // Bidireccional
+
+                    Relation relationTo = new Relation();
+                    relationTo.setFrom(relationship.getTo().getName());
+                    relationTo.setTo(relationship.getFrom().getName());
+
+                    Cardinalities cardinalitiesTo = cardinalitiesFrom.getObjPadre();
+                    relationTo.setCardinality(cardinalitiesTo.getCardinality());
+                    relationTo.setName(relationship.getName());
+                    relationTo.setUnidireccional(true);
+
+                    relations.add(relationTo);
+
+                    texto = "      "+
+                           relationTo.getFrom()+" "+
+                           relationTo.getCardinality()+" "+
+                           relationTo.getTo()+
+                           " Unidirectional.";
+
+                    log.info(texto);
+                    line(texto);
+
+                }
+
+            }
+
+        } // for relationship
+
+
 
 /*
         for(Relationships relationship : relationships){

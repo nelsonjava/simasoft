@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:forgeview="http://jboss.org/forge/view"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="page" value='#{groupsModelsBean.page}'/>
+		<f:event type="preRenderView" listener='#{groupsModelsBean.paginate}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="Search Groups Models entities"/>
+
+	<ui:define name="header">
+		Groups Models
+	</ui:define>
+
+	<ui:define name="subheader">
+		Search Groups Models entities
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:form id="search">
+			<f:validateBean disabled="true">
+				<h:panelGroup styleClass="search">
+
+					<h:panelGrid columnClasses="label,component,required" columns="3">
+						<h:outputLabel for="groupsModelsBeanExampleObservations" value="Observations:"/>
+						<h:panelGroup>
+							<h:inputTextarea id="groupsModelsBeanExampleObservations" value="#{groupsModelsBean.example.observations}"/>
+							<h:message for="groupsModelsBeanExampleObservations" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="groupsModelsBeanExampleCode" value="Code:"/>
+						<h:panelGroup>
+							<h:inputText id="groupsModelsBeanExampleCode" value="#{groupsModelsBean.example.code}"/>
+							<h:message for="groupsModelsBeanExampleCode" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="groupsModelsBeanExampleName" value="Name:"/>
+						<h:panelGroup>
+							<h:inputText id="groupsModelsBeanExampleName" value="#{groupsModelsBean.example.name}"/>
+							<h:message for="groupsModelsBeanExampleName" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="groupsModelsBeanExampleModels" value="Models:"/>
+						<h:panelGroup>
+							<h:selectOneMenu converter="#{modelsBean.converter}" id="groupsModelsBeanExampleModels" value="#{groupsModelsBean.example.models}">
+								<f:selectItem/>
+								<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{modelsBean.all}" var="_item"/>
+							</h:selectOneMenu>
+							<h:message for="groupsModelsBeanExampleModels" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="groupsModelsBeanExampleGroups" value="Groups:"/>
+						<h:panelGroup>
+							<h:selectOneMenu converter="#{groupsBean.converter}" id="groupsModelsBeanExampleGroups" value="#{groupsModelsBean.example.groups}">
+								<f:selectItem/>
+								<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{groupsBean.all}" var="_item"/>
+							</h:selectOneMenu>
+							<h:message for="groupsModelsBeanExampleGroups" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+					</h:panelGrid>
+					<h:panelGroup styleClass="buttons">
+						<h:commandLink value="Search" action='#{groupsModelsBean.search}' styleClass="btn btn-primary"/>
+						<h:commandLink value="Create New" action='#{groupsModelsBean.create}' styleClass="btn btn-primary"/>
+					</h:panelGroup>
+				</h:panelGroup>
+			</f:validateBean>
+			
+			<h:dataTable id="groupsModelsBeanPageItems" styleClass="data-table" value="#{groupsModelsBean.pageItems}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Name"/>
+					</f:facet>
+					<h:link outcome="/admin/groupsModels/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemName" value="#{_item.name}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<ui:include src="/resources/scaffold/paginator.xhtml">
+				<ui:param name="paginatorBean" value='#{groupsModelsBean}'/>
+			</ui:include>
+		</h:form>
+			
+	</ui:define>
+
+</ui:composition>

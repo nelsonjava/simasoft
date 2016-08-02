@@ -53,6 +53,7 @@
     <delete dir="naifg24/target" failonerror="no"/>
     <delete dir="naifg25/target" failonerror="no"/>
     <delete dir="naifg26/target" failonerror="no"/>
+    <delete dir="naifg27/target" failonerror="no"/>
     <delete dir="RafaEShop/target" failonerror="no"/>
     <delete dir="facturacion/target" failonerror="no"/>
     <delete dir="ejb/target" failonerror="no"/>

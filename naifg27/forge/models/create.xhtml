@@ -1,0 +1,220 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:forgeview="http://jboss.org/forge/view"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="id" value='#{modelsBean.id}'/>
+		<f:event type="preRenderView" listener='#{modelsBean.retrieve}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="Create Models"/>
+
+	<ui:define name="header">
+		Models
+	</ui:define>
+
+	<ui:define name="subheader">
+		<c:choose>
+			<c:when test='#{!empty modelsBean.id}'>
+				Edit existing Models
+			</c:when>
+			<c:otherwise>
+				Create a new Models
+			</c:otherwise>
+		</c:choose>
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:form id="create">
+			<h:messages globalOnly="true" styleClass="error"/>
+
+			<h:panelGrid columnClasses="label,component,required" columns="3">
+				<h:outputLabel for="modelsBeanModelsOrden" value="Orden:"/>
+				<h:panelGroup>
+					<h:inputText id="modelsBeanModelsOrden" value="#{modelsBean.models.orden}"/>
+					<h:message for="modelsBeanModelsOrden" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="modelsBeanModelsObservations" value="Observations:"/>
+				<h:panelGroup>
+					<h:inputTextarea id="modelsBeanModelsObservations" value="#{modelsBean.models.observations}"/>
+					<h:message for="modelsBeanModelsObservations" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="modelsBeanModelsName" value="Name:"/>
+				<h:panelGroup>
+					<h:inputText id="modelsBeanModelsName" required="true" value="#{modelsBean.models.name}"/>
+					<h:message for="modelsBeanModelsName" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText value="*"/>
+				<h:outputLabel for="modelsBeanModelsCode" value="Code:"/>
+				<h:panelGroup>
+					<h:inputText id="modelsBeanModelsCode" value="#{modelsBean.models.code}"/>
+					<h:message for="modelsBeanModelsCode" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="modelsBeanModelsGroupsModels" value="Groups Models:"/>
+				<h:panelGroup>
+					<ui:param name="_collection" value="#{modelsBean.models.groupsModels}"/>
+					<h:dataTable id="modelsBeanModelsGroupsModels" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Name"/>
+							</f:facet>
+							<h:link outcome="/admin/groupsModels/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemName" value="#{_item.name}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="groupsModelsBeanAddName" value="#{groupsModelsBean.add.name}"/>
+								<h:message for="groupsModelsBeanAddName" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column footerClass="remove-column" headerClass="remove-column">
+							<h:commandLink action="#{_collection.remove(_item)}" styleClass="remove-button"/>
+							<f:facet name="footer">
+								<h:commandLink action="#{_collection.add(groupsModelsBean.added)}" id="modelsBeanModelsGroupsModelsAdd" styleClass="add-button">
+									<f:setPropertyActionListener target="#{groupsModelsBean.add.models}" value="#{modelsBean.models}"/>
+								</h:commandLink>
+							</f:facet>
+						</h:column>
+					</h:dataTable>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="modelsBeanModelsModelRelationships" value="Model Relationships:"/>
+				<h:panelGroup>
+					<ui:param name="_collection" value="#{modelsBean.models.modelRelationships}"/>
+					<h:dataTable id="modelsBeanModelsModelRelationships" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Orden"/>
+							</f:facet>
+							<h:link outcome="/admin/modelRelationships/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemOrden" value="#{_item.orden}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="modelRelationshipsBeanAddOrden" value="#{modelRelationshipsBean.add.orden}"/>
+								<h:message for="modelRelationshipsBeanAddOrden" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Observations"/>
+							</f:facet>
+							<h:link outcome="/admin/modelRelationships/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:inputTextarea id="itemObservations" value="#{_item.observations}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputTextarea id="modelRelationshipsBeanAddObservations" value="#{modelRelationshipsBean.add.observations}"/>
+								<h:message for="modelRelationshipsBeanAddObservations" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Name"/>
+							</f:facet>
+							<h:link outcome="/admin/modelRelationships/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemName" value="#{_item.name}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="modelRelationshipsBeanAddName" value="#{modelRelationshipsBean.add.name}"/>
+								<h:message for="modelRelationshipsBeanAddName" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Code"/>
+							</f:facet>
+							<h:link outcome="/admin/modelRelationships/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemCode" value="#{_item.code}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="modelRelationshipsBeanAddCode" value="#{modelRelationshipsBean.add.code}"/>
+								<h:message for="modelRelationshipsBeanAddCode" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Relationships"/>
+							</f:facet>
+							<h:link outcome="/admin/modelRelationships/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="forgeviewdisplayitemRelationships" value="#{forgeview:display(_item.relationships)}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:selectOneMenu converter="#{relationshipsBean.converter}" id="modelRelationshipsBeanAddRelationships" value="#{modelRelationshipsBean.add.relationships}">
+									<f:selectItem/>
+									<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{relationshipsBean.all}" var="_item"/>
+								</h:selectOneMenu>
+								<h:message for="modelRelationshipsBeanAddRelationships" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column footerClass="remove-column" headerClass="remove-column">
+							<h:commandLink action="#{_collection.remove(_item)}" styleClass="remove-button"/>
+							<f:facet name="footer">
+								<h:commandLink action="#{_collection.add(modelRelationshipsBean.added)}" id="modelsBeanModelsModelRelationshipsAdd" styleClass="add-button">
+									<f:setPropertyActionListener target="#{modelRelationshipsBean.add.models}" value="#{modelsBean.models}"/>
+								</h:commandLink>
+							</f:facet>
+						</h:column>
+					</h:dataTable>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="modelsBeanModelsSites" value="Sites:"/>
+				<h:panelGroup>
+					<ui:param name="_collection" value="#{modelsBean.models.sites}"/>
+					<h:dataTable id="modelsBeanModelsSites" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Link"/>
+							</f:facet>
+							<h:link outcome="/admin/sites/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemLink" value="#{_item.link}"/>
+							</h:link>
+						</h:column>
+						<h:column footerClass="remove-column" headerClass="remove-column">
+							<h:commandLink action="#{_collection.remove(_item)}" styleClass="remove-button"/>
+						</h:column>
+					</h:dataTable>
+					<h:panelGrid columnClasses=",remove-column" columns="2" styleClass="data-table-footer">
+						<h:selectOneMenu converter="#{sitesBean.converter}" id="modelsBeanModelsSitesSelect" value="#{requestScope['modelsBeanModelsSitesSelect']}">
+							<f:selectItem/>
+							<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{sitesBean.all}" var="_item"/>
+						</h:selectOneMenu>
+						<h:commandLink action="#{_collection.add(requestScope['modelsBeanModelsSitesSelect'])}" id="modelsBeanModelsSitesAdd" onclick="if (document.getElementById(document.forms[0].id+':modelsBeanModelsSitesSelect').selectedIndex &lt; 1) { alert('Must select a Sites'); return false; }" styleClass="add-button"/>
+					</h:panelGrid>
+				</h:panelGroup>
+				<h:outputText/>
+			</h:panelGrid>
+
+			<div class="buttons">
+				<h:commandLink value="Save" action='#{modelsBean.update}' styleClass="btn btn-primary"/>
+				<c:choose>
+					<c:when test='#{!empty modelsBean.id}'>
+						<h:link value="Cancel" outcome="view" styleClass="btn btn-primary">
+							<f:param name="id" value='#{modelsBean.id}'/>
+						</h:link>
+						<h:commandLink value="Delete" action='#{modelsBean.delete}' styleClass="btn btn-primary"/>
+					</c:when>
+					<c:otherwise>
+						<h:link value="Cancel" outcome="search" styleClass="btn btn-primary"/>
+					</c:otherwise>
+				</c:choose>
+			</div>
+		</h:form>
+	</ui:define>
+
+</ui:composition>
