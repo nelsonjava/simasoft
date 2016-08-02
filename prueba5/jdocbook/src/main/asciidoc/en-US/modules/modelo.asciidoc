@@ -1,0 +1,41 @@
+[[wildfly-instalacion]]
+////
+a=&#225; e=&#233; i=&#237; o=&#243; u=&#250;
+A=&#193; E=&#201; I=&#205; O=&#211; U=&#218;
+n=&#241; N=&#209;
+////
+== MODELO
+image::images/modelo.jpg[]
+== ENTITY:GroupIds
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|artifactId|null|String|null|null|false|true|false|true|true|true|true|true
+|groupId|null|String|null|null|false|false|false|false|true|true|true|true
+|version|null|String|null|null|true|false|false|false|true|true|true|true
+|code|null|String|null|null|true|false|false|false|true|true|true|true
+|date|null|Date|null|null|true|false|false|false|true|true|true|true
+|===
+*RELATIONS:* 1
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|GroupIds|1..*|Entities|true|false|
+|===
+== ENTITY:Entities
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|name|null|String|null|null|false|true|false|true|true|true|true|true
+|serialID|null|String|null|null|true|false|false|false|true|true|true|true
+|table|null|String|null|null|true|false|false|false|true|true|true|true
+|description|null|String|null|null|true|false|false|false|true|true|true|true
+|===
+*RELATIONS:* 1
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|Entities|*..1|GroupIds|true|false|
+|===
