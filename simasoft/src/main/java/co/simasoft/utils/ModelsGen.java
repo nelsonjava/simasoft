@@ -135,8 +135,10 @@ public class ModelsGen extends FileTxt {
 
         entiyWarH2();
 
+/*
 line("OJOOOO");
 saveFile("\\docs", "OjoGen.txt");
+*/
 
 
     }

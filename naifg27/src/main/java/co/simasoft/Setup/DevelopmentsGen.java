@@ -208,7 +208,6 @@ public class DevelopmentsGen extends FileTxt {
                imports.add("import javax.persistence.ManyToOne;");
                imports.add("import javax.persistence.ManyToMany;");
 
-
                texto = "      "+
                        relationFrom.getFrom()+" "+
                        relationFrom.getCardinality()+" "+

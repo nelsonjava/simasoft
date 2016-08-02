@@ -92,17 +92,15 @@ line("import javax.persistence.criteria.CriteriaQuery;");
 line("import javax.persistence.criteria.Predicate;");
 line("import javax.persistence.criteria.Root;\n");
 
-
-        for(String impor : imports) {
-line("import "+impor);
-        }
-
-line("import java.util.Iterator;\n");
+for (String impor : imports) {
+     line(impor);
+}
+line("");
 
 line("@Named");
 line("@Stateful");
 line("@ConversationScoped");
-line("public class "+entity.getName()+"Bean implements Serializable{\n");
+line("public class "+entity.getName()+"Bean implements Serializable {\n");
 
 line("        private static final long serialVersionUID = 1L;\n");
 
@@ -167,7 +165,7 @@ line("        }\n");
 
 line("        /*");
 line("         * Support updating and deleting "+entity.getName()+" entities");
-line("        */\n");
+line("         */\n");
 
 line("        public String update() {");
 line("                this.conversation.end();\n");
@@ -199,28 +197,28 @@ for(Relation relation : relations) {
    if(relation.getCardinality().equals("*..1")) {
      if (relation.getFrom().equals(relation.getTo())){   // Relación Unitaria
 
-line("         "+relation.getTo()+" objPadre = deletableEntity.getObjPadre();");
-line("         objPadre.getObjHijos().remove(deletableEntity);");
-line("         deletableEntity.setObjPadre(null);");
-line("         this.entityManager.merge(objPadre);");
+line("   1      "+relation.getTo()+" objPadre = deletableEntity.getObjPadre();");
+line("   1      objPadre.getObjHijos().remove(deletableEntity);");
+line("   1      deletableEntity.setObjPadre(null);");
+line("   1      this.entityManager.merge(objPadre);");
 
      }
      else{
          if(relation.getName() == null || relation.getName() == "" ){
 
-line("                        "+relation.getFrom()+" "+Utils._1raMin(relation.getFrom())+" = deletableEntity.get"+relation.getFrom()+"();");
-line("                        "+Utils._1raMin(relation.getFrom())+".get"+entity.getName()+"().remove(deletableEntity);");
-line("                        deletableEntity.set"+relation.getFrom()+"(null);");
-line("                        this.entityManager.merge("+Utils._1raMin(relation.getFrom())+");");
+line("                        "+relation.getTo()+" "+Utils._1raMin(relation.getTo())+" = deletableEntity.get"+relation.getTo()+"();");
+line("                        "+Utils._1raMin(relation.getTo())+".get"+entity.getName()+"().remove(deletableEntity);");
+line("                        deletableEntity.set"+relation.getTo()+"(null);");
+line("                        this.entityManager.merge("+Utils._1raMin(relation.getTo())+");");
 
          }
 
          else{
 
-line("     2         "+relation.getTo()+" "+ relation.getName() +" = deletableEntity.get"+Utils._1raMay(relation.getName())+"();");
-line("     2         "+ relation.getName() + ".get"+ Utils._1raMay(relation.getName()) +"().remove(deletableEntity);");
-line("     2         deletableEntity.set"+ Utils._1raMay(relation.getName()) +"(null);");
-line("     2         this.entityManager.merge("+ relation.getName() +");");
+line("               "+relation.getTo()+" "+ relation.getName() +" = deletableEntity.get"+Utils._1raMay(relation.getName())+"();");
+line("               "+ relation.getName() + ".get"+ Utils._1raMay(relation.getName()) +"().remove(deletableEntity);");
+line("               deletableEntity.set"+ Utils._1raMay(relation.getName()) +"(null);");
+line("               this.entityManager.merge("+ relation.getName() +");");
 
          }
 
@@ -230,13 +228,13 @@ line("     2         this.entityManager.merge("+ relation.getName() +");");
    if(relation.getCardinality().equals("1..*")) {
       if(relation.getFrom().equals(relation.getTo())){  // Relación Unitaria
 
-line("    3     Iterator<"+relation.getTo()+"> iterObjHijos = deletableEntity.getObjHijos().iterator();");
-line("    3     for (; iterObjHijos.hasNext();){");
-line("    3        "+relation.getTo()+" nextInObjHijos = iterObjHijos.next();");
-line("    3        nextInObjHijos.setObjPadre(null);");
-line("    3        iterObjHijos.remove();");
-line("    3        this.entityManager.merge(nextInObjHijos);");
-line("    3     }");
+line("          Iterator<"+relation.getTo()+"> iterObjHijos = deletableEntity.getObjHijos().iterator();");
+line("          for (; iterObjHijos.hasNext();){");
+line("             "+relation.getTo()+" nextInObjHijos = iterObjHijos.next();");
+line("             nextInObjHijos.setObjPadre(null);");
+line("             iterObjHijos.remove();");
+line("             this.entityManager.merge(nextInObjHijos);");
+line("          }");
 
       }
       else{
@@ -250,13 +248,13 @@ line("                               this.entityManager.merge(nextIn"+relation.g
 line("                        }");
          }
          else{
-line("   5      Iterator<" + relation.getTo() + "> iter"+ Utils._1raMay(relation.getName()) +" = deletableEntity.get"+ Utils._1raMay(relation.getName()) + "().iterator();");
-line("   5      for (; iter"+Utils._1raMay(relation.getName())+".hasNext();){");
-line("   5         "+relation.getTo()+" nextIn" + Utils._1raMay(relation.getName()) + " = iter" + Utils._1raMay(relation.getName()) + ".next();");
-line("   5         nextIn" + Utils._1raMay(relation.getName()) + ".set"+ Utils._1raMay(relation.getName()) +"(null);");
-line("   5         iter" + Utils._1raMay(relation.getName()) + ".remove();");
-line("   5         this.entityManager.merge(nextIn" + Utils._1raMay(relation.getName()) + ");");
-line("   5      }");
+line("          Iterator<" + relation.getTo() + "> iter"+ Utils._1raMay(relation.getName()) +" = deletableEntity.get"+ Utils._1raMay(relation.getName()) + "().iterator();");
+line("          for (; iter"+Utils._1raMay(relation.getName())+".hasNext();){");
+line("             "+relation.getTo()+" nextIn" + Utils._1raMay(relation.getName()) + " = iter" + Utils._1raMay(relation.getName()) + ".next();");
+line("             nextIn" + Utils._1raMay(relation.getName()) + ".set"+ Utils._1raMay(relation.getName()) +"(null);");
+line("             iter" + Utils._1raMay(relation.getName()) + ".remove();");
+line("             this.entityManager.merge(nextIn" + Utils._1raMay(relation.getName()) + ");");
+line("          }");
          }
       }
    }
@@ -326,6 +324,8 @@ line("                root = criteria.from("+entity.getName()+".class);");
 line("                TypedQuery<"+entity.getName()+"> query = this.entityManager.createQuery(criteria.select(root).where(getSearchPredicates(root)));");
 line("                query.setFirstResult(this.page * getPageSize()).setMaxResults(getPageSize());");
 line("                this.pageItems = query.getResultList();");
+
+
 line("        }\n");
 
 line("        private Predicate[] getSearchPredicates(Root<"+entity.getName()+"> root) {\n");
@@ -369,18 +369,18 @@ line("                final "+entity.getName()+"Bean ejbProxy = this.sessionCont
 
 line("                return new Converter(){\n");
 
-line("                @Override");
-line("                public Object getAsObject(FacesContext context,UIComponent component, String value){");
-line("                       return ejbProxy.findById(Long.valueOf(value));");
-line("                }\n");
+line("                        @Override");
+line("                        public Object getAsObject(FacesContext context,UIComponent component, String value){");
+line("                               return ejbProxy.findById(Long.valueOf(value));");
+line("                        }\n");
 
-line("                @Override");
-line("                public String getAsString(FacesContext context,UIComponent component, Object value){");
-line("                       if (value == null){");
-line("                          return \"\";");
-line("                       }");
-line("                       return String.valueOf((("+entity.getName()+") value).getId());");
-line("                }\n");
+line("                        @Override");
+line("                        public String getAsString(FacesContext context,UIComponent component, Object value){");
+line("                                if (value == null){");
+line("                                    return \"\";");
+line("                                }");
+line("                                return String.valueOf((("+entity.getName()+") value).getId());");
+line("                        }\n");
 
 line("        };");
 line("   }\n");

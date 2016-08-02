@@ -85,7 +85,7 @@
 						<h:outputText id="itemOrden" value="#{_item.orden}"/>
 					</h:link>
 				</h:column>
-				
+
 <!--
 
 				<h:column>
@@ -129,6 +129,16 @@
 				</h:column>
 
 -->
+
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Model"/>
+					</f:facet>
+					<h:link outcome="/admin/modelRelationships/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemModel" value="#{_item.models.name}"/>
+					</h:link>
+				</h:column>
 
                                 <h:column>
                                         <f:facet name="header">
