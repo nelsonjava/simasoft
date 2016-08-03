@@ -195,6 +195,7 @@ public class DevelopmentsGen extends FileTxt {
                Relation relationFrom = new Relation();
                relationFrom.setFrom(relationship.getFrom().getName());
                relationFrom.setTo(relationship.getTo().getName());
+               relationFrom.setAttribute(fieldViewRelation(relationship.getTo().getAttributes()));
 
                cardinalitiesFrom = relationship.getCardinalities();
                relationFrom.setCardinality(cardinalitiesFrom.getCardinality());
@@ -214,11 +215,12 @@ public class DevelopmentsGen extends FileTxt {
                        relationFrom.getTo();
 
                        if(cardinalitiesFrom.getIsUnidirectional()){
-                          texto += " Unidirectional";
+                          texto += " Unidirectional. ";
                        }
                        else {
-                          texto += " Bidirectional";
+                          texto += " Bidirectional. ";
                        }
+                       texto += relationFrom.getNameCardinality();
 
                log.info(texto);
                line(texto);
@@ -264,9 +266,12 @@ public class DevelopmentsGen extends FileTxt {
                     Relation relationTo = new Relation();
                     relationTo.setFrom(relationship.getTo().getName());
                     relationTo.setTo(relationship.getFrom().getName());
+                    relationTo.setAttribute(entidad.fieldViewRelation());
+                    relationTo.setAttribute(fieldViewRelation(relationship.getFrom().getAttributes()));
 
                     Cardinalities cardinalitiesTo = cardinalitiesFrom.getObjPadre();
                     relationTo.setCardinality(cardinalitiesTo.getCardinality());
+                    relationTo.setNameCardinality(cardinalitiesTo.getName());
                     relationTo.setName(relationship.getName());
                     relationTo.setUnidireccional(true);
 
@@ -276,7 +281,8 @@ public class DevelopmentsGen extends FileTxt {
                            relationTo.getFrom()+" "+
                            relationTo.getCardinality()+" "+
                            relationTo.getTo()+
-                           " Unidirectional.";
+                           " Unidirectional. ";
+                           texto += relationTo.getNameCardinality();
 
                     log.info(texto);
                     line(texto);
@@ -413,7 +419,18 @@ public class DevelopmentsGen extends FileTxt {
         return attributesProperties;
     }
 
+    public String fieldViewRelation(Set<Attributes> attributes ){
 
+        String field = "";
+        for (Attributes attribute : attributes) {
+            if (attribute.getIsViewRelation()){
+               field = attribute.getName();
+               return field;
+            }
+        }
+        return field;
+
+    } // fieldViewRelation()
 
 
 

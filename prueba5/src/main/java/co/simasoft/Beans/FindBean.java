@@ -47,6 +47,50 @@ public class FindBean {
         return groupIds;
     }
 
+//      ---------------------- Relationships ------------------------
+
+    public List<Relationships> AllRelationships() {
+        List<Relationships> results = em.createQuery("SELECT o FROM Relationships o").getResultList();
+        if (results.isEmpty()) {
+            return new ArrayList<Relationships>();
+        }
+        return results;
+    }
+
+    public Relationships idRelationships(Long id) {
+
+        Relationships relationships = new Relationships();
+        List<Relationships> results = em.createQuery("SELECT o FROM Relationships o WHERE o.id LIKE :custId").setParameter("custId", id).getResultList();
+
+        if (!results.isEmpty()) {
+
+           relationships = results.get(0);
+        }
+        return relationships;
+    }
+
+//      ---------------------- Cardinalities ------------------------
+
+    public List<Cardinalities> AllCardinalities() {
+        List<Cardinalities> results = em.createQuery("SELECT o FROM Cardinalities o").getResultList();
+        if (results.isEmpty()) {
+            return new ArrayList<Cardinalities>();
+        }
+        return results;
+    }
+
+    public Cardinalities idCardinalities(Long id) {
+
+        Cardinalities cardinalities = new Cardinalities();
+        List<Cardinalities> results = em.createQuery("SELECT o FROM Cardinalities o WHERE o.id LIKE :custId").setParameter("custId", id).getResultList();
+
+        if (!results.isEmpty()) {
+
+           cardinalities = results.get(0);
+        }
+        return cardinalities;
+    }
+
 //      ---------------------- Entities ------------------------
 
     public List<Entities> AllEntities() {

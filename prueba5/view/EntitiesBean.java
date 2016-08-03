@@ -108,7 +108,7 @@ public class EntitiesBean implements Serializable {
 
         /*
          * Support updating and deleting Entities entities
-        */
+         */
 
         public String update() {
                 this.conversation.end();
@@ -133,6 +133,20 @@ public class EntitiesBean implements Serializable {
 
                 try {
                         Entities deletableEntity = findById(getId());
+          Iterator<Relationships> iterFrom = deletableEntity.getFrom().iterator();
+          for (; iterFrom.hasNext();){
+             Relationships nextInFrom = iterFrom.next();
+             nextInFrom.setFrom(null);
+             iterFrom.remove();
+             this.entityManager.merge(nextInFrom);
+          }
+          Iterator<Relationships> iterTo = deletableEntity.getTo().iterator();
+          for (; iterTo.hasNext();){
+             Relationships nextInTo = iterTo.next();
+             nextInTo.setTo(null);
+             iterTo.remove();
+             this.entityManager.merge(nextInTo);
+          }
                         GroupIds groupIds = deletableEntity.getGroupIds();
                         groupIds.getEntities().remove(deletableEntity);
                         deletableEntity.setGroupIds(null);
@@ -192,17 +206,14 @@ public class EntitiesBean implements Serializable {
                 Root<Entities> root = countCriteria.from(Entities.class);
                 countCriteria = countCriteria.select(builder.count(root)).where(
                                 getSearchPredicates(root));
-                this.count = this.entityManager.createQuery(countCriteria)
-                                .getSingleResult();
+                this.count = this.entityManager.createQuery(countCriteria).getSingleResult();
 
                 // Populate this.pageItems
 
                 CriteriaQuery<Entities> criteria = builder.createQuery(Entities.class);
                 root = criteria.from(Entities.class);
-                TypedQuery<Entities> query = this.entityManager.createQuery(criteria
-                                .select(root).where(getSearchPredicates(root)));
-                query.setFirstResult(this.page * getPageSize()).setMaxResults(
-                                getPageSize());
+                TypedQuery<Entities> query = this.entityManager.createQuery(criteria.select(root).where(getSearchPredicates(root)));
+                query.setFirstResult(this.page * getPageSize()).setMaxResults(getPageSize());
                 this.pageItems = query.getResultList();
         }
 
@@ -222,18 +233,13 @@ public class EntitiesBean implements Serializable {
                 return this.count;
         }
 
-
         /*
-         * Support listing and POSTing back Entities entities (e.g. from inside an 
-         * HtmlSelectOneMenu)
+         * Support listing and POSTing back Entities entities (e.g. from inside an HtmlSelectOneMenu)
          */
 
         public List<Entities> getAll() {
-
-                CriteriaQuery<Entities> criteria = this.entityManager
-                                .getCriteriaBuilder().createQuery(Entities.class);
-                return this.entityManager.createQuery(
-                                criteria.select(criteria.from(Entities.class))).getResultList();
+                CriteriaQuery<Entities> criteria = this.entityManager.getCriteriaBuilder().createQuery(Entities.class);
+                return this.entityManager.createQuery(criteria.select(criteria.from(Entities.class))).getResultList();
         }
 
         @Resource
@@ -241,30 +247,25 @@ public class EntitiesBean implements Serializable {
 
         public Converter getConverter() {
 
-                final EntitiesBean ejbProxy = this.sessionContext
-                                .getBusinessObject(EntitiesBean.class);
+                final EntitiesBean ejbProxy = this.sessionContext.getBusinessObject(EntitiesBean.class);
 
+                return new Converter(){
 
-                return new Converter() {
                         @Override
-                        public Object getAsObject(FacesContext context,
-                                        UIComponent component, String value) {
-
-                                return ejbProxy.findById(Long.valueOf(value));
+                        public Object getAsObject(FacesContext context,UIComponent component, String value){
+                               return ejbProxy.findById(Long.valueOf(value));
                         }
 
                         @Override
-                        public String getAsString(FacesContext context,
-                                        UIComponent component, Object value) {
-
-                                if (value == null) {
-                                        return "";
+                        public String getAsString(FacesContext context,UIComponent component, Object value){
+                                if (value == null){
+                                    return "";
                                 }
-
                                 return String.valueOf(((Entities) value).getId());
                         }
-                };
-        }
+
+        };
+   }
 
         /*
          * Support adding children to bidirectional, one-to-many tables
@@ -273,13 +274,13 @@ public class EntitiesBean implements Serializable {
         private Entities add = new Entities();
 
         public Entities getAdd() {
-                return this.add;
+               return this.add;
         }
 
         public Entities getAdded() {
-                Entities added = this.add;
-                this.add = new Entities();
-                return added;
+               Entities added = this.add;
+               this.add = new Entities();
+               return added;
         }
 
 }

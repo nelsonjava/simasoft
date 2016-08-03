@@ -26,6 +26,8 @@ import javax.persistence.criteria.Root;
 
 import co.simasoft.models.Entities;
 import co.simasoft.models.GroupIds;
+import co.simasoft.models.Relationships;
+import java.util.Iterator;
 
 /**
  * Backing bean for Entities entities.
@@ -131,6 +133,21 @@ public class EntitiesBean implements Serializable {
 
 		try {
 			Entities deletableEntity = findById(getId());
+			Iterator<Relationships> iterFrom = deletableEntity.getFrom()
+					.iterator();
+			for (; iterFrom.hasNext();) {
+				Relationships nextInFrom = iterFrom.next();
+				nextInFrom.setFrom(null);
+				iterFrom.remove();
+				this.entityManager.merge(nextInFrom);
+			}
+			Iterator<Relationships> iterTo = deletableEntity.getTo().iterator();
+			for (; iterTo.hasNext();) {
+				Relationships nextInTo = iterTo.next();
+				nextInTo.setTo(null);
+				iterTo.remove();
+				this.entityManager.merge(nextInTo);
+			}
 			GroupIds groupIds = deletableEntity.getGroupIds();
 			groupIds.getEntities().remove(deletableEntity);
 			deletableEntity.setGroupIds(null);

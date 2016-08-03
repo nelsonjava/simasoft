@@ -108,7 +108,7 @@ public class GroupIdsBean implements Serializable {
 
         /*
          * Support updating and deleting GroupIds entities
-        */
+         */
 
         public String update() {
                 this.conversation.end();
@@ -126,7 +126,6 @@ public class GroupIdsBean implements Serializable {
                                         new FacesMessage(e.getMessage()));
                         return null;
                 }
-
         }
 
         public String delete() {
@@ -134,13 +133,12 @@ public class GroupIdsBean implements Serializable {
 
                 try {
                         GroupIds deletableEntity = findById(getId());
-                        Iterator<Entities> iterEntities = deletableEntity.getEntities()
-                                        .iterator();
-                        for (; iterEntities.hasNext();) {
-                                Entities nextInEntities = iterEntities.next();
+                        Iterator<Entities> iterEntities = deletableEntity.getEntities().iterator();
+                        for (; iterEntities.hasNext();){
+                               Entities nextInEntities = iterEntities.next();
                                 nextInEntities.setGroupIds(null);
-                                iterEntities.remove();
-                                this.entityManager.merge(nextInEntities);
+                               iterEntities.remove();
+                               this.entityManager.merge(nextInEntities);
                         }
                         this.entityManager.remove(deletableEntity);
                         this.entityManager.flush();
@@ -242,18 +240,18 @@ public class GroupIdsBean implements Serializable {
 
                 return new Converter(){
 
-                @Override
-                public Object getAsObject(FacesContext context,UIComponent component, String value){
-                       return ejbProxy.findById(Long.valueOf(value));
-                }
+                        @Override
+                        public Object getAsObject(FacesContext context,UIComponent component, String value){
+                               return ejbProxy.findById(Long.valueOf(value));
+                        }
 
-                @Override
-                public String getAsString(FacesContext context,UIComponent component, Object value){
-                       if (value == null){
-                          return "";
-                       }
-                       return String.valueOf(((GroupIds) value).getId());
-                }
+                        @Override
+                        public String getAsString(FacesContext context,UIComponent component, Object value){
+                                if (value == null){
+                                    return "";
+                                }
+                                return String.valueOf(((GroupIds) value).getId());
+                        }
 
         };
    }

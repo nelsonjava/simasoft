@@ -1,0 +1,123 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:forgeview="http://jboss.org/forge/view"
+        template="/resources/scaffold/pageTemplate.xhtml">
+
+        <f:metadata>
+                <f:viewParam name="id" value='#{groupIdsBean.id}'/>
+                <f:event type="preRenderView" listener='#{groupIdsBean.retrieve}'/>
+        </f:metadata>
+
+        <ui:param name="pageTitle" value="View GroupIds"/>
+
+        <ui:define name="header">
+                GroupIds
+        </ui:define>
+
+        <ui:define name="subheader">
+                View existing GroupIds
+        </ui:define>
+
+        <ui:define name="footer"/>
+
+        <ui:define name="main">
+                <h:panelGrid columnClasses="label,component,required" columns="3">
+
+                        <h:outputLabel for="groupIdsBeanGroupIdsOrden" value="Orden:"/>
+                        <h:outputText id="groupIdsBeanGroupIdsOrden" value="#{groupIdsBean.groupIds.orden}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="groupIdsBeanGroupIdsArtifactId" value="ArtifactId:"/>
+                        <h:outputText id="groupIdsBeanGroupIdsArtifactId" value="#{groupIdsBean.groupIds.artifactId}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="groupIdsBeanGroupIdsGroupId" value="GroupId:"/>
+                        <h:outputText id="groupIdsBeanGroupIdsGroupId" value="#{groupIdsBean.groupIds.groupId}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="groupIdsBeanGroupIdsVersion" value="Version:"/>
+                        <h:outputText id="groupIdsBeanGroupIdsVersion" value="#{groupIdsBean.groupIds.version}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="groupIdsBeanGroupIdsCode" value="Code:"/>
+                        <h:outputText id="groupIdsBeanGroupIdsCode" value="#{groupIdsBean.groupIds.code}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="groupIdsBeanGroupIdsDate" value="Date:"/>
+                        <h:outputText id="groupIdsBeanGroupIdsDate" value="Pendiente"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="groupIdsBeanGroupIdsObservations" value="Observations:"/>
+                        <h:outputText id="groupIdsBeanGroupIdsObservations" value="#{groupIdsBean.groupIds.observations}" escape="false" />
+                        <h:outputText/>
+
+                        <h:outputLabel for="GroupIdsBeanGroupIdsEntities" value="Entities:"/>
+                        <h:dataTable id="groupIdsBeanGroupIdsentities" styleClass="data-table" value="#{forgeview:asList(groupIdsBean.groupIds.entities)}" var="_item">
+
+                                     <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Orden"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/entities/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemOrden" value="#{_item.orden}"/>
+                                        </h:link>
+                                     </h:column>
+
+                                     <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Name"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/entities/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemName" value="#{_item.name}"/>
+                                        </h:link>
+                                     </h:column>
+
+                                     <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="SerialID"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/entities/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemSerialID" value="#{_item.serialID}"/>
+                                        </h:link>
+                                     </h:column>
+
+                                     <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Table"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/entities/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemTable" value="#{_item.table}"/>
+                                        </h:link>
+                                     </h:column>
+
+                                     <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Description"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/entities/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemDescription" value="#{_item.description}"/>
+                                        </h:link>
+                                     </h:column>
+
+                        </h:dataTable>
+                        <h:outputText/>
+
+                </h:panelGrid>
+
+                <div class="buttons">
+                        <h:link value="View All" outcome="search" styleClass="btn btn-primary"/>
+                        <h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
+                        <h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
+                </div>
+        </ui:define>
+</ui:composition>

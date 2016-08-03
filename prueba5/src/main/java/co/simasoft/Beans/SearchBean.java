@@ -100,6 +100,28 @@ public class SearchBean {
         return results;
     }
 
+    public List<Relationships> selectAllRelationships(EntityManager em) {
+        prepare(Relationships.class,em);
+
+        Query query = qb.all().createQuery();
+
+        List<Relationships> results = execute(query,
+                                              new Class[]{Relationships.class}, null,
+                                              new SortField("orden", SortField.DOUBLE));
+        return results;
+    }
+
+    public List<Cardinalities> selectAllCardinalities(EntityManager em) {
+        prepare(Cardinalities.class,em);
+
+        Query query = qb.all().createQuery();
+
+        List<Cardinalities> results = execute(query,
+                                              new Class[]{Cardinalities.class}, null,
+                                              new SortField("orden", SortField.DOUBLE));
+        return results;
+    }
+
     public List<Entities> selectAllEntities(EntityManager em) {
         prepare(Entities.class,em);
 

@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:forgeview="http://jboss.org/forge/view"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="id" value='#{cardinalitiesBean.id}'/>
+		<f:event type="preRenderView" listener='#{cardinalitiesBean.retrieve}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="View Cardinalities"/>
+
+	<ui:define name="header">
+		Cardinalities
+	</ui:define>
+
+	<ui:define name="subheader">
+		View existing Cardinalities
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:panelGrid columnClasses="label,component,required" columns="3">
+			<h:outputLabel for="cardinalitiesBeanCardinalitiesOrden" value="Orden:"/>
+			<h:outputText id="cardinalitiesBeanCardinalitiesOrden" value="#{cardinalitiesBean.cardinalities.orden}"/>
+			<h:outputText/>
+			<h:outputLabel for="cardinalitiesBeanCardinalitiesObservations" value="Observations:"/>
+			<h:inputTextarea id="cardinalitiesBeanCardinalitiesObservations" value="#{cardinalitiesBean.cardinalities.observations}"/>
+			<h:outputText/>
+			<h:outputLabel for="cardinalitiesBeanCardinalitiesName" value="Name:"/>
+			<h:outputText id="cardinalitiesBeanCardinalitiesName" value="#{cardinalitiesBean.cardinalities.name}"/>
+			<h:outputText/>
+			<h:outputLabel for="cardinalitiesBeanCardinalitiesCardinality" value="Cardinality:"/>
+			<h:outputText id="cardinalitiesBeanCardinalitiesCardinality" value="#{cardinalitiesBean.cardinalities.cardinality}"/>
+			<h:outputText/>
+			<h:outputLabel for="cardinalitiesBeanCardinalitiesIsUnidirectional" value="Is Unidirectional:"/>
+			<h:outputText id="cardinalitiesBeanCardinalitiesIsUnidirectional" value="#{cardinalitiesBean.cardinalities.isUnidirectional}"/>
+			<h:outputText/>
+			<h:outputLabel for="cardinalitiesBeanCardinalitiesObjHijos" value="Obj Hijos:"/>
+			<h:dataTable id="cardinalitiesBeanCardinalitiesObjHijos" styleClass="data-table" value="#{forgeview:asList(cardinalitiesBean.cardinalities.objHijos)}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Name"/>
+					</f:facet>
+					<h:link outcome="/admin/cardinalities/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemName" value="#{_item.name}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Cardinality"/>
+					</f:facet>
+					<h:link outcome="/admin/cardinalities/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemCardinality" value="#{_item.cardinality}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<h:outputText/>
+			<h:outputLabel for="cardinalitiesBeanCardinalitiesObjPadre" value="Obj Padre:"/>
+			<h:link id="cardinalitiesBeanCardinalitiesObjPadre" outcome="/admin/cardinalities/view" rendered="#{!empty cardinalitiesBean.cardinalities.objPadre}" value="#{cardinalitiesBean.cardinalities.objPadre}">
+				<f:param name="id" value="#{cardinalitiesBean.cardinalities.objPadre.id}"/>
+			</h:link>
+			<h:outputText/>
+		</h:panelGrid>
+
+		<div class="buttons">
+			<h:link value="View All" outcome="search" styleClass="btn btn-primary"/> 
+			<h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
+			<h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
+		</div>
+	</ui:define>
+
+</ui:composition>

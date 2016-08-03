@@ -237,7 +237,33 @@ public class Entidad {
 
             case "Muchos a Uno Unidireccional No.3":
 
-                 xhtml =  space+relation.getNameCardinality()+"\n";
+                 if (Utils.isEmpty(relation.getAttribute())){
+                     atribute = "";
+                 }
+                 else{
+                     atribute = "."+relation.getAttribute() ;
+                 }
+
+
+                 if (relation.getFrom().equals(relation.getTo())){  // Relación Unitaria
+
+                     xhtml  = space+"<h:outputLabel for=\""+to+"Bean"+To+"objPadre\" value=\""+relationName+":\"/>\n";
+                     xhtml += space+"<h:link id=\""+to+"Bean"+To+"objPadre\" outcome=\"/admin/"+from+"/view\" rendered=\"#{!empty "+to+"Bean."+to+".objPadre}\" value=\"#{"+to+"Bean."+to+".objPadre}\">\n";
+                     xhtml += space+"        <f:param name=\"id\" value=\"#{"+to+"Bean."+to+".objPadre.id}\"/>\n";
+                     xhtml += space+"</h:link>\n";
+                     xhtml += space+"<h:outputText/>\n";
+                 }
+                 else{
+
+                     xhtml  = space+"<h:outputLabel for=\""+from+"Bean"+From+To+"\" value=\""+To+":\"/>\n";
+                     xhtml += space+"<h:link id=\""+from+"Bean"+From+To+"\" outcome=\"/admin/"+to+"/view\" rendered=\"#{!empty "+from+"Bean."+from+"."+to+"}\" value=\"#{"+from+"Bean."+from+"."+to+atribute+"}\">\n";
+                     xhtml += space+"        <f:param name=\"id\" value=\"#{"+from+"Bean."+from+"."+to+".id}\"/>\n";
+                     xhtml += space+"</h:link>\n";
+                     xhtml += space+"<h:outputText/>\n";
+
+                 }
+
+
 
                  break;
 
@@ -832,7 +858,7 @@ xhtml +=  space+"<!-- to:"+to+" -->\n";
                     xhtml += space+" -->\n";
 */
 
-                 if (getName().equals(From)){ // relación Unitaria
+                 if (getName().equals(To)){ // relación Unitaria
 
                      xhtml =  space+"<h:outputLabel for=\""+from+"Bean"+from+"objPadre\" value=\""+To+":\"/>"+"\n";
                      xhtml += space+"<h:panelGroup>\n";
@@ -847,14 +873,15 @@ xhtml +=  space+"<!-- to:"+to+" -->\n";
                  }
                  else{ // relación inversa.
 
+
                       if (relation.getName() == null || relation.getName().isEmpty()){
-                          xhtml =  space+"<h:outputLabel for=\""+to+"Bean"+to+From+"\" value=\""+From+":\"/>"+"\n";
+                          xhtml =  space+"<h:outputLabel for=\""+from+"Bean"+From+To+"\" value=\""+To+":\"/>"+"\n";
                           xhtml += space+"<h:panelGroup>\n";
-                          xhtml += space+"         <h:selectOneMenu converter=\"#{"+from+"Bean.converter}\" id=\""+to+"Bean"+To+From+"\" value=\"#{"+to+"Bean."+to+"."+from+"}\">\n";
+                          xhtml += space+"         <h:selectOneMenu converter=\"#{"+to+"Bean.converter}\" id=\""+from+"Bean"+From+To+"\" value=\"#{"+from+"Bean."+from+"."+to+"}\">\n";
                           xhtml += space+"                <f:selectItem/>\n";
-                          xhtml += space+"                <f:selectItems itemLabel=\"#{forgeview:display(_item."+relation.getEntityFrom().getFieldCreate()+")}\" itemValue=\"#{_item}\" value=\"#{"+from+"Bean.all}\" var=\"_item\"/>\n";
+                          xhtml += space+"                <f:selectItems itemLabel=\"#{forgeview:display(_item."+relation.getEntityTo().getFieldCreate()+")}\" itemValue=\"#{_item}\" value=\"#{"+to+"Bean.all}\" var=\"_item\"/>\n";
                           xhtml += space+"        </h:selectOneMenu>\n";
-                          xhtml += space+"        <h:message for=\"entitiesBeanEntitiesIsSimplified\" styleClass=\"error\"/>\n";
+                          xhtml += space+"        <h:message for=\""+from+"Bean"+From+"\" styleClass=\"error\"/>\n";
                           xhtml += space+"</h:panelGroup>\n";
                           xhtml += space+"<h:outputText/>\n";
                       }
@@ -1097,5 +1124,20 @@ xhtml +=  space+"<!-- to:"+to+" -->\n";
         return field;
 
     } // fieldCreate()
+
+    public String fieldViewRelation(){
+
+        String field = "";
+        for (Atributos atributo :atributos) {
+            if (atributo.getIsViewRelation()){
+               field = atributo.getField();
+               return field;
+            }
+        }
+        return field;
+
+    } // fieldViewRelation()
+
+
 
 } // Entidad

@@ -10,6 +10,8 @@
     <provider>org.hibernate.ejb.HibernatePersistence</provider>
 
     <class>co.simasoft.models.GroupIds</class>
+    <class>co.simasoft.models.Relationships</class>
+    <class>co.simasoft.models.Cardinalities</class>
     <class>co.simasoft.models.Entities</class>
 
     <exclude-unlisted-classes>true</exclude-unlisted-classes>
