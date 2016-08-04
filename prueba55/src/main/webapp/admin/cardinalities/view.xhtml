@@ -93,9 +93,9 @@
                         </h:dataTable>
                         <h:outputText/>
 
-                        <h:outputLabel for="cardinalitiesBeanCardinalitiesobjPadre" value=":"/>
-                        <h:link id="cardinalitiesBeanCardinalitiesobjPadre" outcome="/admin/cardinalities/view" rendered="#{!empty cardinalitiesBean.cardinalities.objPadre}" value="#{cardinalitiesBean.cardinalities.objPadre}">
-                                <f:param name="id" value="#{cardinalitiesBean.cardinalities.objPadre.id}"/>
+                        <h:outputLabel for="cardinalitiesBeanCardinalitiesobjPadre" value="Cardinalities:"/>
+                        <h:link id="cardinalitiesBeanCardinalitiesobjPadre" outcome="/admin/cardinalities/view" rendered="#{!empty cardinalitiesBean.cardinalities.objPadre}" value="#{cardinalitiesBean.cardinalities.objPadre.name}">
+                                 <f:param name="id" value="#{cardinalitiesBean.cardinalities.objPadre.id}"/>
                         </h:link>
                         <h:outputText/>
 

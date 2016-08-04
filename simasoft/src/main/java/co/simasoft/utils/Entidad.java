@@ -227,13 +227,39 @@ public class Entidad {
            To = Utils._1raMay(to);
         }
 
-
+        if (Utils.isEmpty(relation.getAttribute())){
+            atribute = "";
+        }
+        else {
+             atribute = "."+relation.getAttribute() ;
+        }
 
 /*
-        xhtml += space+relation.getEntityTo().getName()+":"+atributos.getField()+"\n";
-        xhtml += relation.getFrom()+" "+relation.getCardinality()+" "+relation.getTo()+"\n";
-        xhtml += relation.getEntityTo().getName()+"\n";
+        xhtml = "\n";
+        xhtml += space+"<!-- \n";
+        xhtml += space+"===================\n";
+        xhtml += space+relation.getNameCardinality()+"\n";
+        xhtml += space+"relation.getName()="+relation.getName()+"\n";
+        xhtml += space+relation.getCardinality()+"\n";
+        xhtml += space+"name:"+name+"\n";
+        xhtml += space+"From:"+From+"\n";
+        xhtml += space+"from:"+from+"\n";
+        xhtml += space+"To:"+To+"\n";
+        xhtml += space+"to:"+to+"\n";
+        xhtml += space+"RelationName:"+RelationName+"\n";
+        xhtml += space+"relationName:"+relationName+"\n";
+        xhtml += space+"atri:"+atri+"\n";
+        xhtml += space+"atribute:"+atribute+"\n";
+        xhtml += space+"===================\n";
+        if (relation.getFrom().equals(relation.getTo())){  // Relación Unitaria
+            xhtml += space+"UNITARIA\n";
+        }
+        else {
+            xhtml += space+"NO UNITARIA\n";
+        }
+        xhtml += space+" -->\n\n";
 */
+
 
         switch (relation.getNameCardinality()) {
 
@@ -250,19 +276,11 @@ public class Entidad {
 
             case "Muchos a Uno Unidireccional No.3":
 
-                 if (Utils.isEmpty(relation.getAttribute())){
-                     atribute = "";
-                 }
-                 else{
-                     atribute = "."+relation.getAttribute() ;
-                 }
-
-
                  if (relation.getFrom().equals(relation.getTo())){  // Relación Unitaria
 
-                     xhtml  = space+"<h:outputLabel for=\""+to+"Bean"+To+"objPadre\" value=\""+relationName+":\"/>\n";
-                     xhtml += space+"<h:link id=\""+to+"Bean"+To+"objPadre\" outcome=\"/admin/"+from+"/view\" rendered=\"#{!empty "+to+"Bean."+to+".objPadre}\" value=\"#{"+to+"Bean."+to+".objPadre}\">\n";
-                     xhtml += space+"        <f:param name=\"id\" value=\"#{"+to+"Bean."+to+".objPadre.id}\"/>\n";
+                     xhtml  = space+"<h:outputLabel for=\""+to+"Bean"+To+"objPadre\" value=\""+To+":\"/>\n";
+                     xhtml += space+"<h:link id=\""+to+"Bean"+To+"objPadre\" outcome=\"/admin/"+from+"/view\" rendered=\"#{!empty "+to+"Bean."+to+".objPadre}\" value=\"#{"+to+"Bean."+to+".objPadre"+atribute+"}\">\n";
+                     xhtml += space+"         <f:param name=\"id\" value=\"#{"+to+"Bean."+to+".objPadre.id}\"/>\n";
                      xhtml += space+"</h:link>\n";
                      xhtml += space+"<h:outputText/>\n";
                  }
@@ -270,13 +288,11 @@ public class Entidad {
 
                      xhtml  = space+"<h:outputLabel for=\""+from+"Bean"+From+To+"\" value=\""+To+":\"/>\n";
                      xhtml += space+"<h:link id=\""+from+"Bean"+From+To+"\" outcome=\"/admin/"+to+"/view\" rendered=\"#{!empty "+from+"Bean."+from+"."+to+"}\" value=\"#{"+from+"Bean."+from+"."+to+atribute+"}\">\n";
-                     xhtml += space+"        <f:param name=\"id\" value=\"#{"+from+"Bean."+from+"."+to+".id}\"/>\n";
+                     xhtml += space+"         <f:param name=\"id\" value=\"#{"+from+"Bean."+from+"."+to+".id}\"/>\n";
                      xhtml += space+"</h:link>\n";
                      xhtml += space+"<h:outputText/>\n";
 
                  }
-
-
 
                  break;
 
@@ -287,34 +303,6 @@ public class Entidad {
                  break;
 
             case "Uno a Muchos Bidirecccional No.5":
-
-//                 xhtml += relation.getNameCardinality();
-
-/*
-                 xhtml = "\n";
-                 xhtml += space+"<!-- \n";
-                 xhtml += space+"===================\n";
-                 xhtml += space+"Uno a Muchos Bidirecccional No.5\n";
-                 xhtml += space+"relation.getName()="+relation.getName()+"\n";
-                 xhtml += space+relation.getCardinality()+"\n";
-                 xhtml += space+"name:"+name+"\n";
-                 xhtml += space+"From:"+From+"\n";
-                 xhtml += space+"from:"+from+"\n";
-                 xhtml += space+"To:"+To+"\n";
-                 xhtml += space+"to:"+to+"\n";
-                 xhtml += space+"RelationName:"+RelationName+"\n";
-                 xhtml += space+"relationName:"+relationName+"\n";
-                 xhtml += space+"atri:"+atri+"\n";
-                 xhtml += space+"atribute:"+atribute+"\n";
-                 xhtml += space+"===================\n";
-                 if (relation.getFrom().equals(relation.getTo())){  // Relación Unitaria
-                     xhtml += space+"UNITARIA\n";
-                 }
-                 else {
-                     xhtml += space+"NO UNITARIA\n";
-                 }
-                 xhtml += space+" -->\n\n";
-*/
 
                  if (relation.getFrom().equals(relation.getTo())){  // Relación Unitaria
 
@@ -358,31 +346,6 @@ public class Entidad {
                  break;
 
             case "Muchos a Muchos Bidirecccional No.7":
-
-/*
-                 xhtml = "\n";
-                 xhtml += space+"<!-- \n";
-                 xhtml += space+"===================\n";
-                 xhtml += space+"Muchos a Muchos Bidirecccional No.7\n";
-                 xhtml += space+relation.getCardinality()+"\n";
-                 xhtml += space+"From:"+From+"\n";
-                 xhtml += space+"from:"+from+"\n";
-                 xhtml += space+"To:"+To+"\n";
-                 xhtml += space+"to:"+to+"\n";
-                 xhtml += space+"RelationName:"+RelationName+"\n";
-                 xhtml += space+"relationName:"+relationName+"\n";
-                 xhtml += space+"atri:"+atri+"\n";
-                 xhtml += space+"atribute:"+atribute+"\n";
-                 xhtml += space+"===================\n";
-                 if (relation.getFrom().equals(relation.getTo())){  // Relación Unitaria
-                        xhtml += space+"UNITARIA\n";
-                 }
-                 else {
-                        xhtml += space+"NO UNITARIA\n";
-                 }
-                 xhtml += space+" -->\n";
-*/
-
 
                  if (getName().equals(From)){
 
