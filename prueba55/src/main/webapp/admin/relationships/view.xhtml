@@ -64,15 +64,15 @@
                         <h:outputText id="relationshipsBeanRelationshipsObservations" value="#{relationshipsBean.relationships.observations}" escape="false" />
                         <h:outputText/>
 
-                        <h:outputLabel for="relationshipsBeanRelationshipsEntities" value="Entities:"/>
-                        <h:link id="relationshipsBeanRelationshipsEntities" outcome="/admin/entities/view" rendered="#{!empty relationshipsBean.relationships.entities}" value="#{relationshipsBean.relationships.entities.name}">
-                                <f:param name="id" value="#{relationshipsBean.relationships.entities.id}"/>
+                        <h:outputLabel for="relationshipsBeanRelationshipsFrom" value="From:"/>
+                        <h:link id="relationshipsBeanRelationshipsFrom" outcome="/admin/from/view" rendered="#{!empty relationshipsBean.relationships.from}" value="#{relationshipsBean.relationships.from.name}">
+                                <f:param name="id" value="#{relationshipsBean.relationships.from.id}"/>
                         </h:link>
                         <h:outputText/>
 
-                        <h:outputLabel for="relationshipsBeanRelationshipsEntities" value="Entities:"/>
-                        <h:link id="relationshipsBeanRelationshipsEntities" outcome="/admin/entities/view" rendered="#{!empty relationshipsBean.relationships.entities}" value="#{relationshipsBean.relationships.entities.name}">
-                                <f:param name="id" value="#{relationshipsBean.relationships.entities.id}"/>
+                        <h:outputLabel for="relationshipsBeanRelationshipsTo" value="To:"/>
+                        <h:link id="relationshipsBeanRelationshipsTo" outcome="/admin/to/view" rendered="#{!empty relationshipsBean.relationships.to}" value="#{relationshipsBean.relationships.to.name}">
+                                <f:param name="id" value="#{relationshipsBean.relationships.to.id}"/>
                         </h:link>
                         <h:outputText/>
 
