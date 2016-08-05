@@ -32,18 +32,6 @@
                         <h:outputText id="attributesBeanAttributesOrden" value="#{attributesBean.attributes.orden}"/>
                         <h:outputText/>
 
-                        <h:outputLabel for="attributesBeanAttributesIsView" value="IsView:"/>
-                        <h:outputText id="attributesBeanAttributesIsView" value="#{attributesBean.attributes.isView}"/>
-                        <h:outputText/>
-
-                        <h:outputLabel for="attributesBeanAttributesIsViewColumn" value="IsViewColumn:"/>
-                        <h:outputText id="attributesBeanAttributesIsViewColumn" value="#{attributesBean.attributes.isViewColumn}"/>
-                        <h:outputText/>
-
-                        <h:outputLabel for="attributesBeanAttributesIsViewRelation" value="IsViewRelation:"/>
-                        <h:outputText id="attributesBeanAttributesIsViewRelation" value="#{attributesBean.attributes.isViewRelation}"/>
-                        <h:outputText/>
-
                         <h:outputLabel for="attributesBeanAttributesName" value="Name:"/>
                         <h:outputText id="attributesBeanAttributesName" value="#{attributesBean.attributes.name}"/>
                         <h:outputText/>
@@ -80,93 +68,27 @@
                         <h:outputText id="attributesBeanAttributesIsSearch" value="#{attributesBean.attributes.isSearch}"/>
                         <h:outputText/>
 
+                        <h:outputLabel for="attributesBeanAttributesIsView" value="IsView:"/>
+                        <h:outputText id="attributesBeanAttributesIsView" value="#{attributesBean.attributes.isView}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="attributesBeanAttributesIsViewColumn" value="IsViewColumn:"/>
+                        <h:outputText id="attributesBeanAttributesIsViewColumn" value="#{attributesBean.attributes.isViewColumn}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="attributesBeanAttributesIsViewRelation" value="IsViewRelation:"/>
+                        <h:outputText id="attributesBeanAttributesIsViewRelation" value="#{attributesBean.attributes.isViewRelation}"/>
+                        <h:outputText/>
+
                         <h:outputLabel for="attributesBeanAttributesObservations" value="Observations:"/>
                         <h:outputText id="attributesBeanAttributesObservations" value="#{attributesBean.attributes.observations}" escape="false" />
                         <h:outputText/>
 
-                        <h:outputLabel for="attributesBeanAttributesSites" value="Sites:"/>
-                        <h:dataTable id="attributesBeanAttributessites" styleClass="data-table" value="#{forgeview:asList(attributesBean.attributes.sites)}" var="_item">
-
-                                     <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="Orden"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/sites/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemOrden" value="#{_item.orden}"/>
-                                        </h:link>
-                                     </h:column>
-
-                                     <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="Title"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/sites/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemTitle" value="#{_item.title}"/>
-                                        </h:link>
-                                     </h:column>
-
-                                     <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="Link"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/sites/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemLink" value="#{_item.link}"/>
-                                        </h:link>
-                                     </h:column>
-
-                                     <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="Abc"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/sites/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemAbc" value="#{_item.abc}"/>
-                                        </h:link>
-                                     </h:column>
-
-                        </h:dataTable>
+                        <h:outputLabel for="attributesBeanAttributesEntities" value="Entities:"/>
+                        <h:link id="attributesBeanAttributesEntities" outcome="/admin/entities/view" rendered="#{!empty attributesBean.attributes.entities}" value="#{attributesBean.attributes.entities.name}">
+                                 <f:param name="id" value="#{attributesBean.attributes.entities.id}"/>
+                        </h:link>
                         <h:outputText/>
-
-                        <h:outputLabel for="attributesBeanAttributesAttributesProperties" value="AttributesProperties:"/>
-                        <h:dataTable id="attributesBeanAttributesattributesProperties" styleClass="data-table" value="#{forgeview:asList(attributesBean.attributes.attributesProperties)}" var="_item">
-
-                                     <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="Orden"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/attributesProperties/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemOrden" value="#{_item.orden}"/>
-                                        </h:link>
-                                     </h:column>
-
-                                     <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="Name"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/attributesProperties/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemName" value="#{_item.name}"/>
-                                        </h:link>
-                                     </h:column>
-
-                                     <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="Value"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/attributesProperties/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemValue" value="#{_item.value}"/>
-                                        </h:link>
-                                     </h:column>
-
-                        </h:dataTable>
-                        <h:outputText/>
-
-
 
                 </h:panelGrid>
 

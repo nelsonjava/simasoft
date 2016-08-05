@@ -48,97 +48,6 @@
                         <h:outputText id="cardinalitiesBeanCardinalitiesObservations" value="#{cardinalitiesBean.cardinalities.observations}" escape="false" />
                         <h:outputText/>
 
-                        <h:outputLabel for="cardinalitiesBeanCardinalitiesSites" value="Sites:"/>
-                        <h:dataTable id="cardinalitiesBeanCardinalitiessites" styleClass="data-table" value="#{forgeview:asList(cardinalitiesBean.cardinalities.sites)}" var="_item">
-
-                                     <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="Orden"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/sites/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemOrden" value="#{_item.orden}"/>
-                                        </h:link>
-                                     </h:column>
-
-                                     <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="Title"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/sites/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemTitle" value="#{_item.title}"/>
-                                        </h:link>
-                                     </h:column>
-
-                                     <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="Link"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/sites/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemLink" value="#{_item.link}"/>
-                                        </h:link>
-                                     </h:column>
-
-                                     <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="Abc"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/sites/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemAbc" value="#{_item.abc}"/>
-                                        </h:link>
-                                     </h:column>
-
-                        </h:dataTable>
-                        <h:outputText/>
-
-                        <h:outputLabel for="CardinalitiesBeanCardinalitiesCardinalities" value="Cardinalities:"/>
-                        <h:dataTable id="cardinalitiesBeanCardinalitiescardinalities" styleClass="data-table" value="#{forgeview:asList(cardinalitiesBean.cardinalities.objHijos)}" var="_item">
-
-                                     <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="Orden"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/cardinalities/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemOrden" value="#{_item.orden}"/>
-                                        </h:link>
-                                     </h:column>
-
-                                     <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="Name"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/cardinalities/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemName" value="#{_item.name}"/>
-                                        </h:link>
-                                     </h:column>
-
-                                     <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="Cardinality"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/cardinalities/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemCardinality" value="#{_item.cardinality}"/>
-                                        </h:link>
-                                     </h:column>
-
-                                     <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="IsUnidirectional"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/cardinalities/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText styleClass="#{_item.isUnidirectional ? 'boolean-true' : 'boolean-false'}" value=""/>                                        </h:link>
-                                     </h:column>
-
-                        </h:dataTable>
-                        <h:outputText/>
-
                         <h:outputLabel for="CardinalitiesBeanCardinalitiesRelationships" value="Relationships:"/>
                         <h:dataTable id="cardinalitiesBeanCardinalitiesrelationships" styleClass="data-table" value="#{forgeview:asList(cardinalitiesBean.cardinalities.relationships)}" var="_item">
 
@@ -149,16 +58,6 @@
                                         <h:link outcome="/admin/relationships/view">
                                                 <f:param name="id" value="#{_item.id}"/>
                                                 <h:outputText id="itemOrden" value="#{_item.orden}"/>
-                                        </h:link>
-                                     </h:column>
-
-                                     <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="Name"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/relationships/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemName" value="#{_item.name}"/>
                                         </h:link>
                                      </h:column>
 
@@ -216,17 +115,27 @@
                                                 <h:outputText styleClass="#{_item.isView ? 'boolean-true' : 'boolean-false'}" value=""/>                                        </h:link>
                                      </h:column>
 
+                                     <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Name"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/relationships/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemName" value="#{_item.name}"/>
+                                        </h:link>
+                                     </h:column>
+
                         </h:dataTable>
                         <h:outputText/>
 
-                        <h:outputLabel for="cardinalitiesBeanCardinalitiesAttributesProperties" value="AttributesProperties:"/>
-                        <h:dataTable id="cardinalitiesBeanCardinalitiesattributesProperties" styleClass="data-table" value="#{forgeview:asList(cardinalitiesBean.cardinalities.attributesProperties)}" var="_item">
+                        <h:outputLabel for="CardinalitiesBeanCardinalitiesCardinalities" value="Cardinalities:"/>
+                        <h:dataTable id="cardinalitiesBeanCardinalitiescardinalities" styleClass="data-table" value="#{forgeview:asList(cardinalitiesBean.cardinalities.objHijos)}" var="_item">
 
                                      <h:column>
                                         <f:facet name="header">
                                                 <h:outputText value="Orden"/>
                                         </f:facet>
-                                        <h:link outcome="/admin/attributesProperties/view">
+                                        <h:link outcome="/admin/cardinalities/view">
                                                 <f:param name="id" value="#{_item.id}"/>
                                                 <h:outputText id="itemOrden" value="#{_item.orden}"/>
                                         </h:link>
@@ -236,7 +145,7 @@
                                         <f:facet name="header">
                                                 <h:outputText value="Name"/>
                                         </f:facet>
-                                        <h:link outcome="/admin/attributesProperties/view">
+                                        <h:link outcome="/admin/cardinalities/view">
                                                 <f:param name="id" value="#{_item.id}"/>
                                                 <h:outputText id="itemName" value="#{_item.name}"/>
                                         </h:link>
@@ -244,43 +153,31 @@
 
                                      <h:column>
                                         <f:facet name="header">
-                                                <h:outputText value="Value"/>
+                                                <h:outputText value="Cardinality"/>
                                         </f:facet>
-                                        <h:link outcome="/admin/attributesProperties/view">
+                                        <h:link outcome="/admin/cardinalities/view">
                                                 <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemValue" value="#{_item.value}"/>
-                                        </h:link>
-                                     </h:column>
-
-                        </h:dataTable>
-                        <h:outputText/>
-
-                        <h:outputLabel for="cardinalitiesBeanCardinalitiesImports" value="Imports:"/>
-                        <h:dataTable id="cardinalitiesBeanCardinalitiesimports" styleClass="data-table" value="#{forgeview:asList(cardinalitiesBean.cardinalities.imports)}" var="_item">
-
-                                     <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="Orden"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/imports/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemOrden" value="#{_item.orden}"/>
+                                                <h:outputText id="itemCardinality" value="#{_item.cardinality}"/>
                                         </h:link>
                                      </h:column>
 
                                      <h:column>
                                         <f:facet name="header">
-                                                <h:outputText value="Name"/>
+                                                <h:outputText value="IsUnidirectional"/>
                                         </f:facet>
-                                        <h:link outcome="/admin/imports/view">
+                                        <h:link outcome="/admin/cardinalities/view">
                                                 <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemName" value="#{_item.name}"/>
-                                        </h:link>
+                                                <h:outputText styleClass="#{_item.isUnidirectional ? 'boolean-true' : 'boolean-false'}" value=""/>                                        </h:link>
                                      </h:column>
 
                         </h:dataTable>
                         <h:outputText/>
 
+                        <h:outputLabel for="cardinalitiesBeanCardinalitiesobjPadre" value="Cardinalities:"/>
+                        <h:link id="cardinalitiesBeanCardinalitiesobjPadre" outcome="/admin/cardinalities/view" rendered="#{!empty cardinalitiesBean.cardinalities.objPadre}" value="#{cardinalitiesBean.cardinalities.objPadre.name}">
+                                 <f:param name="id" value="#{cardinalitiesBean.cardinalities.objPadre.id}"/>
+                        </h:link>
+                        <h:outputText/>
 
                 </h:panelGrid>
 

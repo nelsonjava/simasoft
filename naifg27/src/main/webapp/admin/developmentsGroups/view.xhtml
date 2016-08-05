@@ -44,7 +44,17 @@
                         <h:outputText id="developmentsGroupsBeanDevelopmentsGroupsObservations" value="#{developmentsGroupsBean.developmentsGroups.observations}" escape="false" />
                         <h:outputText/>
 
+                        <h:outputLabel for="developmentsGroupsBeanDevelopmentsGroupsDevelopments" value="Developments:"/>
+                        <h:link id="developmentsGroupsBeanDevelopmentsGroupsDevelopments" outcome="/admin/developments/view" rendered="#{!empty developmentsGroupsBean.developmentsGroups.developments}" value="#{developmentsGroupsBean.developmentsGroups.developments.artifactId}">
+                                 <f:param name="id" value="#{developmentsGroupsBean.developmentsGroups.developments.id}"/>
+                        </h:link>
+                        <h:outputText/>
 
+                        <h:outputLabel for="developmentsGroupsBeanDevelopmentsGroupsGroups" value="Groups:"/>
+                        <h:link id="developmentsGroupsBeanDevelopmentsGroupsGroups" outcome="/admin/groups/view" rendered="#{!empty developmentsGroupsBean.developmentsGroups.groups}" value="#{developmentsGroupsBean.developmentsGroups.groups.name}">
+                                 <f:param name="id" value="#{developmentsGroupsBean.developmentsGroups.groups.id}"/>
+                        </h:link>
+                        <h:outputText/>
 
                 </h:panelGrid>
 

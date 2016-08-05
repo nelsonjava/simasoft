@@ -46,27 +46,6 @@
                                 </h:panelGroup>
                                 <h:outputText/>
 
-                                <h:outputLabel for="dependenciesBeanDependenciesType" value="Type:"/>
-                                <h:panelGroup>
-                                        <h:inputText id="dependenciesBeanDependenciesType" value="#{dependenciesBean.dependencies.type}"/>
-                                        <h:message for="dependenciesBeanDependenciesType" styleClass="error"/>
-                                </h:panelGroup>
-                                <h:outputText/>
-
-                                <h:outputLabel for="dependenciesBeanDependenciesScope" value="Scope:"/>
-                                <h:panelGroup>
-                                        <h:inputText id="dependenciesBeanDependenciesScope" value="#{dependenciesBean.dependencies.scope}"/>
-                                        <h:message for="dependenciesBeanDependenciesScope" styleClass="error"/>
-                                </h:panelGroup>
-                                <h:outputText/>
-
-                                <h:outputLabel for="dependenciesBeanDependenciesMaven" value="Maven:"/>
-                                <h:panelGroup>
-                                        <h:inputText id="dependenciesBeanDependenciesMaven" required="true" value="#{dependenciesBean.dependencies.maven}"/>
-                                        <h:message for="dependenciesBeanDependenciesMaven" styleClass="error"/>
-                                </h:panelGroup>
-                                <h:outputText value="*"/>
-
                                 <h:outputLabel for="dependenciesBeanDependenciesGroupId" value="GroupId:"/>
                                 <h:panelGroup>
                                         <h:inputText id="dependenciesBeanDependenciesGroupId" required="true" value="#{dependenciesBean.dependencies.groupId}"/>
@@ -88,55 +67,27 @@
                                 </h:panelGroup>
                                 <h:outputText/>
 
-
-                                <h:outputLabel for="dependenciesBeandependenciesSites" value="Sites:"/>
+                                <h:outputLabel for="dependenciesBeanDependenciesType" value="Type:"/>
                                 <h:panelGroup>
-                                        <ui:param name="_collection" value="#{dependenciesBean.dependencies.sites}"/>
-                                        <h:dataTable id="dependenciesBeanDependenciesSites" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
-                                     <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="Title"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/sites/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemTitle" value="#{_item.title}"/>
-                                        </h:link>
-                                     </h:column>
-
-                                     <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="Link"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/sites/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemLink" value="#{_item.link}"/>
-                                        </h:link>
-                                     </h:column>
-
-                                     <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="Abc"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/sites/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemAbc" value="#{_item.abc}"/>
-                                        </h:link>
-                                     </h:column>
-
-                                     <h:column footerClass="remove-column" headerClass="remove-column">
-                                        <h:commandLink action="#{_collection.remove(_item)}" styleClass="remove-button"/>
-                                     </h:column>
-                                        </h:dataTable>
-
-                                        <h:panelGrid columnClasses=",remove-column" columns="2" styleClass="data-table-footer">
-                                           <h:selectOneMenu converter="#{sitesBean.converter}" id="dependenciesBeanDependenciesSitesSelect" value="#{requestScope['dependenciesBeanDependenciesSitesSelect']}">
-                                             <f:selectItem/>
-                                             <f:selectItems itemLabel="#{forgeview:display(_item.link)}" itemValue="#{_item}" value="#{sitesBean.all}" var="_item"/>
-                                           </h:selectOneMenu>
-                                           <h:commandLink action="#{_collection.add(requestScope['dependenciesBeanDependenciesSitesSelect'])}" id="dependenciesBeanDependenciesSitesAdd" onclick="if (document.getElementById(document.forms[0].id+':dependenciesBeanDependenciesSitesSelect').selectedIndex &lt; 1) { alert('Must select a Sites'); return false; }" styleClass="add-button"/>
-                                        </h:panelGrid>
+                                        <h:inputText id="dependenciesBeanDependenciesType" value="#{dependenciesBean.dependencies.type}"/>
+                                        <h:message for="dependenciesBeanDependenciesType" styleClass="error"/>
                                 </h:panelGroup>
                                 <h:outputText/>
+
+                                <h:outputLabel for="dependenciesBeanDependenciesScope" value="Scope:"/>
+                                <h:panelGroup>
+                                        <h:inputText id="dependenciesBeanDependenciesScope" value="#{dependenciesBean.dependencies.scope}"/>
+                                        <h:message for="dependenciesBeanDependenciesScope" styleClass="error"/>
+                                </h:panelGroup>
+                                <h:outputText/>
+
+                                <h:outputLabel for="dependenciesBeanDependenciesMaven" value="Maven:"/>
+                                <h:panelGroup>
+                                        <h:inputText id="dependenciesBeanDependenciesMaven" required="true" value="#{dependenciesBean.dependencies.maven}"/>
+                                        <h:message for="dependenciesBeanDependenciesMaven" styleClass="error"/>
+                                </h:panelGroup>
+                                <h:outputText value="*"/>
+
 
                                 <h:outputLabel for="dependenciesBeanDependenciesObservations" value="Observations:"/>
                                 <h:panelGroup>

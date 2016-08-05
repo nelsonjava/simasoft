@@ -30,17 +30,17 @@
                                 <h:panelGroup styleClass="search">
 
                                         <h:panelGrid columnClasses="label,component,required" columns="3">
-                                                <h:outputLabel for="groupsBeanExampleCode" value="Code:"/>
-                                                <h:panelGroup>
-                                                        <h:inputText id="groupsBeanExampleCode" value="#{groupsBean.example.code}"/>
-                                                        <h:message for="groupsBeanExampleCode" styleClass="error"/>
-                                                </h:panelGroup>
-                                                <h:outputText/>
-
                                                 <h:outputLabel for="groupsBeanExampleName" value="Name:"/>
                                                 <h:panelGroup>
                                                         <h:inputText id="groupsBeanExampleName" value="#{groupsBean.example.name}"/>
                                                         <h:message for="groupsBeanExampleName" styleClass="error"/>
+                                                </h:panelGroup>
+                                                <h:outputText/>
+
+                                                <h:outputLabel for="groupsBeanExampleCode" value="Code:"/>
+                                                <h:panelGroup>
+                                                        <h:inputText id="groupsBeanExampleCode" value="#{groupsBean.example.code}"/>
+                                                        <h:message for="groupsBeanExampleCode" styleClass="error"/>
                                                 </h:panelGroup>
                                                 <h:outputText/>
 
@@ -66,22 +66,22 @@
 
                                 <h:column>
                                         <f:facet name="header">
-                                                <h:outputText value="Code"/>
+                                                <h:outputText value="Name"/>
                                         </f:facet>
                                         <h:link outcome="/admin/groups/view">
                                                 <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemCode" value="#{_item.code}"/>
+                                                <h:outputText id="itemName" value="#{_item.name}"/>
                                         </h:link>
                                 </h:column>
 
 
                                 <h:column>
                                         <f:facet name="header">
-                                                <h:outputText value="Name"/>
+                                                <h:outputText value="Code"/>
                                         </f:facet>
                                         <h:link outcome="/admin/groups/view">
                                                 <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemName" value="#{_item.name}"/>
+                                                <h:outputText id="itemCode" value="#{_item.code}"/>
                                         </h:link>
                                 </h:column>
 

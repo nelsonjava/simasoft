@@ -32,19 +32,29 @@
                         <h:outputText id="groupsModelsBeanGroupsModelsOrden" value="#{groupsModelsBean.groupsModels.orden}"/>
                         <h:outputText/>
 
-                        <h:outputLabel for="groupsModelsBeanGroupsModelsCode" value="Code:"/>
-                        <h:outputText id="groupsModelsBeanGroupsModelsCode" value="#{groupsModelsBean.groupsModels.code}"/>
-                        <h:outputText/>
-
                         <h:outputLabel for="groupsModelsBeanGroupsModelsName" value="Name:"/>
                         <h:outputText id="groupsModelsBeanGroupsModelsName" value="#{groupsModelsBean.groupsModels.name}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="groupsModelsBeanGroupsModelsCode" value="Code:"/>
+                        <h:outputText id="groupsModelsBeanGroupsModelsCode" value="#{groupsModelsBean.groupsModels.code}"/>
                         <h:outputText/>
 
                         <h:outputLabel for="groupsModelsBeanGroupsModelsObservations" value="Observations:"/>
                         <h:outputText id="groupsModelsBeanGroupsModelsObservations" value="#{groupsModelsBean.groupsModels.observations}" escape="false" />
                         <h:outputText/>
 
+                        <h:outputLabel for="groupsModelsBeanGroupsModelsModels" value="Models:"/>
+                        <h:link id="groupsModelsBeanGroupsModelsModels" outcome="/admin/models/view" rendered="#{!empty groupsModelsBean.groupsModels.models}" value="#{groupsModelsBean.groupsModels.models.name}">
+                                 <f:param name="id" value="#{groupsModelsBean.groupsModels.models.id}"/>
+                        </h:link>
+                        <h:outputText/>
 
+                        <h:outputLabel for="groupsModelsBeanGroupsModelsGroups" value="Groups:"/>
+                        <h:link id="groupsModelsBeanGroupsModelsGroups" outcome="/admin/groups/view" rendered="#{!empty groupsModelsBean.groupsModels.groups}" value="#{groupsModelsBean.groupsModels.groups.name}">
+                                 <f:param name="id" value="#{groupsModelsBean.groupsModels.groups.id}"/>
+                        </h:link>
+                        <h:outputText/>
 
                 </h:panelGrid>
 

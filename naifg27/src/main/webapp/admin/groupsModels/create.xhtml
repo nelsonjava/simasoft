@@ -46,13 +46,6 @@
                                 </h:panelGroup>
                                 <h:outputText/>
 
-                                <h:outputLabel for="groupsModelsBeanGroupsModelsCode" value="Code:"/>
-                                <h:panelGroup>
-                                        <h:inputText id="groupsModelsBeanGroupsModelsCode" value="#{groupsModelsBean.groupsModels.code}"/>
-                                        <h:message for="groupsModelsBeanGroupsModelsCode" styleClass="error"/>
-                                </h:panelGroup>
-                                <h:outputText/>
-
                                 <h:outputLabel for="groupsModelsBeanGroupsModelsName" value="Name:"/>
                                 <h:panelGroup>
                                         <h:inputText id="groupsModelsBeanGroupsModelsName" required="true" value="#{groupsModelsBean.groupsModels.name}"/>
@@ -60,23 +53,30 @@
                                 </h:panelGroup>
                                 <h:outputText value="*"/>
 
-                                <h:outputLabel for="groupsModelsBeangroupsModelsmodels" value="Models:"/>
+                                <h:outputLabel for="groupsModelsBeanGroupsModelsCode" value="Code:"/>
                                 <h:panelGroup>
-                                         <h:selectOneMenu converter="#{modelsBean.converter}" id="groupsModelsBeanGroupsModels" value="#{groupsModelsBean.groupsModels.models}">
-                                                <f:selectItem/>
-                                                <f:selectItems itemLabel="#{forgeview:display(_item.name)}" itemValue="#{_item}" value="#{modelsBean.all}" var="_item"/>
-                                        </h:selectOneMenu>
-                                        <h:message for="entitiesBeanEntitiesIsSimplified" styleClass="error"/>
+                                        <h:inputText id="groupsModelsBeanGroupsModelsCode" value="#{groupsModelsBean.groupsModels.code}"/>
+                                        <h:message for="groupsModelsBeanGroupsModelsCode" styleClass="error"/>
                                 </h:panelGroup>
                                 <h:outputText/>
 
-                                <h:outputLabel for="groupsModelsBeangroupsModelsgroups" value="Groups:"/>
+                                <h:outputLabel for="groupsModels111111111BeanGroupsModelsModels" value="Models:"/>
+                                <h:panelGroup>
+                                         <h:selectOneMenu converter="#{modelsBean.converter}" id="groupsModelsBeanGroupsModelsModels" value="#{groupsModelsBean.groupsModels.models}">
+                                                <f:selectItem/>
+                                                <f:selectItems itemLabel="#{forgeview:display(_item.name)}" itemValue="#{_item}" value="#{modelsBean.all}" var="_item"/>
+                                        </h:selectOneMenu>
+                                        <h:message for="groupsModelsBeanGroupsModels" styleClass="error"/>
+                                </h:panelGroup>
+                                <h:outputText/>
+
+                                <h:outputLabel for="groupsModels111111111BeanGroupsModelsGroups" value="Groups:"/>
                                 <h:panelGroup>
                                          <h:selectOneMenu converter="#{groupsBean.converter}" id="groupsModelsBeanGroupsModelsGroups" value="#{groupsModelsBean.groupsModels.groups}">
                                                 <f:selectItem/>
                                                 <f:selectItems itemLabel="#{forgeview:display(_item.name)}" itemValue="#{_item}" value="#{groupsBean.all}" var="_item"/>
                                         </h:selectOneMenu>
-                                        <h:message for="entitiesBeanEntitiesIsSimplified" styleClass="error"/>
+                                        <h:message for="groupsModelsBeanGroupsModels" styleClass="error"/>
                                 </h:panelGroup>
                                 <h:outputText/>
 

@@ -60,19 +60,19 @@
                                 </h:panelGroup>
                                 <h:outputText/>
 
-                                <h:outputLabel for="developmentsGroupsBeandevelopmentsGroupsobjPadre" value="Developments:"/>
+                                <h:outputLabel for="developmentsGroupsBeandevelopmentsGroupsdevelopments" value="Developments:"/>
                                 <h:panelGroup>
-                                         <h:selectOneMenu converter="#{developmentsBean.converter}" id="developmentsGroupsBeanDevelopmentsGroupsobjPadre" value="#{developmentsGroupsBean.developmentsGroups.objPadre}">
+                                         <h:selectOneMenu converter="#{developmentsBean.converter}" id="developmentsGroupsBeanDevelopmentsdevelopments" value="#{developmentsGroupsBean.developmentsGroups.developments}">
                                                 <f:selectItem/>
-                                                <f:selectItems itemLabel="#{forgeview:display(_item.name)}" itemValue="#{_item}" value="#{developmentsBean.all}" var="_item"/>
+                                                <f:selectItems itemLabel="#{forgeview:display(_item.artifactId)}" itemValue="#{_item}" value="#{developmentsBean.all}" var="_item"/>
                                         </h:selectOneMenu>
                                         <h:message for="entitiesBeanEntitiesIsSimplified" styleClass="error"/>
                                 </h:panelGroup>
                                 <h:outputText/>
 
-                                <h:outputLabel for="developmentsGroupsBeandevelopmentsGroupsobjPadre" value="Groups:"/>
+                                <h:outputLabel for="developmentsGroupsBeandevelopmentsGroupsgroups" value="Groups:"/>
                                 <h:panelGroup>
-                                         <h:selectOneMenu converter="#{groupsBean.converter}" id="developmentsGroupsBeanDevelopmentsGroupsobjPadre" value="#{developmentsGroupsBean.developmentsGroups.objPadre}">
+                                         <h:selectOneMenu converter="#{groupsBean.converter}" id="developmentsGroupsBeanDevelopmentsGroupsGroups" value="#{developmentsGroupsBean.developmentsGroups.groups}">
                                                 <f:selectItem/>
                                                 <f:selectItems itemLabel="#{forgeview:display(_item.name)}" itemValue="#{_item}" value="#{groupsBean.all}" var="_item"/>
                                         </h:selectOneMenu>

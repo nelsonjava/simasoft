@@ -74,13 +74,13 @@
                                 </h:panelGroup>
                                 <h:outputText/>
 
-                                <h:outputLabel for="fieldsBeanfieldsobjPadre" value="AttributesTypes:"/>
+                                <h:outputLabel for="fields111111111BeanFieldsAttributesTypes" value="AttributesTypes:"/>
                                 <h:panelGroup>
-                                         <h:selectOneMenu converter="#{attributesTypesBean.converter}" id="fieldsBeanFieldsobjPadre" value="#{fieldsBean.fields.objPadre}">
+                                         <h:selectOneMenu converter="#{attributesTypesBean.converter}" id="fieldsBeanFieldsAttributesTypes" value="#{fieldsBean.fields.attributesTypes}">
                                                 <f:selectItem/>
-                                                <f:selectItems itemLabel="#{forgeview:display(_item.name)}" itemValue="#{_item}" value="#{attributesTypesBean.all}" var="_item"/>
+                                                <f:selectItems itemLabel="#{forgeview:display(_item.type)}" itemValue="#{_item}" value="#{attributesTypesBean.all}" var="_item"/>
                                         </h:selectOneMenu>
-                                        <h:message for="entitiesBeanEntitiesIsSimplified" styleClass="error"/>
+                                        <h:message for="fieldsBeanFields" styleClass="error"/>
                                 </h:panelGroup>
                                 <h:outputText/>
 

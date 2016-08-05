@@ -52,6 +52,11 @@
                         <h:outputText id="fieldsBeanFieldsObservations" value="#{fieldsBean.fields.observations}" escape="false" />
                         <h:outputText/>
 
+                        <h:outputLabel for="fieldsBeanFieldsAttributesTypes" value="AttributesTypes:"/>
+                        <h:link id="fieldsBeanFieldsAttributesTypes" outcome="/admin/attributesTypes/view" rendered="#{!empty fieldsBean.fields.attributesTypes}" value="#{fieldsBean.fields.attributesTypes.name}">
+                                 <f:param name="id" value="#{fieldsBean.fields.attributesTypes.id}"/>
+                        </h:link>
+                        <h:outputText/>
 
                 </h:panelGrid>
 

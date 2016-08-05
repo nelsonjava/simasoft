@@ -32,16 +32,52 @@
                         <h:outputText id="groupsBeanGroupsOrden" value="#{groupsBean.groups.orden}"/>
                         <h:outputText/>
 
-                        <h:outputLabel for="groupsBeanGroupsCode" value="Code:"/>
-                        <h:outputText id="groupsBeanGroupsCode" value="#{groupsBean.groups.code}"/>
-                        <h:outputText/>
-
                         <h:outputLabel for="groupsBeanGroupsName" value="Name:"/>
                         <h:outputText id="groupsBeanGroupsName" value="#{groupsBean.groups.name}"/>
                         <h:outputText/>
 
+                        <h:outputLabel for="groupsBeanGroupsCode" value="Code:"/>
+                        <h:outputText id="groupsBeanGroupsCode" value="#{groupsBean.groups.code}"/>
+                        <h:outputText/>
+
                         <h:outputLabel for="groupsBeanGroupsObservations" value="Observations:"/>
                         <h:outputText id="groupsBeanGroupsObservations" value="#{groupsBean.groups.observations}" escape="false" />
+                        <h:outputText/>
+
+                        <h:outputLabel for="GroupsBeanGroupsGroupsModels" value="GroupsModels:"/>
+                        <h:dataTable id="groupsBeanGroupsgroupsModels" styleClass="data-table" value="#{forgeview:asList(groupsBean.groups.groupsModels)}" var="_item">
+
+                                     <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Orden"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/groupsModels/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemOrden" value="#{_item.orden}"/>
+                                        </h:link>
+                                     </h:column>
+
+                                     <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Name"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/groupsModels/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemName" value="#{_item.name}"/>
+                                        </h:link>
+                                     </h:column>
+
+                                     <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Code"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/groupsModels/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemCode" value="#{_item.code}"/>
+                                        </h:link>
+                                     </h:column>
+
+                        </h:dataTable>
                         <h:outputText/>
 
                         <h:outputLabel for="GroupsBeanGroupsDevelopmentsGroups" value="DevelopmentsGroups:"/>
@@ -74,42 +110,6 @@
                                         <h:link outcome="/admin/developmentsGroups/view">
                                                 <f:param name="id" value="#{_item.id}"/>
                                                 <h:outputText id="itemCode" value="#{_item.code}"/>
-                                        </h:link>
-                                     </h:column>
-
-                        </h:dataTable>
-                        <h:outputText/>
-
-                        <h:outputLabel for="GroupsBeanGroupsGroupsModels" value="GroupsModels:"/>
-                        <h:dataTable id="groupsBeanGroupsgroupsModels" styleClass="data-table" value="#{forgeview:asList(groupsBean.groups.groupsModels)}" var="_item">
-
-                                     <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="Orden"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/groupsModels/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemOrden" value="#{_item.orden}"/>
-                                        </h:link>
-                                     </h:column>
-
-                                     <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="Code"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/groupsModels/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemCode" value="#{_item.code}"/>
-                                        </h:link>
-                                     </h:column>
-
-                                     <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="Name"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/groupsModels/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemName" value="#{_item.name}"/>
                                         </h:link>
                                      </h:column>
 

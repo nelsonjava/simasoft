@@ -59,21 +59,21 @@
 
                                      <h:column>
                                         <f:facet name="header">
-                                                <h:outputText value="Code"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/groupsModels/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemCode" value="#{_item.code}"/>
-                                        </h:link>
-                                     </h:column>
-
-                                     <h:column>
-                                        <f:facet name="header">
                                                 <h:outputText value="Name"/>
                                         </f:facet>
                                         <h:link outcome="/admin/groupsModels/view">
                                                 <f:param name="id" value="#{_item.id}"/>
                                                 <h:outputText id="itemName" value="#{_item.name}"/>
+                                        </h:link>
+                                     </h:column>
+
+                                     <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Code"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/groupsModels/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemCode" value="#{_item.code}"/>
                                         </h:link>
                                      </h:column>
 
@@ -95,17 +95,6 @@
 
                                      <h:column>
                                         <f:facet name="header">
-                                                <h:outputText value="Name"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/modelRelationships/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemName" value="#{_item.name}"/>
-                                        </h:link>
-                                     </h:column>
-
-<!--
-                                     <h:column>
-                                        <f:facet name="header">
                                                 <h:outputText value="Code"/>
                                         </f:facet>
                                         <h:link outcome="/admin/modelRelationships/view">
@@ -113,92 +102,14 @@
                                                 <h:outputText id="itemCode" value="#{_item.code}"/>
                                         </h:link>
                                      </h:column>
--->                                     
 
-                                <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="From"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/groupIdsEntities/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemFrom" value="#{_item.relationships.from.name}"/>
-                                        </h:link>
-                                </h:column>
-
-                                <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="Cardinalities"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/groupIdsEntities/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemCardinalities" value="#{_item.relationships.cardinalities.name}"/>
-                                        </h:link>
-                                </h:column>
-
-                                <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="To"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/groupIdsEntities/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemTo" value="#{_item.relationships.to.name}"/>
-                                        </h:link>
-                                </h:column>
-
-                                <h:column>
+                                     <h:column>
                                         <f:facet name="header">
                                                 <h:outputText value="Name"/>
                                         </f:facet>
-                                        <h:link outcome="/admin/groupIdsEntities/view">
+                                        <h:link outcome="/admin/modelRelationships/view">
                                                 <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemRelationshipsName" value="#{_item.relationships.name}"/>
-                                        </h:link>
-                                </h:column>
-
-
-                        </h:dataTable>
-                        <h:outputText/>
-
-                        <h:outputLabel for="modelsBeanModelsSites" value="Sites:"/>
-                        <h:dataTable id="modelsBeanModelssites" styleClass="data-table" value="#{forgeview:asList(modelsBean.models.sites)}" var="_item">
-
-                                     <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="Orden"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/sites/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemOrden" value="#{_item.orden}"/>
-                                        </h:link>
-                                     </h:column>
-
-                                     <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="Title"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/sites/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemTitle" value="#{_item.title}"/>
-                                        </h:link>
-                                     </h:column>
-
-                                     <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="Link"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/sites/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemLink" value="#{_item.link}"/>
-                                        </h:link>
-                                     </h:column>
-
-                                     <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="Abc"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/sites/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemAbc" value="#{_item.abc}"/>
+                                                <h:outputText id="itemName" value="#{_item.name}"/>
                                         </h:link>
                                      </h:column>
 

@@ -30,35 +30,6 @@
                                 <h:panelGroup styleClass="search">
 
                                         <h:panelGrid columnClasses="label,component,required" columns="3">
-                                                <h:outputLabel for="relationshipsBeanExampleName" value="Name:"/>
-                                                <h:panelGroup>
-                                                        <h:inputText id="relationshipsBeanExampleName" value="#{relationshipsBean.example.name}"/>
-                                                        <h:message for="relationshipsBeanExampleName" styleClass="error"/>
-                                                </h:panelGroup>
-                                                <h:outputText/>
-
-                                                <h:outputLabel for="relationshipsBeanExampleIsOptionality" value="IsOptionality:"/>
-                                                <h:panelGroup>
-                                                        <h:selectOneMenu id="relationshipsBeanExampleIsOptionality" value="#{relationshipsBean.example.isOptionality}">
-                                                                <f:selectItem/>
-                                                                <f:selectItem itemLabel="Yes" itemValue="true"/>
-                                                                <f:selectItem itemLabel="No" itemValue="false"/>
-                                                        </h:selectOneMenu>
-                                                        <h:message for="entitiesBeanExampleIsSimplified" styleClass="error"/>
-                                                </h:panelGroup>
-                                                <h:outputText/>
-
-                                                <h:outputLabel for="relationshipsBeanExampleIsEmbedded" value="IsEmbedded:"/>
-                                                <h:panelGroup>
-                                                        <h:selectOneMenu id="relationshipsBeanExampleIsEmbedded" value="#{relationshipsBean.example.isEmbedded}">
-                                                                <f:selectItem/>
-                                                                <f:selectItem itemLabel="Yes" itemValue="true"/>
-                                                                <f:selectItem itemLabel="No" itemValue="false"/>
-                                                        </h:selectOneMenu>
-                                                        <h:message for="entitiesBeanExampleIsSimplified" styleClass="error"/>
-                                                </h:panelGroup>
-                                                <h:outputText/>
-
                                                 <h:outputLabel for="relationshipsBeanExampleIsSimplified" value="IsSimplified:"/>
                                                 <h:panelGroup>
                                                         <h:selectOneMenu id="relationshipsBeanExampleIsSimplified" value="#{relationshipsBean.example.isSimplified}">
@@ -103,6 +74,35 @@
                                                 </h:panelGroup>
                                                 <h:outputText/>
 
+                                                <h:outputLabel for="relationshipsBeanExampleName" value="Name:"/>
+                                                <h:panelGroup>
+                                                        <h:inputText id="relationshipsBeanExampleName" value="#{relationshipsBean.example.name}"/>
+                                                        <h:message for="relationshipsBeanExampleName" styleClass="error"/>
+                                                </h:panelGroup>
+                                                <h:outputText/>
+
+                                                <h:outputLabel for="relationshipsBeanExampleIsOptionality" value="IsOptionality:"/>
+                                                <h:panelGroup>
+                                                        <h:selectOneMenu id="relationshipsBeanExampleIsOptionality" value="#{relationshipsBean.example.isOptionality}">
+                                                                <f:selectItem/>
+                                                                <f:selectItem itemLabel="Yes" itemValue="true"/>
+                                                                <f:selectItem itemLabel="No" itemValue="false"/>
+                                                        </h:selectOneMenu>
+                                                        <h:message for="entitiesBeanExampleIsSimplified" styleClass="error"/>
+                                                </h:panelGroup>
+                                                <h:outputText/>
+
+                                                <h:outputLabel for="relationshipsBeanExampleIsEmbedded" value="IsEmbedded:"/>
+                                                <h:panelGroup>
+                                                        <h:selectOneMenu id="relationshipsBeanExampleIsEmbedded" value="#{relationshipsBean.example.isEmbedded}">
+                                                                <f:selectItem/>
+                                                                <f:selectItem itemLabel="Yes" itemValue="true"/>
+                                                                <f:selectItem itemLabel="No" itemValue="false"/>
+                                                        </h:selectOneMenu>
+                                                        <h:message for="entitiesBeanExampleIsSimplified" styleClass="error"/>
+                                                </h:panelGroup>
+                                                <h:outputText/>
+
                                         </h:panelGrid>
                                         <h:panelGroup styleClass="buttons">
                                                 <h:commandLink value="Search" action='#{relationshipsBean.search}' styleClass="btn btn-primary"/>
@@ -113,15 +113,35 @@
 
                         <h:dataTable id="relationshipsBeanPageItems" styleClass="data-table" value="#{relationshipsBean.pageItems}" var="_item">
 
-                                <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="Orden"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/relationships/view">
-                                                <f:param name="id" value="#{_item.orden}"/>
-                                                <h:outputText id="itemOrden" value="#{_item.orden}"/>
-                                        </h:link>
-                                </h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="From:"/>
+					</f:facet>
+					<h:link outcome="/admin/relationships/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemEntity" value="#{_item.from.name}"/>
+					</h:link>
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value=""/>
+					</f:facet>
+					<h:link outcome="/admin/relationships/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemCardinality" value="#{_item.cardinalities.cardinality}"/>
+					</h:link>
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="To"/>
+					</f:facet>
+					<h:link outcome="/admin/relationships/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemMappedby" value="#{_item.to.name}"/>
+					</h:link>
+				</h:column>
 
                                 <h:column>
                                         <f:facet name="header">
@@ -166,38 +186,6 @@
                                         </h:link>
                                 </h:column>
 
-
-                                <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="IsCreate"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/relationships/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemIsCreate" value="#{_item.isCreate}"/>
-                                        </h:link>
-                                </h:column>
-
-
-                                <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="IsSearch"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/relationships/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemIsSearch" value="#{_item.isSearch}"/>
-                                        </h:link>
-                                </h:column>
-
-
-                                <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="IsView"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/relationships/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemIsView" value="#{_item.isView}"/>
-                                        </h:link>
-                                </h:column>
 
 
                         </h:dataTable>

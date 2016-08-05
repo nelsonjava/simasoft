@@ -40,6 +40,32 @@
                         <h:outputText id="sitesTypesBeanSitesTypesObservations" value="#{sitesTypesBean.sitesTypes.observations}" escape="false" />
                         <h:outputText/>
 
+                        <h:outputLabel for="SitesTypesBeanSitesTypesSitesTypes" value="SitesTypes:"/>
+                        <h:dataTable id="sitesTypesBeanSitesTypessitesTypes" styleClass="data-table" value="#{forgeview:asList(sitesTypesBean.sitesTypes.objHijos)}" var="_item">
+
+                                     <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Orden"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/sitesTypes/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemOrden" value="#{_item.orden}"/>
+                                        </h:link>
+                                     </h:column>
+
+                                     <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Name"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/sitesTypes/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemName" value="#{_item.name}"/>
+                                        </h:link>
+                                     </h:column>
+
+                        </h:dataTable>
+                        <h:outputText/>
+
                         <h:outputLabel for="sitesTypesBeanSitesTypesSites" value="Sites:"/>
                         <h:dataTable id="sitesTypesBeanSitesTypessites" styleClass="data-table" value="#{forgeview:asList(sitesTypesBean.sitesTypes.sites)}" var="_item">
 
@@ -86,32 +112,11 @@
                         </h:dataTable>
                         <h:outputText/>
 
-                        <h:outputLabel for="SitesTypesBeanSitesTypesSitesTypes" value="SitesTypes:"/>
-                        <h:dataTable id="sitesTypesBeanSitesTypessitesTypes" styleClass="data-table" value="#{forgeview:asList(sitesTypesBean.sitesTypes.objHijos)}" var="_item">
-
-                                     <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="Orden"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/sitesTypes/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemOrden" value="#{_item.orden}"/>
-                                        </h:link>
-                                     </h:column>
-
-                                     <h:column>
-                                        <f:facet name="header">
-                                                <h:outputText value="Name"/>
-                                        </f:facet>
-                                        <h:link outcome="/admin/sitesTypes/view">
-                                                <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemName" value="#{_item.name}"/>
-                                        </h:link>
-                                     </h:column>
-
-                        </h:dataTable>
+                        <h:outputLabel for="sitesTypesBeanSitesTypesobjPadre" value="SitesTypes:"/>
+                        <h:link id="sitesTypesBeanSitesTypesobjPadre" outcome="/admin/sitesTypes/view" rendered="#{!empty sitesTypesBean.sitesTypes.objPadre}" value="#{sitesTypesBean.sitesTypes.objPadre.name}">
+                                 <f:param name="id" value="#{sitesTypesBean.sitesTypes.objPadre.id}"/>
+                        </h:link>
                         <h:outputText/>
-
 
                 </h:panelGrid>
 

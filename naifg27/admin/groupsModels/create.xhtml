@@ -60,9 +60,9 @@
                                 </h:panelGroup>
                                 <h:outputText value="*"/>
 
-                                <h:outputLabel for="groupsModelsBeangroupsModelsobjPadre" value="Models:"/>
+                                <h:outputLabel for="groupsModelsBeangroupsModelsmodels" value="Models:"/>
                                 <h:panelGroup>
-                                         <h:selectOneMenu converter="#{modelsBean.converter}" id="groupsModelsBeanGroupsModelsobjPadre" value="#{groupsModelsBean.groupsModels.objPadre}">
+                                         <h:selectOneMenu converter="#{modelsBean.converter}" id="groupsModelsBeanGroupsModels" value="#{groupsModelsBean.groupsModels.models}">
                                                 <f:selectItem/>
                                                 <f:selectItems itemLabel="#{forgeview:display(_item.name)}" itemValue="#{_item}" value="#{modelsBean.all}" var="_item"/>
                                         </h:selectOneMenu>
@@ -70,9 +70,9 @@
                                 </h:panelGroup>
                                 <h:outputText/>
 
-                                <h:outputLabel for="groupsModelsBeangroupsModelsobjPadre" value="Groups:"/>
+                                <h:outputLabel for="groupsModelsBeangroupsModelsgroups" value="Groups:"/>
                                 <h:panelGroup>
-                                         <h:selectOneMenu converter="#{groupsBean.converter}" id="groupsModelsBeanGroupsModelsobjPadre" value="#{groupsModelsBean.groupsModels.objPadre}">
+                                         <h:selectOneMenu converter="#{groupsBean.converter}" id="groupsModelsBeanGroupsModelsGroups" value="#{groupsModelsBean.groupsModels.groups}">
                                                 <f:selectItem/>
                                                 <f:selectItems itemLabel="#{forgeview:display(_item.name)}" itemValue="#{_item}" value="#{groupsBean.all}" var="_item"/>
                                         </h:selectOneMenu>

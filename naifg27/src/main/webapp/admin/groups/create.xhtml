@@ -46,19 +46,19 @@
                                 </h:panelGroup>
                                 <h:outputText/>
 
-                                <h:outputLabel for="groupsBeanGroupsCode" value="Code:"/>
-                                <h:panelGroup>
-                                        <h:inputText id="groupsBeanGroupsCode" value="#{groupsBean.groups.code}"/>
-                                        <h:message for="groupsBeanGroupsCode" styleClass="error"/>
-                                </h:panelGroup>
-                                <h:outputText/>
-
                                 <h:outputLabel for="groupsBeanGroupsName" value="Name:"/>
                                 <h:panelGroup>
                                         <h:inputText id="groupsBeanGroupsName" required="true" value="#{groupsBean.groups.name}"/>
                                         <h:message for="groupsBeanGroupsName" styleClass="error"/>
                                 </h:panelGroup>
                                 <h:outputText value="*"/>
+
+                                <h:outputLabel for="groupsBeanGroupsCode" value="Code:"/>
+                                <h:panelGroup>
+                                        <h:inputText id="groupsBeanGroupsCode" value="#{groupsBean.groups.code}"/>
+                                        <h:message for="groupsBeanGroupsCode" styleClass="error"/>
+                                </h:panelGroup>
+                                <h:outputText/>
 
 
 

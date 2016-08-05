@@ -60,23 +60,23 @@
                                 </h:panelGroup>
                                 <h:outputText/>
 
-                                <h:outputLabel for="developmentsGroupsBeandevelopmentsGroupsdevelopments" value="Developments:"/>
+                                <h:outputLabel for="developmentsGroups111111111BeanDevelopmentsGroupsDevelopments" value="Developments:"/>
                                 <h:panelGroup>
-                                         <h:selectOneMenu converter="#{developmentsBean.converter}" id="developmentsGroupsBeanDevelopmentsdevelopments" value="#{developmentsGroupsBean.developmentsGroups.developments}">
+                                         <h:selectOneMenu converter="#{developmentsBean.converter}" id="developmentsGroupsBeanDevelopmentsGroupsDevelopments" value="#{developmentsGroupsBean.developmentsGroups.developments}">
                                                 <f:selectItem/>
                                                 <f:selectItems itemLabel="#{forgeview:display(_item.artifactId)}" itemValue="#{_item}" value="#{developmentsBean.all}" var="_item"/>
                                         </h:selectOneMenu>
-                                        <h:message for="entitiesBeanEntitiesIsSimplified" styleClass="error"/>
+                                        <h:message for="developmentsGroupsBeanDevelopmentsGroups" styleClass="error"/>
                                 </h:panelGroup>
                                 <h:outputText/>
 
-                                <h:outputLabel for="developmentsGroupsBeandevelopmentsGroupsgroups" value="Groups:"/>
+                                <h:outputLabel for="developmentsGroups111111111BeanDevelopmentsGroupsGroups" value="Groups:"/>
                                 <h:panelGroup>
                                          <h:selectOneMenu converter="#{groupsBean.converter}" id="developmentsGroupsBeanDevelopmentsGroupsGroups" value="#{developmentsGroupsBean.developmentsGroups.groups}">
                                                 <f:selectItem/>
                                                 <f:selectItems itemLabel="#{forgeview:display(_item.name)}" itemValue="#{_item}" value="#{groupsBean.all}" var="_item"/>
                                         </h:selectOneMenu>
-                                        <h:message for="entitiesBeanEntitiesIsSimplified" styleClass="error"/>
+                                        <h:message for="developmentsGroupsBeanDevelopmentsGroups" styleClass="error"/>
                                 </h:panelGroup>
                                 <h:outputText/>
 
