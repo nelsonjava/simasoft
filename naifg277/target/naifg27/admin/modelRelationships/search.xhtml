@@ -1,0 +1,192 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:forgeview="http://jboss.org/forge/view"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="page" value='#{modelRelationshipsBean.page}'/>
+		<f:event type="preRenderView" listener='#{modelRelationshipsBean.paginate}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="Search Model Relationships entities"/>
+
+	<ui:define name="header">
+		Model Relationships
+	</ui:define>
+
+	<ui:define name="subheader">
+		Search Model Relationships entities
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:form id="search">
+			<f:validateBean disabled="true">
+				<h:panelGroup styleClass="search">
+
+					<h:panelGrid columnClasses="label,component,required" columns="3">
+						<h:outputLabel for="modelRelationshipsBeanExampleObservations" value="Observations:"/>
+						<h:panelGroup>
+							<h:inputTextarea id="modelRelationshipsBeanExampleObservations" value="#{modelRelationshipsBean.example.observations}"/>
+							<h:message for="modelRelationshipsBeanExampleObservations" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="modelRelationshipsBeanExampleName" value="Name:"/>
+						<h:panelGroup>
+							<h:inputText id="modelRelationshipsBeanExampleName" value="#{modelRelationshipsBean.example.name}"/>
+							<h:message for="modelRelationshipsBeanExampleName" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="modelRelationshipsBeanExampleCode" value="Code:"/>
+						<h:panelGroup>
+							<h:inputText id="modelRelationshipsBeanExampleCode" value="#{modelRelationshipsBean.example.code}"/>
+							<h:message for="modelRelationshipsBeanExampleCode" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="modelRelationshipsBeanExampleModels" value="Models:"/>
+						<h:panelGroup>
+							<h:selectOneMenu converter="#{modelsBean.converter}" id="modelRelationshipsBeanExampleModels" value="#{modelRelationshipsBean.example.models}">
+								<f:selectItem/>
+								<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{modelsBean.all}" var="_item"/>
+							</h:selectOneMenu>
+							<h:message for="modelRelationshipsBeanExampleModels" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="modelRelationshipsBeanExampleRelationships" value="Relationships:"/>
+						<h:panelGroup>
+							<h:selectOneMenu converter="#{relationshipsBean.converter}" id="modelRelationshipsBeanExampleRelationships" value="#{modelRelationshipsBean.example.relationships}">
+								<f:selectItem/>
+								<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{relationshipsBean.all}" var="_item"/>
+							</h:selectOneMenu>
+							<h:message for="modelRelationshipsBeanExampleRelationships" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+					</h:panelGrid>
+					<h:panelGroup styleClass="buttons">
+						<h:commandLink value="Search" action='#{modelRelationshipsBean.search}' styleClass="btn btn-primary"/>
+						<h:commandLink value="Create New" action='#{modelRelationshipsBean.create}' styleClass="btn btn-primary"/>
+					</h:panelGroup>
+				</h:panelGroup>
+			</f:validateBean>
+
+			<h:dataTable id="modelRelationshipsBeanPageItems" styleClass="data-table" value="#{modelRelationshipsBean.pageItems}" var="_item">
+
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Orden"/>
+					</f:facet>
+					<h:link outcome="/admin/modelRelationships/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemOrden" value="#{_item.orden}"/>
+					</h:link>
+				</h:column>
+
+<!--
+
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Observations"/>
+					</f:facet>
+					<h:link outcome="/admin/modelRelationships/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:inputTextarea id="itemObservations" value="#{_item.observations}"/>
+					</h:link>
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Name"/>
+					</f:facet>
+					<h:link outcome="/admin/modelRelationships/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemName" value="#{_item.name}"/>
+					</h:link>
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Code"/>
+					</f:facet>
+					<h:link outcome="/admin/modelRelationships/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemCode" value="#{_item.code}"/>
+					</h:link>
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Models"/>
+					</f:facet>
+					<h:link outcome="/admin/modelRelationships/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="forgeviewdisplayitemModels" value="#{forgeview:display(_item.models)}"/>
+					</h:link>
+				</h:column>
+
+-->
+
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Model"/>
+					</f:facet>
+					<h:link outcome="/admin/modelRelationships/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemModel" value="#{_item.models.name}"/>
+					</h:link>
+				</h:column>
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="From"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/groupIdsEntities/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemFrom" value="#{_item.relationships.from.name}"/>
+                                        </h:link>
+                                </h:column>
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Cardinalities"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/groupIdsEntities/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemCardinalities" value="#{_item.relationships.cardinalities.name}"/>
+                                        </h:link>
+                                </h:column>
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="To"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/groupIdsEntities/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemTo" value="#{_item.relationships.to.name}"/>
+                                        </h:link>
+                                </h:column>
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Name"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/groupIdsEntities/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemRelationshipsName" value="#{_item.relationships.name}"/>
+                                        </h:link>
+                                </h:column>
+
+
+			</h:dataTable>
+			<ui:include src="/resources/scaffold/paginator.xhtml">
+				<ui:param name="paginatorBean" value='#{modelRelationshipsBean}'/>
+			</ui:include>
+		</h:form>
+
+	</ui:define>
+
+</ui:composition>

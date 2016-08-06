@@ -158,6 +158,47 @@ public EntityH2(String artifactId,String groupId,Entidad entity,LinkedHashSet<St
       for(Relation relation : relations) {
 
 //********RELACION UNO A UNO
+            if(relation.getCardinality().equals("1..1")) {
+              if(relation.getFrom().equals(relation.getTo())){  // Relación Unitaria
+                line("    @OneToOne(mappedBy = \"objPadre\")");
+                line("    private "+relation.getTo()+" objHijos = new "+relation.getTo()+"();\n");
+              }
+              else{
+                if(relation.getName() == null || relation.getName() == ""){
+                   if(relation.getUnidireccional()){
+                     line("    @OneToOne");
+                   }
+                   else{
+                     line("    @OneToOne(mappedBy = \""+Utils._1raMin(entity.getName())+"\")");
+                   }
+
+                   if (entity.getName().equals(relation.getFrom())){
+                      line("    private "+relation.getTo()+" "+Utils._1raMin(relation.getTo())+" = new "+relation.getTo()+"();\n");
+                   }
+                   else{ // relación inversa
+                     line("    private "+relation.getFrom()+" "+Utils._1raMin(relation.getFrom())+" = new "+relation.getFrom()+"();\n");
+                   }
+                }
+                else{
+
+                   if(relation.getUnidireccional()){
+                     line("    @OneToOne");
+                   }
+                   else{
+                     line("    @OneToOne(mappedBy = \""+Utils._1raMin(entity.getName())+"\")");
+                   }
+
+                   if (entity.getName().equals(relation.getFrom())){
+                      line("    private "+relation.getTo()+" "+relation.getName()+" = new "+relation.getTo()+"();\n");
+                   }
+                   else{
+                      line("    private "+relation.getFrom()+" "+relation.getName()+" = new "+relation.getFrom()+"();\n");
+                      // Relación inversa.
+                   }
+
+                }
+              }
+            }
 //********FIN RELACION UNO A UNO
 
 //********RELACION MUCHOS A UNO
@@ -251,7 +292,6 @@ public EntityH2(String artifactId,String groupId,Entidad entity,LinkedHashSet<St
                 }
               }
             }
-
 //********FIN RELACION MUCHOS A MUCHOS
 
       } // for relations

@@ -1,0 +1,129 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:forgeview="http://jboss.org/forge/view"
+        template="/resources/scaffold/pageTemplate.xhtml">
+
+        <f:metadata>
+                <f:viewParam name="id" value='#{relationshipsBean.id}'/>
+                <f:event type="preRenderView" listener='#{relationshipsBean.retrieve}'/>
+        </f:metadata>
+
+        <ui:param name="pageTitle" value="View Relationships"/>
+
+        <ui:define name="header">
+                Relationships
+        </ui:define>
+
+        <ui:define name="subheader">
+                View existing Relationships
+        </ui:define>
+
+        <ui:define name="footer"/>
+
+        <ui:define name="main">
+                <h:panelGrid columnClasses="label,component,required" columns="3">
+
+                        <h:outputLabel for="relationshipsBeanRelationshipsOrden" value="Orden:"/>
+                        <h:outputText id="relationshipsBeanRelationshipsOrden" value="#{relationshipsBean.relationships.orden}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="relationshipsBeanRelationshipsIsOptionality" value="IsOptionality:"/>
+                        <h:outputText id="relationshipsBeanRelationshipsIsOptionality" value="#{relationshipsBean.relationships.isOptionality}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="relationshipsBeanRelationshipsIsEmbedded" value="IsEmbedded:"/>
+                        <h:outputText id="relationshipsBeanRelationshipsIsEmbedded" value="#{relationshipsBean.relationships.isEmbedded}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="relationshipsBeanRelationshipsIsSimplified" value="IsSimplified:"/>
+                        <h:outputText id="relationshipsBeanRelationshipsIsSimplified" value="#{relationshipsBean.relationships.isSimplified}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="relationshipsBeanRelationshipsIsCreate" value="IsCreate:"/>
+                        <h:outputText id="relationshipsBeanRelationshipsIsCreate" value="#{relationshipsBean.relationships.isCreate}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="relationshipsBeanRelationshipsIsSearch" value="IsSearch:"/>
+                        <h:outputText id="relationshipsBeanRelationshipsIsSearch" value="#{relationshipsBean.relationships.isSearch}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="relationshipsBeanRelationshipsIsView" value="IsView:"/>
+                        <h:outputText id="relationshipsBeanRelationshipsIsView" value="#{relationshipsBean.relationships.isView}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="relationshipsBeanRelationshipsName" value="Name:"/>
+                        <h:outputText id="relationshipsBeanRelationshipsName" value="#{relationshipsBean.relationships.name}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="relationshipsBeanRelationshipsObservations" value="Observations:"/>
+                        <h:outputText id="relationshipsBeanRelationshipsObservations" value="#{relationshipsBean.relationships.observations}" escape="false" />
+                        <h:outputText/>
+
+                        <h:outputLabel for="RelationshipsBeanRelationshipsModelRelationships" value="ModelRelationships:"/>
+                        <h:dataTable id="relationshipsBeanRelationshipsmodelRelationships" styleClass="data-table" value="#{forgeview:asList(relationshipsBean.relationships.modelRelationships)}" var="_item">
+
+                                     <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Orden"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/modelRelationships/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemOrden" value="#{_item.orden}"/>
+                                        </h:link>
+                                     </h:column>
+
+                                     <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Code"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/modelRelationships/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemCode" value="#{_item.code}"/>
+                                        </h:link>
+                                     </h:column>
+
+                                     <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Name"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/modelRelationships/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemName" value="#{_item.name}"/>
+                                        </h:link>
+                                     </h:column>
+
+                        </h:dataTable>
+                        <h:outputText/>
+
+                        <h:outputLabel for="relationshipsBeanRelationshipsFrom" value="From:"/>
+                        <h:link id="relationshipsBeanRelationshipsFrom" outcome="/admin/from/view" rendered="#{!empty relationshipsBean.relationships.from}" value="#{relationshipsBean.relationships.from.name}">
+                                 <f:param name="id" value="#{relationshipsBean.relationships.from.id}"/>
+                        </h:link>
+                        <h:outputText/>
+
+                        <h:outputLabel for="relationshipsBeanRelationshipsCardinalities" value="Cardinalities:"/>
+                        <h:link id="relationshipsBeanRelationshipsCardinalities" outcome="/admin/cardinalities/view" rendered="#{!empty relationshipsBean.relationships.cardinalities}" value="#{relationshipsBean.relationships.cardinalities.name}">
+                                 <f:param name="id" value="#{relationshipsBean.relationships.cardinalities.id}"/>
+                        </h:link>
+                        <h:outputText/>
+
+                        <h:outputLabel for="relationshipsBeanRelationshipsTo" value="To:"/>
+                        <h:link id="relationshipsBeanRelationshipsTo" outcome="/admin/to/view" rendered="#{!empty relationshipsBean.relationships.to}" value="#{relationshipsBean.relationships.to.name}">
+                                 <f:param name="id" value="#{relationshipsBean.relationships.to.id}"/>
+                        </h:link>
+                        <h:outputText/>
+
+                </h:panelGrid>
+
+                <div class="buttons">
+                        <h:link value="View All" outcome="search" styleClass="btn btn-primary"/>
+                        <h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
+                        <h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
+                </div>
+        </ui:define>
+</ui:composition>
