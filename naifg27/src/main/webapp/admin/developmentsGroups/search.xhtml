@@ -1,0 +1,107 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        template="/resources/scaffold/pageTemplate.xhtml">
+
+        <f:metadata>
+                <f:viewParam name="page" value='#{developmentsGroupsBean.page}'/>
+                <f:event type="preRenderView" listener='#{developmentsGroupsBean.paginate}'/>
+        </f:metadata>
+
+        <ui:param name="pageTitle" value="Search DevelopmentsGroups entities"/>
+
+        <ui:define name="header">
+                DevelopmentsGroups
+        </ui:define>
+
+        <ui:define name="subheader">
+                Search DevelopmentsGroups entities
+        </ui:define>
+
+        <ui:define name="footer"/>
+
+        <ui:define name="main">
+                <h:form id="search">
+                        <f:validateBean disabled="true">
+                                <h:panelGroup styleClass="search">
+
+                                        <h:panelGrid columnClasses="label,component,required" columns="3">
+                                                <h:outputLabel for="developmentsGroupsBeanExampleName" value="Name:"/>
+                                                <h:panelGroup>
+                                                        <h:inputText id="developmentsGroupsBeanExampleName" value="#{developmentsGroupsBean.example.name}"/>
+                                                        <h:message for="developmentsGroupsBeanExampleName" styleClass="error"/>
+                                                </h:panelGroup>
+                                                <h:outputText/>
+
+                                                <h:outputLabel for="developmentsGroupsBeanExampleCode" value="Code:"/>
+                                                <h:panelGroup>
+                                                        <h:inputText id="developmentsGroupsBeanExampleCode" value="#{developmentsGroupsBean.example.code}"/>
+                                                        <h:message for="developmentsGroupsBeanExampleCode" styleClass="error"/>
+                                                </h:panelGroup>
+                                                <h:outputText/>
+
+                                        </h:panelGrid>
+                                        <h:panelGroup styleClass="buttons">
+                                                <h:commandLink value="Search" action='#{developmentsGroupsBean.search}' styleClass="btn btn-primary"/>
+                                                <h:commandLink value="Create New" action='#{developmentsGroupsBean.create}' styleClass="btn btn-primary"/>
+                                        </h:panelGroup>
+                                </h:panelGroup>
+                        </f:validateBean>
+
+                        <h:dataTable id="developmentsGroupsBeanPageItems" styleClass="data-table" value="#{developmentsGroupsBean.pageItems}" var="_item">
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Orden"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/developmentsGroups/view">
+                                                <f:param name="id" value="#{_item.orden}"/>
+                                                <h:outputText id="itemOrden" value="#{_item.orden}"/>
+                                        </h:link>
+                                </h:column>
+                                
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Development"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/developmentsGroups/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemDevelopment" value="#{_item.developments.artifactId}"/>
+                                        </h:link>
+                                </h:column>
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Name"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/developmentsGroups/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemName" value="#{_item.name}"/>
+                                        </h:link>
+                                </h:column>
+
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Code"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/developmentsGroups/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemCode" value="#{_item.code}"/>
+                                        </h:link>
+                                </h:column>
+
+
+                        </h:dataTable>
+                        <ui:include src="/resources/scaffold/paginator.xhtml">
+                                <ui:param name="paginatorBean" value='#{developmentsGroupsBean}'/>
+                        </ui:include>
+                </h:form>
+
+        </ui:define>
+
+</ui:composition>

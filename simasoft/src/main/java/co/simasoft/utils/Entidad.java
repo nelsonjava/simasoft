@@ -401,7 +401,7 @@ public class Entidad {
     public String columnView(String to,String attri,String type){
 
         String xhtml = "";
-        String space = "                                ";
+        String space = "                                      ";
 
         String attribute = attri;
         String Attribute = Utils._1raMay(attri);
@@ -660,13 +660,36 @@ public class Entidad {
 
         String xhtml = "";
         String space = "                                ";
-        String atribute = fieldCreate();
+        String atributeFrom = fieldCreate();
+        String atributeTo = relation.getEntityTo().getFieldCreate();
 
         String From = relation.getFrom();
         String from = Utils._1raMin(relation.getFrom());
 
         String To = relation.getTo();
         String to = Utils._1raMin(relation.getTo());
+
+/*
+        xhtml += "\n";
+        xhtml += space+"<!-- \n";
+        xhtml += space+"===================\n";
+        xhtml += space+relation.getCardinality()+"\n";
+        xhtml += space+"From:"+From+"\n";
+        xhtml += space+"from:"+from+"\n";
+        xhtml += space+"To:"+To+"\n";
+        xhtml += space+"to:"+to+"\n";
+        xhtml += space+"atributeFrom:"+atributeFrom+"\n";
+        xhtml += space+"atributeTo:"+atributeTo+"\n";
+        xhtml += space+"===================\n";
+        if (relation.getFrom().equals(relation.getTo())){  // Relación Unitaria
+           xhtml += space+"UNITARIA\n";
+        }
+        else {
+           xhtml += space+"NO UNITARIA\n";
+        }
+        xhtml += space+" -->\n";
+*/
+
 
         switch (relation.getCardinality()) {
 
@@ -704,35 +727,13 @@ public class Entidad {
                      xhtml += space+"        <h:panelGrid columnClasses=\",remove-column\" columns=\"2\" styleClass=\"data-table-footer\">\n";
                      xhtml += space+"           <h:selectOneMenu converter=\"#{"+to+"Bean.converter}\" id=\""+from+"Bean"+From+To+"Select\" value=\"#{requestScope['"+from+"Bean"+From+To+"Select']}\">\n";
                      xhtml += space+"             <f:selectItem/>\n";
-                     xhtml += space+"             <f:selectItems itemLabel=\"#{forgeview:display(_item."+relation.getEntityTo().getFieldCreate()+")}\" itemValue=\"#{_item}\" value=\"#{"+to+"Bean.all}\" var=\"_item\"/>\n";
+                     xhtml += space+"             <f:selectItems itemLabel=\"#{forgeview:display(_item."+atributeTo+")}\" itemValue=\"#{_item}\" value=\"#{"+to+"Bean.all}\" var=\"_item\"/>\n";
                      xhtml += space+"           </h:selectOneMenu>\n";
                      xhtml += space+"           <h:commandLink action=\"#{_collection.add(requestScope['"+from+"Bean"+From+To+"Select'])}\" id=\""+from+"Bean"+From+To+"Add\" onclick=\"if (document.getElementById(document.forms[0].id+':"+from+"Bean"+From+To+"Select').selectedIndex &lt; 1) { alert('Must select a "+To+"'); return false; }\" styleClass=\"add-button\"/>\n";
                      xhtml += space+"        </h:panelGrid>\n";
 
                      xhtml += space+"</h:panelGroup>\n";
                      xhtml += space+"<h:outputText/>\n";
-
-/*
-                    xhtml += "\n";
-                    xhtml += space+"<!-- \n";
-                    xhtml += space+"===================\n";
-                    xhtml += space+"*..1\n";
-                    xhtml += space+relation.getCardinality()+"\n";
-                    xhtml += space+"From:"+From+"\n";
-                    xhtml += space+"from:"+from+"\n";
-                    xhtml += space+"To:"+To+"\n";
-                    xhtml += space+"to:"+to+"\n";
-                    xhtml += space+"atribute:"+atribute+"\n";
-                    xhtml += space+"===================\n";
-                    if (relation.getFrom().equals(relation.getTo())){  // Relación Unitaria
-                        xhtml += space+"UNITARIA\n";
-                    }
-                    else {
-                        xhtml += space+"NO UNITARIA\n";
-                    }
-                    xhtml += space+" -->\n";
-*/
-
 
                  }
                  else {
@@ -742,35 +743,13 @@ public class Entidad {
 
             case "*..1":
 
-/*
-                    xhtml = "\n";
-                    xhtml += space+"<!-- \n";
-                    xhtml += space+"===================\n";
-                    xhtml += space+"*..1\n";
-                    xhtml += space+relation.getCardinality()+"\n";
-                    xhtml += space+"From:"+From+"\n";
-                    xhtml += space+"from:"+from+"\n";
-                    xhtml += space+"To:"+To+"\n";
-                    xhtml += space+"to:"+to+"\n";
-                    xhtml += space+"relation.getName():"+relation.getName()+"\n";
-                    xhtml += space+"atribute:"+atribute+"\n";
-                    xhtml += space+"===================\n";
-                    if (relation.getFrom().equals(relation.getTo())){  // Relación Unitaria
-                        xhtml += space+"UNITARIA\n";
-                    }
-                    else {
-                        xhtml += space+"NO UNITARIA\n";
-                    }
-                    xhtml += space+" -->\n";
-*/
-
                  if (getName().equals(To)){ // relación Unitaria
 
                      xhtml =  space+"<h:outputLabel for=\""+from+"Bean"+from+"objPadre\" value=\""+To+":\"/>"+"\n";
                      xhtml += space+"<h:panelGroup>\n";
                      xhtml += space+"         <h:selectOneMenu converter=\"#{"+to+"Bean.converter}\" id=\""+from+"Bean"+From+"objPadre\" value=\"#{"+from+"Bean."+from+".objPadre}\">\n";
                      xhtml += space+"                <f:selectItem/>\n";
-                     xhtml += space+"                <f:selectItems itemLabel=\"#{forgeview:display(_item."+atribute+")}\" itemValue=\"#{_item}\" value=\"#{"+to+"Bean.all}\" var=\"_item\"/>\n";
+                     xhtml += space+"                <f:selectItems itemLabel=\"#{forgeview:display(_item."+atributeFrom+")}\" itemValue=\"#{_item}\" value=\"#{"+to+"Bean.all}\" var=\"_item\"/>\n";
                      xhtml += space+"        </h:selectOneMenu>\n";
                      xhtml += space+"        <h:message for=\"entitiesBeanEntitiesIsSimplified\" styleClass=\"error\"/>\n";
                      xhtml += space+"</h:panelGroup>\n";
@@ -781,11 +760,11 @@ public class Entidad {
 
 
                       if (relation.getName() == null || relation.getName().isEmpty()){
-                          xhtml =  space+"<h:outputLabel for=\""+from+"111111111Bean"+From+To+"\" value=\""+To+":\"/>"+"\n";
+                          xhtml =  space+"<h:outputLabel for=\""+from+"Bean"+From+To+"\" value=\""+To+":\"/>"+"\n";
                           xhtml += space+"<h:panelGroup>\n";
                           xhtml += space+"         <h:selectOneMenu converter=\"#{"+to+"Bean.converter}\" id=\""+from+"Bean"+From+To+"\" value=\"#{"+from+"Bean."+from+"."+to+"}\">\n";
                           xhtml += space+"                <f:selectItem/>\n";
-                          xhtml += space+"                <f:selectItems itemLabel=\"#{forgeview:display(_item."+relation.getEntityTo().getFieldCreate()+")}\" itemValue=\"#{_item}\" value=\"#{"+to+"Bean.all}\" var=\"_item\"/>\n";
+                          xhtml += space+"                <f:selectItems itemLabel=\"#{forgeview:display(_item."+atributeTo+")}\" itemValue=\"#{_item}\" value=\"#{"+to+"Bean.all}\" var=\"_item\"/>\n";
                           xhtml += space+"        </h:selectOneMenu>\n";
                           xhtml += space+"        <h:message for=\""+from+"Bean"+From+"\" styleClass=\"error\"/>\n";
                           xhtml += space+"</h:panelGroup>\n";
@@ -796,7 +775,7 @@ public class Entidad {
                           xhtml += space+"<h:panelGroup>\n";
                           xhtml += space+"         <h:selectOneMenu converter=\"#{"+to+"Bean.converter}\" id=\""+from+"Bean"+from+Utils._1raMay(relation.getName())+"\" value=\"#{"+from+"Bean."+from+"."+relation.getName()+"}\">\n";
                           xhtml += space+"                <f:selectItem/>\n";
-                          xhtml += space+"                <f:selectItems itemLabel=\"#{forgeview:display(_item."+relation.getEntityFrom().getFieldCreate()+")}\" itemValue=\"#{_item}\" value=\"#{"+to+"Bean.all}\" var=\"_item\"/>\n";
+                          xhtml += space+"                <f:selectItems itemLabel=\"#{forgeview:display(_item."+atributeFrom+")}\" itemValue=\"#{_item}\" value=\"#{"+to+"Bean.all}\" var=\"_item\"/>\n";
                           xhtml += space+"        </h:selectOneMenu>\n";
                           xhtml += space+"        <h:message for=\"entitiesBeanEntitiesIsSimplified\" styleClass=\"error\"/>\n";
                           xhtml += space+"</h:panelGroup>\n";

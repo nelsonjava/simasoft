@@ -1,0 +1,109 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:c="http://java.sun.com/jsp/jstl/core"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:forgeview="http://jboss.org/forge/view"
+        template="/resources/scaffold/pageTemplate.xhtml">
+
+        <f:metadata>
+                <f:viewParam name="id" value='#{groupsModelsBean.id}'/>
+                <f:event type="preRenderView" listener='#{groupsModelsBean.retrieve}'/>
+        </f:metadata>
+
+        <ui:param name="pageTitle" value="Create GroupsModels"/>
+
+        <ui:define name="header">
+                GroupsModels
+        </ui:define>
+
+        <ui:define name="subheader">
+                <c:choose>
+                        <c:when test='#{!empty groupsModelsBean.id}'>
+                                Edit existing GroupsModels
+                        </c:when>
+                        <c:otherwise>
+                                Create a new GroupsModels
+                        </c:otherwise>
+                </c:choose>
+        </ui:define>
+
+        <ui:define name="footer"/>
+
+        <ui:define name="main">
+                <h:form id="create">
+                        <h:messages globalOnly="true" styleClass="error"/>
+
+                        <h:panelGrid columnClasses="label,component,required" columns="3">
+
+                                <h:outputLabel for="groupsModelsBeanGroupsModelsOrden" value="Orden:"/>
+                                <h:panelGroup>
+                                        <h:inputText id="groupsModelsBeanGroupsModelsOrden" value="#{groupsModelsBean.groupsModels.orden}"/>
+                                        <h:message for="groupsModelsBeanGroupsModelsOrden" styleClass="error"/>
+                                </h:panelGroup>
+                                <h:outputText/>
+
+                                <h:outputLabel for="groupsModelsBeanGroupsModelsName" value="Name:"/>
+                                <h:panelGroup>
+                                        <h:inputText id="groupsModelsBeanGroupsModelsName" required="true" value="#{groupsModelsBean.groupsModels.name}"/>
+                                        <h:message for="groupsModelsBeanGroupsModelsName" styleClass="error"/>
+                                </h:panelGroup>
+                                <h:outputText value="*"/>
+
+                                <h:outputLabel for="groupsModelsBeanGroupsModelsCode" value="Code:"/>
+                                <h:panelGroup>
+                                        <h:inputText id="groupsModelsBeanGroupsModelsCode" value="#{groupsModelsBean.groupsModels.code}"/>
+                                        <h:message for="groupsModelsBeanGroupsModelsCode" styleClass="error"/>
+                                </h:panelGroup>
+                                <h:outputText/>
+                                
+                                <h:outputLabel for="groupsModels111111111BeanGroupsModelsGroups" value="Groups:"/>
+                                <h:panelGroup>
+                                         <h:selectOneMenu converter="#{groupsBean.converter}" id="groupsModelsBeanGroupsModelsGroups" value="#{groupsModelsBean.groupsModels.groups}">
+                                                <f:selectItem/>
+                                                <f:selectItems itemLabel="#{forgeview:display(_item.name)}" itemValue="#{_item}" value="#{groupsBean.all}" var="_item"/>
+                                        </h:selectOneMenu>
+                                        <h:message for="groupsModelsBeanGroupsModels" styleClass="error"/>
+                                </h:panelGroup>
+                                <h:outputText/>
+
+                                <h:outputLabel for="groupsModels111111111BeanGroupsModelsModels" value="Models:"/>
+                                <h:panelGroup>
+                                         <h:selectOneMenu converter="#{modelsBean.converter}" id="groupsModelsBeanGroupsModelsModels" value="#{groupsModelsBean.groupsModels.models}">
+                                                <f:selectItem/>
+                                                <f:selectItems itemLabel="#{forgeview:display(_item.name)}" itemValue="#{_item}" value="#{modelsBean.all}" var="_item"/>
+                                        </h:selectOneMenu>
+                                        <h:message for="groupsModelsBeanGroupsModels" styleClass="error"/>
+                                </h:panelGroup>
+                                <h:outputText/>
+
+                                <h:outputLabel for="groupsModelsBeanGroupsModelsObservations" value="Observations:"/>
+                                <h:panelGroup>
+                                        <p:editor id="groupsModelsBeanGroupsModelsObservations" value="#{groupsModelsBean.groupsModels.observations}"/>
+                                        <h:message for="groupsModelsBeanGroupsModelsObservations" styleClass="error"/>
+                                </h:panelGroup>
+                                <h:outputText/>
+
+                        </h:panelGrid>
+
+                        <div class="buttons">
+                                <h:commandLink value="Save" action='#{groupsModelsBean.update}' styleClass="btn btn-primary"/>
+                                <c:choose>
+                                        <c:when test='#{!empty groupsModelsBean.id}'>
+                                                <h:link value="Cancel" outcome="view" styleClass="btn btn-primary">
+                                                        <f:param name="id" value='#{groupsModelsBean.id}'/>
+                                                </h:link>
+                                                <h:commandLink value="Delete" action='#{groupsModelsBean.delete}' styleClass="btn btn-primary"/>
+                                        </c:when>
+                                        <c:otherwise>
+                                                <h:link value="Cancel" outcome="search" styleClass="btn btn-primary"/>
+                                        </c:otherwise>
+                                </c:choose>
+                        </div>
+                </h:form>
+        </ui:define>
+
+</ui:composition>
