@@ -1389,7 +1389,7 @@ Multiplicity 0 Arial,8,N</a:FontList>
 <a:ModificationDate>1470662823</a:ModificationDate>
 <a:SourceTextOffset>(1087, 13)</a:SourceTextOffset>
 <a:DestinationTextOffset>(939, -88)</a:DestinationTextOffset>
-<a:Rect>((-1425,22125), (825,31125))</a:Rect>
+<a:Rect>((-1387,22125), (-1287,31125))</a:Rect>
 <a:ListOfPoints>((-1387,31125),(-1387,22125))</a:ListOfPoints>
 <a:CornerStyle>1</a:CornerStyle>
 <a:ArrowStyle>0</a:ArrowStyle>

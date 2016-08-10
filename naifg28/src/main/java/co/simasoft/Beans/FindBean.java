@@ -172,7 +172,6 @@ public class FindBean {
         return models;
     }
 
-
     public GroupIds groupGroupIds(String search,EntityManager em) {
 
         GroupIds groupId = new GroupIds();
