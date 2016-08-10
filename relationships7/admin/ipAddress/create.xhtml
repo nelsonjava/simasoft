@@ -1,0 +1,149 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:c="http://java.sun.com/jsp/jstl/core"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:forgeview="http://jboss.org/forge/view"
+        template="/resources/scaffold/pageTemplate.xhtml">
+
+        <f:metadata>
+                <f:viewParam name="id" value='#{ipAddressBean.id}'/>
+                <f:event type="preRenderView" listener='#{ipAddressBean.retrieve}'/>
+        </f:metadata>
+
+        <ui:param name="pageTitle" value="Create IpAddress"/>
+
+        <ui:define name="header">
+                IpAddress
+        </ui:define>
+
+        <ui:define name="subheader">
+                <c:choose>
+                        <c:when test='#{!empty ipAddressBean.id}'>
+                                Edit existing IpAddress
+                        </c:when>
+                        <c:otherwise>
+                                Create a new IpAddress
+                        </c:otherwise>
+                </c:choose>
+        </ui:define>
+
+        <ui:define name="footer"/>
+
+        <ui:define name="main">
+                <h:form id="create">
+                        <h:messages globalOnly="true" styleClass="error"/>
+
+                        <h:panelGrid columnClasses="label,component,required" columns="3">
+
+                                <h:outputLabel for="ipAddressBeanIpAddressOrden" value="Orden:"/>
+                                <h:panelGroup>
+                                        <h:inputText id="ipAddressBeanIpAddressOrden" value="#{ipAddressBean.ipAddress.orden}"/>
+                                        <h:message for="ipAddressBeanIpAddressOrden" styleClass="error"/>
+                                </h:panelGroup>
+                                <h:outputText/>
+
+                                <h:outputLabel for="ipAddressBeanIpAddressIpAddress" value="IpAddress:"/>
+                                <h:panelGroup>
+                                        <h:inputText id="ipAddressBeanIpAddressIpAddress" value="#{ipAddressBean.ipAddress.ipAddress}"/>
+                                        <h:message for="ipAddressBeanIpAddressIpAddress" styleClass="error"/>
+                                </h:panelGroup>
+                                <h:outputText/>
+
+                                <h:outputLabel for="ipAddressBeanIpAddressIsActive" value="IsActive:"/>
+                                <h:panelGroup>
+                                        <h:selectOneMenu id="ipAddressBeanIpAddressIsActive" value="#{ipAddressBean.ipAddress.isActive}">
+                                                <f:selectItem/>
+                                                <f:selectItem itemLabel="Yes" itemValue="true"/>
+                                                <f:selectItem itemLabel="No" itemValue="false"/>
+                                        </h:selectOneMenu>
+                                        <h:message for="entitiesBeanEntitiesIsSimplified" styleClass="error"/>
+                                </h:panelGroup>
+                                <h:outputText/>
+
+                                <h:outputLabel for="ipAddressBeanIpAddressState" value="State:"/>
+                                <h:panelGroup>
+                                        <h:inputText id="ipAddressBeanIpAddressState" value="#{ipAddressBean.ipAddress.state}"/>
+                                        <h:message for="ipAddressBeanIpAddressState" styleClass="error"/>
+                                </h:panelGroup>
+                                <h:outputText/>
+
+                                <h:outputLabel for="ipAddressBeanipAddressSites" value="Sites:"/>
+                                <h:panelGroup>
+                                        <ui:param name="_collection" value="#{ipAddressBean.ipAddress.sites}"/>
+                                        <h:dataTable id="ipAddressBeanIpAddressSites" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Title"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/sites/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemTitle" value="#{_item.title}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Link"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/sites/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemLink" value="#{_item.link}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Abc"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/sites/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemAbc" value="#{_item.abc}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                     <h:column footerClass="remove-column" headerClass="remove-column">
+                                        <h:commandLink action="#{_collection.remove(_item)}" styleClass="remove-button"/>
+                                     </h:column>
+                                        </h:dataTable>
+
+                                        <h:panelGrid columnClasses=",remove-column" columns="2" styleClass="data-table-footer">
+                                           <h:selectOneMenu converter="#{sitesBean.converter}" id="ipAddressBeanIpAddressSitesSelect" value="#{requestScope['ipAddressBeanIpAddressSitesSelect']}">
+                                             <f:selectItem/>
+                                             <f:selectItems itemLabel="#{forgeview:display(_item.title)}" itemValue="#{_item}" value="#{sitesBean.all}" var="_item"/>
+                                           </h:selectOneMenu>
+                                           <h:commandLink action="#{_collection.add(requestScope['ipAddressBeanIpAddressSitesSelect'])}" id="ipAddressBeanIpAddressSitesAdd" onclick="if (document.getElementById(document.forms[0].id+':ipAddressBeanIpAddressSitesSelect').selectedIndex &lt; 1) { alert('Must select a Sites'); return false; }" styleClass="add-button"/>
+                                        </h:panelGrid>
+                                </h:panelGroup>
+                                <h:outputText/>
+
+                                <h:outputLabel for="ipAddressBeanIpAddressObservations" value="Observations:"/>
+                                <h:panelGroup>
+                                        <p:editor id="ipAddressBeanIpAddressObservations" value="#{ipAddressBean.ipAddress.observations}"/>
+                                        <h:message for="ipAddressBeanIpAddressObservations" styleClass="error"/>
+                                </h:panelGroup>
+                                <h:outputText/>
+
+                        </h:panelGrid>
+
+                        <div class="buttons">
+                                <h:commandLink value="Save" action='#{ipAddressBean.update}' styleClass="btn btn-primary"/>
+                                <c:choose>
+                                        <c:when test='#{!empty ipAddressBean.id}'>
+                                                <h:link value="Cancel" outcome="view" styleClass="btn btn-primary">
+                                                        <f:param name="id" value='#{ipAddressBean.id}'/>
+                                                </h:link>
+                                                <h:commandLink value="Delete" action='#{ipAddressBean.delete}' styleClass="btn btn-primary"/>
+                                        </c:when>
+                                        <c:otherwise>
+                                                <h:link value="Cancel" outcome="search" styleClass="btn btn-primary"/>
+                                        </c:otherwise>
+                                </c:choose>
+                        </div>
+                </h:form>
+        </ui:define>
+
+</ui:composition>

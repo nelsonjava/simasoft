@@ -1,0 +1,119 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        template="/resources/scaffold/pageTemplate.xhtml">
+
+        <f:metadata>
+                <f:viewParam name="page" value='#{ipAddressBean.page}'/>
+                <f:event type="preRenderView" listener='#{ipAddressBean.paginate}'/>
+        </f:metadata>
+
+        <ui:param name="pageTitle" value="Search IpAddress entities"/>
+
+        <ui:define name="header">
+                IpAddress
+        </ui:define>
+
+        <ui:define name="subheader">
+                Search IpAddress entities
+        </ui:define>
+
+        <ui:define name="footer"/>
+
+        <ui:define name="main">
+                <h:form id="search">
+                        <f:validateBean disabled="true">
+                                <h:panelGroup styleClass="search">
+
+                                        <h:panelGrid columnClasses="label,component,required" columns="3">
+                                                <h:outputLabel for="ipAddressBeanExampleIpAddress" value="IpAddress:"/>
+                                                <h:panelGroup>
+                                                        <h:inputText id="ipAddressBeanExampleIpAddress" value="#{ipAddressBean.example.ipAddress}"/>
+                                                        <h:message for="ipAddressBeanExampleIpAddress" styleClass="error"/>
+                                                </h:panelGroup>
+                                                <h:outputText/>
+
+                                                <h:outputLabel for="ipAddressBeanExampleIsActive" value="IsActive:"/>
+                                                <h:panelGroup>
+                                                        <h:selectOneMenu id="ipAddressBeanExampleIsActive" value="#{ipAddressBean.example.isActive}">
+                                                                <f:selectItem/>
+                                                                <f:selectItem itemLabel="Yes" itemValue="true"/>
+                                                                <f:selectItem itemLabel="No" itemValue="false"/>
+                                                        </h:selectOneMenu>
+                                                        <h:message for="entitiesBeanExampleIsSimplified" styleClass="error"/>
+                                                </h:panelGroup>
+                                                <h:outputText/>
+
+                                                <h:outputLabel for="ipAddressBeanExampleState" value="State:"/>
+                                                <h:panelGroup>
+                                                        <h:inputText id="ipAddressBeanExampleState" value="#{ipAddressBean.example.state}"/>
+                                                        <h:message for="ipAddressBeanExampleState" styleClass="error"/>
+                                                </h:panelGroup>
+                                                <h:outputText/>
+
+                                        </h:panelGrid>
+                                        <h:panelGroup styleClass="buttons">
+                                                <h:commandLink value="Search" action='#{ipAddressBean.search}' styleClass="btn btn-primary"/>
+                                                <h:commandLink value="Create New" action='#{ipAddressBean.create}' styleClass="btn btn-primary"/>
+                                        </h:panelGroup>
+                                </h:panelGroup>
+                        </f:validateBean>
+
+                        <h:dataTable id="ipAddressBeanPageItems" styleClass="data-table" value="#{ipAddressBean.pageItems}" var="_item">
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Orden"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/ipAddress/view">
+                                                <f:param name="id" value="#{_item.orden}"/>
+                                                <h:outputText id="itemOrden" value="#{_item.orden}"/>
+                                        </h:link>
+                                </h:column>
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="IpAddress"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/ipAddress/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemIpAddress" value="#{_item.ipAddress}"/>
+                                        </h:link>
+                                </h:column>
+
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="IsActive"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/ipAddress/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemIsActive" value="#{_item.isActive}"/>
+                                        </h:link>
+                                </h:column>
+
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="State"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/ipAddress/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemState" value="#{_item.state}"/>
+                                        </h:link>
+                                </h:column>
+
+
+                        </h:dataTable>
+                        <ui:include src="/resources/scaffold/paginator.xhtml">
+                                <ui:param name="paginatorBean" value='#{ipAddressBean}'/>
+                        </ui:include>
+                </h:form>
+
+        </ui:define>
+
+</ui:composition>

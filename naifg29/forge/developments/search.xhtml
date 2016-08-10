@@ -68,6 +68,18 @@
 			</f:validateBean>
 			
 			<h:dataTable id="developmentsBeanPageItems" styleClass="data-table" value="#{developmentsBean.pageItems}" var="_item">
+			
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Id"/>
+					</f:facet>
+					<h:link outcome="/admin/developments/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemId" value="#{_item.id}"/>
+					</h:link>
+				</h:column>
+
+
 				<h:column>
 					<f:facet name="header">
 						<h:outputText value="Artifact Id"/>

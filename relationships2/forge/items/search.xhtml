@@ -1,0 +1,124 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="page" value='#{itemsBean.page}'/>
+		<f:event type="preRenderView" listener='#{itemsBean.paginate}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="Search Items entities"/>
+
+	<ui:define name="header">
+		Items
+	</ui:define>
+
+	<ui:define name="subheader">
+		Search Items entities
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:form id="search">
+			<f:validateBean disabled="true">
+				<h:panelGroup styleClass="search">
+
+					<h:panelGrid columnClasses="label,component,required" columns="3">
+						<h:outputLabel for="itemsBeanExampleObservations" value="Observations:"/>
+						<h:panelGroup>
+							<h:inputTextarea id="itemsBeanExampleObservations" value="#{itemsBean.example.observations}"/>
+							<h:message for="itemsBeanExampleObservations" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="itemsBeanExampleCvNumber" value="Cv Number:"/>
+						<h:panelGroup>
+							<h:inputText id="itemsBeanExampleCvNumber" value="#{itemsBean.example.cvNumber}"/>
+							<h:message for="itemsBeanExampleCvNumber" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="itemsBeanExampleCode" value="Code:"/>
+						<h:panelGroup>
+							<h:inputText id="itemsBeanExampleCode" value="#{itemsBean.example.code}"/>
+							<h:message for="itemsBeanExampleCode" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="itemsBeanExampleInventoryCode" value="Inventory Code:"/>
+						<h:panelGroup>
+							<h:inputText id="itemsBeanExampleInventoryCode" value="#{itemsBean.example.inventoryCode}"/>
+							<h:message for="itemsBeanExampleInventoryCode" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="itemsBeanExampleSerial" value="Serial:"/>
+						<h:panelGroup>
+							<h:inputText id="itemsBeanExampleSerial" value="#{itemsBean.example.serial}"/>
+							<h:message for="itemsBeanExampleSerial" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+					</h:panelGrid>
+					<h:panelGroup styleClass="buttons">
+						<h:commandLink value="Search" action='#{itemsBean.search}' styleClass="btn btn-primary"/>
+						<h:commandLink value="Create New" action='#{itemsBean.create}' styleClass="btn btn-primary"/>
+					</h:panelGroup>
+				</h:panelGroup>
+			</f:validateBean>
+			
+			<h:dataTable id="itemsBeanPageItems" styleClass="data-table" value="#{itemsBean.pageItems}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Orden"/>
+					</f:facet>
+					<h:link outcome="/admin/items/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemOrden" value="#{_item.orden}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Observations"/>
+					</f:facet>
+					<h:link outcome="/admin/items/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:inputTextarea id="itemObservations" value="#{_item.observations}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Cv Number"/>
+					</f:facet>
+					<h:link outcome="/admin/items/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemCvNumber" value="#{_item.cvNumber}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Code"/>
+					</f:facet>
+					<h:link outcome="/admin/items/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemCode" value="#{_item.code}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Inventory Code"/>
+					</f:facet>
+					<h:link outcome="/admin/items/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemInventoryCode" value="#{_item.inventoryCode}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<ui:include src="/resources/scaffold/paginator.xhtml">
+				<ui:param name="paginatorBean" value='#{itemsBean}'/>
+			</ui:include>
+		</h:form>
+			
+	</ui:define>
+
+</ui:composition>

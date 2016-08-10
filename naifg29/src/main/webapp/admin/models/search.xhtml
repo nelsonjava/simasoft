@@ -53,6 +53,16 @@
                         </f:validateBean>
 
                         <h:dataTable id="modelsBeanPageItems" styleClass="data-table" value="#{modelsBean.pageItems}" var="_item">
+                        
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Id"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/models/view">
+                                                <f:param name="id" value="#{_item.orden}"/>
+                                                <h:outputText id="itemId" value="#{_item.id}"/>
+                                        </h:link>
+                                </h:column>
 
                                 <h:column>
                                         <f:facet name="header">
@@ -63,7 +73,7 @@
                                                 <h:outputText id="itemOrden" value="#{_item.orden}"/>
                                         </h:link>
                                 </h:column>
-                                
+
                                 <h:column>
                                         <f:facet name="header">
                                                 <h:outputText value="GroupIds"/>

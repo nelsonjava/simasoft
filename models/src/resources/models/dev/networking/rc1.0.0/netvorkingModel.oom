@@ -1697,26 +1697,13 @@ LABL 0 Arial,8,N</a:FontList>
 </o:Class>
 <o:Class Id="o34">
 <a:ObjectID>6354CA26-89F1-4612-8E0A-34227F956E28</a:ObjectID>
-<a:Name>Items</a:Name>
-<a:Code>Items</a:Code>
+<a:Name>Hosts</a:Name>
+<a:Code>Hosts</a:Code>
 <a:CreationDate>1470339318</a:CreationDate>
 <a:Creator>admin</a:Creator>
-<a:ModificationDate>1470399557</a:ModificationDate>
+<a:ModificationDate>1470839813</a:ModificationDate>
 <a:Modifier>admin</a:Modifier>
 <a:UseParentNamespace>0</a:UseParentNamespace>
-<c:Operations>
-<o:Operation Id="o39">
-<a:ObjectID>9B41606A-B2DD-4EB5-85DB-4675FFE8F960</a:ObjectID>
-<a:Name>Items</a:Name>
-<a:Code>items</a:Code>
-<a:CreationDate>1470399557</a:CreationDate>
-<a:Creator>admin</a:Creator>
-<a:ModificationDate>1470399557</a:ModificationDate>
-<a:Modifier>admin</a:Modifier>
-<a:ReturnType>int</a:ReturnType>
-<a:TemplateBody>%DefaultBody%</a:TemplateBody>
-</o:Operation>
-</c:Operations>
 </o:Class>
 <o:Class Id="o35">
 <a:ObjectID>D1620773-5ED4-4249-971B-80AB8CE18F57</a:ObjectID>
@@ -1978,7 +1965,7 @@ LABL 0 Arial,8,N</a:FontList>
 </o:Association>
 </c:Associations>
 <c:TargetModels>
-<o:TargetModel Id="o40">
+<o:TargetModel Id="o39">
 <a:ObjectID>EB927797-BECA-4498-A91B-CA08613FF5FD</a:ObjectID>
 <a:Name>Java</a:Name>
 <a:Code>Java</a:Code>
@@ -1993,7 +1980,7 @@ LABL 0 Arial,8,N</a:FontList>
 <o:Shortcut Ref="o3"/>
 </c:SessionShortcuts>
 </o:TargetModel>
-<o:TargetModel Id="o41">
+<o:TargetModel Id="o40">
 <a:ObjectID>7F92C383-8282-49A0-A97C-5690EEAA15A4</a:ObjectID>
 <a:Name>WSDL for Java</a:Name>
 <a:Code>WSDLJava</a:Code>

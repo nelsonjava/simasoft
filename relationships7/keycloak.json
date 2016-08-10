@@ -1,0 +1,35 @@
+{
+  "realm": "nafgkc",
+
+  <security-constraint>
+    <web-resource-collection>
+      <url-pattern>/*</url-pattern>
+    </web-resource-collection>
+    <auth-constraint>
+      <role-name>admin</role-name>
+    </auth-constraint>
+  </security-constraint>
+
+  <security-constraint>
+    <web-resource-collection>
+      <url-pattern>/*</url-pattern>
+    </web-resource-collection>
+    <auth-constraint>
+      <role-name>user</role-name>
+    </auth-constraint>
+  </security-constraint>
+
+  <login-config>
+    <auth-method>KEYCLOAK</auth-method>
+    <realm-name>nafgkc</realm-name>
+  </login-config>
+
+  <security-role>
+    <role-name>admin</role-name>
+  </security-role>
+
+  <security-role>
+    <role-name>user</role-name>
+  </security-role>
+
+}

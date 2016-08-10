@@ -1,0 +1,38 @@
+[[wildfly-instalacion]]
+////
+a=&#225; e=&#233; i=&#237; o=&#243; u=&#250;
+A=&#193; E=&#201; I=&#205; O=&#211; U=&#218;
+n=&#241; N=&#209;
+////
+== MODELO
+image::images/modelo.jpg[]
+== ENTITY:SitesTypes
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|name|null|String|null|null|false|true|false|true|true|true|true|true
+|===
+*RELATIONS:* 3
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|SitesTypes|1..*|SitesTypes|true|false|name
+|SitesTypes|*..*|Sites|true|false|title
+|SitesTypes|*..1|SitesTypes|true|false|name
+|===
+== ENTITY:Sites
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|title|null|String|null|null|true|false|false|true|true|true|true|true
+|link|null|String|null|null|false|true|false|false|true|true|true|true
+|abc|null|String|null|null|true|false|false|false|true|true|true|true
+|===
+*RELATIONS:* 1
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|Sites|*..*|SitesTypes|true|false|name
+|===

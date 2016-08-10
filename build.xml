@@ -31,9 +31,9 @@
     <delete dir="kitchensink/target" failonerror="no"/>
     <delete dir="contabWeb/target" failonerror="no"/>
     <delete dir="contabForge/target" failonerror="no"/>
-    <delete dir="prueba1/target" failonerror="no"/>
-    <delete dir="prueba5/target" failonerror="no"/>
-    <delete dir="prueba55/target" failonerror="no"/>
+    <delete dir="relationships2/target" failonerror="no"/>
+    <delete dir="relationships5/target" failonerror="no"/>
+    <delete dir="relationships7/target" failonerror="no"/>
     <delete dir="DomainModels/target" failonerror="no"/>
     <delete dir="naifgg/target" failonerror="no"/>
     <delete dir="naifg/target" failonerror="no"/>
