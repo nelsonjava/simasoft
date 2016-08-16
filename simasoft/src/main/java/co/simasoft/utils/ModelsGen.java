@@ -701,16 +701,45 @@ line(Integer.toString(i++)+":"+entidad.getName());
       line("#  "+entidad.getName()+" Relationships ");
       line("#  ############");
       for(Relation relation : entidad.getRelations()) {
+        
+      line("#  ############"+relation.getCardinality());
 
 //*******RELACION UNO A UNO
            if(relation.getCardinality().equals("1..1")) {
 
              if (relation.getEntityFrom().getName().equals(relation.getEntityTo().getName())){
+
                 line("#Unitaria  "+relation.getEntityFrom().getName()+" "+relation.getNameCardinality()+" "+relation.getEntityTo().getName());
+                line("cd ..");
+                line("cd "+entidad.getName()+".java");
+                line("jpa-new-field --named "+Utils._1raMin(relation.getEntityTo().getName())+
+                                  " --type "+entidad.getGroupId()+"."+relation.getEntityTo().getName()+
+                                  " --relationshipType One-to-One "+
+                                  " ----inverseFieldName "+ Utils._1raMin(relation.getEntityFrom().getName()) +";\n");
              }
              else{
-                line("#  "+relation.getEntityFrom().getName()+" "+relation.getNameCardinality()+" "+relation.getEntityTo().getName());
+                if (entidad.getName().equals(relation.getEntityFrom().getName())){
+
+                   line("#  "+relation.getEntityFrom().getName()+" "+relation.getNameCardinality()+" "+relation.getEntityTo().getName());
+                   line("cd ..");
+                   line("cd "+entidad.getName()+".java");
+                   line("jpa-new-field --named "+Utils._1raMin(relation.getEntityTo().getName())+
+                                   " --type "+entidad.getGroupId()+"."+relation.getEntityTo().getName()+
+                                   " --relationshipType One-to-One "+
+                                   " ----inverseFieldName "+ Utils._1raMin(relation.getEntityFrom().getName()) +";\n");
+                }
+                else{
+
+                   line("#  "+relation.getEntityFrom().getName()+" "+relation.getNameCardinality()+" "+relation.getEntityTo().getName());
+                   line("cd ..");
+                   line("cd "+entidad.getName()+".java");
+                   line("jpa-new-field --named "+Utils._1raMin(relation.getEntityFrom().getName())+
+                                   " --type "+entidad.getGroupId()+"."+relation.getEntityFrom().getName()+
+                                   " --relationshipType One-to-One "+
+                                   " ----inverseFieldName "+Utils._1raMin(relation.getEntityTo().getName())+";\n");
+                }
              }
+
 
            }
 //*******FIN RELACION UNO A UNO

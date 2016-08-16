@@ -916,11 +916,11 @@ NameToCode=No</a:ModelOptionsText>
 <c:ClassDiagrams>
 <o:ClassDiagram Id="o5">
 <a:ObjectID>CF69DB32-DA78-4E71-90BA-BA9233A388F0</a:ObjectID>
-<a:Name>ClassDiagram_1</a:Name>
-<a:Code>ClassDiagram_1</a:Code>
+<a:Name>sitesModel-rc1.0.0.</a:Name>
+<a:Code>sitesModel_rc1_0_0_</a:Code>
 <a:CreationDate>1438448619</a:CreationDate>
 <a:Creator>admin</a:Creator>
-<a:ModificationDate>1445611463</a:ModificationDate>
+<a:ModificationDate>1471373967</a:ModificationDate>
 <a:Modifier>admin</a:Modifier>
 <a:DisplayPreferences>[DisplayPreferences]
 
@@ -1295,8 +1295,10 @@ Shadow=0</a:DisplayPreferences>
 <a:PaperSize>(8500, 11000)</a:PaperSize>
 <a:PageMargins>((315,354), (433,354))</a:PageMargins>
 <a:PageOrientation>1</a:PageOrientation>
-<a:PaperSource>7</a:PaperSource>
-<a:PageHeaderTemplate>co.simasoft.models.core.sites</a:PageHeaderTemplate>
+<a:PaperSource>15</a:PaperSource>
+<a:PageFooterTemplate>core</a:PageFooterTemplate>
+<a:PageHeaderTemplate>sitesModel-rc1.0.0</a:PageHeaderTemplate>
+<a:PageNumberTemplate>%PAGE% / %TOTALPAGE%</a:PageNumberTemplate>
 <c:Symbols>
 <o:AssociationSymbol Id="o6">
 <a:CreationDate>1438448742</a:CreationDate>

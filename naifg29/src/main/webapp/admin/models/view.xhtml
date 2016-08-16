@@ -16,7 +16,7 @@
         <ui:param name="pageTitle" value="View Models"/>
 
         <ui:define name="header">
-                Models
+                #{modelsBean.models.name}
         </ui:define>
 
         <ui:define name="subheader">
@@ -147,8 +147,6 @@
 
                         </h:dataTable>
                         <h:outputText/>
-
-                        Muchos a Muchos Unidireccional No.6
 
                         <h:outputLabel for="modelsBeanModelsGroupIds" value="GroupIds:"/>
                         <h:link id="modelsBeanModelsGroupIds" outcome="/admin/groupIds/view" rendered="#{!empty modelsBean.models.groupIds}" value="#{modelsBean.models.groupIds.artifactId}">

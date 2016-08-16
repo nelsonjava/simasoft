@@ -356,6 +356,58 @@ public EntityH2(String artifactId,String groupId,Entidad entity,LinkedHashSet<St
       for(Relation relation : relations) {
 
 //********RELACION UNO A UNO
+            if(relation.getCardinality().equals("1..1")) {
+
+              if(relation.getFrom().equals(relation.getTo())){  // Relación Unitaria
+                 line("    public " + relation.getTo() + " getObjPadre() {");
+                 line("        return this.objPadre;");
+                 line("    }");
+                 line("    public void setObjPadre(" + Utils._1raMay(relation.getTo()) + " objPadre) {");
+                 line("        this.objPadre = objPadre;");
+                 line("    }\n");
+              }
+              else{
+                 if(relation.getName() == null || relation.getName() == "" ){
+
+                   if (entity.getName().equals(relation.getFrom())){
+                      line("    public " + relation.getTo() + " get" + Utils._1raMay(relation.getTo()) + "() {");
+                      line("        return " + Utils._1raMin(relation.getTo()) + ";");
+                      line("    }");
+                      line("    public void set" + Utils._1raMay(relation.getTo()) + "(" + Utils._1raMay(relation.getTo()) + " " + Utils._1raMin(relation.getTo()) + ") {");
+                      line("        this." + Utils._1raMin(relation.getTo()) + " = " + Utils._1raMin(relation.getTo()) + ";");
+                      line("    }\n");
+                   }
+                   else{ // relación inversa
+                      line("    public " + relation.getFrom() + " get" + Utils._1raMay(relation.getFrom()) + "() {");
+                      line("        return " + Utils._1raMin(relation.getFrom()) + ";");
+                      line("    }");
+                      line("    public void set" + Utils._1raMay(relation.getFrom()) + "(" + Utils._1raMay(relation.getFrom()) + " " + Utils._1raMin(relation.getFrom()) + ") {");
+                      line("        this." + Utils._1raMin(relation.getFrom()) + " = " + Utils._1raMin(relation.getFrom()) + ";");
+                      line("    }\n");
+                   }
+
+                 }
+                 else{
+                     if (entity.getName().equals(relation.getFrom())){
+                        line("    public " + relation.getTo() + " get" + Utils._1raMay(relation.getName()) + "() {");
+                        line("        return " + relation.getName() + ";");
+                        line("    }");
+                        line("    public void set" + Utils._1raMay(relation.getName()) + "(" + Utils._1raMay(relation.getTo()) + " " + relation.getName() + ") {");
+                        line("        this." + relation.getName() + " = " + relation.getName() + ";");
+                        line("    }\n");
+                     }
+                     else{ // Relación inversa.
+                        line("    public " + relation.getFrom() + " get" + Utils._1raMay(relation.getName()) + "() {");
+                        line("        return " + relation.getName() + ";");
+                        line("    }");
+                        line("    public void set" + Utils._1raMay(relation.getName()) + "(" + Utils._1raMay(relation.getFrom()) + " " + relation.getName() + ") {");
+                        line("        this." + relation.getName() + " = " + relation.getName() + ";");
+                        line("    }\n");
+                     }
+                 }
+              }
+
+            }
 //********FIN RELACION UNO A UNO
 
 //********RELACION MUCHOS A UNO

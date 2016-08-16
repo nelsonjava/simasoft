@@ -916,11 +916,11 @@ NameToCode=No</a:ModelOptionsText>
 <c:ClassDiagrams>
 <o:ClassDiagram Id="o5">
 <a:ObjectID>06C2BFDC-05BD-476A-AA31-278B87E34EA1</a:ObjectID>
-<a:Name>ClassDiagram_1</a:Name>
-<a:Code>ClassDiagram_1</a:Code>
+<a:Name>naifgEntities-rc1.0.4.</a:Name>
+<a:Code>naifgEntities_rc1_0_4_</a:Code>
 <a:CreationDate>1237650591</a:CreationDate>
 <a:Creator>nelson</a:Creator>
-<a:ModificationDate>1470503172</a:ModificationDate>
+<a:ModificationDate>1471372702</a:ModificationDate>
 <a:Modifier>admin</a:Modifier>
 <a:DisplayPreferences>[DisplayPreferences]
 
@@ -1295,7 +1295,10 @@ Shadow=0</a:DisplayPreferences>
 <a:PaperSize>(8500, 11000)</a:PaperSize>
 <a:PageMargins>((315,354), (433,354))</a:PageMargins>
 <a:PageOrientation>1</a:PageOrientation>
-<a:PaperSource>7</a:PaperSource>
+<a:PaperSource>15</a:PaperSource>
+<a:PageFooterTemplate>dev</a:PageFooterTemplate>
+<a:PageHeaderTemplate>naifgEntities-rc1.0.4</a:PageHeaderTemplate>
+<a:PageNumberTemplate>%PAGE% / %TOTALPAGE%</a:PageNumberTemplate>
 <c:Symbols>
 <o:ClassSymbol Id="o6">
 <a:CreationDate>1237650705</a:CreationDate>

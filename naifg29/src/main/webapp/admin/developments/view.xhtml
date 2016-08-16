@@ -56,52 +56,6 @@
                         <h:outputText id="developmentsBeanDevelopmentsObservations" value="#{developmentsBean.developments.observations}" escape="false" />
                         <h:outputText/>
 
-                        <h:outputLabel for="developmentsBeanDevelopmentsSites" value="Sites:"/>
-                        <h:dataTable id="developmentsBeanDevelopmentssites" styleClass="data-table" value="#{forgeview:asList(developmentsBean.developments.sites)}" var="_item">
-
-                                           <h:column>
-                                              <f:facet name="header">
-                                                      <h:outputText value="Orden"/>
-                                              </f:facet>
-                                              <h:link outcome="/admin/sites/view">
-                                                      <f:param name="id" value="#{_item.id}"/>
-                                                      <h:outputText id="itemOrden" value="#{_item.orden}"/>
-                                              </h:link>
-                                           </h:column>
-
-                                           <h:column>
-                                              <f:facet name="header">
-                                                      <h:outputText value="Title"/>
-                                              </f:facet>
-                                              <h:link outcome="/admin/sites/view">
-                                                      <f:param name="id" value="#{_item.id}"/>
-                                                      <h:outputText id="itemTitle" value="#{_item.title}"/>
-                                              </h:link>
-                                           </h:column>
-
-                                           <h:column>
-                                              <f:facet name="header">
-                                                      <h:outputText value="Link"/>
-                                              </f:facet>
-                                              <h:link outcome="/admin/sites/view">
-                                                      <f:param name="id" value="#{_item.id}"/>
-                                                      <h:outputText id="itemLink" value="#{_item.link}"/>
-                                              </h:link>
-                                           </h:column>
-
-                                           <h:column>
-                                              <f:facet name="header">
-                                                      <h:outputText value="Abc"/>
-                                              </f:facet>
-                                              <h:link outcome="/admin/sites/view">
-                                                      <f:param name="id" value="#{_item.id}"/>
-                                                      <h:outputText id="itemAbc" value="#{_item.abc}"/>
-                                              </h:link>
-                                           </h:column>
-
-                        </h:dataTable>
-                        <h:outputText/>
-
                         <h:outputLabel for="developmentsBeanDevelopmentsPom" value="Pom:"/>
                         <h:dataTable id="developmentsBeanDevelopmentspom" styleClass="data-table" value="#{forgeview:asList(developmentsBean.developments.pom)}" var="_item">
 
@@ -142,6 +96,52 @@
                                               <h:link outcome="/admin/pom/view">
                                                       <f:param name="id" value="#{_item.id}"/>
                                                       <h:outputText id="itemVersion" value="#{_item.version}"/>
+                                              </h:link>
+                                           </h:column>
+
+                        </h:dataTable>
+                        <h:outputText/>
+
+                        <h:outputLabel for="developmentsBeanDevelopmentsSites" value="Sites:"/>
+                        <h:dataTable id="developmentsBeanDevelopmentssites" styleClass="data-table" value="#{forgeview:asList(developmentsBean.developments.sites)}" var="_item">
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Orden"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/sites/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemOrden" value="#{_item.orden}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Title"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/sites/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemTitle" value="#{_item.title}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Link"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/sites/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemLink" value="#{_item.link}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Abc"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/sites/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemAbc" value="#{_item.abc}"/>
                                               </h:link>
                                            </h:column>
 
@@ -189,7 +189,6 @@
                           <h:commandButton value="Code" action="#{DevelopmentsGen.data(developmentsBean.developments)}" />
                         </h:form>
 			<h:outputText/>
-
 
                 </h:panelGrid>
 

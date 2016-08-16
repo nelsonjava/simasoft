@@ -916,11 +916,11 @@ NameToCode=No</a:ModelOptionsText>
 <c:ClassDiagrams>
 <o:ClassDiagram Id="o5">
 <a:ObjectID>541FF666-7529-413A-9733-4A63BE9B6027</a:ObjectID>
-<a:Name>ClassDiagram_1</a:Name>
-<a:Code>ClassDiagram_1</a:Code>
+<a:Name>networkingItemsModel-rc1.0.0</a:Name>
+<a:Code>networkingItemsModel_rc1_0_0</a:Code>
 <a:CreationDate>1470339231</a:CreationDate>
 <a:Creator>admin</a:Creator>
-<a:ModificationDate>1470841258</a:ModificationDate>
+<a:ModificationDate>1471354449</a:ModificationDate>
 <a:Modifier>admin</a:Modifier>
 <a:DisplayPreferences>[DisplayPreferences]
 
@@ -1295,15 +1295,17 @@ Shadow=0</a:DisplayPreferences>
 <a:PaperSize>(8500, 11000)</a:PaperSize>
 <a:PageMargins>((315,354), (433,354))</a:PageMargins>
 <a:PageOrientation>1</a:PageOrientation>
-<a:PaperSource>7</a:PaperSource>
-<a:PageFooterTemplate>naifgExternal-rc1.0.0</a:PageFooterTemplate>
-<a:PageHeaderTemplate>%PAGE% / %TOTALPAGE%</a:PageHeaderTemplate>
+<a:PaperSource>15</a:PaperSource>
+<a:PageFooterTemplate>ModelExternal</a:PageFooterTemplate>
+<a:PageHeaderTemplate>networkingItemsModel-rc1.0.0</a:PageHeaderTemplate>
+<a:PageNumberTemplate>%PAGE% / %TOTALPAGE%</a:PageNumberTemplate>
 <c:Symbols>
 <o:AssociationSymbol Id="o6">
 <a:CreationDate>1470841258</a:CreationDate>
-<a:ModificationDate>1470842099</a:ModificationDate>
-<a:DestinationTextOffset>(1050, 0)</a:DestinationTextOffset>
-<a:Rect>((-3303,21150), (-1053,27975))</a:Rect>
+<a:ModificationDate>1470944050</a:ModificationDate>
+<a:SourceTextOffset>(1126, 600)</a:SourceTextOffset>
+<a:DestinationTextOffset>(1052, -675)</a:DestinationTextOffset>
+<a:Rect>((-3265,21150), (-1127,27975))</a:Rect>
 <a:ListOfPoints>((-3265,27975),(-3265,21150))</a:ListOfPoints>
 <a:CornerStyle>1</a:CornerStyle>
 <a:ArrowStyle>0</a:ArrowStyle>
@@ -1378,7 +1380,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Code>Hosts</a:Code>
 <a:CreationDate>1470339318</a:CreationDate>
 <a:Creator>admin</a:Creator>
-<a:ModificationDate>1470842095</a:ModificationDate>
+<a:ModificationDate>1470944039</a:ModificationDate>
 <a:Modifier>admin</a:Modifier>
 <a:UseParentNamespace>0</a:UseParentNamespace>
 </o:Class>
@@ -1388,7 +1390,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Code>Items</a:Code>
 <a:CreationDate>1470841227</a:CreationDate>
 <a:Creator>admin</a:Creator>
-<a:ModificationDate>1470842095</a:ModificationDate>
+<a:ModificationDate>1470944039</a:ModificationDate>
 <a:Modifier>admin</a:Modifier>
 <a:UseParentNamespace>0</a:UseParentNamespace>
 <c:Operations>
@@ -1412,12 +1414,10 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Code>association1</a:Code>
 <a:CreationDate>1470841258</a:CreationDate>
 <a:Creator>admin</a:Creator>
-<a:ModificationDate>1470842095</a:ModificationDate>
+<a:ModificationDate>1470944039</a:ModificationDate>
 <a:Modifier>admin</a:Modifier>
-<a:RoleAName>from</a:RoleAName>
-<a:RoleBName>to</a:RoleBName>
 <a:RoleAMultiplicity>0..1</a:RoleAMultiplicity>
-<a:RoleBMultiplicity>0..1</a:RoleBMultiplicity>
+<a:RoleBMultiplicity>0..*</a:RoleBMultiplicity>
 <a:RoleBNavigability>0</a:RoleBNavigability>
 <a:ExtendedAttributesText>{D824A738-E160-11D2-B693-0008C7EA924D},Java,276={72FA5C48-5524-4DF7-8187-ABB19AB5AF9E},roleAContainer,6=&lt;None&gt;
 {F6FFC71C-C472-4261-A710-B0BCC0BF4D58},roleAImplementationClass,6=&lt;None&gt;

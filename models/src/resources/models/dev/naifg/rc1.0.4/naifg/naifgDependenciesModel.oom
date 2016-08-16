@@ -916,11 +916,11 @@ NameToCode=No</a:ModelOptionsText>
 <c:ClassDiagrams>
 <o:ClassDiagram Id="o5">
 <a:ObjectID>9C40624A-77D0-40D4-A125-84F944F909D8</a:ObjectID>
-<a:Name>ClassDiagram_1</a:Name>
-<a:Code>ClassDiagram_1</a:Code>
+<a:Name>naifgDependenciesModel-rc1.0.4.</a:Name>
+<a:Code>naifgDependenciesModel_rc1_0_4_</a:Code>
 <a:CreationDate>1438227593</a:CreationDate>
 <a:Creator>admin</a:Creator>
-<a:ModificationDate>1470785469</a:ModificationDate>
+<a:ModificationDate>1471372553</a:ModificationDate>
 <a:Modifier>admin</a:Modifier>
 <a:DisplayPreferences>[DisplayPreferences]
 
@@ -1295,9 +1295,10 @@ Shadow=0</a:DisplayPreferences>
 <a:PaperSize>(8500, 11000)</a:PaperSize>
 <a:PageMargins>((315,354), (433,354))</a:PageMargins>
 <a:PageOrientation>1</a:PageOrientation>
-<a:PaperSource>7</a:PaperSource>
-<a:PageFooterTemplate>naifgExternal-rc1.0.0</a:PageFooterTemplate>
-<a:PageHeaderTemplate>%PAGE% / %TOTALPAGE%</a:PageHeaderTemplate>
+<a:PaperSource>15</a:PaperSource>
+<a:PageFooterTemplate>core</a:PageFooterTemplate>
+<a:PageHeaderTemplate>naifgDependenciesModel-rc1.0.4</a:PageHeaderTemplate>
+<a:PageNumberTemplate>%PAGE% / %TOTALPAGE%</a:PageNumberTemplate>
 <c:Symbols>
 <o:AssociationSymbol Id="o6">
 <a:CreationDate>1470661492</a:CreationDate>
@@ -1465,7 +1466,7 @@ Multiplicity 0 Arial,8,N</a:FontList>
 <a:ModificationDate>1470663566</a:ModificationDate>
 <a:SourceTextOffset>(37, 1112)</a:SourceTextOffset>
 <a:DestinationTextOffset>(114, 988)</a:DestinationTextOffset>
-<a:Rect>((-18750,24675), (-5700,24775))</a:Rect>
+<a:Rect>((-18750,24589), (-5700,26861))</a:Rect>
 <a:ListOfPoints>((-18750,24675),(-5700,24675))</a:ListOfPoints>
 <a:CornerStyle>1</a:CornerStyle>
 <a:ArrowStyle>0</a:ArrowStyle>
@@ -1488,7 +1489,7 @@ Multiplicity 0 Arial,8,N</a:FontList>
 <a:ModificationDate>1470663602</a:ModificationDate>
 <a:SourceTextOffset>(-262, 1288)</a:SourceTextOffset>
 <a:DestinationTextOffset>(-113, 1112)</a:DestinationTextOffset>
-<a:Rect>((525,24600), (11925,24700))</a:Rect>
+<a:Rect>((525,24600), (11925,26962))</a:Rect>
 <a:ListOfPoints>((11925,24600),(525,24600))</a:ListOfPoints>
 <a:CornerStyle>1</a:CornerStyle>
 <a:ArrowStyle>0</a:ArrowStyle>
