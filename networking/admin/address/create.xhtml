@@ -1,0 +1,141 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:c="http://java.sun.com/jsp/jstl/core"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:forgeview="http://jboss.org/forge/view"
+        template="/resources/scaffold/pageTemplate.xhtml">
+
+        <f:metadata>
+                <f:viewParam name="id" value='#{addressBean.id}'/>
+                <f:event type="preRenderView" listener='#{addressBean.retrieve}'/>
+        </f:metadata>
+
+        <ui:param name="pageTitle" value="Create Address"/>
+
+        <ui:define name="header">
+                Address
+        </ui:define>
+
+        <ui:define name="subheader">
+                <c:choose>
+                        <c:when test='#{!empty addressBean.id}'>
+                                Edit existing Address
+                        </c:when>
+                        <c:otherwise>
+                                Create a new Address
+                        </c:otherwise>
+                </c:choose>
+        </ui:define>
+
+        <ui:define name="footer"/>
+
+        <ui:define name="main">
+                <h:form id="create">
+                        <h:messages globalOnly="true" styleClass="error"/>
+
+                        <h:panelGrid columnClasses="label,component,required" columns="3">
+
+                                <h:outputLabel for="addressBeanAddressOrden" value="Orden:"/>
+                                <h:panelGroup>
+                                        <h:inputText id="addressBeanAddressOrden" value="#{addressBean.address.orden}"/>
+                                        <h:message for="addressBeanAddressOrden" styleClass="error"/>
+                                </h:panelGroup>
+                                <h:outputText/>
+
+                                <h:outputLabel for="addressBeanAddressAddress" value="Address:"/>
+                                <h:panelGroup>
+                                        <h:inputText id="addressBeanAddressAddress" value="#{addressBean.address.address}"/>
+                                        <h:message for="addressBeanAddressAddress" styleClass="error"/>
+                                </h:panelGroup>
+                                <h:outputText/>
+
+                                <h:outputLabel for="addressBeanaddressPersons" value="Persons:"/>
+                                <h:panelGroup>
+                                        <ui:param name="_collection" value="#{addressBean.address.persons}"/>
+                                        <h:dataTable id="addressBeanAddressPersons" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="FirstName"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/persons/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemFirstName" value="#{_item.firstName}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="SecondName"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/persons/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemSecondName" value="#{_item.secondName}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="FirstLastName"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/persons/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemFirstLastName" value="#{_item.firstLastName}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="SecondLastName"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/persons/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemSecondLastName" value="#{_item.secondLastName}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                     <h:column footerClass="remove-column" headerClass="remove-column">
+                                        <h:commandLink action="#{_collection.remove(_item)}" styleClass="remove-button"/>
+                                     </h:column>
+                                        </h:dataTable>
+
+                                        <h:panelGrid columnClasses=",remove-column" columns="2" styleClass="data-table-footer">
+                                           <h:selectOneMenu converter="#{personsBean.converter}" id="addressBeanAddressPersonsSelect" value="#{requestScope['addressBeanAddressPersonsSelect']}">
+                                             <f:selectItem/>
+                                             <f:selectItems itemLabel="#{forgeview:display(_item.firstName)}" itemValue="#{_item}" value="#{personsBean.all}" var="_item"/>
+                                           </h:selectOneMenu>
+                                           <h:commandLink action="#{_collection.add(requestScope['addressBeanAddressPersonsSelect'])}" id="addressBeanAddressPersonsAdd" onclick="if (document.getElementById(document.forms[0].id+':addressBeanAddressPersonsSelect').selectedIndex &lt; 1) { alert('Must select a Persons'); return false; }" styleClass="add-button"/>
+                                        </h:panelGrid>
+                                </h:panelGroup>
+                                <h:outputText/>
+
+                                <h:outputLabel for="addressBeanAddressObservations" value="Observations:"/>
+                                <h:panelGroup>
+                                        <p:editor id="addressBeanAddressObservations" value="#{addressBean.address.observations}"/>
+                                        <h:message for="addressBeanAddressObservations" styleClass="error"/>
+                                </h:panelGroup>
+                                <h:outputText/>
+
+                        </h:panelGrid>
+
+                        <div class="buttons">
+                                <h:commandLink value="Save" action='#{addressBean.update}' styleClass="btn btn-primary"/>
+                                <c:choose>
+                                        <c:when test='#{!empty addressBean.id}'>
+                                                <h:link value="Cancel" outcome="view" styleClass="btn btn-primary">
+                                                        <f:param name="id" value='#{addressBean.id}'/>
+                                                </h:link>
+                                                <h:commandLink value="Delete" action='#{addressBean.delete}' styleClass="btn btn-primary"/>
+                                        </c:when>
+                                        <c:otherwise>
+                                                <h:link value="Cancel" outcome="search" styleClass="btn btn-primary"/>
+                                        </c:otherwise>
+                                </c:choose>
+                        </div>
+                </h:form>
+        </ui:define>
+
+</ui:composition>

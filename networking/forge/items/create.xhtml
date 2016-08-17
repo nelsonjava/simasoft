@@ -1,0 +1,321 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:forgeview="http://jboss.org/forge/view"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="id" value='#{itemsBean.id}'/>
+		<f:event type="preRenderView" listener='#{itemsBean.retrieve}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="Create Items"/>
+
+	<ui:define name="header">
+		Items
+	</ui:define>
+
+	<ui:define name="subheader">
+		<c:choose>
+			<c:when test='#{!empty itemsBean.id}'>
+				Edit existing Items
+			</c:when>
+			<c:otherwise>
+				Create a new Items
+			</c:otherwise>
+		</c:choose>
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:form id="create">
+			<h:messages globalOnly="true" styleClass="error"/>
+
+			<h:panelGrid columnClasses="label,component,required" columns="3">
+				<h:outputLabel for="itemsBeanItemsOrden" value="Orden:"/>
+				<h:panelGroup>
+					<h:inputText id="itemsBeanItemsOrden" value="#{itemsBean.items.orden}"/>
+					<h:message for="itemsBeanItemsOrden" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="itemsBeanItemsObservations" value="Observations:"/>
+				<h:panelGroup>
+					<h:inputTextarea id="itemsBeanItemsObservations" value="#{itemsBean.items.observations}"/>
+					<h:message for="itemsBeanItemsObservations" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="itemsBeanItemsCvNumber" value="Cv Number:"/>
+				<h:panelGroup>
+					<h:inputText id="itemsBeanItemsCvNumber" value="#{itemsBean.items.cvNumber}"/>
+					<h:message for="itemsBeanItemsCvNumber" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="itemsBeanItemsCode" value="Code:"/>
+				<h:panelGroup>
+					<h:inputText id="itemsBeanItemsCode" value="#{itemsBean.items.code}"/>
+					<h:message for="itemsBeanItemsCode" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="itemsBeanItemsInventoryCode" value="Inventory Code:"/>
+				<h:panelGroup>
+					<h:inputText id="itemsBeanItemsInventoryCode" value="#{itemsBean.items.inventoryCode}"/>
+					<h:message for="itemsBeanItemsInventoryCode" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="itemsBeanItemsSerial" value="Serial:"/>
+				<h:panelGroup>
+					<h:inputText id="itemsBeanItemsSerial" value="#{itemsBean.items.serial}"/>
+					<h:message for="itemsBeanItemsSerial" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="itemsBeanItemsEanCode" value="Ean Code:"/>
+				<h:panelGroup>
+					<h:inputText id="itemsBeanItemsEanCode" value="#{itemsBean.items.eanCode}"/>
+					<h:message for="itemsBeanItemsEanCode" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="itemsBeanItemsExpirationDate" value="Expiration Date:"/>
+				<h:panelGroup>
+					<h:inputText id="itemsBeanItemsExpirationDate" value="#{itemsBean.items.expirationDate}">
+						<f:convertDateTime type="date"/>
+					</h:inputText>
+					<h:message for="itemsBeanItemsExpirationDate" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="itemsBeanItemsWarrantyDate" value="Warranty Date:"/>
+				<h:panelGroup>
+					<h:inputText id="itemsBeanItemsWarrantyDate" value="#{itemsBean.items.warrantyDate}">
+						<f:convertDateTime type="date"/>
+					</h:inputText>
+					<h:message for="itemsBeanItemsWarrantyDate" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="itemsBeanItemsMinStock" value="Min Stock:"/>
+				<h:panelGroup>
+					<h:inputText id="itemsBeanItemsMinStock" value="#{itemsBean.items.minStock}"/>
+					<h:message for="itemsBeanItemsMinStock" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="itemsBeanItemsMaxStock" value="Max Stock:"/>
+				<h:panelGroup>
+					<h:inputText id="itemsBeanItemsMaxStock" value="#{itemsBean.items.maxStock}"/>
+					<h:message for="itemsBeanItemsMaxStock" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="itemsBeanItemsQuantity" value="Quantity:"/>
+				<h:panelGroup>
+					<h:inputText id="itemsBeanItemsQuantity" value="#{itemsBean.items.quantity}"/>
+					<h:message for="itemsBeanItemsQuantity" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="itemsBeanItemsHosts" value="Hosts:"/>
+				<h:panelGroup>
+					<ui:param name="_collection" value="#{itemsBean.items.hosts}"/>
+					<h:dataTable id="itemsBeanItemsHosts" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Orden"/>
+							</f:facet>
+							<h:link outcome="/admin/hosts/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="_itemOrden" value="#{_item.orden}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="hostsBeanAddOrden" value="#{hostsBean.add.orden}"/>
+								<h:message for="hostsBeanAddOrden" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Observations"/>
+							</f:facet>
+							<h:link outcome="/admin/hosts/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:inputTextarea id="_itemObservations" value="#{_item.observations}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputTextarea id="hostsBeanAddObservations" value="#{hostsBean.add.observations}"/>
+								<h:message for="hostsBeanAddObservations" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Name"/>
+							</f:facet>
+							<h:link outcome="/admin/hosts/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="_itemName" value="#{_item.name}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="hostsBeanAddName" value="#{hostsBean.add.name}"/>
+								<h:message for="hostsBeanAddName" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Hosts Types"/>
+							</f:facet>
+							<h:link outcome="/admin/hosts/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="forgeview:display(_itemHostsTypes)" value="#{forgeview:display(_item.hostsTypes)}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:selectOneMenu converter="#{hostsTypesBean.converter}" id="hostsBeanAddHostsTypes" value="#{hostsBean.add.hostsTypes}">
+									<f:selectItem/>
+									<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{hostsTypesBean.all}" var="_item"/>
+								</h:selectOneMenu>
+								<h:message for="hostsBeanAddHostsTypes" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column footerClass="remove-column" headerClass="remove-column">
+							<h:commandLink action="#{_collection.remove(_item)}" styleClass="remove-button"/>
+							<f:facet name="footer">
+								<h:commandLink action="#{_collection.add(hostsBean.added)}" id="itemsBeanItemsHostsAdd" styleClass="add-button">
+									<f:setPropertyActionListener target="#{hostsBean.add.items}" value="#{itemsBean.items}"/>
+								</h:commandLink>
+							</f:facet>
+						</h:column>
+					</h:dataTable>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="itemsBeanItemsObjHijos" value="Obj Hijos:"/>
+				<h:panelGroup>
+					<ui:param name="_collection" value="#{itemsBean.items.objHijos}"/>
+					<h:dataTable id="itemsBeanItemsObjHijos" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Orden"/>
+							</f:facet>
+							<h:link outcome="/admin/items/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="_itemOrden" value="#{_item.orden}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="itemsBeanAddOrden" value="#{itemsBean.add.orden}"/>
+								<h:message for="itemsBeanAddOrden" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Observations"/>
+							</f:facet>
+							<h:link outcome="/admin/items/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:inputTextarea id="_itemObservations" value="#{_item.observations}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputTextarea id="itemsBeanAddObservations" value="#{itemsBean.add.observations}"/>
+								<h:message for="itemsBeanAddObservations" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Cv Number"/>
+							</f:facet>
+							<h:link outcome="/admin/items/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="_itemCvNumber" value="#{_item.cvNumber}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="itemsBeanAddCvNumber" value="#{itemsBean.add.cvNumber}"/>
+								<h:message for="itemsBeanAddCvNumber" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Code"/>
+							</f:facet>
+							<h:link outcome="/admin/items/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="_itemCode" value="#{_item.code}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="itemsBeanAddCode" value="#{itemsBean.add.code}"/>
+								<h:message for="itemsBeanAddCode" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Inventory Code"/>
+							</f:facet>
+							<h:link outcome="/admin/items/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="_itemInventoryCode" value="#{_item.inventoryCode}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="itemsBeanAddInventoryCode" value="#{itemsBean.add.inventoryCode}"/>
+								<h:message for="itemsBeanAddInventoryCode" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column footerClass="remove-column" headerClass="remove-column">
+							<h:commandLink action="#{_collection.remove(_item)}" styleClass="remove-button"/>
+							<f:facet name="footer">
+								<h:commandLink action="#{_collection.add(itemsBean.added)}" id="itemsBeanItemsObjHijosAdd" styleClass="add-button">
+									<f:setPropertyActionListener target="#{itemsBean.add.objPadre}" value="#{itemsBean.items}"/>
+								</h:commandLink>
+							</f:facet>
+						</h:column>
+					</h:dataTable>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="itemsBeanItemsItemsNames" value="Items Names:"/>
+				<h:panelGroup>
+					<h:selectOneMenu converter="#{itemsNamesBean.converter}" id="itemsBeanItemsItemsNames" value="#{itemsBean.items.itemsNames}">
+						<f:selectItem/>
+						<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{itemsNamesBean.all}" var="_item"/>
+					</h:selectOneMenu>
+					<h:message for="itemsBeanItemsItemsNames" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="itemsBeanItemsItemsStates" value="Items States:"/>
+				<h:panelGroup>
+					<h:selectOneMenu converter="#{itemsStatesBean.converter}" id="itemsBeanItemsItemsStates" value="#{itemsBean.items.itemsStates}">
+						<f:selectItem/>
+						<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{itemsStatesBean.all}" var="_item"/>
+					</h:selectOneMenu>
+					<h:message for="itemsBeanItemsItemsStates" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="itemsBeanItemsObjPadre" value="Obj Padre:"/>
+				<h:panelGroup>
+					<h:selectOneMenu converter="#{itemsBean.converter}" id="itemsBeanItemsObjPadre" value="#{itemsBean.items.objPadre}">
+						<f:selectItem/>
+						<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{itemsBean.all}" var="_item"/>
+					</h:selectOneMenu>
+					<h:message for="itemsBeanItemsObjPadre" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="itemsBeanItemsPhysicalAreas" value="Physical Areas:"/>
+				<h:panelGroup>
+					<h:selectOneMenu converter="#{physicalAreasBean.converter}" id="itemsBeanItemsPhysicalAreas" value="#{itemsBean.items.physicalAreas}">
+						<f:selectItem/>
+						<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{physicalAreasBean.all}" var="_item"/>
+					</h:selectOneMenu>
+					<h:message for="itemsBeanItemsPhysicalAreas" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+			</h:panelGrid>
+
+			<div class="buttons">
+				<h:commandLink value="Save" action='#{itemsBean.update}' styleClass="btn btn-primary"/>
+				<c:choose>
+					<c:when test='#{!empty itemsBean.id}'>
+						<h:link value="Cancel" outcome="view" styleClass="btn btn-primary">
+							<f:param name="id" value='#{itemsBean.id}'/>
+						</h:link>
+						<h:commandLink value="Delete" action='#{itemsBean.delete}' styleClass="btn btn-primary"/>
+					</c:when>
+					<c:otherwise>
+						<h:link value="Cancel" outcome="search" styleClass="btn btn-primary"/>
+					</c:otherwise>
+				</c:choose>
+			</div>
+		</h:form>
+	</ui:define>
+
+</ui:composition>

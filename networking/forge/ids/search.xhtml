@@ -1,0 +1,134 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:forgeview="http://jboss.org/forge/view"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="page" value='#{idsBean.page}'/>
+		<f:event type="preRenderView" listener='#{idsBean.paginate}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="Search Ids entities"/>
+
+	<ui:define name="header">
+		Ids
+	</ui:define>
+
+	<ui:define name="subheader">
+		Search Ids entities
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:form id="search">
+			<f:validateBean disabled="true">
+				<h:panelGroup styleClass="search">
+
+					<h:panelGrid columnClasses="label,component,required" columns="3">
+						<h:outputLabel for="idsBeanExampleObservations" value="Observations:"/>
+						<h:panelGroup>
+							<h:inputTextarea id="idsBeanExampleObservations" value="#{idsBean.example.observations}"/>
+							<h:message for="idsBeanExampleObservations" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="idsBeanExampleNit" value="Nit:"/>
+						<h:panelGroup>
+							<h:inputText id="idsBeanExampleNit" value="#{idsBean.example.nit}"/>
+							<h:message for="idsBeanExampleNit" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="idsBeanExampleCheckDigit" value="Check Digit:"/>
+						<h:panelGroup>
+							<h:inputText id="idsBeanExampleCheckDigit" value="#{idsBean.example.checkDigit}"/>
+							<h:message for="idsBeanExampleCheckDigit" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="idsBeanExampleIsPhotocopy" value="Is Photocopy:"/>
+						<h:panelGroup>
+							<h:selectOneMenu id="idsBeanExampleIsPhotocopy" value="#{idsBean.example.isPhotocopy}">
+								<f:selectItem/>
+								<f:selectItem itemLabel="Yes" itemValue="true"/>
+								<f:selectItem itemLabel="No" itemValue="false"/>
+							</h:selectOneMenu>
+							<h:message for="idsBeanExampleIsPhotocopy" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="idsBeanExamplePersons" value="Persons:"/>
+						<h:panelGroup>
+							<h:selectOneMenu converter="#{personsBean.converter}" id="idsBeanExamplePersons" value="#{idsBean.example.persons}">
+								<f:selectItem/>
+								<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{personsBean.all}" var="_item"/>
+							</h:selectOneMenu>
+							<h:message for="idsBeanExamplePersons" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+					</h:panelGrid>
+					<h:panelGroup styleClass="buttons">
+						<h:commandLink value="Search" action='#{idsBean.search}' styleClass="btn btn-primary"/>
+						<h:commandLink value="Create New" action='#{idsBean.create}' styleClass="btn btn-primary"/>
+					</h:panelGroup>
+				</h:panelGroup>
+			</f:validateBean>
+			
+			<h:dataTable id="idsBeanPageItems" styleClass="data-table" value="#{idsBean.pageItems}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Orden"/>
+					</f:facet>
+					<h:link outcome="/admin/ids/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemOrden" value="#{_item.orden}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Observations"/>
+					</f:facet>
+					<h:link outcome="/admin/ids/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:inputTextarea id="_itemObservations" value="#{_item.observations}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Nit"/>
+					</f:facet>
+					<h:link outcome="/admin/ids/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemNit" value="#{_item.nit}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Check Digit"/>
+					</f:facet>
+					<h:link outcome="/admin/ids/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemCheckDigit" value="#{_item.checkDigit}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Creation Date"/>
+					</f:facet>
+					<h:link outcome="/admin/ids/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemCreationDate" value="#{_item.creationDate}">
+							<f:convertDateTime type="date"/>
+						</h:outputText>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<ui:include src="/resources/scaffold/paginator.xhtml">
+				<ui:param name="paginatorBean" value='#{idsBean}'/>
+			</ui:include>
+		</h:form>
+			
+	</ui:define>
+
+</ui:composition>

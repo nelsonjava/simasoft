@@ -1,0 +1,423 @@
+[[wildfly-instalacion]]
+////
+a=&#225; e=&#233; i=&#237; o=&#243; u=&#250;
+A=&#193; E=&#201; I=&#205; O=&#211; U=&#218;
+n=&#241; N=&#209;
+////
+== MODELO
+image::images/modelo.jpg[]
+== ENTITY:Hosts
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|name|null|String|null|null|true|false|false|true|true|true|true|true
+|===
+*RELATIONS:* 5
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|Hosts|1..*|NetworkPorts|true|false|ipAddress
+|Hosts|1..*|SwitchesPorts|true|false|port
+|Hosts|1..*|PatchPanelsPorts|true|false|code
+|Hosts|*..1|HostsTypes|true|false|name
+|Hosts|*..1|Items|true|false|cvNumber
+|===
+== ENTITY:Address
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|address|null|String|null|null|true|false|false|true|true|true|true|true
+|===
+*RELATIONS:* 1
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|Address|*..*|Persons|true|false|firstName
+|===
+== ENTITY:Companies
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|name|null|String|null|null|true|false|false|true|true|true|true|true
+|===
+*RELATIONS:* 5
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|Companies|1..*|Companies|true|false|name
+|Companies|1..*|Employees|true|false|code
+|Companies|1..*|Brands|true|false|name
+|Companies|*..*|Sites|true|false|title
+|Companies|*..1|Companies|true|false|name
+|===
+== ENTITY:PatchPanelsPorts
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|code|null|String|null|null|true|false|false|false|true|true|true|true
+|mts||Integer|null|null|true|false|false|false|false|false|false|false
+|port|null|String|null|null|false|true|false|true|true|true|true|true
+|===
+*RELATIONS:* 3
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|PatchPanelsPorts|1..*|NetworkPorts|true|false|ipAddress
+|PatchPanelsPorts|*..1|SwitchesPorts|true|false|port
+|PatchPanelsPorts|*..1|Hosts|true|false|name
+|===
+== ENTITY:Employees
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|code|null|String|null|null|false|true|false|true|true|true|true|true
+|===
+*RELATIONS:* 4
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|Employees|1..*|PositionsCompany|true|false|name
+|Employees|*..1|Companies|true|false|name
+|Employees|*..1|EmployeesTypes|true|false|name
+|Employees|*..1|Persons|true|false|firstName
+|===
+== ENTITY:ItemsNames
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|name|null|String|null|null|false|true|false|true|true|true|true|true
+|model|null|String|null|null|true|false|false|false|true|true|true|true
+|productNumber|null|String|null|null|true|false|false|false|true|true|true|true
+|partNumber|null|String|null|null|true|false|false|false|true|true|true|true
+|===
+*RELATIONS:* 2
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|ItemsNames|1..*|Items|true|false|cvNumber
+|ItemsNames|*..1|ItemsTypes|true|false|name
+|===
+== ENTITY:Persons
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|firstName|null|String|null|null|true|false|false|true|true|true|true|true
+|secondName|null|String|null|null|true|false|false|false|true|true|true|true
+|firstLastName|null|String|null|null|true|false|false|false|true|true|true|true
+|secondLastName|null|String|null|null|true|false|false|false|true|true|true|true
+|===
+*RELATIONS:* 6
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|Persons|*..*|Address|true|false|address
+|Persons|1..*|Emails|true|false|email
+|Persons|1..*|Ids|true|false|nit
+|Persons|1..*|Telephones|true|false|telephone
+|Persons|1..*|PhysicalAreas|true|false|code
+|Persons|1..*|Employees|true|false|code
+|===
+== ENTITY:Ids
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|nit|null|String|null|null|true|false|false|true|true|true|true|true
+|checkDigit|null|String|null|null|true|false|false|false|true|true|true|true
+|creationDate|null|Date|null|null|true|false|false|false|true|true|true|true
+|isPhotocopy|null|Boolean|null|null|true|false|false|false|true|true|true|true
+|===
+*RELATIONS:* 2
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|Ids|*..1|Persons|true|false|firstName
+|Ids|*..1|IdsTypes|true|false|name
+|===
+== ENTITY:Items
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|cvNumber|null|String|null|null|true|false|false|false|true|true|true|true
+|code|null|String|null|null|true|false|false|false|true|true|true|true
+|inventoryCode|null|String|null|null|true|false|false|true|true|true|true|true
+|serial|null|String|null|null|true|false|false|false|true|true|true|true
+|eanCode|null|String|null|null|true|false|false|false|true|true|true|true
+|expirationDate|null|Date|null|null|true|false|false|false|true|true|true|true
+|warrantyDate|null|Date|null|null|true|false|false|false|true|true|true|true
+|minStock|null|Integer|null|null|true|false|false|false|true|true|true|true
+|maxStock|null|Integer|null|null|true|false|false|false|true|true|true|true
+|quantity|null|Integer|null|null|true|false|false|false|true|true|true|true
+|===
+*RELATIONS:* 6
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|Items|1..*|Hosts|true|false|name
+|Items|1..*|Items|true|false|cvNumber
+|Items|*..1|ItemsNames|true|false|name
+|Items|*..1|ItemsStates|true|false|name
+|Items|*..1|Items|true|false|cvNumber
+|Items|*..1|PhysicalAreas|true|false|code
+|===
+== ENTITY:Emails
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|email|null|String|null|null|false|true|false|true|true|true|true|true
+|===
+*RELATIONS:* 1
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|Emails|*..1|Persons|true|false|firstName
+|===
+== ENTITY:ItemsTypes
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|name|null|String|null|null|false|true|false|true|true|true|true|true
+|===
+*RELATIONS:* 3
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|ItemsTypes|1..*|ItemsNames|true|false|name
+|ItemsTypes|1..*|ItemsTypes|true|false|name
+|ItemsTypes|*..1|ItemsTypes|true|false|name
+|===
+== ENTITY:EmployeesTypes
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|name|null|String|null|null|false|true|false|true|true|true|true|true
+|===
+*RELATIONS:* 1
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|EmployeesTypes|1..*|Employees|true|false|code
+|===
+== ENTITY:PhysicalAreas
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|code|null|String|null|null|true|false|false|false|true|true|true|true
+|name||String|null|null|false|true|false|true|true|true|true|true
+|telExt||String|null|null|true|false|false|false|false|false|false|false
+|===
+*RELATIONS:* 3
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|PhysicalAreas|1..*|Items|true|false|cvNumber
+|PhysicalAreas|*..1|Persons|true|false|firstName
+|PhysicalAreas|*..1|PhysicalAreasTypes|true|false|name
+|===
+== ENTITY:NetworkPorts
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|ipAddress||String|null|null|true|false|false|false|false|true|true|true
+|macAddress|null|String|null|null|false|true|false|true|true|true|true|true
+|state|null|String|null|null|true|false|false|false|true|true|true|true
+|===
+*RELATIONS:* 3
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|NetworkPorts|*..*|Sites|true|false|title
+|NetworkPorts|*..1|Hosts|true|false|name
+|NetworkPorts|*..1|PatchPanelsPorts|true|false|code
+|===
+== ENTITY:HostsTypes
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|name||String|null|null|true|true|false|true|true|true|true|true
+|===
+*RELATIONS:* 1
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|HostsTypes|1..*|Hosts|true|false|name
+|===
+== ENTITY:Sites
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|title|null|String|null|null|true|false|false|true|true|true|true|true
+|link|null|String|null|null|false|true|false|false|true|true|true|true
+|abc|null|String|null|null|true|false|false|false|true|true|true|true
+|ipAddress1||String|null|null|true|false|false|false|false|false|false|false
+|ipAddress2||String|null|null|true|false|false|false|false|false|false|false
+|ipAddress3||String|null|null|true|false|false|false|false|false|false|false
+|===
+*RELATIONS:* 4
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|Sites|*..*|SitesTypes|true|false|name
+|Sites|*..*|NetworkPorts|true|false|ipAddress
+|Sites|*..*|Companies|true|false|name
+|Sites|*..*|Brands|true|false|name
+|===
+== ENTITY:SwitchesPorts
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|port|null|String|null|null|false|true|false|true|true|true|true|true
+|code|null|String|null|null|true|false|false|false|true|true|true|true
+|state|null|String|null|null|true|false|false|false|true|true|true|true
+|mts||Integer|null|null|true|false|false|false|false|false|false|false
+|===
+*RELATIONS:* 3
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|SwitchesPorts|1..*|PatchPanelsPorts|true|false|code
+|SwitchesPorts|*..1|Hosts|true|false|name
+|SwitchesPorts|*..1|Vlans|true|false|name
+|===
+== ENTITY:TelephonesTypes
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|name|null|String|null|null|false|true|false|true|true|true|true|true
+|===
+*RELATIONS:* 1
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|TelephonesTypes|1..*|Telephones|true|false|telephone
+|===
+== ENTITY:Telephones
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|telephone|null|String|null|null|false|true|false|true|true|true|true|true
+|isCellPhone||Boolean|null|null|true|false|false|false|true|true|true|true
+|===
+*RELATIONS:* 2
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|Telephones|*..1|Persons|true|false|firstName
+|Telephones|*..1|TelephonesTypes|true|false|name
+|===
+== ENTITY:Brands
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|name|null|String|null|null|true|false|false|true|true|true|true|true
+|===
+*RELATIONS:* 2
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|Brands|*..*|Sites|true|false|title
+|Brands|*..1|Companies|true|false|name
+|===
+== ENTITY:SitesTypes
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|name|null|String|null|null|false|true|false|true|true|true|true|true
+|===
+*RELATIONS:* 3
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|SitesTypes|1..*|SitesTypes|true|false|name
+|SitesTypes|*..*|Sites|true|false|title
+|SitesTypes|*..1|SitesTypes|true|false|name
+|===
+== ENTITY:PositionsCompany
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|name|null|String|null|null|false|true|false|true|true|true|true|true
+|===
+*RELATIONS:* 1
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|PositionsCompany|*..1|Employees|true|false|code
+|===
+== ENTITY:IdsTypes
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|name|null|String|null|null|false|true|false|true|true|true|true|true
+|===
+*RELATIONS:* 1
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|IdsTypes|1..*|Ids|true|false|nit
+|===
+== ENTITY:PhysicalAreasTypes
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|name||String|null|null|false|true|false|true|true|true|true|true
+|===
+*RELATIONS:* 3
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|PhysicalAreasTypes|1..*|PhysicalAreas|true|false|code
+|PhysicalAreasTypes|1..*|PhysicalAreasTypes|true|false|name
+|PhysicalAreasTypes|*..1|PhysicalAreasTypes|true|false|name
+|===
+== ENTITY:Vlans
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|name|null|String|null|null|false|true|false|true|true|true|true|true
+|ipMask|null|String|null|null|true|false|false|false|true|true|true|true
+|ipGateway|null|String|null|null|true|false|false|false|true|true|true|true
+|===
+*RELATIONS:* 1
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|Vlans|1..*|SwitchesPorts|true|false|port
+|===
+== ENTITY:ItemsStates
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|name|null|String|null|null|false|true|false|true|true|true|true|true
+|===
+*RELATIONS:* 1
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|ItemsStates|1..*|Items|true|false|cvNumber
+|===

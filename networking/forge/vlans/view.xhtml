@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:forgeview="http://jboss.org/forge/view"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="id" value='#{vlansBean.id}'/>
+		<f:event type="preRenderView" listener='#{vlansBean.retrieve}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="View Vlans"/>
+
+	<ui:define name="header">
+		Vlans
+	</ui:define>
+
+	<ui:define name="subheader">
+		View existing Vlans
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:panelGrid columnClasses="label,component,required" columns="3">
+			<h:outputLabel for="vlansBeanVlansOrden" value="Orden:"/>
+			<h:outputText id="vlansBeanVlansOrden" value="#{vlansBean.vlans.orden}"/>
+			<h:outputText/>
+			<h:outputLabel for="vlansBeanVlansObservations" value="Observations:"/>
+			<h:inputTextarea id="vlansBeanVlansObservations" value="#{vlansBean.vlans.observations}"/>
+			<h:outputText/>
+			<h:outputLabel for="vlansBeanVlansName" value="Name:"/>
+			<h:outputText id="vlansBeanVlansName" value="#{vlansBean.vlans.name}"/>
+			<h:outputText/>
+			<h:outputLabel for="vlansBeanVlansIpMask" value="Ip Mask:"/>
+			<h:outputText id="vlansBeanVlansIpMask" value="#{vlansBean.vlans.ipMask}"/>
+			<h:outputText/>
+			<h:outputLabel for="vlansBeanVlansIpGateway" value="Ip Gateway:"/>
+			<h:outputText id="vlansBeanVlansIpGateway" value="#{vlansBean.vlans.ipGateway}"/>
+			<h:outputText/>
+			<h:outputLabel for="vlansBeanVlansSwitchesPorts" value="Switches Ports:"/>
+			<h:dataTable id="vlansBeanVlansSwitchesPorts" styleClass="data-table" value="#{forgeview:asList(vlansBean.vlans.switchesPorts)}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Port"/>
+					</f:facet>
+					<h:link outcome="/admin/switchesPorts/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemPort" value="#{_item.port}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<h:outputText/>
+		</h:panelGrid>
+
+		<div class="buttons">
+			<h:link value="View All" outcome="search" styleClass="btn btn-primary"/> 
+			<h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
+			<h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
+		</div>
+	</ui:define>
+
+</ui:composition>

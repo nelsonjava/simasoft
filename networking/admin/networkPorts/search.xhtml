@@ -1,0 +1,108 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        template="/resources/scaffold/pageTemplate.xhtml">
+
+        <f:metadata>
+                <f:viewParam name="page" value='#{networkPortsBean.page}'/>
+                <f:event type="preRenderView" listener='#{networkPortsBean.paginate}'/>
+        </f:metadata>
+
+        <ui:param name="pageTitle" value="Search NetworkPorts entities"/>
+
+        <ui:define name="header">
+                NetworkPorts
+        </ui:define>
+
+        <ui:define name="subheader">
+                Search NetworkPorts entities
+        </ui:define>
+
+        <ui:define name="footer"/>
+
+        <ui:define name="main">
+                <h:form id="search">
+                        <f:validateBean disabled="true">
+                                <h:panelGroup styleClass="search">
+
+                                        <h:panelGrid columnClasses="label,component,required" columns="3">
+                                                <h:outputLabel for="networkPortsBeanExampleMacAddress" value="MacAddress:"/>
+                                                <h:panelGroup>
+                                                        <h:inputText id="networkPortsBeanExampleMacAddress" value="#{networkPortsBean.example.macAddress}"/>
+                                                        <h:message for="networkPortsBeanExampleMacAddress" styleClass="error"/>
+                                                </h:panelGroup>
+                                                <h:outputText/>
+
+                                                <h:outputLabel for="networkPortsBeanExampleState" value="State:"/>
+                                                <h:panelGroup>
+                                                        <h:inputText id="networkPortsBeanExampleState" value="#{networkPortsBean.example.state}"/>
+                                                        <h:message for="networkPortsBeanExampleState" styleClass="error"/>
+                                                </h:panelGroup>
+                                                <h:outputText/>
+
+                                        </h:panelGrid>
+                                        <h:panelGroup styleClass="buttons">
+                                                <h:commandLink value="Search" action='#{networkPortsBean.search}' styleClass="btn btn-primary"/>
+                                                <h:commandLink value="Create New" action='#{networkPortsBean.create}' styleClass="btn btn-primary"/>
+                                        </h:panelGroup>
+                                </h:panelGroup>
+                        </f:validateBean>
+
+                        <h:dataTable id="networkPortsBeanPageItems" styleClass="data-table" value="#{networkPortsBean.pageItems}" var="_item">
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Orden"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/networkPorts/view">
+                                                <f:param name="id" value="#{_item.orden}"/>
+                                                <h:outputText id="itemOrden" value="#{_item.orden}"/>
+                                        </h:link>
+                                </h:column>
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="IpAddress"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/networkPorts/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemIpAddress" value="#{_item.ipAddress}"/>
+                                        </h:link>
+                                </h:column>
+
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="MacAddress"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/networkPorts/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemMacAddress" value="#{_item.macAddress}"/>
+                                        </h:link>
+                                </h:column>
+
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="State"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/networkPorts/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemState" value="#{_item.state}"/>
+                                        </h:link>
+                                </h:column>
+
+
+                        </h:dataTable>
+                        <ui:include src="/resources/scaffold/paginator.xhtml">
+                                <ui:param name="paginatorBean" value='#{networkPortsBean}'/>
+                        </ui:include>
+                </h:form>
+
+        </ui:define>
+
+</ui:composition>

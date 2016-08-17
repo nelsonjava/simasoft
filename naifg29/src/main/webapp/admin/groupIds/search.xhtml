@@ -74,7 +74,7 @@
                                                 <h:outputText value="Orden"/>
                                         </f:facet>
                                         <h:link outcome="/admin/groupIds/view">
-                                                <f:param name="id" value="#{_item.orden}"/>
+                                                <f:param name="id" value="#{_item.id}"/>
                                                 <h:outputText id="itemOrden" value="#{_item.orden}"/>
                                         </h:link>
                                 </h:column>
@@ -84,7 +84,7 @@
                                                 <h:outputText value="Type"/>
                                         </f:facet>
                                         <h:link outcome="/admin/groupIds/view">
-                                                <f:param name="id" value="#{_item.orden}"/>
+                                                <f:param name="id" value="#{_item.id}"/>
                                                 <h:outputText id="itemType" value="#{_item.groupIdsTypes.name}"/>
                                         </h:link>
                                 </h:column>

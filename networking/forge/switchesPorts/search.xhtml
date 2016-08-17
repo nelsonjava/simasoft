@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="page" value='#{switchesPortsBean.page}'/>
+		<f:event type="preRenderView" listener='#{switchesPortsBean.paginate}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="Search Switches Ports entities"/>
+
+	<ui:define name="header">
+		Switches Ports
+	</ui:define>
+
+	<ui:define name="subheader">
+		Search Switches Ports entities
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:form id="search">
+			<f:validateBean disabled="true">
+				<h:panelGroup styleClass="search">
+
+					<h:panelGrid columnClasses="label,component,required" columns="3">
+						<h:outputLabel for="switchesPortsBeanExampleObservations" value="Observations:"/>
+						<h:panelGroup>
+							<h:inputTextarea id="switchesPortsBeanExampleObservations" value="#{switchesPortsBean.example.observations}"/>
+							<h:message for="switchesPortsBeanExampleObservations" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="switchesPortsBeanExamplePort" value="Port:"/>
+						<h:panelGroup>
+							<h:inputText id="switchesPortsBeanExamplePort" value="#{switchesPortsBean.example.port}"/>
+							<h:message for="switchesPortsBeanExamplePort" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="switchesPortsBeanExampleCode" value="Code:"/>
+						<h:panelGroup>
+							<h:inputText id="switchesPortsBeanExampleCode" value="#{switchesPortsBean.example.code}"/>
+							<h:message for="switchesPortsBeanExampleCode" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="switchesPortsBeanExampleState" value="State:"/>
+						<h:panelGroup>
+							<h:inputText id="switchesPortsBeanExampleState" value="#{switchesPortsBean.example.state}"/>
+							<h:message for="switchesPortsBeanExampleState" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="switchesPortsBeanExampleMts" value="Mts:"/>
+						<h:panelGroup>
+							<h:inputText id="switchesPortsBeanExampleMts" value="#{switchesPortsBean.example.mts}"/>
+							<h:message for="switchesPortsBeanExampleMts" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+					</h:panelGrid>
+					<h:panelGroup styleClass="buttons">
+						<h:commandLink value="Search" action='#{switchesPortsBean.search}' styleClass="btn btn-primary"/>
+						<h:commandLink value="Create New" action='#{switchesPortsBean.create}' styleClass="btn btn-primary"/>
+					</h:panelGroup>
+				</h:panelGroup>
+			</f:validateBean>
+			
+			<h:dataTable id="switchesPortsBeanPageItems" styleClass="data-table" value="#{switchesPortsBean.pageItems}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Port"/>
+					</f:facet>
+					<h:link outcome="/admin/switchesPorts/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemPort" value="#{_item.port}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<ui:include src="/resources/scaffold/paginator.xhtml">
+				<ui:param name="paginatorBean" value='#{switchesPortsBean}'/>
+			</ui:include>
+		</h:form>
+			
+	</ui:define>
+
+</ui:composition>

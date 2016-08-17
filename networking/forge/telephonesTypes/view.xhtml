@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:forgeview="http://jboss.org/forge/view"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="id" value='#{telephonesTypesBean.id}'/>
+		<f:event type="preRenderView" listener='#{telephonesTypesBean.retrieve}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="View Telephones Types"/>
+
+	<ui:define name="header">
+		Telephones Types
+	</ui:define>
+
+	<ui:define name="subheader">
+		View existing Telephones Types
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:panelGrid columnClasses="label,component,required" columns="3">
+			<h:outputLabel for="telephonesTypesBeanTelephonesTypesOrden" value="Orden:"/>
+			<h:outputText id="telephonesTypesBeanTelephonesTypesOrden" value="#{telephonesTypesBean.telephonesTypes.orden}"/>
+			<h:outputText/>
+			<h:outputLabel for="telephonesTypesBeanTelephonesTypesObservations" value="Observations:"/>
+			<h:inputTextarea id="telephonesTypesBeanTelephonesTypesObservations" value="#{telephonesTypesBean.telephonesTypes.observations}"/>
+			<h:outputText/>
+			<h:outputLabel for="telephonesTypesBeanTelephonesTypesName" value="Name:"/>
+			<h:outputText id="telephonesTypesBeanTelephonesTypesName" value="#{telephonesTypesBean.telephonesTypes.name}"/>
+			<h:outputText/>
+			<h:outputLabel for="telephonesTypesBeanTelephonesTypesTelephones" value="Telephones:"/>
+			<h:dataTable id="telephonesTypesBeanTelephonesTypesTelephones" styleClass="data-table" value="#{forgeview:asList(telephonesTypesBean.telephonesTypes.telephones)}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Telephone"/>
+					</f:facet>
+					<h:link outcome="/admin/telephones/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemTelephone" value="#{_item.telephone}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<h:outputText/>
+		</h:panelGrid>
+
+		<div class="buttons">
+			<h:link value="View All" outcome="search" styleClass="btn btn-primary"/> 
+			<h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
+			<h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
+		</div>
+	</ui:define>
+
+</ui:composition>

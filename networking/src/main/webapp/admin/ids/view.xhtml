@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:forgeview="http://jboss.org/forge/view"
+        template="/resources/scaffold/pageTemplate.xhtml">
+
+        <f:metadata>
+                <f:viewParam name="id" value='#{idsBean.id}'/>
+                <f:event type="preRenderView" listener='#{idsBean.retrieve}'/>
+        </f:metadata>
+
+        <ui:param name="pageTitle" value="View Ids"/>
+
+        <ui:define name="header">
+                Ids
+        </ui:define>
+
+        <ui:define name="subheader">
+                View existing Ids
+        </ui:define>
+
+        <ui:define name="footer"/>
+
+        <ui:define name="main">
+                <h:panelGrid columnClasses="label,component,required" columns="3">
+
+                        <h:outputLabel for="idsBeanIdsOrden" value="Orden:"/>
+                        <h:outputText id="idsBeanIdsOrden" value="#{idsBean.ids.orden}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="idsBeanIdsNit" value="Nit:"/>
+                        <h:outputText id="idsBeanIdsNit" value="#{idsBean.ids.nit}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="idsBeanIdsCheckDigit" value="CheckDigit:"/>
+                        <h:outputText id="idsBeanIdsCheckDigit" value="#{idsBean.ids.checkDigit}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="idsBeanIdsCreationDate" value="CreationDate:"/>
+                        <h:outputText id="idsBeanIdsCreationDate" value="Pendiente"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="idsBeanIdsIsPhotocopy" value="IsPhotocopy:"/>
+                        <h:outputText id="idsBeanIdsIsPhotocopy" value="#{idsBean.ids.isPhotocopy}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="idsBeanIdsObservations" value="Observations:"/>
+                        <h:outputText id="idsBeanIdsObservations" value="#{idsBean.ids.observations}" escape="false" />
+                        <h:outputText/>
+
+                        <h:outputLabel for="idsBeanIdsPersons" value="Persons:"/>
+                        <h:link id="idsBeanIdsPersons" outcome="/admin/persons/view" rendered="#{!empty idsBean.ids.persons}" value="#{idsBean.ids.persons.firstName}">
+                                 <f:param name="id" value="#{idsBean.ids.persons.id}"/>
+                        </h:link>
+                        <h:outputText/>
+
+                        <h:outputLabel for="idsBeanIdsIdsTypes" value="IdsTypes:"/>
+                        <h:link id="idsBeanIdsIdsTypes" outcome="/admin/idsTypes/view" rendered="#{!empty idsBean.ids.idsTypes}" value="#{idsBean.ids.idsTypes.name}">
+                                 <f:param name="id" value="#{idsBean.ids.idsTypes.id}"/>
+                        </h:link>
+                        <h:outputText/>
+
+                </h:panelGrid>
+
+                <div class="buttons">
+                        <h:link value="View All" outcome="search" styleClass="btn btn-primary"/>
+                        <h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
+                        <h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
+                </div>
+        </ui:define>
+</ui:composition>

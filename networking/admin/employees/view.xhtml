@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:forgeview="http://jboss.org/forge/view"
+        template="/resources/scaffold/pageTemplate.xhtml">
+
+        <f:metadata>
+                <f:viewParam name="id" value='#{employeesBean.id}'/>
+                <f:event type="preRenderView" listener='#{employeesBean.retrieve}'/>
+        </f:metadata>
+
+        <ui:param name="pageTitle" value="View Employees"/>
+
+        <ui:define name="header">
+                Employees
+        </ui:define>
+
+        <ui:define name="subheader">
+                View existing Employees
+        </ui:define>
+
+        <ui:define name="footer"/>
+
+        <ui:define name="main">
+                <h:panelGrid columnClasses="label,component,required" columns="3">
+
+                        <h:outputLabel for="employeesBeanEmployeesOrden" value="Orden:"/>
+                        <h:outputText id="employeesBeanEmployeesOrden" value="#{employeesBean.employees.orden}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="employeesBeanEmployeesCode" value="Code:"/>
+                        <h:outputText id="employeesBeanEmployeesCode" value="#{employeesBean.employees.code}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="employeesBeanEmployeesObservations" value="Observations:"/>
+                        <h:outputText id="employeesBeanEmployeesObservations" value="#{employeesBean.employees.observations}" escape="false" />
+                        <h:outputText/>
+
+                        <h:outputLabel for="EmployeesBeanEmployeesPositionsCompany" value="PositionsCompany:"/>
+                        <h:dataTable id="employeesBeanEmployeespositionsCompany" styleClass="data-table" value="#{forgeview:asList(employeesBean.employees.positionsCompany)}" var="_item">
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Orden"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/positionsCompany/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemOrden" value="#{_item.orden}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Name"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/positionsCompany/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemName" value="#{_item.name}"/>
+                                              </h:link>
+                                           </h:column>
+
+                        </h:dataTable>
+                        <h:outputText/>
+
+                        <h:outputLabel for="employeesBeanEmployeesCompanies" value="Companies:"/>
+                        <h:link id="employeesBeanEmployeesCompanies" outcome="/admin/companies/view" rendered="#{!empty employeesBean.employees.companies}" value="#{employeesBean.employees.companies.name}">
+                                 <f:param name="id" value="#{employeesBean.employees.companies.id}"/>
+                        </h:link>
+                        <h:outputText/>
+
+                        <h:outputLabel for="employeesBeanEmployeesEmployeesTypes" value="EmployeesTypes:"/>
+                        <h:link id="employeesBeanEmployeesEmployeesTypes" outcome="/admin/employeesTypes/view" rendered="#{!empty employeesBean.employees.employeesTypes}" value="#{employeesBean.employees.employeesTypes.name}">
+                                 <f:param name="id" value="#{employeesBean.employees.employeesTypes.id}"/>
+                        </h:link>
+                        <h:outputText/>
+
+                        <h:outputLabel for="employeesBeanEmployeesPersons" value="Persons:"/>
+                        <h:link id="employeesBeanEmployeesPersons" outcome="/admin/persons/view" rendered="#{!empty employeesBean.employees.persons}" value="#{employeesBean.employees.persons.firstName}">
+                                 <f:param name="id" value="#{employeesBean.employees.persons.id}"/>
+                        </h:link>
+                        <h:outputText/>
+
+                </h:panelGrid>
+
+                <div class="buttons">
+                        <h:link value="View All" outcome="search" styleClass="btn btn-primary"/>
+                        <h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
+                        <h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
+                </div>
+        </ui:define>
+</ui:composition>

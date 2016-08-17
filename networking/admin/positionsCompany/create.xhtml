@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:c="http://java.sun.com/jsp/jstl/core"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:forgeview="http://jboss.org/forge/view"
+        template="/resources/scaffold/pageTemplate.xhtml">
+
+        <f:metadata>
+                <f:viewParam name="id" value='#{positionsCompanyBean.id}'/>
+                <f:event type="preRenderView" listener='#{positionsCompanyBean.retrieve}'/>
+        </f:metadata>
+
+        <ui:param name="pageTitle" value="Create PositionsCompany"/>
+
+        <ui:define name="header">
+                PositionsCompany
+        </ui:define>
+
+        <ui:define name="subheader">
+                <c:choose>
+                        <c:when test='#{!empty positionsCompanyBean.id}'>
+                                Edit existing PositionsCompany
+                        </c:when>
+                        <c:otherwise>
+                                Create a new PositionsCompany
+                        </c:otherwise>
+                </c:choose>
+        </ui:define>
+
+        <ui:define name="footer"/>
+
+        <ui:define name="main">
+                <h:form id="create">
+                        <h:messages globalOnly="true" styleClass="error"/>
+
+                        <h:panelGrid columnClasses="label,component,required" columns="3">
+
+                                <h:outputLabel for="positionsCompanyBeanPositionsCompanyOrden" value="Orden:"/>
+                                <h:panelGroup>
+                                        <h:inputText id="positionsCompanyBeanPositionsCompanyOrden" value="#{positionsCompanyBean.positionsCompany.orden}"/>
+                                        <h:message for="positionsCompanyBeanPositionsCompanyOrden" styleClass="error"/>
+                                </h:panelGroup>
+                                <h:outputText/>
+
+                                <h:outputLabel for="positionsCompanyBeanPositionsCompanyName" value="Name:"/>
+                                <h:panelGroup>
+                                        <h:inputText id="positionsCompanyBeanPositionsCompanyName" required="true" value="#{positionsCompanyBean.positionsCompany.name}"/>
+                                        <h:message for="positionsCompanyBeanPositionsCompanyName" styleClass="error"/>
+                                </h:panelGroup>
+                                <h:outputText value="*"/>
+
+                                <h:outputLabel for="positionsCompanyBeanPositionsCompanyEmployees" value="Employees:"/>
+                                <h:panelGroup>
+                                         <h:selectOneMenu converter="#{employeesBean.converter}" id="positionsCompanyBeanPositionsCompanyEmployees" value="#{positionsCompanyBean.positionsCompany.employees}">
+                                                <f:selectItem/>
+                                                <f:selectItems itemLabel="#{forgeview:display(_item.code)}" itemValue="#{_item}" value="#{employeesBean.all}" var="_item"/>
+                                        </h:selectOneMenu>
+                                        <h:message for="positionsCompanyBeanPositionsCompany" styleClass="error"/>
+                                </h:panelGroup>
+                                <h:outputText/>
+
+                                <h:outputLabel for="positionsCompanyBeanPositionsCompanyObservations" value="Observations:"/>
+                                <h:panelGroup>
+                                        <p:editor id="positionsCompanyBeanPositionsCompanyObservations" value="#{positionsCompanyBean.positionsCompany.observations}"/>
+                                        <h:message for="positionsCompanyBeanPositionsCompanyObservations" styleClass="error"/>
+                                </h:panelGroup>
+                                <h:outputText/>
+
+                        </h:panelGrid>
+
+                        <div class="buttons">
+                                <h:commandLink value="Save" action='#{positionsCompanyBean.update}' styleClass="btn btn-primary"/>
+                                <c:choose>
+                                        <c:when test='#{!empty positionsCompanyBean.id}'>
+                                                <h:link value="Cancel" outcome="view" styleClass="btn btn-primary">
+                                                        <f:param name="id" value='#{positionsCompanyBean.id}'/>
+                                                </h:link>
+                                                <h:commandLink value="Delete" action='#{positionsCompanyBean.delete}' styleClass="btn btn-primary"/>
+                                        </c:when>
+                                        <c:otherwise>
+                                                <h:link value="Cancel" outcome="search" styleClass="btn btn-primary"/>
+                                        </c:otherwise>
+                                </c:choose>
+                        </div>
+                </h:form>
+        </ui:define>
+
+</ui:composition>

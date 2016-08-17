@@ -1,0 +1,171 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:forgeview="http://jboss.org/forge/view"
+        template="/resources/scaffold/pageTemplate.xhtml">
+
+        <f:metadata>
+                <f:viewParam name="id" value='#{itemsStatesBean.id}'/>
+                <f:event type="preRenderView" listener='#{itemsStatesBean.retrieve}'/>
+        </f:metadata>
+
+        <ui:param name="pageTitle" value="View ItemsStates"/>
+
+        <ui:define name="header">
+                ItemsStates
+        </ui:define>
+
+        <ui:define name="subheader">
+                View existing ItemsStates
+        </ui:define>
+
+        <ui:define name="footer"/>
+
+        <ui:define name="main">
+                <h:panelGrid columnClasses="label,component,required" columns="3">
+
+                        <h:outputLabel for="itemsStatesBeanItemsStatesOrden" value="Orden:"/>
+                        <h:outputText id="itemsStatesBeanItemsStatesOrden" value="#{itemsStatesBean.itemsStates.orden}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="itemsStatesBeanItemsStatesName" value="Name:"/>
+                        <h:outputText id="itemsStatesBeanItemsStatesName" value="#{itemsStatesBean.itemsStates.name}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="itemsStatesBeanItemsStatesObservations" value="Observations:"/>
+                        <h:outputText id="itemsStatesBeanItemsStatesObservations" value="#{itemsStatesBean.itemsStates.observations}" escape="false" />
+                        <h:outputText/>
+
+                        <h:outputLabel for="ItemsStatesBeanItemsStatesItems" value="Items:"/>
+                        <h:dataTable id="itemsStatesBeanItemsStatesitems" styleClass="data-table" value="#{forgeview:asList(itemsStatesBean.itemsStates.items)}" var="_item">
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Orden"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/items/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemOrden" value="#{_item.orden}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="CvNumber"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/items/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemCvNumber" value="#{_item.cvNumber}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Code"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/items/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemCode" value="#{_item.code}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="InventoryCode"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/items/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemInventoryCode" value="#{_item.inventoryCode}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Serial"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/items/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemSerial" value="#{_item.serial}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="EanCode"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/items/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemEanCode" value="#{_item.eanCode}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="ExpirationDate"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/items/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemExpirationDate" value="#{_item.expirationDate}"/>
+                                                              <f:convertDateTime type="date"/>
+                                                     <h:outputText/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="WarrantyDate"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/items/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemWarrantyDate" value="#{_item.warrantyDate}"/>
+                                                              <f:convertDateTime type="date"/>
+                                                     <h:outputText/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="MinStock"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/items/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemMinStock" value="#{_item.minStock}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="MaxStock"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/items/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemMaxStock" value="#{_item.maxStock}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Quantity"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/items/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemQuantity" value="#{_item.quantity}"/>
+                                              </h:link>
+                                           </h:column>
+
+                        </h:dataTable>
+                        <h:outputText/>
+
+                </h:panelGrid>
+
+                <div class="buttons">
+                        <h:link value="View All" outcome="search" styleClass="btn btn-primary"/>
+                        <h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
+                        <h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
+                </div>
+        </ui:define>
+</ui:composition>

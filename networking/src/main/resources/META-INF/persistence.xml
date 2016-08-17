@@ -1,0 +1,53 @@
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
+             http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+             version="2.0">
+
+  <!-- Use this for H2 -->
+  <persistence-unit name="networkingPU-JTA" transaction-type="JTA">
+
+    <provider>org.hibernate.ejb.HibernatePersistence</provider>
+
+    <class>co.simasoft.models.Hosts</class>
+    <class>co.simasoft.models.Address</class>
+    <class>co.simasoft.models.Companies</class>
+    <class>co.simasoft.models.PatchPanelsPorts</class>
+    <class>co.simasoft.models.Employees</class>
+    <class>co.simasoft.models.ItemsNames</class>
+    <class>co.simasoft.models.Persons</class>
+    <class>co.simasoft.models.Ids</class>
+    <class>co.simasoft.models.Items</class>
+    <class>co.simasoft.models.Emails</class>
+    <class>co.simasoft.models.ItemsTypes</class>
+    <class>co.simasoft.models.EmployeesTypes</class>
+    <class>co.simasoft.models.PhysicalAreas</class>
+    <class>co.simasoft.models.NetworkPorts</class>
+    <class>co.simasoft.models.HostsTypes</class>
+    <class>co.simasoft.models.Sites</class>
+    <class>co.simasoft.models.SwitchesPorts</class>
+    <class>co.simasoft.models.TelephonesTypes</class>
+    <class>co.simasoft.models.Telephones</class>
+    <class>co.simasoft.models.Brands</class>
+    <class>co.simasoft.models.SitesTypes</class>
+    <class>co.simasoft.models.PositionsCompany</class>
+    <class>co.simasoft.models.IdsTypes</class>
+    <class>co.simasoft.models.PhysicalAreasTypes</class>
+    <class>co.simasoft.models.Vlans</class>
+    <class>co.simasoft.models.ItemsStates</class>
+
+    <exclude-unlisted-classes>true</exclude-unlisted-classes>
+    <jta-data-source>java:jboss/datasources/networkingDS</jta-data-source>
+    <properties>
+      <!-- <property name="javax.persistence.jdbc.url"      value="jdbc:h2:/db/networking/data"/>  -->
+      <!-- <property name="javax.persistence.jdbc.user"     value="sa"/>  -->
+      <!-- <property name="javax.persistence.jdbc.password" value=""/>  -->
+      <property name="hibernate.connection.driver_class"    value="org.h2.Driver"/>
+      <property name="hibernate.dialect"                    value="org.hibernate.dialect.H2Dialect"/>
+      <property name="hibernate.hbm2ddl.auto"               value="update" />
+      <property name="hibernate.show_sql"                   value="true" />
+      <property name="hibernate.format_sql"                 value="true"/>
+    </properties>
+  </persistence-unit>
+
+</persistence>

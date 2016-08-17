@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:forgeview="http://jboss.org/forge/view"
+        template="/resources/scaffold/pageTemplate.xhtml">
+
+        <f:metadata>
+                <f:viewParam name="id" value='#{positionsCompanyBean.id}'/>
+                <f:event type="preRenderView" listener='#{positionsCompanyBean.retrieve}'/>
+        </f:metadata>
+
+        <ui:param name="pageTitle" value="View PositionsCompany"/>
+
+        <ui:define name="header">
+                PositionsCompany
+        </ui:define>
+
+        <ui:define name="subheader">
+                View existing PositionsCompany
+        </ui:define>
+
+        <ui:define name="footer"/>
+
+        <ui:define name="main">
+                <h:panelGrid columnClasses="label,component,required" columns="3">
+
+                        <h:outputLabel for="positionsCompanyBeanPositionsCompanyOrden" value="Orden:"/>
+                        <h:outputText id="positionsCompanyBeanPositionsCompanyOrden" value="#{positionsCompanyBean.positionsCompany.orden}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="positionsCompanyBeanPositionsCompanyName" value="Name:"/>
+                        <h:outputText id="positionsCompanyBeanPositionsCompanyName" value="#{positionsCompanyBean.positionsCompany.name}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="positionsCompanyBeanPositionsCompanyObservations" value="Observations:"/>
+                        <h:outputText id="positionsCompanyBeanPositionsCompanyObservations" value="#{positionsCompanyBean.positionsCompany.observations}" escape="false" />
+                        <h:outputText/>
+
+                        <h:outputLabel for="positionsCompanyBeanPositionsCompanyEmployees" value="Employees:"/>
+                        <h:link id="positionsCompanyBeanPositionsCompanyEmployees" outcome="/admin/employees/view" rendered="#{!empty positionsCompanyBean.positionsCompany.employees}" value="#{positionsCompanyBean.positionsCompany.employees.code}">
+                                 <f:param name="id" value="#{positionsCompanyBean.positionsCompany.employees.id}"/>
+                        </h:link>
+                        <h:outputText/>
+
+                </h:panelGrid>
+
+                <div class="buttons">
+                        <h:link value="View All" outcome="search" styleClass="btn btn-primary"/>
+                        <h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
+                        <h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
+                </div>
+        </ui:define>
+</ui:composition>
