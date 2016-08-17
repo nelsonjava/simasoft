@@ -12,7 +12,7 @@
 <a:Code>ObjectOrientedModel_3</a:Code>
 <a:CreationDate>1444164573</a:CreationDate>
 <a:Creator>admin</a:Creator>
-<a:ModificationDate>1471366992</a:ModificationDate>
+<a:ModificationDate>1471392658</a:ModificationDate>
 <a:Modifier>admin</a:Modifier>
 <a:PackageOptionsText>[FolderOptions]
 
@@ -920,7 +920,7 @@ NameToCode=No</a:ModelOptionsText>
 <a:Code>physicalAreasModels_rc1_0_0_</a:Code>
 <a:CreationDate>1444164573</a:CreationDate>
 <a:Creator>admin</a:Creator>
-<a:ModificationDate>1471371800</a:ModificationDate>
+<a:ModificationDate>1471392658</a:ModificationDate>
 <a:Modifier>admin</a:Modifier>
 <a:DisplayPreferences>[DisplayPreferences]
 
@@ -1301,29 +1301,6 @@ Shadow=0</a:DisplayPreferences>
 <a:PageNumberTemplate>%PAGE% / %TOTALPAGE%</a:PageNumberTemplate>
 <c:Symbols>
 <o:AssociationSymbol Id="o6">
-<a:CreationDate>1444166397</a:CreationDate>
-<a:ModificationDate>1444166502</a:ModificationDate>
-<a:SourceTextOffset>(-1612, 737)</a:SourceTextOffset>
-<a:DestinationTextOffset>(113, -662)</a:DestinationTextOffset>
-<a:Rect>((-7068,15551), (-3712,20660))</a:Rect>
-<a:ListOfPoints>((-3712,17100),(-3712,19347),(-6487,19347),(-6487,16800),(-4162,16800))</a:ListOfPoints>
-<a:CornerStyle>1</a:CornerStyle>
-<a:ArrowStyle>0</a:ArrowStyle>
-<a:LineColor>16744448</a:LineColor>
-<a:ShadowColor>12632256</a:ShadowColor>
-<a:FontList>DISPNAME 0 Arial,8,N
-Multiplicity 0 Arial,8,N</a:FontList>
-<c:SourceSymbol>
-<o:ClassSymbol Ref="o7"/>
-</c:SourceSymbol>
-<c:DestinationSymbol>
-<o:ClassSymbol Ref="o7"/>
-</c:DestinationSymbol>
-<c:Object>
-<o:Association Ref="o8"/>
-</c:Object>
-</o:AssociationSymbol>
-<o:AssociationSymbol Id="o9">
 <a:CreationDate>1444166469</a:CreationDate>
 <a:ModificationDate>1444166506</a:ModificationDate>
 <a:SourceTextOffset>(1087, 463)</a:SourceTextOffset>
@@ -1336,21 +1313,21 @@ Multiplicity 0 Arial,8,N</a:FontList>
 <a:FontList>DISPNAME 0 Arial,8,N
 Multiplicity 0 Arial,8,N</a:FontList>
 <c:SourceSymbol>
-<o:ClassSymbol Ref="o10"/>
+<o:ClassSymbol Ref="o7"/>
 </c:SourceSymbol>
 <c:DestinationSymbol>
-<o:ClassSymbol Ref="o7"/>
+<o:ClassSymbol Ref="o8"/>
 </c:DestinationSymbol>
 <c:Object>
-<o:Association Ref="o11"/>
+<o:Association Ref="o9"/>
 </c:Object>
 </o:AssociationSymbol>
-<o:AssociationSymbol Id="o12">
+<o:AssociationSymbol Id="o10">
 <a:CreationDate>1471366992</a:CreationDate>
 <a:ModificationDate>1471367074</a:ModificationDate>
 <a:SourceTextOffset>(1088, -613)</a:SourceTextOffset>
 <a:DestinationTextOffset>(263, -737)</a:DestinationTextOffset>
-<a:Rect>((-7238,26475), (-4537,29097))</a:Rect>
+<a:Rect>((-7626,25151), (-2436,29097))</a:Rect>
 <a:ListOfPoints>((-4537,27075),(-4537,29097),(-7238,29097),(-7238,26475),(-5062,26475))</a:ListOfPoints>
 <a:CornerStyle>1</a:CornerStyle>
 <a:ArrowStyle>0</a:ArrowStyle>
@@ -1359,16 +1336,16 @@ Multiplicity 0 Arial,8,N</a:FontList>
 <a:FontList>DISPNAME 0 Arial,8,N
 Multiplicity 0 Arial,8,N</a:FontList>
 <c:SourceSymbol>
-<o:ClassSymbol Ref="o10"/>
+<o:ClassSymbol Ref="o7"/>
 </c:SourceSymbol>
 <c:DestinationSymbol>
-<o:ClassSymbol Ref="o10"/>
+<o:ClassSymbol Ref="o7"/>
 </c:DestinationSymbol>
 <c:Object>
-<o:Association Ref="o13"/>
+<o:Association Ref="o11"/>
 </c:Object>
 </o:AssociationSymbol>
-<o:ClassSymbol Id="o7">
+<o:ClassSymbol Id="o8">
 <a:CreationDate>1444166370</a:CreationDate>
 <a:ModificationDate>1444166502</a:ModificationDate>
 <a:Rect>((-5044,14015), (430,18136))</a:Rect>
@@ -1386,10 +1363,10 @@ LABL 0 Arial,8,N</a:FontList>
 <a:GradientFillMode>65</a:GradientFillMode>
 <a:GradientEndColor>16777215</a:GradientEndColor>
 <c:Object>
-<o:Class Ref="o14"/>
+<o:Class Ref="o12"/>
 </c:Object>
 </o:ClassSymbol>
-<o:ClassSymbol Id="o10">
+<o:ClassSymbol Id="o7">
 <a:CreationDate>1444166370</a:CreationDate>
 <a:ModificationDate>1444166502</a:ModificationDate>
 <a:Rect>((-5753,23765), (1745,27886))</a:Rect>
@@ -1407,7 +1384,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:GradientFillMode>65</a:GradientFillMode>
 <a:GradientEndColor>16777215</a:GradientEndColor>
 <c:Object>
-<o:Class Ref="o15"/>
+<o:Class Ref="o13"/>
 </c:Object>
 </o:ClassSymbol>
 </c:Symbols>
@@ -1417,7 +1394,7 @@ LABL 0 Arial,8,N</a:FontList>
 <o:ClassDiagram Ref="o5"/>
 </c:DefaultDiagram>
 <c:Classes>
-<o:Class Id="o14">
+<o:Class Id="o12">
 <a:ObjectID>2B318708-17F4-444E-AC34-22E2336B0934</a:ObjectID>
 <a:Name>PhysicalAreas</a:Name>
 <a:Code>PhysicalAreas</a:Code>
@@ -1427,7 +1404,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Modifier>admin</a:Modifier>
 <a:UseParentNamespace>0</a:UseParentNamespace>
 </o:Class>
-<o:Class Id="o15">
+<o:Class Id="o13">
 <a:ObjectID>8F8D310D-AD52-4A98-B88A-36C08BC584CE</a:ObjectID>
 <a:Name>PhysicalAreasTypes</a:Name>
 <a:Code>PhysicalAreasTypes</a:Code>
@@ -1439,30 +1416,7 @@ LABL 0 Arial,8,N</a:FontList>
 </o:Class>
 </c:Classes>
 <c:Associations>
-<o:Association Id="o8">
-<a:ObjectID>13A86D68-5192-4615-9976-004B14E917B4</a:ObjectID>
-<a:Name>Association_1</a:Name>
-<a:Code>association1</a:Code>
-<a:CreationDate>1444166397</a:CreationDate>
-<a:Creator>admin</a:Creator>
-<a:ModificationDate>1444166429</a:ModificationDate>
-<a:Modifier>admin</a:Modifier>
-<a:RoleAMultiplicity>0..1</a:RoleAMultiplicity>
-<a:RoleBMultiplicity>0..*</a:RoleBMultiplicity>
-<a:RoleBNavigability>0</a:RoleBNavigability>
-<a:ExtendedAttributesText>{D824A738-E160-11D2-B693-0008C7EA924D},Java,224={72FA5C48-5524-4DF7-8187-ABB19AB5AF9E},roleAContainer,6=&lt;None&gt;
-{F6FFC71C-C472-4261-A710-B0BCC0BF4D58},roleAImplementationClass,6=&lt;None&gt;
-{C11C9F66-6453-43A2-8824-6654518CF65A},roleBImplementationClass,17=java.util.HashSet
-
-</a:ExtendedAttributesText>
-<c:Object1>
-<o:Class Ref="o14"/>
-</c:Object1>
-<c:Object2>
-<o:Class Ref="o14"/>
-</c:Object2>
-</o:Association>
-<o:Association Id="o11">
+<o:Association Id="o9">
 <a:ObjectID>551B2211-22D9-4B4F-A51E-518EEB8DB624</a:ObjectID>
 <a:Name>Association_2</a:Name>
 <a:Code>association2</a:Code>
@@ -1479,13 +1433,13 @@ LABL 0 Arial,8,N</a:FontList>
 
 </a:ExtendedAttributesText>
 <c:Object1>
-<o:Class Ref="o14"/>
+<o:Class Ref="o12"/>
 </c:Object1>
 <c:Object2>
-<o:Class Ref="o15"/>
+<o:Class Ref="o13"/>
 </c:Object2>
 </o:Association>
-<o:Association Id="o13">
+<o:Association Id="o11">
 <a:ObjectID>793C1044-0782-47A5-840F-4A44CBD55802</a:ObjectID>
 <a:Name>Association_3</a:Name>
 <a:Code>association3</a:Code>
@@ -1502,15 +1456,15 @@ LABL 0 Arial,8,N</a:FontList>
 
 </a:ExtendedAttributesText>
 <c:Object1>
-<o:Class Ref="o15"/>
+<o:Class Ref="o13"/>
 </c:Object1>
 <c:Object2>
-<o:Class Ref="o15"/>
+<o:Class Ref="o13"/>
 </c:Object2>
 </o:Association>
 </c:Associations>
 <c:TargetModels>
-<o:TargetModel Id="o16">
+<o:TargetModel Id="o14">
 <a:ObjectID>ED71886F-6A2A-4B0B-952B-78E4AA588B53</a:ObjectID>
 <a:Name>Java</a:Name>
 <a:Code>Java</a:Code>
@@ -1525,7 +1479,7 @@ LABL 0 Arial,8,N</a:FontList>
 <o:Shortcut Ref="o3"/>
 </c:SessionShortcuts>
 </o:TargetModel>
-<o:TargetModel Id="o17">
+<o:TargetModel Id="o15">
 <a:ObjectID>9153CAC8-C680-45DA-BF72-3A4D52C29EBD</a:ObjectID>
 <a:Name>WSDL for Java</a:Name>
 <a:Code>WSDLJava</a:Code>

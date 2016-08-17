@@ -59,6 +59,17 @@
 
                                            <h:column>
                                               <f:facet name="header">
+                                                      <h:outputText value="GroupIds"/>
+                                              </f:facet>
+                                              <h:link target="_blank" outcome="/admin/models/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemGroupIds" value="#{_item.groupIds.artifactId}"/>
+                                              </h:link>
+                                           </h:column>
+
+
+                                           <h:column>
+                                              <f:facet name="header">
                                                       <h:outputText value="Name"/>
                                               </f:facet>
                                               <h:link target="_blank" outcome="/admin/varios/models">
