@@ -4,7 +4,6 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:forgeview="http://jboss.org/forge/view"
 	template="/resources/scaffold/pageTemplate.xhtml">
 
 	<f:metadata>
@@ -30,6 +29,12 @@
 				<h:panelGroup styleClass="search">
 
 					<h:panelGrid columnClasses="label,component,required" columns="3">
+						<h:outputLabel for="physicalAreasBeanExampleAlias" value="Alias:"/>
+						<h:panelGroup>
+							<h:inputText id="physicalAreasBeanExampleAlias" value="#{physicalAreasBean.example.alias}"/>
+							<h:message for="physicalAreasBeanExampleAlias" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
 						<h:outputLabel for="physicalAreasBeanExampleObservations" value="Observations:"/>
 						<h:panelGroup>
 							<h:inputTextarea id="physicalAreasBeanExampleObservations" value="#{physicalAreasBean.example.observations}"/>
@@ -52,15 +57,6 @@
 						<h:panelGroup>
 							<h:inputText id="physicalAreasBeanExampleTelExt" value="#{physicalAreasBean.example.telExt}"/>
 							<h:message for="physicalAreasBeanExampleTelExt" styleClass="error"/>
-						</h:panelGroup>
-						<h:outputText/>
-						<h:outputLabel for="physicalAreasBeanExamplePersons" value="Persons:"/>
-						<h:panelGroup>
-							<h:selectOneMenu converter="#{personsBean.converter}" id="physicalAreasBeanExamplePersons" value="#{physicalAreasBean.example.persons}">
-								<f:selectItem/>
-								<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{personsBean.all}" var="_item"/>
-							</h:selectOneMenu>
-							<h:message for="physicalAreasBeanExamplePersons" styleClass="error"/>
 						</h:panelGroup>
 						<h:outputText/>
 					</h:panelGrid>

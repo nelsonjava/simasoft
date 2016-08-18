@@ -30,6 +30,12 @@
 				<h:panelGroup styleClass="search">
 
 					<h:panelGrid columnClasses="label,component,required" columns="3">
+						<h:outputLabel for="emailsBeanExampleAlias" value="Alias:"/>
+						<h:panelGroup>
+							<h:inputText id="emailsBeanExampleAlias" value="#{emailsBean.example.alias}"/>
+							<h:message for="emailsBeanExampleAlias" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
 						<h:outputLabel for="emailsBeanExampleObservations" value="Observations:"/>
 						<h:panelGroup>
 							<h:inputTextarea id="emailsBeanExampleObservations" value="#{emailsBean.example.observations}"/>

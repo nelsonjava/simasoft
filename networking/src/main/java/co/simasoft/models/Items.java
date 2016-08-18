@@ -49,6 +49,8 @@ public class Items implements Serializable {
 
 	private double orden;
 
+	private String alias;
+
 	@Lob
 	@Column(nullable = true, unique = false)
 	// @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
@@ -57,6 +59,10 @@ public class Items implements Serializable {
 	@Column(nullable = true, unique = false)
 	// @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
 	private String cvNumber;
+
+	@Column(nullable = true, unique = false)
+	// @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+	private String located;
 
 	@Column(nullable = true, unique = false)
 	// @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
@@ -114,11 +120,12 @@ public class Items implements Serializable {
 	public Items() {
 	}
 
-	public Items(String cvNumber, String code, String inventoryCode,
-			String serial, String eanCode, Date expirationDate,
-			Date warrantyDate, Integer minStock, Integer maxStock,
-			Integer quantity) {
+	public Items(String cvNumber, String located, String code,
+			String inventoryCode, String serial, String eanCode,
+			Date expirationDate, Date warrantyDate, Integer minStock,
+			Integer maxStock, Integer quantity) {
 		this.cvNumber = cvNumber;
+		this.located = located;
 		this.code = code;
 		this.inventoryCode = inventoryCode;
 		this.serial = serial;
@@ -144,6 +151,13 @@ public class Items implements Serializable {
 		this.optlock = optlock;
 	}
 
+	public String getAlias() {
+		return this.alias;
+	}
+	public void setAlias(String alias) {
+		this.alias = alias;
+	}
+
 	public double getOrden() {
 		return this.orden;
 	}
@@ -162,6 +176,13 @@ public class Items implements Serializable {
 	}
 	public void setCvNumber(String cvNumber) {
 		this.cvNumber = cvNumber;
+	}
+
+	public String getLocated() {
+		return located;
+	}
+	public void setLocated(String located) {
+		this.located = located;
 	}
 
 	public String getCode() {

@@ -26,6 +26,9 @@
 
 	<ui:define name="main">
 		<h:panelGrid columnClasses="label,component,required" columns="3">
+			<h:outputLabel for="addressBeanAddressAlias" value="Alias:"/>
+			<h:outputText id="addressBeanAddressAlias" value="#{addressBean.address.alias}"/>
+			<h:outputText/>
 			<h:outputLabel for="addressBeanAddressOrden" value="Orden:"/>
 			<h:outputText id="addressBeanAddressOrden" value="#{addressBean.address.orden}"/>
 			<h:outputText/>
@@ -37,6 +40,15 @@
 			<h:outputText/>
 			<h:outputLabel for="addressBeanAddressPersons" value="Persons:"/>
 			<h:dataTable id="addressBeanAddressPersons" styleClass="data-table" value="#{forgeview:asList(addressBean.address.persons)}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Alias"/>
+					</f:facet>
+					<h:link outcome="/admin/persons/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemAlias" value="#{_item.alias}"/>
+					</h:link>
+				</h:column>
 				<h:column>
 					<f:facet name="header">
 						<h:outputText value="Orden"/>
@@ -71,15 +83,6 @@
 					<h:link outcome="/admin/persons/view">
 						<f:param name="id" value="#{_item.id}"/>
 						<h:outputText id="_itemSecondName" value="#{_item.secondName}"/>
-					</h:link>
-				</h:column>
-				<h:column>
-					<f:facet name="header">
-						<h:outputText value="First Last Name"/>
-					</f:facet>
-					<h:link outcome="/admin/persons/view">
-						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="_itemFirstLastName" value="#{_item.firstLastName}"/>
 					</h:link>
 				</h:column>
 			</h:dataTable>

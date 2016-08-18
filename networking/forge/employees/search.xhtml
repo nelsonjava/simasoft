@@ -30,6 +30,12 @@
 				<h:panelGroup styleClass="search">
 
 					<h:panelGrid columnClasses="label,component,required" columns="3">
+						<h:outputLabel for="employeesBeanExampleAlias" value="Alias:"/>
+						<h:panelGroup>
+							<h:inputText id="employeesBeanExampleAlias" value="#{employeesBean.example.alias}"/>
+							<h:message for="employeesBeanExampleAlias" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
 						<h:outputLabel for="employeesBeanExampleObservations" value="Observations:"/>
 						<h:panelGroup>
 							<h:inputTextarea id="employeesBeanExampleObservations" value="#{employeesBean.example.observations}"/>
@@ -58,15 +64,6 @@
 								<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{employeesTypesBean.all}" var="_item"/>
 							</h:selectOneMenu>
 							<h:message for="employeesBeanExampleEmployeesTypes" styleClass="error"/>
-						</h:panelGroup>
-						<h:outputText/>
-						<h:outputLabel for="employeesBeanExamplePersons" value="Persons:"/>
-						<h:panelGroup>
-							<h:selectOneMenu converter="#{personsBean.converter}" id="employeesBeanExamplePersons" value="#{employeesBean.example.persons}">
-								<f:selectItem/>
-								<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{personsBean.all}" var="_item"/>
-							</h:selectOneMenu>
-							<h:message for="employeesBeanExamplePersons" styleClass="error"/>
 						</h:panelGroup>
 						<h:outputText/>
 					</h:panelGrid>

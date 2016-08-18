@@ -26,6 +26,9 @@
 
 	<ui:define name="main">
 		<h:panelGrid columnClasses="label,component,required" columns="3">
+			<h:outputLabel for="sitesBeanSitesAlias" value="Alias:"/>
+			<h:outputText id="sitesBeanSitesAlias" value="#{sitesBean.sites.alias}"/>
+			<h:outputText/>
 			<h:outputLabel for="sitesBeanSitesOrden" value="Orden:"/>
 			<h:outputText id="sitesBeanSitesOrden" value="#{sitesBean.sites.orden}"/>
 			<h:outputText/>
@@ -80,6 +83,15 @@
 			<h:dataTable id="sitesBeanSitesCompanies" styleClass="data-table" value="#{forgeview:asList(sitesBean.sites.companies)}" var="_item">
 				<h:column>
 					<f:facet name="header">
+						<h:outputText value="Alias"/>
+					</f:facet>
+					<h:link outcome="/admin/companies/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemAlias" value="#{_item.alias}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
 						<h:outputText value="Orden"/>
 					</f:facet>
 					<h:link outcome="/admin/companies/view">
@@ -118,6 +130,15 @@
 			<h:outputText/>
 			<h:outputLabel for="sitesBeanSitesBrands" value="Brands:"/>
 			<h:dataTable id="sitesBeanSitesBrands" styleClass="data-table" value="#{forgeview:asList(sitesBean.sites.brands)}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Alias"/>
+					</f:facet>
+					<h:link outcome="/admin/brands/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemAlias" value="#{_item.alias}"/>
+					</h:link>
+				</h:column>
 				<h:column>
 					<f:facet name="header">
 						<h:outputText value="Orden"/>

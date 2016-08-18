@@ -29,6 +29,12 @@
 				<h:panelGroup styleClass="search">
 
 					<h:panelGrid columnClasses="label,component,required" columns="3">
+						<h:outputLabel for="itemsBeanExampleAlias" value="Alias:"/>
+						<h:panelGroup>
+							<h:inputText id="itemsBeanExampleAlias" value="#{itemsBean.example.alias}"/>
+							<h:message for="itemsBeanExampleAlias" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
 						<h:outputLabel for="itemsBeanExampleObservations" value="Observations:"/>
 						<h:panelGroup>
 							<h:inputTextarea id="itemsBeanExampleObservations" value="#{itemsBean.example.observations}"/>
@@ -41,22 +47,16 @@
 							<h:message for="itemsBeanExampleCvNumber" styleClass="error"/>
 						</h:panelGroup>
 						<h:outputText/>
+						<h:outputLabel for="itemsBeanExampleLocated" value="Located:"/>
+						<h:panelGroup>
+							<h:inputText id="itemsBeanExampleLocated" value="#{itemsBean.example.located}"/>
+							<h:message for="itemsBeanExampleLocated" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
 						<h:outputLabel for="itemsBeanExampleCode" value="Code:"/>
 						<h:panelGroup>
 							<h:inputText id="itemsBeanExampleCode" value="#{itemsBean.example.code}"/>
 							<h:message for="itemsBeanExampleCode" styleClass="error"/>
-						</h:panelGroup>
-						<h:outputText/>
-						<h:outputLabel for="itemsBeanExampleInventoryCode" value="Inventory Code:"/>
-						<h:panelGroup>
-							<h:inputText id="itemsBeanExampleInventoryCode" value="#{itemsBean.example.inventoryCode}"/>
-							<h:message for="itemsBeanExampleInventoryCode" styleClass="error"/>
-						</h:panelGroup>
-						<h:outputText/>
-						<h:outputLabel for="itemsBeanExampleSerial" value="Serial:"/>
-						<h:panelGroup>
-							<h:inputText id="itemsBeanExampleSerial" value="#{itemsBean.example.serial}"/>
-							<h:message for="itemsBeanExampleSerial" styleClass="error"/>
 						</h:panelGroup>
 						<h:outputText/>
 					</h:panelGrid>
@@ -68,6 +68,15 @@
 			</f:validateBean>
 			
 			<h:dataTable id="itemsBeanPageItems" styleClass="data-table" value="#{itemsBean.pageItems}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Alias"/>
+					</f:facet>
+					<h:link outcome="/admin/items/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemAlias" value="#{_item.alias}"/>
+					</h:link>
+				</h:column>
 				<h:column>
 					<f:facet name="header">
 						<h:outputText value="Orden"/>
@@ -97,20 +106,11 @@
 				</h:column>
 				<h:column>
 					<f:facet name="header">
-						<h:outputText value="Code"/>
+						<h:outputText value="Located"/>
 					</f:facet>
 					<h:link outcome="/admin/items/view">
 						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="_itemCode" value="#{_item.code}"/>
-					</h:link>
-				</h:column>
-				<h:column>
-					<f:facet name="header">
-						<h:outputText value="Inventory Code"/>
-					</f:facet>
-					<h:link outcome="/admin/items/view">
-						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="_itemInventoryCode" value="#{_item.inventoryCode}"/>
+						<h:outputText id="_itemLocated" value="#{_item.located}"/>
 					</h:link>
 				</h:column>
 			</h:dataTable>

@@ -26,6 +26,9 @@
 
 	<ui:define name="main">
 		<h:panelGrid columnClasses="label,component,required" columns="3">
+			<h:outputLabel for="physicalAreasTypesBeanPhysicalAreasTypesAlias" value="Alias:"/>
+			<h:outputText id="physicalAreasTypesBeanPhysicalAreasTypesAlias" value="#{physicalAreasTypesBean.physicalAreasTypes.alias}"/>
+			<h:outputText/>
 			<h:outputLabel for="physicalAreasTypesBeanPhysicalAreasTypesOrden" value="Orden:"/>
 			<h:outputText id="physicalAreasTypesBeanPhysicalAreasTypesOrden" value="#{physicalAreasTypesBean.physicalAreasTypes.orden}"/>
 			<h:outputText/>

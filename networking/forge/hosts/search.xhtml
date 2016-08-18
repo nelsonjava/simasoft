@@ -30,6 +30,12 @@
 				<h:panelGroup styleClass="search">
 
 					<h:panelGrid columnClasses="label,component,required" columns="3">
+						<h:outputLabel for="hostsBeanExampleAlias" value="Alias:"/>
+						<h:panelGroup>
+							<h:inputText id="hostsBeanExampleAlias" value="#{hostsBean.example.alias}"/>
+							<h:message for="hostsBeanExampleAlias" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
 						<h:outputLabel for="hostsBeanExampleObservations" value="Observations:"/>
 						<h:panelGroup>
 							<h:inputTextarea id="hostsBeanExampleObservations" value="#{hostsBean.example.observations}"/>
@@ -71,6 +77,15 @@
 			<h:dataTable id="hostsBeanPageItems" styleClass="data-table" value="#{hostsBean.pageItems}" var="_item">
 				<h:column>
 					<f:facet name="header">
+						<h:outputText value="Alias"/>
+					</f:facet>
+					<h:link outcome="/admin/hosts/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemAlias" value="#{_item.alias}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
 						<h:outputText value="Orden"/>
 					</f:facet>
 					<h:link outcome="/admin/hosts/view">
@@ -103,15 +118,6 @@
 					<h:link outcome="/admin/hosts/view">
 						<f:param name="id" value="#{_item.id}"/>
 						<h:outputText id="forgeview:display(_itemHostsTypes)" value="#{forgeview:display(_item.hostsTypes)}"/>
-					</h:link>
-				</h:column>
-				<h:column>
-					<f:facet name="header">
-						<h:outputText value="Items"/>
-					</f:facet>
-					<h:link outcome="/admin/hosts/view">
-						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="forgeview:display(_itemItems)" value="#{forgeview:display(_item.items)}"/>
 					</h:link>
 				</h:column>
 			</h:dataTable>

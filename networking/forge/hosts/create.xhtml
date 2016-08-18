@@ -37,6 +37,12 @@
 			<h:messages globalOnly="true" styleClass="error"/>
 
 			<h:panelGrid columnClasses="label,component,required" columns="3">
+				<h:outputLabel for="hostsBeanHostsAlias" value="Alias:"/>
+				<h:panelGroup>
+					<h:inputText id="hostsBeanHostsAlias" value="#{hostsBean.hosts.alias}"/>
+					<h:message for="hostsBeanHostsAlias" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
 				<h:outputLabel for="hostsBeanHostsOrden" value="Orden:"/>
 				<h:panelGroup>
 					<h:inputText id="hostsBeanHostsOrden" value="#{hostsBean.hosts.orden}"/>

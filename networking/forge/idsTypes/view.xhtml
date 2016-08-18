@@ -26,6 +26,9 @@
 
 	<ui:define name="main">
 		<h:panelGrid columnClasses="label,component,required" columns="3">
+			<h:outputLabel for="idsTypesBeanIdsTypesAlias" value="Alias:"/>
+			<h:outputText id="idsTypesBeanIdsTypesAlias" value="#{idsTypesBean.idsTypes.alias}"/>
+			<h:outputText/>
 			<h:outputLabel for="idsTypesBeanIdsTypesOrden" value="Orden:"/>
 			<h:outputText id="idsTypesBeanIdsTypesOrden" value="#{idsTypesBean.idsTypes.orden}"/>
 			<h:outputText/>
@@ -37,6 +40,15 @@
 			<h:outputText/>
 			<h:outputLabel for="idsTypesBeanIdsTypesIds" value="Ids:"/>
 			<h:dataTable id="idsTypesBeanIdsTypesIds" styleClass="data-table" value="#{forgeview:asList(idsTypesBean.idsTypes.ids)}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Alias"/>
+					</f:facet>
+					<h:link outcome="/admin/ids/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemAlias" value="#{_item.alias}"/>
+					</h:link>
+				</h:column>
 				<h:column>
 					<f:facet name="header">
 						<h:outputText value="Orden"/>
@@ -71,17 +83,6 @@
 					<h:link outcome="/admin/ids/view">
 						<f:param name="id" value="#{_item.id}"/>
 						<h:outputText id="_itemCheckDigit" value="#{_item.checkDigit}"/>
-					</h:link>
-				</h:column>
-				<h:column>
-					<f:facet name="header">
-						<h:outputText value="Creation Date"/>
-					</f:facet>
-					<h:link outcome="/admin/ids/view">
-						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="_itemCreationDate" value="#{_item.creationDate}">
-							<f:convertDateTime type="date"/>
-						</h:outputText>
 					</h:link>
 				</h:column>
 			</h:dataTable>

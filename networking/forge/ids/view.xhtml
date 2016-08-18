@@ -25,6 +25,9 @@
 
 	<ui:define name="main">
 		<h:panelGrid columnClasses="label,component,required" columns="3">
+			<h:outputLabel for="idsBeanIdsAlias" value="Alias:"/>
+			<h:outputText id="idsBeanIdsAlias" value="#{idsBean.ids.alias}"/>
+			<h:outputText/>
 			<h:outputLabel for="idsBeanIdsOrden" value="Orden:"/>
 			<h:outputText id="idsBeanIdsOrden" value="#{idsBean.ids.orden}"/>
 			<h:outputText/>

@@ -26,6 +26,9 @@
 
 	<ui:define name="main">
 		<h:panelGrid columnClasses="label,component,required" columns="3">
+			<h:outputLabel for="switchesPortsBeanSwitchesPortsAlias" value="Alias:"/>
+			<h:outputText id="switchesPortsBeanSwitchesPortsAlias" value="#{switchesPortsBean.switchesPorts.alias}"/>
+			<h:outputText/>
 			<h:outputLabel for="switchesPortsBeanSwitchesPortsOrden" value="Orden:"/>
 			<h:outputText id="switchesPortsBeanSwitchesPortsOrden" value="#{switchesPortsBean.switchesPorts.orden}"/>
 			<h:outputText/>

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:p="http://primefaces.org/ui"	
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 
 <h:head>
@@ -22,8 +23,7 @@
 				</h:link>
 				<div class="nav-collapse collapse">
 					<ul class="nav">
-						<li><a href="/naifg7/home.jsf">Home</a></li>
-						<li><a href="/naifg7/jdocbook/index.html" target="_blank">Documentation</a></li>
+						<li><a href="/networking/home.jsf">Home</a></li>
 					</ul>
 				</div>
 			</div>
@@ -44,8 +44,12 @@
                           </li>
 
                           <li>
-                            <h:form>
-                              <h:commandButton value="Click Me to Populate DomainModels Data!" action="#{DomainModelsSetup.data()}" />
+                            <h:form enctype="multipart/form-data">
+                              <p:growl id="messages" showDetail="true" />
+                              <p:fileUpload value="#{fileUploadItems.file}"
+                                            mode="simple"
+                                            skinSimple="true"/>
+                              <p:commandButton value="RelationsJson" ajax="false" actionListener="#{fileUploadItems.upload}" disabled="false" />
                             </h:form>
                           </li>
 

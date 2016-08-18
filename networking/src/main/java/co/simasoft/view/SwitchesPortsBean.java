@@ -181,7 +181,7 @@ public class SwitchesPortsBean implements Serializable {
 	}
 
 	public int getPageSize() {
-		return 10;
+		return 1000;
 	}
 
 	public SwitchesPorts getExample() {
@@ -228,6 +228,12 @@ public class SwitchesPortsBean implements Serializable {
 		CriteriaBuilder builder = this.entityManager.getCriteriaBuilder();
 		List<Predicate> predicatesList = new ArrayList<Predicate>();
 
+		String alias = this.example.getAlias();
+		if (alias != null && !"".equals(alias)) {
+			predicatesList.add(builder.like(
+					builder.lower(root.<String> get("alias")),
+					'%' + alias.toLowerCase() + '%'));
+		}
 		String observations = this.example.getObservations();
 		if (observations != null && !"".equals(observations)) {
 			predicatesList.add(builder.like(
@@ -251,10 +257,6 @@ public class SwitchesPortsBean implements Serializable {
 			predicatesList.add(builder.like(
 					builder.lower(root.<String> get("state")),
 					'%' + state.toLowerCase() + '%'));
-		}
-		Integer mts = this.example.getMts();
-		if (mts != null && mts.intValue() != 0) {
-			predicatesList.add(builder.equal(root.get("mts"), mts));
 		}
 
 		return predicatesList.toArray(new Predicate[predicatesList.size()]);

@@ -37,6 +37,13 @@
                                                 </h:panelGroup>
                                                 <h:outputText/>
 
+                                                <h:outputLabel for="itemsBeanExampleLocated" value="Located:"/>
+                                                <h:panelGroup>
+                                                        <h:inputText id="itemsBeanExampleLocated" value="#{itemsBean.example.located}"/>
+                                                        <h:message for="itemsBeanExampleLocated" styleClass="error"/>
+                                                </h:panelGroup>
+                                                <h:outputText/>
+
                                                 <h:outputLabel for="itemsBeanExampleCode" value="Code:"/>
                                                 <h:panelGroup>
                                                         <h:inputText id="itemsBeanExampleCode" value="#{itemsBean.example.code}"/>

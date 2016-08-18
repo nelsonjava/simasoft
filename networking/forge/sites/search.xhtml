@@ -29,6 +29,12 @@
 				<h:panelGroup styleClass="search">
 
 					<h:panelGrid columnClasses="label,component,required" columns="3">
+						<h:outputLabel for="sitesBeanExampleAlias" value="Alias:"/>
+						<h:panelGroup>
+							<h:inputText id="sitesBeanExampleAlias" value="#{sitesBean.example.alias}"/>
+							<h:message for="sitesBeanExampleAlias" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
 						<h:outputLabel for="sitesBeanExampleObservations" value="Observations:"/>
 						<h:panelGroup>
 							<h:inputTextarea id="sitesBeanExampleObservations" value="#{sitesBean.example.observations}"/>
@@ -51,12 +57,6 @@
 						<h:panelGroup>
 							<h:inputText id="sitesBeanExampleAbc" value="#{sitesBean.example.abc}"/>
 							<h:message for="sitesBeanExampleAbc" styleClass="error"/>
-						</h:panelGroup>
-						<h:outputText/>
-						<h:outputLabel for="sitesBeanExampleIpAddress1" value="Ip Address 1:"/>
-						<h:panelGroup>
-							<h:inputText id="sitesBeanExampleIpAddress1" value="#{sitesBean.example.ipAddress1}"/>
-							<h:message for="sitesBeanExampleIpAddress1" styleClass="error"/>
 						</h:panelGroup>
 						<h:outputText/>
 					</h:panelGrid>

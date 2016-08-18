@@ -49,6 +49,8 @@ public class PatchPanelsPorts implements Serializable {
 
 	private double orden;
 
+	private String alias;
+
 	@Lob
 	@Column(nullable = true, unique = false)
 	// @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
@@ -95,6 +97,13 @@ public class PatchPanelsPorts implements Serializable {
 	}
 	public void setOptlock(Integer optlock) {
 		this.optlock = optlock;
+	}
+
+	public String getAlias() {
+		return this.alias;
+	}
+	public void setAlias(String alias) {
+		this.alias = alias;
 	}
 
 	public double getOrden() {

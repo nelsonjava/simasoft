@@ -4,7 +4,6 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:forgeview="http://jboss.org/forge/view"
 	template="/resources/scaffold/pageTemplate.xhtml">
 
 	<f:metadata>
@@ -30,6 +29,12 @@
 				<h:panelGroup styleClass="search">
 
 					<h:panelGrid columnClasses="label,component,required" columns="3">
+						<h:outputLabel for="idsBeanExampleAlias" value="Alias:"/>
+						<h:panelGroup>
+							<h:inputText id="idsBeanExampleAlias" value="#{idsBean.example.alias}"/>
+							<h:message for="idsBeanExampleAlias" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
 						<h:outputLabel for="idsBeanExampleObservations" value="Observations:"/>
 						<h:panelGroup>
 							<h:inputTextarea id="idsBeanExampleObservations" value="#{idsBean.example.observations}"/>
@@ -58,15 +63,6 @@
 							<h:message for="idsBeanExampleIsPhotocopy" styleClass="error"/>
 						</h:panelGroup>
 						<h:outputText/>
-						<h:outputLabel for="idsBeanExamplePersons" value="Persons:"/>
-						<h:panelGroup>
-							<h:selectOneMenu converter="#{personsBean.converter}" id="idsBeanExamplePersons" value="#{idsBean.example.persons}">
-								<f:selectItem/>
-								<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{personsBean.all}" var="_item"/>
-							</h:selectOneMenu>
-							<h:message for="idsBeanExamplePersons" styleClass="error"/>
-						</h:panelGroup>
-						<h:outputText/>
 					</h:panelGrid>
 					<h:panelGroup styleClass="buttons">
 						<h:commandLink value="Search" action='#{idsBean.search}' styleClass="btn btn-primary"/>
@@ -76,6 +72,15 @@
 			</f:validateBean>
 			
 			<h:dataTable id="idsBeanPageItems" styleClass="data-table" value="#{idsBean.pageItems}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Alias"/>
+					</f:facet>
+					<h:link outcome="/admin/ids/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemAlias" value="#{_item.alias}"/>
+					</h:link>
+				</h:column>
 				<h:column>
 					<f:facet name="header">
 						<h:outputText value="Orden"/>
@@ -110,17 +115,6 @@
 					<h:link outcome="/admin/ids/view">
 						<f:param name="id" value="#{_item.id}"/>
 						<h:outputText id="_itemCheckDigit" value="#{_item.checkDigit}"/>
-					</h:link>
-				</h:column>
-				<h:column>
-					<f:facet name="header">
-						<h:outputText value="Creation Date"/>
-					</f:facet>
-					<h:link outcome="/admin/ids/view">
-						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="_itemCreationDate" value="#{_item.creationDate}">
-							<f:convertDateTime type="date"/>
-						</h:outputText>
 					</h:link>
 				</h:column>
 			</h:dataTable>

@@ -26,6 +26,9 @@
 
 	<ui:define name="main">
 		<h:panelGrid columnClasses="label,component,required" columns="3">
+			<h:outputLabel for="hostsTypesBeanHostsTypesAlias" value="Alias:"/>
+			<h:outputText id="hostsTypesBeanHostsTypesAlias" value="#{hostsTypesBean.hostsTypes.alias}"/>
+			<h:outputText/>
 			<h:outputLabel for="hostsTypesBeanHostsTypesOrden" value="Orden:"/>
 			<h:outputText id="hostsTypesBeanHostsTypesOrden" value="#{hostsTypesBean.hostsTypes.orden}"/>
 			<h:outputText/>
@@ -37,6 +40,15 @@
 			<h:outputText/>
 			<h:outputLabel for="hostsTypesBeanHostsTypesHosts" value="Hosts:"/>
 			<h:dataTable id="hostsTypesBeanHostsTypesHosts" styleClass="data-table" value="#{forgeview:asList(hostsTypesBean.hostsTypes.hosts)}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Alias"/>
+					</f:facet>
+					<h:link outcome="/admin/hosts/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemAlias" value="#{_item.alias}"/>
+					</h:link>
+				</h:column>
 				<h:column>
 					<f:facet name="header">
 						<h:outputText value="Orden"/>

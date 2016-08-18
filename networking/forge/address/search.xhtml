@@ -29,6 +29,12 @@
 				<h:panelGroup styleClass="search">
 
 					<h:panelGrid columnClasses="label,component,required" columns="3">
+						<h:outputLabel for="addressBeanExampleAlias" value="Alias:"/>
+						<h:panelGroup>
+							<h:inputText id="addressBeanExampleAlias" value="#{addressBean.example.alias}"/>
+							<h:message for="addressBeanExampleAlias" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
 						<h:outputLabel for="addressBeanExampleObservations" value="Observations:"/>
 						<h:panelGroup>
 							<h:inputTextarea id="addressBeanExampleObservations" value="#{addressBean.example.observations}"/>
@@ -50,6 +56,15 @@
 			</f:validateBean>
 			
 			<h:dataTable id="addressBeanPageItems" styleClass="data-table" value="#{addressBean.pageItems}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Alias"/>
+					</f:facet>
+					<h:link outcome="/admin/address/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemAlias" value="#{_item.alias}"/>
+					</h:link>
+				</h:column>
 				<h:column>
 					<f:facet name="header">
 						<h:outputText value="Orden"/>

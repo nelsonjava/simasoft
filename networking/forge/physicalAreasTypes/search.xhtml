@@ -30,6 +30,12 @@
 				<h:panelGroup styleClass="search">
 
 					<h:panelGrid columnClasses="label,component,required" columns="3">
+						<h:outputLabel for="physicalAreasTypesBeanExampleAlias" value="Alias:"/>
+						<h:panelGroup>
+							<h:inputText id="physicalAreasTypesBeanExampleAlias" value="#{physicalAreasTypesBean.example.alias}"/>
+							<h:message for="physicalAreasTypesBeanExampleAlias" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
 						<h:outputLabel for="physicalAreasTypesBeanExampleObservations" value="Observations:"/>
 						<h:panelGroup>
 							<h:inputTextarea id="physicalAreasTypesBeanExampleObservations" value="#{physicalAreasTypesBean.example.observations}"/>

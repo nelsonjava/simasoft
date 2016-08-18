@@ -26,6 +26,9 @@
 
 	<ui:define name="main">
 		<h:panelGrid columnClasses="label,component,required" columns="3">
+			<h:outputLabel for="itemsBeanItemsAlias" value="Alias:"/>
+			<h:outputText id="itemsBeanItemsAlias" value="#{itemsBean.items.alias}"/>
+			<h:outputText/>
 			<h:outputLabel for="itemsBeanItemsOrden" value="Orden:"/>
 			<h:outputText id="itemsBeanItemsOrden" value="#{itemsBean.items.orden}"/>
 			<h:outputText/>
@@ -34,6 +37,9 @@
 			<h:outputText/>
 			<h:outputLabel for="itemsBeanItemsCvNumber" value="Cv Number:"/>
 			<h:outputText id="itemsBeanItemsCvNumber" value="#{itemsBean.items.cvNumber}"/>
+			<h:outputText/>
+			<h:outputLabel for="itemsBeanItemsLocated" value="Located:"/>
+			<h:outputText id="itemsBeanItemsLocated" value="#{itemsBean.items.located}"/>
 			<h:outputText/>
 			<h:outputLabel for="itemsBeanItemsCode" value="Code:"/>
 			<h:outputText id="itemsBeanItemsCode" value="#{itemsBean.items.code}"/>
@@ -68,6 +74,15 @@
 			<h:outputText/>
 			<h:outputLabel for="itemsBeanItemsHosts" value="Hosts:"/>
 			<h:dataTable id="itemsBeanItemsHosts" styleClass="data-table" value="#{forgeview:asList(itemsBean.items.hosts)}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Alias"/>
+					</f:facet>
+					<h:link outcome="/admin/hosts/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemAlias" value="#{_item.alias}"/>
+					</h:link>
+				</h:column>
 				<h:column>
 					<f:facet name="header">
 						<h:outputText value="Orden"/>
@@ -110,6 +125,15 @@
 			<h:dataTable id="itemsBeanItemsObjHijos" styleClass="data-table" value="#{forgeview:asList(itemsBean.items.objHijos)}" var="_item">
 				<h:column>
 					<f:facet name="header">
+						<h:outputText value="Alias"/>
+					</f:facet>
+					<h:link outcome="/admin/items/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemAlias" value="#{_item.alias}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
 						<h:outputText value="Orden"/>
 					</f:facet>
 					<h:link outcome="/admin/items/view">
@@ -137,20 +161,11 @@
 				</h:column>
 				<h:column>
 					<f:facet name="header">
-						<h:outputText value="Code"/>
+						<h:outputText value="Located"/>
 					</f:facet>
 					<h:link outcome="/admin/items/view">
 						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="_itemCode" value="#{_item.code}"/>
-					</h:link>
-				</h:column>
-				<h:column>
-					<f:facet name="header">
-						<h:outputText value="Inventory Code"/>
-					</f:facet>
-					<h:link outcome="/admin/items/view">
-						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="_itemInventoryCode" value="#{_item.inventoryCode}"/>
+						<h:outputText id="_itemLocated" value="#{_item.located}"/>
 					</h:link>
 				</h:column>
 			</h:dataTable>

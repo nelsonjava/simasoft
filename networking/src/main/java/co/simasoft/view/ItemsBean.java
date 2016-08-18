@@ -195,7 +195,7 @@ public class ItemsBean implements Serializable {
 	}
 
 	public int getPageSize() {
-		return 10;
+		return 1000;
 	}
 
 	public Items getExample() {
@@ -240,6 +240,12 @@ public class ItemsBean implements Serializable {
 		CriteriaBuilder builder = this.entityManager.getCriteriaBuilder();
 		List<Predicate> predicatesList = new ArrayList<Predicate>();
 
+		String alias = this.example.getAlias();
+		if (alias != null && !"".equals(alias)) {
+			predicatesList.add(builder.like(
+					builder.lower(root.<String> get("alias")),
+					'%' + alias.toLowerCase() + '%'));
+		}
 		String observations = this.example.getObservations();
 		if (observations != null && !"".equals(observations)) {
 			predicatesList.add(builder.like(
@@ -252,23 +258,17 @@ public class ItemsBean implements Serializable {
 					builder.lower(root.<String> get("cvNumber")),
 					'%' + cvNumber.toLowerCase() + '%'));
 		}
+		String located = this.example.getLocated();
+		if (located != null && !"".equals(located)) {
+			predicatesList.add(builder.like(
+					builder.lower(root.<String> get("located")),
+					'%' + located.toLowerCase() + '%'));
+		}
 		String code = this.example.getCode();
 		if (code != null && !"".equals(code)) {
 			predicatesList.add(builder.like(
 					builder.lower(root.<String> get("code")),
 					'%' + code.toLowerCase() + '%'));
-		}
-		String inventoryCode = this.example.getInventoryCode();
-		if (inventoryCode != null && !"".equals(inventoryCode)) {
-			predicatesList.add(builder.like(
-					builder.lower(root.<String> get("inventoryCode")),
-					'%' + inventoryCode.toLowerCase() + '%'));
-		}
-		String serial = this.example.getSerial();
-		if (serial != null && !"".equals(serial)) {
-			predicatesList.add(builder.like(
-					builder.lower(root.<String> get("serial")),
-					'%' + serial.toLowerCase() + '%'));
 		}
 
 		return predicatesList.toArray(new Predicate[predicatesList.size()]);

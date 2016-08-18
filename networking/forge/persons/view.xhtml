@@ -26,6 +26,9 @@
 
 	<ui:define name="main">
 		<h:panelGrid columnClasses="label,component,required" columns="3">
+			<h:outputLabel for="personsBeanPersonsAlias" value="Alias:"/>
+			<h:outputText id="personsBeanPersonsAlias" value="#{personsBean.persons.alias}"/>
+			<h:outputText/>
 			<h:outputLabel for="personsBeanPersonsOrden" value="Orden:"/>
 			<h:outputText id="personsBeanPersonsOrden" value="#{personsBean.persons.orden}"/>
 			<h:outputText/>
@@ -46,6 +49,15 @@
 			<h:outputText/>
 			<h:outputLabel for="personsBeanPersonsAddress" value="Address:"/>
 			<h:dataTable id="personsBeanPersonsAddress" styleClass="data-table" value="#{forgeview:asList(personsBean.persons.address)}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Alias"/>
+					</f:facet>
+					<h:link outcome="/admin/address/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemAlias" value="#{_item.alias}"/>
+					</h:link>
+				</h:column>
 				<h:column>
 					<f:facet name="header">
 						<h:outputText value="Orden"/>
@@ -92,6 +104,15 @@
 			<h:dataTable id="personsBeanPersonsIds" styleClass="data-table" value="#{forgeview:asList(personsBean.persons.ids)}" var="_item">
 				<h:column>
 					<f:facet name="header">
+						<h:outputText value="Alias"/>
+					</f:facet>
+					<h:link outcome="/admin/ids/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemAlias" value="#{_item.alias}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
 						<h:outputText value="Orden"/>
 					</f:facet>
 					<h:link outcome="/admin/ids/view">
@@ -124,17 +145,6 @@
 					<h:link outcome="/admin/ids/view">
 						<f:param name="id" value="#{_item.id}"/>
 						<h:outputText id="_itemCheckDigit" value="#{_item.checkDigit}"/>
-					</h:link>
-				</h:column>
-				<h:column>
-					<f:facet name="header">
-						<h:outputText value="Creation Date"/>
-					</f:facet>
-					<h:link outcome="/admin/ids/view">
-						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="_itemCreationDate" value="#{_item.creationDate}">
-							<f:convertDateTime type="date"/>
-						</h:outputText>
 					</h:link>
 				</h:column>
 			</h:dataTable>

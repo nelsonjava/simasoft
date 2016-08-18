@@ -37,6 +37,12 @@
 			<h:messages globalOnly="true" styleClass="error"/>
 
 			<h:panelGrid columnClasses="label,component,required" columns="3">
+				<h:outputLabel for="companiesBeanCompaniesAlias" value="Alias:"/>
+				<h:panelGroup>
+					<h:inputText id="companiesBeanCompaniesAlias" value="#{companiesBean.companies.alias}"/>
+					<h:message for="companiesBeanCompaniesAlias" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
 				<h:outputLabel for="companiesBeanCompaniesOrden" value="Orden:"/>
 				<h:panelGroup>
 					<h:inputText id="companiesBeanCompaniesOrden" value="#{companiesBean.companies.orden}"/>
@@ -59,6 +65,19 @@
 				<h:panelGroup>
 					<ui:param name="_collection" value="#{companiesBean.companies.objHijos}"/>
 					<h:dataTable id="companiesBeanCompaniesObjHijos" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Alias"/>
+							</f:facet>
+							<h:link outcome="/admin/companies/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="_itemAlias" value="#{_item.alias}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="companiesBeanAddAlias" value="#{companiesBean.add.alias}"/>
+								<h:message for="companiesBeanAddAlias" styleClass="error"/>
+							</f:facet>
+						</h:column>
 						<h:column>
 							<f:facet name="header">
 								<h:outputText value="Orden"/>
@@ -141,6 +160,19 @@
 				<h:panelGroup>
 					<ui:param name="_collection" value="#{companiesBean.companies.brands}"/>
 					<h:dataTable id="companiesBeanCompaniesBrands" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Alias"/>
+							</f:facet>
+							<h:link outcome="/admin/brands/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="_itemAlias" value="#{_item.alias}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="brandsBeanAddAlias" value="#{brandsBean.add.alias}"/>
+								<h:message for="brandsBeanAddAlias" styleClass="error"/>
+							</f:facet>
+						</h:column>
 						<h:column>
 							<f:facet name="header">
 								<h:outputText value="Orden"/>

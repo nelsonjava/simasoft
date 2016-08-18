@@ -4,7 +4,6 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:forgeview="http://jboss.org/forge/view"
 	template="/resources/scaffold/pageTemplate.xhtml">
 
 	<f:metadata>
@@ -30,6 +29,12 @@
 				<h:panelGroup styleClass="search">
 
 					<h:panelGrid columnClasses="label,component,required" columns="3">
+						<h:outputLabel for="networkPortsBeanExampleAlias" value="Alias:"/>
+						<h:panelGroup>
+							<h:inputText id="networkPortsBeanExampleAlias" value="#{networkPortsBean.example.alias}"/>
+							<h:message for="networkPortsBeanExampleAlias" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
 						<h:outputLabel for="networkPortsBeanExampleObservations" value="Observations:"/>
 						<h:panelGroup>
 							<h:inputTextarea id="networkPortsBeanExampleObservations" value="#{networkPortsBean.example.observations}"/>
@@ -52,15 +57,6 @@
 						<h:panelGroup>
 							<h:inputText id="networkPortsBeanExampleState" value="#{networkPortsBean.example.state}"/>
 							<h:message for="networkPortsBeanExampleState" styleClass="error"/>
-						</h:panelGroup>
-						<h:outputText/>
-						<h:outputLabel for="networkPortsBeanExampleHosts" value="Hosts:"/>
-						<h:panelGroup>
-							<h:selectOneMenu converter="#{hostsBean.converter}" id="networkPortsBeanExampleHosts" value="#{networkPortsBean.example.hosts}">
-								<f:selectItem/>
-								<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{hostsBean.all}" var="_item"/>
-							</h:selectOneMenu>
-							<h:message for="networkPortsBeanExampleHosts" styleClass="error"/>
 						</h:panelGroup>
 						<h:outputText/>
 					</h:panelGrid>

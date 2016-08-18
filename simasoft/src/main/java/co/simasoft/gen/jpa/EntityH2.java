@@ -125,6 +125,8 @@ public EntityH2(String artifactId,String groupId,Entidad entity,LinkedHashSet<St
 
       line("    private double orden;\n");
 
+      line("    private String alias;\n");
+
       line("    @Lob");
       line("    @Column(nullable = true, unique = false)");
       line("    // @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)");
@@ -325,12 +327,20 @@ public EntityH2(String artifactId,String groupId,Entidad entity,LinkedHashSet<St
       line("        this.optlock = optlock;");
       line("    }\n");
 
+      line("    public String getAlias() {");
+      line("        return this.alias;");
+      line("    }");
+      line("    public void setAlias(String alias) {");
+      line("        this.alias = alias;");
+      line("    }\n");
+
       line("    public double getOrden() {");
       line("        return this.orden;");
       line("    }");
       line("    public void setOrden(double orden) {");
       line("        this.orden = orden;");
       line("    }\n");
+
 
       line("    public String getObservations() {");
       line("        return observations;");

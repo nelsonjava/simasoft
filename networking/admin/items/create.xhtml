@@ -53,6 +53,13 @@
                                 </h:panelGroup>
                                 <h:outputText/>
 
+                                <h:outputLabel for="itemsBeanItemsLocated" value="Located:"/>
+                                <h:panelGroup>
+                                        <h:inputText id="itemsBeanItemsLocated" value="#{itemsBean.items.located}"/>
+                                        <h:message for="itemsBeanItemsLocated" styleClass="error"/>
+                                </h:panelGroup>
+                                <h:outputText/>
+
                                 <h:outputLabel for="itemsBeanItemsCode" value="Code:"/>
                                 <h:panelGroup>
                                         <h:inputText id="itemsBeanItemsCode" value="#{itemsBean.items.code}"/>

@@ -26,6 +26,9 @@
 
 	<ui:define name="main">
 		<h:panelGrid columnClasses="label,component,required" columns="3">
+			<h:outputLabel for="companiesBeanCompaniesAlias" value="Alias:"/>
+			<h:outputText id="companiesBeanCompaniesAlias" value="#{companiesBean.companies.alias}"/>
+			<h:outputText/>
 			<h:outputLabel for="companiesBeanCompaniesOrden" value="Orden:"/>
 			<h:outputText id="companiesBeanCompaniesOrden" value="#{companiesBean.companies.orden}"/>
 			<h:outputText/>
@@ -37,6 +40,15 @@
 			<h:outputText/>
 			<h:outputLabel for="companiesBeanCompaniesObjHijos" value="Obj Hijos:"/>
 			<h:dataTable id="companiesBeanCompaniesObjHijos" styleClass="data-table" value="#{forgeview:asList(companiesBean.companies.objHijos)}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Alias"/>
+					</f:facet>
+					<h:link outcome="/admin/companies/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemAlias" value="#{_item.alias}"/>
+					</h:link>
+				</h:column>
 				<h:column>
 					<f:facet name="header">
 						<h:outputText value="Orden"/>
@@ -81,6 +93,15 @@
 			<h:outputText/>
 			<h:outputLabel for="companiesBeanCompaniesBrands" value="Brands:"/>
 			<h:dataTable id="companiesBeanCompaniesBrands" styleClass="data-table" value="#{forgeview:asList(companiesBean.companies.brands)}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Alias"/>
+					</f:facet>
+					<h:link outcome="/admin/brands/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemAlias" value="#{_item.alias}"/>
+					</h:link>
+				</h:column>
 				<h:column>
 					<f:facet name="header">
 						<h:outputText value="Orden"/>

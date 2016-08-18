@@ -59,6 +59,7 @@ jpa-new-field --named isPhotocopy --type Boolean
 #  ############
 jpa-new-entity --named Items --targetPackage co.simasoft.models
 jpa-new-field --named cvNumber --type String
+jpa-new-field --named located --type String
 jpa-new-field --named code --type String
 jpa-new-field --named inventoryCode --type String
 jpa-new-field --named serial --type String

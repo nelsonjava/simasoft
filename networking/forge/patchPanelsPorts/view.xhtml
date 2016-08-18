@@ -26,6 +26,9 @@
 
 	<ui:define name="main">
 		<h:panelGrid columnClasses="label,component,required" columns="3">
+			<h:outputLabel for="patchPanelsPortsBeanPatchPanelsPortsAlias" value="Alias:"/>
+			<h:outputText id="patchPanelsPortsBeanPatchPanelsPortsAlias" value="#{patchPanelsPortsBean.patchPanelsPorts.alias}"/>
+			<h:outputText/>
 			<h:outputLabel for="patchPanelsPortsBeanPatchPanelsPortsOrden" value="Orden:"/>
 			<h:outputText id="patchPanelsPortsBeanPatchPanelsPortsOrden" value="#{patchPanelsPortsBean.patchPanelsPorts.orden}"/>
 			<h:outputText/>

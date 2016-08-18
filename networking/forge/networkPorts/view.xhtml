@@ -26,6 +26,9 @@
 
 	<ui:define name="main">
 		<h:panelGrid columnClasses="label,component,required" columns="3">
+			<h:outputLabel for="networkPortsBeanNetworkPortsAlias" value="Alias:"/>
+			<h:outputText id="networkPortsBeanNetworkPortsAlias" value="#{networkPortsBean.networkPorts.alias}"/>
+			<h:outputText/>
 			<h:outputLabel for="networkPortsBeanNetworkPortsOrden" value="Orden:"/>
 			<h:outputText id="networkPortsBeanNetworkPortsOrden" value="#{networkPortsBean.networkPorts.orden}"/>
 			<h:outputText/>

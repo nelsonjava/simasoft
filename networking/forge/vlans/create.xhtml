@@ -37,6 +37,12 @@
 			<h:messages globalOnly="true" styleClass="error"/>
 
 			<h:panelGrid columnClasses="label,component,required" columns="3">
+				<h:outputLabel for="vlansBeanVlansAlias" value="Alias:"/>
+				<h:panelGroup>
+					<h:inputText id="vlansBeanVlansAlias" value="#{vlansBean.vlans.alias}"/>
+					<h:message for="vlansBeanVlansAlias" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
 				<h:outputLabel for="vlansBeanVlansOrden" value="Orden:"/>
 				<h:panelGroup>
 					<h:inputText id="vlansBeanVlansOrden" value="#{vlansBean.vlans.orden}"/>

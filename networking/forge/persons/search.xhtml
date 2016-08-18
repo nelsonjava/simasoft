@@ -29,6 +29,12 @@
 				<h:panelGroup styleClass="search">
 
 					<h:panelGrid columnClasses="label,component,required" columns="3">
+						<h:outputLabel for="personsBeanExampleAlias" value="Alias:"/>
+						<h:panelGroup>
+							<h:inputText id="personsBeanExampleAlias" value="#{personsBean.example.alias}"/>
+							<h:message for="personsBeanExampleAlias" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
 						<h:outputLabel for="personsBeanExampleObservations" value="Observations:"/>
 						<h:panelGroup>
 							<h:inputTextarea id="personsBeanExampleObservations" value="#{personsBean.example.observations}"/>
@@ -53,12 +59,6 @@
 							<h:message for="personsBeanExampleFirstLastName" styleClass="error"/>
 						</h:panelGroup>
 						<h:outputText/>
-						<h:outputLabel for="personsBeanExampleSecondLastName" value="Second Last Name:"/>
-						<h:panelGroup>
-							<h:inputText id="personsBeanExampleSecondLastName" value="#{personsBean.example.secondLastName}"/>
-							<h:message for="personsBeanExampleSecondLastName" styleClass="error"/>
-						</h:panelGroup>
-						<h:outputText/>
 					</h:panelGrid>
 					<h:panelGroup styleClass="buttons">
 						<h:commandLink value="Search" action='#{personsBean.search}' styleClass="btn btn-primary"/>
@@ -68,6 +68,15 @@
 			</f:validateBean>
 			
 			<h:dataTable id="personsBeanPageItems" styleClass="data-table" value="#{personsBean.pageItems}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Alias"/>
+					</f:facet>
+					<h:link outcome="/admin/persons/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemAlias" value="#{_item.alias}"/>
+					</h:link>
+				</h:column>
 				<h:column>
 					<f:facet name="header">
 						<h:outputText value="Orden"/>
@@ -102,15 +111,6 @@
 					<h:link outcome="/admin/persons/view">
 						<f:param name="id" value="#{_item.id}"/>
 						<h:outputText id="_itemSecondName" value="#{_item.secondName}"/>
-					</h:link>
-				</h:column>
-				<h:column>
-					<f:facet name="header">
-						<h:outputText value="First Last Name"/>
-					</f:facet>
-					<h:link outcome="/admin/persons/view">
-						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="_itemFirstLastName" value="#{_item.firstLastName}"/>
 					</h:link>
 				</h:column>
 			</h:dataTable>

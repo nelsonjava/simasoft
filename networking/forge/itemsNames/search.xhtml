@@ -29,6 +29,12 @@
 				<h:panelGroup styleClass="search">
 
 					<h:panelGrid columnClasses="label,component,required" columns="3">
+						<h:outputLabel for="itemsNamesBeanExampleAlias" value="Alias:"/>
+						<h:panelGroup>
+							<h:inputText id="itemsNamesBeanExampleAlias" value="#{itemsNamesBean.example.alias}"/>
+							<h:message for="itemsNamesBeanExampleAlias" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
 						<h:outputLabel for="itemsNamesBeanExampleObservations" value="Observations:"/>
 						<h:panelGroup>
 							<h:inputTextarea id="itemsNamesBeanExampleObservations" value="#{itemsNamesBean.example.observations}"/>
@@ -51,12 +57,6 @@
 						<h:panelGroup>
 							<h:inputText id="itemsNamesBeanExampleProductNumber" value="#{itemsNamesBean.example.productNumber}"/>
 							<h:message for="itemsNamesBeanExampleProductNumber" styleClass="error"/>
-						</h:panelGroup>
-						<h:outputText/>
-						<h:outputLabel for="itemsNamesBeanExamplePartNumber" value="Part Number:"/>
-						<h:panelGroup>
-							<h:inputText id="itemsNamesBeanExamplePartNumber" value="#{itemsNamesBean.example.partNumber}"/>
-							<h:message for="itemsNamesBeanExamplePartNumber" styleClass="error"/>
 						</h:panelGroup>
 						<h:outputText/>
 					</h:panelGrid>

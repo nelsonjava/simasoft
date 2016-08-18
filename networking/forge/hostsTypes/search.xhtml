@@ -29,6 +29,12 @@
 				<h:panelGroup styleClass="search">
 
 					<h:panelGrid columnClasses="label,component,required" columns="3">
+						<h:outputLabel for="hostsTypesBeanExampleAlias" value="Alias:"/>
+						<h:panelGroup>
+							<h:inputText id="hostsTypesBeanExampleAlias" value="#{hostsTypesBean.example.alias}"/>
+							<h:message for="hostsTypesBeanExampleAlias" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
 						<h:outputLabel for="hostsTypesBeanExampleObservations" value="Observations:"/>
 						<h:panelGroup>
 							<h:inputTextarea id="hostsTypesBeanExampleObservations" value="#{hostsTypesBean.example.observations}"/>
@@ -50,6 +56,15 @@
 			</f:validateBean>
 			
 			<h:dataTable id="hostsTypesBeanPageItems" styleClass="data-table" value="#{hostsTypesBean.pageItems}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Alias"/>
+					</f:facet>
+					<h:link outcome="/admin/hostsTypes/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemAlias" value="#{_item.alias}"/>
+					</h:link>
+				</h:column>
 				<h:column>
 					<f:facet name="header">
 						<h:outputText value="Orden"/>

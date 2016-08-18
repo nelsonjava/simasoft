@@ -147,6 +147,7 @@ image::images/modelo.jpg[]
 |===
 |name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
 |cvNumber|null|String|null|null|true|false|false|false|true|true|true|true
+|located||String|null|null|true|false|false|false|true|false|false|false
 |code|null|String|null|null|true|false|false|false|true|true|true|true
 |inventoryCode|null|String|null|null|true|false|false|true|true|true|true|true
 |serial|null|String|null|null|true|false|false|false|true|true|true|true

@@ -29,6 +29,12 @@
 				<h:panelGroup styleClass="search">
 
 					<h:panelGrid columnClasses="label,component,required" columns="3">
+						<h:outputLabel for="telephonesTypesBeanExampleAlias" value="Alias:"/>
+						<h:panelGroup>
+							<h:inputText id="telephonesTypesBeanExampleAlias" value="#{telephonesTypesBean.example.alias}"/>
+							<h:message for="telephonesTypesBeanExampleAlias" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
 						<h:outputLabel for="telephonesTypesBeanExampleObservations" value="Observations:"/>
 						<h:panelGroup>
 							<h:inputTextarea id="telephonesTypesBeanExampleObservations" value="#{telephonesTypesBean.example.observations}"/>

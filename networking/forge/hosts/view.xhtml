@@ -26,6 +26,9 @@
 
 	<ui:define name="main">
 		<h:panelGrid columnClasses="label,component,required" columns="3">
+			<h:outputLabel for="hostsBeanHostsAlias" value="Alias:"/>
+			<h:outputText id="hostsBeanHostsAlias" value="#{hostsBean.hosts.alias}"/>
+			<h:outputText/>
 			<h:outputLabel for="hostsBeanHostsOrden" value="Orden:"/>
 			<h:outputText id="hostsBeanHostsOrden" value="#{hostsBean.hosts.orden}"/>
 			<h:outputText/>

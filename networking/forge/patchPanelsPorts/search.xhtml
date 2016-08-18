@@ -4,7 +4,6 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:forgeview="http://jboss.org/forge/view"
 	template="/resources/scaffold/pageTemplate.xhtml">
 
 	<f:metadata>
@@ -30,6 +29,12 @@
 				<h:panelGroup styleClass="search">
 
 					<h:panelGrid columnClasses="label,component,required" columns="3">
+						<h:outputLabel for="patchPanelsPortsBeanExampleAlias" value="Alias:"/>
+						<h:panelGroup>
+							<h:inputText id="patchPanelsPortsBeanExampleAlias" value="#{patchPanelsPortsBean.example.alias}"/>
+							<h:message for="patchPanelsPortsBeanExampleAlias" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
 						<h:outputLabel for="patchPanelsPortsBeanExampleObservations" value="Observations:"/>
 						<h:panelGroup>
 							<h:inputTextarea id="patchPanelsPortsBeanExampleObservations" value="#{patchPanelsPortsBean.example.observations}"/>
@@ -52,15 +57,6 @@
 						<h:panelGroup>
 							<h:inputText id="patchPanelsPortsBeanExamplePort" value="#{patchPanelsPortsBean.example.port}"/>
 							<h:message for="patchPanelsPortsBeanExamplePort" styleClass="error"/>
-						</h:panelGroup>
-						<h:outputText/>
-						<h:outputLabel for="patchPanelsPortsBeanExampleSwitchesPorts" value="Switches Ports:"/>
-						<h:panelGroup>
-							<h:selectOneMenu converter="#{switchesPortsBean.converter}" id="patchPanelsPortsBeanExampleSwitchesPorts" value="#{patchPanelsPortsBean.example.switchesPorts}">
-								<f:selectItem/>
-								<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{switchesPortsBean.all}" var="_item"/>
-							</h:selectOneMenu>
-							<h:message for="patchPanelsPortsBeanExampleSwitchesPorts" styleClass="error"/>
 						</h:panelGroup>
 						<h:outputText/>
 					</h:panelGrid>

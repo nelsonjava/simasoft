@@ -29,6 +29,12 @@
 				<h:panelGroup styleClass="search">
 
 					<h:panelGrid columnClasses="label,component,required" columns="3">
+						<h:outputLabel for="vlansBeanExampleAlias" value="Alias:"/>
+						<h:panelGroup>
+							<h:inputText id="vlansBeanExampleAlias" value="#{vlansBean.example.alias}"/>
+							<h:message for="vlansBeanExampleAlias" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
 						<h:outputLabel for="vlansBeanExampleObservations" value="Observations:"/>
 						<h:panelGroup>
 							<h:inputTextarea id="vlansBeanExampleObservations" value="#{vlansBean.example.observations}"/>

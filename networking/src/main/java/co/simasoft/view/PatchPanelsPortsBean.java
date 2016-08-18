@@ -180,7 +180,7 @@ public class PatchPanelsPortsBean implements Serializable {
 	}
 
 	public int getPageSize() {
-		return 10;
+		return 1000;
 	}
 
 	public PatchPanelsPorts getExample() {
@@ -228,6 +228,12 @@ public class PatchPanelsPortsBean implements Serializable {
 		CriteriaBuilder builder = this.entityManager.getCriteriaBuilder();
 		List<Predicate> predicatesList = new ArrayList<Predicate>();
 
+		String alias = this.example.getAlias();
+		if (alias != null && !"".equals(alias)) {
+			predicatesList.add(builder.like(
+					builder.lower(root.<String> get("alias")),
+					'%' + alias.toLowerCase() + '%'));
+		}
 		String observations = this.example.getObservations();
 		if (observations != null && !"".equals(observations)) {
 			predicatesList.add(builder.like(
@@ -249,11 +255,6 @@ public class PatchPanelsPortsBean implements Serializable {
 			predicatesList.add(builder.like(
 					builder.lower(root.<String> get("port")),
 					'%' + port.toLowerCase() + '%'));
-		}
-		SwitchesPorts switchesPorts = this.example.getSwitchesPorts();
-		if (switchesPorts != null) {
-			predicatesList.add(builder.equal(root.get("switchesPorts"),
-					switchesPorts));
 		}
 
 		return predicatesList.toArray(new Predicate[predicatesList.size()]);

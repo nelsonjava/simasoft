@@ -25,6 +25,9 @@
 
 	<ui:define name="main">
 		<h:panelGrid columnClasses="label,component,required" columns="3">
+			<h:outputLabel for="emailsBeanEmailsAlias" value="Alias:"/>
+			<h:outputText id="emailsBeanEmailsAlias" value="#{emailsBean.emails.alias}"/>
+			<h:outputText/>
 			<h:outputLabel for="emailsBeanEmailsOrden" value="Orden:"/>
 			<h:outputText id="emailsBeanEmailsOrden" value="#{emailsBean.emails.orden}"/>
 			<h:outputText/>

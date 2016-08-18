@@ -37,6 +37,12 @@
 			<h:messages globalOnly="true" styleClass="error"/>
 
 			<h:panelGrid columnClasses="label,component,required" columns="3">
+				<h:outputLabel for="personsBeanPersonsAlias" value="Alias:"/>
+				<h:panelGroup>
+					<h:inputText id="personsBeanPersonsAlias" value="#{personsBean.persons.alias}"/>
+					<h:message for="personsBeanPersonsAlias" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
 				<h:outputLabel for="personsBeanPersonsOrden" value="Orden:"/>
 				<h:panelGroup>
 					<h:inputText id="personsBeanPersonsOrden" value="#{personsBean.persons.orden}"/>
@@ -77,6 +83,15 @@
 				<h:panelGroup>
 					<ui:param name="_collection" value="#{personsBean.persons.address}"/>
 					<h:dataTable id="personsBeanPersonsAddress" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Alias"/>
+							</f:facet>
+							<h:link outcome="/admin/address/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="_itemAlias" value="#{_item.alias}"/>
+							</h:link>
+						</h:column>
 						<h:column>
 							<f:facet name="header">
 								<h:outputText value="Orden"/>
@@ -151,6 +166,19 @@
 					<h:dataTable id="personsBeanPersonsIds" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
 						<h:column>
 							<f:facet name="header">
+								<h:outputText value="Alias"/>
+							</f:facet>
+							<h:link outcome="/admin/ids/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="_itemAlias" value="#{_item.alias}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="idsBeanAddAlias" value="#{idsBean.add.alias}"/>
+								<h:message for="idsBeanAddAlias" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
 								<h:outputText value="Orden"/>
 							</f:facet>
 							<h:link outcome="/admin/ids/view">
@@ -199,23 +227,6 @@
 							<f:facet name="footer">
 								<h:inputText id="idsBeanAddCheckDigit" value="#{idsBean.add.checkDigit}"/>
 								<h:message for="idsBeanAddCheckDigit" styleClass="error"/>
-							</f:facet>
-						</h:column>
-						<h:column>
-							<f:facet name="header">
-								<h:outputText value="Creation Date"/>
-							</f:facet>
-							<h:link outcome="/admin/ids/view">
-								<f:param name="id" value="#{_item.id}"/>
-								<h:outputText id="_itemCreationDate" value="#{_item.creationDate}">
-									<f:convertDateTime type="date"/>
-								</h:outputText>
-							</h:link>
-							<f:facet name="footer">
-								<h:inputText id="idsBeanAddCreationDate" value="#{idsBean.add.creationDate}">
-									<f:convertDateTime type="date"/>
-								</h:inputText>
-								<h:message for="idsBeanAddCreationDate" styleClass="error"/>
 							</f:facet>
 						</h:column>
 						<h:column footerClass="remove-column" headerClass="remove-column">

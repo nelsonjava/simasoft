@@ -26,6 +26,9 @@
 
 	<ui:define name="main">
 		<h:panelGrid columnClasses="label,component,required" columns="3">
+			<h:outputLabel for="vlansBeanVlansAlias" value="Alias:"/>
+			<h:outputText id="vlansBeanVlansAlias" value="#{vlansBean.vlans.alias}"/>
+			<h:outputText/>
 			<h:outputLabel for="vlansBeanVlansOrden" value="Orden:"/>
 			<h:outputText id="vlansBeanVlansOrden" value="#{vlansBean.vlans.orden}"/>
 			<h:outputText/>

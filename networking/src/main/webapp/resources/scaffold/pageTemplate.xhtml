@@ -22,7 +22,13 @@
 				</h:link>
 				<div class="nav-collapse collapse">
 					<ul class="nav">
-						<li><a href="http://forge.jboss.org/document/hands-on-lab">How to Customize</a></li>
+						<li><a href="/networking/home.jsf">Home</a></li>
+                                                <li>
+	                                        <h:form>
+		                                   <h:commandButton id="logout" value="Log out"
+			                           action="#{identity.logout}" />
+	                                        </h:form>
+	                                        </li>
 					</ul>
 				</div>
 			</div>
