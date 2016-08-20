@@ -16,12 +16,12 @@ import javax.persistence.Column;
 import javax.persistence.Lob;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import org.hibernate.search.annotations.Field;
+import org.hibernate.search.annotations.Index;
 import org.hibernate.search.annotations.Indexed;
 import org.hibernate.search.annotations.Store;
 import org.hibernate.search.annotations.Analyze;
 import org.hibernate.search.annotations.DocumentId;
-import org.hibernate.search.annotations.Field;
-import org.hibernate.search.annotations.Index;
 import javax.persistence.OneToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.ManyToOne;
@@ -55,6 +55,12 @@ public class Attributes implements Serializable {
 	private String observations;
 
 	@Column(nullable = true, unique = false)
+	private Integer precision;
+
+	@Column(nullable = true, unique = false)
+	private Boolean isNullable;
+
+	@Column(nullable = true, unique = false)
 	private Boolean isUnique;
 
 	@Column(nullable = true, unique = false)
@@ -83,34 +89,30 @@ public class Attributes implements Serializable {
 	@Column(nullable = true, unique = false)
 	private Integer length;
 
-	@Column(nullable = true, unique = false)
-	private Integer precision;
-
-	@Column(nullable = true, unique = false)
-	private Boolean isNullable;
+	@ManyToMany
+	private Set<AttributesProperties> attributesProperties = new HashSet<AttributesProperties>();
 
 	@OneToMany(mappedBy = "attributes")
 	private Set<Sites> sites = new HashSet<Sites>();
 
-	@ManyToMany
-	private Set<AttributesProperties> attributesProperties = new HashSet<AttributesProperties>();
-
 	@ManyToOne
-	private Entities entities;
+	private Fields fields;
 
 	@ManyToOne
 	private AttributesTypes attributesTypes;
 
 	@ManyToOne
-	private Fields fields;
+	private Entities entities;
 
 	public Attributes() {
 	}
 
-	public Attributes(Boolean isUnique, Boolean isCreate, Boolean isSearch,
-			Boolean isView, Boolean isViewColumn, Boolean isViewRelation,
-			String name, String description, Integer length, Integer precision,
-			Boolean isNullable) {
+	public Attributes(Integer precision, Boolean isNullable, Boolean isUnique,
+			Boolean isCreate, Boolean isSearch, Boolean isView,
+			Boolean isViewColumn, Boolean isViewRelation, String name,
+			String description, Integer length) {
+		this.precision = precision;
+		this.isNullable = isNullable;
 		this.isUnique = isUnique;
 		this.isCreate = isCreate;
 		this.isSearch = isSearch;
@@ -120,8 +122,6 @@ public class Attributes implements Serializable {
 		this.name = name;
 		this.description = description;
 		this.length = length;
-		this.precision = precision;
-		this.isNullable = isNullable;
 	}
 
 	public Long getId() {
@@ -151,6 +151,20 @@ public class Attributes implements Serializable {
 	public void setObservations(String observations) {
 		this.observations = observations;
 	}
+	public Integer getPrecision() {
+		return precision;
+	}
+	public void setPrecision(Integer precision) {
+		this.precision = precision;
+	}
+
+	public Boolean getIsNullable() {
+		return isNullable;
+	}
+	public void setIsNullable(Boolean isNullable) {
+		this.isNullable = isNullable;
+	}
+
 	public Boolean getIsUnique() {
 		return isUnique;
 	}
@@ -214,18 +228,12 @@ public class Attributes implements Serializable {
 		this.length = length;
 	}
 
-	public Integer getPrecision() {
-		return precision;
+	public Set<AttributesProperties> getAttributesProperties() {
+		return attributesProperties;
 	}
-	public void setPrecision(Integer precision) {
-		this.precision = precision;
-	}
-
-	public Boolean getIsNullable() {
-		return isNullable;
-	}
-	public void setIsNullable(Boolean isNullable) {
-		this.isNullable = isNullable;
+	public void setAttributesProperties(
+			Set<AttributesProperties> attributesProperties) {
+		this.attributesProperties = attributesProperties;
 	}
 
 	public Set<Sites> getSites() {
@@ -235,19 +243,11 @@ public class Attributes implements Serializable {
 		this.sites = sites;
 	}
 
-	public Set<AttributesProperties> getAttributesProperties() {
-		return attributesProperties;
+	public Fields getFields() {
+		return fields;
 	}
-	public void setAttributesProperties(
-			Set<AttributesProperties> attributesProperties) {
-		this.attributesProperties = attributesProperties;
-	}
-
-	public Entities getEntities() {
-		return entities;
-	}
-	public void setEntities(Entities entities) {
-		this.entities = entities;
+	public void setFields(Fields fields) {
+		this.fields = fields;
 	}
 
 	public AttributesTypes getAttributesTypes() {
@@ -257,11 +257,11 @@ public class Attributes implements Serializable {
 		this.attributesTypes = attributesTypes;
 	}
 
-	public Fields getFields() {
-		return fields;
+	public Entities getEntities() {
+		return entities;
 	}
-	public void setFields(Fields fields) {
-		this.fields = fields;
+	public void setEntities(Entities entities) {
+		this.entities = entities;
 	}
 
 	@Override

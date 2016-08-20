@@ -6,43 +6,22 @@
         xmlns:ui="http://java.sun.com/jsf/facelets"
         xmlns:p="http://primefaces.org/ui"
         xmlns:forgeview="http://jboss.org/forge/view"
-        template="/resources/scaffold/pageTemplate.xhtml">
-
-<!--
-        <f:metadata>
-                <f:viewParam name="id" value='#{modelsGroupIdsBean.id}'/>
-                <f:event type="preRenderView" listener='#{modelsGroupIdsBean.retrieve}'/>
-        </f:metadata>
--->        
-
-        <ui:param name="pageTitle" value="View ModelsGroupIds"/>
-
-        <ui:define name="header">
-                Sites
-        </ui:define>
-
-        <ui:define name="subheader">
-                View existing ModelsGroupIds
-        </ui:define>
-
-        <ui:define name="footer"/>
+        template="/resources/scaffold/pagePdf.xhtml">
 
         <ui:define name="main">
                 <h:panelGrid columnClasses="label,component,required" columns="3">
 
-                        <h:outputLabel for="naifgModelsvg" value="sitesModel.svg"/>
-                        <object
-                           data="../../resources/img/sites/sitesModel.svg"
-                           type="svg+xml">
-                        </object>
-                        <h:outputText/>
+                       <object
+                          width="1000"
+                          height="600"
+                          data="../../resources/img/naifg/guide.pdf?pfdrid_c=true"
+                          type="application/pdf">
+                          Your browser can't display pdf, <a href="/resources/demo/media/guide.pdf">click</a> to download pdf instead.
+                       </object>
+                       <h:outputText/>
+
 
                 </h:panelGrid>
 
-                <div class="buttons">
-                        <h:link value="View All" outcome="search" styleClass="btn btn-primary"/>
-                        <h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
-                        <h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
-                </div>
         </ui:define>
 </ui:composition>

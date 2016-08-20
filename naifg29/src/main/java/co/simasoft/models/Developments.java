@@ -16,12 +16,12 @@ import javax.persistence.Column;
 import javax.persistence.Lob;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import org.hibernate.search.annotations.Field;
+import org.hibernate.search.annotations.Index;
 import org.hibernate.search.annotations.Indexed;
 import org.hibernate.search.annotations.Store;
 import org.hibernate.search.annotations.Analyze;
 import org.hibernate.search.annotations.DocumentId;
-import org.hibernate.search.annotations.Field;
-import org.hibernate.search.annotations.Index;
 import javax.persistence.OneToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.ManyToOne;
@@ -76,13 +76,19 @@ public class Developments implements Serializable {
 	private Date date;
 
 	@ManyToMany
-	private Set<Sites> sites = new HashSet<Sites>();
-
-	@ManyToMany
 	private Set<Pom> pom = new HashSet<Pom>();
 
 	@ManyToMany
+	private Set<Sites> sites = new HashSet<Sites>();
+
+	@ManyToMany
 	private Set<ModelsGroups> modelsGroups = new HashSet<ModelsGroups>();
+
+	@OneToMany(mappedBy = "objPadre")
+	private Set<Developments> objHijos = new HashSet<Developments>();
+
+	@ManyToOne
+	private Developments objPadre;
 
 	public Developments() {
 	}
@@ -158,13 +164,6 @@ public class Developments implements Serializable {
 		this.date = date;
 	}
 
-	public Set<Sites> getSites() {
-		return sites;
-	}
-	public void setSites(Set<Sites> sites) {
-		this.sites = sites;
-	}
-
 	public Set<Pom> getPom() {
 		return pom;
 	}
@@ -172,11 +171,32 @@ public class Developments implements Serializable {
 		this.pom = pom;
 	}
 
+	public Set<Sites> getSites() {
+		return sites;
+	}
+	public void setSites(Set<Sites> sites) {
+		this.sites = sites;
+	}
+
 	public Set<ModelsGroups> getModelsGroups() {
 		return modelsGroups;
 	}
 	public void setModelsGroups(Set<ModelsGroups> modelsGroups) {
 		this.modelsGroups = modelsGroups;
+	}
+
+	public Set<Developments> getObjHijos() {
+		return this.objHijos;
+	}
+	public void setObjHijos(Set<Developments> objHijos) {
+		this.objHijos = objHijos;
+	}
+
+	public Developments getObjPadre() {
+		return this.objPadre;
+	}
+	public void setObjPadre(Developments objPadre) {
+		this.objPadre = objPadre;
 	}
 
 	@Override

@@ -16,12 +16,12 @@ import javax.persistence.Column;
 import javax.persistence.Lob;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import org.hibernate.search.annotations.Field;
+import org.hibernate.search.annotations.Index;
 import org.hibernate.search.annotations.Indexed;
 import org.hibernate.search.annotations.Store;
 import org.hibernate.search.annotations.Analyze;
 import org.hibernate.search.annotations.DocumentId;
-import org.hibernate.search.annotations.Field;
-import org.hibernate.search.annotations.Index;
 import javax.persistence.OneToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.ManyToOne;
@@ -70,20 +70,20 @@ public class Relationships implements Serializable {
 	@Column(nullable = true, unique = false)
 	private Boolean isView;
 
+	@ManyToMany
+	private Set<AttributesProperties> attributesProperties = new HashSet<AttributesProperties>();
+
 	@OneToMany(mappedBy = "relationships")
 	private Set<ModelRelationships> modelRelationships = new HashSet<ModelRelationships>();
 
-	@ManyToMany
-	private Set<AttributesProperties> attributesProperties = new HashSet<AttributesProperties>();
+	@ManyToOne
+	private Entities to;
 
 	@ManyToOne
 	private Cardinalities cardinalities;
 
 	@ManyToOne
 	private Entities from;
-
-	@ManyToOne
-	private Entities to;
 
 	public Relationships() {
 	}
@@ -159,6 +159,14 @@ public class Relationships implements Serializable {
 		this.isView = isView;
 	}
 
+	public Set<AttributesProperties> getAttributesProperties() {
+		return attributesProperties;
+	}
+	public void setAttributesProperties(
+			Set<AttributesProperties> attributesProperties) {
+		this.attributesProperties = attributesProperties;
+	}
+
 	public Set<ModelRelationships> getModelRelationships() {
 		return modelRelationships;
 	}
@@ -166,12 +174,11 @@ public class Relationships implements Serializable {
 		this.modelRelationships = modelRelationships;
 	}
 
-	public Set<AttributesProperties> getAttributesProperties() {
-		return attributesProperties;
+	public Entities getTo() {
+		return to;
 	}
-	public void setAttributesProperties(
-			Set<AttributesProperties> attributesProperties) {
-		this.attributesProperties = attributesProperties;
+	public void setTo(Entities to) {
+		this.to = to;
 	}
 
 	public Cardinalities getCardinalities() {
@@ -186,13 +193,6 @@ public class Relationships implements Serializable {
 	}
 	public void setFrom(Entities from) {
 		this.from = from;
-	}
-
-	public Entities getTo() {
-		return to;
-	}
-	public void setTo(Entities to) {
-		this.to = to;
 	}
 
 	@Override

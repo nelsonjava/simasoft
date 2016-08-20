@@ -16,12 +16,12 @@ import javax.persistence.Column;
 import javax.persistence.Lob;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import org.hibernate.search.annotations.Field;
+import org.hibernate.search.annotations.Index;
 import org.hibernate.search.annotations.Indexed;
 import org.hibernate.search.annotations.Store;
 import org.hibernate.search.annotations.Analyze;
 import org.hibernate.search.annotations.DocumentId;
-import org.hibernate.search.annotations.Field;
-import org.hibernate.search.annotations.Index;
 import javax.persistence.OneToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.ManyToOne;
@@ -71,22 +71,22 @@ public class Entities implements Serializable {
 	private String description;
 
 	@OneToMany(mappedBy = "entities")
-	private Set<Attributes> attributes = new HashSet<Attributes>();
-
-	@OneToMany(mappedBy = "from")
-	private Set<Relationships> from = new HashSet<Relationships>();
-
-	@OneToMany(mappedBy = "to")
-	private Set<Relationships> to = new HashSet<Relationships>();
-
-	@ManyToMany
-	private Set<Sites> sites = new HashSet<Sites>();
-
-	@OneToMany(mappedBy = "entities")
 	private Set<AttributesProperties> attributesProperties = new HashSet<AttributesProperties>();
 
 	@ManyToMany
 	private Set<Imports> imports = new HashSet<Imports>();
+
+	@ManyToMany
+	private Set<Sites> sites = new HashSet<Sites>();
+
+	@OneToMany(mappedBy = "to")
+	private Set<Relationships> to = new HashSet<Relationships>();
+
+	@OneToMany(mappedBy = "entities")
+	private Set<Attributes> attributes = new HashSet<Attributes>();
+
+	@OneToMany(mappedBy = "from")
+	private Set<Relationships> from = new HashSet<Relationships>();
 
 	@ManyToOne
 	private GroupIds groupIds;
@@ -157,34 +157,6 @@ public class Entities implements Serializable {
 		this.description = description;
 	}
 
-	public Set<Attributes> getAttributes() {
-		return attributes;
-	}
-	public void setAttributes(Set<Attributes> attributes) {
-		this.attributes = attributes;
-	}
-
-	public Set<Relationships> getFrom() {
-		return from;
-	}
-	public void setFrom(Set<Relationships> from) {
-		this.from = from;
-	}
-
-	public Set<Relationships> getTo() {
-		return to;
-	}
-	public void setTo(Set<Relationships> to) {
-		this.to = to;
-	}
-
-	public Set<Sites> getSites() {
-		return sites;
-	}
-	public void setSites(Set<Sites> sites) {
-		this.sites = sites;
-	}
-
 	public Set<AttributesProperties> getAttributesProperties() {
 		return attributesProperties;
 	}
@@ -198,6 +170,34 @@ public class Entities implements Serializable {
 	}
 	public void setImports(Set<Imports> imports) {
 		this.imports = imports;
+	}
+
+	public Set<Sites> getSites() {
+		return sites;
+	}
+	public void setSites(Set<Sites> sites) {
+		this.sites = sites;
+	}
+
+	public Set<Relationships> getTo() {
+		return to;
+	}
+	public void setTo(Set<Relationships> to) {
+		this.to = to;
+	}
+
+	public Set<Attributes> getAttributes() {
+		return attributes;
+	}
+	public void setAttributes(Set<Attributes> attributes) {
+		this.attributes = attributes;
+	}
+
+	public Set<Relationships> getFrom() {
+		return from;
+	}
+	public void setFrom(Set<Relationships> from) {
+		this.from = from;
 	}
 
 	public GroupIds getGroupIds() {

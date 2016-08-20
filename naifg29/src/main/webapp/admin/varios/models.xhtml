@@ -6,44 +6,27 @@
         xmlns:ui="http://java.sun.com/jsf/facelets"
         xmlns:p="http://primefaces.org/ui"
         xmlns:forgeview="http://jboss.org/forge/view"
-        template="/resources/scaffold/pageTemplate.xhtml">
-
+        template="/resources/scaffold/pagePdf.xhtml">
+        
         <f:metadata>
                 <f:viewParam name="id" value='#{modelsBean.id}'/>
                 <f:event type="preRenderView" listener='#{modelsBean.retrieve}'/>
-        </f:metadata>
-
-        <ui:param name="pageTitle" value="View Models"/>
-
-
-        <ui:define name="header">
-                #{modelsBean.models.name}
-                <h:link outcome="/admin/models/search" value="Models"/>
-        </ui:define>
-
-        <ui:define name="subheader">
-                #{modelsBean.models.groupIds.version}
-
-        </ui:define>
-
-        <ui:define name="footer"/>
+        </f:metadata>        
 
         <ui:define name="main">
+            <h:panelGrid columnClasses="label,component,required" columns="3">
 
-                <h:panelGrid columnClasses="label,component,required" columns="3">
+              <object
+                width="1000"
+                height="600"
+                data="../../resources/img/models/#{modelsBean.models.name}-#{modelsBean.models.groupIds.version}.pdf?pfdrid_c=true"
+                type="application/pdf">
+                Your browser can't display pdf
+              </object>
+              <h:outputText/>
 
-                       <object
-                          width="700"
-                          height="600"
-                          data="../../resources/img/models/#{modelsBean.models.name}-#{modelsBean.models.groupIds.version}.pdf?pfdrid_c=true"
-                          type="application/pdf">
-                          Your browser can't display pdf, <a href="/resources/demo/media/guide.pdf">click</a> to download pdf instead.
-                       </object>
-                       <h:outputText/>
-                       
-                </h:panelGrid>
-
-
+            </h:panelGrid>
 
         </ui:define>
+
 </ui:composition>

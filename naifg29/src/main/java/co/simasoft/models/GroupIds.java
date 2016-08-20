@@ -16,12 +16,12 @@ import javax.persistence.Column;
 import javax.persistence.Lob;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import org.hibernate.search.annotations.Field;
+import org.hibernate.search.annotations.Index;
 import org.hibernate.search.annotations.Indexed;
 import org.hibernate.search.annotations.Store;
 import org.hibernate.search.annotations.Analyze;
 import org.hibernate.search.annotations.DocumentId;
-import org.hibernate.search.annotations.Field;
-import org.hibernate.search.annotations.Index;
 import javax.persistence.OneToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.ManyToOne;
@@ -75,17 +75,17 @@ public class GroupIds implements Serializable {
 	@Temporal(TemporalType.DATE)
 	private Date date;
 
+	@ManyToMany
+	private Set<Pom> pom = new HashSet<Pom>();
+
+	@ManyToMany
+	private Set<Sites> sites = new HashSet<Sites>();
+
 	@OneToMany(mappedBy = "groupIds")
 	private Set<Entities> entities = new HashSet<Entities>();
 
 	@OneToMany(mappedBy = "groupIds")
 	private Set<Models> models = new HashSet<Models>();
-
-	@ManyToMany
-	private Set<Sites> sites = new HashSet<Sites>();
-
-	@ManyToMany
-	private Set<Pom> pom = new HashSet<Pom>();
 
 	@ManyToOne
 	private GroupIdsTypes groupIdsTypes;
@@ -164,6 +164,20 @@ public class GroupIds implements Serializable {
 		this.date = date;
 	}
 
+	public Set<Pom> getPom() {
+		return pom;
+	}
+	public void setPom(Set<Pom> pom) {
+		this.pom = pom;
+	}
+
+	public Set<Sites> getSites() {
+		return sites;
+	}
+	public void setSites(Set<Sites> sites) {
+		this.sites = sites;
+	}
+
 	public Set<Entities> getEntities() {
 		return entities;
 	}
@@ -176,20 +190,6 @@ public class GroupIds implements Serializable {
 	}
 	public void setModels(Set<Models> models) {
 		this.models = models;
-	}
-
-	public Set<Sites> getSites() {
-		return sites;
-	}
-	public void setSites(Set<Sites> sites) {
-		this.sites = sites;
-	}
-
-	public Set<Pom> getPom() {
-		return pom;
-	}
-	public void setPom(Set<Pom> pom) {
-		this.pom = pom;
 	}
 
 	public GroupIdsTypes getGroupIdsTypes() {

@@ -155,16 +155,19 @@ public class AttributesPropertiesBean implements Serializable {
 				iterSites.remove();
 				this.entityManager.merge(nextInSites);
 			}
-			Iterator<AttributesTypes> iterAttributesTypes = deletableEntity
-					.getAttributesTypes().iterator();
-			for (; iterAttributesTypes.hasNext();) {
-				AttributesTypes nextInAttributesTypes = iterAttributesTypes
-						.next();
-				nextInAttributesTypes.getAttributesProperties().remove(
+			Iterator<Attributes> iterAttributes = deletableEntity
+					.getAttributes().iterator();
+			for (; iterAttributes.hasNext();) {
+				Attributes nextInAttributes = iterAttributes.next();
+				nextInAttributes.getAttributesProperties().remove(
 						deletableEntity);
-				iterAttributesTypes.remove();
-				this.entityManager.merge(nextInAttributesTypes);
+				iterAttributes.remove();
+				this.entityManager.merge(nextInAttributes);
 			}
+			Entities entities = deletableEntity.getEntities();
+			entities.getAttributesProperties().remove(deletableEntity);
+			deletableEntity.setEntities(null);
+			this.entityManager.merge(entities);
 			Iterator<Cardinalities> iterCardinalities = deletableEntity
 					.getCardinalities().iterator();
 			for (; iterCardinalities.hasNext();) {
@@ -183,18 +186,15 @@ public class AttributesPropertiesBean implements Serializable {
 				iterRelationships.remove();
 				this.entityManager.merge(nextInRelationships);
 			}
-			Entities entities = deletableEntity.getEntities();
-			entities.getAttributesProperties().remove(deletableEntity);
-			deletableEntity.setEntities(null);
-			this.entityManager.merge(entities);
-			Iterator<Attributes> iterAttributes = deletableEntity
-					.getAttributes().iterator();
-			for (; iterAttributes.hasNext();) {
-				Attributes nextInAttributes = iterAttributes.next();
-				nextInAttributes.getAttributesProperties().remove(
+			Iterator<AttributesTypes> iterAttributesTypes = deletableEntity
+					.getAttributesTypes().iterator();
+			for (; iterAttributesTypes.hasNext();) {
+				AttributesTypes nextInAttributesTypes = iterAttributesTypes
+						.next();
+				nextInAttributesTypes.getAttributesProperties().remove(
 						deletableEntity);
-				iterAttributes.remove();
-				this.entityManager.merge(nextInAttributes);
+				iterAttributesTypes.remove();
+				this.entityManager.merge(nextInAttributesTypes);
 			}
 			this.entityManager.remove(deletableEntity);
 			this.entityManager.flush();

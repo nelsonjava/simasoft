@@ -135,19 +135,19 @@ public class DevelopmentsBean implements Serializable {
 
 		try {
 			Developments deletableEntity = findById(getId());
-			Iterator<Sites> iterSites = deletableEntity.getSites().iterator();
-			for (; iterSites.hasNext();) {
-				Sites nextInSites = iterSites.next();
-				nextInSites.getDevelopments().remove(deletableEntity);
-				iterSites.remove();
-				this.entityManager.merge(nextInSites);
-			}
 			Iterator<Pom> iterPom = deletableEntity.getPom().iterator();
 			for (; iterPom.hasNext();) {
 				Pom nextInPom = iterPom.next();
 				nextInPom.getDevelopments().remove(deletableEntity);
 				iterPom.remove();
 				this.entityManager.merge(nextInPom);
+			}
+			Iterator<Sites> iterSites = deletableEntity.getSites().iterator();
+			for (; iterSites.hasNext();) {
+				Sites nextInSites = iterSites.next();
+				nextInSites.getDevelopments().remove(deletableEntity);
+				iterSites.remove();
+				this.entityManager.merge(nextInSites);
 			}
 			Iterator<ModelsGroups> iterModelsGroups = deletableEntity
 					.getModelsGroups().iterator();
@@ -157,6 +157,18 @@ public class DevelopmentsBean implements Serializable {
 				iterModelsGroups.remove();
 				this.entityManager.merge(nextInModelsGroups);
 			}
+			Iterator<Developments> iterObjHijos = deletableEntity.getObjHijos()
+					.iterator();
+			for (; iterObjHijos.hasNext();) {
+				Developments nextInObjHijos = iterObjHijos.next();
+				nextInObjHijos.setObjPadre(null);
+				iterObjHijos.remove();
+				this.entityManager.merge(nextInObjHijos);
+			}
+			Developments objPadre = deletableEntity.getObjPadre();
+			objPadre.getObjHijos().remove(deletableEntity);
+			deletableEntity.setObjPadre(null);
+			this.entityManager.merge(objPadre);
 			this.entityManager.remove(deletableEntity);
 			this.entityManager.flush();
 			return "search?faces-redirect=true";

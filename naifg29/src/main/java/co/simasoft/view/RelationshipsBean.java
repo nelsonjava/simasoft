@@ -137,15 +137,6 @@ public class RelationshipsBean implements Serializable {
 
 		try {
 			Relationships deletableEntity = findById(getId());
-			Iterator<ModelRelationships> iterModelRelationships = deletableEntity
-					.getModelRelationships().iterator();
-			for (; iterModelRelationships.hasNext();) {
-				ModelRelationships nextInModelRelationships = iterModelRelationships
-						.next();
-				nextInModelRelationships.setRelationships(null);
-				iterModelRelationships.remove();
-				this.entityManager.merge(nextInModelRelationships);
-			}
 			Iterator<AttributesProperties> iterAttributesProperties = deletableEntity
 					.getAttributesProperties().iterator();
 			for (; iterAttributesProperties.hasNext();) {
@@ -156,6 +147,19 @@ public class RelationshipsBean implements Serializable {
 				iterAttributesProperties.remove();
 				this.entityManager.merge(nextInAttributesProperties);
 			}
+			Iterator<ModelRelationships> iterModelRelationships = deletableEntity
+					.getModelRelationships().iterator();
+			for (; iterModelRelationships.hasNext();) {
+				ModelRelationships nextInModelRelationships = iterModelRelationships
+						.next();
+				nextInModelRelationships.setRelationships(null);
+				iterModelRelationships.remove();
+				this.entityManager.merge(nextInModelRelationships);
+			}
+			Entities to = deletableEntity.getTo();
+			to.getTo().remove(deletableEntity);
+			deletableEntity.setTo(null);
+			this.entityManager.merge(to);
 			Cardinalities cardinalities = deletableEntity.getCardinalities();
 			cardinalities.getRelationships().remove(deletableEntity);
 			deletableEntity.setCardinalities(null);
@@ -164,10 +168,6 @@ public class RelationshipsBean implements Serializable {
 			from.getFrom().remove(deletableEntity);
 			deletableEntity.setFrom(null);
 			this.entityManager.merge(from);
-			Entities to = deletableEntity.getTo();
-			to.getTo().remove(deletableEntity);
-			deletableEntity.setTo(null);
-			this.entityManager.merge(to);
 			this.entityManager.remove(deletableEntity);
 			this.entityManager.flush();
 			return "search?faces-redirect=true";

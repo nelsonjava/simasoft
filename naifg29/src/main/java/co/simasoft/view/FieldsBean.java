@@ -27,7 +27,6 @@ import javax.persistence.criteria.Root;
 import co.simasoft.models.Fields;
 import co.simasoft.models.Attributes;
 import co.simasoft.models.AttributesTypes;
-import java.lang.Boolean;
 import java.util.Iterator;
 
 /**
@@ -227,6 +226,12 @@ public class FieldsBean implements Serializable {
 					builder.lower(root.<String> get("observations")),
 					'%' + observations.toLowerCase() + '%'));
 		}
+		String name = this.example.getName();
+		if (name != null && !"".equals(name)) {
+			predicatesList.add(builder.like(
+					builder.lower(root.<String> get("name")),
+					'%' + name.toLowerCase() + '%'));
+		}
 		String description = this.example.getDescription();
 		if (description != null && !"".equals(description)) {
 			predicatesList.add(builder.like(
@@ -240,11 +245,6 @@ public class FieldsBean implements Serializable {
 		Integer precision = this.example.getPrecision();
 		if (precision != null && precision.intValue() != 0) {
 			predicatesList.add(builder.equal(root.get("precision"), precision));
-		}
-		Boolean isNullable = this.example.getIsNullable();
-		if (isNullable != null) {
-			predicatesList
-					.add(builder.equal(root.get("isNullable"), isNullable));
 		}
 
 		return predicatesList.toArray(new Predicate[predicatesList.size()]);

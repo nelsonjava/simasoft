@@ -137,36 +137,6 @@ public class EntitiesBean implements Serializable {
 
 		try {
 			Entities deletableEntity = findById(getId());
-			Iterator<Attributes> iterAttributes = deletableEntity
-					.getAttributes().iterator();
-			for (; iterAttributes.hasNext();) {
-				Attributes nextInAttributes = iterAttributes.next();
-				nextInAttributes.setEntities(null);
-				iterAttributes.remove();
-				this.entityManager.merge(nextInAttributes);
-			}
-			Iterator<Relationships> iterFrom = deletableEntity.getFrom()
-					.iterator();
-			for (; iterFrom.hasNext();) {
-				Relationships nextInFrom = iterFrom.next();
-				nextInFrom.setFrom(null);
-				iterFrom.remove();
-				this.entityManager.merge(nextInFrom);
-			}
-			Iterator<Relationships> iterTo = deletableEntity.getTo().iterator();
-			for (; iterTo.hasNext();) {
-				Relationships nextInTo = iterTo.next();
-				nextInTo.setTo(null);
-				iterTo.remove();
-				this.entityManager.merge(nextInTo);
-			}
-			Iterator<Sites> iterSites = deletableEntity.getSites().iterator();
-			for (; iterSites.hasNext();) {
-				Sites nextInSites = iterSites.next();
-				nextInSites.getEntities().remove(deletableEntity);
-				iterSites.remove();
-				this.entityManager.merge(nextInSites);
-			}
 			Iterator<AttributesProperties> iterAttributesProperties = deletableEntity
 					.getAttributesProperties().iterator();
 			for (; iterAttributesProperties.hasNext();) {
@@ -183,6 +153,36 @@ public class EntitiesBean implements Serializable {
 				nextInImports.getEntities().remove(deletableEntity);
 				iterImports.remove();
 				this.entityManager.merge(nextInImports);
+			}
+			Iterator<Sites> iterSites = deletableEntity.getSites().iterator();
+			for (; iterSites.hasNext();) {
+				Sites nextInSites = iterSites.next();
+				nextInSites.getEntities().remove(deletableEntity);
+				iterSites.remove();
+				this.entityManager.merge(nextInSites);
+			}
+			Iterator<Relationships> iterTo = deletableEntity.getTo().iterator();
+			for (; iterTo.hasNext();) {
+				Relationships nextInTo = iterTo.next();
+				nextInTo.setTo(null);
+				iterTo.remove();
+				this.entityManager.merge(nextInTo);
+			}
+			Iterator<Attributes> iterAttributes = deletableEntity
+					.getAttributes().iterator();
+			for (; iterAttributes.hasNext();) {
+				Attributes nextInAttributes = iterAttributes.next();
+				nextInAttributes.setEntities(null);
+				iterAttributes.remove();
+				this.entityManager.merge(nextInAttributes);
+			}
+			Iterator<Relationships> iterFrom = deletableEntity.getFrom()
+					.iterator();
+			for (; iterFrom.hasNext();) {
+				Relationships nextInFrom = iterFrom.next();
+				nextInFrom.setFrom(null);
+				iterFrom.remove();
+				this.entityManager.merge(nextInFrom);
 			}
 			GroupIds groupIds = deletableEntity.getGroupIds();
 			groupIds.getEntities().remove(deletableEntity);

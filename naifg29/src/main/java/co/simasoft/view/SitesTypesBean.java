@@ -140,10 +140,6 @@ public class SitesTypesBean implements Serializable {
 				iterObjHijos.remove();
 				this.entityManager.merge(nextInObjHijos);
 			}
-			SitesTypes objPadre = deletableEntity.getObjPadre();
-			objPadre.getObjHijos().remove(deletableEntity);
-			deletableEntity.setObjPadre(null);
-			this.entityManager.merge(objPadre);
 			Iterator<Sites> iterSites = deletableEntity.getSites().iterator();
 			for (; iterSites.hasNext();) {
 				Sites nextInSites = iterSites.next();
@@ -151,6 +147,10 @@ public class SitesTypesBean implements Serializable {
 				iterSites.remove();
 				this.entityManager.merge(nextInSites);
 			}
+			SitesTypes objPadre = deletableEntity.getObjPadre();
+			objPadre.getObjHijos().remove(deletableEntity);
+			deletableEntity.setObjPadre(null);
+			this.entityManager.merge(objPadre);
 			this.entityManager.remove(deletableEntity);
 			this.entityManager.flush();
 			return "search?faces-redirect=true";

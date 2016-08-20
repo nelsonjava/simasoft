@@ -16,12 +16,12 @@ import javax.persistence.Column;
 import javax.persistence.Lob;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import org.hibernate.search.annotations.Field;
+import org.hibernate.search.annotations.Index;
 import org.hibernate.search.annotations.Indexed;
 import org.hibernate.search.annotations.Store;
 import org.hibernate.search.annotations.Analyze;
 import org.hibernate.search.annotations.DocumentId;
-import org.hibernate.search.annotations.Field;
-import org.hibernate.search.annotations.Index;
 import javax.persistence.OneToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.ManyToOne;
@@ -70,10 +70,10 @@ public class Pom implements Serializable {
 	private Set<Dependencies> dependencies = new HashSet<Dependencies>();
 
 	@ManyToMany(mappedBy = "pom")
-	private Set<Developments> developments = new HashSet<Developments>();
+	private Set<GroupIds> groupIds = new HashSet<GroupIds>();
 
 	@ManyToMany(mappedBy = "pom")
-	private Set<GroupIds> groupIds = new HashSet<GroupIds>();
+	private Set<Developments> developments = new HashSet<Developments>();
 
 	public Pom() {
 	}
@@ -139,18 +139,18 @@ public class Pom implements Serializable {
 		this.dependencies = dependencies;
 	}
 
-	public Set<Developments> getDevelopments() {
-		return developments;
-	}
-	public void setDevelopments(Set<Developments> developments) {
-		this.developments = developments;
-	}
-
 	public Set<GroupIds> getGroupIds() {
 		return groupIds;
 	}
 	public void setGroupIds(Set<GroupIds> groupIds) {
 		this.groupIds = groupIds;
+	}
+
+	public Set<Developments> getDevelopments() {
+		return developments;
+	}
+	public void setDevelopments(Set<Developments> developments) {
+		this.developments = developments;
 	}
 
 	@Override

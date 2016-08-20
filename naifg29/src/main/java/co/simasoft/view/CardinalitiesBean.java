@@ -137,6 +137,31 @@ public class CardinalitiesBean implements Serializable {
 
 		try {
 			Cardinalities deletableEntity = findById(getId());
+			Iterator<Imports> iterImports = deletableEntity.getImports()
+					.iterator();
+			for (; iterImports.hasNext();) {
+				Imports nextInImports = iterImports.next();
+				nextInImports.getCardinalities().remove(deletableEntity);
+				iterImports.remove();
+				this.entityManager.merge(nextInImports);
+			}
+			Iterator<AttributesProperties> iterAttributesProperties = deletableEntity
+					.getAttributesProperties().iterator();
+			for (; iterAttributesProperties.hasNext();) {
+				AttributesProperties nextInAttributesProperties = iterAttributesProperties
+						.next();
+				nextInAttributesProperties.getCardinalities().remove(
+						deletableEntity);
+				iterAttributesProperties.remove();
+				this.entityManager.merge(nextInAttributesProperties);
+			}
+			Iterator<Sites> iterSites = deletableEntity.getSites().iterator();
+			for (; iterSites.hasNext();) {
+				Sites nextInSites = iterSites.next();
+				nextInSites.getCardinalities().remove(deletableEntity);
+				iterSites.remove();
+				this.entityManager.merge(nextInSites);
+			}
 			Iterator<Relationships> iterRelationships = deletableEntity
 					.getRelationships().iterator();
 			for (; iterRelationships.hasNext();) {
@@ -152,31 +177,6 @@ public class CardinalitiesBean implements Serializable {
 				nextInObjHijos.setObjPadre(null);
 				iterObjHijos.remove();
 				this.entityManager.merge(nextInObjHijos);
-			}
-			Iterator<Sites> iterSites = deletableEntity.getSites().iterator();
-			for (; iterSites.hasNext();) {
-				Sites nextInSites = iterSites.next();
-				nextInSites.getCardinalities().remove(deletableEntity);
-				iterSites.remove();
-				this.entityManager.merge(nextInSites);
-			}
-			Iterator<AttributesProperties> iterAttributesProperties = deletableEntity
-					.getAttributesProperties().iterator();
-			for (; iterAttributesProperties.hasNext();) {
-				AttributesProperties nextInAttributesProperties = iterAttributesProperties
-						.next();
-				nextInAttributesProperties.getCardinalities().remove(
-						deletableEntity);
-				iterAttributesProperties.remove();
-				this.entityManager.merge(nextInAttributesProperties);
-			}
-			Iterator<Imports> iterImports = deletableEntity.getImports()
-					.iterator();
-			for (; iterImports.hasNext();) {
-				Imports nextInImports = iterImports.next();
-				nextInImports.getCardinalities().remove(deletableEntity);
-				iterImports.remove();
-				this.entityManager.merge(nextInImports);
 			}
 			Cardinalities objPadre = deletableEntity.getObjPadre();
 			objPadre.getObjHijos().remove(deletableEntity);

@@ -16,12 +16,12 @@ import javax.persistence.Column;
 import javax.persistence.Lob;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import org.hibernate.search.annotations.Field;
+import org.hibernate.search.annotations.Index;
 import org.hibernate.search.annotations.Indexed;
 import org.hibernate.search.annotations.Store;
 import org.hibernate.search.annotations.Analyze;
 import org.hibernate.search.annotations.DocumentId;
-import org.hibernate.search.annotations.Field;
-import org.hibernate.search.annotations.Index;
 import javax.persistence.OneToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.ManyToOne;
@@ -61,11 +61,11 @@ public class SitesTypes implements Serializable {
 	@OneToMany(mappedBy = "objPadre")
 	private Set<SitesTypes> objHijos = new HashSet<SitesTypes>();
 
-	@ManyToOne
-	private SitesTypes objPadre;
-
 	@ManyToMany(mappedBy = "sitesTypes")
 	private Set<Sites> sites = new HashSet<Sites>();
+
+	@ManyToOne
+	private SitesTypes objPadre;
 
 	public SitesTypes() {
 	}
@@ -115,18 +115,18 @@ public class SitesTypes implements Serializable {
 		this.objHijos = objHijos;
 	}
 
-	public SitesTypes getObjPadre() {
-		return this.objPadre;
-	}
-	public void setObjPadre(SitesTypes objPadre) {
-		this.objPadre = objPadre;
-	}
-
 	public Set<Sites> getSites() {
 		return sites;
 	}
 	public void setSites(Set<Sites> sites) {
 		this.sites = sites;
+	}
+
+	public SitesTypes getObjPadre() {
+		return this.objPadre;
+	}
+	public void setObjPadre(SitesTypes objPadre) {
+		this.objPadre = objPadre;
 	}
 
 	@Override

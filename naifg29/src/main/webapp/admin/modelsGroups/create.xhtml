@@ -99,6 +99,16 @@
                                 </h:panelGroup>
                                 <h:outputText/>
 
+                                <h:outputLabel for="modelsGroupsBeanModelsGroupsGroupIdsTypes" value="GroupIdsTypes:"/>
+                                <h:panelGroup>
+                                         <h:selectOneMenu converter="#{groupIdsTypesBean.converter}" id="modelsGroupsBeanModelsGroupsGroupIdsTypes" value="#{modelsGroupsBean.modelsGroups.groupIdsTypes}">
+                                                <f:selectItem/>
+                                                <f:selectItems itemLabel="#{forgeview:display(_item.name)}" itemValue="#{_item}" value="#{groupIdsTypesBean.all}" var="_item"/>
+                                        </h:selectOneMenu>
+                                        <h:message for="modelsGroupsBeanModelsGroups" styleClass="error"/>
+                                </h:panelGroup>
+                                <h:outputText/>
+
                                 <h:outputLabel for="modelsGroupsBeanmodelsGroupsDevelopments" value="Developments:"/>
                                 <h:panelGroup>
                                         <ui:param name="_collection" value="#{modelsGroupsBean.modelsGroups.developments}"/>

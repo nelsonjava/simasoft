@@ -16,12 +16,12 @@ import javax.persistence.Column;
 import javax.persistence.Lob;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import org.hibernate.search.annotations.Field;
+import org.hibernate.search.annotations.Index;
 import org.hibernate.search.annotations.Indexed;
 import org.hibernate.search.annotations.Store;
 import org.hibernate.search.annotations.Analyze;
 import org.hibernate.search.annotations.DocumentId;
-import org.hibernate.search.annotations.Field;
-import org.hibernate.search.annotations.Index;
 import javax.persistence.OneToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.ManyToOne;
@@ -65,20 +65,20 @@ public class Cardinalities implements Serializable {
 	@Column(nullable = true, unique = false)
 	private Boolean isUnidirectional;
 
-	@OneToMany(mappedBy = "cardinalities")
-	private Set<Relationships> relationships = new HashSet<Relationships>();
-
-	@OneToMany(mappedBy = "objPadre")
-	private Set<Cardinalities> objHijos = new HashSet<Cardinalities>();
-
 	@ManyToMany
-	private Set<Sites> sites = new HashSet<Sites>();
+	private Set<Imports> imports = new HashSet<Imports>();
 
 	@ManyToMany
 	private Set<AttributesProperties> attributesProperties = new HashSet<AttributesProperties>();
 
 	@ManyToMany
-	private Set<Imports> imports = new HashSet<Imports>();
+	private Set<Sites> sites = new HashSet<Sites>();
+
+	@OneToMany(mappedBy = "cardinalities")
+	private Set<Relationships> relationships = new HashSet<Relationships>();
+
+	@OneToMany(mappedBy = "objPadre")
+	private Set<Cardinalities> objHijos = new HashSet<Cardinalities>();
 
 	@ManyToOne
 	private Cardinalities objPadre;
@@ -141,6 +141,28 @@ public class Cardinalities implements Serializable {
 		this.isUnidirectional = isUnidirectional;
 	}
 
+	public Set<Imports> getImports() {
+		return imports;
+	}
+	public void setImports(Set<Imports> imports) {
+		this.imports = imports;
+	}
+
+	public Set<AttributesProperties> getAttributesProperties() {
+		return attributesProperties;
+	}
+	public void setAttributesProperties(
+			Set<AttributesProperties> attributesProperties) {
+		this.attributesProperties = attributesProperties;
+	}
+
+	public Set<Sites> getSites() {
+		return sites;
+	}
+	public void setSites(Set<Sites> sites) {
+		this.sites = sites;
+	}
+
 	public Set<Relationships> getRelationships() {
 		return relationships;
 	}
@@ -153,28 +175,6 @@ public class Cardinalities implements Serializable {
 	}
 	public void setObjHijos(Set<Cardinalities> objHijos) {
 		this.objHijos = objHijos;
-	}
-
-	public Set<Sites> getSites() {
-		return sites;
-	}
-	public void setSites(Set<Sites> sites) {
-		this.sites = sites;
-	}
-
-	public Set<AttributesProperties> getAttributesProperties() {
-		return attributesProperties;
-	}
-	public void setAttributesProperties(
-			Set<AttributesProperties> attributesProperties) {
-		this.attributesProperties = attributesProperties;
-	}
-
-	public Set<Imports> getImports() {
-		return imports;
-	}
-	public void setImports(Set<Imports> imports) {
-		this.imports = imports;
 	}
 
 	public Cardinalities getObjPadre() {

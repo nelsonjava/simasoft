@@ -26,6 +26,7 @@ import javax.persistence.criteria.Root;
 
 import co.simasoft.models.GroupIdsTypes;
 import co.simasoft.models.GroupIds;
+import co.simasoft.models.ModelsGroups;
 import java.util.Iterator;
 
 /**
@@ -133,6 +134,14 @@ public class GroupIdsTypesBean implements Serializable {
 
 		try {
 			GroupIdsTypes deletableEntity = findById(getId());
+			Iterator<ModelsGroups> iterModelsGroups = deletableEntity
+					.getModelsGroups().iterator();
+			for (; iterModelsGroups.hasNext();) {
+				ModelsGroups nextInModelsGroups = iterModelsGroups.next();
+				nextInModelsGroups.setGroupIdsTypes(null);
+				iterModelsGroups.remove();
+				this.entityManager.merge(nextInModelsGroups);
+			}
 			Iterator<GroupIds> iterGroupIds = deletableEntity.getGroupIds()
 					.iterator();
 			for (; iterGroupIds.hasNext();) {

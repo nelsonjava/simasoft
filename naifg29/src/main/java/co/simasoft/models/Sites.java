@@ -16,12 +16,12 @@ import javax.persistence.Column;
 import javax.persistence.Lob;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import org.hibernate.search.annotations.Field;
+import org.hibernate.search.annotations.Index;
 import org.hibernate.search.annotations.Indexed;
 import org.hibernate.search.annotations.Store;
 import org.hibernate.search.annotations.Analyze;
 import org.hibernate.search.annotations.DocumentId;
-import org.hibernate.search.annotations.Field;
-import org.hibernate.search.annotations.Index;
 import javax.persistence.OneToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.ManyToOne;
@@ -66,14 +66,26 @@ public class Sites implements Serializable {
 	// @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
 	private String abc;
 
+	@Column(nullable = true, unique = false)
+	// @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+	private String ipAddress1;
+
+	@Column(nullable = true, unique = false)
+	// @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+	private String ipAddress2;
+
+	@Column(nullable = true, unique = false)
+	// @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+	private String ipAddress3;
+
 	@ManyToMany
 	private Set<SitesTypes> sitesTypes = new HashSet<SitesTypes>();
 
 	@ManyToMany(mappedBy = "sites")
-	private Set<Models> models = new HashSet<Models>();
+	private Set<Cardinalities> cardinalities = new HashSet<Cardinalities>();
 
 	@ManyToMany(mappedBy = "sites")
-	private Set<Entities> entities = new HashSet<Entities>();
+	private Set<Models> models = new HashSet<Models>();
 
 	@ManyToMany(mappedBy = "sites")
 	private Set<Developments> developments = new HashSet<Developments>();
@@ -82,30 +94,34 @@ public class Sites implements Serializable {
 	private Set<GroupIds> groupIds = new HashSet<GroupIds>();
 
 	@ManyToMany(mappedBy = "sites")
-	private Set<Cardinalities> cardinalities = new HashSet<Cardinalities>();
+	private Set<Entities> entities = new HashSet<Entities>();
 
 	@ManyToOne
 	private Attributes attributes;
 
 	@ManyToMany(mappedBy = "sites")
-	private Set<Imports> imports = new HashSet<Imports>();
-
-	@ManyToMany(mappedBy = "sites")
-	private Set<AttributesProperties> attributesProperties = new HashSet<AttributesProperties>();
+	private Set<AttributesTypes> attributesTypes = new HashSet<AttributesTypes>();
 
 	@ManyToMany(mappedBy = "sites")
 	private Set<Dependencies> dependencies = new HashSet<Dependencies>();
 
 	@ManyToMany(mappedBy = "sites")
-	private Set<AttributesTypes> attributesTypes = new HashSet<AttributesTypes>();
+	private Set<AttributesProperties> attributesProperties = new HashSet<AttributesProperties>();
+
+	@ManyToMany(mappedBy = "sites")
+	private Set<Imports> imports = new HashSet<Imports>();
 
 	public Sites() {
 	}
 
-	public Sites(String title, String link, String abc) {
+	public Sites(String title, String link, String abc, String ipAddress1,
+			String ipAddress2, String ipAddress3) {
 		this.title = title;
 		this.link = link;
 		this.abc = abc;
+		this.ipAddress1 = ipAddress1;
+		this.ipAddress2 = ipAddress2;
+		this.ipAddress3 = ipAddress3;
 	}
 
 	public Long getId() {
@@ -156,6 +172,27 @@ public class Sites implements Serializable {
 		this.abc = abc;
 	}
 
+	public String getIpAddress1() {
+		return ipAddress1;
+	}
+	public void setIpAddress1(String ipAddress1) {
+		this.ipAddress1 = ipAddress1;
+	}
+
+	public String getIpAddress2() {
+		return ipAddress2;
+	}
+	public void setIpAddress2(String ipAddress2) {
+		this.ipAddress2 = ipAddress2;
+	}
+
+	public String getIpAddress3() {
+		return ipAddress3;
+	}
+	public void setIpAddress3(String ipAddress3) {
+		this.ipAddress3 = ipAddress3;
+	}
+
 	public Set<SitesTypes> getSitesTypes() {
 		return sitesTypes;
 	}
@@ -163,18 +200,18 @@ public class Sites implements Serializable {
 		this.sitesTypes = sitesTypes;
 	}
 
+	public Set<Cardinalities> getCardinalities() {
+		return cardinalities;
+	}
+	public void setCardinalities(Set<Cardinalities> cardinalities) {
+		this.cardinalities = cardinalities;
+	}
+
 	public Set<Models> getModels() {
 		return models;
 	}
 	public void setModels(Set<Models> models) {
 		this.models = models;
-	}
-
-	public Set<Entities> getEntities() {
-		return entities;
-	}
-	public void setEntities(Set<Entities> entities) {
-		this.entities = entities;
 	}
 
 	public Set<Developments> getDevelopments() {
@@ -191,11 +228,11 @@ public class Sites implements Serializable {
 		this.groupIds = groupIds;
 	}
 
-	public Set<Cardinalities> getCardinalities() {
-		return cardinalities;
+	public Set<Entities> getEntities() {
+		return entities;
 	}
-	public void setCardinalities(Set<Cardinalities> cardinalities) {
-		this.cardinalities = cardinalities;
+	public void setEntities(Set<Entities> entities) {
+		this.entities = entities;
 	}
 
 	public Attributes getAttributes() {
@@ -205,11 +242,18 @@ public class Sites implements Serializable {
 		this.attributes = attributes;
 	}
 
-	public Set<Imports> getImports() {
-		return imports;
+	public Set<AttributesTypes> getAttributesTypes() {
+		return attributesTypes;
 	}
-	public void setImports(Set<Imports> imports) {
-		this.imports = imports;
+	public void setAttributesTypes(Set<AttributesTypes> attributesTypes) {
+		this.attributesTypes = attributesTypes;
+	}
+
+	public Set<Dependencies> getDependencies() {
+		return dependencies;
+	}
+	public void setDependencies(Set<Dependencies> dependencies) {
+		this.dependencies = dependencies;
 	}
 
 	public Set<AttributesProperties> getAttributesProperties() {
@@ -220,18 +264,11 @@ public class Sites implements Serializable {
 		this.attributesProperties = attributesProperties;
 	}
 
-	public Set<Dependencies> getDependencies() {
-		return dependencies;
+	public Set<Imports> getImports() {
+		return imports;
 	}
-	public void setDependencies(Set<Dependencies> dependencies) {
-		this.dependencies = dependencies;
-	}
-
-	public Set<AttributesTypes> getAttributesTypes() {
-		return attributesTypes;
-	}
-	public void setAttributesTypes(Set<AttributesTypes> attributesTypes) {
-		this.attributesTypes = attributesTypes;
+	public void setImports(Set<Imports> imports) {
+		this.imports = imports;
 	}
 
 	@Override

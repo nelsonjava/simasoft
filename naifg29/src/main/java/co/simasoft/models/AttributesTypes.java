@@ -16,12 +16,12 @@ import javax.persistence.Column;
 import javax.persistence.Lob;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import org.hibernate.search.annotations.Field;
+import org.hibernate.search.annotations.Index;
 import org.hibernate.search.annotations.Indexed;
 import org.hibernate.search.annotations.Store;
 import org.hibernate.search.annotations.Analyze;
 import org.hibernate.search.annotations.DocumentId;
-import org.hibernate.search.annotations.Field;
-import org.hibernate.search.annotations.Index;
 import javax.persistence.OneToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.ManyToOne;
@@ -73,6 +73,9 @@ public class AttributesTypes implements Serializable {
 	private String annotations;
 
 	@OneToMany(mappedBy = "attributesTypes")
+	private Set<Attributes> attributes = new HashSet<Attributes>();
+
+	@OneToMany(mappedBy = "attributesTypes")
 	private Set<Fields> fields = new HashSet<Fields>();
 
 	@ManyToMany
@@ -80,9 +83,6 @@ public class AttributesTypes implements Serializable {
 
 	@ManyToMany
 	private Set<Sites> sites = new HashSet<Sites>();
-
-	@OneToMany(mappedBy = "attributesTypes")
-	private Set<Attributes> attributes = new HashSet<Attributes>();
 
 	public AttributesTypes() {
 	}
@@ -158,6 +158,13 @@ public class AttributesTypes implements Serializable {
 		this.annotations = annotations;
 	}
 
+	public Set<Attributes> getAttributes() {
+		return attributes;
+	}
+	public void setAttributes(Set<Attributes> attributes) {
+		this.attributes = attributes;
+	}
+
 	public Set<Fields> getFields() {
 		return fields;
 	}
@@ -178,13 +185,6 @@ public class AttributesTypes implements Serializable {
 	}
 	public void setSites(Set<Sites> sites) {
 		this.sites = sites;
-	}
-
-	public Set<Attributes> getAttributes() {
-		return attributes;
-	}
-	public void setAttributes(Set<Attributes> attributes) {
-		this.attributes = attributes;
 	}
 
 	@Override

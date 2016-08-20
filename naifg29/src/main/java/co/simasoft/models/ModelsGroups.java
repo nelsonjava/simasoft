@@ -16,12 +16,12 @@ import javax.persistence.Column;
 import javax.persistence.Lob;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import org.hibernate.search.annotations.Field;
+import org.hibernate.search.annotations.Index;
 import org.hibernate.search.annotations.Indexed;
 import org.hibernate.search.annotations.Store;
 import org.hibernate.search.annotations.Analyze;
 import org.hibernate.search.annotations.DocumentId;
-import org.hibernate.search.annotations.Field;
-import org.hibernate.search.annotations.Index;
 import javax.persistence.OneToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.ManyToOne;
@@ -64,6 +64,9 @@ public class ModelsGroups implements Serializable {
 
 	@ManyToMany
 	private Set<Models> models = new HashSet<Models>();
+
+	@ManyToOne
+	private GroupIdsTypes groupIdsTypes;
 
 	@ManyToMany(mappedBy = "modelsGroups")
 	private Set<Developments> developments = new HashSet<Developments>();
@@ -122,6 +125,13 @@ public class ModelsGroups implements Serializable {
 	}
 	public void setModels(Set<Models> models) {
 		this.models = models;
+	}
+
+	public GroupIdsTypes getGroupIdsTypes() {
+		return groupIdsTypes;
+	}
+	public void setGroupIdsTypes(GroupIdsTypes groupIdsTypes) {
+		this.groupIdsTypes = groupIdsTypes;
 	}
 
 	public Set<Developments> getDevelopments() {

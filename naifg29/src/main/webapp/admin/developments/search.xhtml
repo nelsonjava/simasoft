@@ -77,14 +77,14 @@
                                                 <f:param name="id" value="#{_item.id}"/>
                                                 <h:outputText id="itemId" value="#{_item.id}"/>
                                         </h:link>
-                                </h:column>
+                                </h:column>                        
 
                                 <h:column>
                                         <f:facet name="header">
                                                 <h:outputText value="Orden"/>
                                         </f:facet>
                                         <h:link outcome="/admin/developments/view">
-                                                <f:param name="id" value="#{_item.id}"/>
+                                                <f:param name="id" value="#{_item.orden}"/>
                                                 <h:outputText id="itemOrden" value="#{_item.orden}"/>
                                         </h:link>
                                 </h:column>

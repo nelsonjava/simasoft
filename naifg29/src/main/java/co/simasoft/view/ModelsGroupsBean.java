@@ -26,6 +26,7 @@ import javax.persistence.criteria.Root;
 
 import co.simasoft.models.ModelsGroups;
 import co.simasoft.models.Developments;
+import co.simasoft.models.GroupIdsTypes;
 import co.simasoft.models.Models;
 import java.util.Iterator;
 
@@ -142,6 +143,10 @@ public class ModelsGroupsBean implements Serializable {
 				iterModels.remove();
 				this.entityManager.merge(nextInModels);
 			}
+			GroupIdsTypes groupIdsTypes = deletableEntity.getGroupIdsTypes();
+			groupIdsTypes.getModelsGroups().remove(deletableEntity);
+			deletableEntity.setGroupIdsTypes(null);
+			this.entityManager.merge(groupIdsTypes);
 			Iterator<Developments> iterDevelopments = deletableEntity
 					.getDevelopments().iterator();
 			for (; iterDevelopments.hasNext();) {
@@ -243,6 +248,11 @@ public class ModelsGroupsBean implements Serializable {
 			predicatesList.add(builder.like(
 					builder.lower(root.<String> get("code")),
 					'%' + code.toLowerCase() + '%'));
+		}
+		GroupIdsTypes groupIdsTypes = this.example.getGroupIdsTypes();
+		if (groupIdsTypes != null) {
+			predicatesList.add(builder.equal(root.get("groupIdsTypes"),
+					groupIdsTypes));
 		}
 
 		return predicatesList.toArray(new Predicate[predicatesList.size()]);

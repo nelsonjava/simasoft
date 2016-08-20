@@ -180,8 +180,93 @@
                                                       <h:outputText id="itemCode" value="#{_item.code}"/>
                                               </h:link>
                                            </h:column>
+                                           
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="GroupIdsTypes"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/modelsGroups/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemGroupIdsTypes" value="#{_item.groupIdsTypes.name}"/>
+                                              </h:link>
+                                           </h:column>
+
 
                         </h:dataTable>
+                        <h:outputText/>
+
+                        <h:outputLabel for="DevelopmentsBeanDevelopmentsDevelopments" value="Developments:"/>
+                        <h:dataTable id="developmentsBeanDevelopmentsdevelopments" styleClass="data-table" value="#{forgeview:asList(developmentsBean.developments.objHijos)}" var="_item">
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Orden"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/developments/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemOrden" value="#{_item.orden}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="ArtifactId"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/developments/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemArtifactId" value="#{_item.artifactId}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="GroupId"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/developments/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemGroupId" value="#{_item.groupId}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Version"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/developments/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemVersion" value="#{_item.version}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Code"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/developments/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemCode" value="#{_item.code}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Date"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/developments/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemDate" value="#{_item.date}"/>
+                                                              <f:convertDateTime type="date"/>
+                                                     <h:outputText/>
+                                              </h:link>
+                                           </h:column>
+
+                        </h:dataTable>
+                        <h:outputText/>
+
+                        <h:outputLabel for="developmentsBeanDevelopmentsobjPadre" value="Developments:"/>
+                        <h:link id="developmentsBeanDevelopmentsobjPadre" outcome="/admin/developments/view" rendered="#{!empty developmentsBean.developments.objPadre}" value="#{developmentsBean.developments.objPadre.artifactId}">
+                                 <f:param name="id" value="#{developmentsBean.developments.objPadre.id}"/>
+                        </h:link>
                         <h:outputText/>
                         
 			<h:outputLabel for="DevelopmentsGenerate" value="Generate:"/>
@@ -189,6 +274,7 @@
                           <h:commandButton value="Code" action="#{DevelopmentsGen.data(developmentsBean.developments)}" />
                         </h:form>
 			<h:outputText/>
+
 
                 </h:panelGrid>
 

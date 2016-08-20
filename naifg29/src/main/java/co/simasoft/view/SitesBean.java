@@ -150,6 +150,14 @@ public class SitesBean implements Serializable {
 				iterSitesTypes.remove();
 				this.entityManager.merge(nextInSitesTypes);
 			}
+			Iterator<Cardinalities> iterCardinalities = deletableEntity
+					.getCardinalities().iterator();
+			for (; iterCardinalities.hasNext();) {
+				Cardinalities nextInCardinalities = iterCardinalities.next();
+				nextInCardinalities.getSites().remove(deletableEntity);
+				iterCardinalities.remove();
+				this.entityManager.merge(nextInCardinalities);
+			}
 			Iterator<Models> iterModels = deletableEntity.getModels()
 					.iterator();
 			for (; iterModels.hasNext();) {
@@ -157,14 +165,6 @@ public class SitesBean implements Serializable {
 				nextInModels.getSites().remove(deletableEntity);
 				iterModels.remove();
 				this.entityManager.merge(nextInModels);
-			}
-			Iterator<Entities> iterEntities = deletableEntity.getEntities()
-					.iterator();
-			for (; iterEntities.hasNext();) {
-				Entities nextInEntities = iterEntities.next();
-				nextInEntities.getSites().remove(deletableEntity);
-				iterEntities.remove();
-				this.entityManager.merge(nextInEntities);
 			}
 			Iterator<Developments> iterDevelopments = deletableEntity
 					.getDevelopments().iterator();
@@ -182,25 +182,34 @@ public class SitesBean implements Serializable {
 				iterGroupIds.remove();
 				this.entityManager.merge(nextInGroupIds);
 			}
-			Iterator<Cardinalities> iterCardinalities = deletableEntity
-					.getCardinalities().iterator();
-			for (; iterCardinalities.hasNext();) {
-				Cardinalities nextInCardinalities = iterCardinalities.next();
-				nextInCardinalities.getSites().remove(deletableEntity);
-				iterCardinalities.remove();
-				this.entityManager.merge(nextInCardinalities);
+			Iterator<Entities> iterEntities = deletableEntity.getEntities()
+					.iterator();
+			for (; iterEntities.hasNext();) {
+				Entities nextInEntities = iterEntities.next();
+				nextInEntities.getSites().remove(deletableEntity);
+				iterEntities.remove();
+				this.entityManager.merge(nextInEntities);
 			}
 			Attributes attributes = deletableEntity.getAttributes();
 			attributes.getSites().remove(deletableEntity);
 			deletableEntity.setAttributes(null);
 			this.entityManager.merge(attributes);
-			Iterator<Imports> iterImports = deletableEntity.getImports()
-					.iterator();
-			for (; iterImports.hasNext();) {
-				Imports nextInImports = iterImports.next();
-				nextInImports.getSites().remove(deletableEntity);
-				iterImports.remove();
-				this.entityManager.merge(nextInImports);
+			Iterator<AttributesTypes> iterAttributesTypes = deletableEntity
+					.getAttributesTypes().iterator();
+			for (; iterAttributesTypes.hasNext();) {
+				AttributesTypes nextInAttributesTypes = iterAttributesTypes
+						.next();
+				nextInAttributesTypes.getSites().remove(deletableEntity);
+				iterAttributesTypes.remove();
+				this.entityManager.merge(nextInAttributesTypes);
+			}
+			Iterator<Dependencies> iterDependencies = deletableEntity
+					.getDependencies().iterator();
+			for (; iterDependencies.hasNext();) {
+				Dependencies nextInDependencies = iterDependencies.next();
+				nextInDependencies.getSites().remove(deletableEntity);
+				iterDependencies.remove();
+				this.entityManager.merge(nextInDependencies);
 			}
 			Iterator<AttributesProperties> iterAttributesProperties = deletableEntity
 					.getAttributesProperties().iterator();
@@ -211,22 +220,13 @@ public class SitesBean implements Serializable {
 				iterAttributesProperties.remove();
 				this.entityManager.merge(nextInAttributesProperties);
 			}
-			Iterator<Dependencies> iterDependencies = deletableEntity
-					.getDependencies().iterator();
-			for (; iterDependencies.hasNext();) {
-				Dependencies nextInDependencies = iterDependencies.next();
-				nextInDependencies.getSites().remove(deletableEntity);
-				iterDependencies.remove();
-				this.entityManager.merge(nextInDependencies);
-			}
-			Iterator<AttributesTypes> iterAttributesTypes = deletableEntity
-					.getAttributesTypes().iterator();
-			for (; iterAttributesTypes.hasNext();) {
-				AttributesTypes nextInAttributesTypes = iterAttributesTypes
-						.next();
-				nextInAttributesTypes.getSites().remove(deletableEntity);
-				iterAttributesTypes.remove();
-				this.entityManager.merge(nextInAttributesTypes);
+			Iterator<Imports> iterImports = deletableEntity.getImports()
+					.iterator();
+			for (; iterImports.hasNext();) {
+				Imports nextInImports = iterImports.next();
+				nextInImports.getSites().remove(deletableEntity);
+				iterImports.remove();
+				this.entityManager.merge(nextInImports);
 			}
 			this.entityManager.remove(deletableEntity);
 			this.entityManager.flush();
@@ -326,10 +326,11 @@ public class SitesBean implements Serializable {
 					builder.lower(root.<String> get("abc")),
 					'%' + abc.toLowerCase() + '%'));
 		}
-		Attributes attributes = this.example.getAttributes();
-		if (attributes != null) {
-			predicatesList
-					.add(builder.equal(root.get("attributes"), attributes));
+		String ipAddress1 = this.example.getIpAddress1();
+		if (ipAddress1 != null && !"".equals(ipAddress1)) {
+			predicatesList.add(builder.like(
+					builder.lower(root.<String> get("ipAddress1")),
+					'%' + ipAddress1.toLowerCase() + '%'));
 		}
 
 		return predicatesList.toArray(new Predicate[predicatesList.size()]);

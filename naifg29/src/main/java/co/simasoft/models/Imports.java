@@ -16,12 +16,12 @@ import javax.persistence.Column;
 import javax.persistence.Lob;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import org.hibernate.search.annotations.Field;
+import org.hibernate.search.annotations.Index;
 import org.hibernate.search.annotations.Indexed;
 import org.hibernate.search.annotations.Store;
 import org.hibernate.search.annotations.Analyze;
 import org.hibernate.search.annotations.DocumentId;
-import org.hibernate.search.annotations.Field;
-import org.hibernate.search.annotations.Index;
 import javax.persistence.OneToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.ManyToOne;
@@ -61,17 +61,17 @@ public class Imports implements Serializable {
 	@ManyToMany
 	private Set<Sites> sites = new HashSet<Sites>();
 
-	@ManyToOne
-	private Dependencies dependencies;
-
-	@ManyToMany(mappedBy = "imports")
-	private Set<AttributesProperties> attributesProperties = new HashSet<AttributesProperties>();
-
 	@ManyToMany(mappedBy = "imports")
 	private Set<Cardinalities> cardinalities = new HashSet<Cardinalities>();
 
 	@ManyToMany(mappedBy = "imports")
 	private Set<Entities> entities = new HashSet<Entities>();
+
+	@ManyToMany(mappedBy = "imports")
+	private Set<AttributesProperties> attributesProperties = new HashSet<AttributesProperties>();
+
+	@ManyToOne
+	private Dependencies dependencies;
 
 	public Imports() {
 	}
@@ -121,21 +121,6 @@ public class Imports implements Serializable {
 		this.sites = sites;
 	}
 
-	public Dependencies getDependencies() {
-		return dependencies;
-	}
-	public void setDependencies(Dependencies dependencies) {
-		this.dependencies = dependencies;
-	}
-
-	public Set<AttributesProperties> getAttributesProperties() {
-		return attributesProperties;
-	}
-	public void setAttributesProperties(
-			Set<AttributesProperties> attributesProperties) {
-		this.attributesProperties = attributesProperties;
-	}
-
 	public Set<Cardinalities> getCardinalities() {
 		return cardinalities;
 	}
@@ -148,6 +133,21 @@ public class Imports implements Serializable {
 	}
 	public void setEntities(Set<Entities> entities) {
 		this.entities = entities;
+	}
+
+	public Set<AttributesProperties> getAttributesProperties() {
+		return attributesProperties;
+	}
+	public void setAttributesProperties(
+			Set<AttributesProperties> attributesProperties) {
+		this.attributesProperties = attributesProperties;
+	}
+
+	public Dependencies getDependencies() {
+		return dependencies;
+	}
+	public void setDependencies(Dependencies dependencies) {
+		this.dependencies = dependencies;
 	}
 
 	@Override

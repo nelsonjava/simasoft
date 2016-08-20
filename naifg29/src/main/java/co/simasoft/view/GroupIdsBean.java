@@ -136,6 +136,20 @@ public class GroupIdsBean implements Serializable {
 
 		try {
 			GroupIds deletableEntity = findById(getId());
+			Iterator<Pom> iterPom = deletableEntity.getPom().iterator();
+			for (; iterPom.hasNext();) {
+				Pom nextInPom = iterPom.next();
+				nextInPom.getGroupIds().remove(deletableEntity);
+				iterPom.remove();
+				this.entityManager.merge(nextInPom);
+			}
+			Iterator<Sites> iterSites = deletableEntity.getSites().iterator();
+			for (; iterSites.hasNext();) {
+				Sites nextInSites = iterSites.next();
+				nextInSites.getGroupIds().remove(deletableEntity);
+				iterSites.remove();
+				this.entityManager.merge(nextInSites);
+			}
 			Iterator<Entities> iterEntities = deletableEntity.getEntities()
 					.iterator();
 			for (; iterEntities.hasNext();) {
@@ -151,20 +165,6 @@ public class GroupIdsBean implements Serializable {
 				nextInModels.setGroupIds(null);
 				iterModels.remove();
 				this.entityManager.merge(nextInModels);
-			}
-			Iterator<Sites> iterSites = deletableEntity.getSites().iterator();
-			for (; iterSites.hasNext();) {
-				Sites nextInSites = iterSites.next();
-				nextInSites.getGroupIds().remove(deletableEntity);
-				iterSites.remove();
-				this.entityManager.merge(nextInSites);
-			}
-			Iterator<Pom> iterPom = deletableEntity.getPom().iterator();
-			for (; iterPom.hasNext();) {
-				Pom nextInPom = iterPom.next();
-				nextInPom.getGroupIds().remove(deletableEntity);
-				iterPom.remove();
-				this.entityManager.merge(nextInPom);
 			}
 			GroupIdsTypes groupIdsTypes = deletableEntity.getGroupIdsTypes();
 			groupIdsTypes.getGroupIds().remove(deletableEntity);

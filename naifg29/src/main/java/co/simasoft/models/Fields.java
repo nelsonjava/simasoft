@@ -16,12 +16,12 @@ import javax.persistence.Column;
 import javax.persistence.Lob;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import org.hibernate.search.annotations.Field;
+import org.hibernate.search.annotations.Index;
 import org.hibernate.search.annotations.Indexed;
 import org.hibernate.search.annotations.Store;
 import org.hibernate.search.annotations.Analyze;
 import org.hibernate.search.annotations.DocumentId;
-import org.hibernate.search.annotations.Field;
-import org.hibernate.search.annotations.Index;
 import javax.persistence.OneToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.ManyToOne;
@@ -54,6 +54,10 @@ public class Fields implements Serializable {
 	// @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
 	private String observations;
 
+	@Column(nullable = false, unique = true)
+	// @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+	private String name;
+
 	@Column(nullable = true, unique = false)
 	// @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
 	private String description;
@@ -85,10 +89,6 @@ public class Fields implements Serializable {
 	@Column(nullable = true, unique = false)
 	private Boolean isViewRelation;
 
-	@Column(nullable = false, unique = true)
-	// @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-	private String name;
-
 	@OneToMany(mappedBy = "fields")
 	private Set<Attributes> attributes = new HashSet<Attributes>();
 
@@ -98,10 +98,11 @@ public class Fields implements Serializable {
 	public Fields() {
 	}
 
-	public Fields(String description, Integer length, Integer precision,
-			Boolean isNullable, Boolean isUnique, Boolean isCreate,
-			Boolean isSearch, Boolean isView, Boolean isViewColumn,
-			Boolean isViewRelation, String name) {
+	public Fields(String name, String description, Integer length,
+			Integer precision, Boolean isNullable, Boolean isUnique,
+			Boolean isCreate, Boolean isSearch, Boolean isView,
+			Boolean isViewColumn, Boolean isViewRelation) {
+		this.name = name;
 		this.description = description;
 		this.length = length;
 		this.precision = precision;
@@ -112,7 +113,6 @@ public class Fields implements Serializable {
 		this.isView = isView;
 		this.isViewColumn = isViewColumn;
 		this.isViewRelation = isViewRelation;
-		this.name = name;
 	}
 
 	public Long getId() {
@@ -142,6 +142,13 @@ public class Fields implements Serializable {
 	public void setObservations(String observations) {
 		this.observations = observations;
 	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+
 	public String getDescription() {
 		return description;
 	}
@@ -210,13 +217,6 @@ public class Fields implements Serializable {
 	}
 	public void setIsViewRelation(Boolean isViewRelation) {
 		this.isViewRelation = isViewRelation;
-	}
-
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
 	}
 
 	public Set<Attributes> getAttributes() {

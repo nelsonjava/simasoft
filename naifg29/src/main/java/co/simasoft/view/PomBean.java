@@ -142,14 +142,6 @@ public class PomBean implements Serializable {
 				iterDependencies.remove();
 				this.entityManager.merge(nextInDependencies);
 			}
-			Iterator<Developments> iterDevelopments = deletableEntity
-					.getDevelopments().iterator();
-			for (; iterDevelopments.hasNext();) {
-				Developments nextInDevelopments = iterDevelopments.next();
-				nextInDevelopments.getPom().remove(deletableEntity);
-				iterDevelopments.remove();
-				this.entityManager.merge(nextInDevelopments);
-			}
 			Iterator<GroupIds> iterGroupIds = deletableEntity.getGroupIds()
 					.iterator();
 			for (; iterGroupIds.hasNext();) {
@@ -157,6 +149,14 @@ public class PomBean implements Serializable {
 				nextInGroupIds.getPom().remove(deletableEntity);
 				iterGroupIds.remove();
 				this.entityManager.merge(nextInGroupIds);
+			}
+			Iterator<Developments> iterDevelopments = deletableEntity
+					.getDevelopments().iterator();
+			for (; iterDevelopments.hasNext();) {
+				Developments nextInDevelopments = iterDevelopments.next();
+				nextInDevelopments.getPom().remove(deletableEntity);
+				iterDevelopments.remove();
+				this.entityManager.merge(nextInDevelopments);
 			}
 			this.entityManager.remove(deletableEntity);
 			this.entityManager.flush();

@@ -143,19 +143,6 @@ public class ImportsBean implements Serializable {
 				iterSites.remove();
 				this.entityManager.merge(nextInSites);
 			}
-			Dependencies dependencies = deletableEntity.getDependencies();
-			dependencies.getImports().remove(deletableEntity);
-			deletableEntity.setDependencies(null);
-			this.entityManager.merge(dependencies);
-			Iterator<AttributesProperties> iterAttributesProperties = deletableEntity
-					.getAttributesProperties().iterator();
-			for (; iterAttributesProperties.hasNext();) {
-				AttributesProperties nextInAttributesProperties = iterAttributesProperties
-						.next();
-				nextInAttributesProperties.getImports().remove(deletableEntity);
-				iterAttributesProperties.remove();
-				this.entityManager.merge(nextInAttributesProperties);
-			}
 			Iterator<Cardinalities> iterCardinalities = deletableEntity
 					.getCardinalities().iterator();
 			for (; iterCardinalities.hasNext();) {
@@ -172,6 +159,19 @@ public class ImportsBean implements Serializable {
 				iterEntities.remove();
 				this.entityManager.merge(nextInEntities);
 			}
+			Iterator<AttributesProperties> iterAttributesProperties = deletableEntity
+					.getAttributesProperties().iterator();
+			for (; iterAttributesProperties.hasNext();) {
+				AttributesProperties nextInAttributesProperties = iterAttributesProperties
+						.next();
+				nextInAttributesProperties.getImports().remove(deletableEntity);
+				iterAttributesProperties.remove();
+				this.entityManager.merge(nextInAttributesProperties);
+			}
+			Dependencies dependencies = deletableEntity.getDependencies();
+			dependencies.getImports().remove(deletableEntity);
+			deletableEntity.setDependencies(null);
+			this.entityManager.merge(dependencies);
 			this.entityManager.remove(deletableEntity);
 			this.entityManager.flush();
 			return "search?faces-redirect=true";

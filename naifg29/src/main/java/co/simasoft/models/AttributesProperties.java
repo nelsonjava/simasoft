@@ -16,12 +16,12 @@ import javax.persistence.Column;
 import javax.persistence.Lob;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import org.hibernate.search.annotations.Field;
+import org.hibernate.search.annotations.Index;
 import org.hibernate.search.annotations.Indexed;
 import org.hibernate.search.annotations.Store;
 import org.hibernate.search.annotations.Analyze;
 import org.hibernate.search.annotations.DocumentId;
-import org.hibernate.search.annotations.Field;
-import org.hibernate.search.annotations.Index;
 import javax.persistence.OneToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.ManyToOne;
@@ -69,7 +69,10 @@ public class AttributesProperties implements Serializable {
 	private Set<Sites> sites = new HashSet<Sites>();
 
 	@ManyToMany(mappedBy = "attributesProperties")
-	private Set<AttributesTypes> attributesTypes = new HashSet<AttributesTypes>();
+	private Set<Attributes> attributes = new HashSet<Attributes>();
+
+	@ManyToOne
+	private Entities entities;
 
 	@ManyToMany(mappedBy = "attributesProperties")
 	private Set<Cardinalities> cardinalities = new HashSet<Cardinalities>();
@@ -77,11 +80,8 @@ public class AttributesProperties implements Serializable {
 	@ManyToMany(mappedBy = "attributesProperties")
 	private Set<Relationships> relationships = new HashSet<Relationships>();
 
-	@ManyToOne
-	private Entities entities;
-
 	@ManyToMany(mappedBy = "attributesProperties")
-	private Set<Attributes> attributes = new HashSet<Attributes>();
+	private Set<AttributesTypes> attributesTypes = new HashSet<AttributesTypes>();
 
 	public AttributesProperties() {
 	}
@@ -146,11 +146,18 @@ public class AttributesProperties implements Serializable {
 		this.sites = sites;
 	}
 
-	public Set<AttributesTypes> getAttributesTypes() {
-		return attributesTypes;
+	public Set<Attributes> getAttributes() {
+		return attributes;
 	}
-	public void setAttributesTypes(Set<AttributesTypes> attributesTypes) {
-		this.attributesTypes = attributesTypes;
+	public void setAttributes(Set<Attributes> attributes) {
+		this.attributes = attributes;
+	}
+
+	public Entities getEntities() {
+		return entities;
+	}
+	public void setEntities(Entities entities) {
+		this.entities = entities;
 	}
 
 	public Set<Cardinalities> getCardinalities() {
@@ -167,18 +174,11 @@ public class AttributesProperties implements Serializable {
 		this.relationships = relationships;
 	}
 
-	public Entities getEntities() {
-		return entities;
+	public Set<AttributesTypes> getAttributesTypes() {
+		return attributesTypes;
 	}
-	public void setEntities(Entities entities) {
-		this.entities = entities;
-	}
-
-	public Set<Attributes> getAttributes() {
-		return attributes;
-	}
-	public void setAttributes(Set<Attributes> attributes) {
-		this.attributes = attributes;
+	public void setAttributesTypes(Set<AttributesTypes> attributesTypes) {
+		this.attributesTypes = attributesTypes;
 	}
 
 	@Override

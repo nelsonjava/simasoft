@@ -137,13 +137,6 @@ public class AttributesBean implements Serializable {
 
 		try {
 			Attributes deletableEntity = findById(getId());
-			Iterator<Sites> iterSites = deletableEntity.getSites().iterator();
-			for (; iterSites.hasNext();) {
-				Sites nextInSites = iterSites.next();
-				nextInSites.setAttributes(null);
-				iterSites.remove();
-				this.entityManager.merge(nextInSites);
-			}
 			Iterator<AttributesProperties> iterAttributesProperties = deletableEntity
 					.getAttributesProperties().iterator();
 			for (; iterAttributesProperties.hasNext();) {
@@ -154,19 +147,26 @@ public class AttributesBean implements Serializable {
 				iterAttributesProperties.remove();
 				this.entityManager.merge(nextInAttributesProperties);
 			}
-			Entities entities = deletableEntity.getEntities();
-			entities.getAttributes().remove(deletableEntity);
-			deletableEntity.setEntities(null);
-			this.entityManager.merge(entities);
+			Iterator<Sites> iterSites = deletableEntity.getSites().iterator();
+			for (; iterSites.hasNext();) {
+				Sites nextInSites = iterSites.next();
+				nextInSites.setAttributes(null);
+				iterSites.remove();
+				this.entityManager.merge(nextInSites);
+			}
+			Fields fields = deletableEntity.getFields();
+			fields.getAttributes().remove(deletableEntity);
+			deletableEntity.setFields(null);
+			this.entityManager.merge(fields);
 			AttributesTypes attributesTypes = deletableEntity
 					.getAttributesTypes();
 			attributesTypes.getAttributes().remove(deletableEntity);
 			deletableEntity.setAttributesTypes(null);
 			this.entityManager.merge(attributesTypes);
-			Fields fields = deletableEntity.getFields();
-			fields.getAttributes().remove(deletableEntity);
-			deletableEntity.setFields(null);
-			this.entityManager.merge(fields);
+			Entities entities = deletableEntity.getEntities();
+			entities.getAttributes().remove(deletableEntity);
+			deletableEntity.setEntities(null);
+			this.entityManager.merge(entities);
 			this.entityManager.remove(deletableEntity);
 			this.entityManager.flush();
 			return "search?faces-redirect=true";
@@ -248,6 +248,15 @@ public class AttributesBean implements Serializable {
 					builder.lower(root.<String> get("observations")),
 					'%' + observations.toLowerCase() + '%'));
 		}
+		Integer precision = this.example.getPrecision();
+		if (precision != null && precision.intValue() != 0) {
+			predicatesList.add(builder.equal(root.get("precision"), precision));
+		}
+		Boolean isNullable = this.example.getIsNullable();
+		if (isNullable != null) {
+			predicatesList
+					.add(builder.equal(root.get("isNullable"), isNullable));
+		}
 		Boolean isUnique = this.example.getIsUnique();
 		if (isUnique != null) {
 			predicatesList.add(builder.equal(root.get("isUnique"), isUnique));
@@ -255,14 +264,6 @@ public class AttributesBean implements Serializable {
 		Boolean isCreate = this.example.getIsCreate();
 		if (isCreate != null) {
 			predicatesList.add(builder.equal(root.get("isCreate"), isCreate));
-		}
-		Boolean isSearch = this.example.getIsSearch();
-		if (isSearch != null) {
-			predicatesList.add(builder.equal(root.get("isSearch"), isSearch));
-		}
-		Boolean isView = this.example.getIsView();
-		if (isView != null) {
-			predicatesList.add(builder.equal(root.get("isView"), isView));
 		}
 
 		return predicatesList.toArray(new Predicate[predicatesList.size()]);

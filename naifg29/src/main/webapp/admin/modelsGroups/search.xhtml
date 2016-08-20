@@ -53,7 +53,7 @@
                         </f:validateBean>
 
                         <h:dataTable id="modelsGroupsBeanPageItems" styleClass="data-table" value="#{modelsGroupsBean.pageItems}" var="_item">
-
+                        
                                 <h:column>
                                         <f:facet name="header">
                                                 <h:outputText value="Id"/>
@@ -64,13 +64,12 @@
                                         </h:link>
                                 </h:column>
 
-
                                 <h:column>
                                         <f:facet name="header">
                                                 <h:outputText value="Orden"/>
                                         </f:facet>
                                         <h:link outcome="/admin/modelsGroups/view">
-                                                <f:param name="id" value="#{_item.id}"/>
+                                                <f:param name="id" value="#{_item.orden}"/>
                                                 <h:outputText id="itemOrden" value="#{_item.orden}"/>
                                         </h:link>
                                 </h:column>
@@ -95,7 +94,16 @@
                                                 <h:outputText id="itemCode" value="#{_item.code}"/>
                                         </h:link>
                                 </h:column>
-
+                                
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="GroupIdsTypes"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/modelsGroups/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemGroupIdsTypes" value="#{_item.groupIdsTypes.name}"/>
+                                        </h:link>
+                                </h:column>
 
                         </h:dataTable>
                         <ui:include src="/resources/scaffold/paginator.xhtml">
