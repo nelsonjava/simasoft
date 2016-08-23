@@ -1,6 +1,10 @@
 package co.simasoft.utils;
 
 public class Relation{
+  
+    private String model = "";
+
+    private String orden;
 
     private String name = "";
 
@@ -60,6 +64,20 @@ public class Relation{
        this.nameCardinality = nameCardinality;
        this.name = name;
        this.unidireccional = unidireccional;
+    }
+    
+    public String getModel(){
+        return model;
+    }
+    public void setModel(String model){
+        this.model = model;
+    }
+
+    public String getOrden() {
+        return this.orden;
+    }
+    public void setOrden(String orden) {
+        this.orden = orden;
     }
 
     public String getName(){

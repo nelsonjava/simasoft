@@ -7,10 +7,12 @@ import java.util.*;
 
 public class Entidad {
 
+    private String groupIds = "";
     private String groupId = "";
     private String name = "";
     private String ref = "";
     private String fieldCreate = "";
+    private String orden;
 
     private ArrayList<Atributos> atributos = new ArrayList<Atributos>() ;
     private ArrayList<Relation> relations = new ArrayList<Relation>();
@@ -22,10 +24,16 @@ public class Entidad {
         this.name = name;
     }
 
+    public String getGroupIds(){
+        return groupIds;
+    }
+    public void setGroupIds(String groupIds){
+        this.groupIds = groupIds;
+    }
+
     public String getRef(){
         return ref;
     }
-
     public void setRef(String ref){
         this.ref = ref;
     }
@@ -49,6 +57,13 @@ public class Entidad {
     }
     public void setGroupId(String groupId) {
         this.groupId = groupId;
+    }
+
+    public String getOrden() {
+        return this.orden;
+    }
+    public void setOrden(String orden) {
+        this.orden = orden;
     }
 
     public ArrayList<Atributos> getAtributos(){

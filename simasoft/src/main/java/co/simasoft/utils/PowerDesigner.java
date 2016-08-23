@@ -14,6 +14,10 @@ import org.w3c.dom.Element;
 public class PowerDesigner {
 
     private static String fileOob;
+
+    private static String model;
+    private static String groupIds;
+
     private static ArrayList<Entidad> entidades = new ArrayList<Entidad>(0);
     private static Set<Relation> relationsPower = new HashSet<Relation>(0);
     private static ArrayList<Relation> relations = new ArrayList<Relation>(0);
@@ -41,6 +45,10 @@ public class PowerDesigner {
             Document xml = dBuilder.parse(fXmlFile);
 
             xml.getDocumentElement().normalize();
+
+            modelPropierties(xml);
+            modelPropierties1(xml);            
+
             NodeList nList = xml.getElementsByTagName("o:Class");
 
             entidades = new ArrayList<Entidad>();
@@ -75,6 +83,11 @@ public class PowerDesigner {
                     if (clases.getNodeName().equals("a:Name")) {
                        entidad.setName(clases.getTextContent());
                     } // if clases.getNodeName()
+
+                    if (clases.getNodeName().equals("a:Code")) {
+                       entidad.setOrden(clases.getTextContent());
+                    } // if clases.getNodeName()
+
 
                     if (clases.getNodeName().equals("c:Attributes")) {
 
@@ -157,8 +170,14 @@ public class PowerDesigner {
                          relation.setFrom(rela.getTextContent());
                       }
 
+                      if (rela.getNodeName().equals("a:Stereotype")) {
+                         relation.setName(rela.getTextContent());
+                      }
+
                       if (rela.getNodeName().equals("a:Code")) {
                          relation.setTo(rela.getTextContent());
+                         relation.setOrden(rela.getTextContent());
+// relation.setOrden(Double.parseDouble(rela.getTextContent()));
                       }
 
                       if (rela.getNodeName().equals("a:RoleAName")) {
@@ -370,7 +389,7 @@ public class PowerDesigner {
 
             relation.setFrom(getEntityName(relation.getRefFrom()));
             relation.setTo(getEntityName(relation.getRefTo()));
-            relation.setName(relation.getFrom()+"("+relation.getMultiplicityA()+")"+" TO "+relation.getTo()+"("+relation.getMultiplicityB()+")");
+            relation.setName(relation.getName());
             relation.cardinality();
             relation.optionality();
 
@@ -384,6 +403,9 @@ public class PowerDesigner {
 
             Relation relaTo = new Relation();
             Relation relaFrom = new Relation();
+
+            relaFrom.setOrden(relationPower.getOrden());
+            relaFrom.setName(relationPower.getName());
 
             relaFrom.setFrom(relationPower.getFrom());
             relaFrom.setTo(relationPower.getTo());
@@ -430,6 +452,75 @@ public class PowerDesigner {
         } // for relationPower
 
     } // relations
+
+    public static void modelPropierties(Document xml) throws IOException {
+        try{
+
+            FileTxt f = new FileTxt();
+
+            xml.getDocumentElement().normalize();
+
+            NodeList nAssocs = xml.getElementsByTagName("o:Association");
+
+            for(int i=0;i<nAssocs.getLength();i++) {
+
+              Node nAssoc = nAssocs.item(i);
+
+              NodeList aRelations = nAssoc.getChildNodes();
+
+              if (nAssoc.getNodeName().equals("o:Association")) {
+                  NodeList relas = nAssoc.getChildNodes();
+                  for (int z = 0; z < relas.getLength(); z++) {
+                      Node rela = relas.item(z);
+                      if (rela.getNodeName().equals("a:Code")) {
+                         f.line("orden:"+rela.getTextContent());
+                      }
+                  }
+              }
+            }
+
+            f.saveFile("\\docs", "propierties.txt");
+
+        } // try
+        catch (Exception e) {
+	  e.printStackTrace();
+        }
+    } // modelPropierties()
+    
+
+    public static void modelPropierties1(Document xml) throws IOException {
+        try{
+          
+            FileTxt f = new FileTxt();
+
+            xml.getDocumentElement().normalize();
+
+            NodeList nAssocs = xml.getElementsByTagName("o:Model");
+
+            for(int i=0;i<nAssocs.getLength();i++) {
+
+              Node nAssoc = nAssocs.item(i);
+
+              NodeList aRelations = nAssoc.getChildNodes();
+
+              if (nAssoc.getNodeName().equals("a:Code")) {
+                 f.line("model:"+nAssoc.getTextContent());
+              }
+
+              if (nAssoc.getNodeName().equals("a:Name")) {
+                 f.line("version:"+nAssoc.getTextContent());
+              }
+
+            }
+
+        } // try
+        catch (Exception e) {
+	  e.printStackTrace();
+        }
+    } // modelPropierties()
+
+
+
 
     public Entidad getEntity(String entityName){
 

@@ -77,6 +77,7 @@ public void entities(String fileJson) throws IOException {
     for (Entidad entidad : entidades ) {
         line("    {");
         line("      \"name\": \""+entidad.getName()+"\"");
+        line("      \"orden\": \""+entidad.getOrden()+"\"");
         if (i == entidades.size() ){
            line("    }");
         }
@@ -152,7 +153,8 @@ public void relations(String fileJson) throws IOException {
         line("    {");
         line("      \"From\": \""+relation.getFrom()+"\",");
         line("      \"To\": \""+relation.getTo()+"\",");
-        line("      \"name\": \"\",");
+        line("      \"name\": \""+relation.getName()+"\",");
+        line("      \"orden\": \""+relation.getOrden()+"\",");
         line("      \"isOptionality\": "+relation.getOptionality()+",");
         line("      \"isEmbedded\": false,");
         line("      \"isSimplified\": false,");
