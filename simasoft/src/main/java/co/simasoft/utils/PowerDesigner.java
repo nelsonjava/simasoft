@@ -15,8 +15,8 @@ public class PowerDesigner {
 
     private static String fileOob;
 
-    private static String model;
-    private static String groupIds;
+    private static String name;
+    private static String code;
 
     private static ArrayList<Entidad> entidades = new ArrayList<Entidad>(0);
     private static Set<Relation> relationsPower = new HashSet<Relation>(0);
@@ -47,7 +47,6 @@ public class PowerDesigner {
             xml.getDocumentElement().normalize();
 
             modelPropierties(xml);
-            modelPropierties1(xml);            
 
             NodeList nList = xml.getElementsByTagName("o:Class");
 
@@ -93,11 +92,14 @@ public class PowerDesigner {
 
                        NodeList atributos = clases.getChildNodes();
 
+                       double z = 0;
+
                        for (int x = 0; x < atributos.getLength(); x++) {
 
                             Node atributo = atributos.item(x);
                             if (atributo.getNodeName().equals("o:Attribute")) {
 
+                               z++;
                                Atributos atri = new Atributos();
                                NodeList campos = atributo.getChildNodes();
                                for (int y = 0; y < campos.getLength(); y++) {
@@ -107,6 +109,7 @@ public class PowerDesigner {
                                    if (campo.getNodeName().equals("a:Name")) {
 
                                       field = campo.getTextContent();
+                                      atri.setOrden(z);
                                       atri.setField(Utils.typeField(field));
                                       atri.setDescription("Pendiente");
                                       atri.setNulo(!Utils.isFieldNull(field));
@@ -258,13 +261,26 @@ public class PowerDesigner {
 
     } // Generar
 
+    public String getName(){
+        return name;
+    }
+    public void setName(String name){
+        this.name = name;
+    }
+
+    public String getCode(){
+        return code;
+    }
+    public void setCode(String code){
+        this.code = code;
+    }
+
     public ArrayList<Entidad> getEntidades(){
         return entidades;
     }
     public void setEntidades(ArrayList<Entidad> entidades) {
         this.entidades = entidades;
     }
-
 
     public ArrayList<Entidad> setEntidades(){
         return entidades;
@@ -453,7 +469,7 @@ public class PowerDesigner {
 
     } // relations
 
-    public static void modelPropierties(Document xml) throws IOException {
+    public static void pruebaRelations(Document xml) throws IOException {
         try{
 
             FileTxt f = new FileTxt();
@@ -486,11 +502,11 @@ public class PowerDesigner {
 	  e.printStackTrace();
         }
     } // modelPropierties()
-    
 
-    public static void modelPropierties1(Document xml) throws IOException {
+
+    public static void modelPropierties(Document xml) throws IOException {
         try{
-          
+
             FileTxt f = new FileTxt();
 
             xml.getDocumentElement().normalize();
@@ -503,23 +519,36 @@ public class PowerDesigner {
 
               NodeList aRelations = nAssoc.getChildNodes();
 
-              if (nAssoc.getNodeName().equals("a:Code")) {
-                 f.line("model:"+nAssoc.getTextContent());
-              }
+              if (nAssoc.getNodeName().equals("o:Model")) {
 
-              if (nAssoc.getNodeName().equals("a:Name")) {
-                 f.line("version:"+nAssoc.getTextContent());
-              }
+                  NodeList relas = nAssoc.getChildNodes();
 
+                  for (int j = 0; j < relas.getLength(); j++) {
+
+                      Node rela = relas.item(j);
+
+                      if (rela.getNodeName().equals("a:Name")) {
+                         name = rela.getTextContent();
+                         f.line("name:"+rela.getTextContent());
+                      }
+
+                      if (rela.getNodeName().equals("a:Code")) {
+                         code = rela.getTextContent();
+                         f.line("code:"+rela.getTextContent());
+                      }
+
+
+                  }
+              }
             }
+
+            f.saveFile("\\docs", "propierties.txt");
 
         } // try
         catch (Exception e) {
 	  e.printStackTrace();
         }
-    } // modelPropierties()
-
-
+    } // modelPropierties1()
 
 
     public Entidad getEntity(String entityName){

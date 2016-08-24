@@ -31,6 +31,10 @@ public class JsonGenPower extends FileTxt {
 
 //>>DECLARACION DE INSTANCIAS
       private String fileOom = "";
+
+      private static String name;
+      private static String code;
+
       private static ArrayList<Entidad> entidades  = new ArrayList<Entidad>(0);
       private static ArrayList<Relation> relations = new ArrayList<Relation>(0);
 
@@ -56,8 +60,13 @@ OBJETIVOS:
 
 public JsonGenPower(String fileOom) throws IOException {
     try {
+
       this.fileOom = fileOom;
+
       PowerDesigner powerDesigner = new PowerDesigner(fileOom);
+
+           name = powerDesigner.getName();
+           code = powerDesigner.getCode();
       entidades = powerDesigner.getEntidades();
       relations = powerDesigner.getRelations();
     }
@@ -78,6 +87,9 @@ public void entities(String fileJson) throws IOException {
         line("    {");
         line("      \"name\": \""+entidad.getName()+"\"");
         line("      \"orden\": \""+entidad.getOrden()+"\"");
+        line("      \"groupIds\": \""+code+"\"");
+        line("      \"version\": \""+name+"\"");
+
         if (i == entidades.size() ){
            line("    }");
         }
@@ -112,6 +124,7 @@ public void attributes() throws IOException {
 
            line("    {");
            line("      \"entity\": \""+entidad.getName()+"\",");
+           line("      \"orden\": \""+Double.toString(attri.getOrden())+"\",");
            line("      \"name\": \""+attri.getField()+"\",");
            line("      \"isNullable\": "+attri.getNulo()+",");
            line("      \"isUnique\": "+attri.getUnique()+",");
@@ -159,6 +172,8 @@ public void relations(String fileJson) throws IOException {
         line("      \"isEmbedded\": false,");
         line("      \"isSimplified\": false,");
         line("      \"Cardinalities\": \""+Cardinaly(relation.getCardinality())+"\"");
+        line("      \"model\": \""+name+"\"");
+        line("      \"groupIds\": \""+code+"\"");
 
         if (i == relations.size() ){
            line("    }");
