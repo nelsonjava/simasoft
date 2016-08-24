@@ -71,11 +71,42 @@ public class FileUploadEntities {
 
            FileTxt f = new FileTxt();
 
+           GroupIds groupId = new GroupIds();
+
            // read the json file
            FileReader reader = new FileReader(filePath);
 
            JSONParser jsonParser = new JSONParser();
            JSONObject jsonObject = (JSONObject) jsonParser.parse(reader);
+
+           // get an array from the JSON object
+           JSONArray arrayProperties = (JSONArray) jsonObject.get("properties");
+           Iterator iteProperties = arrayProperties.iterator();
+           while (iteProperties.hasNext()) {
+
+                 JSONObject propertiesObj = (JSONObject) iteProperties.next();
+
+                 String artifactId = (String)propertiesObj.get("groupIds");
+                 String version = (String)propertiesObj.get("version");
+
+                 groupId = findBean.artifactIdGroupIds(artifactId,em);
+                 if (groupId  == null){
+                    groupId = new GroupIds();
+                    groupId.setArtifactId(artifactId);
+                    groupId.setGroupId("co.simasoft.models");
+                    groupId.setVersion(version);
+                 }
+
+                 f.line("groupIds:"+groupId.getArtifactId());
+                 f.line("version:"+groupId.getVersion());
+
+                 em.persist(groupId);
+                 em.flush();
+
+                 groupId = findBean.artifactIdGroupIds(artifactId,em);
+
+           } // while
+
 
            // get an array from the JSON object
            JSONArray arrayEntities = (JSONArray) jsonObject.get("Entities");
@@ -84,12 +115,15 @@ public class FileUploadEntities {
 
                  JSONObject entityObj = (JSONObject) iteEntities.next();
 
-                 String entityName = (String)entityObj.get("name");
-                 
+                 String entityOrden = (String)entityObj.get("orden");
+                 String entityName  = (String)entityObj.get("name");
+
                  GroupIds groupIds = new GroupIds();
-                 groupIds = findBean.artifactIdGroupIds("tem",em);
+                 groupIds = findBean.artifactIdGroupIds(groupId.getArtifactId(),em);
 
                  Entities entity = new Entities();
+                 entity.setOrden(Double.parseDouble(entityOrden));
+
                  entity.setName(entityName);
                  entity.setGroupIds(groupIds);
 
@@ -111,6 +145,7 @@ public class FileUploadEntities {
                  JSONObject attributeObj = (JSONObject) iteAttribute.next();
 
                  String attributeEntity = (String)attributeObj.get("entity");
+                 String attributeOrden = (String)attributeObj.get("orden");
                  String attributeName = (String)attributeObj.get("name");
                  Boolean attributeIsNullable = (Boolean)attributeObj.get("isNullable");
                  Boolean attributeIsUnique = (Boolean)attributeObj.get("isUnique");
@@ -131,6 +166,7 @@ public class FileUploadEntities {
                  f.line("");
 
                  Attributes attributes = new Attributes();
+                 attributes.setOrden(Double.parseDouble(attributeOrden));
                  attributes.setName(attributeName);
                  attributes.setIsNullable(attributeIsNullable);
                  attributes.setIsUnique(attributeIsUnique);

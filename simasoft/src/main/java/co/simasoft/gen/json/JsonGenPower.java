@@ -81,14 +81,21 @@ public void entities(String fileJson) throws IOException {
     try {
 
     line("{");
+
+    line("  \"properties\": [");
+    line("    {");
+    line("      \"groupIds\": \""+code+"\",");
+    line("      \"version\": \""+name+"\"");
+    line("    }");
+    line("  ],");
+
     line("  \"Entities\": [");
     i = 1;
     for (Entidad entidad : entidades ) {
         line("    {");
+        line("      \"orden\": \""+entidad.getOrden()+"\",");
         line("      \"name\": \""+entidad.getName()+"\"");
-        line("      \"orden\": \""+entidad.getOrden()+"\"");
-        line("      \"groupIds\": \""+code+"\"");
-        line("      \"version\": \""+name+"\"");
+
 
         if (i == entidades.size() ){
            line("    }");
@@ -159,6 +166,14 @@ public void relations(String fileJson) throws IOException {
     try {
 
     line("{");
+
+    line("  \"properties\": [");
+    line("    {");
+    line("      \"model\": \""+name+"\",");
+    line("      \"groupIds\": \""+code+"\"");
+    line("    }");
+    line("  ],");
+
     line("  \"Relationships\": [");
     i = 1;
     for(Relation relation: relations) {
@@ -172,8 +187,6 @@ public void relations(String fileJson) throws IOException {
         line("      \"isEmbedded\": false,");
         line("      \"isSimplified\": false,");
         line("      \"Cardinalities\": \""+Cardinaly(relation.getCardinality())+"\"");
-        line("      \"model\": \""+name+"\"");
-        line("      \"groupIds\": \""+code+"\"");
 
         if (i == relations.size() ){
            line("    }");

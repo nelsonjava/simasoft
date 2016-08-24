@@ -71,11 +71,47 @@ public class FileUploadRelations {
 
            FileTxt f = new FileTxt();
 
+           String model = "";
+           String groupIds = "";
+           Models models = new Models();
+
            // read the json file
            FileReader reader = new FileReader(filePath);
 
            JSONParser jsonParser = new JSONParser();
            JSONObject jsonObject = (JSONObject) jsonParser.parse(reader);
+
+           // get an array from the JSON object
+           JSONArray arrayProperties = (JSONArray) jsonObject.get("properties");
+           Iterator iteProperties = arrayProperties.iterator();
+           while (iteProperties.hasNext()) {
+
+                 JSONObject propertiesObj = (JSONObject) iteProperties.next();
+
+                 model = (String)propertiesObj.get("model");
+                 groupIds = (String)propertiesObj.get("groupIds");
+                 
+                 models = findBean.nameModels(model,em);
+                 if (models  == null){
+
+                    models = new Models();
+                    models.setName(model);
+
+                    GroupIds groupId = new GroupIds();
+                    groupId = findBean.artifactIdGroupIds(groupIds,em);
+                    models.setGroupIds(groupId);
+
+                    f.line("model:"+models.getName());
+                    f.line("groupIds:"+models.getGroupIds().getArtifactId());
+
+                 }
+
+                 em.persist(models);
+                 em.flush();
+
+                 models = findBean.nameModels(model,em);
+
+           } // while
 
            // get an array from the JSON object
            JSONArray arrayRelationships = (JSONArray) jsonObject.get("Relationships");
@@ -84,6 +120,7 @@ public class FileUploadRelations {
 
                  JSONObject relationObj = (JSONObject) iteRelation.next();
 
+                 String relationshipsOrden = (String)relationObj.get("orden");
                  String from = (String)relationObj.get("From");
                  String to = (String)relationObj.get("To");
                  String relationName = (String)relationObj.get("name");
@@ -93,6 +130,7 @@ public class FileUploadRelations {
                  String cardinalities = (String)relationObj.get("Cardinalities");
 
                  Relationships relationships = new Relationships();
+                 relationships.setOrden(Double.parseDouble(relationshipsOrden));
                  relationships.setName(relationName);
                  relationships.setIsOptionality(isOptionality);
                  relationships.setIsCreate(true);
@@ -130,6 +168,7 @@ public class FileUploadRelations {
                  Long cc = 81L;
 */
 
+
                  Long ff = entityFrom.getId();
                  Long tt = entityTo.getId();
                  Long cc = cardinality.getId();
@@ -143,10 +182,10 @@ public class FileUploadRelations {
                  f.line(String.valueOf(relations.getTo().getId()));
                  f.line(String.valueOf(relations.getCardinalities().getId()));
 
-                 Models models = new Models();
-                 models = findBean.nameModels("tem",em);
+                 models = findBean.nameModels(model,em);
 
                  ModelRelationships modelRelationships = new ModelRelationships();
+                 modelRelationships.setOrden(relations.getOrden());
                  modelRelationships.setName(Utils.nameRandom());
                  modelRelationships.setModels(models);
                  modelRelationships.setRelationships(relations);

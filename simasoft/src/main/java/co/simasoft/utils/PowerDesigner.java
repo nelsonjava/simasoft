@@ -180,7 +180,6 @@ public class PowerDesigner {
                       if (rela.getNodeName().equals("a:Code")) {
                          relation.setTo(rela.getTextContent());
                          relation.setOrden(rela.getTextContent());
-// relation.setOrden(Double.parseDouble(rela.getTextContent()));
                       }
 
                       if (rela.getNodeName().equals("a:RoleAName")) {

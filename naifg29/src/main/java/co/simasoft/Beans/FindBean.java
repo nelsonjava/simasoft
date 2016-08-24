@@ -158,6 +158,9 @@ public class FindBean {
         if (!results.isEmpty()) {
            groupIds = results.get(0);
         }
+        else{
+           groupIds = null;
+        }
         return groupIds;
     }
 
@@ -168,6 +171,9 @@ public class FindBean {
 
         if (!results.isEmpty()) {
            models = results.get(0);
+        }
+        else{
+           models = null;
         }
         return models;
     }
