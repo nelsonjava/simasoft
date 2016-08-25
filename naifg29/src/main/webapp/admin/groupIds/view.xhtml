@@ -239,6 +239,12 @@
 
                         </h:dataTable>
                         <h:outputText/>
+                        
+			<h:outputLabel for="GroupIdsGenerate" value="ModelsGroups:"/>
+                        <h:form>
+                          <h:commandButton value="Add" action="#{GroupIdsGen.data(groupIdsBean.groupIds)}" />
+                        </h:form>
+			<h:outputText/>
 
                         <h:outputLabel for="groupIdsBeanGroupIdsGroupIdsTypes" value="GroupIdsTypes:"/>
                         <h:link id="groupIdsBeanGroupIdsGroupIdsTypes" outcome="/admin/groupIdsTypes/view" rendered="#{!empty groupIdsBean.groupIds.groupIdsTypes}" value="#{groupIdsBean.groupIds.groupIdsTypes.name}">

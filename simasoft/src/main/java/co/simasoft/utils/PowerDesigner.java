@@ -494,7 +494,7 @@ public class PowerDesigner {
               }
             }
 
-            f.saveFile("\\docs", "propierties.txt");
+//            f.saveFile("\\docs", "propierties.txt");
 
         } // try
         catch (Exception e) {

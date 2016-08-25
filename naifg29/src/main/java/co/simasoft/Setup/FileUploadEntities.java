@@ -59,17 +59,28 @@ public class FileUploadEntities {
         this.file = file;
     }
 
+    public void setFilePath(String filePath) {
+        this.filePath = filePath;
+    }
+
+    public void setEm(EntityManager em) {
+        this.em = em;
+    }
+
     public void upload() throws IOException  {
     try {
 
-        if(file != null) {
+        FileTxt f = new FileTxt();
 
+        if(file != null) {
            filePath = "\\docs\\"+file.getFileName();
+        }
+
+        if(!filePath.equals("")) {
+
 
            FacesMessage message = new FacesMessage("Succesful", filePath + " is uploaded.");
            FacesContext.getCurrentInstance().addMessage(null, message);
-
-           FileTxt f = new FileTxt();
 
            GroupIds groupId = new GroupIds();
 

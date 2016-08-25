@@ -36,7 +36,7 @@ import org.primefaces.model.UploadedFile;
 
 @ManagedBean
 public class FileGenJson {
-
+  
     private String filePath = "";
 
     private UploadedFile file;
@@ -62,19 +62,32 @@ public class FileGenJson {
 
            JsonGenPower jsonGenPower = new JsonGenPower(filePath);
 
+/*
+           FileUploadEntities fileUploadEntities = new FileUploadEntities();
+           FileUploadRelations fileUploadRelations = new FileUploadRelations();
+*/
+
            if (filePath.indexOf("Entities") != -1){
-//               f.line("Entities");
+               f.line("Entities");
+
                jsonGenPower.entities(file.getFileName());
+/*
+               fileUploadEntities.setFilePath(filePath+"entities.json");
+               fileUploadEntities.upload();
+*/
+
+               f.line("filePath:"+filePath+"entities.json");
            }
            else{
-//               f.line("relations");
+
+               f.line("relations");
                jsonGenPower.relations(file.getFileName());
+
+//             fileUploadRelations.setFilePath(filePath+"relations.json");
            }
 
-/*
            f.line("name:"+filePath);
            f.line(Utils.typeField("*String****"));
-*/
 
 //           f.saveFile("\\docs", "Pruebas.txt");
 

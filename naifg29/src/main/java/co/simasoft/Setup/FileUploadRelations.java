@@ -59,17 +59,23 @@ public class FileUploadRelations {
         this.file = file;
     }
 
+    public void setFilePath(String filePath) {
+        this.filePath = filePath;
+    }
+
     public void upload() {
     try {
+      
+        FileTxt f = new FileTxt();
 
         if(file != null) {
-
            filePath = "\\docs\\"+file.getFileName();
+        }
+
+        if(!filePath.equals("")) {
 
            FacesMessage message = new FacesMessage("Succesful", filePath + " is uploaded.");
            FacesContext.getCurrentInstance().addMessage(null, message);
-
-           FileTxt f = new FileTxt();
 
            String model = "";
            String groupIds = "";
@@ -90,7 +96,7 @@ public class FileUploadRelations {
 
                  model = (String)propertiesObj.get("model");
                  groupIds = (String)propertiesObj.get("groupIds");
-                 
+
                  models = findBean.nameModels(model,em);
                  if (models  == null){
 

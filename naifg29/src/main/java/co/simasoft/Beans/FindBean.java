@@ -18,13 +18,17 @@ import javax.persistence.LockModeType;
 import javax.persistence.OptimisticLockException;
 import javax.persistence.PersistenceContext;
 
+import javax.faces.application.FacesMessage;
+import javax.faces.bean.ManagedBean;
+import javax.faces.context.FacesContext;
+
 @Stateless
 @LocalBean
 public class FindBean {
 
     @PersistenceContext(unitName = "naifg29PU-JTA")
     private EntityManager em;
-    
+
 //      ---------------------- Developments ------------------------
 
     public Developments artifactIdDevelopments(String search,EntityManager em) {
@@ -61,7 +65,6 @@ public class FindBean {
     }
 
     public Models artifactIdModels(String search,EntityManager em) {
-
         Models models = new Models();
         List<Models> results = em.createQuery("SELECT o FROM Models o WHERE o.artifactId LIKE :field").setParameter("field", search).getResultList();
 
@@ -70,7 +73,6 @@ public class FindBean {
         }
         return models;
     }
-
 
 //      ---------------------- Entities ------------------------
 
@@ -459,5 +461,21 @@ public class FindBean {
         }
         return attributesProperties;
     }
+
+    public ModelsGroups nameModelsGroups(String search,EntityManager em) {
+
+        ModelsGroups modelsGroups = new ModelsGroups();
+        List<ModelsGroups> results = em.createQuery("SELECT o FROM ModelsGroups o WHERE o.name LIKE :field").setParameter("field", search).getResultList();
+
+        if (!results.isEmpty()) {
+           modelsGroups = results.get(0);
+        }
+        else{
+           modelsGroups = null;
+        }
+        return modelsGroups;
+    }
+
+
 
 } // Fin de clase

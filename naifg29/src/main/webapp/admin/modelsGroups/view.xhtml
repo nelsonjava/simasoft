@@ -94,6 +94,13 @@
                         Muchos a Muchos Unidireccional No.6
 
                 </h:panelGrid>
+                
+		<h:outputLabel for="DevelopmentsAdd" value="Developments:"/>
+                   <h:form>
+                     <h:commandButton value="Add" action="#{ModelsGroupsGen.data(modelsGroupsBean.modelsGroups)}" />
+                   </h:form>
+		<h:outputText/>
+
 
                 <div class="buttons">
                         <h:link value="View All" outcome="search" styleClass="btn btn-primary"/>
