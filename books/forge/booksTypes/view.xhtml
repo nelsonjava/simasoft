@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:forgeview="http://jboss.org/forge/view"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="id" value='#{booksTypesBean.id}'/>
+		<f:event type="preRenderView" listener='#{booksTypesBean.retrieve}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="View Books Types"/>
+
+	<ui:define name="header">
+		Books Types
+	</ui:define>
+
+	<ui:define name="subheader">
+		View existing Books Types
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:panelGrid columnClasses="label,component,required" columns="3">
+			<h:outputLabel for="booksTypesBeanBooksTypesAlias" value="Alias:"/>
+			<h:outputText id="booksTypesBeanBooksTypesAlias" value="#{booksTypesBean.booksTypes.alias}"/>
+			<h:outputText/>
+			<h:outputLabel for="booksTypesBeanBooksTypesOrden" value="Orden:"/>
+			<h:outputText id="booksTypesBeanBooksTypesOrden" value="#{booksTypesBean.booksTypes.orden}"/>
+			<h:outputText/>
+			<h:outputLabel for="booksTypesBeanBooksTypesObservations" value="Observations:"/>
+			<h:inputTextarea id="booksTypesBeanBooksTypesObservations" value="#{booksTypesBean.booksTypes.observations}"/>
+			<h:outputText/>
+			<h:outputLabel for="booksTypesBeanBooksTypesName" value="Name:"/>
+			<h:outputText id="booksTypesBeanBooksTypesName" value="#{booksTypesBean.booksTypes.name}"/>
+			<h:outputText/>
+			<h:outputLabel for="booksTypesBeanBooksTypesObjHijos" value="Obj Hijos:"/>
+			<h:dataTable id="booksTypesBeanBooksTypesObjHijos" styleClass="data-table" value="#{forgeview:asList(booksTypesBean.booksTypes.objHijos)}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Name"/>
+					</f:facet>
+					<h:link outcome="/admin/booksTypes/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemName" value="#{_item.name}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<h:outputText/>
+			<h:outputLabel for="booksTypesBeanBooksTypesBooks" value="Books:"/>
+			<h:dataTable id="booksTypesBeanBooksTypesBooks" styleClass="data-table" value="#{forgeview:asList(booksTypesBean.booksTypes.books)}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Name"/>
+					</f:facet>
+					<h:link outcome="/admin/books/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemName" value="#{_item.name}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<h:outputText/>
+			<h:outputLabel for="booksTypesBeanBooksTypesObjPadre" value="Obj Padre:"/>
+			<h:link id="booksTypesBeanBooksTypesObjPadre" outcome="/admin/booksTypes/view" rendered="#{!empty booksTypesBean.booksTypes.objPadre}" value="#{booksTypesBean.booksTypes.objPadre}">
+				<f:param name="id" value="#{booksTypesBean.booksTypes.objPadre.id}"/>
+			</h:link>
+			<h:outputText/>
+		</h:panelGrid>
+
+		<div class="buttons">
+			<h:link value="View All" outcome="search" styleClass="btn btn-primary"/> 
+			<h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
+			<h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
+		</div>
+	</ui:define>
+
+</ui:composition>

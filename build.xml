@@ -42,6 +42,7 @@
     <delete dir="scopeCanvas/target" failonerror="no"/>
     <delete dir="jsf-fileupload/target" failonerror="no"/>
     <delete dir="networking/target" failonerror="no"/>
+    <delete dir="books/target" failonerror="no"/>
 
     <delete dir="naifgm/target" failonerror="no"/>
     <delete dir="naifg1/target" failonerror="no"/>

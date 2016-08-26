@@ -1,0 +1,199 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:forgeview="http://jboss.org/forge/view"
+        template="/resources/scaffold/pageTemplate.xhtml">
+
+        <f:metadata>
+                <f:viewParam name="id" value='#{booksBean.id}'/>
+                <f:event type="preRenderView" listener='#{booksBean.retrieve}'/>
+        </f:metadata>
+
+        <ui:param name="pageTitle" value="View Books"/>
+
+        <ui:define name="header">
+                Books
+        </ui:define>
+
+        <ui:define name="subheader">
+                View existing Books
+        </ui:define>
+
+        <ui:define name="footer"/>
+
+        <ui:define name="main">
+                <h:panelGrid columnClasses="label,component,required" columns="3">
+
+                        <h:outputLabel for="booksBeanBooksOrden" value="Orden:"/>
+                        <h:outputText id="booksBeanBooksOrden" value="#{booksBean.books.orden}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="booksBeanBooksCode" value="Code:"/>
+                        <h:outputText id="booksBeanBooksCode" value="#{booksBean.books.code}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="booksBeanBooksName" value="Name:"/>
+                        <h:outputText id="booksBeanBooksName" value="#{booksBean.books.name}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="booksBeanBooksObservations" value="Observations:"/>
+                        <h:outputText id="booksBeanBooksObservations" value="#{booksBean.books.observations}" escape="false" />
+                        <h:outputText/>
+
+                        <h:outputLabel for="BooksBeanBooksChapters" value="Chapters:"/>
+                        <h:dataTable id="booksBeanBookschapters" styleClass="data-table" value="#{forgeview:asList(booksBean.books.chapters)}" var="_item">
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Orden"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/chapters/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemOrden" value="#{_item.orden}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Code"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/chapters/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemCode" value="#{_item.code}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Name"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/chapters/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemName" value="#{_item.name}"/>
+                                              </h:link>
+                                           </h:column>
+
+                        </h:dataTable>
+                        <h:outputText/>
+
+                        <h:outputLabel for="booksBeanBooksSitesTypes" value="SitesTypes:"/>
+                        <h:dataTable id="booksBeanBookssitesTypes" styleClass="data-table" value="#{forgeview:asList(booksBean.books.sitesTypes)}" var="_item">
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Orden"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/sitesTypes/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemOrden" value="#{_item.orden}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Name"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/sitesTypes/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemName" value="#{_item.name}"/>
+                                              </h:link>
+                                           </h:column>
+
+                        </h:dataTable>
+                        <h:outputText/>
+
+                        <h:outputLabel for="booksBeanBooksSites" value="Sites:"/>
+                        <h:dataTable id="booksBeanBookssites" styleClass="data-table" value="#{forgeview:asList(booksBean.books.sites)}" var="_item">
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Orden"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/sites/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemOrden" value="#{_item.orden}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Title"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/sites/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemTitle" value="#{_item.title}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Link"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/sites/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemLink" value="#{_item.link}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Abc"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/sites/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemAbc" value="#{_item.abc}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="IpAddress1"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/sites/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemIpAddress1" value="#{_item.ipAddress1}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="IpAddress2"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/sites/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemIpAddress2" value="#{_item.ipAddress2}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="IpAddress3"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/sites/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemIpAddress3" value="#{_item.ipAddress3}"/>
+                                              </h:link>
+                                           </h:column>
+
+                        </h:dataTable>
+                        <h:outputText/>
+
+                        <h:outputLabel for="booksBeanBooksBooksTypes" value="BooksTypes:"/>
+                        <h:link id="booksBeanBooksBooksTypes" outcome="/admin/booksTypes/view" rendered="#{!empty booksBean.books.booksTypes}" value="#{booksBean.books.booksTypes.name}">
+                                 <f:param name="id" value="#{booksBean.books.booksTypes.id}"/>
+                        </h:link>
+                        <h:outputText/>
+
+                </h:panelGrid>
+
+                <div class="buttons">
+                        <h:link value="View All" outcome="search" styleClass="btn btn-primary"/>
+                        <h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
+                        <h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
+                </div>
+        </ui:define>
+</ui:composition>

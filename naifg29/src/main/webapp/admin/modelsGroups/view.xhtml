@@ -61,7 +61,7 @@
                                               <f:facet name="header">
                                                       <h:outputText value="GroupIds"/>
                                               </f:facet>
-                                              <h:link target="_blank" outcome="/admin/models/view">
+                                              <h:link outcome="/admin/models/view">
                                                       <f:param name="id" value="#{_item.id}"/>
                                                       <h:outputText id="itemGroupIds" value="#{_item.groupIds.artifactId}"/>
                                               </h:link>
@@ -94,7 +94,7 @@
                         Muchos a Muchos Unidireccional No.6
 
                 </h:panelGrid>
-                
+
 		<h:outputLabel for="DevelopmentsAdd" value="Developments:"/>
                    <h:form>
                      <h:commandButton value="Add" action="#{ModelsGroupsGen.data(modelsGroupsBean.modelsGroups)}" />
