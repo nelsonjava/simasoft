@@ -157,8 +157,6 @@ public class DevelopmentsGen extends FileTxt {
 
         for(String nameEntity : entitiesNames){
 
-
-
             Entities entity = findBean.nameEntities(nameEntity,em);
             Entidad entidad = new Entidad(entity.getName());
 
@@ -166,6 +164,8 @@ public class DevelopmentsGen extends FileTxt {
             log.info(texto);
             line(texto);
 
+            entidad.setOrden(Double.toString(entity.getOrden()));
+            entidad.setGroupIds(entity.getGroupIds().getArtifactId());
             entidad.setGroupId(entity.getGroupIds().getGroupId());
             entidad.setAtributos(AddAtributos(entity.getAttributes()));
             entidad.setRelations(AddRelations(entidad));

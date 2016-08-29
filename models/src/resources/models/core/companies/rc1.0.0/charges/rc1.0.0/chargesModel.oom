@@ -1328,7 +1328,7 @@ Multiplicity 0 Arial,8,N</a:FontList>
 <a:ModificationDate>1472441738</a:ModificationDate>
 <a:SourceTextOffset>(-1237, 362)</a:SourceTextOffset>
 <a:DestinationTextOffset>(188, -737)</a:DestinationTextOffset>
-<a:Rect>((-6601,32700), (-3831,35022))</a:Rect>
+<a:Rect>((-6824,31376), (-3831,36309))</a:Rect>
 <a:ListOfPoints>((-3831,32850),(-3831,35022),(-6601,35022),(-6601,32700),(-4227,32700))</a:ListOfPoints>
 <a:CornerStyle>1</a:CornerStyle>
 <a:ArrowStyle>0</a:ArrowStyle>
@@ -1401,7 +1401,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Code>ChargesTypes</a:Code>
 <a:CreationDate>1438446304</a:CreationDate>
 <a:Creator>admin</a:Creator>
-<a:ModificationDate>1472441697</a:ModificationDate>
+<a:ModificationDate>1472474723</a:ModificationDate>
 <a:Modifier>admin</a:Modifier>
 <a:UseParentNamespace>0</a:UseParentNamespace>
 </o:Class>
@@ -1411,7 +1411,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Code>Charges</a:Code>
 <a:CreationDate>1471393122</a:CreationDate>
 <a:Creator>admin</a:Creator>
-<a:ModificationDate>1472441709</a:ModificationDate>
+<a:ModificationDate>1472474723</a:ModificationDate>
 <a:Modifier>admin</a:Modifier>
 <a:UseParentNamespace>0</a:UseParentNamespace>
 </o:Class>
@@ -1420,10 +1420,10 @@ LABL 0 Arial,8,N</a:FontList>
 <o:Association Id="o9">
 <a:ObjectID>A85DA744-DE8A-4DE6-B1CF-2AA772AF62F3</a:ObjectID>
 <a:Name>Association_3</a:Name>
-<a:Code>association3</a:Code>
+<a:Code>2</a:Code>
 <a:CreationDate>1471393177</a:CreationDate>
 <a:Creator>admin</a:Creator>
-<a:ModificationDate>1471393194</a:ModificationDate>
+<a:ModificationDate>1472474723</a:ModificationDate>
 <a:Modifier>admin</a:Modifier>
 <a:RoleAMultiplicity>0..1</a:RoleAMultiplicity>
 <a:RoleBMultiplicity>0..*</a:RoleBMultiplicity>
@@ -1443,10 +1443,10 @@ LABL 0 Arial,8,N</a:FontList>
 <o:Association Id="o11">
 <a:ObjectID>CA0C4B80-2A5D-41FE-9AE9-860102CC5357</a:ObjectID>
 <a:Name>Association_2</a:Name>
-<a:Code>association2</a:Code>
+<a:Code>1</a:Code>
 <a:CreationDate>1472441380</a:CreationDate>
 <a:Creator>admin</a:Creator>
-<a:ModificationDate>1472441414</a:ModificationDate>
+<a:ModificationDate>1472474715</a:ModificationDate>
 <a:Modifier>admin</a:Modifier>
 <a:RoleAMultiplicity>0..1</a:RoleAMultiplicity>
 <a:RoleBMultiplicity>0..*</a:RoleBMultiplicity>

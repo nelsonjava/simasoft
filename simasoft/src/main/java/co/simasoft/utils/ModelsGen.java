@@ -422,6 +422,9 @@ saveFile("\\docs", "ModelsGen.txt");
         H2SimpleAuthenticator h2SimpleAuthenticator = new H2SimpleAuthenticator();
         Utils.fileMake(pathDocs+".h2.war."+artifactId+".src.main.java."+groupId+".authentication","SimpleAuthenticator.java", h2SimpleAuthenticator);
 
+        H2PageTemplate h2PageTemplate = new H2PageTemplate(artifactId,entities);
+        Utils.fileMake(pathDocs+".h2.war."+artifactId+".admin","pageTemplate.xhtml", h2PageTemplate);
+
         Utils.fileJar("webH2/webapp/resources","add.png",pathDocs+"\\h2\\war\\"+artifactId+"\\src\\main\\webapp\\resources\\",fileJar);
         Utils.fileJar("webH2/webapp/resources","bootstrap.css",pathDocs+"\\h2\\war\\"+artifactId+"\\src\\main\\webapp\\resources\\",fileJar);
         Utils.fileJar("webH2/webapp/resources","false.png",pathDocs+"\\h2\\war\\"+artifactId+"\\src\\main\\webapp\\resources\\",fileJar);

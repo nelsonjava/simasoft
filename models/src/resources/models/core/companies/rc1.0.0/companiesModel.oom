@@ -1576,7 +1576,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Code>Companies</a:Code>
 <a:CreationDate>1438446304</a:CreationDate>
 <a:Creator>admin</a:Creator>
-<a:ModificationDate>1471393194</a:ModificationDate>
+<a:ModificationDate>1472474592</a:ModificationDate>
 <a:Modifier>admin</a:Modifier>
 <a:UseParentNamespace>0</a:UseParentNamespace>
 </o:Class>
@@ -1586,7 +1586,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Code>Brands</a:Code>
 <a:CreationDate>1438446336</a:CreationDate>
 <a:Creator>admin</a:Creator>
-<a:ModificationDate>1438446385</a:ModificationDate>
+<a:ModificationDate>1472474581</a:ModificationDate>
 <a:Modifier>admin</a:Modifier>
 <a:UseParentNamespace>0</a:UseParentNamespace>
 </o:Class>
@@ -1596,7 +1596,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Code>Employees</a:Code>
 <a:CreationDate>1471393122</a:CreationDate>
 <a:Creator>admin</a:Creator>
-<a:ModificationDate>1472442329</a:ModificationDate>
+<a:ModificationDate>1472474617</a:ModificationDate>
 <a:Modifier>admin</a:Modifier>
 <a:UseParentNamespace>0</a:UseParentNamespace>
 </o:Class>
@@ -1606,7 +1606,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Code>EmployeesTypes</a:Code>
 <a:CreationDate>1471393348</a:CreationDate>
 <a:Creator>admin</a:Creator>
-<a:ModificationDate>1471393437</a:ModificationDate>
+<a:ModificationDate>1472474617</a:ModificationDate>
 <a:Modifier>admin</a:Modifier>
 <a:UseParentNamespace>0</a:UseParentNamespace>
 </o:Class>
@@ -1616,7 +1616,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Code>Charges</a:Code>
 <a:CreationDate>1471394131</a:CreationDate>
 <a:Creator>admin</a:Creator>
-<a:ModificationDate>1472442695</a:ModificationDate>
+<a:ModificationDate>1472474628</a:ModificationDate>
 <a:Modifier>admin</a:Modifier>
 <a:UseParentNamespace>0</a:UseParentNamespace>
 </o:Class>
@@ -1626,7 +1626,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Code>CompaniesRoles</a:Code>
 <a:CreationDate>1472442490</a:CreationDate>
 <a:Creator>admin</a:Creator>
-<a:ModificationDate>1472442695</a:ModificationDate>
+<a:ModificationDate>1472474628</a:ModificationDate>
 <a:Modifier>admin</a:Modifier>
 <a:UseParentNamespace>0</a:UseParentNamespace>
 </o:Class>
@@ -1635,10 +1635,10 @@ LABL 0 Arial,8,N</a:FontList>
 <o:Association Id="o9">
 <a:ObjectID>44DB44A1-0C71-48B0-A574-58DD3B1FE24E</a:ObjectID>
 <a:Name>Association_1</a:Name>
-<a:Code>association1</a:Code>
+<a:Code>2</a:Code>
 <a:CreationDate>1438446372</a:CreationDate>
 <a:Creator>admin</a:Creator>
-<a:ModificationDate>1438446385</a:ModificationDate>
+<a:ModificationDate>1472474581</a:ModificationDate>
 <a:Modifier>admin</a:Modifier>
 <a:RoleAMultiplicity>0..1</a:RoleAMultiplicity>
 <a:RoleBMultiplicity>0..*</a:RoleBMultiplicity>
@@ -1658,10 +1658,10 @@ LABL 0 Arial,8,N</a:FontList>
 <o:Association Id="o11">
 <a:ObjectID>29CB0601-10E0-4BD3-98EE-84D12444DFD7</a:ObjectID>
 <a:Name>Association_2</a:Name>
-<a:Code>association2</a:Code>
+<a:Code>1</a:Code>
 <a:CreationDate>1438446443</a:CreationDate>
 <a:Creator>admin</a:Creator>
-<a:ModificationDate>1438446480</a:ModificationDate>
+<a:ModificationDate>1472474572</a:ModificationDate>
 <a:Modifier>admin</a:Modifier>
 <a:RoleAMultiplicity>0..1</a:RoleAMultiplicity>
 <a:RoleBMultiplicity>0..*</a:RoleBMultiplicity>
@@ -1681,10 +1681,10 @@ LABL 0 Arial,8,N</a:FontList>
 <o:Association Id="o14">
 <a:ObjectID>A85DA744-DE8A-4DE6-B1CF-2AA772AF62F3</a:ObjectID>
 <a:Name>Association_3</a:Name>
-<a:Code>association3</a:Code>
+<a:Code>3</a:Code>
 <a:CreationDate>1471393177</a:CreationDate>
 <a:Creator>admin</a:Creator>
-<a:ModificationDate>1471393194</a:ModificationDate>
+<a:ModificationDate>1472474592</a:ModificationDate>
 <a:Modifier>admin</a:Modifier>
 <a:RoleAMultiplicity>0..1</a:RoleAMultiplicity>
 <a:RoleBMultiplicity>0..*</a:RoleBMultiplicity>
@@ -1704,10 +1704,10 @@ LABL 0 Arial,8,N</a:FontList>
 <o:Association Id="o17">
 <a:ObjectID>619A7441-DEDA-4EA4-84B2-CB68CE4350E6</a:ObjectID>
 <a:Name>Association_4</a:Name>
-<a:Code>association4</a:Code>
+<a:Code>5</a:Code>
 <a:CreationDate>1471393418</a:CreationDate>
 <a:Creator>admin</a:Creator>
-<a:ModificationDate>1471393437</a:ModificationDate>
+<a:ModificationDate>1472474617</a:ModificationDate>
 <a:Modifier>admin</a:Modifier>
 <a:RoleAMultiplicity>0..1</a:RoleAMultiplicity>
 <a:RoleBMultiplicity>0..*</a:RoleBMultiplicity>
@@ -1727,10 +1727,10 @@ LABL 0 Arial,8,N</a:FontList>
 <o:Association Id="o20">
 <a:ObjectID>6A5C75A1-4D4C-49A4-B886-A56376EF0B45</a:ObjectID>
 <a:Name>Association_5</a:Name>
-<a:Code>association5</a:Code>
+<a:Code>4</a:Code>
 <a:CreationDate>1471397018</a:CreationDate>
 <a:Creator>admin</a:Creator>
-<a:ModificationDate>1472442329</a:ModificationDate>
+<a:ModificationDate>1472474608</a:ModificationDate>
 <a:Modifier>admin</a:Modifier>
 <a:RoleAName>from</a:RoleAName>
 <a:RoleBName>to</a:RoleBName>
@@ -1752,10 +1752,10 @@ LABL 0 Arial,8,N</a:FontList>
 <o:Association Id="o23">
 <a:ObjectID>0EDFDD78-FD22-4FEE-A2B5-80AE5C7199E0</a:ObjectID>
 <a:Name>Association_6</a:Name>
-<a:Code>association6</a:Code>
+<a:Code>6</a:Code>
 <a:CreationDate>1472442660</a:CreationDate>
 <a:Creator>admin</a:Creator>
-<a:ModificationDate>1472442695</a:ModificationDate>
+<a:ModificationDate>1472474628</a:ModificationDate>
 <a:Modifier>admin</a:Modifier>
 <a:RoleAName>from</a:RoleAName>
 <a:RoleBName>to</a:RoleBName>

@@ -5,7 +5,7 @@ import co.simasoft.utils.*;
 import java.io.*;
 import java.util.*;
 
-public class Entidad {
+public class Entidad implements Comparable<Entidad> {
 
     private String groupIds = "";
     private String groupId = "";
@@ -133,6 +133,16 @@ public class Entidad {
       }
 
       return true;
+    }
+
+    @Override
+    public int compareTo(Entidad o) {
+
+        String a=new String(this.getGroupIds()+this.getOrden());
+        String b=new String(o.getGroupIds()+o.getOrden());
+
+        return a.compareTo(b);
+
     }
 
     public String attributeView(String attri,String type){

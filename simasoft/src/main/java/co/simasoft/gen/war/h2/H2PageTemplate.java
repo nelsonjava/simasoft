@@ -49,6 +49,9 @@ line("      <h:link id=\"homeLink\" outcome=\"/index.xhtml\">");
 line("        <img src='#{resource[\"forge-logo.png\"]}' alt=\"Forge... get hammered\" border=\"0\" />");
 line("      </h:link>");
 line("      <ul>");
+
+
+        Collections.sort(entidades);
         for(Entidad entidad : entidades) {
 line("        <li><h:link outcome=\"/admin/"+Utils._1raMin(entidad.getName())+"/search\" value=\""+entidad.getName()+"\"/></li>");
         }
