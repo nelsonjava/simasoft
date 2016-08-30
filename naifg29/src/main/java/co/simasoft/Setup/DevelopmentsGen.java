@@ -164,7 +164,7 @@ public class DevelopmentsGen extends FileTxt {
             log.info(texto);
             line(texto);
 
-            entidad.setOrden(Double.toString(entity.getOrden()));
+            entidad.setOrden(Double.toString(entity.getGroupIds().getOrden()+(entity.getOrden()/100)));
             entidad.setGroupIds(entity.getGroupIds().getArtifactId());
             entidad.setGroupId(entity.getGroupIds().getGroupId());
             entidad.setAtributos(AddAtributos(entity.getAttributes()));
