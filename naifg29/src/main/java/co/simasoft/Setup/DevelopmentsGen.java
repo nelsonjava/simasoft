@@ -35,6 +35,7 @@ public class DevelopmentsGen extends FileTxt {
 
     Set<String> entitiesNames = new HashSet<String>();
     ArrayList<Entidad> entidades = new ArrayList<Entidad>(0);
+    Set<String> groupIdsArtifactId = new HashSet<String>();
 
     ArrayList<Relationships> relationships = new ArrayList<Relationships>(0);
 
@@ -74,6 +75,7 @@ public class DevelopmentsGen extends FileTxt {
         modelsGen.setImports(imports);
         modelsGen.setPackages(packages);
         modelsGen.setEntities(entidades);
+        modelsGen.setGroupIdsArtifactId(groupIdsArtifactId);
         modelsGen.WarH2();
         modelsGen.jdocbook();
         modelsGen.ForgeWarH2();
@@ -171,6 +173,8 @@ public class DevelopmentsGen extends FileTxt {
             entidad.setRelations(AddRelations(entidad));
 
             entidades.add(entidad);
+
+            groupIdsArtifactId.add(entity.getGroupIds().getArtifactId());
 
             imports.add("import "+entity.getGroupIds().getGroupId()+".*;");
 

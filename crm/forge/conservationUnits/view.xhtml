@@ -1,0 +1,109 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:forgeview="http://jboss.org/forge/view"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="id" value='#{conservationUnitsBean.id}'/>
+		<f:event type="preRenderView" listener='#{conservationUnitsBean.retrieve}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="View Conservation Units"/>
+
+	<ui:define name="header">
+		Conservation Units
+	</ui:define>
+
+	<ui:define name="subheader">
+		View existing Conservation Units
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:panelGrid columnClasses="label,component,required" columns="3">
+			<h:outputLabel for="conservationUnitsBeanConservationUnitsAlias" value="Alias:"/>
+			<h:outputText id="conservationUnitsBeanConservationUnitsAlias" value="#{conservationUnitsBean.conservationUnits.alias}"/>
+			<h:outputText/>
+			<h:outputLabel for="conservationUnitsBeanConservationUnitsOrden" value="Orden:"/>
+			<h:outputText id="conservationUnitsBeanConservationUnitsOrden" value="#{conservationUnitsBean.conservationUnits.orden}"/>
+			<h:outputText/>
+			<h:outputLabel for="conservationUnitsBeanConservationUnitsObservations" value="Observations:"/>
+			<h:inputTextarea id="conservationUnitsBeanConservationUnitsObservations" value="#{conservationUnitsBean.conservationUnits.observations}"/>
+			<h:outputText/>
+			<h:outputLabel for="conservationUnitsBeanConservationUnitsName" value="Name:"/>
+			<h:outputText id="conservationUnitsBeanConservationUnitsName" value="#{conservationUnitsBean.conservationUnits.name}"/>
+			<h:outputText/>
+			<h:outputLabel for="conservationUnitsBeanConservationUnitsCode" value="Code:"/>
+			<h:outputText id="conservationUnitsBeanConservationUnitsCode" value="#{conservationUnitsBean.conservationUnits.code}"/>
+			<h:outputText/>
+			<h:outputLabel for="conservationUnitsBeanConservationUnitsOriginalOrders" value="Original Orders:"/>
+			<h:dataTable id="conservationUnitsBeanConservationUnitsOriginalOrders" styleClass="data-table" value="#{forgeview:asList(conservationUnitsBean.conservationUnits.originalOrders)}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Alias"/>
+					</f:facet>
+					<h:link outcome="/admin/originalOrders/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemAlias" value="#{_item.alias}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Orden"/>
+					</f:facet>
+					<h:link outcome="/admin/originalOrders/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemOrden" value="#{_item.orden}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Observations"/>
+					</f:facet>
+					<h:link outcome="/admin/originalOrders/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:inputTextarea id="_itemObservations" value="#{_item.observations}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Code"/>
+					</f:facet>
+					<h:link outcome="/admin/originalOrders/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemCode" value="#{_item.code}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Entry Date"/>
+					</f:facet>
+					<h:link outcome="/admin/originalOrders/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemEntryDate" value="#{_item.entryDate}">
+							<f:convertDateTime type="date"/>
+						</h:outputText>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<h:outputText/>
+			<h:outputLabel for="conservationUnitsBeanConservationUnitsConservationUnitsTypes" value="Conservation Units Types:"/>
+			<h:link id="conservationUnitsBeanConservationUnitsConservationUnitsTypes" outcome="/admin/conservationUnitsTypes/view" rendered="#{!empty conservationUnitsBean.conservationUnits.conservationUnitsTypes}" value="#{conservationUnitsBean.conservationUnits.conservationUnitsTypes}">
+				<f:param name="id" value="#{conservationUnitsBean.conservationUnits.conservationUnitsTypes.id}"/>
+			</h:link>
+			<h:outputText/>
+		</h:panelGrid>
+
+		<div class="buttons">
+			<h:link value="View All" outcome="search" styleClass="btn btn-primary"/> 
+			<h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
+			<h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
+		</div>
+	</ui:define>
+
+</ui:composition>

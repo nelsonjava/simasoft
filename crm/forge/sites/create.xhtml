@@ -1,0 +1,379 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:forgeview="http://jboss.org/forge/view"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="id" value='#{sitesBean.id}'/>
+		<f:event type="preRenderView" listener='#{sitesBean.retrieve}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="Create Sites"/>
+
+	<ui:define name="header">
+		Sites
+	</ui:define>
+
+	<ui:define name="subheader">
+		<c:choose>
+			<c:when test='#{!empty sitesBean.id}'>
+				Edit existing Sites
+			</c:when>
+			<c:otherwise>
+				Create a new Sites
+			</c:otherwise>
+		</c:choose>
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:form id="create">
+			<h:messages globalOnly="true" styleClass="error"/>
+
+			<h:panelGrid columnClasses="label,component,required" columns="3">
+				<h:outputLabel for="sitesBeanSitesAlias" value="Alias:"/>
+				<h:panelGroup>
+					<h:inputText id="sitesBeanSitesAlias" value="#{sitesBean.sites.alias}"/>
+					<h:message for="sitesBeanSitesAlias" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="sitesBeanSitesOrden" value="Orden:"/>
+				<h:panelGroup>
+					<h:inputText id="sitesBeanSitesOrden" value="#{sitesBean.sites.orden}"/>
+					<h:message for="sitesBeanSitesOrden" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="sitesBeanSitesObservations" value="Observations:"/>
+				<h:panelGroup>
+					<h:inputTextarea id="sitesBeanSitesObservations" value="#{sitesBean.sites.observations}"/>
+					<h:message for="sitesBeanSitesObservations" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="sitesBeanSitesTitle" value="Title:"/>
+				<h:panelGroup>
+					<h:inputText id="sitesBeanSitesTitle" value="#{sitesBean.sites.title}"/>
+					<h:message for="sitesBeanSitesTitle" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="sitesBeanSitesLink" value="Link:"/>
+				<h:panelGroup>
+					<h:inputText id="sitesBeanSitesLink" required="true" value="#{sitesBean.sites.link}"/>
+					<h:message for="sitesBeanSitesLink" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText value="*"/>
+				<h:outputLabel for="sitesBeanSitesAbc" value="Abc:"/>
+				<h:panelGroup>
+					<h:inputText id="sitesBeanSitesAbc" value="#{sitesBean.sites.abc}"/>
+					<h:message for="sitesBeanSitesAbc" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="sitesBeanSitesIpAddress1" value="Ip Address 1:"/>
+				<h:panelGroup>
+					<h:inputText id="sitesBeanSitesIpAddress1" value="#{sitesBean.sites.ipAddress1}"/>
+					<h:message for="sitesBeanSitesIpAddress1" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="sitesBeanSitesIpAddress2" value="Ip Address 2:"/>
+				<h:panelGroup>
+					<h:inputText id="sitesBeanSitesIpAddress2" value="#{sitesBean.sites.ipAddress2}"/>
+					<h:message for="sitesBeanSitesIpAddress2" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="sitesBeanSitesIpAddress3" value="Ip Address 3:"/>
+				<h:panelGroup>
+					<h:inputText id="sitesBeanSitesIpAddress3" value="#{sitesBean.sites.ipAddress3}"/>
+					<h:message for="sitesBeanSitesIpAddress3" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="sitesBeanSitesSitesTypes" value="Sites Types:"/>
+				<h:panelGroup>
+					<ui:param name="_collection" value="#{sitesBean.sites.sitesTypes}"/>
+					<h:dataTable id="sitesBeanSitesSitesTypes" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Name"/>
+							</f:facet>
+							<h:link outcome="/admin/sitesTypes/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="_itemName" value="#{_item.name}"/>
+							</h:link>
+						</h:column>
+						<h:column footerClass="remove-column" headerClass="remove-column">
+							<h:commandLink action="#{_collection.remove(_item)}" styleClass="remove-button"/>
+						</h:column>
+					</h:dataTable>
+					<h:panelGrid columnClasses=",remove-column" columns="2" styleClass="data-table-footer">
+						<h:selectOneMenu converter="#{sitesTypesBean.converter}" id="sitesBeanSitesSitesTypesSelect" value="#{requestScope['sitesBeanSitesSitesTypesSelect']}">
+							<f:selectItem/>
+							<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{sitesTypesBean.all}" var="_item"/>
+						</h:selectOneMenu>
+						<h:commandLink action="#{_collection.add(requestScope['sitesBeanSitesSitesTypesSelect'])}" id="sitesBeanSitesSitesTypesAdd" onclick="if (document.getElementById(document.forms[0].id+':sitesBeanSitesSitesTypesSelect').selectedIndex &lt; 1) { alert('Must select a Sites Types'); return false; }" styleClass="add-button"/>
+					</h:panelGrid>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="sitesBeanSitesTasks" value="Tasks:"/>
+				<h:panelGroup>
+					<ui:param name="_collection" value="#{sitesBean.sites.tasks}"/>
+					<h:dataTable id="sitesBeanSitesTasks" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Name"/>
+							</f:facet>
+							<h:link outcome="/admin/tasks/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="_itemName" value="#{_item.name}"/>
+							</h:link>
+						</h:column>
+						<h:column footerClass="remove-column" headerClass="remove-column">
+							<h:commandLink action="#{_collection.remove(_item)}" styleClass="remove-button"/>
+						</h:column>
+					</h:dataTable>
+					<h:panelGrid columnClasses=",remove-column" columns="2" styleClass="data-table-footer">
+						<h:selectOneMenu converter="#{tasksBean.converter}" id="sitesBeanSitesTasksSelect" value="#{requestScope['sitesBeanSitesTasksSelect']}">
+							<f:selectItem/>
+							<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{tasksBean.all}" var="_item"/>
+						</h:selectOneMenu>
+						<h:commandLink action="#{_collection.add(requestScope['sitesBeanSitesTasksSelect'])}" id="sitesBeanSitesTasksAdd" onclick="if (document.getElementById(document.forms[0].id+':sitesBeanSitesTasksSelect').selectedIndex &lt; 1) { alert('Must select a Tasks'); return false; }" styleClass="add-button"/>
+					</h:panelGrid>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="sitesBeanSitesDiaries" value="Diaries:"/>
+				<h:panelGroup>
+					<ui:param name="_collection" value="#{sitesBean.sites.diaries}"/>
+					<h:dataTable id="sitesBeanSitesDiaries" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Alias"/>
+							</f:facet>
+							<h:link outcome="/admin/diaries/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="_itemAlias" value="#{_item.alias}"/>
+							</h:link>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Orden"/>
+							</f:facet>
+							<h:link outcome="/admin/diaries/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="_itemOrden" value="#{_item.orden}"/>
+							</h:link>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Observations"/>
+							</f:facet>
+							<h:link outcome="/admin/diaries/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:inputTextarea id="_itemObservations" value="#{_item.observations}"/>
+							</h:link>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Name"/>
+							</f:facet>
+							<h:link outcome="/admin/diaries/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="_itemName" value="#{_item.name}"/>
+							</h:link>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Date"/>
+							</f:facet>
+							<h:link outcome="/admin/diaries/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="_itemDate" value="#{_item.date}">
+									<f:convertDateTime type="date"/>
+								</h:outputText>
+							</h:link>
+						</h:column>
+						<h:column footerClass="remove-column" headerClass="remove-column">
+							<h:commandLink action="#{_collection.remove(_item)}" styleClass="remove-button"/>
+						</h:column>
+					</h:dataTable>
+					<h:panelGrid columnClasses=",remove-column" columns="2" styleClass="data-table-footer">
+						<h:selectOneMenu converter="#{diariesBean.converter}" id="sitesBeanSitesDiariesSelect" value="#{requestScope['sitesBeanSitesDiariesSelect']}">
+							<f:selectItem/>
+							<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{diariesBean.all}" var="_item"/>
+						</h:selectOneMenu>
+						<h:commandLink action="#{_collection.add(requestScope['sitesBeanSitesDiariesSelect'])}" id="sitesBeanSitesDiariesAdd" onclick="if (document.getElementById(document.forms[0].id+':sitesBeanSitesDiariesSelect').selectedIndex &lt; 1) { alert('Must select a Diaries'); return false; }" styleClass="add-button"/>
+					</h:panelGrid>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="sitesBeanSitesActivities" value="Activities:"/>
+				<h:panelGroup>
+					<ui:param name="_collection" value="#{sitesBean.sites.activities}"/>
+					<h:dataTable id="sitesBeanSitesActivities" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Name"/>
+							</f:facet>
+							<h:link outcome="/admin/activities/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="_itemName" value="#{_item.name}"/>
+							</h:link>
+						</h:column>
+						<h:column footerClass="remove-column" headerClass="remove-column">
+							<h:commandLink action="#{_collection.remove(_item)}" styleClass="remove-button"/>
+						</h:column>
+					</h:dataTable>
+					<h:panelGrid columnClasses=",remove-column" columns="2" styleClass="data-table-footer">
+						<h:selectOneMenu converter="#{activitiesBean.converter}" id="sitesBeanSitesActivitiesSelect" value="#{requestScope['sitesBeanSitesActivitiesSelect']}">
+							<f:selectItem/>
+							<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{activitiesBean.all}" var="_item"/>
+						</h:selectOneMenu>
+						<h:commandLink action="#{_collection.add(requestScope['sitesBeanSitesActivitiesSelect'])}" id="sitesBeanSitesActivitiesAdd" onclick="if (document.getElementById(document.forms[0].id+':sitesBeanSitesActivitiesSelect').selectedIndex &lt; 1) { alert('Must select a Activities'); return false; }" styleClass="add-button"/>
+					</h:panelGrid>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="sitesBeanSitesCompanies" value="Companies:"/>
+				<h:panelGroup>
+					<ui:param name="_collection" value="#{sitesBean.sites.companies}"/>
+					<h:dataTable id="sitesBeanSitesCompanies" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Alias"/>
+							</f:facet>
+							<h:link outcome="/admin/companies/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="_itemAlias" value="#{_item.alias}"/>
+							</h:link>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Orden"/>
+							</f:facet>
+							<h:link outcome="/admin/companies/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="_itemOrden" value="#{_item.orden}"/>
+							</h:link>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Observations"/>
+							</f:facet>
+							<h:link outcome="/admin/companies/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:inputTextarea id="_itemObservations" value="#{_item.observations}"/>
+							</h:link>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Name"/>
+							</f:facet>
+							<h:link outcome="/admin/companies/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="_itemName" value="#{_item.name}"/>
+							</h:link>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Obj Padre"/>
+							</f:facet>
+							<h:link outcome="/admin/companies/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="forgeview:display(_itemObjPadre)" value="#{forgeview:display(_item.objPadre)}"/>
+							</h:link>
+						</h:column>
+						<h:column footerClass="remove-column" headerClass="remove-column">
+							<h:commandLink action="#{_collection.remove(_item)}" styleClass="remove-button"/>
+						</h:column>
+					</h:dataTable>
+					<h:panelGrid columnClasses=",remove-column" columns="2" styleClass="data-table-footer">
+						<h:selectOneMenu converter="#{companiesBean.converter}" id="sitesBeanSitesCompaniesSelect" value="#{requestScope['sitesBeanSitesCompaniesSelect']}">
+							<f:selectItem/>
+							<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{companiesBean.all}" var="_item"/>
+						</h:selectOneMenu>
+						<h:commandLink action="#{_collection.add(requestScope['sitesBeanSitesCompaniesSelect'])}" id="sitesBeanSitesCompaniesAdd" onclick="if (document.getElementById(document.forms[0].id+':sitesBeanSitesCompaniesSelect').selectedIndex &lt; 1) { alert('Must select a Companies'); return false; }" styleClass="add-button"/>
+					</h:panelGrid>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="sitesBeanSitesBrands" value="Brands:"/>
+				<h:panelGroup>
+					<ui:param name="_collection" value="#{sitesBean.sites.brands}"/>
+					<h:dataTable id="sitesBeanSitesBrands" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Alias"/>
+							</f:facet>
+							<h:link outcome="/admin/brands/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="_itemAlias" value="#{_item.alias}"/>
+							</h:link>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Orden"/>
+							</f:facet>
+							<h:link outcome="/admin/brands/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="_itemOrden" value="#{_item.orden}"/>
+							</h:link>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Observations"/>
+							</f:facet>
+							<h:link outcome="/admin/brands/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:inputTextarea id="_itemObservations" value="#{_item.observations}"/>
+							</h:link>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Name"/>
+							</f:facet>
+							<h:link outcome="/admin/brands/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="_itemName" value="#{_item.name}"/>
+							</h:link>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Companies"/>
+							</f:facet>
+							<h:link outcome="/admin/brands/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="forgeview:display(_itemCompanies)" value="#{forgeview:display(_item.companies)}"/>
+							</h:link>
+						</h:column>
+						<h:column footerClass="remove-column" headerClass="remove-column">
+							<h:commandLink action="#{_collection.remove(_item)}" styleClass="remove-button"/>
+						</h:column>
+					</h:dataTable>
+					<h:panelGrid columnClasses=",remove-column" columns="2" styleClass="data-table-footer">
+						<h:selectOneMenu converter="#{brandsBean.converter}" id="sitesBeanSitesBrandsSelect" value="#{requestScope['sitesBeanSitesBrandsSelect']}">
+							<f:selectItem/>
+							<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{brandsBean.all}" var="_item"/>
+						</h:selectOneMenu>
+						<h:commandLink action="#{_collection.add(requestScope['sitesBeanSitesBrandsSelect'])}" id="sitesBeanSitesBrandsAdd" onclick="if (document.getElementById(document.forms[0].id+':sitesBeanSitesBrandsSelect').selectedIndex &lt; 1) { alert('Must select a Brands'); return false; }" styleClass="add-button"/>
+					</h:panelGrid>
+				</h:panelGroup>
+				<h:outputText/>
+			</h:panelGrid>
+
+			<div class="buttons">
+				<h:commandLink value="Save" action='#{sitesBean.update}' styleClass="btn btn-primary"/>
+				<c:choose>
+					<c:when test='#{!empty sitesBean.id}'>
+						<h:link value="Cancel" outcome="view" styleClass="btn btn-primary">
+							<f:param name="id" value='#{sitesBean.id}'/>
+						</h:link>
+						<h:commandLink value="Delete" action='#{sitesBean.delete}' styleClass="btn btn-primary"/>
+					</c:when>
+					<c:otherwise>
+						<h:link value="Cancel" outcome="search" styleClass="btn btn-primary"/>
+					</c:otherwise>
+				</c:choose>
+			</div>
+		</h:form>
+	</ui:define>
+
+</ui:composition>

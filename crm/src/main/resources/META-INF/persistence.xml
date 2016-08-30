@@ -1,0 +1,75 @@
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
+             http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+             version="2.0">
+
+  <!-- Use this for H2 -->
+  <persistence-unit name="crmPU-JTA" transaction-type="JTA">
+
+    <provider>org.hibernate.ejb.HibernatePersistence</provider>
+
+    <class>co.simasoft.models.FundsLife</class>
+    <class>co.simasoft.models.Funds</class>
+    <class>co.simasoft.models.SectionsTypes</class>
+    <class>co.simasoft.models.Sections</class>
+    <class>co.simasoft.models.Series</class>
+    <class>co.simasoft.models.TrdSeries</class>
+    <class>co.simasoft.models.Trd</class>
+    <class>co.simasoft.models.FinalDisposition</class>
+    <class>co.simasoft.models.DocumentalRetention</class>
+    <class>co.simasoft.models.FrequentlyQuery</class>
+    <class>co.simasoft.models.DocumentalsUnits</class>
+    <class>co.simasoft.models.ConservationUnits</class>
+    <class>co.simasoft.models.VersionsControls</class>
+    <class>co.simasoft.models.DocumentalInventory</class>
+    <class>co.simasoft.models.OriginalOrders</class>
+    <class>co.simasoft.models.DocumentalsUnitsTypes</class>
+    <class>co.simasoft.models.Access</class>
+    <class>co.simasoft.models.Organizeds</class>
+    <class>co.simasoft.models.InventoryFinality</class>
+    <class>co.simasoft.models.DocumentalsSupports</class>
+    <class>co.simasoft.models.ConservationUnitsTypes</class>
+    <class>co.simasoft.models.BooksTypes</class>
+    <class>co.simasoft.models.Books</class>
+    <class>co.simasoft.models.Chapters</class>
+    <class>co.simasoft.models.Brands</class>
+    <class>co.simasoft.models.Companies</class>
+    <class>co.simasoft.models.EmployeesTypes</class>
+    <class>co.simasoft.models.Employees</class>
+    <class>co.simasoft.models.CompaniesRolesTypes</class>
+    <class>co.simasoft.models.CompaniesRoles</class>
+    <class>co.simasoft.models.ChargesTypes</class>
+    <class>co.simasoft.models.Charges</class>
+    <class>co.simasoft.models.ImprovementTypes</class>
+    <class>co.simasoft.models.ImprovementSources</class>
+    <class>co.simasoft.models.ContinualImprovements</class>
+    <class>co.simasoft.models.ActionPlans</class>
+    <class>co.simasoft.models.ImprovementVerifications</class>
+    <class>co.simasoft.models.ImprovementClosures</class>
+    <class>co.simasoft.models.ClosingActivities</class>
+    <class>co.simasoft.models.Persons</class>
+    <class>co.simasoft.models.SitesTypes</class>
+    <class>co.simasoft.models.Sites</class>
+    <class>co.simasoft.models.ActivitiesTypes</class>
+    <class>co.simasoft.models.Activities</class>
+    <class>co.simasoft.models.Calendars</class>
+    <class>co.simasoft.models.Tasks</class>
+    <class>co.simasoft.models.Priorities</class>
+    <class>co.simasoft.models.Diaries</class>
+
+    <exclude-unlisted-classes>true</exclude-unlisted-classes>
+    <jta-data-source>java:jboss/datasources/crmDS</jta-data-source>
+    <properties>
+      <!-- <property name="javax.persistence.jdbc.url"      value="jdbc:h2:/db/crm/data"/>  -->
+      <!-- <property name="javax.persistence.jdbc.user"     value="sa"/>  -->
+      <!-- <property name="javax.persistence.jdbc.password" value=""/>  -->
+      <property name="hibernate.connection.driver_class"    value="org.h2.Driver"/>
+      <property name="hibernate.dialect"                    value="org.hibernate.dialect.H2Dialect"/>
+      <property name="hibernate.hbm2ddl.auto"               value="update" />
+      <property name="hibernate.show_sql"                   value="true" />
+      <property name="hibernate.format_sql"                 value="true"/>
+    </properties>
+  </persistence-unit>
+
+</persistence>

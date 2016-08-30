@@ -8,7 +8,11 @@ import co.simasoft.gen.jpa.*;
 
 public class H2PageTemplate extends FileTxt {
 
-  public H2PageTemplate(String artifactId,ArrayList<Entidad> entidades) {
+  private ArrayList<Entidad> entities = new ArrayList<Entidad>(0);
+
+  public H2PageTemplate(String artifactId,ArrayList<Entidad> entidades,Set<String> groupIdsArtifactId,String groupIds) {
+
+
 
 line("<!DOCTYPE html>\n");
 
@@ -50,11 +54,27 @@ line("        <img src='#{resource[\"forge-logo.png\"]}' alt=\"Forge... get hamm
 line("      </h:link>");
 line("      <ul>");
 
+        if (groupIdsArtifactId == null){
 
-        Collections.sort(entidades);
-        for(Entidad entidad : entidades) {
+            Collections.sort(entidades);
+
+            for(Entidad entidad : entidades) {
+                if (groupIds.equals(entidad.getGroupIds())){
+                    entities.add(entidad);
+                }
+            }
+
+            for(Entidad entidad : entities) {
 line("        <li><h:link outcome=\"/admin/"+Utils._1raMin(entidad.getName())+"/search\" value=\""+entidad.getName()+"\"/></li>");
+            }
         }
+        else{
+            for(String groupId : groupIdsArtifactId) {
+line("        <li><h:link outcome=\"/resources/scaffold/"+groupId+"Template\" value=\""+groupId+"\"/></li>");
+            }
+
+        }
+
 line("      </ul>");
 line("    </div>\n");
 

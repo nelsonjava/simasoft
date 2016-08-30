@@ -1,0 +1,125 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        template="/resources/scaffold/archivalTemplate.xhtml">
+
+        <f:metadata>
+                <f:viewParam name="page" value='#{documentalInventoryBean.page}'/>
+                <f:event type="preRenderView" listener='#{documentalInventoryBean.paginate}'/>
+        </f:metadata>
+
+        <ui:param name="pageTitle" value="Search DocumentalInventory entities"/>
+
+        <ui:define name="header">
+                DocumentalInventory
+        </ui:define>
+
+        <ui:define name="subheader">
+                Search DocumentalInventory entities
+        </ui:define>
+
+        <ui:define name="footer"/>
+
+        <ui:define name="main">
+                <h:form id="search">
+                        <f:validateBean disabled="true">
+                                <h:panelGroup styleClass="search">
+
+                                        <h:panelGrid columnClasses="label,component,required" columns="3">
+                                                <h:outputLabel for="documentalInventoryBeanExampleObject" value="Object:"/>
+                                                <h:panelGroup>
+                                                        <h:inputText id="documentalInventoryBeanExampleObject" value="#{documentalInventoryBean.example.object}"/>
+                                                        <h:message for="documentalInventoryBeanExampleObject" styleClass="error"/>
+                                                </h:panelGroup>
+                                                <h:outputText/>
+
+
+                                                <h:outputLabel for="documentalInventoryBeanExampleTransferNumber" value="TransferNumber:"/>
+                                                <h:panelGroup>
+                                                        <h:inputText id="documentalInventoryBeanExampleTransferNumber" value="#{documentalInventoryBean.example.transferNumber}"/>
+                                                        <h:message for="documentalInventoryBeanExampleTransferNumber" styleClass="error"/>
+                                                </h:panelGroup>
+                                                <h:outputText/>
+
+
+                                        </h:panelGrid>
+                                        <h:panelGroup styleClass="buttons">
+                                                <h:commandLink value="Search" action='#{documentalInventoryBean.search}' styleClass="btn btn-primary"/>
+                                                <h:commandLink value="Create New" action='#{documentalInventoryBean.create}' styleClass="btn btn-primary"/>
+                                        </h:panelGroup>
+                                </h:panelGroup>
+                        </f:validateBean>
+
+                        <h:dataTable id="documentalInventoryBeanPageItems" styleClass="data-table" value="#{documentalInventoryBean.pageItems}" var="_item">
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Orden"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/documentalInventory/view">
+                                                <f:param name="id" value="#{_item.orden}"/>
+                                                <h:outputText id="itemOrden" value="#{_item.orden}"/>
+                                        </h:link>
+                                </h:column>
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Object"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/documentalInventory/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemObject" value="#{_item.object}"/>
+                                        </h:link>
+                                </h:column>
+
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="DeliveryDate"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/documentalInventory/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemDeliveryDate" value="#{_item.deliveryDate}"/>
+                                                        <f:convertDateTime type="date"/>
+                                               <h:outputText/>
+                                        </h:link>
+                                </h:column>
+
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="TransferNumber"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/documentalInventory/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemTransferNumber" value="#{_item.transferNumber}"/>
+                                        </h:link>
+                                </h:column>
+
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="DebugDate"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/documentalInventory/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemDebugDate" value="#{_item.debugDate}"/>
+                                                        <f:convertDateTime type="date"/>
+                                               <h:outputText/>
+                                        </h:link>
+                                </h:column>
+
+
+                        </h:dataTable>
+                        <ui:include src="/resources/scaffold/paginator.xhtml">
+                                <ui:param name="paginatorBean" value='#{documentalInventoryBean}'/>
+                        </ui:include>
+                </h:form>
+
+        </ui:define>
+
+</ui:composition>

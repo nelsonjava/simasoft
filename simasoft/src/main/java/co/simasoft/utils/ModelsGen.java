@@ -23,7 +23,7 @@ public class ModelsGen extends FileTxt {
     private String artifactId;
     private ArrayList<Packages> packages = new ArrayList<Packages>();
     private ArrayList<Entidad> entities = new ArrayList<Entidad>(0);
-
+    private Set<String> groupIdsArtifactId = new HashSet<String>();
 
     private LinkedHashSet<String> imports = new LinkedHashSet<String>();
 
@@ -72,6 +72,13 @@ public class ModelsGen extends FileTxt {
 
     public void addEntities(Entidad entity){
         this.entities.add(entity);
+    }
+
+    public Set<String> getGroupIdsArtifactId(){
+        return groupIdsArtifactId;
+    }
+    public void setGroupIdsArtifactId(Set<String> groupIdsArtifactId){
+        this.groupIdsArtifactId = groupIdsArtifactId;
     }
 
     public ArrayList<Packages> getPackages(){
@@ -166,7 +173,7 @@ saveFile("\\docs", "OjoGen.txt");
     public void entiyWarSqliteDjango() throws IOException {
 
     try {
-      
+
 /*
         for (Entidad entidad : entities) {
             EntitySqliteDjango entitySqliteDjango = new EntitySqliteDjango(entidad.getGroupId(),entidad.getGroupId(),entidad,imports);
@@ -422,8 +429,7 @@ saveFile("\\docs", "ModelsGen.txt");
         H2SimpleAuthenticator h2SimpleAuthenticator = new H2SimpleAuthenticator();
         Utils.fileMake(pathDocs+".h2.war."+artifactId+".src.main.java."+groupId+".authentication","SimpleAuthenticator.java", h2SimpleAuthenticator);
 
-        H2PageTemplate h2PageTemplate = new H2PageTemplate(artifactId,entities);
-        Utils.fileMake(pathDocs+".h2.war."+artifactId+".admin","pageTemplate.xhtml", h2PageTemplate);
+        H2PageTemplateGen(pathDocs+".h2.war."+artifactId+".admin",artifactId,entities,groupIdsArtifactId);
 
         Utils.fileJar("webH2/webapp/resources","add.png",pathDocs+"\\h2\\war\\"+artifactId+"\\src\\main\\webapp\\resources\\",fileJar);
         Utils.fileJar("webH2/webapp/resources","bootstrap.css",pathDocs+"\\h2\\war\\"+artifactId+"\\src\\main\\webapp\\resources\\",fileJar);
@@ -704,7 +710,7 @@ line(Integer.toString(i++)+":"+entidad.getName());
       line("#  "+entidad.getName()+" Relationships ");
       line("#  ############");
       for(Relation relation : entidad.getRelations()) {
-        
+
       line("#  ############"+relation.getCardinality());
 
 //*******RELACION UNO A UNO
@@ -888,5 +894,22 @@ line(Integer.toString(i++)+":"+entidad.getName());
       ioe.printStackTrace();
     }
     } // entiyForgeAngularH2
+
+/*
+---------------------------------------- H2PageTemplate() --------------------------
+*/
+
+    public void H2PageTemplateGen(String path,String artifactId,ArrayList<Entidad> entidades, Set<String> groupIdsArtifactId) {
+
+        H2PageTemplate h2PageTemplate = new H2PageTemplate(artifactId,entities,groupIdsArtifactId,null);
+        Utils.fileMake(path,"pageTemplate.xhtml", h2PageTemplate);
+
+        for (String groupIds : groupIdsArtifactId) {
+            h2PageTemplate = new H2PageTemplate(artifactId,entities,null,groupIds);
+            Utils.fileMake(path,groupIds+"Template.xhtml", h2PageTemplate);
+        }
+
+    } // H2PageTemplate
+
 
 } // ModelsGen

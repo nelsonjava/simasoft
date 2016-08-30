@@ -73,7 +73,7 @@ line("        xmlns:h=\"http://java.sun.com/jsf/html\"");
 line("        xmlns:f=\"http://java.sun.com/jsf/core\"");
 line("        xmlns:ui=\"http://java.sun.com/jsf/facelets\"");
 line("        xmlns:p=\"http://primefaces.org/ui\"");
-line("        template=\"/resources/scaffold/pageTemplate.xhtml\">\n");
+line("        template=\"/resources/scaffold/"+entity.getGroupIds()+"Template.xhtml\">\n");
 
 line("        <f:metadata>");
 line("                <f:viewParam name=\"page\" value='#{"+Utils._1raMin(entity.getName())+"Bean.page}'/>");

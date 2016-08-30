@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:forgeview="http://jboss.org/forge/view"
+        template="/resources/scaffold/archivalTemplate.xhtml">
+
+        <f:metadata>
+                <f:viewParam name="id" value='#{trdSeriesBean.id}'/>
+                <f:event type="preRenderView" listener='#{trdSeriesBean.retrieve}'/>
+        </f:metadata>
+
+        <ui:param name="pageTitle" value="View TrdSeries"/>
+
+        <ui:define name="header">
+                TrdSeries
+        </ui:define>
+
+        <ui:define name="subheader">
+                View existing TrdSeries
+        </ui:define>
+
+        <ui:define name="footer"/>
+
+        <ui:define name="main">
+                <h:panelGrid columnClasses="label,component,required" columns="3">
+
+                        <h:outputLabel for="trdSeriesBeanTrdSeriesOrden" value="Orden:"/>
+                        <h:outputText id="trdSeriesBeanTrdSeriesOrden" value="#{trdSeriesBean.trdSeries.orden}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="trdSeriesBeanTrdSeriesName" value="Name:"/>
+                        <h:outputText id="trdSeriesBeanTrdSeriesName" value="#{trdSeriesBean.trdSeries.name}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="trdSeriesBeanTrdSeriesObservations" value="Observations:"/>
+                        <h:outputText id="trdSeriesBeanTrdSeriesObservations" value="#{trdSeriesBean.trdSeries.observations}" escape="false" />
+                        <h:outputText/>
+
+                        <h:outputLabel for="trdSeriesBeanTrdSeriesTrd" value="Trd:"/>
+                        <h:link id="trdSeriesBeanTrdSeriesTrd" outcome="/admin/trd/view" rendered="#{!empty trdSeriesBean.trdSeries.trd}" value="#{trdSeriesBean.trdSeries.trd.name}">
+                                 <f:param name="id" value="#{trdSeriesBean.trdSeries.trd.id}"/>
+                        </h:link>
+                        <h:outputText/>
+
+                        <h:outputLabel for="trdSeriesBeanTrdSeriesSeries" value="Series:"/>
+                        <h:link id="trdSeriesBeanTrdSeriesSeries" outcome="/admin/series/view" rendered="#{!empty trdSeriesBean.trdSeries.series}" value="#{trdSeriesBean.trdSeries.series.name}">
+                                 <f:param name="id" value="#{trdSeriesBean.trdSeries.series.id}"/>
+                        </h:link>
+                        <h:outputText/>
+
+                </h:panelGrid>
+
+                <div class="buttons">
+                        <h:link value="View All" outcome="search" styleClass="btn btn-primary"/>
+                        <h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
+                        <h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
+                </div>
+        </ui:define>
+</ui:composition>

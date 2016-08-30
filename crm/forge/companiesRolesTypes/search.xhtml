@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:forgeview="http://jboss.org/forge/view"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="page" value='#{companiesRolesTypesBean.page}'/>
+		<f:event type="preRenderView" listener='#{companiesRolesTypesBean.paginate}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="Search Companies Roles Types entities"/>
+
+	<ui:define name="header">
+		Companies Roles Types
+	</ui:define>
+
+	<ui:define name="subheader">
+		Search Companies Roles Types entities
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:form id="search">
+			<f:validateBean disabled="true">
+				<h:panelGroup styleClass="search">
+
+					<h:panelGrid columnClasses="label,component,required" columns="3">
+						<h:outputLabel for="companiesRolesTypesBeanExampleAlias" value="Alias:"/>
+						<h:panelGroup>
+							<h:inputText id="companiesRolesTypesBeanExampleAlias" value="#{companiesRolesTypesBean.example.alias}"/>
+							<h:message for="companiesRolesTypesBeanExampleAlias" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="companiesRolesTypesBeanExampleObservations" value="Observations:"/>
+						<h:panelGroup>
+							<h:inputTextarea id="companiesRolesTypesBeanExampleObservations" value="#{companiesRolesTypesBean.example.observations}"/>
+							<h:message for="companiesRolesTypesBeanExampleObservations" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="companiesRolesTypesBeanExampleName" value="Name:"/>
+						<h:panelGroup>
+							<h:inputText id="companiesRolesTypesBeanExampleName" value="#{companiesRolesTypesBean.example.name}"/>
+							<h:message for="companiesRolesTypesBeanExampleName" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="companiesRolesTypesBeanExampleObjPadre" value="Obj Padre:"/>
+						<h:panelGroup>
+							<h:selectOneMenu converter="#{companiesRolesTypesBean.converter}" id="companiesRolesTypesBeanExampleObjPadre" value="#{companiesRolesTypesBean.example.objPadre}">
+								<f:selectItem/>
+								<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{companiesRolesTypesBean.all}" var="_item"/>
+							</h:selectOneMenu>
+							<h:message for="companiesRolesTypesBeanExampleObjPadre" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+					</h:panelGrid>
+					<h:panelGroup styleClass="buttons">
+						<h:commandLink value="Search" action='#{companiesRolesTypesBean.search}' styleClass="btn btn-primary"/>
+						<h:commandLink value="Create New" action='#{companiesRolesTypesBean.create}' styleClass="btn btn-primary"/>
+					</h:panelGroup>
+				</h:panelGroup>
+			</f:validateBean>
+			
+			<h:dataTable id="companiesRolesTypesBeanPageItems" styleClass="data-table" value="#{companiesRolesTypesBean.pageItems}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Name"/>
+					</f:facet>
+					<h:link outcome="/admin/companiesRolesTypes/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemName" value="#{_item.name}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<ui:include src="/resources/scaffold/paginator.xhtml">
+				<ui:param name="paginatorBean" value='#{companiesRolesTypesBean}'/>
+			</ui:include>
+		</h:form>
+			
+	</ui:define>
+
+</ui:composition>

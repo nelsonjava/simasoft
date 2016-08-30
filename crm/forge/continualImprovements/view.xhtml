@@ -1,0 +1,194 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:forgeview="http://jboss.org/forge/view"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="id" value='#{continualImprovementsBean.id}'/>
+		<f:event type="preRenderView" listener='#{continualImprovementsBean.retrieve}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="View Continual Improvements"/>
+
+	<ui:define name="header">
+		Continual Improvements
+	</ui:define>
+
+	<ui:define name="subheader">
+		View existing Continual Improvements
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:panelGrid columnClasses="label,component,required" columns="3">
+			<h:outputLabel for="continualImprovementsBeanContinualImprovementsAlias" value="Alias:"/>
+			<h:outputText id="continualImprovementsBeanContinualImprovementsAlias" value="#{continualImprovementsBean.continualImprovements.alias}"/>
+			<h:outputText/>
+			<h:outputLabel for="continualImprovementsBeanContinualImprovementsOrden" value="Orden:"/>
+			<h:outputText id="continualImprovementsBeanContinualImprovementsOrden" value="#{continualImprovementsBean.continualImprovements.orden}"/>
+			<h:outputText/>
+			<h:outputLabel for="continualImprovementsBeanContinualImprovementsObservations" value="Observations:"/>
+			<h:inputTextarea id="continualImprovementsBeanContinualImprovementsObservations" value="#{continualImprovementsBean.continualImprovements.observations}"/>
+			<h:outputText/>
+			<h:outputLabel for="continualImprovementsBeanContinualImprovementsCode" value="Code:"/>
+			<h:outputText id="continualImprovementsBeanContinualImprovementsCode" value="#{continualImprovementsBean.continualImprovements.code}"/>
+			<h:outputText/>
+			<h:outputLabel for="continualImprovementsBeanContinualImprovementsDescription" value="Description:"/>
+			<h:outputText id="continualImprovementsBeanContinualImprovementsDescription" value="#{continualImprovementsBean.continualImprovements.description}"/>
+			<h:outputText/>
+			<h:outputLabel for="continualImprovementsBeanContinualImprovementsCausesAnalysis" value="Causes Analysis:"/>
+			<h:outputText id="continualImprovementsBeanContinualImprovementsCausesAnalysis" value="#{continualImprovementsBean.continualImprovements.causesAnalysis}"/>
+			<h:outputText/>
+			<h:outputLabel for="continualImprovementsBeanContinualImprovementsRootCause" value="Root Cause:"/>
+			<h:outputText id="continualImprovementsBeanContinualImprovementsRootCause" value="#{continualImprovementsBean.continualImprovements.rootCause}"/>
+			<h:outputText/>
+			<h:outputLabel for="continualImprovementsBeanContinualImprovementsImmediateCorrection" value="Immediate Correction:"/>
+			<h:outputText id="continualImprovementsBeanContinualImprovementsImmediateCorrection" value="#{continualImprovementsBean.continualImprovements.immediateCorrection}"/>
+			<h:outputText/>
+			<h:outputLabel for="continualImprovementsBeanContinualImprovementsDateCorrection" value="Date Correction:"/>
+			<h:outputText id="continualImprovementsBeanContinualImprovementsDateCorrection" value="#{continualImprovementsBean.continualImprovements.dateCorrection}">
+				<f:convertDateTime type="date"/>
+			</h:outputText>
+			<h:outputText/>
+			<h:outputLabel for="continualImprovementsBeanContinualImprovementsOriginalOrders" value="Original Orders:"/>
+			<h:dataTable id="continualImprovementsBeanContinualImprovementsOriginalOrders" styleClass="data-table" value="#{forgeview:asList(continualImprovementsBean.continualImprovements.originalOrders)}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Alias"/>
+					</f:facet>
+					<h:link outcome="/admin/originalOrders/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemAlias" value="#{_item.alias}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Orden"/>
+					</f:facet>
+					<h:link outcome="/admin/originalOrders/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemOrden" value="#{_item.orden}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Observations"/>
+					</f:facet>
+					<h:link outcome="/admin/originalOrders/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:inputTextarea id="_itemObservations" value="#{_item.observations}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Code"/>
+					</f:facet>
+					<h:link outcome="/admin/originalOrders/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemCode" value="#{_item.code}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Entry Date"/>
+					</f:facet>
+					<h:link outcome="/admin/originalOrders/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemEntryDate" value="#{_item.entryDate}">
+							<f:convertDateTime type="date"/>
+						</h:outputText>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<h:outputText/>
+			<h:outputLabel for="continualImprovementsBeanContinualImprovementsActionPlans" value="Action Plans:"/>
+			<h:dataTable id="continualImprovementsBeanContinualImprovementsActionPlans" styleClass="data-table" value="#{forgeview:asList(continualImprovementsBean.continualImprovements.actionPlans)}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Alias"/>
+					</f:facet>
+					<h:link outcome="/admin/actionPlans/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemAlias" value="#{_item.alias}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Orden"/>
+					</f:facet>
+					<h:link outcome="/admin/actionPlans/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemOrden" value="#{_item.orden}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Observations"/>
+					</f:facet>
+					<h:link outcome="/admin/actionPlans/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:inputTextarea id="_itemObservations" value="#{_item.observations}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Scheduled Date"/>
+					</f:facet>
+					<h:link outcome="/admin/actionPlans/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemScheduledDate" value="#{_item.scheduledDate}">
+							<f:convertDateTime type="date"/>
+						</h:outputText>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Evidences"/>
+					</f:facet>
+					<h:link outcome="/admin/actionPlans/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemEvidences" value="#{_item.evidences}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<h:outputText/>
+			<h:outputLabel for="continualImprovementsBeanContinualImprovementsDocumentalsUnits" value="Documentals Units:"/>
+			<h:link id="continualImprovementsBeanContinualImprovementsDocumentalsUnits" outcome="/admin/documentalsUnits/view" rendered="#{!empty continualImprovementsBean.continualImprovements.documentalsUnits}" value="#{continualImprovementsBean.continualImprovements.documentalsUnits}">
+				<f:param name="id" value="#{continualImprovementsBean.continualImprovements.documentalsUnits.id}"/>
+			</h:link>
+			<h:outputText/>
+			<h:outputLabel for="continualImprovementsBeanContinualImprovementsImprovementClosures" value="Improvement Closures:"/>
+			<h:link id="continualImprovementsBeanContinualImprovementsImprovementClosures" outcome="/admin/improvementClosures/view" rendered="#{!empty continualImprovementsBean.continualImprovements.improvementClosures}" value="#{continualImprovementsBean.continualImprovements.improvementClosures}">
+				<f:param name="id" value="#{continualImprovementsBean.continualImprovements.improvementClosures.id}"/>
+			</h:link>
+			<h:outputText/>
+			<h:outputLabel for="continualImprovementsBeanContinualImprovementsImprovementTypes" value="Improvement Types:"/>
+			<h:link id="continualImprovementsBeanContinualImprovementsImprovementTypes" outcome="/admin/improvementTypes/view" rendered="#{!empty continualImprovementsBean.continualImprovements.improvementTypes}" value="#{continualImprovementsBean.continualImprovements.improvementTypes}">
+				<f:param name="id" value="#{continualImprovementsBean.continualImprovements.improvementTypes.id}"/>
+			</h:link>
+			<h:outputText/>
+			<h:outputLabel for="continualImprovementsBeanContinualImprovementsImprovementSources" value="Improvement Sources:"/>
+			<h:link id="continualImprovementsBeanContinualImprovementsImprovementSources" outcome="/admin/improvementSources/view" rendered="#{!empty continualImprovementsBean.continualImprovements.improvementSources}" value="#{continualImprovementsBean.continualImprovements.improvementSources}">
+				<f:param name="id" value="#{continualImprovementsBean.continualImprovements.improvementSources.id}"/>
+			</h:link>
+			<h:outputText/>
+			<h:outputLabel for="continualImprovementsBeanContinualImprovementsImprovementVerifications" value="Improvement Verifications:"/>
+			<h:link id="continualImprovementsBeanContinualImprovementsImprovementVerifications" outcome="/admin/improvementVerifications/view" rendered="#{!empty continualImprovementsBean.continualImprovements.improvementVerifications}" value="#{continualImprovementsBean.continualImprovements.improvementVerifications}">
+				<f:param name="id" value="#{continualImprovementsBean.continualImprovements.improvementVerifications.id}"/>
+			</h:link>
+			<h:outputText/>
+		</h:panelGrid>
+
+		<div class="buttons">
+			<h:link value="View All" outcome="search" styleClass="btn btn-primary"/> 
+			<h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
+			<h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
+		</div>
+	</ui:define>
+
+</ui:composition>

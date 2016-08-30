@@ -1,0 +1,94 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:forgeview="http://jboss.org/forge/view"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="id" value='#{companiesRolesBean.id}'/>
+		<f:event type="preRenderView" listener='#{companiesRolesBean.retrieve}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="View Companies Roles"/>
+
+	<ui:define name="header">
+		Companies Roles
+	</ui:define>
+
+	<ui:define name="subheader">
+		View existing Companies Roles
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:panelGrid columnClasses="label,component,required" columns="3">
+			<h:outputLabel for="companiesRolesBeanCompaniesRolesAlias" value="Alias:"/>
+			<h:outputText id="companiesRolesBeanCompaniesRolesAlias" value="#{companiesRolesBean.companiesRoles.alias}"/>
+			<h:outputText/>
+			<h:outputLabel for="companiesRolesBeanCompaniesRolesOrden" value="Orden:"/>
+			<h:outputText id="companiesRolesBeanCompaniesRolesOrden" value="#{companiesRolesBean.companiesRoles.orden}"/>
+			<h:outputText/>
+			<h:outputLabel for="companiesRolesBeanCompaniesRolesObservations" value="Observations:"/>
+			<h:inputTextarea id="companiesRolesBeanCompaniesRolesObservations" value="#{companiesRolesBean.companiesRoles.observations}"/>
+			<h:outputText/>
+			<h:outputLabel for="companiesRolesBeanCompaniesRolesName" value="Name:"/>
+			<h:outputText id="companiesRolesBeanCompaniesRolesName" value="#{companiesRolesBean.companiesRoles.name}"/>
+			<h:outputText/>
+			<h:outputLabel for="companiesRolesBeanCompaniesRolesAlmacenamiento" value="Almacenamiento:"/>
+			<h:dataTable id="companiesRolesBeanCompaniesRolesAlmacenamiento" styleClass="data-table" value="#{forgeview:asList(companiesRolesBean.companiesRoles.almacenamiento)}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Name"/>
+					</f:facet>
+					<h:link outcome="/admin/documentalsUnits/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemName" value="#{_item.name}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<h:outputText/>
+			<h:outputLabel for="companiesRolesBeanCompaniesRolesProteccion" value="Proteccion:"/>
+			<h:dataTable id="companiesRolesBeanCompaniesRolesProteccion" styleClass="data-table" value="#{forgeview:asList(companiesRolesBean.companiesRoles.proteccion)}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Name"/>
+					</f:facet>
+					<h:link outcome="/admin/documentalsUnits/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemName" value="#{_item.name}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<h:outputText/>
+			<h:outputLabel for="companiesRolesBeanCompaniesRolesCharges" value="Charges:"/>
+			<h:dataTable id="companiesRolesBeanCompaniesRolesCharges" styleClass="data-table" value="#{forgeview:asList(companiesRolesBean.companiesRoles.charges)}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Name"/>
+					</f:facet>
+					<h:link outcome="/admin/charges/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemName" value="#{_item.name}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<h:outputText/>
+			<h:outputLabel for="companiesRolesBeanCompaniesRolesCompaniesRolesTypes" value="Companies Roles Types:"/>
+			<h:link id="companiesRolesBeanCompaniesRolesCompaniesRolesTypes" outcome="/admin/companiesRolesTypes/view" rendered="#{!empty companiesRolesBean.companiesRoles.companiesRolesTypes}" value="#{companiesRolesBean.companiesRoles.companiesRolesTypes}">
+				<f:param name="id" value="#{companiesRolesBean.companiesRoles.companiesRolesTypes.id}"/>
+			</h:link>
+			<h:outputText/>
+		</h:panelGrid>
+
+		<div class="buttons">
+			<h:link value="View All" outcome="search" styleClass="btn btn-primary"/> 
+			<h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
+			<h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
+		</div>
+	</ui:define>
+
+</ui:composition>
