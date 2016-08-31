@@ -1,0 +1,147 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:forgeview="http://jboss.org/forge/view"
+        template="/resources/scaffold/networkingTemplate.xhtml">
+
+        <f:metadata>
+                <f:viewParam name="id" value='#{networkPortsBean.id}'/>
+                <f:event type="preRenderView" listener='#{networkPortsBean.retrieve}'/>
+        </f:metadata>
+
+        <ui:param name="pageTitle" value="View NetworkPorts"/>
+
+        <ui:define name="header">
+                NetworkPorts
+        </ui:define>
+
+        <ui:define name="subheader">
+                View existing NetworkPorts
+        </ui:define>
+
+        <ui:define name="footer"/>
+
+        <ui:define name="main">
+                <h:panelGrid columnClasses="label,component,required" columns="3">
+
+                        <h:outputLabel for="networkPortsBeanNetworkPortsOrden" value="Orden:"/>
+                        <h:outputText id="networkPortsBeanNetworkPortsOrden" value="#{networkPortsBean.networkPorts.orden}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="networkPortsBeanNetworkPortsState" value="State:"/>
+                        <h:outputText id="networkPortsBeanNetworkPortsState" value="#{networkPortsBean.networkPorts.state}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="networkPortsBeanNetworkPortsMacAddress" value="MacAddress:"/>
+                        <h:outputText id="networkPortsBeanNetworkPortsMacAddress" value="#{networkPortsBean.networkPorts.macAddress}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="networkPortsBeanNetworkPortsIpAddress" value="IpAddress:"/>
+                        <h:outputText id="networkPortsBeanNetworkPortsIpAddress" value="#{networkPortsBean.networkPorts.ipAddress}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="networkPortsBeanNetworkPortsObservations" value="Observations:"/>
+                        <h:outputText id="networkPortsBeanNetworkPortsObservations" value="#{networkPortsBean.networkPorts.observations}" escape="false" />
+                        <h:outputText/>
+
+                        <h:outputLabel for="networkPortsBeanNetworkPortsSites" value="Sites:"/>
+                        <h:dataTable id="networkPortsBeanNetworkPortssites" styleClass="data-table" value="#{forgeview:asList(networkPortsBean.networkPorts.sites)}" var="_item">
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Orden"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/sites/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemOrden" value="#{_item.orden}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Title"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/sites/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemTitle" value="#{_item.title}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Link"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/sites/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemLink" value="#{_item.link}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Abc"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/sites/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemAbc" value="#{_item.abc}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="IpAddress1"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/sites/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemIpAddress1" value="#{_item.ipAddress1}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="IpAddress2"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/sites/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemIpAddress2" value="#{_item.ipAddress2}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="IpAddress3"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/sites/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemIpAddress3" value="#{_item.ipAddress3}"/>
+                                              </h:link>
+                                           </h:column>
+
+                        </h:dataTable>
+                        <h:outputText/>
+
+                        <h:outputLabel for="networkPortsBeanNetworkPortsPatchPanelsPorts" value="PatchPanelsPorts:"/>
+                        <h:link id="networkPortsBeanNetworkPortsPatchPanelsPorts" outcome="/admin/patchPanelsPorts/view" rendered="#{!empty networkPortsBean.networkPorts.patchPanelsPorts}" value="#{networkPortsBean.networkPorts.patchPanelsPorts.port}">
+                                 <f:param name="id" value="#{networkPortsBean.networkPorts.patchPanelsPorts.id}"/>
+                        </h:link>
+                        <h:outputText/>
+
+                        <h:outputLabel for="networkPortsBeanNetworkPortsHosts" value="Hosts:"/>
+                        <h:link id="networkPortsBeanNetworkPortsHosts" outcome="/admin/hosts/view" rendered="#{!empty networkPortsBean.networkPorts.hosts}" value="#{networkPortsBean.networkPorts.hosts.name}">
+                                 <f:param name="id" value="#{networkPortsBean.networkPorts.hosts.id}"/>
+                        </h:link>
+                        <h:outputText/>
+
+                </h:panelGrid>
+
+                <div class="buttons">
+                        <h:link value="View All" outcome="search" styleClass="btn btn-primary"/>
+                        <h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
+                        <h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
+                </div>
+        </ui:define>
+</ui:composition>

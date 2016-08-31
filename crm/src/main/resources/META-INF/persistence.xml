@@ -48,7 +48,18 @@
     <class>co.simasoft.models.ImprovementVerifications</class>
     <class>co.simasoft.models.ImprovementClosures</class>
     <class>co.simasoft.models.ClosingActivities</class>
+    <class>co.simasoft.models.ItemsTypes</class>
+    <class>co.simasoft.models.ItemsNames</class>
+    <class>co.simasoft.models.Items</class>
+    <class>co.simasoft.models.ItemsStates</class>
+    <class>co.simasoft.models.HostsTypes</class>
+    <class>co.simasoft.models.Hosts</class>
+    <class>co.simasoft.models.NetworkPorts</class>
+    <class>co.simasoft.models.PatchPanelsPorts</class>
+    <class>co.simasoft.models.SwitchesPorts</class>
+    <class>co.simasoft.models.Vlans</class>
     <class>co.simasoft.models.Persons</class>
+    <class>co.simasoft.models.PhysicalAreas</class>
     <class>co.simasoft.models.SitesTypes</class>
     <class>co.simasoft.models.Sites</class>
     <class>co.simasoft.models.ActivitiesTypes</class>

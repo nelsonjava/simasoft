@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="page" value='#{patchPanelsPortsBean.page}'/>
+		<f:event type="preRenderView" listener='#{patchPanelsPortsBean.paginate}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="Search Patch Panels Ports entities"/>
+
+	<ui:define name="header">
+		Patch Panels Ports
+	</ui:define>
+
+	<ui:define name="subheader">
+		Search Patch Panels Ports entities
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:form id="search">
+			<f:validateBean disabled="true">
+				<h:panelGroup styleClass="search">
+
+					<h:panelGrid columnClasses="label,component,required" columns="3">
+						<h:outputLabel for="patchPanelsPortsBeanExampleAlias" value="Alias:"/>
+						<h:panelGroup>
+							<h:inputText id="patchPanelsPortsBeanExampleAlias" value="#{patchPanelsPortsBean.example.alias}"/>
+							<h:message for="patchPanelsPortsBeanExampleAlias" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="patchPanelsPortsBeanExampleObservations" value="Observations:"/>
+						<h:panelGroup>
+							<h:inputTextarea id="patchPanelsPortsBeanExampleObservations" value="#{patchPanelsPortsBean.example.observations}"/>
+							<h:message for="patchPanelsPortsBeanExampleObservations" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="patchPanelsPortsBeanExamplePort" value="Port:"/>
+						<h:panelGroup>
+							<h:inputText id="patchPanelsPortsBeanExamplePort" value="#{patchPanelsPortsBean.example.port}"/>
+							<h:message for="patchPanelsPortsBeanExamplePort" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="patchPanelsPortsBeanExampleCode" value="Code:"/>
+						<h:panelGroup>
+							<h:inputText id="patchPanelsPortsBeanExampleCode" value="#{patchPanelsPortsBean.example.code}"/>
+							<h:message for="patchPanelsPortsBeanExampleCode" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="patchPanelsPortsBeanExampleMts" value="Mts:"/>
+						<h:panelGroup>
+							<h:inputText id="patchPanelsPortsBeanExampleMts" value="#{patchPanelsPortsBean.example.mts}"/>
+							<h:message for="patchPanelsPortsBeanExampleMts" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+					</h:panelGrid>
+					<h:panelGroup styleClass="buttons">
+						<h:commandLink value="Search" action='#{patchPanelsPortsBean.search}' styleClass="btn btn-primary"/>
+						<h:commandLink value="Create New" action='#{patchPanelsPortsBean.create}' styleClass="btn btn-primary"/>
+					</h:panelGroup>
+				</h:panelGroup>
+			</f:validateBean>
+			
+			<h:dataTable id="patchPanelsPortsBeanPageItems" styleClass="data-table" value="#{patchPanelsPortsBean.pageItems}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Port"/>
+					</f:facet>
+					<h:link outcome="/admin/patchPanelsPorts/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemPort" value="#{_item.port}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<ui:include src="/resources/scaffold/paginator.xhtml">
+				<ui:param name="paginatorBean" value='#{patchPanelsPortsBean}'/>
+			</ui:include>
+		</h:form>
+			
+	</ui:define>
+
+</ui:composition>

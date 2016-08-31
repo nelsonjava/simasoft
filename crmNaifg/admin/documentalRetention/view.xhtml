@@ -1,0 +1,107 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:forgeview="http://jboss.org/forge/view"
+        template="/resources/scaffold/archivalTemplate.xhtml">
+
+        <f:metadata>
+                <f:viewParam name="id" value='#{documentalRetentionBean.id}'/>
+                <f:event type="preRenderView" listener='#{documentalRetentionBean.retrieve}'/>
+        </f:metadata>
+
+        <ui:param name="pageTitle" value="View DocumentalRetention"/>
+
+        <ui:define name="header">
+                DocumentalRetention
+        </ui:define>
+
+        <ui:define name="subheader">
+                View existing DocumentalRetention
+        </ui:define>
+
+        <ui:define name="footer"/>
+
+        <ui:define name="main">
+                <h:panelGrid columnClasses="label,component,required" columns="3">
+
+                        <h:outputLabel for="documentalRetentionBeanDocumentalRetentionOrden" value="Orden:"/>
+                        <h:outputText id="documentalRetentionBeanDocumentalRetentionOrden" value="#{documentalRetentionBean.documentalRetention.orden}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="documentalRetentionBeanDocumentalRetentionName" value="Name:"/>
+                        <h:outputText id="documentalRetentionBeanDocumentalRetentionName" value="#{documentalRetentionBean.documentalRetention.name}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="documentalRetentionBeanDocumentalRetentionYear" value="Year:"/>
+                        <h:outputText id="documentalRetentionBeanDocumentalRetentionYear" value="#{documentalRetentionBean.documentalRetention.year}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="documentalRetentionBeanDocumentalRetentionObservations" value="Observations:"/>
+                        <h:outputText id="documentalRetentionBeanDocumentalRetentionObservations" value="#{documentalRetentionBean.documentalRetention.observations}" escape="false" />
+                        <h:outputText/>
+
+                        <h:outputLabel for="DocumentalRetentionBeanDocumentalRetentionGestion" value="Gestion:"/>
+                        <h:dataTable id="documentalRetentionBeanDocumentalRetentiongestion" styleClass="data-table" value="#{forgeview:asList(documentalRetentionBean.documentalRetention.gestion)}" var="_item">
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Orden"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/trd/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemOrden" value="#{_item.orden}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Name"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/trd/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemName" value="#{_item.name}"/>
+                                              </h:link>
+                                           </h:column>
+
+                        </h:dataTable>
+                        <h:outputText/>
+
+                        <h:outputLabel for="DocumentalRetentionBeanDocumentalRetentionCentral" value="Central:"/>
+                        <h:dataTable id="documentalRetentionBeanDocumentalRetentioncentral" styleClass="data-table" value="#{forgeview:asList(documentalRetentionBean.documentalRetention.central)}" var="_item">
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Orden"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/trd/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemOrden" value="#{_item.orden}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Name"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/trd/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemName" value="#{_item.name}"/>
+                                              </h:link>
+                                           </h:column>
+
+                        </h:dataTable>
+                        <h:outputText/>
+
+                </h:panelGrid>
+
+                <div class="buttons">
+                        <h:link value="View All" outcome="search" styleClass="btn btn-primary"/>
+                        <h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
+                        <h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
+                </div>
+        </ui:define>
+</ui:composition>

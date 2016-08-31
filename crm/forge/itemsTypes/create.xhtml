@@ -1,0 +1,148 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:forgeview="http://jboss.org/forge/view"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="id" value='#{itemsTypesBean.id}'/>
+		<f:event type="preRenderView" listener='#{itemsTypesBean.retrieve}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="Create Items Types"/>
+
+	<ui:define name="header">
+		Items Types
+	</ui:define>
+
+	<ui:define name="subheader">
+		<c:choose>
+			<c:when test='#{!empty itemsTypesBean.id}'>
+				Edit existing Items Types
+			</c:when>
+			<c:otherwise>
+				Create a new Items Types
+			</c:otherwise>
+		</c:choose>
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:form id="create">
+			<h:messages globalOnly="true" styleClass="error"/>
+
+			<h:panelGrid columnClasses="label,component,required" columns="3">
+				<h:outputLabel for="itemsTypesBeanItemsTypesAlias" value="Alias:"/>
+				<h:panelGroup>
+					<h:inputText id="itemsTypesBeanItemsTypesAlias" value="#{itemsTypesBean.itemsTypes.alias}"/>
+					<h:message for="itemsTypesBeanItemsTypesAlias" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="itemsTypesBeanItemsTypesOrden" value="Orden:"/>
+				<h:panelGroup>
+					<h:inputText id="itemsTypesBeanItemsTypesOrden" value="#{itemsTypesBean.itemsTypes.orden}"/>
+					<h:message for="itemsTypesBeanItemsTypesOrden" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="itemsTypesBeanItemsTypesObservations" value="Observations:"/>
+				<h:panelGroup>
+					<h:inputTextarea id="itemsTypesBeanItemsTypesObservations" value="#{itemsTypesBean.itemsTypes.observations}"/>
+					<h:message for="itemsTypesBeanItemsTypesObservations" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="itemsTypesBeanItemsTypesName" value="Name:"/>
+				<h:panelGroup>
+					<h:inputText id="itemsTypesBeanItemsTypesName" required="true" value="#{itemsTypesBean.itemsTypes.name}"/>
+					<h:message for="itemsTypesBeanItemsTypesName" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText value="*"/>
+				<h:outputLabel for="itemsTypesBeanItemsTypesObjHijos" value="Obj Hijos:"/>
+				<h:panelGroup>
+					<ui:param name="_collection" value="#{itemsTypesBean.itemsTypes.objHijos}"/>
+					<h:dataTable id="itemsTypesBeanItemsTypesObjHijos" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Name"/>
+							</f:facet>
+							<h:link outcome="/admin/itemsTypes/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemName" value="#{_item.name}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="itemsTypesBeanAddName" value="#{itemsTypesBean.add.name}"/>
+								<h:message for="itemsTypesBeanAddName" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column footerClass="remove-column" headerClass="remove-column">
+							<h:commandLink action="#{_collection.remove(_item)}" styleClass="remove-button"/>
+							<f:facet name="footer">
+								<h:commandLink action="#{_collection.add(itemsTypesBean.added)}" id="itemsTypesBeanItemsTypesObjHijosAdd" styleClass="add-button">
+									<f:setPropertyActionListener target="#{itemsTypesBean.add.objPadre}" value="#{itemsTypesBean.itemsTypes}"/>
+								</h:commandLink>
+							</f:facet>
+						</h:column>
+					</h:dataTable>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="itemsTypesBeanItemsTypesItemsNames" value="Items Names:"/>
+				<h:panelGroup>
+					<ui:param name="_collection" value="#{itemsTypesBean.itemsTypes.itemsNames}"/>
+					<h:dataTable id="itemsTypesBeanItemsTypesItemsNames" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Name"/>
+							</f:facet>
+							<h:link outcome="/admin/itemsNames/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemName" value="#{_item.name}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="itemsNamesBeanAddName" value="#{itemsNamesBean.add.name}"/>
+								<h:message for="itemsNamesBeanAddName" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column footerClass="remove-column" headerClass="remove-column">
+							<h:commandLink action="#{_collection.remove(_item)}" styleClass="remove-button"/>
+							<f:facet name="footer">
+								<h:commandLink action="#{_collection.add(itemsNamesBean.added)}" id="itemsTypesBeanItemsTypesItemsNamesAdd" styleClass="add-button">
+									<f:setPropertyActionListener target="#{itemsNamesBean.add.itemsTypes}" value="#{itemsTypesBean.itemsTypes}"/>
+								</h:commandLink>
+							</f:facet>
+						</h:column>
+					</h:dataTable>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="itemsTypesBeanItemsTypesObjPadre" value="Obj Padre:"/>
+				<h:panelGroup>
+					<h:selectOneMenu converter="#{itemsTypesBean.converter}" id="itemsTypesBeanItemsTypesObjPadre" value="#{itemsTypesBean.itemsTypes.objPadre}">
+						<f:selectItem/>
+						<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{itemsTypesBean.all}" var="_item"/>
+					</h:selectOneMenu>
+					<h:message for="itemsTypesBeanItemsTypesObjPadre" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+			</h:panelGrid>
+
+			<div class="buttons">
+				<h:commandLink value="Save" action='#{itemsTypesBean.update}' styleClass="btn btn-primary"/>
+				<c:choose>
+					<c:when test='#{!empty itemsTypesBean.id}'>
+						<h:link value="Cancel" outcome="view" styleClass="btn btn-primary">
+							<f:param name="id" value='#{itemsTypesBean.id}'/>
+						</h:link>
+						<h:commandLink value="Delete" action='#{itemsTypesBean.delete}' styleClass="btn btn-primary"/>
+					</c:when>
+					<c:otherwise>
+						<h:link value="Cancel" outcome="search" styleClass="btn btn-primary"/>
+					</c:otherwise>
+				</c:choose>
+			</div>
+		</h:form>
+	</ui:define>
+
+</ui:composition>

@@ -243,6 +243,78 @@ jpa-new-entity --named ClosingActivities --targetPackage co.simasoft.models
 jpa-new-field --named name --type String
 jpa-new-field --named isSiorNo --type Boolean
 
+#  ItemsTypes entity
+#  ############
+jpa-new-entity --named ItemsTypes --targetPackage co.simasoft.models
+jpa-new-field --named name --type String
+
+#  ItemsNames entity
+#  ############
+jpa-new-entity --named ItemsNames --targetPackage co.simasoft.models
+jpa-new-field --named name --type String
+jpa-new-field --named model --type String
+jpa-new-field --named productNumber --type String
+jpa-new-field --named partNumber --type String
+
+#  Items entity
+#  ############
+jpa-new-entity --named Items --targetPackage co.simasoft.models
+jpa-new-field --named cvNumber --type String
+jpa-new-field --named code --type String
+jpa-new-field --named inventoryCode --type String
+jpa-new-field --named serial --type String
+jpa-new-field --named eanCode --type String
+jpa-new-field --named expirationDate --type java.util.Date --temporalType TIMESTAMP
+jpa-new-field --named warrantyDate --type java.util.Date --temporalType TIMESTAMP
+jpa-new-field --named minStock --type Integer
+jpa-new-field --named maxStock --type Integer
+jpa-new-field --named quantity --type Integer
+jpa-new-field --named located --type String
+
+#  ItemsStates entity
+#  ############
+jpa-new-entity --named ItemsStates --targetPackage co.simasoft.models
+jpa-new-field --named name --type String
+
+#  HostsTypes entity
+#  ############
+jpa-new-entity --named HostsTypes --targetPackage co.simasoft.models
+jpa-new-field --named name --type String
+
+#  Hosts entity
+#  ############
+jpa-new-entity --named Hosts --targetPackage co.simasoft.models
+jpa-new-field --named name --type String
+
+#  NetworkPorts entity
+#  ############
+jpa-new-entity --named NetworkPorts --targetPackage co.simasoft.models
+jpa-new-field --named macAddress --type String
+jpa-new-field --named ipAddress --type String
+jpa-new-field --named state --type String
+
+#  PatchPanelsPorts entity
+#  ############
+jpa-new-entity --named PatchPanelsPorts --targetPackage co.simasoft.models
+jpa-new-field --named port --type String
+jpa-new-field --named code --type String
+jpa-new-field --named mts --type Integer
+
+#  SwitchesPorts entity
+#  ############
+jpa-new-entity --named SwitchesPorts --targetPackage co.simasoft.models
+jpa-new-field --named port --type String
+jpa-new-field --named code --type String
+jpa-new-field --named state --type String
+jpa-new-field --named mts --type Integer
+
+#  Vlans entity
+#  ############
+jpa-new-entity --named Vlans --targetPackage co.simasoft.models
+jpa-new-field --named name --type String
+jpa-new-field --named ipMask --type String
+jpa-new-field --named ipGateway --type String
+
 #  Persons entity
 #  ############
 jpa-new-entity --named Persons --targetPackage co.simasoft.models
@@ -255,6 +327,13 @@ jpa-new-field --named mobile --type String
 jpa-new-field --named telephone --type String
 jpa-new-field --named skipe --type String
 jpa-new-field --named address --type String
+
+#  PhysicalAreas entity
+#  ############
+jpa-new-entity --named PhysicalAreas --targetPackage co.simasoft.models
+jpa-new-field --named name --type String
+jpa-new-field --named code --type String
+jpa-new-field --named telExt --type String
 
 #  SitesTypes entity
 #  ############
@@ -1051,6 +1130,194 @@ cd ..
 cd ClosingActivities.java
 jpa-new-field --named improvementClosures --type co.simasoft.models.ImprovementClosures --relationshipType Many-to-One;
 
+#  ItemsTypes Relationships 
+#  ############
+#  ############1..*
+#Unitaria  ItemsTypes Uno a Muchos Bidirecccional No.5 ItemsTypes
+cd ..
+cd ItemsTypes.java
+jpa-new-field --named objHijos --type co.simasoft.models.ItemsTypes --relationshipType One-to-Many;
+
+#  ############1..*
+#  ItemsTypes Uno a Muchos Bidirecccional No.5 ItemsNames
+cd ..
+cd ItemsTypes.java
+jpa-new-field --named itemsNames --type co.simasoft.models.ItemsNames --relationshipType One-to-Many;
+
+#  ############*..1
+#Unitaria  ItemsTypes Muchos a Uno Unidireccional No.3 ItemsTypes
+cd ..
+cd ItemsTypes.java
+jpa-new-field --named objPadre --type co.simasoft.models.ItemsTypes --relationshipType Many-to-One;
+
+#  ItemsNames Relationships 
+#  ############
+#  ############1..*
+#  ItemsNames Uno a Muchos Bidirecccional No.5 Items
+cd ..
+cd ItemsNames.java
+jpa-new-field --named items --type co.simasoft.models.Items --relationshipType One-to-Many;
+
+#  ############*..1
+#  ItemsNames Muchos a Uno Unidireccional No.3 ItemsTypes
+cd ..
+cd ItemsNames.java
+jpa-new-field --named itemsTypes --type co.simasoft.models.ItemsTypes --relationshipType Many-to-One;
+
+#  Items Relationships 
+#  ############
+#  ############1..*
+#  Items Uno a Muchos Bidirecccional No.5 Hosts
+cd ..
+cd Items.java
+jpa-new-field --named hosts --type co.simasoft.models.Hosts --relationshipType One-to-Many;
+
+#  ############1..*
+#Unitaria  Items Uno a Muchos Bidirecccional No.5 Items
+cd ..
+cd Items.java
+jpa-new-field --named objHijos --type co.simasoft.models.Items --relationshipType One-to-Many;
+
+#  ############*..1
+#  Items Muchos a Uno Unidireccional No.3 PhysicalAreas
+cd ..
+cd Items.java
+jpa-new-field --named physicalAreas --type co.simasoft.models.PhysicalAreas --relationshipType Many-to-One;
+
+#  ############*..1
+#  Items Muchos a Uno Unidireccional No.3 ItemsNames
+cd ..
+cd Items.java
+jpa-new-field --named itemsNames --type co.simasoft.models.ItemsNames --relationshipType Many-to-One;
+
+#  ############*..1
+#  Items Muchos a Uno Unidireccional No.3 ItemsStates
+cd ..
+cd Items.java
+jpa-new-field --named itemsStates --type co.simasoft.models.ItemsStates --relationshipType Many-to-One;
+
+#  ############*..1
+#Unitaria  Items Muchos a Uno Unidireccional No.3 Items
+cd ..
+cd Items.java
+jpa-new-field --named objPadre --type co.simasoft.models.Items --relationshipType Many-to-One;
+
+#  ItemsStates Relationships 
+#  ############
+#  ############1..*
+#  ItemsStates Uno a Muchos Bidirecccional No.5 Items
+cd ..
+cd ItemsStates.java
+jpa-new-field --named items --type co.simasoft.models.Items --relationshipType One-to-Many;
+
+#  HostsTypes Relationships 
+#  ############
+#  ############1..*
+#  HostsTypes Uno a Muchos Bidirecccional No.5 Hosts
+cd ..
+cd HostsTypes.java
+jpa-new-field --named hosts --type co.simasoft.models.Hosts --relationshipType One-to-Many;
+
+#  Hosts Relationships 
+#  ############
+#  ############1..*
+#  Hosts Uno a Muchos Bidirecccional No.5 NetworkPorts
+cd ..
+cd Hosts.java
+jpa-new-field --named networkPorts --type co.simasoft.models.NetworkPorts --relationshipType One-to-Many;
+
+#  ############1..*
+#  Hosts Uno a Muchos Bidirecccional No.5 PatchPanelsPorts
+cd ..
+cd Hosts.java
+jpa-new-field --named patchPanelsPorts --type co.simasoft.models.PatchPanelsPorts --relationshipType One-to-Many;
+
+#  ############1..*
+#  Hosts Uno a Muchos Bidirecccional No.5 SwitchesPorts
+cd ..
+cd Hosts.java
+jpa-new-field --named switchesPorts --type co.simasoft.models.SwitchesPorts --relationshipType One-to-Many;
+
+#  ############*..1
+#  Hosts Muchos a Uno Unidireccional No.3 Items
+cd ..
+cd Hosts.java
+jpa-new-field --named items --type co.simasoft.models.Items --relationshipType Many-to-One;
+
+#  ############*..1
+#  Hosts Muchos a Uno Unidireccional No.3 HostsTypes
+cd ..
+cd Hosts.java
+jpa-new-field --named hostsTypes --type co.simasoft.models.HostsTypes --relationshipType Many-to-One;
+
+#  NetworkPorts Relationships 
+#  ############
+#  ############*..*
+#  NetworkPorts Muchos a Muchos Bidirecccional No.7 Sites
+cd ..
+cd NetworkPorts.java
+jpa-new-field --named sites --type co.simasoft.models.Sites --relationshipType Many-to-Many  ----inverseFieldName networkPorts;
+
+#  ############*..1
+#  NetworkPorts Muchos a Uno Unidireccional No.3 PatchPanelsPorts
+cd ..
+cd NetworkPorts.java
+jpa-new-field --named patchPanelsPorts --type co.simasoft.models.PatchPanelsPorts --relationshipType Many-to-One;
+
+#  ############*..1
+#  NetworkPorts Muchos a Uno Unidireccional No.3 Hosts
+cd ..
+cd NetworkPorts.java
+jpa-new-field --named hosts --type co.simasoft.models.Hosts --relationshipType Many-to-One;
+
+#  PatchPanelsPorts Relationships 
+#  ############
+#  ############1..*
+#  PatchPanelsPorts Uno a Muchos Bidirecccional No.5 NetworkPorts
+cd ..
+cd PatchPanelsPorts.java
+jpa-new-field --named networkPorts --type co.simasoft.models.NetworkPorts --relationshipType One-to-Many;
+
+#  ############*..1
+#  PatchPanelsPorts Muchos a Uno Unidireccional No.3 SwitchesPorts
+cd ..
+cd PatchPanelsPorts.java
+jpa-new-field --named switchesPorts --type co.simasoft.models.SwitchesPorts --relationshipType Many-to-One;
+
+#  ############*..1
+#  PatchPanelsPorts Muchos a Uno Unidireccional No.3 Hosts
+cd ..
+cd PatchPanelsPorts.java
+jpa-new-field --named hosts --type co.simasoft.models.Hosts --relationshipType Many-to-One;
+
+#  SwitchesPorts Relationships 
+#  ############
+#  ############1..*
+#  SwitchesPorts Uno a Muchos Bidirecccional No.5 PatchPanelsPorts
+cd ..
+cd SwitchesPorts.java
+jpa-new-field --named patchPanelsPorts --type co.simasoft.models.PatchPanelsPorts --relationshipType One-to-Many;
+
+#  ############*..1
+#  SwitchesPorts Muchos a Uno Unidireccional No.3 Vlans
+cd ..
+cd SwitchesPorts.java
+jpa-new-field --named vlans --type co.simasoft.models.Vlans --relationshipType Many-to-One;
+
+#  ############*..1
+#  SwitchesPorts Muchos a Uno Unidireccional No.3 Hosts
+cd ..
+cd SwitchesPorts.java
+jpa-new-field --named hosts --type co.simasoft.models.Hosts --relationshipType Many-to-One;
+
+#  Vlans Relationships 
+#  ############
+#  ############1..*
+#  Vlans Uno a Muchos Bidirecccional No.5 SwitchesPorts
+cd ..
+cd Vlans.java
+jpa-new-field --named switchesPorts --type co.simasoft.models.SwitchesPorts --relationshipType One-to-Many;
+
 #  Persons Relationships 
 #  ############
 #  ############1..*
@@ -1070,6 +1337,14 @@ jpa-new-field --named activities --type co.simasoft.models.Activities --relation
 cd ..
 cd Persons.java
 jpa-new-field --named employees --type co.simasoft.models.Employees --relationshipType One-to-Many;
+
+#  PhysicalAreas Relationships 
+#  ############
+#  ############1..*
+#  PhysicalAreas Uno a Muchos Bidirecccional No.5 Items
+cd ..
+cd PhysicalAreas.java
+jpa-new-field --named items --type co.simasoft.models.Items --relationshipType One-to-Many;
 
 #  SitesTypes Relationships 
 #  ############
@@ -1116,6 +1391,12 @@ jpa-new-field --named diaries --type co.simasoft.models.Diaries --relationshipTy
 cd ..
 cd Sites.java
 jpa-new-field --named activities --type co.simasoft.models.Activities --relationshipType Many-to-Many  ----inverseFieldName sites;
+
+#  ############*..*
+#  Sites Muchos a Muchos Unidireccional No.6 NetworkPorts
+cd ..
+cd Sites.java
+jpa-new-field --named networkPorts --type co.simasoft.models.NetworkPorts --relationshipType Many-to-Many  ----inverseFieldName sites;
 
 #  ############*..*
 #  Sites Muchos a Muchos Unidireccional No.6 Companies

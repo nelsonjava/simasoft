@@ -93,6 +93,9 @@ public class Sites implements Serializable {
 	private Set<Activities> activities = new HashSet<Activities>();
 
 	@ManyToMany(mappedBy = "sites")
+	private Set<NetworkPorts> networkPorts = new HashSet<NetworkPorts>();
+
+	@ManyToMany(mappedBy = "sites")
 	private Set<Companies> companies = new HashSet<Companies>();
 
 	@ManyToMany(mappedBy = "sites")
@@ -213,6 +216,13 @@ public class Sites implements Serializable {
 	}
 	public void setActivities(Set<Activities> activities) {
 		this.activities = activities;
+	}
+
+	public Set<NetworkPorts> getNetworkPorts() {
+		return networkPorts;
+	}
+	public void setNetworkPorts(Set<NetworkPorts> networkPorts) {
+		this.networkPorts = networkPorts;
 	}
 
 	public Set<Companies> getCompanies() {

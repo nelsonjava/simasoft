@@ -274,6 +274,55 @@
                                 </h:panelGroup>
                                 <h:outputText/>
 
+                                <h:outputLabel for="sitesBeansitesNetworkPorts" value="NetworkPorts:"/>
+                                <h:panelGroup>
+                                        <ui:param name="_collection" value="#{sitesBean.sites.networkPorts}"/>
+                                        <h:dataTable id="sitesBeanSitesNetworkPorts" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="MacAddress"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/networkPorts/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemMacAddress" value="#{_item.macAddress}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="IpAddress"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/networkPorts/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemIpAddress" value="#{_item.ipAddress}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="State"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/networkPorts/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemState" value="#{_item.state}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                     <h:column footerClass="remove-column" headerClass="remove-column">
+                                        <h:commandLink action="#{_collection.remove(_item)}" styleClass="remove-button"/>
+                                     </h:column>
+                                        </h:dataTable>
+
+                                        <h:panelGrid columnClasses=",remove-column" columns="2" styleClass="data-table-footer">
+                                           <h:selectOneMenu converter="#{networkPortsBean.converter}" id="sitesBeanSitesNetworkPortsSelect" value="#{requestScope['sitesBeanSitesNetworkPortsSelect']}">
+                                             <f:selectItem/>
+                                             <f:selectItems itemLabel="#{forgeview:display(_item.macAddress)}" itemValue="#{_item}" value="#{networkPortsBean.all}" var="_item"/>
+                                           </h:selectOneMenu>
+                                           <h:commandLink action="#{_collection.add(requestScope['sitesBeanSitesNetworkPortsSelect'])}" id="sitesBeanSitesNetworkPortsAdd" onclick="if (document.getElementById(document.forms[0].id+':sitesBeanSitesNetworkPortsSelect').selectedIndex &lt; 1) { alert('Must select a NetworkPorts'); return false; }" styleClass="add-button"/>
+                                        </h:panelGrid>
+                                </h:panelGroup>
+                                <h:outputText/>
+
                                 <h:outputLabel for="sitesBeansitesCompanies" value="Companies:"/>
                                 <h:panelGroup>
                                         <ui:param name="_collection" value="#{sitesBean.sites.companies}"/>

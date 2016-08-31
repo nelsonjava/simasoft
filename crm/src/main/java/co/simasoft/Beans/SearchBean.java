@@ -518,6 +518,116 @@ public class SearchBean {
         return results;
     }
 
+    public List<ItemsTypes> selectAllItemsTypes(EntityManager em) {
+        prepare(ItemsTypes.class,em);
+
+        Query query = qb.all().createQuery();
+
+        List<ItemsTypes> results = execute(query,
+                                              new Class[]{ItemsTypes.class}, null,
+                                              new SortField("orden", SortField.DOUBLE));
+        return results;
+    }
+
+    public List<ItemsNames> selectAllItemsNames(EntityManager em) {
+        prepare(ItemsNames.class,em);
+
+        Query query = qb.all().createQuery();
+
+        List<ItemsNames> results = execute(query,
+                                              new Class[]{ItemsNames.class}, null,
+                                              new SortField("orden", SortField.DOUBLE));
+        return results;
+    }
+
+    public List<Items> selectAllItems(EntityManager em) {
+        prepare(Items.class,em);
+
+        Query query = qb.all().createQuery();
+
+        List<Items> results = execute(query,
+                                              new Class[]{Items.class}, null,
+                                              new SortField("orden", SortField.DOUBLE));
+        return results;
+    }
+
+    public List<ItemsStates> selectAllItemsStates(EntityManager em) {
+        prepare(ItemsStates.class,em);
+
+        Query query = qb.all().createQuery();
+
+        List<ItemsStates> results = execute(query,
+                                              new Class[]{ItemsStates.class}, null,
+                                              new SortField("orden", SortField.DOUBLE));
+        return results;
+    }
+
+    public List<HostsTypes> selectAllHostsTypes(EntityManager em) {
+        prepare(HostsTypes.class,em);
+
+        Query query = qb.all().createQuery();
+
+        List<HostsTypes> results = execute(query,
+                                              new Class[]{HostsTypes.class}, null,
+                                              new SortField("orden", SortField.DOUBLE));
+        return results;
+    }
+
+    public List<Hosts> selectAllHosts(EntityManager em) {
+        prepare(Hosts.class,em);
+
+        Query query = qb.all().createQuery();
+
+        List<Hosts> results = execute(query,
+                                              new Class[]{Hosts.class}, null,
+                                              new SortField("orden", SortField.DOUBLE));
+        return results;
+    }
+
+    public List<NetworkPorts> selectAllNetworkPorts(EntityManager em) {
+        prepare(NetworkPorts.class,em);
+
+        Query query = qb.all().createQuery();
+
+        List<NetworkPorts> results = execute(query,
+                                              new Class[]{NetworkPorts.class}, null,
+                                              new SortField("orden", SortField.DOUBLE));
+        return results;
+    }
+
+    public List<PatchPanelsPorts> selectAllPatchPanelsPorts(EntityManager em) {
+        prepare(PatchPanelsPorts.class,em);
+
+        Query query = qb.all().createQuery();
+
+        List<PatchPanelsPorts> results = execute(query,
+                                              new Class[]{PatchPanelsPorts.class}, null,
+                                              new SortField("orden", SortField.DOUBLE));
+        return results;
+    }
+
+    public List<SwitchesPorts> selectAllSwitchesPorts(EntityManager em) {
+        prepare(SwitchesPorts.class,em);
+
+        Query query = qb.all().createQuery();
+
+        List<SwitchesPorts> results = execute(query,
+                                              new Class[]{SwitchesPorts.class}, null,
+                                              new SortField("orden", SortField.DOUBLE));
+        return results;
+    }
+
+    public List<Vlans> selectAllVlans(EntityManager em) {
+        prepare(Vlans.class,em);
+
+        Query query = qb.all().createQuery();
+
+        List<Vlans> results = execute(query,
+                                              new Class[]{Vlans.class}, null,
+                                              new SortField("orden", SortField.DOUBLE));
+        return results;
+    }
+
     public List<Persons> selectAllPersons(EntityManager em) {
         prepare(Persons.class,em);
 
@@ -525,6 +635,17 @@ public class SearchBean {
 
         List<Persons> results = execute(query,
                                               new Class[]{Persons.class}, null,
+                                              new SortField("orden", SortField.DOUBLE));
+        return results;
+    }
+
+    public List<PhysicalAreas> selectAllPhysicalAreas(EntityManager em) {
+        prepare(PhysicalAreas.class,em);
+
+        Query query = qb.all().createQuery();
+
+        List<PhysicalAreas> results = execute(query,
+                                              new Class[]{PhysicalAreas.class}, null,
                                               new SortField("orden", SortField.DOUBLE));
         return results;
     }

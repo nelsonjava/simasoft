@@ -1,0 +1,132 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="page" value='#{relationshipsBean.page}'/>
+		<f:event type="preRenderView" listener='#{relationshipsBean.paginate}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="Search Relationships entities"/>
+
+	<ui:define name="header">
+		Relationships
+	</ui:define>
+
+	<ui:define name="subheader">
+		Search Relationships entities
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:form id="search">
+			<f:validateBean disabled="true">
+				<h:panelGroup styleClass="search">
+
+					<h:panelGrid columnClasses="label,component,required" columns="3">
+						<h:outputLabel for="relationshipsBeanExampleAlias" value="Alias:"/>
+						<h:panelGroup>
+							<h:inputText id="relationshipsBeanExampleAlias" value="#{relationshipsBean.example.alias}"/>
+							<h:message for="relationshipsBeanExampleAlias" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="relationshipsBeanExampleObservations" value="Observations:"/>
+						<h:panelGroup>
+							<h:inputTextarea id="relationshipsBeanExampleObservations" value="#{relationshipsBean.example.observations}"/>
+							<h:message for="relationshipsBeanExampleObservations" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="relationshipsBeanExampleName" value="Name:"/>
+						<h:panelGroup>
+							<h:inputText id="relationshipsBeanExampleName" value="#{relationshipsBean.example.name}"/>
+							<h:message for="relationshipsBeanExampleName" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="relationshipsBeanExampleIsOptionality" value="Is Optionality:"/>
+						<h:panelGroup>
+							<h:selectOneMenu id="relationshipsBeanExampleIsOptionality" value="#{relationshipsBean.example.isOptionality}">
+								<f:selectItem/>
+								<f:selectItem itemLabel="Yes" itemValue="true"/>
+								<f:selectItem itemLabel="No" itemValue="false"/>
+							</h:selectOneMenu>
+							<h:message for="relationshipsBeanExampleIsOptionality" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="relationshipsBeanExampleIsCreate" value="Is Create:"/>
+						<h:panelGroup>
+							<h:selectOneMenu id="relationshipsBeanExampleIsCreate" value="#{relationshipsBean.example.isCreate}">
+								<f:selectItem/>
+								<f:selectItem itemLabel="Yes" itemValue="true"/>
+								<f:selectItem itemLabel="No" itemValue="false"/>
+							</h:selectOneMenu>
+							<h:message for="relationshipsBeanExampleIsCreate" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+					</h:panelGrid>
+					<h:panelGroup styleClass="buttons">
+						<h:commandLink value="Search" action='#{relationshipsBean.search}' styleClass="btn btn-primary"/>
+						<h:commandLink value="Create New" action='#{relationshipsBean.create}' styleClass="btn btn-primary"/>
+					</h:panelGroup>
+				</h:panelGroup>
+			</f:validateBean>
+			
+			<h:dataTable id="relationshipsBeanPageItems" styleClass="data-table" value="#{relationshipsBean.pageItems}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Alias"/>
+					</f:facet>
+					<h:link outcome="/admin/relationships/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemAlias" value="#{_item.alias}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Orden"/>
+					</f:facet>
+					<h:link outcome="/admin/relationships/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemOrden" value="#{_item.orden}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Observations"/>
+					</f:facet>
+					<h:link outcome="/admin/relationships/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:inputTextarea id="itemObservations" value="#{_item.observations}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Name"/>
+					</f:facet>
+					<h:link outcome="/admin/relationships/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemName" value="#{_item.name}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Is Optionality"/>
+					</f:facet>
+					<h:link outcome="/admin/relationships/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemIsOptionality" value="#{_item.isOptionality}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<ui:include src="/resources/scaffold/paginator.xhtml">
+				<ui:param name="paginatorBean" value='#{relationshipsBean}'/>
+			</ui:include>
+		</h:form>
+			
+	</ui:define>
+
+</ui:composition>

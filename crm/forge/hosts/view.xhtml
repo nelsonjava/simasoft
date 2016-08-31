@@ -1,0 +1,99 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:forgeview="http://jboss.org/forge/view"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="id" value='#{hostsBean.id}'/>
+		<f:event type="preRenderView" listener='#{hostsBean.retrieve}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="View Hosts"/>
+
+	<ui:define name="header">
+		Hosts
+	</ui:define>
+
+	<ui:define name="subheader">
+		View existing Hosts
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:panelGrid columnClasses="label,component,required" columns="3">
+			<h:outputLabel for="hostsBeanHostsAlias" value="Alias:"/>
+			<h:outputText id="hostsBeanHostsAlias" value="#{hostsBean.hosts.alias}"/>
+			<h:outputText/>
+			<h:outputLabel for="hostsBeanHostsOrden" value="Orden:"/>
+			<h:outputText id="hostsBeanHostsOrden" value="#{hostsBean.hosts.orden}"/>
+			<h:outputText/>
+			<h:outputLabel for="hostsBeanHostsObservations" value="Observations:"/>
+			<h:inputTextarea id="hostsBeanHostsObservations" value="#{hostsBean.hosts.observations}"/>
+			<h:outputText/>
+			<h:outputLabel for="hostsBeanHostsName" value="Name:"/>
+			<h:outputText id="hostsBeanHostsName" value="#{hostsBean.hosts.name}"/>
+			<h:outputText/>
+			<h:outputLabel for="hostsBeanHostsNetworkPorts" value="Network Ports:"/>
+			<h:dataTable id="hostsBeanHostsNetworkPorts" styleClass="data-table" value="#{forgeview:asList(hostsBean.hosts.networkPorts)}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Mac Address"/>
+					</f:facet>
+					<h:link outcome="/admin/networkPorts/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemMacAddress" value="#{_item.macAddress}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<h:outputText/>
+			<h:outputLabel for="hostsBeanHostsPatchPanelsPorts" value="Patch Panels Ports:"/>
+			<h:dataTable id="hostsBeanHostsPatchPanelsPorts" styleClass="data-table" value="#{forgeview:asList(hostsBean.hosts.patchPanelsPorts)}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Port"/>
+					</f:facet>
+					<h:link outcome="/admin/patchPanelsPorts/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemPort" value="#{_item.port}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<h:outputText/>
+			<h:outputLabel for="hostsBeanHostsSwitchesPorts" value="Switches Ports:"/>
+			<h:dataTable id="hostsBeanHostsSwitchesPorts" styleClass="data-table" value="#{forgeview:asList(hostsBean.hosts.switchesPorts)}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Port"/>
+					</f:facet>
+					<h:link outcome="/admin/switchesPorts/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemPort" value="#{_item.port}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<h:outputText/>
+			<h:outputLabel for="hostsBeanHostsItems" value="Items:"/>
+			<h:link id="hostsBeanHostsItems" outcome="/admin/items/view" rendered="#{!empty hostsBean.hosts.items}" value="#{hostsBean.hosts.items}">
+				<f:param name="id" value="#{hostsBean.hosts.items.id}"/>
+			</h:link>
+			<h:outputText/>
+			<h:outputLabel for="hostsBeanHostsHostsTypes" value="Hosts Types:"/>
+			<h:link id="hostsBeanHostsHostsTypes" outcome="/admin/hostsTypes/view" rendered="#{!empty hostsBean.hosts.hostsTypes}" value="#{hostsBean.hosts.hostsTypes}">
+				<f:param name="id" value="#{hostsBean.hosts.hostsTypes.id}"/>
+			</h:link>
+			<h:outputText/>
+		</h:panelGrid>
+
+		<div class="buttons">
+			<h:link value="View All" outcome="search" styleClass="btn btn-primary"/> 
+			<h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
+			<h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
+		</div>
+	</ui:define>
+
+</ui:composition>

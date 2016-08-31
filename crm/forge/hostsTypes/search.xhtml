@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="page" value='#{hostsTypesBean.page}'/>
+		<f:event type="preRenderView" listener='#{hostsTypesBean.paginate}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="Search Hosts Types entities"/>
+
+	<ui:define name="header">
+		Hosts Types
+	</ui:define>
+
+	<ui:define name="subheader">
+		Search Hosts Types entities
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:form id="search">
+			<f:validateBean disabled="true">
+				<h:panelGroup styleClass="search">
+
+					<h:panelGrid columnClasses="label,component,required" columns="3">
+						<h:outputLabel for="hostsTypesBeanExampleAlias" value="Alias:"/>
+						<h:panelGroup>
+							<h:inputText id="hostsTypesBeanExampleAlias" value="#{hostsTypesBean.example.alias}"/>
+							<h:message for="hostsTypesBeanExampleAlias" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="hostsTypesBeanExampleObservations" value="Observations:"/>
+						<h:panelGroup>
+							<h:inputTextarea id="hostsTypesBeanExampleObservations" value="#{hostsTypesBean.example.observations}"/>
+							<h:message for="hostsTypesBeanExampleObservations" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="hostsTypesBeanExampleName" value="Name:"/>
+						<h:panelGroup>
+							<h:inputText id="hostsTypesBeanExampleName" value="#{hostsTypesBean.example.name}"/>
+							<h:message for="hostsTypesBeanExampleName" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+					</h:panelGrid>
+					<h:panelGroup styleClass="buttons">
+						<h:commandLink value="Search" action='#{hostsTypesBean.search}' styleClass="btn btn-primary"/>
+						<h:commandLink value="Create New" action='#{hostsTypesBean.create}' styleClass="btn btn-primary"/>
+					</h:panelGroup>
+				</h:panelGroup>
+			</f:validateBean>
+			
+			<h:dataTable id="hostsTypesBeanPageItems" styleClass="data-table" value="#{hostsTypesBean.pageItems}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Name"/>
+					</f:facet>
+					<h:link outcome="/admin/hostsTypes/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemName" value="#{_item.name}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<ui:include src="/resources/scaffold/paginator.xhtml">
+				<ui:param name="paginatorBean" value='#{hostsTypesBean}'/>
+			</ui:include>
+		</h:form>
+			
+	</ui:define>
+
+</ui:composition>

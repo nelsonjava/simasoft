@@ -883,6 +883,226 @@ public class FindBean {
         return closingActivities;
     }
 
+//      ---------------------- ItemsTypes ------------------------
+
+    public List<ItemsTypes> AllItemsTypes() {
+        List<ItemsTypes> results = em.createQuery("SELECT o FROM ItemsTypes o").getResultList();
+        if (results.isEmpty()) {
+            return new ArrayList<ItemsTypes>();
+        }
+        return results;
+    }
+
+    public ItemsTypes idItemsTypes(Long id) {
+
+        ItemsTypes itemsTypes = new ItemsTypes();
+        List<ItemsTypes> results = em.createQuery("SELECT o FROM ItemsTypes o WHERE o.id LIKE :custId").setParameter("custId", id).getResultList();
+
+        if (!results.isEmpty()) {
+
+           itemsTypes = results.get(0);
+        }
+        return itemsTypes;
+    }
+
+//      ---------------------- ItemsNames ------------------------
+
+    public List<ItemsNames> AllItemsNames() {
+        List<ItemsNames> results = em.createQuery("SELECT o FROM ItemsNames o").getResultList();
+        if (results.isEmpty()) {
+            return new ArrayList<ItemsNames>();
+        }
+        return results;
+    }
+
+    public ItemsNames idItemsNames(Long id) {
+
+        ItemsNames itemsNames = new ItemsNames();
+        List<ItemsNames> results = em.createQuery("SELECT o FROM ItemsNames o WHERE o.id LIKE :custId").setParameter("custId", id).getResultList();
+
+        if (!results.isEmpty()) {
+
+           itemsNames = results.get(0);
+        }
+        return itemsNames;
+    }
+
+//      ---------------------- Items ------------------------
+
+    public List<Items> AllItems() {
+        List<Items> results = em.createQuery("SELECT o FROM Items o").getResultList();
+        if (results.isEmpty()) {
+            return new ArrayList<Items>();
+        }
+        return results;
+    }
+
+    public Items idItems(Long id) {
+
+        Items items = new Items();
+        List<Items> results = em.createQuery("SELECT o FROM Items o WHERE o.id LIKE :custId").setParameter("custId", id).getResultList();
+
+        if (!results.isEmpty()) {
+
+           items = results.get(0);
+        }
+        return items;
+    }
+
+//      ---------------------- ItemsStates ------------------------
+
+    public List<ItemsStates> AllItemsStates() {
+        List<ItemsStates> results = em.createQuery("SELECT o FROM ItemsStates o").getResultList();
+        if (results.isEmpty()) {
+            return new ArrayList<ItemsStates>();
+        }
+        return results;
+    }
+
+    public ItemsStates idItemsStates(Long id) {
+
+        ItemsStates itemsStates = new ItemsStates();
+        List<ItemsStates> results = em.createQuery("SELECT o FROM ItemsStates o WHERE o.id LIKE :custId").setParameter("custId", id).getResultList();
+
+        if (!results.isEmpty()) {
+
+           itemsStates = results.get(0);
+        }
+        return itemsStates;
+    }
+
+//      ---------------------- HostsTypes ------------------------
+
+    public List<HostsTypes> AllHostsTypes() {
+        List<HostsTypes> results = em.createQuery("SELECT o FROM HostsTypes o").getResultList();
+        if (results.isEmpty()) {
+            return new ArrayList<HostsTypes>();
+        }
+        return results;
+    }
+
+    public HostsTypes idHostsTypes(Long id) {
+
+        HostsTypes hostsTypes = new HostsTypes();
+        List<HostsTypes> results = em.createQuery("SELECT o FROM HostsTypes o WHERE o.id LIKE :custId").setParameter("custId", id).getResultList();
+
+        if (!results.isEmpty()) {
+
+           hostsTypes = results.get(0);
+        }
+        return hostsTypes;
+    }
+
+//      ---------------------- Hosts ------------------------
+
+    public List<Hosts> AllHosts() {
+        List<Hosts> results = em.createQuery("SELECT o FROM Hosts o").getResultList();
+        if (results.isEmpty()) {
+            return new ArrayList<Hosts>();
+        }
+        return results;
+    }
+
+    public Hosts idHosts(Long id) {
+
+        Hosts hosts = new Hosts();
+        List<Hosts> results = em.createQuery("SELECT o FROM Hosts o WHERE o.id LIKE :custId").setParameter("custId", id).getResultList();
+
+        if (!results.isEmpty()) {
+
+           hosts = results.get(0);
+        }
+        return hosts;
+    }
+
+//      ---------------------- NetworkPorts ------------------------
+
+    public List<NetworkPorts> AllNetworkPorts() {
+        List<NetworkPorts> results = em.createQuery("SELECT o FROM NetworkPorts o").getResultList();
+        if (results.isEmpty()) {
+            return new ArrayList<NetworkPorts>();
+        }
+        return results;
+    }
+
+    public NetworkPorts idNetworkPorts(Long id) {
+
+        NetworkPorts networkPorts = new NetworkPorts();
+        List<NetworkPorts> results = em.createQuery("SELECT o FROM NetworkPorts o WHERE o.id LIKE :custId").setParameter("custId", id).getResultList();
+
+        if (!results.isEmpty()) {
+
+           networkPorts = results.get(0);
+        }
+        return networkPorts;
+    }
+
+//      ---------------------- PatchPanelsPorts ------------------------
+
+    public List<PatchPanelsPorts> AllPatchPanelsPorts() {
+        List<PatchPanelsPorts> results = em.createQuery("SELECT o FROM PatchPanelsPorts o").getResultList();
+        if (results.isEmpty()) {
+            return new ArrayList<PatchPanelsPorts>();
+        }
+        return results;
+    }
+
+    public PatchPanelsPorts idPatchPanelsPorts(Long id) {
+
+        PatchPanelsPorts patchPanelsPorts = new PatchPanelsPorts();
+        List<PatchPanelsPorts> results = em.createQuery("SELECT o FROM PatchPanelsPorts o WHERE o.id LIKE :custId").setParameter("custId", id).getResultList();
+
+        if (!results.isEmpty()) {
+
+           patchPanelsPorts = results.get(0);
+        }
+        return patchPanelsPorts;
+    }
+
+//      ---------------------- SwitchesPorts ------------------------
+
+    public List<SwitchesPorts> AllSwitchesPorts() {
+        List<SwitchesPorts> results = em.createQuery("SELECT o FROM SwitchesPorts o").getResultList();
+        if (results.isEmpty()) {
+            return new ArrayList<SwitchesPorts>();
+        }
+        return results;
+    }
+
+    public SwitchesPorts idSwitchesPorts(Long id) {
+
+        SwitchesPorts switchesPorts = new SwitchesPorts();
+        List<SwitchesPorts> results = em.createQuery("SELECT o FROM SwitchesPorts o WHERE o.id LIKE :custId").setParameter("custId", id).getResultList();
+
+        if (!results.isEmpty()) {
+
+           switchesPorts = results.get(0);
+        }
+        return switchesPorts;
+    }
+
+//      ---------------------- Vlans ------------------------
+
+    public List<Vlans> AllVlans() {
+        List<Vlans> results = em.createQuery("SELECT o FROM Vlans o").getResultList();
+        if (results.isEmpty()) {
+            return new ArrayList<Vlans>();
+        }
+        return results;
+    }
+
+    public Vlans idVlans(Long id) {
+
+        Vlans vlans = new Vlans();
+        List<Vlans> results = em.createQuery("SELECT o FROM Vlans o WHERE o.id LIKE :custId").setParameter("custId", id).getResultList();
+
+        if (!results.isEmpty()) {
+
+           vlans = results.get(0);
+        }
+        return vlans;
+    }
+
 //      ---------------------- Persons ------------------------
 
     public List<Persons> AllPersons() {
@@ -903,6 +1123,28 @@ public class FindBean {
            persons = results.get(0);
         }
         return persons;
+    }
+
+//      ---------------------- PhysicalAreas ------------------------
+
+    public List<PhysicalAreas> AllPhysicalAreas() {
+        List<PhysicalAreas> results = em.createQuery("SELECT o FROM PhysicalAreas o").getResultList();
+        if (results.isEmpty()) {
+            return new ArrayList<PhysicalAreas>();
+        }
+        return results;
+    }
+
+    public PhysicalAreas idPhysicalAreas(Long id) {
+
+        PhysicalAreas physicalAreas = new PhysicalAreas();
+        List<PhysicalAreas> results = em.createQuery("SELECT o FROM PhysicalAreas o WHERE o.id LIKE :custId").setParameter("custId", id).getResultList();
+
+        if (!results.isEmpty()) {
+
+           physicalAreas = results.get(0);
+        }
+        return physicalAreas;
     }
 
 //      ---------------------- SitesTypes ------------------------

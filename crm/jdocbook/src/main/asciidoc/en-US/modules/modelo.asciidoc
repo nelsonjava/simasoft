@@ -629,6 +629,176 @@ image::images/modelo.jpg[]
 |From | Cardinality | To | Optionality | Navigability | Atribute 
 |ClosingActivities|*..1|ImprovementClosures|true|false|dateClosing
 |===
+== ENTITY:ItemsTypes
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|name|null|String|null|null|false|true|false|true|true|true|true|true
+|===
+*RELATIONS:* 3
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|ItemsTypes|1..*|ItemsTypes|true|false|name
+|ItemsTypes|1..*|ItemsNames|true|false|name
+|ItemsTypes|*..1|ItemsTypes|true|false|name
+|===
+== ENTITY:ItemsNames
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|name|null|String|null|null|false|true|false|true|true|true|true|true
+|model|null|String|null|null|true|false|false|false|true|true|true|true
+|productNumber|null|String|null|null|true|false|false|false|true|true|true|true
+|partNumber|null|String|null|null|true|false|false|false|true|true|true|true
+|===
+*RELATIONS:* 2
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|ItemsNames|1..*|Items|true|false|serial
+|ItemsNames|*..1|ItemsTypes|true|false|name
+|===
+== ENTITY:Items
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|cvNumber|null|String|null|null|true|false|false|false|true|true|true|true
+|code|null|String|null|null|true|false|false|false|true|true|true|true
+|inventoryCode|null|String|null|null|true|false|false|true|true|true|true|true
+|serial|null|String|null|null|true|false|false|false|true|true|true|true
+|eanCode|null|String|null|null|true|false|false|false|true|true|true|true
+|expirationDate|null|Date|null|null|true|false|false|false|true|true|true|true
+|warrantyDate|null|Date|null|null|true|false|false|false|true|true|true|true
+|minStock|null|Integer|null|null|true|false|false|false|true|true|true|true
+|maxStock|null|Integer|null|null|true|false|false|false|true|true|true|true
+|quantity|null|Integer|null|null|true|false|false|false|true|true|true|true
+|located|null|String|null|null|true|false|false|false|true|true|true|true
+|===
+*RELATIONS:* 6
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|Items|1..*|Hosts|true|false|name
+|Items|1..*|Items|true|false|serial
+|Items|*..1|PhysicalAreas|true|false|code
+|Items|*..1|ItemsNames|true|false|name
+|Items|*..1|ItemsStates|true|false|name
+|Items|*..1|Items|true|false|serial
+|===
+== ENTITY:ItemsStates
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|name|null|String|null|null|false|true|false|true|true|true|true|true
+|===
+*RELATIONS:* 1
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|ItemsStates|1..*|Items|true|false|serial
+|===
+== ENTITY:HostsTypes
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|name|null|String|null|null|false|true|false|true|true|true|true|true
+|===
+*RELATIONS:* 1
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|HostsTypes|1..*|Hosts|true|false|name
+|===
+== ENTITY:Hosts
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|name|null|String|null|null|true|false|false|true|true|true|true|true
+|===
+*RELATIONS:* 5
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|Hosts|1..*|NetworkPorts|true|false|state
+|Hosts|1..*|PatchPanelsPorts|true|false|port
+|Hosts|1..*|SwitchesPorts|true|false|port
+|Hosts|*..1|Items|true|false|serial
+|Hosts|*..1|HostsTypes|true|false|name
+|===
+== ENTITY:NetworkPorts
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|macAddress|null|String|null|null|false|true|false|true|true|true|true|true
+|ipAddress|null|String|null|null|true|false|false|false|true|true|true|true
+|state|null|String|null|null|true|false|false|false|true|true|true|true
+|===
+*RELATIONS:* 3
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|NetworkPorts|*..*|Sites|true|false|title
+|NetworkPorts|*..1|PatchPanelsPorts|true|false|port
+|NetworkPorts|*..1|Hosts|true|false|name
+|===
+== ENTITY:PatchPanelsPorts
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|port|null|String|null|null|false|true|false|true|true|true|true|true
+|code|null|String|null|null|true|false|false|false|true|true|true|true
+|mts|null|Integer|null|null|true|false|false|false|true|true|true|true
+|===
+*RELATIONS:* 3
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|PatchPanelsPorts|1..*|NetworkPorts|true|false|state
+|PatchPanelsPorts|*..1|SwitchesPorts|true|false|port
+|PatchPanelsPorts|*..1|Hosts|true|false|name
+|===
+== ENTITY:SwitchesPorts
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|port|null|String|null|null|false|true|false|true|true|true|true|true
+|code|null|String|null|null|true|false|false|false|true|true|true|true
+|state|null|String|null|null|true|false|false|false|true|true|true|true
+|mts|null|Integer|null|null|true|false|false|false|true|true|true|true
+|===
+*RELATIONS:* 3
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|SwitchesPorts|1..*|PatchPanelsPorts|true|false|port
+|SwitchesPorts|*..1|Vlans|true|false|name
+|SwitchesPorts|*..1|Hosts|true|false|name
+|===
+== ENTITY:Vlans
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|name|null|String|null|null|false|true|false|true|true|true|true|true
+|ipMask|null|String|null|null|true|false|false|false|true|true|true|true
+|ipGateway|null|String|null|null|true|false|false|false|true|true|true|true
+|===
+*RELATIONS:* 1
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|Vlans|1..*|SwitchesPorts|true|false|port
+|===
 == ENTITY:Persons
 *ATRIBUTES:*
 [options="header"]
@@ -651,6 +821,21 @@ image::images/modelo.jpg[]
 |Persons|1..*|Tasks|true|false|finalDate
 |Persons|1..*|Activities|true|false|name
 |Persons|1..*|Employees|true|false|code
+|===
+== ENTITY:PhysicalAreas
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|name|null|String|null|null|false|true|false|true|true|true|true|true
+|code|null|String|null|null|true|false|false|false|true|true|true|true
+|telExt|null|String|null|null|true|false|false|false|true|true|true|true
+|===
+*RELATIONS:* 1
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|PhysicalAreas|1..*|Items|true|false|serial
 |===
 == ENTITY:SitesTypes
 *ATRIBUTES:*
@@ -679,7 +864,7 @@ image::images/modelo.jpg[]
 |ipAddress2|null|String|null|null|true|false|false|false|true|true|true|true
 |ipAddress3|null|String|null|null|true|false|false|false|true|true|true|true
 |===
-*RELATIONS:* 6
+*RELATIONS:* 7
 [options="header"]
 |===
 |From | Cardinality | To | Optionality | Navigability | Atribute 
@@ -687,6 +872,7 @@ image::images/modelo.jpg[]
 |Sites|*..*|Tasks|true|false|finalDate
 |Sites|*..*|Diaries|true|false|name
 |Sites|*..*|Activities|true|false|name
+|Sites|*..*|NetworkPorts|true|false|state
 |Sites|*..*|Companies|true|false|name
 |Sites|*..*|Brands|true|false|name
 |===

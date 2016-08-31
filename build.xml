@@ -45,6 +45,7 @@
     <delete dir="networking/target" failonerror="no"/>
     <delete dir="books/target" failonerror="no"/>
     <delete dir="crm/target" failonerror="no"/>
+    <delete dir="crmNaifg/target" failonerror="no"/>    
 
     <delete dir="naifgm/target" failonerror="no"/>
     <delete dir="naifg1/target" failonerror="no"/>

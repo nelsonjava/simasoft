@@ -29,6 +29,7 @@ import co.simasoft.models.Activities;
 import co.simasoft.models.Brands;
 import co.simasoft.models.Companies;
 import co.simasoft.models.Diaries;
+import co.simasoft.models.NetworkPorts;
 import co.simasoft.models.SitesTypes;
 import co.simasoft.models.Tasks;
 import java.util.Iterator;
@@ -167,6 +168,14 @@ public class SitesBean implements Serializable {
 				nextInActivities.getSites().remove(deletableEntity);
 				iterActivities.remove();
 				this.entityManager.merge(nextInActivities);
+			}
+			Iterator<NetworkPorts> iterNetworkPorts = deletableEntity
+					.getNetworkPorts().iterator();
+			for (; iterNetworkPorts.hasNext();) {
+				NetworkPorts nextInNetworkPorts = iterNetworkPorts.next();
+				nextInNetworkPorts.getSites().remove(deletableEntity);
+				iterNetworkPorts.remove();
+				this.entityManager.merge(nextInNetworkPorts);
 			}
 			Iterator<Companies> iterCompanies = deletableEntity.getCompanies()
 					.iterator();

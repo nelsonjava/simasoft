@@ -1,0 +1,106 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="page" value='#{dependenciesBean.page}'/>
+		<f:event type="preRenderView" listener='#{dependenciesBean.paginate}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="Search Dependencies entities"/>
+
+	<ui:define name="header">
+		Dependencies
+	</ui:define>
+
+	<ui:define name="subheader">
+		Search Dependencies entities
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:form id="search">
+			<f:validateBean disabled="true">
+				<h:panelGroup styleClass="search">
+
+					<h:panelGrid columnClasses="label,component,required" columns="3">
+						<h:outputLabel for="dependenciesBeanExampleAlias" value="Alias:"/>
+						<h:panelGroup>
+							<h:inputText id="dependenciesBeanExampleAlias" value="#{dependenciesBean.example.alias}"/>
+							<h:message for="dependenciesBeanExampleAlias" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="dependenciesBeanExampleObservations" value="Observations:"/>
+						<h:panelGroup>
+							<h:inputTextarea id="dependenciesBeanExampleObservations" value="#{dependenciesBean.example.observations}"/>
+							<h:message for="dependenciesBeanExampleObservations" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="dependenciesBeanExampleGroupId" value="Group Id:"/>
+						<h:panelGroup>
+							<h:inputText id="dependenciesBeanExampleGroupId" value="#{dependenciesBean.example.groupId}"/>
+							<h:message for="dependenciesBeanExampleGroupId" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="dependenciesBeanExampleArtifactId" value="Artifact Id:"/>
+						<h:panelGroup>
+							<h:inputText id="dependenciesBeanExampleArtifactId" value="#{dependenciesBean.example.artifactId}"/>
+							<h:message for="dependenciesBeanExampleArtifactId" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="dependenciesBeanExampleVersion" value="Version:"/>
+						<h:panelGroup>
+							<h:inputText id="dependenciesBeanExampleVersion" value="#{dependenciesBean.example.version}"/>
+							<h:message for="dependenciesBeanExampleVersion" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+					</h:panelGrid>
+					<h:panelGroup styleClass="buttons">
+						<h:commandLink value="Search" action='#{dependenciesBean.search}' styleClass="btn btn-primary"/>
+						<h:commandLink value="Create New" action='#{dependenciesBean.create}' styleClass="btn btn-primary"/>
+					</h:panelGroup>
+				</h:panelGroup>
+			</f:validateBean>
+			
+			<h:dataTable id="dependenciesBeanPageItems" styleClass="data-table" value="#{dependenciesBean.pageItems}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Group Id"/>
+					</f:facet>
+					<h:link outcome="/admin/dependencies/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemGroupId" value="#{_item.groupId}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Artifact Id"/>
+					</f:facet>
+					<h:link outcome="/admin/dependencies/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemArtifactId" value="#{_item.artifactId}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Maven"/>
+					</f:facet>
+					<h:link outcome="/admin/dependencies/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemMaven" value="#{_item.maven}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<ui:include src="/resources/scaffold/paginator.xhtml">
+				<ui:param name="paginatorBean" value='#{dependenciesBean}'/>
+			</ui:include>
+		</h:form>
+			
+	</ui:define>
+
+</ui:composition>

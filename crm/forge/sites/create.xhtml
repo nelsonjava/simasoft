@@ -101,7 +101,7 @@
 							</f:facet>
 							<h:link outcome="/admin/sitesTypes/view">
 								<f:param name="id" value="#{_item.id}"/>
-								<h:outputText id="_itemName" value="#{_item.name}"/>
+								<h:outputText id="itemName" value="#{_item.name}"/>
 							</h:link>
 						</h:column>
 						<h:column footerClass="remove-column" headerClass="remove-column">
@@ -127,7 +127,7 @@
 							</f:facet>
 							<h:link outcome="/admin/tasks/view">
 								<f:param name="id" value="#{_item.id}"/>
-								<h:outputText id="_itemName" value="#{_item.name}"/>
+								<h:outputText id="itemName" value="#{_item.name}"/>
 							</h:link>
 						</h:column>
 						<h:column footerClass="remove-column" headerClass="remove-column">
@@ -153,7 +153,7 @@
 							</f:facet>
 							<h:link outcome="/admin/diaries/view">
 								<f:param name="id" value="#{_item.id}"/>
-								<h:outputText id="_itemAlias" value="#{_item.alias}"/>
+								<h:outputText id="itemAlias" value="#{_item.alias}"/>
 							</h:link>
 						</h:column>
 						<h:column>
@@ -162,7 +162,7 @@
 							</f:facet>
 							<h:link outcome="/admin/diaries/view">
 								<f:param name="id" value="#{_item.id}"/>
-								<h:outputText id="_itemOrden" value="#{_item.orden}"/>
+								<h:outputText id="itemOrden" value="#{_item.orden}"/>
 							</h:link>
 						</h:column>
 						<h:column>
@@ -171,7 +171,7 @@
 							</f:facet>
 							<h:link outcome="/admin/diaries/view">
 								<f:param name="id" value="#{_item.id}"/>
-								<h:inputTextarea id="_itemObservations" value="#{_item.observations}"/>
+								<h:inputTextarea id="itemObservations" value="#{_item.observations}"/>
 							</h:link>
 						</h:column>
 						<h:column>
@@ -180,7 +180,7 @@
 							</f:facet>
 							<h:link outcome="/admin/diaries/view">
 								<f:param name="id" value="#{_item.id}"/>
-								<h:outputText id="_itemName" value="#{_item.name}"/>
+								<h:outputText id="itemName" value="#{_item.name}"/>
 							</h:link>
 						</h:column>
 						<h:column>
@@ -189,7 +189,7 @@
 							</f:facet>
 							<h:link outcome="/admin/diaries/view">
 								<f:param name="id" value="#{_item.id}"/>
-								<h:outputText id="_itemDate" value="#{_item.date}">
+								<h:outputText id="itemDate" value="#{_item.date}">
 									<f:convertDateTime type="date"/>
 								</h:outputText>
 							</h:link>
@@ -217,7 +217,7 @@
 							</f:facet>
 							<h:link outcome="/admin/activities/view">
 								<f:param name="id" value="#{_item.id}"/>
-								<h:outputText id="_itemName" value="#{_item.name}"/>
+								<h:outputText id="itemName" value="#{_item.name}"/>
 							</h:link>
 						</h:column>
 						<h:column footerClass="remove-column" headerClass="remove-column">
@@ -233,6 +233,32 @@
 					</h:panelGrid>
 				</h:panelGroup>
 				<h:outputText/>
+				<h:outputLabel for="sitesBeanSitesNetworkPorts" value="Network Ports:"/>
+				<h:panelGroup>
+					<ui:param name="_collection" value="#{sitesBean.sites.networkPorts}"/>
+					<h:dataTable id="sitesBeanSitesNetworkPorts" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Mac Address"/>
+							</f:facet>
+							<h:link outcome="/admin/networkPorts/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemMacAddress" value="#{_item.macAddress}"/>
+							</h:link>
+						</h:column>
+						<h:column footerClass="remove-column" headerClass="remove-column">
+							<h:commandLink action="#{_collection.remove(_item)}" styleClass="remove-button"/>
+						</h:column>
+					</h:dataTable>
+					<h:panelGrid columnClasses=",remove-column" columns="2" styleClass="data-table-footer">
+						<h:selectOneMenu converter="#{networkPortsBean.converter}" id="sitesBeanSitesNetworkPortsSelect" value="#{requestScope['sitesBeanSitesNetworkPortsSelect']}">
+							<f:selectItem/>
+							<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{networkPortsBean.all}" var="_item"/>
+						</h:selectOneMenu>
+						<h:commandLink action="#{_collection.add(requestScope['sitesBeanSitesNetworkPortsSelect'])}" id="sitesBeanSitesNetworkPortsAdd" onclick="if (document.getElementById(document.forms[0].id+':sitesBeanSitesNetworkPortsSelect').selectedIndex &lt; 1) { alert('Must select a Network Ports'); return false; }" styleClass="add-button"/>
+					</h:panelGrid>
+				</h:panelGroup>
+				<h:outputText/>
 				<h:outputLabel for="sitesBeanSitesCompanies" value="Companies:"/>
 				<h:panelGroup>
 					<ui:param name="_collection" value="#{sitesBean.sites.companies}"/>
@@ -243,7 +269,7 @@
 							</f:facet>
 							<h:link outcome="/admin/companies/view">
 								<f:param name="id" value="#{_item.id}"/>
-								<h:outputText id="_itemAlias" value="#{_item.alias}"/>
+								<h:outputText id="itemAlias" value="#{_item.alias}"/>
 							</h:link>
 						</h:column>
 						<h:column>
@@ -252,7 +278,7 @@
 							</f:facet>
 							<h:link outcome="/admin/companies/view">
 								<f:param name="id" value="#{_item.id}"/>
-								<h:outputText id="_itemOrden" value="#{_item.orden}"/>
+								<h:outputText id="itemOrden" value="#{_item.orden}"/>
 							</h:link>
 						</h:column>
 						<h:column>
@@ -261,7 +287,7 @@
 							</f:facet>
 							<h:link outcome="/admin/companies/view">
 								<f:param name="id" value="#{_item.id}"/>
-								<h:inputTextarea id="_itemObservations" value="#{_item.observations}"/>
+								<h:inputTextarea id="itemObservations" value="#{_item.observations}"/>
 							</h:link>
 						</h:column>
 						<h:column>
@@ -270,7 +296,7 @@
 							</f:facet>
 							<h:link outcome="/admin/companies/view">
 								<f:param name="id" value="#{_item.id}"/>
-								<h:outputText id="_itemName" value="#{_item.name}"/>
+								<h:outputText id="itemName" value="#{_item.name}"/>
 							</h:link>
 						</h:column>
 						<h:column>
@@ -279,7 +305,7 @@
 							</f:facet>
 							<h:link outcome="/admin/companies/view">
 								<f:param name="id" value="#{_item.id}"/>
-								<h:outputText id="forgeview:display(_itemObjPadre)" value="#{forgeview:display(_item.objPadre)}"/>
+								<h:outputText id="forgeviewdisplayitemObjPadre" value="#{forgeview:display(_item.objPadre)}"/>
 							</h:link>
 						</h:column>
 						<h:column footerClass="remove-column" headerClass="remove-column">
@@ -305,7 +331,7 @@
 							</f:facet>
 							<h:link outcome="/admin/brands/view">
 								<f:param name="id" value="#{_item.id}"/>
-								<h:outputText id="_itemAlias" value="#{_item.alias}"/>
+								<h:outputText id="itemAlias" value="#{_item.alias}"/>
 							</h:link>
 						</h:column>
 						<h:column>
@@ -314,7 +340,7 @@
 							</f:facet>
 							<h:link outcome="/admin/brands/view">
 								<f:param name="id" value="#{_item.id}"/>
-								<h:outputText id="_itemOrden" value="#{_item.orden}"/>
+								<h:outputText id="itemOrden" value="#{_item.orden}"/>
 							</h:link>
 						</h:column>
 						<h:column>
@@ -323,7 +349,7 @@
 							</f:facet>
 							<h:link outcome="/admin/brands/view">
 								<f:param name="id" value="#{_item.id}"/>
-								<h:inputTextarea id="_itemObservations" value="#{_item.observations}"/>
+								<h:inputTextarea id="itemObservations" value="#{_item.observations}"/>
 							</h:link>
 						</h:column>
 						<h:column>
@@ -332,7 +358,7 @@
 							</f:facet>
 							<h:link outcome="/admin/brands/view">
 								<f:param name="id" value="#{_item.id}"/>
-								<h:outputText id="_itemName" value="#{_item.name}"/>
+								<h:outputText id="itemName" value="#{_item.name}"/>
 							</h:link>
 						</h:column>
 						<h:column>
@@ -341,7 +367,7 @@
 							</f:facet>
 							<h:link outcome="/admin/brands/view">
 								<f:param name="id" value="#{_item.id}"/>
-								<h:outputText id="forgeview:display(_itemCompanies)" value="#{forgeview:display(_item.companies)}"/>
+								<h:outputText id="forgeviewdisplayitemCompanies" value="#{forgeview:display(_item.companies)}"/>
 							</h:link>
 						</h:column>
 						<h:column footerClass="remove-column" headerClass="remove-column">

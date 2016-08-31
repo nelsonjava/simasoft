@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:forgeview="http://jboss.org/forge/view"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="id" value='#{patchPanelsPortsBean.id}'/>
+		<f:event type="preRenderView" listener='#{patchPanelsPortsBean.retrieve}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="View Patch Panels Ports"/>
+
+	<ui:define name="header">
+		Patch Panels Ports
+	</ui:define>
+
+	<ui:define name="subheader">
+		View existing Patch Panels Ports
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:panelGrid columnClasses="label,component,required" columns="3">
+			<h:outputLabel for="patchPanelsPortsBeanPatchPanelsPortsAlias" value="Alias:"/>
+			<h:outputText id="patchPanelsPortsBeanPatchPanelsPortsAlias" value="#{patchPanelsPortsBean.patchPanelsPorts.alias}"/>
+			<h:outputText/>
+			<h:outputLabel for="patchPanelsPortsBeanPatchPanelsPortsOrden" value="Orden:"/>
+			<h:outputText id="patchPanelsPortsBeanPatchPanelsPortsOrden" value="#{patchPanelsPortsBean.patchPanelsPorts.orden}"/>
+			<h:outputText/>
+			<h:outputLabel for="patchPanelsPortsBeanPatchPanelsPortsObservations" value="Observations:"/>
+			<h:inputTextarea id="patchPanelsPortsBeanPatchPanelsPortsObservations" value="#{patchPanelsPortsBean.patchPanelsPorts.observations}"/>
+			<h:outputText/>
+			<h:outputLabel for="patchPanelsPortsBeanPatchPanelsPortsPort" value="Port:"/>
+			<h:outputText id="patchPanelsPortsBeanPatchPanelsPortsPort" value="#{patchPanelsPortsBean.patchPanelsPorts.port}"/>
+			<h:outputText/>
+			<h:outputLabel for="patchPanelsPortsBeanPatchPanelsPortsCode" value="Code:"/>
+			<h:outputText id="patchPanelsPortsBeanPatchPanelsPortsCode" value="#{patchPanelsPortsBean.patchPanelsPorts.code}"/>
+			<h:outputText/>
+			<h:outputLabel for="patchPanelsPortsBeanPatchPanelsPortsMts" value="Mts:"/>
+			<h:outputText id="patchPanelsPortsBeanPatchPanelsPortsMts" value="#{patchPanelsPortsBean.patchPanelsPorts.mts}"/>
+			<h:outputText/>
+			<h:outputLabel for="patchPanelsPortsBeanPatchPanelsPortsNetworkPorts" value="Network Ports:"/>
+			<h:dataTable id="patchPanelsPortsBeanPatchPanelsPortsNetworkPorts" styleClass="data-table" value="#{forgeview:asList(patchPanelsPortsBean.patchPanelsPorts.networkPorts)}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Mac Address"/>
+					</f:facet>
+					<h:link outcome="/admin/networkPorts/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="itemMacAddress" value="#{_item.macAddress}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<h:outputText/>
+			<h:outputLabel for="patchPanelsPortsBeanPatchPanelsPortsSwitchesPorts" value="Switches Ports:"/>
+			<h:link id="patchPanelsPortsBeanPatchPanelsPortsSwitchesPorts" outcome="/admin/switchesPorts/view" rendered="#{!empty patchPanelsPortsBean.patchPanelsPorts.switchesPorts}" value="#{patchPanelsPortsBean.patchPanelsPorts.switchesPorts}">
+				<f:param name="id" value="#{patchPanelsPortsBean.patchPanelsPorts.switchesPorts.id}"/>
+			</h:link>
+			<h:outputText/>
+			<h:outputLabel for="patchPanelsPortsBeanPatchPanelsPortsHosts" value="Hosts:"/>
+			<h:link id="patchPanelsPortsBeanPatchPanelsPortsHosts" outcome="/admin/hosts/view" rendered="#{!empty patchPanelsPortsBean.patchPanelsPorts.hosts}" value="#{patchPanelsPortsBean.patchPanelsPorts.hosts}">
+				<f:param name="id" value="#{patchPanelsPortsBean.patchPanelsPorts.hosts.id}"/>
+			</h:link>
+			<h:outputText/>
+		</h:panelGrid>
+
+		<div class="buttons">
+			<h:link value="View All" outcome="search" styleClass="btn btn-primary"/> 
+			<h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
+			<h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
+		</div>
+	</ui:define>
+
+</ui:composition>
