@@ -1,0 +1,108 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:c="http://java.sun.com/jsp/jstl/core"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:forgeview="http://jboss.org/forge/view"
+        template="/resources/scaffold/physicalAreasTemplate.xhtml">
+
+        <f:metadata>
+                <f:viewParam name="id" value='#{physicalAreasBean.id}'/>
+                <f:event type="preRenderView" listener='#{physicalAreasBean.retrieve}'/>
+        </f:metadata>
+
+        <ui:param name="pageTitle" value="Create PhysicalAreas"/>
+
+        <ui:define name="header">
+                PhysicalAreas
+        </ui:define>
+
+        <ui:define name="subheader">
+                <c:choose>
+                        <c:when test='#{!empty physicalAreasBean.id}'>
+                                Edit existing PhysicalAreas
+                        </c:when>
+                        <c:otherwise>
+                                Create a new PhysicalAreas
+                        </c:otherwise>
+                </c:choose>
+        </ui:define>
+
+        <ui:define name="footer"/>
+
+        <ui:define name="main">
+                <h:form id="create">
+                        <h:messages globalOnly="true" styleClass="error"/>
+
+                        <h:panelGrid columnClasses="label,component,required" columns="3">
+
+                                <h:outputLabel for="physicalAreasBeanPhysicalAreasOrden" value="Orden:"/>
+                                <h:panelGroup>
+                                        <h:inputText id="physicalAreasBeanPhysicalAreasOrden" value="#{physicalAreasBean.physicalAreas.orden}"/>
+                                        <h:message for="physicalAreasBeanPhysicalAreasOrden" styleClass="error"/>
+                                </h:panelGroup>
+                                <h:outputText/>
+
+                                <h:outputLabel for="physicalAreasBeanPhysicalAreasName" value="Name:"/>
+                                <h:panelGroup>
+                                        <h:inputText id="physicalAreasBeanPhysicalAreasName" required="true" value="#{physicalAreasBean.physicalAreas.name}"/>
+                                        <h:message for="physicalAreasBeanPhysicalAreasName" styleClass="error"/>
+                                </h:panelGroup>
+                                <h:outputText value="*"/>
+
+                                <h:outputLabel for="physicalAreasBeanPhysicalAreasCode" value="Code:"/>
+                                <h:panelGroup>
+                                        <h:inputText id="physicalAreasBeanPhysicalAreasCode" value="#{physicalAreasBean.physicalAreas.code}"/>
+                                        <h:message for="physicalAreasBeanPhysicalAreasCode" styleClass="error"/>
+                                </h:panelGroup>
+                                <h:outputText/>
+
+                                <h:outputLabel for="physicalAreasBeanPhysicalAreasTelExt" value="TelExt:"/>
+                                <h:panelGroup>
+                                        <h:inputText id="physicalAreasBeanPhysicalAreasTelExt" value="#{physicalAreasBean.physicalAreas.telExt}"/>
+                                        <h:message for="physicalAreasBeanPhysicalAreasTelExt" styleClass="error"/>
+                                </h:panelGroup>
+                                <h:outputText/>
+
+
+
+                                <h:outputLabel for="physicalAreasBeanPhysicalAreasPhysicalAreasTypes" value="PhysicalAreasTypes:"/>
+                                <h:panelGroup>
+                                         <h:selectOneMenu converter="#{physicalAreasTypesBean.converter}" id="physicalAreasBeanPhysicalAreasPhysicalAreasTypes" value="#{physicalAreasBean.physicalAreas.physicalAreasTypes}">
+                                                <f:selectItem/>
+                                                <f:selectItems itemLabel="#{forgeview:display(_item.name)}" itemValue="#{_item}" value="#{physicalAreasTypesBean.all}" var="_item"/>
+                                        </h:selectOneMenu>
+                                        <h:message for="physicalAreasBeanPhysicalAreas" styleClass="error"/>
+                                </h:panelGroup>
+                                <h:outputText/>
+
+                                <h:outputLabel for="physicalAreasBeanPhysicalAreasObservations" value="Observations:"/>
+                                <h:panelGroup>
+                                        <p:editor id="physicalAreasBeanPhysicalAreasObservations" value="#{physicalAreasBean.physicalAreas.observations}"/>
+                                        <h:message for="physicalAreasBeanPhysicalAreasObservations" styleClass="error"/>
+                                </h:panelGroup>
+                                <h:outputText/>
+
+                        </h:panelGrid>
+
+                        <div class="buttons">
+                                <h:commandLink value="Save" action='#{physicalAreasBean.update}' styleClass="btn btn-primary"/>
+                                <c:choose>
+                                        <c:when test='#{!empty physicalAreasBean.id}'>
+                                                <h:link value="Cancel" outcome="view" styleClass="btn btn-primary">
+                                                        <f:param name="id" value='#{physicalAreasBean.id}'/>
+                                                </h:link>
+                                                <h:commandLink value="Delete" action='#{physicalAreasBean.delete}' styleClass="btn btn-primary"/>
+                                        </c:when>
+                                        <c:otherwise>
+                                                <h:link value="Cancel" outcome="search" styleClass="btn btn-primary"/>
+                                        </c:otherwise>
+                                </c:choose>
+                        </div>
+                </h:form>
+        </ui:define>
+
+</ui:composition>

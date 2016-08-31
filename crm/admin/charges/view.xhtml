@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:forgeview="http://jboss.org/forge/view"
+        template="/resources/scaffold/companiesTemplate.xhtml">
+
+        <f:metadata>
+                <f:viewParam name="id" value='#{chargesBean.id}'/>
+                <f:event type="preRenderView" listener='#{chargesBean.retrieve}'/>
+        </f:metadata>
+
+        <ui:param name="pageTitle" value="View Charges"/>
+
+        <ui:define name="header">
+                Charges
+        </ui:define>
+
+        <ui:define name="subheader">
+                View existing Charges
+        </ui:define>
+
+        <ui:define name="footer"/>
+
+        <ui:define name="main">
+                <h:panelGrid columnClasses="label,component,required" columns="3">
+
+                        <h:outputLabel for="chargesBeanChargesOrden" value="Orden:"/>
+                        <h:outputText id="chargesBeanChargesOrden" value="#{chargesBean.charges.orden}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="chargesBeanChargesName" value="Name:"/>
+                        <h:outputText id="chargesBeanChargesName" value="#{chargesBean.charges.name}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="chargesBeanChargesObservations" value="Observations:"/>
+                        <h:outputText id="chargesBeanChargesObservations" value="#{chargesBean.charges.observations}" escape="false" />
+                        <h:outputText/>
+
+                        <h:outputLabel for="chargesBeanChargesCompaniesRoles" value="CompaniesRoles:"/>
+                        <h:dataTable id="chargesBeanChargescompaniesRoles" styleClass="data-table" value="#{forgeview:asList(chargesBean.charges.companiesRoles)}" var="_item">
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Orden"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/companiesRoles/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemOrden" value="#{_item.orden}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Name"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/companiesRoles/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemName" value="#{_item.name}"/>
+                                              </h:link>
+                                           </h:column>
+
+                        </h:dataTable>
+                        <h:outputText/>
+
+                        <h:outputLabel for="chargesBeanChargesChargesTypes" value="ChargesTypes:"/>
+                        <h:link id="chargesBeanChargesChargesTypes" outcome="/admin/chargesTypes/view" rendered="#{!empty chargesBean.charges.chargesTypes}" value="#{chargesBean.charges.chargesTypes.name}">
+                                 <f:param name="id" value="#{chargesBean.charges.chargesTypes.id}"/>
+                        </h:link>
+                        <h:outputText/>
+
+                        Muchos a Muchos Unidireccional No.6
+
+                </h:panelGrid>
+
+                <div class="buttons">
+                        <h:link value="View All" outcome="search" styleClass="btn btn-primary"/>
+                        <h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
+                        <h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
+                </div>
+        </ui:define>
+</ui:composition>

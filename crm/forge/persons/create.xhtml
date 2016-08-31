@@ -1,0 +1,215 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:forgeview="http://jboss.org/forge/view"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="id" value='#{personsBean.id}'/>
+		<f:event type="preRenderView" listener='#{personsBean.retrieve}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="Create Persons"/>
+
+	<ui:define name="header">
+		Persons
+	</ui:define>
+
+	<ui:define name="subheader">
+		<c:choose>
+			<c:when test='#{!empty personsBean.id}'>
+				Edit existing Persons
+			</c:when>
+			<c:otherwise>
+				Create a new Persons
+			</c:otherwise>
+		</c:choose>
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:form id="create">
+			<h:messages globalOnly="true" styleClass="error"/>
+
+			<h:panelGrid columnClasses="label,component,required" columns="3">
+				<h:outputLabel for="personsBeanPersonsAlias" value="Alias:"/>
+				<h:panelGroup>
+					<h:inputText id="personsBeanPersonsAlias" value="#{personsBean.persons.alias}"/>
+					<h:message for="personsBeanPersonsAlias" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="personsBeanPersonsOrden" value="Orden:"/>
+				<h:panelGroup>
+					<h:inputText id="personsBeanPersonsOrden" value="#{personsBean.persons.orden}"/>
+					<h:message for="personsBeanPersonsOrden" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="personsBeanPersonsObservations" value="Observations:"/>
+				<h:panelGroup>
+					<h:inputTextarea id="personsBeanPersonsObservations" value="#{personsBean.persons.observations}"/>
+					<h:message for="personsBeanPersonsObservations" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="personsBeanPersonsMobile" value="Mobile:"/>
+				<h:panelGroup>
+					<h:inputText id="personsBeanPersonsMobile" value="#{personsBean.persons.mobile}"/>
+					<h:message for="personsBeanPersonsMobile" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="personsBeanPersonsTelephone" value="Telephone:"/>
+				<h:panelGroup>
+					<h:inputText id="personsBeanPersonsTelephone" value="#{personsBean.persons.telephone}"/>
+					<h:message for="personsBeanPersonsTelephone" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="personsBeanPersonsSkipe" value="Skipe:"/>
+				<h:panelGroup>
+					<h:inputText id="personsBeanPersonsSkipe" value="#{personsBean.persons.skipe}"/>
+					<h:message for="personsBeanPersonsSkipe" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="personsBeanPersonsAddress" value="Address:"/>
+				<h:panelGroup>
+					<h:inputText id="personsBeanPersonsAddress" value="#{personsBean.persons.address}"/>
+					<h:message for="personsBeanPersonsAddress" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="personsBeanPersonsFirstName" value="First Name:"/>
+				<h:panelGroup>
+					<h:inputText id="personsBeanPersonsFirstName" required="true" value="#{personsBean.persons.firstName}"/>
+					<h:message for="personsBeanPersonsFirstName" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText value="*"/>
+				<h:outputLabel for="personsBeanPersonsSecondName" value="Second Name:"/>
+				<h:panelGroup>
+					<h:inputText id="personsBeanPersonsSecondName" value="#{personsBean.persons.secondName}"/>
+					<h:message for="personsBeanPersonsSecondName" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="personsBeanPersonsFirstLastName" value="First Last Name:"/>
+				<h:panelGroup>
+					<h:inputText id="personsBeanPersonsFirstLastName" required="true" value="#{personsBean.persons.firstLastName}"/>
+					<h:message for="personsBeanPersonsFirstLastName" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText value="*"/>
+				<h:outputLabel for="personsBeanPersonsSecondLastName" value="Second Last Name:"/>
+				<h:panelGroup>
+					<h:inputText id="personsBeanPersonsSecondLastName" value="#{personsBean.persons.secondLastName}"/>
+					<h:message for="personsBeanPersonsSecondLastName" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="personsBeanPersonsEmail" value="Email:"/>
+				<h:panelGroup>
+					<h:inputText id="personsBeanPersonsEmail" value="#{personsBean.persons.email}"/>
+					<h:message for="personsBeanPersonsEmail" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="personsBeanPersonsTasks" value="Tasks:"/>
+				<h:panelGroup>
+					<ui:param name="_collection" value="#{personsBean.persons.tasks}"/>
+					<h:dataTable id="personsBeanPersonsTasks" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Name"/>
+							</f:facet>
+							<h:link outcome="/admin/tasks/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="_itemName" value="#{_item.name}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="tasksBeanAddName" value="#{tasksBean.add.name}"/>
+								<h:message for="tasksBeanAddName" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column footerClass="remove-column" headerClass="remove-column">
+							<h:commandLink action="#{_collection.remove(_item)}" styleClass="remove-button"/>
+							<f:facet name="footer">
+								<h:commandLink action="#{_collection.add(tasksBean.added)}" id="personsBeanPersonsTasksAdd" styleClass="add-button">
+									<f:setPropertyActionListener target="#{tasksBean.add.persons}" value="#{personsBean.persons}"/>
+								</h:commandLink>
+							</f:facet>
+						</h:column>
+					</h:dataTable>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="personsBeanPersonsActivities" value="Activities:"/>
+				<h:panelGroup>
+					<ui:param name="_collection" value="#{personsBean.persons.activities}"/>
+					<h:dataTable id="personsBeanPersonsActivities" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Name"/>
+							</f:facet>
+							<h:link outcome="/admin/activities/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="_itemName" value="#{_item.name}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="activitiesBeanAddName" value="#{activitiesBean.add.name}"/>
+								<h:message for="activitiesBeanAddName" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column footerClass="remove-column" headerClass="remove-column">
+							<h:commandLink action="#{_collection.remove(_item)}" styleClass="remove-button"/>
+							<f:facet name="footer">
+								<h:commandLink action="#{_collection.add(activitiesBean.added)}" id="personsBeanPersonsActivitiesAdd" styleClass="add-button">
+									<f:setPropertyActionListener target="#{activitiesBean.add.persons}" value="#{personsBean.persons}"/>
+								</h:commandLink>
+							</f:facet>
+						</h:column>
+					</h:dataTable>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="personsBeanPersonsEmployees" value="Employees:"/>
+				<h:panelGroup>
+					<ui:param name="_collection" value="#{personsBean.persons.employees}"/>
+					<h:dataTable id="personsBeanPersonsEmployees" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Code"/>
+							</f:facet>
+							<h:link outcome="/admin/employees/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="_itemCode" value="#{_item.code}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="employeesBeanAddCode" value="#{employeesBean.add.code}"/>
+								<h:message for="employeesBeanAddCode" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column footerClass="remove-column" headerClass="remove-column">
+							<h:commandLink action="#{_collection.remove(_item)}" styleClass="remove-button"/>
+							<f:facet name="footer">
+								<h:commandLink action="#{_collection.add(employeesBean.added)}" id="personsBeanPersonsEmployeesAdd" styleClass="add-button">
+									<f:setPropertyActionListener target="#{employeesBean.add.persons}" value="#{personsBean.persons}"/>
+								</h:commandLink>
+							</f:facet>
+						</h:column>
+					</h:dataTable>
+				</h:panelGroup>
+				<h:outputText/>
+			</h:panelGrid>
+
+			<div class="buttons">
+				<h:commandLink value="Save" action='#{personsBean.update}' styleClass="btn btn-primary"/>
+				<c:choose>
+					<c:when test='#{!empty personsBean.id}'>
+						<h:link value="Cancel" outcome="view" styleClass="btn btn-primary">
+							<f:param name="id" value='#{personsBean.id}'/>
+						</h:link>
+						<h:commandLink value="Delete" action='#{personsBean.delete}' styleClass="btn btn-primary"/>
+					</c:when>
+					<c:otherwise>
+						<h:link value="Cancel" outcome="search" styleClass="btn btn-primary"/>
+					</c:otherwise>
+				</c:choose>
+			</div>
+		</h:form>
+	</ui:define>
+
+</ui:composition>

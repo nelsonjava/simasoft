@@ -1,0 +1,119 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:forgeview="http://jboss.org/forge/view"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="id" value='#{documentalInventoryBean.id}'/>
+		<f:event type="preRenderView" listener='#{documentalInventoryBean.retrieve}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="View Documental Inventory"/>
+
+	<ui:define name="header">
+		Documental Inventory
+	</ui:define>
+
+	<ui:define name="subheader">
+		View existing Documental Inventory
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:panelGrid columnClasses="label,component,required" columns="3">
+			<h:outputLabel for="documentalInventoryBeanDocumentalInventoryAlias" value="Alias:"/>
+			<h:outputText id="documentalInventoryBeanDocumentalInventoryAlias" value="#{documentalInventoryBean.documentalInventory.alias}"/>
+			<h:outputText/>
+			<h:outputLabel for="documentalInventoryBeanDocumentalInventoryOrden" value="Orden:"/>
+			<h:outputText id="documentalInventoryBeanDocumentalInventoryOrden" value="#{documentalInventoryBean.documentalInventory.orden}"/>
+			<h:outputText/>
+			<h:outputLabel for="documentalInventoryBeanDocumentalInventoryObservations" value="Observations:"/>
+			<h:inputTextarea id="documentalInventoryBeanDocumentalInventoryObservations" value="#{documentalInventoryBean.documentalInventory.observations}"/>
+			<h:outputText/>
+			<h:outputLabel for="documentalInventoryBeanDocumentalInventoryTransferNumber" value="Transfer Number:"/>
+			<h:outputText id="documentalInventoryBeanDocumentalInventoryTransferNumber" value="#{documentalInventoryBean.documentalInventory.transferNumber}"/>
+			<h:outputText/>
+			<h:outputLabel for="documentalInventoryBeanDocumentalInventoryDebugDate" value="Debug Date:"/>
+			<h:outputText id="documentalInventoryBeanDocumentalInventoryDebugDate" value="#{documentalInventoryBean.documentalInventory.debugDate}">
+				<f:convertDateTime type="date"/>
+			</h:outputText>
+			<h:outputText/>
+			<h:outputLabel for="documentalInventoryBeanDocumentalInventoryObject" value="Object:"/>
+			<h:outputText id="documentalInventoryBeanDocumentalInventoryObject" value="#{documentalInventoryBean.documentalInventory.object}"/>
+			<h:outputText/>
+			<h:outputLabel for="documentalInventoryBeanDocumentalInventoryDeliveryDate" value="Delivery Date:"/>
+			<h:outputText id="documentalInventoryBeanDocumentalInventoryDeliveryDate" value="#{documentalInventoryBean.documentalInventory.deliveryDate}">
+				<f:convertDateTime type="date"/>
+			</h:outputText>
+			<h:outputText/>
+			<h:outputLabel for="documentalInventoryBeanDocumentalInventoryOriginalOrders" value="Original Orders:"/>
+			<h:dataTable id="documentalInventoryBeanDocumentalInventoryOriginalOrders" styleClass="data-table" value="#{forgeview:asList(documentalInventoryBean.documentalInventory.originalOrders)}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Alias"/>
+					</f:facet>
+					<h:link outcome="/admin/originalOrders/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemAlias" value="#{_item.alias}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Orden"/>
+					</f:facet>
+					<h:link outcome="/admin/originalOrders/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemOrden" value="#{_item.orden}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Observations"/>
+					</f:facet>
+					<h:link outcome="/admin/originalOrders/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:inputTextarea id="_itemObservations" value="#{_item.observations}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Code"/>
+					</f:facet>
+					<h:link outcome="/admin/originalOrders/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemCode" value="#{_item.code}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Entry Date"/>
+					</f:facet>
+					<h:link outcome="/admin/originalOrders/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemEntryDate" value="#{_item.entryDate}">
+							<f:convertDateTime type="date"/>
+						</h:outputText>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<h:outputText/>
+			<h:outputLabel for="documentalInventoryBeanDocumentalInventoryInventoryFinality" value="Inventory Finality:"/>
+			<h:link id="documentalInventoryBeanDocumentalInventoryInventoryFinality" outcome="/admin/inventoryFinality/view" rendered="#{!empty documentalInventoryBean.documentalInventory.inventoryFinality}" value="#{documentalInventoryBean.documentalInventory.inventoryFinality}">
+				<f:param name="id" value="#{documentalInventoryBean.documentalInventory.inventoryFinality.id}"/>
+			</h:link>
+			<h:outputText/>
+		</h:panelGrid>
+
+		<div class="buttons">
+			<h:link value="View All" outcome="search" styleClass="btn btn-primary"/> 
+			<h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
+			<h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
+		</div>
+	</ui:define>
+
+</ui:composition>

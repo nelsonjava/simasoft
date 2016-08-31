@@ -1,0 +1,121 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:forgeview="http://jboss.org/forge/view"
+        template="/resources/scaffold/networkingTemplate.xhtml">
+
+        <f:metadata>
+                <f:viewParam name="id" value='#{switchesPortsBean.id}'/>
+                <f:event type="preRenderView" listener='#{switchesPortsBean.retrieve}'/>
+        </f:metadata>
+
+        <ui:param name="pageTitle" value="View SwitchesPorts"/>
+
+        <ui:define name="header">
+                SwitchesPorts
+        </ui:define>
+
+        <ui:define name="subheader">
+                View existing SwitchesPorts
+        </ui:define>
+
+        <ui:define name="footer"/>
+
+        <ui:define name="main">
+                <h:panelGrid columnClasses="label,component,required" columns="3">
+
+                        <h:outputLabel for="switchesPortsBeanSwitchesPortsOrden" value="Orden:"/>
+                        <h:outputText id="switchesPortsBeanSwitchesPortsOrden" value="#{switchesPortsBean.switchesPorts.orden}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="switchesPortsBeanSwitchesPortsPort" value="Port:"/>
+                        <h:outputText id="switchesPortsBeanSwitchesPortsPort" value="#{switchesPortsBean.switchesPorts.port}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="switchesPortsBeanSwitchesPortsCode" value="Code:"/>
+                        <h:outputText id="switchesPortsBeanSwitchesPortsCode" value="#{switchesPortsBean.switchesPorts.code}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="switchesPortsBeanSwitchesPortsState" value="State:"/>
+                        <h:outputText id="switchesPortsBeanSwitchesPortsState" value="#{switchesPortsBean.switchesPorts.state}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="switchesPortsBeanSwitchesPortsMts" value="Mts:"/>
+                        <h:outputText id="switchesPortsBeanSwitchesPortsMts" value="#{switchesPortsBean.switchesPorts.mts}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="switchesPortsBeanSwitchesPortsObservations" value="Observations:"/>
+                        <h:outputText id="switchesPortsBeanSwitchesPortsObservations" value="#{switchesPortsBean.switchesPorts.observations}" escape="false" />
+                        <h:outputText/>
+
+                        <h:outputLabel for="SwitchesPortsBeanSwitchesPortsPatchPanelsPorts" value="PatchPanelsPorts:"/>
+                        <h:dataTable id="switchesPortsBeanSwitchesPortspatchPanelsPorts" styleClass="data-table" value="#{forgeview:asList(switchesPortsBean.switchesPorts.patchPanelsPorts)}" var="_item">
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Orden"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/patchPanelsPorts/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemOrden" value="#{_item.orden}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Port"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/patchPanelsPorts/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemPort" value="#{_item.port}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Code"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/patchPanelsPorts/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemCode" value="#{_item.code}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Mts"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/patchPanelsPorts/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemMts" value="#{_item.mts}"/>
+                                              </h:link>
+                                           </h:column>
+
+                        </h:dataTable>
+                        <h:outputText/>
+
+                        <h:outputLabel for="switchesPortsBeanSwitchesPortsVlans" value="Vlans:"/>
+                        <h:link id="switchesPortsBeanSwitchesPortsVlans" outcome="/admin/vlans/view" rendered="#{!empty switchesPortsBean.switchesPorts.vlans}" value="#{switchesPortsBean.switchesPorts.vlans.name}">
+                                 <f:param name="id" value="#{switchesPortsBean.switchesPorts.vlans.id}"/>
+                        </h:link>
+                        <h:outputText/>
+
+                        <h:outputLabel for="switchesPortsBeanSwitchesPortsHosts" value="Hosts:"/>
+                        <h:link id="switchesPortsBeanSwitchesPortsHosts" outcome="/admin/hosts/view" rendered="#{!empty switchesPortsBean.switchesPorts.hosts}" value="#{switchesPortsBean.switchesPorts.hosts.name}">
+                                 <f:param name="id" value="#{switchesPortsBean.switchesPorts.hosts.id}"/>
+                        </h:link>
+                        <h:outputText/>
+
+                </h:panelGrid>
+
+                <div class="buttons">
+                        <h:link value="View All" outcome="search" styleClass="btn btn-primary"/>
+                        <h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
+                        <h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
+                </div>
+        </ui:define>
+</ui:composition>

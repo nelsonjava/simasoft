@@ -1,0 +1,169 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        template="/resources/scaffold/sitesTemplate.xhtml">
+
+        <f:metadata>
+                <f:viewParam name="page" value='#{sitesBean.page}'/>
+                <f:event type="preRenderView" listener='#{sitesBean.paginate}'/>
+        </f:metadata>
+
+        <ui:param name="pageTitle" value="Search Sites entities"/>
+
+        <ui:define name="header">
+                Sites
+        </ui:define>
+
+        <ui:define name="subheader">
+                Search Sites entities
+        </ui:define>
+
+        <ui:define name="footer"/>
+
+        <ui:define name="main">
+                <h:form id="search">
+                        <f:validateBean disabled="true">
+                                <h:panelGroup styleClass="search">
+
+                                        <h:panelGrid columnClasses="label,component,required" columns="3">
+                                                <h:outputLabel for="sitesBeanExampleTitle" value="Title:"/>
+                                                <h:panelGroup>
+                                                        <h:inputText id="sitesBeanExampleTitle" value="#{sitesBean.example.title}"/>
+                                                        <h:message for="sitesBeanExampleTitle" styleClass="error"/>
+                                                </h:panelGroup>
+                                                <h:outputText/>
+
+                                                <h:outputLabel for="sitesBeanExampleLink" value="Link:"/>
+                                                <h:panelGroup>
+                                                        <h:inputText id="sitesBeanExampleLink" value="#{sitesBean.example.link}"/>
+                                                        <h:message for="sitesBeanExampleLink" styleClass="error"/>
+                                                </h:panelGroup>
+                                                <h:outputText/>
+
+                                                <h:outputLabel for="sitesBeanExampleAbc" value="Abc:"/>
+                                                <h:panelGroup>
+                                                        <h:inputText id="sitesBeanExampleAbc" value="#{sitesBean.example.abc}"/>
+                                                        <h:message for="sitesBeanExampleAbc" styleClass="error"/>
+                                                </h:panelGroup>
+                                                <h:outputText/>
+
+                                                <h:outputLabel for="sitesBeanExampleIpAddress1" value="IpAddress1:"/>
+                                                <h:panelGroup>
+                                                        <h:inputText id="sitesBeanExampleIpAddress1" value="#{sitesBean.example.ipAddress1}"/>
+                                                        <h:message for="sitesBeanExampleIpAddress1" styleClass="error"/>
+                                                </h:panelGroup>
+                                                <h:outputText/>
+
+                                                <h:outputLabel for="sitesBeanExampleIpAddress2" value="IpAddress2:"/>
+                                                <h:panelGroup>
+                                                        <h:inputText id="sitesBeanExampleIpAddress2" value="#{sitesBean.example.ipAddress2}"/>
+                                                        <h:message for="sitesBeanExampleIpAddress2" styleClass="error"/>
+                                                </h:panelGroup>
+                                                <h:outputText/>
+
+                                                <h:outputLabel for="sitesBeanExampleIpAddress3" value="IpAddress3:"/>
+                                                <h:panelGroup>
+                                                        <h:inputText id="sitesBeanExampleIpAddress3" value="#{sitesBean.example.ipAddress3}"/>
+                                                        <h:message for="sitesBeanExampleIpAddress3" styleClass="error"/>
+                                                </h:panelGroup>
+                                                <h:outputText/>
+
+                                        </h:panelGrid>
+                                        <h:panelGroup styleClass="buttons">
+                                                <h:commandLink value="Search" action='#{sitesBean.search}' styleClass="btn btn-primary"/>
+                                                <h:commandLink value="Create New" action='#{sitesBean.create}' styleClass="btn btn-primary"/>
+                                        </h:panelGroup>
+                                </h:panelGroup>
+                        </f:validateBean>
+
+                        <h:dataTable id="sitesBeanPageItems" styleClass="data-table" value="#{sitesBean.pageItems}" var="_item">
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Orden"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/sites/view">
+                                                <f:param name="id" value="#{_item.orden}"/>
+                                                <h:outputText id="itemOrden" value="#{_item.orden}"/>
+                                        </h:link>
+                                </h:column>
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Title"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/sites/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemTitle" value="#{_item.title}"/>
+                                        </h:link>
+                                </h:column>
+
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Link"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/sites/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemLink" value="#{_item.link}"/>
+                                        </h:link>
+                                </h:column>
+
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Abc"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/sites/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemAbc" value="#{_item.abc}"/>
+                                        </h:link>
+                                </h:column>
+
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="IpAddress1"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/sites/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemIpAddress1" value="#{_item.ipAddress1}"/>
+                                        </h:link>
+                                </h:column>
+
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="IpAddress2"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/sites/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemIpAddress2" value="#{_item.ipAddress2}"/>
+                                        </h:link>
+                                </h:column>
+
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="IpAddress3"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/sites/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemIpAddress3" value="#{_item.ipAddress3}"/>
+                                        </h:link>
+                                </h:column>
+
+
+                        </h:dataTable>
+                        <ui:include src="/resources/scaffold/paginator.xhtml">
+                                <ui:param name="paginatorBean" value='#{sitesBean}'/>
+                        </ui:include>
+                </h:form>
+
+        </ui:define>
+
+</ui:composition>

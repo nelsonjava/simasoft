@@ -1,0 +1,213 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:forgeview="http://jboss.org/forge/view"
+        template="/resources/scaffold/archivalTemplate.xhtml">
+
+        <f:metadata>
+                <f:viewParam name="id" value='#{conservationUnitsBean.id}'/>
+                <f:event type="preRenderView" listener='#{conservationUnitsBean.retrieve}'/>
+        </f:metadata>
+
+        <ui:param name="pageTitle" value="View ConservationUnits"/>
+
+        <ui:define name="header">
+                ConservationUnits
+        </ui:define>
+
+        <ui:define name="subheader">
+                View existing ConservationUnits
+        </ui:define>
+
+        <ui:define name="footer"/>
+
+        <ui:define name="main">
+                <h:panelGrid columnClasses="label,component,required" columns="3">
+
+                        <h:outputLabel for="conservationUnitsBeanConservationUnitsOrden" value="Orden:"/>
+                        <h:outputText id="conservationUnitsBeanConservationUnitsOrden" value="#{conservationUnitsBean.conservationUnits.orden}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="conservationUnitsBeanConservationUnitsName" value="Name:"/>
+                        <h:outputText id="conservationUnitsBeanConservationUnitsName" value="#{conservationUnitsBean.conservationUnits.name}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="conservationUnitsBeanConservationUnitsCode" value="Code:"/>
+                        <h:outputText id="conservationUnitsBeanConservationUnitsCode" value="#{conservationUnitsBean.conservationUnits.code}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="conservationUnitsBeanConservationUnitsObservations" value="Observations:"/>
+                        <h:outputText id="conservationUnitsBeanConservationUnitsObservations" value="#{conservationUnitsBean.conservationUnits.observations}" escape="false" />
+                        <h:outputText/>
+
+                        <h:outputLabel for="ConservationUnitsBeanConservationUnitsOriginalOrders" value="OriginalOrders:"/>
+                        <h:dataTable id="conservationUnitsBeanConservationUnitsoriginalOrders" styleClass="data-table" value="#{forgeview:asList(conservationUnitsBean.conservationUnits.originalOrders)}" var="_item">
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Orden"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/originalOrders/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemOrden" value="#{_item.orden}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Subject"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/originalOrders/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemSubject" value="#{_item.subject}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Code"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/originalOrders/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemCode" value="#{_item.code}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="EntryDate"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/originalOrders/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemEntryDate" value="#{_item.entryDate}"/>
+                                                              <f:convertDateTime type="date"/>
+                                                     <h:outputText/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="StartDate"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/originalOrders/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemStartDate" value="#{_item.startDate}"/>
+                                                              <f:convertDateTime type="date"/>
+                                                     <h:outputText/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="FinalDate"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/originalOrders/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemFinalDate" value="#{_item.finalDate}"/>
+                                                              <f:convertDateTime type="date"/>
+                                                     <h:outputText/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Folios"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/originalOrders/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemFolios" value="#{_item.folios}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Quantity"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/originalOrders/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemQuantity" value="#{_item.quantity}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Located"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/originalOrders/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemLocated" value="#{_item.located}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Mail"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/originalOrders/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemMail" value="#{_item.mail}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Notes"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/originalOrders/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemNotes" value="#{_item.notes}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="FileName"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/originalOrders/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemFileName" value="#{_item.fileName}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="FileType"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/originalOrders/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemFileType" value="#{_item.fileType}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Filedir"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/originalOrders/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemFiledir" value="#{_item.filedir}"/>
+                                              </h:link>
+                                           </h:column>
+
+                        </h:dataTable>
+                        <h:outputText/>
+
+                        <h:outputLabel for="conservationUnitsBeanConservationUnitsConservationUnitsTypes" value="ConservationUnitsTypes:"/>
+                        <h:link id="conservationUnitsBeanConservationUnitsConservationUnitsTypes" outcome="/admin/conservationUnitsTypes/view" rendered="#{!empty conservationUnitsBean.conservationUnits.conservationUnitsTypes}" value="#{conservationUnitsBean.conservationUnits.conservationUnitsTypes.name}">
+                                 <f:param name="id" value="#{conservationUnitsBean.conservationUnits.conservationUnitsTypes.id}"/>
+                        </h:link>
+                        <h:outputText/>
+
+                </h:panelGrid>
+
+                <div class="buttons">
+                        <h:link value="View All" outcome="search" styleClass="btn btn-primary"/>
+                        <h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
+                        <h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
+                </div>
+        </ui:define>
+</ui:composition>

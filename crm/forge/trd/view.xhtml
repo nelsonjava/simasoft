@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:forgeview="http://jboss.org/forge/view"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="id" value='#{trdBean.id}'/>
+		<f:event type="preRenderView" listener='#{trdBean.retrieve}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="View Trd"/>
+
+	<ui:define name="header">
+		Trd
+	</ui:define>
+
+	<ui:define name="subheader">
+		View existing Trd
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:panelGrid columnClasses="label,component,required" columns="3">
+			<h:outputLabel for="trdBeanTrdAlias" value="Alias:"/>
+			<h:outputText id="trdBeanTrdAlias" value="#{trdBean.trd.alias}"/>
+			<h:outputText/>
+			<h:outputLabel for="trdBeanTrdOrden" value="Orden:"/>
+			<h:outputText id="trdBeanTrdOrden" value="#{trdBean.trd.orden}"/>
+			<h:outputText/>
+			<h:outputLabel for="trdBeanTrdObservations" value="Observations:"/>
+			<h:inputTextarea id="trdBeanTrdObservations" value="#{trdBean.trd.observations}"/>
+			<h:outputText/>
+			<h:outputLabel for="trdBeanTrdName" value="Name:"/>
+			<h:outputText id="trdBeanTrdName" value="#{trdBean.trd.name}"/>
+			<h:outputText/>
+			<h:outputLabel for="trdBeanTrdTrdSeries" value="Trd Series:"/>
+			<h:dataTable id="trdBeanTrdTrdSeries" styleClass="data-table" value="#{forgeview:asList(trdBean.trd.trdSeries)}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Name"/>
+					</f:facet>
+					<h:link outcome="/admin/trdSeries/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemName" value="#{_item.name}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<h:outputText/>
+			<h:outputLabel for="trdBeanTrdGestion" value="Gestion:"/>
+			<h:link id="trdBeanTrdGestion" outcome="/admin/documentalRetention/view" rendered="#{!empty trdBean.trd.gestion}" value="#{trdBean.trd.gestion}">
+				<f:param name="id" value="#{trdBean.trd.gestion.id}"/>
+			</h:link>
+			<h:outputText/>
+			<h:outputLabel for="trdBeanTrdCentral" value="Central:"/>
+			<h:link id="trdBeanTrdCentral" outcome="/admin/documentalRetention/view" rendered="#{!empty trdBean.trd.central}" value="#{trdBean.trd.central}">
+				<f:param name="id" value="#{trdBean.trd.central.id}"/>
+			</h:link>
+			<h:outputText/>
+			<h:outputLabel for="trdBeanTrdFinalDisposition" value="Final Disposition:"/>
+			<h:link id="trdBeanTrdFinalDisposition" outcome="/admin/finalDisposition/view" rendered="#{!empty trdBean.trd.finalDisposition}" value="#{trdBean.trd.finalDisposition}">
+				<f:param name="id" value="#{trdBean.trd.finalDisposition.id}"/>
+			</h:link>
+			<h:outputText/>
+		</h:panelGrid>
+
+		<div class="buttons">
+			<h:link value="View All" outcome="search" styleClass="btn btn-primary"/> 
+			<h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
+			<h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
+		</div>
+	</ui:define>
+
+</ui:composition>
