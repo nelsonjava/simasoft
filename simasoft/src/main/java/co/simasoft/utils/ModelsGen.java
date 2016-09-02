@@ -430,6 +430,7 @@ saveFile("\\docs", "ModelsGen.txt");
         Utils.fileMake(pathDocs+".h2.war."+artifactId+".src.main.java."+groupId+".authentication","SimpleAuthenticator.java", h2SimpleAuthenticator);
 
         H2PageTemplateGen(pathDocs+".h2.war."+artifactId+".admin",artifactId,entities,groupIdsArtifactId);
+        H2SetupTemplateGen(pathDocs+".h2.war."+artifactId+".src.main.webapp.resources.templates",artifactId,entities,groupIdsArtifactId);
 
         Utils.fileJar("webH2/webapp/resources","add.png",pathDocs+"\\h2\\war\\"+artifactId+"\\src\\main\\webapp\\resources\\",fileJar);
         Utils.fileJar("webH2/webapp/resources","bootstrap.css",pathDocs+"\\h2\\war\\"+artifactId+"\\src\\main\\webapp\\resources\\",fileJar);
@@ -445,7 +446,7 @@ saveFile("\\docs", "ModelsGen.txt");
         Utils.fileJar("webH2/webapp/resources/css","screen.css",pathDocs+"\\h2\\war\\"+artifactId+"\\src\\main\\webapp\\resources\\css\\",fileJar);
         Utils.fileJar("webH2/webapp/resources/img","logo.jpg",pathDocs+"\\h2\\war\\"+artifactId+"\\src\\main\\webapp\\resources\\img\\",fileJar);
         Utils.fileJar("webH2/webapp/resources/templates","default.xhtml",pathDocs+"\\h2\\war\\"+artifactId+"\\src\\main\\webapp\\resources\\templates\\",fileJar);
-        Utils.fileJar("webH2/webapp/resources/templates","templateSetup.xhtml",pathDocs+"\\h2\\war\\"+artifactId+"\\src\\main\\webapp\\resources\\templates\\",fileJar);
+        Utils.fileJar("webH2/webapp/resources/templates","templateSetupp.xhtml",pathDocs+"\\h2\\war\\"+artifactId+"\\src\\main\\webapp\\resources\\templates\\",fileJar);
 //        Utils.fileJar("webH2/webapp/resources","forge.taglib.xml",pathDocs+"\\"+artifactId+"\\h2\\war\\src\\main\\webapp\\WEB-INF\\classes\\META-INF\\",fileJar);
 
         Utils.fileJar("webH2/webapp/setup","index.xhtml",pathDocs+"\\h2\\war\\"+artifactId+"\\src\\main\\webapp\\setup\\",fileJar);
@@ -907,6 +908,22 @@ line(Integer.toString(i++)+":"+entidad.getName());
         for (String groupIds : groupIdsArtifactId) {
             h2PageTemplate = new H2PageTemplate(artifactId,entities,null,groupIds);
             Utils.fileMake(path,groupIds+"Template.xhtml", h2PageTemplate);
+        }
+
+    } // H2PageTemplate
+
+/*
+---------------------------------------- H2PageTemplate() --------------------------
+*/
+
+    public void H2SetupTemplateGen(String path,String artifactId,ArrayList<Entidad> entidades, Set<String> groupIdsArtifactId) {
+
+        H2SetupTemplate h2SetupTemplate = new H2SetupTemplate(artifactId,entities,groupIdsArtifactId,null);
+        Utils.fileMake(path,"pageTemplate.xhtml", h2SetupTemplate);
+
+        for (String groupIds : groupIdsArtifactId) {
+            h2SetupTemplate = new H2SetupTemplate(artifactId,entities,null,groupIds);
+            Utils.fileMake(path,groupIds+"Template.xhtml", h2SetupTemplate);
         }
 
     } // H2PageTemplate
