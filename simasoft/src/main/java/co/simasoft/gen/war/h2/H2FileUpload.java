@@ -79,7 +79,7 @@ line("    try {\n");
 
 line("        if(file != null) {\n");
 
-line("           filePath = \"\\docs\\\"+file.getFileName();\n");
+line("           filePath = \"\\\\docs\\\\\"+file.getFileName();\n");
 
 line("           FacesMessage message = new FacesMessage(\"Succesful\", filePath + \" is uploaded.\");");
 line("           FacesContext.getCurrentInstance().addMessage(null, message);\n");
@@ -115,7 +115,7 @@ line("                 em.flush();\n");
 
 line("           } // while\n");
 
-line("           f.saveFile(\"\\docs\", \"items.txt\");\n");
+line("           f.saveFile(\"\\\\docs\", \"items.txt\");\n");
 
 line("        } // if\n");
 
