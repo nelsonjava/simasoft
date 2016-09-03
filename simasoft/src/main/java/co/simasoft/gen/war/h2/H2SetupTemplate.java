@@ -18,6 +18,7 @@ line("<!DOCTYPE html>\n");
 
 line("<html xmlns=\"http://www.w3.org/1999/xhtml\"");
 line("      xmlns:h=\"http://java.sun.com/jsf/html\"");
+line("      xmlns:p=\"http://primefaces.org/ui\"");
 line("      xmlns:ui=\"http://java.sun.com/jsf/facelets\">\n");
 
 line("<h:head>");
@@ -40,7 +41,7 @@ line("        </h:link>");
 line("        <div class=\"nav-collapse collapse\">");
 line("          <ul class=\"nav\">");
 line("            <li><a href=\"/"+artifactId+"/home.jsf\">Home</a></li>");
-line("            <li><a href=\"/"+artifactId+"/admin/index.jsf\">Admin</a></li>");
+line("            <li><a href=\"/"+artifactId+"/setup/index.jsf\">Setup</a></li>");
 line("          </ul>");
 line("        </div>");
 line("      </div>");
@@ -54,6 +55,20 @@ line("        <img src='#{resource[\"forge-logo.png\"]}' alt=\"Forge... get hamm
 line("      </h:link>");
 line("      <ul>");
 
+line("        <li>");
+line("          <h:form>");
+line("            <h:commandButton value=\"Click Me to Populate Data Setup Init!\" action=\"#{Setup.data()}\" />");
+line("          </h:form>");
+line("        </li>");
+
+line("        <li>");
+line("          <h:form>");
+line("            <h:commandButton value=\"Click Me to Populate DomainModels Data!\" action=\"#{DomainModelsSetup.data()}\" />");
+line("          </h:form>");
+line("        </li>");
+
+
+
         if (groupIdsArtifactId == null){
 
             Collections.sort(entidades);
@@ -65,12 +80,23 @@ line("      <ul>");
             }
 
             for(Entidad entidad : entities) {
-line("        <li><h:link outcome=\"/admin/"+Utils._1raMin(entidad.getName())+"/search\" value=\""+entidad.getName()+"\"/></li>");
+
+line("        <li>");
+line("          <h:form enctype=\"multipart/form-data\">");
+line("            <p:growl id=\"messages\" showDetail=\"true\" />");
+line("            <p:fileUpload value=\"#{fileUpload"+entidad.getName()+".file}\"");
+line("                          mode=\"simple\"");
+line("                          skinSimple=\"true\"/>");
+line("            <p:commandButton value=\""+entidad.getName()+"\" ajax=\"false\" actionListener=\"#{fileUpload"+entidad.getName()+".upload}\" disabled=\"false\" />");
+line("          </h:form>");
+line("        </li>");
+
+// line("        <li><h:link outcome=\"/admin/"+Utils._1raMin(entidad.getName())+"/search\" value=\""+entidad.getName()+"\"/></li>");
             }
         }
         else{
             for(String groupId : groupIdsArtifactId) {
-line("        <li><h:link outcome=\"/resources/scaffold/"+groupId+"Template\" value=\""+groupId+"\"/></li>");
+line("        <li><h:link outcome=\"/resources/templates/"+groupId+"Template\" value=\""+groupId+"\"/></li>");
             }
 
         }

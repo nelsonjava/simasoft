@@ -489,6 +489,9 @@ line(Integer.toString(i++)+":"+entidad.getName());
 
             H2Setup h2Setup = new H2Setup(artifactId,entidad.getGroupId());
             Utils.fileMake(pathDocs+".h2.war."+artifactId+".src.main.java."+groupId+".Setup","Setup.java", h2Setup);
+            
+            H2FileUpload h2FileUpload = new H2FileUpload(artifactId,entidad.getGroupId());
+            Utils.fileMake(pathDocs+".h2.war."+artifactId+".src.main.java."+groupId+".Setup","FileUploadItems.java", h2FileUpload);
 
             ViewH2 viewH2 = new ViewH2(entidad);
             Utils.fileMake(pathDocs+".h2.war."+artifactId+".admin."+Utils._1raMin(entidad.getName()),"view.xhtml", viewH2);
@@ -919,7 +922,7 @@ line(Integer.toString(i++)+":"+entidad.getName());
     public void H2SetupTemplateGen(String path,String artifactId,ArrayList<Entidad> entidades, Set<String> groupIdsArtifactId) {
 
         H2SetupTemplate h2SetupTemplate = new H2SetupTemplate(artifactId,entities,groupIdsArtifactId,null);
-        Utils.fileMake(path,"pageTemplate.xhtml", h2SetupTemplate);
+        Utils.fileMake(path,"templateSetup.xhtml", h2SetupTemplate);
 
         for (String groupIds : groupIdsArtifactId) {
             h2SetupTemplate = new H2SetupTemplate(artifactId,entities,null,groupIds);

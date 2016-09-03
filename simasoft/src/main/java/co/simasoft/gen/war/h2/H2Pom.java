@@ -114,8 +114,25 @@ line("    </dependency>\n");
 line("    <dependency>");
 line("      <groupId>org.primefaces</groupId>");
 line("      <artifactId>primefaces</artifactId>");
-line("      <version>5.1</version>");
-line("      <scope>import</scope>");
+line("      <version>6.0</version>");
+line("    </dependency>\n");
+
+line("    <dependency>");
+line("      <groupId>commons-fileupload</groupId>");
+line("      <artifactId>commons-fileupload</artifactId>");
+line("      <version>1.2.1</version>");
+line("    </dependency>\n");
+
+line("    <dependency>");
+line("      <groupId>commons-io</groupId>");
+line("      <artifactId>commons-io</artifactId>");
+line("      <version>1.4</version>");
+line("    </dependency>\n");
+
+line("    <dependency>");
+line("      <groupId>com.googlecode.json-simple</groupId>");
+line("      <artifactId>json-simple</artifactId>");
+line("      <version>1.1</version>");
 line("    </dependency>\n");
 
 line("    <dependency>");
