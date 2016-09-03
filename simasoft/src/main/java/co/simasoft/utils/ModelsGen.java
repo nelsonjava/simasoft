@@ -432,6 +432,9 @@ saveFile("\\docs", "ModelsGen.txt");
         H2PageTemplateGen(pathDocs+".h2.war."+artifactId+".admin",artifactId,entities,groupIdsArtifactId);
         H2SetupTemplateGen(pathDocs+".h2.war."+artifactId+".src.main.webapp.resources.templates",artifactId,entities,groupIdsArtifactId);
 
+        H2FileCsv h2FileCsv = new H2FileCsv();
+        h2FileCsv.data(entities);
+
         Utils.fileJar("webH2/webapp/resources","add.png",pathDocs+"\\h2\\war\\"+artifactId+"\\src\\main\\webapp\\resources\\",fileJar);
         Utils.fileJar("webH2/webapp/resources","bootstrap.css",pathDocs+"\\h2\\war\\"+artifactId+"\\src\\main\\webapp\\resources\\",fileJar);
         Utils.fileJar("webH2/webapp/resources","false.png",pathDocs+"\\h2\\war\\"+artifactId+"\\src\\main\\webapp\\resources\\",fileJar);
@@ -489,7 +492,7 @@ line(Integer.toString(i++)+":"+entidad.getName());
 
             H2Setup h2Setup = new H2Setup(artifactId,entidad.getGroupId());
             Utils.fileMake(pathDocs+".h2.war."+artifactId+".src.main.java."+groupId+".Setup","Setup.java", h2Setup);
-            
+
             H2FileUpload h2FileUpload = new H2FileUpload(artifactId,entidad.getGroupId());
             Utils.fileMake(pathDocs+".h2.war."+artifactId+".src.main.java."+groupId+".Setup","FileUploadItems.java", h2FileUpload);
 
