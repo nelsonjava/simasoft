@@ -11,7 +11,9 @@ import java.util.Set;
 
 public class H2FileUpload extends FileTxt {
 
-  public H2FileUpload(String artifactId,String groupId) {
+  private ArrayList<Atributos> atributos = new ArrayList<Atributos>() ;
+
+  public H2FileUpload(ArrayList<Entidad> entidades) {
 
 line("package co.simasoft.setup;\n");
 
@@ -54,8 +56,8 @@ line("import javax.inject.Named;\n");
 
 line("@Singleton");
 line("@LocalBean");
-line("@Named(\"fileUploadItems\")");
-line("public class FileUploadItems {\n");
+line("@Named(\"fileUpload\")");
+line("public class FileUpload {\n");
 
 line("    private String filePath = \"\";\n");
 
@@ -74,7 +76,9 @@ line("    public void setFile(UploadedFile file) {");
 line("        this.file = file;");
 line("    }\n");
 
-line("    public void upload() {");
+      for(Entidad entidad : entidades) {
+
+line("    public void "+Utils._1raMin(entidad.getName())+"() {");
 line("    try {\n");
 
 line("        if(file != null) {\n");
@@ -93,29 +97,48 @@ line("           JSONParser jsonParser = new JSONParser();");
 line("           JSONObject jsonObject = (JSONObject) jsonParser.parse(reader);\n");
 
 line("           // get an array from the JSON object");
-line("           JSONArray arrayRelationships = (JSONArray) jsonObject.get(\"Items\");");
+line("           JSONArray arrayRelationships = (JSONArray) jsonObject.get(\""+entidad.getName()+"\");");
 line("           Iterator iteRelation = arrayRelationships.iterator();");
 line("           while (iteRelation.hasNext()) {\n");
 
 line("                 JSONObject relationObj = (JSONObject) iteRelation.next();\n");
 
-line("                 String serial = (String)relationObj.get(\"SERIAL\");");
-line("                 String located = \"99\";");
-line("                 String itemsNames = (String)relationObj.get(\"AREA\");\n");
 
-line("                 Items items = new Items();");
-line("                 items.setSerial(serial);");
-line("                 items.setLocated(located);\n");
+         atributos = entidad.getAtributos();
+         Collections.sort(atributos);
+         for(Atributos atributo : atributos ){
+             switch (atributo.getType()) {
+                 case "String":
+line("                 String "+atributo.getField()+" = (String)relationObj.get(\""+atributo.getField()+"\");");
+                      break;
+                 default:
+                      break;
 
-line("                 f.line(items.getSerial());");
+             } // switch (atributo.getType())
+         } // atributos
+
+line("");
+line("                 "+entidad.getName()+" "+Utils._1raMin(entidad.getName())+" = new "+entidad.getName()+"();\n");
+
+         for(Atributos atributo : atributos ){
+             switch (atributo.getType()) {
+                 case "String":
+line("                 "+Utils._1raMin(entidad.getName())+".set"+Utils._1raMay(atributo.getField())+"("+Utils._1raMin(atributo.getField())+");");
+line("                 f.line("+Utils._1raMin(entidad.getName())+".get"+Utils._1raMay(atributo.getField())+"());");
 line("                 f.line(\"\");\n");
+                      break;
+                 default:
+                      break;
 
-line("                 em.persist(items);");
+             } // switch (atributo.getType())
+         } // atributos
+
+line("                 em.persist("+Utils._1raMin(entidad.getName())+");");
 line("                 em.flush();\n");
 
 line("           } // while\n");
 
-line("           f.saveFile(\"\\\\docs\", \"items.txt\");\n");
+line("           f.saveFile(\"\\\\docs\", \""+Utils._1raMin(entidad.getName())+".txt\");\n");
 
 line("        } // if\n");
 
@@ -131,8 +154,10 @@ line("    } catch(Exception ioe) {");
 line("            ioe.printStackTrace();");
 line("    }\n");
 
-line("    } // upload()\n");
+line("    } // "+Utils._1raMin(entidad.getName())+"()\n");
 
+      } // for
+      
 line("}\n");
 
   } // Contructor

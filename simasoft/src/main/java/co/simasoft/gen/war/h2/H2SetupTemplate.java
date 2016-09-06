@@ -84,10 +84,10 @@ line("        </li>");
 line("        <li>");
 line("          <h:form enctype=\"multipart/form-data\">");
 line("            <p:growl id=\"messages\" showDetail=\"true\" />");
-line("            <p:fileUpload value=\"#{fileUpload"+entidad.getName()+".file}\"");
+line("            <p:fileUpload value=\"#{fileUpload.file}\"");
 line("                          mode=\"simple\"");
 line("                          skinSimple=\"true\"/>");
-line("            <p:commandButton value=\""+entidad.getName()+"\" ajax=\"false\" actionListener=\"#{fileUpload"+entidad.getName()+".upload}\" disabled=\"false\" />");
+line("            <p:commandButton value=\""+entidad.getName()+"\" ajax=\"false\" actionListener=\"#{fileUpload."+Utils._1raMin(entidad.getName())+"}\" disabled=\"false\" />");
 line("          </h:form>");
 line("        </li>");
 

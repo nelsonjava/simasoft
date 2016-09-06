@@ -1,0 +1,140 @@
+{
+  "PhysicalAreas": [
+  {
+    "name": "Salon-1003",
+    "code": "B1P1-SA01"
+  },
+  {
+    "name": "Salon-1002",
+    "code": "B1P1-SA02"
+  },
+  {
+    "name": "Salon-1001",
+    "code": "B1P1-SA03"
+  },
+  {
+    "name": "Salon-Sociales-1",
+    "code": "B1P1-SA04"
+  },
+  {
+    "name": "Salon-Vacio",
+    "code": "B1P1-SA05"
+  },
+  {
+    "name": "Salon-Matematicas",
+    "code": "B2P1-SA06"
+  },
+  {
+    "name": "Salon-1103",
+    "code": "B2P1-SA07"
+  },
+  {
+    "name": "Salon-1102",
+    "code": "B2P1-SA08"
+  },
+  {
+    "name": "Salon-1101",
+    "code": "B2P1-SA09"
+  },
+  {
+    "name": "Salon-Musica",
+    "code": "B1P2-SA01"
+  },
+  {
+    "name": "Salon-Centro Operaciones Pastoral",
+    "code": "B1P2-SA02"
+  },
+  {
+    "name": "Salon-Artes",
+    "code": "B1P2-SA03"
+  },
+  {
+    "name": "Salon-Ingles-1",
+    "code": "B2P2-SA04"
+  },
+  {
+    "name": "Salon-Ingles-2",
+    "code": "B2P2-SA05"
+  },
+  {
+    "name": "Salon-Ingles-3",
+    "code": "B2P2-SA06"
+  },
+  {
+    "name": "Salon-Ingles-4",
+    "code": "B2P2-SA07"
+  },
+  {
+    "name": "Salon-Ingles-5",
+    "code": "B2P2-SA08"
+  },
+  {
+    "name": "Salon-Ingles-6",
+    "code": "B2P2-SA09"
+  },
+  {
+    "name": "Salon-0501",
+    "code": "B3P1-SA01"
+  },
+  {
+    "name": "Salon-0601-Ciencias Naturales-1",
+    "code": "B3P1-SA02"
+  },
+  {
+    "name": "Salon-0602-Sociales-2",
+    "code": "B3P1-SA03"
+  },
+  {
+    "name": "Salon-0701-Espa?ol-1",
+    "code": "B3P1-SA04"
+  },
+  {
+    "name": "Salon-0301",
+    "code": "B4P1-SA01"
+  },
+  {
+    "name": "Salon-0201",
+    "code": "B4P1-SA02"
+  },
+  {
+    "name": "Salon-0202",
+    "code": "B4P1-SA03"
+  },
+  {
+    "name": "Salon-Musica2",
+    "code": "B4P1-SA04"
+  },
+  {
+    "name": "Salon-0901-Espa?ol-2",
+    "code": "B3P2-SA01"
+  },
+  {
+    "name": "Salon-0902-Educaci?n Religiosa",
+    "code": "B3P2-SA02"
+  },
+  {
+    "name": "Salon-0801-Ciencias Naturales-2",
+    "code": "B3P2-SA03"
+  },
+  {
+    "name": "Salon-0802-Matematicas-2",
+    "code": "B3P2-SA04"
+  },
+  {
+    "name": "Salon-0302",
+    "code": "B4P2-SA01"
+  },
+  {
+    "name": "Salon-0401",
+    "code": "B4P2-SA02"
+  },
+  {
+    "name": "Salon-0402",
+    "code": "B4P2-SA03"
+  },
+  {
+    "name": "Salon-0502",
+    "code": "B4P2-SA04"
+  }
+  ]
+}
