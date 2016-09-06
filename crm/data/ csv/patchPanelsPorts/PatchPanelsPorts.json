@@ -1,0 +1,1324 @@
+{
+  "PatchPanelsPorts": [
+  {
+    "port": "P01",
+    "code": "R01PP1-01",
+    "mts": ""
+  },
+  {
+    "port": "P02",
+    "code": "R01PP1-02",
+    "mts": ""
+  },
+  {
+    "port": "P03",
+    "code": "R01PP1-03",
+    "mts": ""
+  },
+  {
+    "port": "P04",
+    "code": "R01PP1-04",
+    "mts": ""
+  },
+  {
+    "port": "P05",
+    "code": "R01PP1-05",
+    "mts": ""
+  },
+  {
+    "port": "P06",
+    "code": "R01PP1-06",
+    "mts": ""
+  },
+  {
+    "port": "P07",
+    "code": "R01PP1-07",
+    "mts": ""
+  },
+  {
+    "port": "P08",
+    "code": "R01PP1-08",
+    "mts": ""
+  },
+  {
+    "port": "P09",
+    "code": "R01PP1-09",
+    "mts": ""
+  },
+  {
+    "port": "P10",
+    "code": "R01PP1-10",
+    "mts": ""
+  },
+  {
+    "port": "P11",
+    "code": "R01PP1-11",
+    "mts": ""
+  },
+  {
+    "port": "P12",
+    "code": "R01PP1-12",
+    "mts": ""
+  },
+  {
+    "port": "P13",
+    "code": "R01PP1-13",
+    "mts": ""
+  },
+  {
+    "port": "P14",
+    "code": "R01PP1-14",
+    "mts": ""
+  },
+  {
+    "port": "P15",
+    "code": "R01PP1-15",
+    "mts": ""
+  },
+  {
+    "port": "P16",
+    "code": "R01PP1-16",
+    "mts": ""
+  },
+  {
+    "port": "P17",
+    "code": "R01PP1-17",
+    "mts": ""
+  },
+  {
+    "port": "P18",
+    "code": "R01PP1-18",
+    "mts": ""
+  },
+  {
+    "port": "P19",
+    "code": "R01PP1-19",
+    "mts": ""
+  },
+  {
+    "port": "P20",
+    "code": "R01PP1-20",
+    "mts": ""
+  },
+  {
+    "port": "P21",
+    "code": "R01PP1-21",
+    "mts": ""
+  },
+  {
+    "port": "P22",
+    "code": "R01PP1-22",
+    "mts": ""
+  },
+  {
+    "port": "P23",
+    "code": "R01PP1-23",
+    "mts": ""
+  },
+  {
+    "port": "P24",
+    "code": "R01PP1-24",
+    "mts": ""
+  },
+  {
+    "port": "P01",
+    "code": "R02PP1-01",
+    "mts": ""
+  },
+  {
+    "port": "P02",
+    "code": "R02PP1-02",
+    "mts": ""
+  },
+  {
+    "port": "P03",
+    "code": "R02PP1-03",
+    "mts": ""
+  },
+  {
+    "port": "P04",
+    "code": "R02PP1-04",
+    "mts": ""
+  },
+  {
+    "port": "P05",
+    "code": "R02PP1-05",
+    "mts": ""
+  },
+  {
+    "port": "P06",
+    "code": "R02PP1-06",
+    "mts": ""
+  },
+  {
+    "port": "P07",
+    "code": "R02PP1-07",
+    "mts": ""
+  },
+  {
+    "port": "P08",
+    "code": "R02PP1-08",
+    "mts": ""
+  },
+  {
+    "port": "P09",
+    "code": "R02PP1-09",
+    "mts": ""
+  },
+  {
+    "port": "P10",
+    "code": "R02PP1-10",
+    "mts": ""
+  },
+  {
+    "port": "P11",
+    "code": "R02PP1-11",
+    "mts": ""
+  },
+  {
+    "port": "P12",
+    "code": "R02PP1-12",
+    "mts": ""
+  },
+  {
+    "port": "P13",
+    "code": "R02PP1-13",
+    "mts": ""
+  },
+  {
+    "port": "P14",
+    "code": "R02PP1-14",
+    "mts": ""
+  },
+  {
+    "port": "P15",
+    "code": "R02PP1-15",
+    "mts": ""
+  },
+  {
+    "port": "P16",
+    "code": "R02PP1-16",
+    "mts": ""
+  },
+  {
+    "port": "P17",
+    "code": "R02PP1-17",
+    "mts": ""
+  },
+  {
+    "port": "P18",
+    "code": "R02PP1-18",
+    "mts": ""
+  },
+  {
+    "port": "P19",
+    "code": "R02PP1-19",
+    "mts": ""
+  },
+  {
+    "port": "P20",
+    "code": "R02PP1-20",
+    "mts": ""
+  },
+  {
+    "port": "P21",
+    "code": "R02PP1-21",
+    "mts": ""
+  },
+  {
+    "port": "P22",
+    "code": "R02PP1-22",
+    "mts": ""
+  },
+  {
+    "port": "P23",
+    "code": "R02PP1-23",
+    "mts": ""
+  },
+  {
+    "port": "P24",
+    "code": "R02PP1-24",
+    "mts": ""
+  },
+  {
+    "port": "P01",
+    "code": "R03PP1-01",
+    "mts": ""
+  },
+  {
+    "port": "P02",
+    "code": "R03PP1-02",
+    "mts": ""
+  },
+  {
+    "port": "P03",
+    "code": "R03PP1-03",
+    "mts": ""
+  },
+  {
+    "port": "P04",
+    "code": "R03PP1-04",
+    "mts": ""
+  },
+  {
+    "port": "P05",
+    "code": "R03PP1-05",
+    "mts": ""
+  },
+  {
+    "port": "P06",
+    "code": "R03PP1-06",
+    "mts": ""
+  },
+  {
+    "port": "P07",
+    "code": "R03PP1-07",
+    "mts": ""
+  },
+  {
+    "port": "P08",
+    "code": "R03PP1-08",
+    "mts": ""
+  },
+  {
+    "port": "P09",
+    "code": "R03PP1-09",
+    "mts": ""
+  },
+  {
+    "port": "P10",
+    "code": "R03PP1-10",
+    "mts": ""
+  },
+  {
+    "port": "P11",
+    "code": "R03PP1-11",
+    "mts": ""
+  },
+  {
+    "port": "P12",
+    "code": "R03PP1-12",
+    "mts": ""
+  },
+  {
+    "port": "P13",
+    "code": "R03PP1-13",
+    "mts": ""
+  },
+  {
+    "port": "P14",
+    "code": "R03PP1-14",
+    "mts": ""
+  },
+  {
+    "port": "P15",
+    "code": "R03PP1-15",
+    "mts": ""
+  },
+  {
+    "port": "P16",
+    "code": "R03PP1-16",
+    "mts": ""
+  },
+  {
+    "port": "P17",
+    "code": "R03PP1-17",
+    "mts": ""
+  },
+  {
+    "port": "P18",
+    "code": "R03PP1-18",
+    "mts": ""
+  },
+  {
+    "port": "P19",
+    "code": "R03PP1-19",
+    "mts": ""
+  },
+  {
+    "port": "P20",
+    "code": "R03PP1-20",
+    "mts": ""
+  },
+  {
+    "port": "P21",
+    "code": "R03PP1-21",
+    "mts": ""
+  },
+  {
+    "port": "P22",
+    "code": "R03PP1-22",
+    "mts": ""
+  },
+  {
+    "port": "P23",
+    "code": "R03PP1-23",
+    "mts": ""
+  },
+  {
+    "port": "P24",
+    "code": "R03PP1-24",
+    "mts": ""
+  },
+  {
+    "port": "P01",
+    "code": "R04PP1-01",
+    "mts": ""
+  },
+  {
+    "port": "P02",
+    "code": "R04PP1-02",
+    "mts": ""
+  },
+  {
+    "port": "P03",
+    "code": "R04PP1-03",
+    "mts": ""
+  },
+  {
+    "port": "P04",
+    "code": "R04PP1-04",
+    "mts": ""
+  },
+  {
+    "port": "P05",
+    "code": "R04PP1-05",
+    "mts": ""
+  },
+  {
+    "port": "P06",
+    "code": "R04PP1-06",
+    "mts": ""
+  },
+  {
+    "port": "P07",
+    "code": "R04PP1-07",
+    "mts": ""
+  },
+  {
+    "port": "P08",
+    "code": "R04PP1-08",
+    "mts": ""
+  },
+  {
+    "port": "P09",
+    "code": "R04PP1-09",
+    "mts": ""
+  },
+  {
+    "port": "P10",
+    "code": "R04PP1-10",
+    "mts": ""
+  },
+  {
+    "port": "P11",
+    "code": "R04PP1-11",
+    "mts": ""
+  },
+  {
+    "port": "P12",
+    "code": "R04PP1-12",
+    "mts": ""
+  },
+  {
+    "port": "P13",
+    "code": "R04PP1-13",
+    "mts": ""
+  },
+  {
+    "port": "P14",
+    "code": "R04PP1-14",
+    "mts": ""
+  },
+  {
+    "port": "P15",
+    "code": "R04PP1-15",
+    "mts": ""
+  },
+  {
+    "port": "P16",
+    "code": "R04PP1-16",
+    "mts": ""
+  },
+  {
+    "port": "P17",
+    "code": "R04PP1-17",
+    "mts": ""
+  },
+  {
+    "port": "P18",
+    "code": "R04PP1-18",
+    "mts": ""
+  },
+  {
+    "port": "P19",
+    "code": "R04PP1-19",
+    "mts": ""
+  },
+  {
+    "port": "P20",
+    "code": "R04PP1-20",
+    "mts": ""
+  },
+  {
+    "port": "P21",
+    "code": "R04PP1-21",
+    "mts": ""
+  },
+  {
+    "port": "P22",
+    "code": "R04PP1-22",
+    "mts": ""
+  },
+  {
+    "port": "P23",
+    "code": "R04PP1-23",
+    "mts": ""
+  },
+  {
+    "port": "P24",
+    "code": "R04PP1-24",
+    "mts": ""
+  },
+  {
+    "port": "P01",
+    "code": "R05PP1-01",
+    "mts": ""
+  },
+  {
+    "port": "P02",
+    "code": "R05PP1-02",
+    "mts": ""
+  },
+  {
+    "port": "P03",
+    "code": "R05PP1-03",
+    "mts": ""
+  },
+  {
+    "port": "P04",
+    "code": "R05PP1-04",
+    "mts": ""
+  },
+  {
+    "port": "P05",
+    "code": "R05PP1-05",
+    "mts": ""
+  },
+  {
+    "port": "P06",
+    "code": "R05PP1-06",
+    "mts": ""
+  },
+  {
+    "port": "P07",
+    "code": "R05PP1-07",
+    "mts": ""
+  },
+  {
+    "port": "P08",
+    "code": "R05PP1-08",
+    "mts": ""
+  },
+  {
+    "port": "P09",
+    "code": "R05PP1-09",
+    "mts": ""
+  },
+  {
+    "port": "P10",
+    "code": "R05PP1-10",
+    "mts": ""
+  },
+  {
+    "port": "P11",
+    "code": "R05PP1-11",
+    "mts": ""
+  },
+  {
+    "port": "P12",
+    "code": "R05PP1-12",
+    "mts": ""
+  },
+  {
+    "port": "P13",
+    "code": "R05PP1-13",
+    "mts": ""
+  },
+  {
+    "port": "P14",
+    "code": "R05PP1-14",
+    "mts": ""
+  },
+  {
+    "port": "P15",
+    "code": "R05PP1-15",
+    "mts": ""
+  },
+  {
+    "port": "P16",
+    "code": "R05PP1-16",
+    "mts": ""
+  },
+  {
+    "port": "P17",
+    "code": "R05PP1-17",
+    "mts": ""
+  },
+  {
+    "port": "P18",
+    "code": "R05PP1-18",
+    "mts": ""
+  },
+  {
+    "port": "P19",
+    "code": "R05PP1-19",
+    "mts": ""
+  },
+  {
+    "port": "P20",
+    "code": "R05PP1-20",
+    "mts": ""
+  },
+  {
+    "port": "P21",
+    "code": "R05PP1-21",
+    "mts": ""
+  },
+  {
+    "port": "P22",
+    "code": "R05PP1-22",
+    "mts": ""
+  },
+  {
+    "port": "P23",
+    "code": "R05PP1-23",
+    "mts": ""
+  },
+  {
+    "port": "P24",
+    "code": "R05PP1-24",
+    "mts": ""
+  },
+  {
+    "port": "P01",
+    "code": "R06PP1-01",
+    "mts": ""
+  },
+  {
+    "port": "P02",
+    "code": "R06PP1-02",
+    "mts": ""
+  },
+  {
+    "port": "P03",
+    "code": "R06PP1-03",
+    "mts": ""
+  },
+  {
+    "port": "P04",
+    "code": "R06PP1-04",
+    "mts": ""
+  },
+  {
+    "port": "P05",
+    "code": "R06PP1-05",
+    "mts": ""
+  },
+  {
+    "port": "P06",
+    "code": "R06PP1-06",
+    "mts": ""
+  },
+  {
+    "port": "P07",
+    "code": "R06PP1-07",
+    "mts": ""
+  },
+  {
+    "port": "P08",
+    "code": "R06PP1-08",
+    "mts": ""
+  },
+  {
+    "port": "P09",
+    "code": "R06PP1-09",
+    "mts": ""
+  },
+  {
+    "port": "P10",
+    "code": "R06PP1-10",
+    "mts": ""
+  },
+  {
+    "port": "P11",
+    "code": "R06PP1-11",
+    "mts": ""
+  },
+  {
+    "port": "P12",
+    "code": "R06PP1-12",
+    "mts": ""
+  },
+  {
+    "port": "P13",
+    "code": "R06PP1-13",
+    "mts": ""
+  },
+  {
+    "port": "P14",
+    "code": "R06PP1-14",
+    "mts": ""
+  },
+  {
+    "port": "P15",
+    "code": "R06PP1-15",
+    "mts": ""
+  },
+  {
+    "port": "P16",
+    "code": "R06PP1-16",
+    "mts": ""
+  },
+  {
+    "port": "P17",
+    "code": "R06PP1-17",
+    "mts": ""
+  },
+  {
+    "port": "P18",
+    "code": "R06PP1-18",
+    "mts": ""
+  },
+  {
+    "port": "P19",
+    "code": "R06PP1-19",
+    "mts": ""
+  },
+  {
+    "port": "P20",
+    "code": "R06PP1-20",
+    "mts": ""
+  },
+  {
+    "port": "P21",
+    "code": "R06PP1-21",
+    "mts": ""
+  },
+  {
+    "port": "P22",
+    "code": "R06PP1-22",
+    "mts": ""
+  },
+  {
+    "port": "P23",
+    "code": "R06PP1-23",
+    "mts": ""
+  },
+  {
+    "port": "P24",
+    "code": "R06PP1-24",
+    "mts": ""
+  },
+  {
+    "port": "P01",
+    "code": "R07PP1-01",
+    "mts": ""
+  },
+  {
+    "port": "P02",
+    "code": "R07PP1-02",
+    "mts": ""
+  },
+  {
+    "port": "P03",
+    "code": "R07PP1-03",
+    "mts": ""
+  },
+  {
+    "port": "P04",
+    "code": "R07PP1-04",
+    "mts": ""
+  },
+  {
+    "port": "P05",
+    "code": "R07PP1-05",
+    "mts": ""
+  },
+  {
+    "port": "P06",
+    "code": "R07PP1-06",
+    "mts": ""
+  },
+  {
+    "port": "P07",
+    "code": "R07PP1-07",
+    "mts": ""
+  },
+  {
+    "port": "P08",
+    "code": "R07PP1-08",
+    "mts": ""
+  },
+  {
+    "port": "P09",
+    "code": "R07PP1-09",
+    "mts": ""
+  },
+  {
+    "port": "P10",
+    "code": "R07PP1-10",
+    "mts": ""
+  },
+  {
+    "port": "P11",
+    "code": "R07PP1-11",
+    "mts": ""
+  },
+  {
+    "port": "P12",
+    "code": "R07PP1-12",
+    "mts": ""
+  },
+  {
+    "port": "P13",
+    "code": "R07PP1-13",
+    "mts": ""
+  },
+  {
+    "port": "P14",
+    "code": "R07PP1-14",
+    "mts": ""
+  },
+  {
+    "port": "P15",
+    "code": "R07PP1-15",
+    "mts": ""
+  },
+  {
+    "port": "P16",
+    "code": "R07PP1-16",
+    "mts": ""
+  },
+  {
+    "port": "P17",
+    "code": "R07PP1-17",
+    "mts": ""
+  },
+  {
+    "port": "P18",
+    "code": "R07PP1-18",
+    "mts": ""
+  },
+  {
+    "port": "P19",
+    "code": "R07PP1-19",
+    "mts": ""
+  },
+  {
+    "port": "P20",
+    "code": "R07PP1-20",
+    "mts": ""
+  },
+  {
+    "port": "P21",
+    "code": "R07PP1-21",
+    "mts": ""
+  },
+  {
+    "port": "P22",
+    "code": "R07PP1-22",
+    "mts": ""
+  },
+  {
+    "port": "P23",
+    "code": "R07PP1-23",
+    "mts": ""
+  },
+  {
+    "port": "P24",
+    "code": "R07PP1-24",
+    "mts": ""
+  },
+  {
+    "port": "P01",
+    "code": "R08PP1-01",
+    "mts": ""
+  },
+  {
+    "port": "P02",
+    "code": "R08PP1-02",
+    "mts": ""
+  },
+  {
+    "port": "P03",
+    "code": "R08PP1-03",
+    "mts": ""
+  },
+  {
+    "port": "P04",
+    "code": "R08PP1-04",
+    "mts": ""
+  },
+  {
+    "port": "P05",
+    "code": "R08PP1-05",
+    "mts": ""
+  },
+  {
+    "port": "P06",
+    "code": "R08PP1-06",
+    "mts": ""
+  },
+  {
+    "port": "P07",
+    "code": "R08PP1-07",
+    "mts": ""
+  },
+  {
+    "port": "P08",
+    "code": "R08PP1-08",
+    "mts": ""
+  },
+  {
+    "port": "P09",
+    "code": "R08PP1-09",
+    "mts": ""
+  },
+  {
+    "port": "P10",
+    "code": "R08PP1-10",
+    "mts": ""
+  },
+  {
+    "port": "P11",
+    "code": "R08PP1-11",
+    "mts": ""
+  },
+  {
+    "port": "P12",
+    "code": "R08PP1-12",
+    "mts": ""
+  },
+  {
+    "port": "P13",
+    "code": "R08PP1-13",
+    "mts": ""
+  },
+  {
+    "port": "P14",
+    "code": "R08PP1-14",
+    "mts": ""
+  },
+  {
+    "port": "P15",
+    "code": "R08PP1-15",
+    "mts": ""
+  },
+  {
+    "port": "P16",
+    "code": "R08PP1-16",
+    "mts": ""
+  },
+  {
+    "port": "P17",
+    "code": "R08PP1-17",
+    "mts": ""
+  },
+  {
+    "port": "P18",
+    "code": "R08PP1-18",
+    "mts": ""
+  },
+  {
+    "port": "P19",
+    "code": "R08PP1-19",
+    "mts": ""
+  },
+  {
+    "port": "P20",
+    "code": "R08PP1-20",
+    "mts": ""
+  },
+  {
+    "port": "P21",
+    "code": "R08PP1-21",
+    "mts": ""
+  },
+  {
+    "port": "P22",
+    "code": "R08PP1-22",
+    "mts": ""
+  },
+  {
+    "port": "P23",
+    "code": "R08PP1-23",
+    "mts": ""
+  },
+  {
+    "port": "P24",
+    "code": "R08PP1-24",
+    "mts": ""
+  },
+  {
+    "port": "P01",
+    "code": "R09PP1-01",
+    "mts": ""
+  },
+  {
+    "port": "P02",
+    "code": "R09PP1-02",
+    "mts": ""
+  },
+  {
+    "port": "P03",
+    "code": "R09PP1-03",
+    "mts": ""
+  },
+  {
+    "port": "P04",
+    "code": "R09PP1-04",
+    "mts": ""
+  },
+  {
+    "port": "P05",
+    "code": "R09PP1-05",
+    "mts": ""
+  },
+  {
+    "port": "P06",
+    "code": "R09PP1-06",
+    "mts": ""
+  },
+  {
+    "port": "P07",
+    "code": "R09PP1-07",
+    "mts": ""
+  },
+  {
+    "port": "P08",
+    "code": "R09PP1-08",
+    "mts": ""
+  },
+  {
+    "port": "P09",
+    "code": "R09PP1-09",
+    "mts": ""
+  },
+  {
+    "port": "P10",
+    "code": "R09PP1-10",
+    "mts": ""
+  },
+  {
+    "port": "P11",
+    "code": "R09PP1-11",
+    "mts": ""
+  },
+  {
+    "port": "P12",
+    "code": "R09PP1-12",
+    "mts": ""
+  },
+  {
+    "port": "P13",
+    "code": "R09PP1-13",
+    "mts": ""
+  },
+  {
+    "port": "P14",
+    "code": "R09PP1-14",
+    "mts": ""
+  },
+  {
+    "port": "P15",
+    "code": "R09PP1-15",
+    "mts": ""
+  },
+  {
+    "port": "P16",
+    "code": "R09PP1-16",
+    "mts": ""
+  },
+  {
+    "port": "P17",
+    "code": "R09PP1-17",
+    "mts": ""
+  },
+  {
+    "port": "P18",
+    "code": "R09PP1-18",
+    "mts": ""
+  },
+  {
+    "port": "P19",
+    "code": "R09PP1-19",
+    "mts": ""
+  },
+  {
+    "port": "P20",
+    "code": "R09PP1-20",
+    "mts": ""
+  },
+  {
+    "port": "P21",
+    "code": "R09PP1-21",
+    "mts": ""
+  },
+  {
+    "port": "P22",
+    "code": "R09PP1-22",
+    "mts": ""
+  },
+  {
+    "port": "P23",
+    "code": "R09PP1-23",
+    "mts": ""
+  },
+  {
+    "port": "P24",
+    "code": "R09PP1-24",
+    "mts": ""
+  },
+  {
+    "port": "P01",
+    "code": "R10PP1-01",
+    "mts": ""
+  },
+  {
+    "port": "P02",
+    "code": "R10PP1-02",
+    "mts": ""
+  },
+  {
+    "port": "P03",
+    "code": "R10PP1-03",
+    "mts": ""
+  },
+  {
+    "port": "P04",
+    "code": "R10PP1-04",
+    "mts": ""
+  },
+  {
+    "port": "P05",
+    "code": "R10PP1-05",
+    "mts": ""
+  },
+  {
+    "port": "P06",
+    "code": "R10PP1-06",
+    "mts": ""
+  },
+  {
+    "port": "P07",
+    "code": "R10PP1-07",
+    "mts": ""
+  },
+  {
+    "port": "P08",
+    "code": "R10PP1-08",
+    "mts": ""
+  },
+  {
+    "port": "P09",
+    "code": "R10PP1-09",
+    "mts": ""
+  },
+  {
+    "port": "P10",
+    "code": "R10PP1-10",
+    "mts": ""
+  },
+  {
+    "port": "P11",
+    "code": "R10PP1-11",
+    "mts": ""
+  },
+  {
+    "port": "P12",
+    "code": "R10PP1-12",
+    "mts": ""
+  },
+  {
+    "port": "P13",
+    "code": "R10PP1-13",
+    "mts": ""
+  },
+  {
+    "port": "P14",
+    "code": "R10PP1-14",
+    "mts": ""
+  },
+  {
+    "port": "P15",
+    "code": "R10PP1-15",
+    "mts": ""
+  },
+  {
+    "port": "P16",
+    "code": "R10PP1-16",
+    "mts": ""
+  },
+  {
+    "port": "P17",
+    "code": "R10PP1-17",
+    "mts": ""
+  },
+  {
+    "port": "P18",
+    "code": "R10PP1-18",
+    "mts": ""
+  },
+  {
+    "port": "P19",
+    "code": "R10PP1-19",
+    "mts": ""
+  },
+  {
+    "port": "P20",
+    "code": "R10PP1-20",
+    "mts": ""
+  },
+  {
+    "port": "P21",
+    "code": "R10PP1-21",
+    "mts": ""
+  },
+  {
+    "port": "P22",
+    "code": "R10PP1-22",
+    "mts": ""
+  },
+  {
+    "port": "P23",
+    "code": "R10PP1-23",
+    "mts": ""
+  },
+  {
+    "port": "P24",
+    "code": "R10PP1-24",
+    "mts": ""
+  },
+  {
+    "port": "P01",
+    "code": "R11PP1-01",
+    "mts": ""
+  },
+  {
+    "port": "P02",
+    "code": "R11PP1-02",
+    "mts": ""
+  },
+  {
+    "port": "P03",
+    "code": "R11PP1-03",
+    "mts": ""
+  },
+  {
+    "port": "P04",
+    "code": "R11PP1-04",
+    "mts": ""
+  },
+  {
+    "port": "P05",
+    "code": "R11PP1-05",
+    "mts": ""
+  },
+  {
+    "port": "P06",
+    "code": "R11PP1-06",
+    "mts": ""
+  },
+  {
+    "port": "P07",
+    "code": "R11PP1-07",
+    "mts": ""
+  },
+  {
+    "port": "P08",
+    "code": "R11PP1-08",
+    "mts": ""
+  },
+  {
+    "port": "P09",
+    "code": "R11PP1-09",
+    "mts": ""
+  },
+  {
+    "port": "P10",
+    "code": "R11PP1-10",
+    "mts": ""
+  },
+  {
+    "port": "P11",
+    "code": "R11PP1-11",
+    "mts": ""
+  },
+  {
+    "port": "P12",
+    "code": "R11PP1-12",
+    "mts": ""
+  },
+  {
+    "port": "P13",
+    "code": "R11PP1-13",
+    "mts": ""
+  },
+  {
+    "port": "P14",
+    "code": "R11PP1-14",
+    "mts": ""
+  },
+  {
+    "port": "P15",
+    "code": "R11PP1-15",
+    "mts": ""
+  },
+  {
+    "port": "P16",
+    "code": "R11PP1-16",
+    "mts": ""
+  },
+  {
+    "port": "P17",
+    "code": "R11PP1-17",
+    "mts": ""
+  },
+  {
+    "port": "P18",
+    "code": "R11PP1-18",
+    "mts": ""
+  },
+  {
+    "port": "P19",
+    "code": "R11PP1-19",
+    "mts": ""
+  },
+  {
+    "port": "P20",
+    "code": "R11PP1-20",
+    "mts": ""
+  },
+  {
+    "port": "P21",
+    "code": "R11PP1-21",
+    "mts": ""
+  },
+  {
+    "port": "P22",
+    "code": "R11PP1-22",
+    "mts": ""
+  },
+  {
+    "port": "P23",
+    "code": "R11PP1-23",
+    "mts": ""
+  },
+  {
+    "port": "P24",
+    "code": "R11PP1-24",
+    "mts": ""
+  }
+  ]
+}
