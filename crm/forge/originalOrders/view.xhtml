@@ -34,6 +34,9 @@
 			<h:outputLabel for="originalOrdersBeanOriginalOrdersObservations" value="Observations:"/>
 			<h:inputTextarea id="originalOrdersBeanOriginalOrdersObservations" value="#{originalOrdersBean.originalOrders.observations}"/>
 			<h:outputText/>
+			<h:outputLabel for="originalOrdersBeanOriginalOrdersSubject" value="Subject:"/>
+			<h:outputText id="originalOrdersBeanOriginalOrdersSubject" value="#{originalOrdersBean.originalOrders.subject}"/>
+			<h:outputText/>
 			<h:outputLabel for="originalOrdersBeanOriginalOrdersCode" value="Code:"/>
 			<h:outputText id="originalOrdersBeanOriginalOrdersCode" value="#{originalOrdersBean.originalOrders.code}"/>
 			<h:outputText/>
@@ -75,9 +78,6 @@
 			<h:outputText/>
 			<h:outputLabel for="originalOrdersBeanOriginalOrdersFiledir" value="Filedir:"/>
 			<h:outputText id="originalOrdersBeanOriginalOrdersFiledir" value="#{originalOrdersBean.originalOrders.filedir}"/>
-			<h:outputText/>
-			<h:outputLabel for="originalOrdersBeanOriginalOrdersSubject" value="Subject:"/>
-			<h:outputText id="originalOrdersBeanOriginalOrdersSubject" value="#{originalOrdersBean.originalOrders.subject}"/>
 			<h:outputText/>
 			<h:outputLabel for="originalOrdersBeanOriginalOrdersContinualImprovements" value="Continual Improvements:"/>
 			<h:link id="originalOrdersBeanOriginalOrdersContinualImprovements" outcome="/admin/continualImprovements/view" rendered="#{!empty originalOrdersBean.originalOrders.continualImprovements}" value="#{originalOrdersBean.originalOrders.continualImprovements}">

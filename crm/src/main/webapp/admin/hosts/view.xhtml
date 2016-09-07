@@ -55,16 +55,6 @@
 
                                            <h:column>
                                               <f:facet name="header">
-                                                      <h:outputText value="State"/>
-                                              </f:facet>
-                                              <h:link outcome="/admin/networkPorts/view">
-                                                      <f:param name="id" value="#{_item.id}"/>
-                                                      <h:outputText id="itemState" value="#{_item.state}"/>
-                                              </h:link>
-                                           </h:column>
-
-                                           <h:column>
-                                              <f:facet name="header">
                                                       <h:outputText value="MacAddress"/>
                                               </f:facet>
                                               <h:link outcome="/admin/networkPorts/view">
@@ -80,6 +70,16 @@
                                               <h:link outcome="/admin/networkPorts/view">
                                                       <f:param name="id" value="#{_item.id}"/>
                                                       <h:outputText id="itemIpAddress" value="#{_item.ipAddress}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="State"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/networkPorts/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemState" value="#{_item.state}"/>
                                               </h:link>
                                            </h:column>
 

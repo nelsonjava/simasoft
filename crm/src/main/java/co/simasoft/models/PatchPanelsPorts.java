@@ -56,7 +56,7 @@ public class PatchPanelsPorts implements Serializable {
 	// @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
 	private String observations;
 
-	@Column(nullable = false, unique = true)
+	@Column(nullable = true, unique = false)
 	// @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
 	private String port;
 
@@ -69,6 +69,9 @@ public class PatchPanelsPorts implements Serializable {
 
 	@OneToMany(mappedBy = "patchPanelsPorts")
 	private Set<NetworkPorts> networkPorts = new HashSet<NetworkPorts>();
+
+	@ManyToOne
+	private PhysicalAreas physicalAreas;
 
 	@ManyToOne
 	private SwitchesPorts switchesPorts;
@@ -145,6 +148,13 @@ public class PatchPanelsPorts implements Serializable {
 	}
 	public void setNetworkPorts(Set<NetworkPorts> networkPorts) {
 		this.networkPorts = networkPorts;
+	}
+
+	public PhysicalAreas getPhysicalAreas() {
+		return physicalAreas;
+	}
+	public void setPhysicalAreas(PhysicalAreas physicalAreas) {
+		this.physicalAreas = physicalAreas;
 	}
 
 	public SwitchesPorts getSwitchesPorts() {

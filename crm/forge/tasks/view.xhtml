@@ -35,11 +35,6 @@
 			<h:outputLabel for="tasksBeanTasksObservations" value="Observations:"/>
 			<h:inputTextarea id="tasksBeanTasksObservations" value="#{tasksBean.tasks.observations}"/>
 			<h:outputText/>
-			<h:outputLabel for="tasksBeanTasksFinalDate" value="Final Date:"/>
-			<h:outputText id="tasksBeanTasksFinalDate" value="#{tasksBean.tasks.finalDate}">
-				<f:convertDateTime type="date"/>
-			</h:outputText>
-			<h:outputText/>
 			<h:outputLabel for="tasksBeanTasksName" value="Name:"/>
 			<h:outputText id="tasksBeanTasksName" value="#{tasksBean.tasks.name}"/>
 			<h:outputText/>
@@ -55,6 +50,11 @@
 			<h:outputText/>
 			<h:outputLabel for="tasksBeanTasksStartDate" value="Start Date:"/>
 			<h:outputText id="tasksBeanTasksStartDate" value="#{tasksBean.tasks.startDate}">
+				<f:convertDateTime type="date"/>
+			</h:outputText>
+			<h:outputText/>
+			<h:outputLabel for="tasksBeanTasksFinalDate" value="Final Date:"/>
+			<h:outputText id="tasksBeanTasksFinalDate" value="#{tasksBean.tasks.finalDate}">
 				<f:convertDateTime type="date"/>
 			</h:outputText>
 			<h:outputText/>

@@ -58,6 +58,18 @@ public class Items implements Serializable {
 
 	@Column(nullable = true, unique = false)
 	// @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+	private String cvNumber;
+
+	@Column(nullable = true, unique = false)
+	// @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+	private String code;
+
+	@Column(nullable = true, unique = false)
+	// @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+	private String inventoryCode;
+
+	@Column(nullable = true, unique = false)
+	// @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
 	private String serial;
 
 	@Column(nullable = true, unique = false)
@@ -87,18 +99,6 @@ public class Items implements Serializable {
 	// @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
 	private String located;
 
-	@Column(nullable = true, unique = false)
-	// @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-	private String cvNumber;
-
-	@Column(nullable = true, unique = false)
-	// @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-	private String code;
-
-	@Column(nullable = true, unique = false)
-	// @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-	private String inventoryCode;
-
 	@OneToMany(mappedBy = "items")
 	private Set<Hosts> hosts = new HashSet<Hosts>();
 
@@ -120,10 +120,13 @@ public class Items implements Serializable {
 	public Items() {
 	}
 
-	public Items(String serial, String eanCode, Date expirationDate,
+	public Items(String cvNumber, String code, String inventoryCode,
+			String serial, String eanCode, Date expirationDate,
 			Date warrantyDate, Integer minStock, Integer maxStock,
-			Integer quantity, String located, String cvNumber, String code,
-			String inventoryCode) {
+			Integer quantity, String located) {
+		this.cvNumber = cvNumber;
+		this.code = code;
+		this.inventoryCode = inventoryCode;
 		this.serial = serial;
 		this.eanCode = eanCode;
 		this.expirationDate = expirationDate;
@@ -132,9 +135,6 @@ public class Items implements Serializable {
 		this.maxStock = maxStock;
 		this.quantity = quantity;
 		this.located = located;
-		this.cvNumber = cvNumber;
-		this.code = code;
-		this.inventoryCode = inventoryCode;
 	}
 
 	public Long getId() {
@@ -171,6 +171,27 @@ public class Items implements Serializable {
 	public void setObservations(String observations) {
 		this.observations = observations;
 	}
+	public String getCvNumber() {
+		return cvNumber;
+	}
+	public void setCvNumber(String cvNumber) {
+		this.cvNumber = cvNumber;
+	}
+
+	public String getCode() {
+		return code;
+	}
+	public void setCode(String code) {
+		this.code = code;
+	}
+
+	public String getInventoryCode() {
+		return inventoryCode;
+	}
+	public void setInventoryCode(String inventoryCode) {
+		this.inventoryCode = inventoryCode;
+	}
+
 	public String getSerial() {
 		return serial;
 	}
@@ -225,27 +246,6 @@ public class Items implements Serializable {
 	}
 	public void setLocated(String located) {
 		this.located = located;
-	}
-
-	public String getCvNumber() {
-		return cvNumber;
-	}
-	public void setCvNumber(String cvNumber) {
-		this.cvNumber = cvNumber;
-	}
-
-	public String getCode() {
-		return code;
-	}
-	public void setCode(String code) {
-		this.code = code;
-	}
-
-	public String getInventoryCode() {
-		return inventoryCode;
-	}
-	public void setInventoryCode(String inventoryCode) {
-		this.inventoryCode = inventoryCode;
 	}
 
 	public Set<Hosts> getHosts() {

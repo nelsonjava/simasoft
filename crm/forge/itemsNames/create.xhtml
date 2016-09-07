@@ -124,28 +124,28 @@
 						</h:column>
 						<h:column>
 							<f:facet name="header">
-								<h:outputText value="Serial"/>
+								<h:outputText value="Cv Number"/>
 							</f:facet>
 							<h:link outcome="/admin/items/view">
 								<f:param name="id" value="#{_item.id}"/>
-								<h:outputText id="_itemSerial" value="#{_item.serial}"/>
+								<h:outputText id="_itemCvNumber" value="#{_item.cvNumber}"/>
 							</h:link>
 							<f:facet name="footer">
-								<h:inputText id="itemsBeanAddSerial" value="#{itemsBean.add.serial}"/>
-								<h:message for="itemsBeanAddSerial" styleClass="error"/>
+								<h:inputText id="itemsBeanAddCvNumber" value="#{itemsBean.add.cvNumber}"/>
+								<h:message for="itemsBeanAddCvNumber" styleClass="error"/>
 							</f:facet>
 						</h:column>
 						<h:column>
 							<f:facet name="header">
-								<h:outputText value="Ean Code"/>
+								<h:outputText value="Code"/>
 							</f:facet>
 							<h:link outcome="/admin/items/view">
 								<f:param name="id" value="#{_item.id}"/>
-								<h:outputText id="_itemEanCode" value="#{_item.eanCode}"/>
+								<h:outputText id="_itemCode" value="#{_item.code}"/>
 							</h:link>
 							<f:facet name="footer">
-								<h:inputText id="itemsBeanAddEanCode" value="#{itemsBean.add.eanCode}"/>
-								<h:message for="itemsBeanAddEanCode" styleClass="error"/>
+								<h:inputText id="itemsBeanAddCode" value="#{itemsBean.add.code}"/>
+								<h:message for="itemsBeanAddCode" styleClass="error"/>
 							</f:facet>
 						</h:column>
 						<h:column footerClass="remove-column" headerClass="remove-column">

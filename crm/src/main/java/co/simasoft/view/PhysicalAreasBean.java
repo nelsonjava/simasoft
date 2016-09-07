@@ -27,6 +27,7 @@ import javax.persistence.criteria.Root;
 import co.simasoft.models.PhysicalAreas;
 import co.simasoft.models.Employees;
 import co.simasoft.models.Items;
+import co.simasoft.models.PatchPanelsPorts;
 import co.simasoft.models.PhysicalAreasTypes;
 import java.util.Iterator;
 
@@ -143,6 +144,15 @@ public class PhysicalAreasBean implements Serializable {
 				iterEmployees.remove();
 				this.entityManager.merge(nextInEmployees);
 			}
+			Iterator<PatchPanelsPorts> iterPatchPanelsPorts = deletableEntity
+					.getPatchPanelsPorts().iterator();
+			for (; iterPatchPanelsPorts.hasNext();) {
+				PatchPanelsPorts nextInPatchPanelsPorts = iterPatchPanelsPorts
+						.next();
+				nextInPatchPanelsPorts.setPhysicalAreas(null);
+				iterPatchPanelsPorts.remove();
+				this.entityManager.merge(nextInPatchPanelsPorts);
+			}
 			Iterator<Items> iterItems = deletableEntity.getItems().iterator();
 			for (; iterItems.hasNext();) {
 				Items nextInItems = iterItems.next();
@@ -184,7 +194,7 @@ public class PhysicalAreasBean implements Serializable {
 	}
 
 	public int getPageSize() {
-		return 10;
+		return 1000;
 	}
 
 	public PhysicalAreas getExample() {
@@ -243,6 +253,12 @@ public class PhysicalAreasBean implements Serializable {
 					builder.lower(root.<String> get("observations")),
 					'%' + observations.toLowerCase() + '%'));
 		}
+		String name = this.example.getName();
+		if (name != null && !"".equals(name)) {
+			predicatesList.add(builder.like(
+					builder.lower(root.<String> get("name")),
+					'%' + name.toLowerCase() + '%'));
+		}
 		String code = this.example.getCode();
 		if (code != null && !"".equals(code)) {
 			predicatesList.add(builder.like(
@@ -254,12 +270,6 @@ public class PhysicalAreasBean implements Serializable {
 			predicatesList.add(builder.like(
 					builder.lower(root.<String> get("telExt")),
 					'%' + telExt.toLowerCase() + '%'));
-		}
-		String name = this.example.getName();
-		if (name != null && !"".equals(name)) {
-			predicatesList.add(builder.like(
-					builder.lower(root.<String> get("name")),
-					'%' + name.toLowerCase() + '%'));
 		}
 
 		return predicatesList.toArray(new Predicate[predicatesList.size()]);

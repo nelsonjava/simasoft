@@ -35,14 +35,14 @@
 			<h:outputLabel for="networkPortsBeanNetworkPortsObservations" value="Observations:"/>
 			<h:inputTextarea id="networkPortsBeanNetworkPortsObservations" value="#{networkPortsBean.networkPorts.observations}"/>
 			<h:outputText/>
-			<h:outputLabel for="networkPortsBeanNetworkPortsState" value="State:"/>
-			<h:outputText id="networkPortsBeanNetworkPortsState" value="#{networkPortsBean.networkPorts.state}"/>
-			<h:outputText/>
 			<h:outputLabel for="networkPortsBeanNetworkPortsMacAddress" value="Mac Address:"/>
 			<h:outputText id="networkPortsBeanNetworkPortsMacAddress" value="#{networkPortsBean.networkPorts.macAddress}"/>
 			<h:outputText/>
 			<h:outputLabel for="networkPortsBeanNetworkPortsIpAddress" value="Ip Address:"/>
 			<h:outputText id="networkPortsBeanNetworkPortsIpAddress" value="#{networkPortsBean.networkPorts.ipAddress}"/>
+			<h:outputText/>
+			<h:outputLabel for="networkPortsBeanNetworkPortsState" value="State:"/>
+			<h:outputText id="networkPortsBeanNetworkPortsState" value="#{networkPortsBean.networkPorts.state}"/>
 			<h:outputText/>
 			<h:outputLabel for="networkPortsBeanNetworkPortsSites" value="Sites:"/>
 			<h:dataTable id="networkPortsBeanNetworkPortsSites" styleClass="data-table" value="#{forgeview:asList(networkPortsBean.networkPorts.sites)}" var="_item">

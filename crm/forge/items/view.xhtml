@@ -35,6 +35,15 @@
 			<h:outputLabel for="itemsBeanItemsObservations" value="Observations:"/>
 			<h:inputTextarea id="itemsBeanItemsObservations" value="#{itemsBean.items.observations}"/>
 			<h:outputText/>
+			<h:outputLabel for="itemsBeanItemsCvNumber" value="Cv Number:"/>
+			<h:outputText id="itemsBeanItemsCvNumber" value="#{itemsBean.items.cvNumber}"/>
+			<h:outputText/>
+			<h:outputLabel for="itemsBeanItemsCode" value="Code:"/>
+			<h:outputText id="itemsBeanItemsCode" value="#{itemsBean.items.code}"/>
+			<h:outputText/>
+			<h:outputLabel for="itemsBeanItemsInventoryCode" value="Inventory Code:"/>
+			<h:outputText id="itemsBeanItemsInventoryCode" value="#{itemsBean.items.inventoryCode}"/>
+			<h:outputText/>
 			<h:outputLabel for="itemsBeanItemsSerial" value="Serial:"/>
 			<h:outputText id="itemsBeanItemsSerial" value="#{itemsBean.items.serial}"/>
 			<h:outputText/>
@@ -62,15 +71,6 @@
 			<h:outputText/>
 			<h:outputLabel for="itemsBeanItemsLocated" value="Located:"/>
 			<h:outputText id="itemsBeanItemsLocated" value="#{itemsBean.items.located}"/>
-			<h:outputText/>
-			<h:outputLabel for="itemsBeanItemsCvNumber" value="Cv Number:"/>
-			<h:outputText id="itemsBeanItemsCvNumber" value="#{itemsBean.items.cvNumber}"/>
-			<h:outputText/>
-			<h:outputLabel for="itemsBeanItemsCode" value="Code:"/>
-			<h:outputText id="itemsBeanItemsCode" value="#{itemsBean.items.code}"/>
-			<h:outputText/>
-			<h:outputLabel for="itemsBeanItemsInventoryCode" value="Inventory Code:"/>
-			<h:outputText id="itemsBeanItemsInventoryCode" value="#{itemsBean.items.inventoryCode}"/>
 			<h:outputText/>
 			<h:outputLabel for="itemsBeanItemsHosts" value="Hosts:"/>
 			<h:dataTable id="itemsBeanItemsHosts" styleClass="data-table" value="#{forgeview:asList(itemsBean.items.hosts)}" var="_item">
@@ -152,20 +152,20 @@
 				</h:column>
 				<h:column>
 					<f:facet name="header">
-						<h:outputText value="Serial"/>
+						<h:outputText value="Cv Number"/>
 					</f:facet>
 					<h:link outcome="/admin/items/view">
 						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="_itemSerial" value="#{_item.serial}"/>
+						<h:outputText id="_itemCvNumber" value="#{_item.cvNumber}"/>
 					</h:link>
 				</h:column>
 				<h:column>
 					<f:facet name="header">
-						<h:outputText value="Ean Code"/>
+						<h:outputText value="Code"/>
 					</f:facet>
 					<h:link outcome="/admin/items/view">
 						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="_itemEanCode" value="#{_item.eanCode}"/>
+						<h:outputText id="_itemCode" value="#{_item.code}"/>
 					</h:link>
 				</h:column>
 			</h:dataTable>

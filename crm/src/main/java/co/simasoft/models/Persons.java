@@ -56,22 +56,6 @@ public class Persons implements Serializable {
 	// @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
 	private String observations;
 
-	@Column(nullable = true, unique = false)
-	// @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-	private String mobile;
-
-	@Column(nullable = true, unique = false)
-	// @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-	private String telephone;
-
-	@Column(nullable = true, unique = false)
-	// @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-	private String skipe;
-
-	@Column(nullable = true, unique = false)
-	// @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-	private String address;
-
 	@Column(nullable = false, unique = false)
 	// @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
 	private String firstName;
@@ -92,6 +76,22 @@ public class Persons implements Serializable {
 	// @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
 	private String email;
 
+	@Column(nullable = true, unique = false)
+	// @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+	private String mobile;
+
+	@Column(nullable = true, unique = false)
+	// @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+	private String telephone;
+
+	@Column(nullable = true, unique = false)
+	// @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+	private String skipe;
+
+	@Column(nullable = true, unique = false)
+	// @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+	private String address;
+
 	@OneToMany(mappedBy = "persons")
 	private Set<Tasks> tasks = new HashSet<Tasks>();
 
@@ -104,18 +104,18 @@ public class Persons implements Serializable {
 	public Persons() {
 	}
 
-	public Persons(String mobile, String telephone, String skipe,
-			String address, String firstName, String secondName,
-			String firstLastName, String secondLastName, String email) {
-		this.mobile = mobile;
-		this.telephone = telephone;
-		this.skipe = skipe;
-		this.address = address;
+	public Persons(String firstName, String secondName, String firstLastName,
+			String secondLastName, String email, String mobile,
+			String telephone, String skipe, String address) {
 		this.firstName = firstName;
 		this.secondName = secondName;
 		this.firstLastName = firstLastName;
 		this.secondLastName = secondLastName;
 		this.email = email;
+		this.mobile = mobile;
+		this.telephone = telephone;
+		this.skipe = skipe;
+		this.address = address;
 	}
 
 	public Long getId() {
@@ -152,34 +152,6 @@ public class Persons implements Serializable {
 	public void setObservations(String observations) {
 		this.observations = observations;
 	}
-	public String getMobile() {
-		return mobile;
-	}
-	public void setMobile(String mobile) {
-		this.mobile = mobile;
-	}
-
-	public String getTelephone() {
-		return telephone;
-	}
-	public void setTelephone(String telephone) {
-		this.telephone = telephone;
-	}
-
-	public String getSkipe() {
-		return skipe;
-	}
-	public void setSkipe(String skipe) {
-		this.skipe = skipe;
-	}
-
-	public String getAddress() {
-		return address;
-	}
-	public void setAddress(String address) {
-		this.address = address;
-	}
-
 	public String getFirstName() {
 		return firstName;
 	}
@@ -213,6 +185,34 @@ public class Persons implements Serializable {
 	}
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public String getMobile() {
+		return mobile;
+	}
+	public void setMobile(String mobile) {
+		this.mobile = mobile;
+	}
+
+	public String getTelephone() {
+		return telephone;
+	}
+	public void setTelephone(String telephone) {
+		this.telephone = telephone;
+	}
+
+	public String getSkipe() {
+		return skipe;
+	}
+	public void setSkipe(String skipe) {
+		this.skipe = skipe;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
 	}
 
 	public Set<Tasks> getTasks() {

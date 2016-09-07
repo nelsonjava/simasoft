@@ -138,6 +138,19 @@
 						</h:column>
 						<h:column>
 							<f:facet name="header">
+								<h:outputText value="Subject"/>
+							</f:facet>
+							<h:link outcome="/admin/originalOrders/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="_itemSubject" value="#{_item.subject}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="originalOrdersBeanAddSubject" value="#{originalOrdersBean.add.subject}"/>
+								<h:message for="originalOrdersBeanAddSubject" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
 								<h:outputText value="Code"/>
 							</f:facet>
 							<h:link outcome="/admin/originalOrders/view">
@@ -147,23 +160,6 @@
 							<f:facet name="footer">
 								<h:inputText id="originalOrdersBeanAddCode" value="#{originalOrdersBean.add.code}"/>
 								<h:message for="originalOrdersBeanAddCode" styleClass="error"/>
-							</f:facet>
-						</h:column>
-						<h:column>
-							<f:facet name="header">
-								<h:outputText value="Entry Date"/>
-							</f:facet>
-							<h:link outcome="/admin/originalOrders/view">
-								<f:param name="id" value="#{_item.id}"/>
-								<h:outputText id="_itemEntryDate" value="#{_item.entryDate}">
-									<f:convertDateTime type="date"/>
-								</h:outputText>
-							</h:link>
-							<f:facet name="footer">
-								<h:inputText id="originalOrdersBeanAddEntryDate" value="#{originalOrdersBean.add.entryDate}">
-									<f:convertDateTime type="date"/>
-								</h:inputText>
-								<h:message for="originalOrdersBeanAddEntryDate" styleClass="error"/>
 							</f:facet>
 						</h:column>
 						<h:column footerClass="remove-column" headerClass="remove-column">

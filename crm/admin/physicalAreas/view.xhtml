@@ -32,16 +32,16 @@
                         <h:outputText id="physicalAreasBeanPhysicalAreasOrden" value="#{physicalAreasBean.physicalAreas.orden}"/>
                         <h:outputText/>
 
+                        <h:outputLabel for="physicalAreasBeanPhysicalAreasName" value="Name:"/>
+                        <h:outputText id="physicalAreasBeanPhysicalAreasName" value="#{physicalAreasBean.physicalAreas.name}"/>
+                        <h:outputText/>
+
                         <h:outputLabel for="physicalAreasBeanPhysicalAreasCode" value="Code:"/>
                         <h:outputText id="physicalAreasBeanPhysicalAreasCode" value="#{physicalAreasBean.physicalAreas.code}"/>
                         <h:outputText/>
 
                         <h:outputLabel for="physicalAreasBeanPhysicalAreasTelExt" value="TelExt:"/>
                         <h:outputText id="physicalAreasBeanPhysicalAreasTelExt" value="#{physicalAreasBean.physicalAreas.telExt}"/>
-                        <h:outputText/>
-
-                        <h:outputLabel for="physicalAreasBeanPhysicalAreasName" value="Name:"/>
-                        <h:outputText id="physicalAreasBeanPhysicalAreasName" value="#{physicalAreasBean.physicalAreas.name}"/>
                         <h:outputText/>
 
                         <h:outputLabel for="physicalAreasBeanPhysicalAreasObservations" value="Observations:"/>
@@ -68,6 +68,52 @@
                                               <h:link outcome="/admin/employees/view">
                                                       <f:param name="id" value="#{_item.id}"/>
                                                       <h:outputText id="itemCode" value="#{_item.code}"/>
+                                              </h:link>
+                                           </h:column>
+
+                        </h:dataTable>
+                        <h:outputText/>
+
+                        <h:outputLabel for="PhysicalAreasBeanPhysicalAreasPatchPanelsPorts" value="PatchPanelsPorts:"/>
+                        <h:dataTable id="physicalAreasBeanPhysicalAreaspatchPanelsPorts" styleClass="data-table" value="#{forgeview:asList(physicalAreasBean.physicalAreas.patchPanelsPorts)}" var="_item">
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Orden"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/patchPanelsPorts/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemOrden" value="#{_item.orden}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Port"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/patchPanelsPorts/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemPort" value="#{_item.port}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Code"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/patchPanelsPorts/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemCode" value="#{_item.code}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Mts"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/patchPanelsPorts/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemMts" value="#{_item.mts}"/>
                                               </h:link>
                                            </h:column>
 

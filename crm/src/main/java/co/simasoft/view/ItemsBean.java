@@ -195,7 +195,7 @@ public class ItemsBean implements Serializable {
 	}
 
 	public int getPageSize() {
-		return 10;
+		return 1000;
 	}
 
 	public Items getExample() {
@@ -252,21 +252,23 @@ public class ItemsBean implements Serializable {
 					builder.lower(root.<String> get("observations")),
 					'%' + observations.toLowerCase() + '%'));
 		}
-		String serial = this.example.getSerial();
-		if (serial != null && !"".equals(serial)) {
+		String cvNumber = this.example.getCvNumber();
+		if (cvNumber != null && !"".equals(cvNumber)) {
 			predicatesList.add(builder.like(
-					builder.lower(root.<String> get("serial")),
-					'%' + serial.toLowerCase() + '%'));
+					builder.lower(root.<String> get("cvNumber")),
+					'%' + cvNumber.toLowerCase() + '%'));
 		}
-		String eanCode = this.example.getEanCode();
-		if (eanCode != null && !"".equals(eanCode)) {
+		String code = this.example.getCode();
+		if (code != null && !"".equals(code)) {
 			predicatesList.add(builder.like(
-					builder.lower(root.<String> get("eanCode")),
-					'%' + eanCode.toLowerCase() + '%'));
+					builder.lower(root.<String> get("code")),
+					'%' + code.toLowerCase() + '%'));
 		}
-		Integer minStock = this.example.getMinStock();
-		if (minStock != null && minStock.intValue() != 0) {
-			predicatesList.add(builder.equal(root.get("minStock"), minStock));
+		String inventoryCode = this.example.getInventoryCode();
+		if (inventoryCode != null && !"".equals(inventoryCode)) {
+			predicatesList.add(builder.like(
+					builder.lower(root.<String> get("inventoryCode")),
+					'%' + inventoryCode.toLowerCase() + '%'));
 		}
 
 		return predicatesList.toArray(new Predicate[predicatesList.size()]);

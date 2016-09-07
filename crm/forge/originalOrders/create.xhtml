@@ -55,6 +55,12 @@
 					<h:message for="originalOrdersBeanOriginalOrdersObservations" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
+				<h:outputLabel for="originalOrdersBeanOriginalOrdersSubject" value="Subject:"/>
+				<h:panelGroup>
+					<h:inputText id="originalOrdersBeanOriginalOrdersSubject" value="#{originalOrdersBean.originalOrders.subject}"/>
+					<h:message for="originalOrdersBeanOriginalOrdersSubject" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
 				<h:outputLabel for="originalOrdersBeanOriginalOrdersCode" value="Code:"/>
 				<h:panelGroup>
 					<h:inputText id="originalOrdersBeanOriginalOrdersCode" value="#{originalOrdersBean.originalOrders.code}"/>
@@ -131,12 +137,6 @@
 				<h:panelGroup>
 					<h:inputText id="originalOrdersBeanOriginalOrdersFiledir" value="#{originalOrdersBean.originalOrders.filedir}"/>
 					<h:message for="originalOrdersBeanOriginalOrdersFiledir" styleClass="error"/>
-				</h:panelGroup>
-				<h:outputText/>
-				<h:outputLabel for="originalOrdersBeanOriginalOrdersSubject" value="Subject:"/>
-				<h:panelGroup>
-					<h:inputText id="originalOrdersBeanOriginalOrdersSubject" value="#{originalOrdersBean.originalOrders.subject}"/>
-					<h:message for="originalOrdersBeanOriginalOrdersSubject" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
 				<h:outputLabel for="originalOrdersBeanOriginalOrdersContinualImprovements" value="Continual Improvements:"/>

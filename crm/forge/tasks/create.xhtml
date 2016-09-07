@@ -55,14 +55,6 @@
 					<h:message for="tasksBeanTasksObservations" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
-				<h:outputLabel for="tasksBeanTasksFinalDate" value="Final Date:"/>
-				<h:panelGroup>
-					<h:inputText id="tasksBeanTasksFinalDate" value="#{tasksBean.tasks.finalDate}">
-						<f:convertDateTime type="date"/>
-					</h:inputText>
-					<h:message for="tasksBeanTasksFinalDate" styleClass="error"/>
-				</h:panelGroup>
-				<h:outputText/>
 				<h:outputLabel for="tasksBeanTasksName" value="Name:"/>
 				<h:panelGroup>
 					<h:inputText id="tasksBeanTasksName" required="true" value="#{tasksBean.tasks.name}"/>
@@ -91,6 +83,14 @@
 						<f:convertDateTime type="date"/>
 					</h:inputText>
 					<h:message for="tasksBeanTasksStartDate" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="tasksBeanTasksFinalDate" value="Final Date:"/>
+				<h:panelGroup>
+					<h:inputText id="tasksBeanTasksFinalDate" value="#{tasksBean.tasks.finalDate}">
+						<f:convertDateTime type="date"/>
+					</h:inputText>
+					<h:message for="tasksBeanTasksFinalDate" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
 				<h:outputLabel for="tasksBeanTasksDiaries" value="Diaries:"/>

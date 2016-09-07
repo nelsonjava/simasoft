@@ -41,22 +41,22 @@
 							<h:message for="itemsBeanExampleObservations" styleClass="error"/>
 						</h:panelGroup>
 						<h:outputText/>
-						<h:outputLabel for="itemsBeanExampleSerial" value="Serial:"/>
+						<h:outputLabel for="itemsBeanExampleCvNumber" value="Cv Number:"/>
 						<h:panelGroup>
-							<h:inputText id="itemsBeanExampleSerial" value="#{itemsBean.example.serial}"/>
-							<h:message for="itemsBeanExampleSerial" styleClass="error"/>
+							<h:inputText id="itemsBeanExampleCvNumber" value="#{itemsBean.example.cvNumber}"/>
+							<h:message for="itemsBeanExampleCvNumber" styleClass="error"/>
 						</h:panelGroup>
 						<h:outputText/>
-						<h:outputLabel for="itemsBeanExampleEanCode" value="Ean Code:"/>
+						<h:outputLabel for="itemsBeanExampleCode" value="Code:"/>
 						<h:panelGroup>
-							<h:inputText id="itemsBeanExampleEanCode" value="#{itemsBean.example.eanCode}"/>
-							<h:message for="itemsBeanExampleEanCode" styleClass="error"/>
+							<h:inputText id="itemsBeanExampleCode" value="#{itemsBean.example.code}"/>
+							<h:message for="itemsBeanExampleCode" styleClass="error"/>
 						</h:panelGroup>
 						<h:outputText/>
-						<h:outputLabel for="itemsBeanExampleMinStock" value="Min Stock:"/>
+						<h:outputLabel for="itemsBeanExampleInventoryCode" value="Inventory Code:"/>
 						<h:panelGroup>
-							<h:inputText id="itemsBeanExampleMinStock" value="#{itemsBean.example.minStock}"/>
-							<h:message for="itemsBeanExampleMinStock" styleClass="error"/>
+							<h:inputText id="itemsBeanExampleInventoryCode" value="#{itemsBean.example.inventoryCode}"/>
+							<h:message for="itemsBeanExampleInventoryCode" styleClass="error"/>
 						</h:panelGroup>
 						<h:outputText/>
 					</h:panelGrid>
@@ -97,20 +97,20 @@
 				</h:column>
 				<h:column>
 					<f:facet name="header">
-						<h:outputText value="Serial"/>
+						<h:outputText value="Cv Number"/>
 					</f:facet>
 					<h:link outcome="/admin/items/view">
 						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="_itemSerial" value="#{_item.serial}"/>
+						<h:outputText id="_itemCvNumber" value="#{_item.cvNumber}"/>
 					</h:link>
 				</h:column>
 				<h:column>
 					<f:facet name="header">
-						<h:outputText value="Ean Code"/>
+						<h:outputText value="Code"/>
 					</f:facet>
 					<h:link outcome="/admin/items/view">
 						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="_itemEanCode" value="#{_item.eanCode}"/>
+						<h:outputText id="_itemCode" value="#{_item.code}"/>
 					</h:link>
 				</h:column>
 			</h:dataTable>

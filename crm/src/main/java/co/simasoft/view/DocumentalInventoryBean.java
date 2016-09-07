@@ -236,16 +236,16 @@ public class DocumentalInventoryBean implements Serializable {
 					builder.lower(root.<String> get("observations")),
 					'%' + observations.toLowerCase() + '%'));
 		}
-		Integer transferNumber = this.example.getTransferNumber();
-		if (transferNumber != null && transferNumber.intValue() != 0) {
-			predicatesList.add(builder.equal(root.get("transferNumber"),
-					transferNumber));
-		}
 		String object = this.example.getObject();
 		if (object != null && !"".equals(object)) {
 			predicatesList.add(builder.like(
 					builder.lower(root.<String> get("object")),
 					'%' + object.toLowerCase() + '%'));
+		}
+		Integer transferNumber = this.example.getTransferNumber();
+		if (transferNumber != null && transferNumber.intValue() != 0) {
+			predicatesList.add(builder.equal(root.get("transferNumber"),
+					transferNumber));
 		}
 		InventoryFinality inventoryFinality = this.example
 				.getInventoryFinality();

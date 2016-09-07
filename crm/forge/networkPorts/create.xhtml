@@ -55,12 +55,6 @@
 					<h:message for="networkPortsBeanNetworkPortsObservations" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
-				<h:outputLabel for="networkPortsBeanNetworkPortsState" value="State:"/>
-				<h:panelGroup>
-					<h:inputText id="networkPortsBeanNetworkPortsState" value="#{networkPortsBean.networkPorts.state}"/>
-					<h:message for="networkPortsBeanNetworkPortsState" styleClass="error"/>
-				</h:panelGroup>
-				<h:outputText/>
 				<h:outputLabel for="networkPortsBeanNetworkPortsMacAddress" value="Mac Address:"/>
 				<h:panelGroup>
 					<h:inputText id="networkPortsBeanNetworkPortsMacAddress" required="true" value="#{networkPortsBean.networkPorts.macAddress}"/>
@@ -71,6 +65,12 @@
 				<h:panelGroup>
 					<h:inputText id="networkPortsBeanNetworkPortsIpAddress" value="#{networkPortsBean.networkPorts.ipAddress}"/>
 					<h:message for="networkPortsBeanNetworkPortsIpAddress" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="networkPortsBeanNetworkPortsState" value="State:"/>
+				<h:panelGroup>
+					<h:inputText id="networkPortsBeanNetworkPortsState" value="#{networkPortsBean.networkPorts.state}"/>
+					<h:message for="networkPortsBeanNetworkPortsState" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
 				<h:outputLabel for="networkPortsBeanNetworkPortsSites" value="Sites:"/>

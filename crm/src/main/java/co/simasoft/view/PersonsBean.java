@@ -243,23 +243,23 @@ public class PersonsBean implements Serializable {
 					builder.lower(root.<String> get("observations")),
 					'%' + observations.toLowerCase() + '%'));
 		}
-		String mobile = this.example.getMobile();
-		if (mobile != null && !"".equals(mobile)) {
+		String firstName = this.example.getFirstName();
+		if (firstName != null && !"".equals(firstName)) {
 			predicatesList.add(builder.like(
-					builder.lower(root.<String> get("mobile")),
-					'%' + mobile.toLowerCase() + '%'));
+					builder.lower(root.<String> get("firstName")),
+					'%' + firstName.toLowerCase() + '%'));
 		}
-		String telephone = this.example.getTelephone();
-		if (telephone != null && !"".equals(telephone)) {
+		String secondName = this.example.getSecondName();
+		if (secondName != null && !"".equals(secondName)) {
 			predicatesList.add(builder.like(
-					builder.lower(root.<String> get("telephone")),
-					'%' + telephone.toLowerCase() + '%'));
+					builder.lower(root.<String> get("secondName")),
+					'%' + secondName.toLowerCase() + '%'));
 		}
-		String skipe = this.example.getSkipe();
-		if (skipe != null && !"".equals(skipe)) {
+		String firstLastName = this.example.getFirstLastName();
+		if (firstLastName != null && !"".equals(firstLastName)) {
 			predicatesList.add(builder.like(
-					builder.lower(root.<String> get("skipe")),
-					'%' + skipe.toLowerCase() + '%'));
+					builder.lower(root.<String> get("firstLastName")),
+					'%' + firstLastName.toLowerCase() + '%'));
 		}
 
 		return predicatesList.toArray(new Predicate[predicatesList.size()]);

@@ -56,10 +56,6 @@ public class NetworkPorts implements Serializable {
 	// @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
 	private String observations;
 
-	@Column(nullable = true, unique = false)
-	// @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-	private String state;
-
 	@Column(nullable = false, unique = true)
 	// @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
 	private String macAddress;
@@ -67,6 +63,10 @@ public class NetworkPorts implements Serializable {
 	@Column(nullable = true, unique = false)
 	// @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
 	private String ipAddress;
+
+	@Column(nullable = true, unique = false)
+	// @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+	private String state;
 
 	@ManyToMany
 	private Set<Sites> sites = new HashSet<Sites>();
@@ -80,10 +80,10 @@ public class NetworkPorts implements Serializable {
 	public NetworkPorts() {
 	}
 
-	public NetworkPorts(String state, String macAddress, String ipAddress) {
-		this.state = state;
+	public NetworkPorts(String macAddress, String ipAddress, String state) {
 		this.macAddress = macAddress;
 		this.ipAddress = ipAddress;
+		this.state = state;
 	}
 
 	public Long getId() {
@@ -120,13 +120,6 @@ public class NetworkPorts implements Serializable {
 	public void setObservations(String observations) {
 		this.observations = observations;
 	}
-	public String getState() {
-		return state;
-	}
-	public void setState(String state) {
-		this.state = state;
-	}
-
 	public String getMacAddress() {
 		return macAddress;
 	}
@@ -139,6 +132,13 @@ public class NetworkPorts implements Serializable {
 	}
 	public void setIpAddress(String ipAddress) {
 		this.ipAddress = ipAddress;
+	}
+
+	public String getState() {
+		return state;
+	}
+	public void setState(String state) {
+		this.state = state;
 	}
 
 	public Set<Sites> getSites() {

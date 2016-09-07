@@ -141,6 +141,10 @@ public class PatchPanelsPortsBean implements Serializable {
                                iterNetworkPorts.remove();
                                this.entityManager.merge(nextInNetworkPorts);
                         }
+                        PhysicalAreas physicalAreas = deletableEntity.getPhysicalAreas();
+                        physicalAreas.getPatchPanelsPorts().remove(deletableEntity);
+                        deletableEntity.setPhysicalAreas(null);
+                        this.entityManager.merge(physicalAreas);
                         SwitchesPorts switchesPorts = deletableEntity.getSwitchesPorts();
                         switchesPorts.getPatchPanelsPorts().remove(deletableEntity);
                         deletableEntity.setSwitchesPorts(null);

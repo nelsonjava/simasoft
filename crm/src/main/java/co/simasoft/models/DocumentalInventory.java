@@ -56,14 +56,6 @@ public class DocumentalInventory implements Serializable {
 	// @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
 	private String observations;
 
-	@Column(nullable = true, unique = false)
-	private Integer transferNumber;
-
-	@Column(nullable = true, unique = false)
-	@DateBridge(resolution = Resolution.YEAR)
-	@Temporal(TemporalType.DATE)
-	private Date debugDate;
-
 	@Column(nullable = false, unique = true)
 	// @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
 	private String object;
@@ -72,6 +64,14 @@ public class DocumentalInventory implements Serializable {
 	@DateBridge(resolution = Resolution.YEAR)
 	@Temporal(TemporalType.DATE)
 	private Date deliveryDate;
+
+	@Column(nullable = true, unique = false)
+	private Integer transferNumber;
+
+	@Column(nullable = true, unique = false)
+	@DateBridge(resolution = Resolution.YEAR)
+	@Temporal(TemporalType.DATE)
+	private Date debugDate;
 
 	@OneToMany(mappedBy = "documentalInventory")
 	private Set<OriginalOrders> originalOrders = new HashSet<OriginalOrders>();
@@ -82,12 +82,12 @@ public class DocumentalInventory implements Serializable {
 	public DocumentalInventory() {
 	}
 
-	public DocumentalInventory(Integer transferNumber, Date debugDate,
-			String object, Date deliveryDate) {
-		this.transferNumber = transferNumber;
-		this.debugDate = debugDate;
+	public DocumentalInventory(String object, Date deliveryDate,
+			Integer transferNumber, Date debugDate) {
 		this.object = object;
 		this.deliveryDate = deliveryDate;
+		this.transferNumber = transferNumber;
+		this.debugDate = debugDate;
 	}
 
 	public Long getId() {
@@ -124,20 +124,6 @@ public class DocumentalInventory implements Serializable {
 	public void setObservations(String observations) {
 		this.observations = observations;
 	}
-	public Integer getTransferNumber() {
-		return transferNumber;
-	}
-	public void setTransferNumber(Integer transferNumber) {
-		this.transferNumber = transferNumber;
-	}
-
-	public Date getDebugDate() {
-		return debugDate;
-	}
-	public void setDebugDate(Date debugDate) {
-		this.debugDate = debugDate;
-	}
-
 	public String getObject() {
 		return object;
 	}
@@ -150,6 +136,20 @@ public class DocumentalInventory implements Serializable {
 	}
 	public void setDeliveryDate(Date deliveryDate) {
 		this.deliveryDate = deliveryDate;
+	}
+
+	public Integer getTransferNumber() {
+		return transferNumber;
+	}
+	public void setTransferNumber(Integer transferNumber) {
+		this.transferNumber = transferNumber;
+	}
+
+	public Date getDebugDate() {
+		return debugDate;
+	}
+	public void setDebugDate(Date debugDate) {
+		this.debugDate = debugDate;
 	}
 
 	public Set<OriginalOrders> getOriginalOrders() {

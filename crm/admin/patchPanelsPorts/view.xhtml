@@ -94,6 +94,12 @@
                         </h:dataTable>
                         <h:outputText/>
 
+                        <h:outputLabel for="patchPanelsPortsBeanPatchPanelsPortsPhysicalAreas" value="PhysicalAreas:"/>
+                        <h:link id="patchPanelsPortsBeanPatchPanelsPortsPhysicalAreas" outcome="/admin/physicalAreas/view" rendered="#{!empty patchPanelsPortsBean.patchPanelsPorts.physicalAreas}" value="#{patchPanelsPortsBean.patchPanelsPorts.physicalAreas.code}">
+                                 <f:param name="id" value="#{patchPanelsPortsBean.patchPanelsPorts.physicalAreas.id}"/>
+                        </h:link>
+                        <h:outputText/>
+
                         <h:outputLabel for="patchPanelsPortsBeanPatchPanelsPortsSwitchesPorts" value="SwitchesPorts:"/>
                         <h:link id="patchPanelsPortsBeanPatchPanelsPortsSwitchesPorts" outcome="/admin/switchesPorts/view" rendered="#{!empty patchPanelsPortsBean.patchPanelsPorts.switchesPorts}" value="#{patchPanelsPortsBean.patchPanelsPorts.switchesPorts.port}">
                                  <f:param name="id" value="#{patchPanelsPortsBean.patchPanelsPorts.switchesPorts.id}"/>

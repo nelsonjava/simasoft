@@ -85,6 +85,45 @@
 					<h:dataTable id="switchesPortsBeanSwitchesPortsPatchPanelsPorts" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
 						<h:column>
 							<f:facet name="header">
+								<h:outputText value="Alias"/>
+							</f:facet>
+							<h:link outcome="/admin/patchPanelsPorts/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="_itemAlias" value="#{_item.alias}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="patchPanelsPortsBeanAddAlias" value="#{patchPanelsPortsBean.add.alias}"/>
+								<h:message for="patchPanelsPortsBeanAddAlias" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Orden"/>
+							</f:facet>
+							<h:link outcome="/admin/patchPanelsPorts/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="_itemOrden" value="#{_item.orden}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="patchPanelsPortsBeanAddOrden" value="#{patchPanelsPortsBean.add.orden}"/>
+								<h:message for="patchPanelsPortsBeanAddOrden" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Observations"/>
+							</f:facet>
+							<h:link outcome="/admin/patchPanelsPorts/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:inputTextarea id="_itemObservations" value="#{_item.observations}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputTextarea id="patchPanelsPortsBeanAddObservations" value="#{patchPanelsPortsBean.add.observations}"/>
+								<h:message for="patchPanelsPortsBeanAddObservations" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
 								<h:outputText value="Port"/>
 							</f:facet>
 							<h:link outcome="/admin/patchPanelsPorts/view">
@@ -94,6 +133,19 @@
 							<f:facet name="footer">
 								<h:inputText id="patchPanelsPortsBeanAddPort" value="#{patchPanelsPortsBean.add.port}"/>
 								<h:message for="patchPanelsPortsBeanAddPort" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Code"/>
+							</f:facet>
+							<h:link outcome="/admin/patchPanelsPorts/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="_itemCode" value="#{_item.code}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="patchPanelsPortsBeanAddCode" value="#{patchPanelsPortsBean.add.code}"/>
+								<h:message for="patchPanelsPortsBeanAddCode" styleClass="error"/>
 							</f:facet>
 						</h:column>
 						<h:column footerClass="remove-column" headerClass="remove-column">

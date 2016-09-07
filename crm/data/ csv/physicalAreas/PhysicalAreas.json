@@ -38,103 +38,279 @@
   },
   {
     "name": "Salon-Musica",
-    "code": "B1P2-SA01"
+    "code": "B1P2-SA10"
   },
   {
     "name": "Salon-Centro Operaciones Pastoral",
-    "code": "B1P2-SA02"
+    "code": "B1P2-SA11"
   },
   {
     "name": "Salon-Artes",
-    "code": "B1P2-SA03"
+    "code": "B1P2-SA12"
   },
   {
     "name": "Salon-Ingles-1",
-    "code": "B2P2-SA04"
+    "code": "B2P2-SA13"
   },
   {
     "name": "Salon-Ingles-2",
-    "code": "B2P2-SA05"
+    "code": "B2P2-SA14"
   },
   {
     "name": "Salon-Ingles-3",
-    "code": "B2P2-SA06"
+    "code": "B2P2-SA15"
   },
   {
     "name": "Salon-Ingles-4",
-    "code": "B2P2-SA07"
+    "code": "B2P2-SA16"
   },
   {
     "name": "Salon-Ingles-5",
-    "code": "B2P2-SA08"
+    "code": "B2P2-SA17"
   },
   {
     "name": "Salon-Ingles-6",
-    "code": "B2P2-SA09"
+    "code": "B2P2-SA18"
   },
   {
     "name": "Salon-0501",
-    "code": "B3P1-SA01"
+    "code": "B3P1-SA19"
   },
   {
     "name": "Salon-0601-Ciencias Naturales-1",
-    "code": "B3P1-SA02"
+    "code": "B3P1-SA20"
   },
   {
     "name": "Salon-0602-Sociales-2",
-    "code": "B3P1-SA03"
+    "code": "B3P1-SA21"
   },
   {
     "name": "Salon-0701-Espa?ol-1",
-    "code": "B3P1-SA04"
+    "code": "B3P1-SA22"
   },
   {
     "name": "Salon-0301",
-    "code": "B4P1-SA01"
+    "code": "B4P1-SA23"
   },
   {
     "name": "Salon-0201",
-    "code": "B4P1-SA02"
+    "code": "B4P1-SA24"
   },
   {
     "name": "Salon-0202",
-    "code": "B4P1-SA03"
+    "code": "B4P1-SA25"
   },
   {
     "name": "Salon-Musica2",
-    "code": "B4P1-SA04"
+    "code": "B4P1-SA26"
   },
   {
     "name": "Salon-0901-Espa?ol-2",
-    "code": "B3P2-SA01"
+    "code": "B3P2-SA27"
   },
   {
-    "name": "Salon-0902-Educaci?n Religiosa",
-    "code": "B3P2-SA02"
+    "name": "Salon-0902-EducaciOn Religiosa",
+    "code": "B3P2-SA28"
   },
   {
     "name": "Salon-0801-Ciencias Naturales-2",
-    "code": "B3P2-SA03"
+    "code": "B3P2-SA29"
   },
   {
     "name": "Salon-0802-Matematicas-2",
-    "code": "B3P2-SA04"
+    "code": "B3P2-SA30"
   },
   {
     "name": "Salon-0302",
-    "code": "B4P2-SA01"
+    "code": "B4P2-SA31"
   },
   {
     "name": "Salon-0401",
-    "code": "B4P2-SA02"
+    "code": "B4P2-SA32"
   },
   {
     "name": "Salon-0402",
-    "code": "B4P2-SA03"
+    "code": "B4P2-SA33"
   },
   {
     "name": "Salon-0502",
-    "code": "B4P2-SA04"
+    "code": "B4P2-SA34"
+  },
+  {
+    "name": "Salon-Luduteca",
+    "code": "PREE-SA35"
+  },
+  {
+    "name": "Salon-Vacio",
+    "code": "PREE-SA36"
+  },
+  {
+    "name": "Salon-0102",
+    "code": "PREE-SA37"
+  },
+  {
+    "name": "Salon-0101",
+    "code": "PREE-SA38"
+  },
+  {
+    "name": "Salon-0002",
+    "code": "PREE-SA39"
+  },
+  {
+    "name": "Salon-0001",
+    "code": "PREE-SA40"
+  },
+  {
+    "name": "Salon-Ingles-7",
+    "code": "PREE-SA41"
+  },
+  {
+    "name": "Salon-vacio",
+    "code": "PREE-SA42"
+  },
+  {
+    "name": "Salon-Prejardin",
+    "code": "PREE-SA43"
+  },
+  {
+    "name": "Salon-Jardin",
+    "code": "PREE-SA44"
+  },
+  {
+    "name": "OFICINA GESTION DIRECTIVA",
+    "code": "OFICINA01"
+  },
+  {
+    "name": "OFICINA ADMISIONES Y MATRICULAS",
+    "code": "OFICINA02"
+  },
+  {
+    "name": "OFICINA GESTION EDUCATIVA",
+    "code": "OFICINA03"
+  },
+  {
+    "name": "OFICINA GESTION DEL TALENTO HUMANO",
+    "code": "OFICINA04"
+  },
+  {
+    "name": "OFICINA GESTION FINANCIERA",
+    "code": "OFICINA05"
+  },
+  {
+    "name": "OFICINA GESTION DE COMPRAS",
+    "code": "OFICINA06"
+  },
+  {
+    "name": "OFICINA DE GESTION DE SERVICIOS COMPLEMENTARIOS",
+    "code": "OFICINA07"
+  },
+  {
+    "name": "OFICINA DE SERVICIOS GENERALES",
+    "code": "OFICINA08"
+  },
+  {
+    "name": "OFICINA DE GESTION DE LA CALICAD",
+    "code": "OFICINA09"
+  },
+  {
+    "name": "OFICINA GESTION DE LA INFORMACION",
+    "code": "OFICINA10"
+  },
+  {
+    "name": "OFICINA COORDINADOR PRIMERA DIVISION",
+    "code": "OFICINA11"
+  },
+  {
+    "name": "OFICINA COORDINADOR SEGUNDA DIVISION",
+    "code": "OFICINA12"
+  },
+  {
+    "name": "OFICINA COORDINADOR TERCERA DIVISION",
+    "code": "OFICINA13"
+  },
+  {
+    "name": "OFICINA COORDINADOR DE PREESCOLAR",
+    "code": "OFICINA14"
+  },
+  {
+    "name": "OFICINAS DEPARTAMENTOS ACADEMICOS",
+    "code": "OFICINA15"
+  },
+  {
+    "name": "OFICINA DEPARTAMENTO DE TECNOLOGIA E INFORMATICA",
+    "code": "OFICINA16"
+  },
+  {
+    "name": "OFICINA DEPARTAMENTO DE INGLES",
+    "code": "OFICINA17"
+  },
+  {
+    "name": "OFICINA DEPARTAMENTO DE EDUCACION EN LA FE",
+    "code": "OFICINA18"
+  },
+  {
+    "name": "OFICINA DEPARTAMENTO DE ESPA?OL",
+    "code": "OFICINA19"
+  },
+  {
+    "name": "OFICINA DEPARTAMENTO DE CIENCIAS NATURALES",
+    "code": "OFICINA20"
+  },
+  {
+    "name": "OFICINA DEPARTAMENTO DE MATEMATICAS",
+    "code": "OFICINA21"
+  },
+  {
+    "name": "OFICINA DEPARTAMENTO DE EDUCACION FISICA",
+    "code": "OFICINA22"
+  },
+  {
+    "name": "OFICINA DEPARTAMENTO DE ARTES PLASTICAS",
+    "code": "OFICINA23"
+  },
+  {
+    "name": "OFICINA DEPARTAMENTO DE SOCIALES",
+    "code": "OFICINA24"
+  },
+  {
+    "name": "OFICINA COORDINADOR PRIMERA DIVISION",
+    "code": "OFICINA25"
+  },
+  {
+    "name": "OFICINA COORDINADOR SEGUNDA DIVISION",
+    "code": "OFICINA26"
+  },
+  {
+    "name": "OFICINA COORDINADOR TERCERA DIVISION",
+    "code": "OFICINA27"
+  },
+  {
+    "name": "OFICINA COORDINADOR DE PREESCOLAR",
+    "code": "OFICINA28"
+  },
+  {
+    "name": "SALA DE INFORMATICA No.1",
+    "code": "OFICINA29"
+  },
+  {
+    "name": "SALA DE INFORMATICA No.2",
+    "code": "OFICINA30"
+  },
+  {
+    "name": "SALA DE INFORMATICA No.3",
+    "code": "OFICINA31"
+  },
+  {
+    "name": "SALON-AUDIOVISUALES",
+    "code": "OFICINA32"
+  },
+  {
+    "name": "DEPARTAMENTOS ACADEMICOS",
+    "code": "OFICINA33"
+  },
+  {
+    "name": "SALA DE ATENCION",
+    "code": "OFICINA34"
   }
   ]
 }

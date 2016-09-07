@@ -51,11 +51,47 @@
 			<h:dataTable id="switchesPortsBeanSwitchesPortsPatchPanelsPorts" styleClass="data-table" value="#{forgeview:asList(switchesPortsBean.switchesPorts.patchPanelsPorts)}" var="_item">
 				<h:column>
 					<f:facet name="header">
+						<h:outputText value="Alias"/>
+					</f:facet>
+					<h:link outcome="/admin/patchPanelsPorts/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemAlias" value="#{_item.alias}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Orden"/>
+					</f:facet>
+					<h:link outcome="/admin/patchPanelsPorts/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemOrden" value="#{_item.orden}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Observations"/>
+					</f:facet>
+					<h:link outcome="/admin/patchPanelsPorts/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:inputTextarea id="_itemObservations" value="#{_item.observations}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
 						<h:outputText value="Port"/>
 					</f:facet>
 					<h:link outcome="/admin/patchPanelsPorts/view">
 						<f:param name="id" value="#{_item.id}"/>
 						<h:outputText id="_itemPort" value="#{_item.port}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Code"/>
+					</f:facet>
+					<h:link outcome="/admin/patchPanelsPorts/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemCode" value="#{_item.code}"/>
 					</h:link>
 				</h:column>
 			</h:dataTable>

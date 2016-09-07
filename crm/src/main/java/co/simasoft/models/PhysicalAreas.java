@@ -56,6 +56,10 @@ public class PhysicalAreas implements Serializable {
 	// @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
 	private String observations;
 
+	@Column(nullable = false, unique = true)
+	// @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+	private String name;
+
 	@Column(nullable = true, unique = false)
 	// @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
 	private String code;
@@ -64,12 +68,11 @@ public class PhysicalAreas implements Serializable {
 	// @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
 	private String telExt;
 
-	@Column(nullable = false, unique = true)
-	// @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-	private String name;
-
 	@OneToMany(mappedBy = "physicalAreas")
 	private Set<Employees> employees = new HashSet<Employees>();
+
+	@OneToMany(mappedBy = "physicalAreas")
+	private Set<PatchPanelsPorts> patchPanelsPorts = new HashSet<PatchPanelsPorts>();
 
 	@OneToMany(mappedBy = "physicalAreas")
 	private Set<Items> items = new HashSet<Items>();
@@ -80,10 +83,10 @@ public class PhysicalAreas implements Serializable {
 	public PhysicalAreas() {
 	}
 
-	public PhysicalAreas(String code, String telExt, String name) {
+	public PhysicalAreas(String name, String code, String telExt) {
+		this.name = name;
 		this.code = code;
 		this.telExt = telExt;
-		this.name = name;
 	}
 
 	public Long getId() {
@@ -120,6 +123,13 @@ public class PhysicalAreas implements Serializable {
 	public void setObservations(String observations) {
 		this.observations = observations;
 	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+
 	public String getCode() {
 		return code;
 	}
@@ -134,18 +144,18 @@ public class PhysicalAreas implements Serializable {
 		this.telExt = telExt;
 	}
 
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-
 	public Set<Employees> getEmployees() {
 		return employees;
 	}
 	public void setEmployees(Set<Employees> employees) {
 		this.employees = employees;
+	}
+
+	public Set<PatchPanelsPorts> getPatchPanelsPorts() {
+		return patchPanelsPorts;
+	}
+	public void setPatchPanelsPorts(Set<PatchPanelsPorts> patchPanelsPorts) {
+		this.patchPanelsPorts = patchPanelsPorts;
 	}
 
 	public Set<Items> getItems() {

@@ -255,6 +255,12 @@ public class OriginalOrdersBean implements Serializable {
 					builder.lower(root.<String> get("observations")),
 					'%' + observations.toLowerCase() + '%'));
 		}
+		String subject = this.example.getSubject();
+		if (subject != null && !"".equals(subject)) {
+			predicatesList.add(builder.like(
+					builder.lower(root.<String> get("subject")),
+					'%' + subject.toLowerCase() + '%'));
+		}
 		String code = this.example.getCode();
 		if (code != null && !"".equals(code)) {
 			predicatesList.add(builder.like(
@@ -264,10 +270,6 @@ public class OriginalOrdersBean implements Serializable {
 		Integer folios = this.example.getFolios();
 		if (folios != null && folios.intValue() != 0) {
 			predicatesList.add(builder.equal(root.get("folios"), folios));
-		}
-		Integer quantity = this.example.getQuantity();
-		if (quantity != null && quantity.intValue() != 0) {
-			predicatesList.add(builder.equal(root.get("quantity"), quantity));
 		}
 
 		return predicatesList.toArray(new Predicate[predicatesList.size()]);

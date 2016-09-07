@@ -35,14 +35,14 @@
 			<h:outputLabel for="physicalAreasBeanPhysicalAreasObservations" value="Observations:"/>
 			<h:inputTextarea id="physicalAreasBeanPhysicalAreasObservations" value="#{physicalAreasBean.physicalAreas.observations}"/>
 			<h:outputText/>
+			<h:outputLabel for="physicalAreasBeanPhysicalAreasName" value="Name:"/>
+			<h:outputText id="physicalAreasBeanPhysicalAreasName" value="#{physicalAreasBean.physicalAreas.name}"/>
+			<h:outputText/>
 			<h:outputLabel for="physicalAreasBeanPhysicalAreasCode" value="Code:"/>
 			<h:outputText id="physicalAreasBeanPhysicalAreasCode" value="#{physicalAreasBean.physicalAreas.code}"/>
 			<h:outputText/>
 			<h:outputLabel for="physicalAreasBeanPhysicalAreasTelExt" value="Tel Ext:"/>
 			<h:outputText id="physicalAreasBeanPhysicalAreasTelExt" value="#{physicalAreasBean.physicalAreas.telExt}"/>
-			<h:outputText/>
-			<h:outputLabel for="physicalAreasBeanPhysicalAreasName" value="Name:"/>
-			<h:outputText id="physicalAreasBeanPhysicalAreasName" value="#{physicalAreasBean.physicalAreas.name}"/>
 			<h:outputText/>
 			<h:outputLabel for="physicalAreasBeanPhysicalAreasEmployees" value="Employees:"/>
 			<h:dataTable id="physicalAreasBeanPhysicalAreasEmployees" styleClass="data-table" value="#{forgeview:asList(physicalAreasBean.physicalAreas.employees)}" var="_item">
@@ -51,6 +51,55 @@
 						<h:outputText value="Code"/>
 					</f:facet>
 					<h:link outcome="/admin/employees/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemCode" value="#{_item.code}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<h:outputText/>
+			<h:outputLabel for="physicalAreasBeanPhysicalAreasPatchPanelsPorts" value="Patch Panels Ports:"/>
+			<h:dataTable id="physicalAreasBeanPhysicalAreasPatchPanelsPorts" styleClass="data-table" value="#{forgeview:asList(physicalAreasBean.physicalAreas.patchPanelsPorts)}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Alias"/>
+					</f:facet>
+					<h:link outcome="/admin/patchPanelsPorts/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemAlias" value="#{_item.alias}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Orden"/>
+					</f:facet>
+					<h:link outcome="/admin/patchPanelsPorts/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemOrden" value="#{_item.orden}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Observations"/>
+					</f:facet>
+					<h:link outcome="/admin/patchPanelsPorts/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:inputTextarea id="_itemObservations" value="#{_item.observations}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Port"/>
+					</f:facet>
+					<h:link outcome="/admin/patchPanelsPorts/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemPort" value="#{_item.port}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Code"/>
+					</f:facet>
+					<h:link outcome="/admin/patchPanelsPorts/view">
 						<f:param name="id" value="#{_item.id}"/>
 						<h:outputText id="_itemCode" value="#{_item.code}"/>
 					</h:link>
@@ -88,20 +137,20 @@
 				</h:column>
 				<h:column>
 					<f:facet name="header">
-						<h:outputText value="Serial"/>
+						<h:outputText value="Cv Number"/>
 					</f:facet>
 					<h:link outcome="/admin/items/view">
 						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="_itemSerial" value="#{_item.serial}"/>
+						<h:outputText id="_itemCvNumber" value="#{_item.cvNumber}"/>
 					</h:link>
 				</h:column>
 				<h:column>
 					<f:facet name="header">
-						<h:outputText value="Ean Code"/>
+						<h:outputText value="Code"/>
 					</f:facet>
 					<h:link outcome="/admin/items/view">
 						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="_itemEanCode" value="#{_item.eanCode}"/>
+						<h:outputText id="_itemCode" value="#{_item.code}"/>
 					</h:link>
 				</h:column>
 			</h:dataTable>

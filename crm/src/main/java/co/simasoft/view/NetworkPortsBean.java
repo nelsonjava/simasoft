@@ -239,12 +239,6 @@ public class NetworkPortsBean implements Serializable {
 					builder.lower(root.<String> get("observations")),
 					'%' + observations.toLowerCase() + '%'));
 		}
-		String state = this.example.getState();
-		if (state != null && !"".equals(state)) {
-			predicatesList.add(builder.like(
-					builder.lower(root.<String> get("state")),
-					'%' + state.toLowerCase() + '%'));
-		}
 		String macAddress = this.example.getMacAddress();
 		if (macAddress != null && !"".equals(macAddress)) {
 			predicatesList.add(builder.like(
@@ -256,6 +250,12 @@ public class NetworkPortsBean implements Serializable {
 			predicatesList.add(builder.like(
 					builder.lower(root.<String> get("ipAddress")),
 					'%' + ipAddress.toLowerCase() + '%'));
+		}
+		String state = this.example.getState();
+		if (state != null && !"".equals(state)) {
+			predicatesList.add(builder.like(
+					builder.lower(root.<String> get("state")),
+					'%' + state.toLowerCase() + '%'));
 		}
 
 		return predicatesList.toArray(new Predicate[predicatesList.size()]);

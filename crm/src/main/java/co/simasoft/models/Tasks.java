@@ -56,11 +56,6 @@ public class Tasks implements Serializable {
 	// @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
 	private String observations;
 
-	@Column(nullable = true, unique = false)
-	@DateBridge(resolution = Resolution.YEAR)
-	@Temporal(TemporalType.DATE)
-	private Date finalDate;
-
 	@Column(nullable = false, unique = true)
 	// @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
 	private String name;
@@ -79,6 +74,11 @@ public class Tasks implements Serializable {
 	@DateBridge(resolution = Resolution.YEAR)
 	@Temporal(TemporalType.DATE)
 	private Date startDate;
+
+	@Column(nullable = true, unique = false)
+	@DateBridge(resolution = Resolution.YEAR)
+	@Temporal(TemporalType.DATE)
+	private Date finalDate;
 
 	@OneToMany(mappedBy = "tasks")
 	private Set<Diaries> diaries = new HashSet<Diaries>();
@@ -107,13 +107,13 @@ public class Tasks implements Serializable {
 	public Tasks() {
 	}
 
-	public Tasks(Date finalDate, String name, Date optimisticDate,
-			Date pessimisticDate, Date startDate) {
-		this.finalDate = finalDate;
+	public Tasks(String name, Date optimisticDate, Date pessimisticDate,
+			Date startDate, Date finalDate) {
 		this.name = name;
 		this.optimisticDate = optimisticDate;
 		this.pessimisticDate = pessimisticDate;
 		this.startDate = startDate;
+		this.finalDate = finalDate;
 	}
 
 	public Long getId() {
@@ -150,13 +150,6 @@ public class Tasks implements Serializable {
 	public void setObservations(String observations) {
 		this.observations = observations;
 	}
-	public Date getFinalDate() {
-		return finalDate;
-	}
-	public void setFinalDate(Date finalDate) {
-		this.finalDate = finalDate;
-	}
-
 	public String getName() {
 		return name;
 	}
@@ -183,6 +176,13 @@ public class Tasks implements Serializable {
 	}
 	public void setStartDate(Date startDate) {
 		this.startDate = startDate;
+	}
+
+	public Date getFinalDate() {
+		return finalDate;
+	}
+	public void setFinalDate(Date finalDate) {
+		this.finalDate = finalDate;
 	}
 
 	public Set<Diaries> getDiaries() {

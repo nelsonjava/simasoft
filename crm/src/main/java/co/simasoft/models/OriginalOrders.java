@@ -58,6 +58,10 @@ public class OriginalOrders implements Serializable {
 
 	@Column(nullable = true, unique = false)
 	// @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+	private String subject;
+
+	@Column(nullable = true, unique = false)
+	// @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
 	private String code;
 
 	@Column(nullable = true, unique = false)
@@ -105,10 +109,6 @@ public class OriginalOrders implements Serializable {
 	// @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
 	private String filedir;
 
-	@Column(nullable = true, unique = false)
-	// @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-	private String subject;
-
 	@ManyToOne
 	private ContinualImprovements continualImprovements;
 
@@ -130,10 +130,11 @@ public class OriginalOrders implements Serializable {
 	public OriginalOrders() {
 	}
 
-	public OriginalOrders(String code, Date entryDate, Date startDate,
-			Date finalDate, Integer folios, Integer quantity, String located,
-			String mail, String notes, String fileName, String fileType,
-			String filedir, String subject) {
+	public OriginalOrders(String subject, String code, Date entryDate,
+			Date startDate, Date finalDate, Integer folios, Integer quantity,
+			String located, String mail, String notes, String fileName,
+			String fileType, String filedir) {
+		this.subject = subject;
 		this.code = code;
 		this.entryDate = entryDate;
 		this.startDate = startDate;
@@ -146,7 +147,6 @@ public class OriginalOrders implements Serializable {
 		this.fileName = fileName;
 		this.fileType = fileType;
 		this.filedir = filedir;
-		this.subject = subject;
 	}
 
 	public Long getId() {
@@ -183,6 +183,13 @@ public class OriginalOrders implements Serializable {
 	public void setObservations(String observations) {
 		this.observations = observations;
 	}
+	public String getSubject() {
+		return subject;
+	}
+	public void setSubject(String subject) {
+		this.subject = subject;
+	}
+
 	public String getCode() {
 		return code;
 	}
@@ -265,13 +272,6 @@ public class OriginalOrders implements Serializable {
 	}
 	public void setFiledir(String filedir) {
 		this.filedir = filedir;
-	}
-
-	public String getSubject() {
-		return subject;
-	}
-	public void setSubject(String subject) {
-		this.subject = subject;
 	}
 
 	public ContinualImprovements getContinualImprovements() {

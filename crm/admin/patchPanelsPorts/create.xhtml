@@ -48,10 +48,10 @@
 
                                 <h:outputLabel for="patchPanelsPortsBeanPatchPanelsPortsPort" value="Port:"/>
                                 <h:panelGroup>
-                                        <h:inputText id="patchPanelsPortsBeanPatchPanelsPortsPort" required="true" value="#{patchPanelsPortsBean.patchPanelsPorts.port}"/>
+                                        <h:inputText id="patchPanelsPortsBeanPatchPanelsPortsPort" value="#{patchPanelsPortsBean.patchPanelsPorts.port}"/>
                                         <h:message for="patchPanelsPortsBeanPatchPanelsPortsPort" styleClass="error"/>
                                 </h:panelGroup>
-                                <h:outputText value="*"/>
+                                <h:outputText/>
 
                                 <h:outputLabel for="patchPanelsPortsBeanPatchPanelsPortsCode" value="Code:"/>
                                 <h:panelGroup>
@@ -67,6 +67,16 @@
                                 </h:panelGroup>
                                 <h:outputText/>
 
+
+                                <h:outputLabel for="patchPanelsPortsBeanPatchPanelsPortsPhysicalAreas" value="PhysicalAreas:"/>
+                                <h:panelGroup>
+                                         <h:selectOneMenu converter="#{physicalAreasBean.converter}" id="patchPanelsPortsBeanPatchPanelsPortsPhysicalAreas" value="#{patchPanelsPortsBean.patchPanelsPorts.physicalAreas}">
+                                                <f:selectItem/>
+                                                <f:selectItems itemLabel="#{forgeview:display(_item.name)}" itemValue="#{_item}" value="#{physicalAreasBean.all}" var="_item"/>
+                                        </h:selectOneMenu>
+                                        <h:message for="patchPanelsPortsBeanPatchPanelsPorts" styleClass="error"/>
+                                </h:panelGroup>
+                                <h:outputText/>
 
                                 <h:outputLabel for="patchPanelsPortsBeanPatchPanelsPortsSwitchesPorts" value="SwitchesPorts:"/>
                                 <h:panelGroup>

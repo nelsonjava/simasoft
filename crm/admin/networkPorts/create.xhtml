@@ -150,7 +150,7 @@
                                 <h:panelGroup>
                                          <h:selectOneMenu converter="#{patchPanelsPortsBean.converter}" id="networkPortsBeanNetworkPortsPatchPanelsPorts" value="#{networkPortsBean.networkPorts.patchPanelsPorts}">
                                                 <f:selectItem/>
-                                                <f:selectItems itemLabel="#{forgeview:display(_item.port)}" itemValue="#{_item}" value="#{patchPanelsPortsBean.all}" var="_item"/>
+                                                <f:selectItems itemLabel="#{forgeview:display(_item.code)}" itemValue="#{_item}" value="#{patchPanelsPortsBean.all}" var="_item"/>
                                         </h:selectOneMenu>
                                         <h:message for="networkPortsBeanNetworkPorts" styleClass="error"/>
                                 </h:panelGroup>

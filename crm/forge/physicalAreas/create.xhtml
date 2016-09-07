@@ -55,6 +55,12 @@
 					<h:message for="physicalAreasBeanPhysicalAreasObservations" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
+				<h:outputLabel for="physicalAreasBeanPhysicalAreasName" value="Name:"/>
+				<h:panelGroup>
+					<h:inputText id="physicalAreasBeanPhysicalAreasName" required="true" value="#{physicalAreasBean.physicalAreas.name}"/>
+					<h:message for="physicalAreasBeanPhysicalAreasName" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText value="*"/>
 				<h:outputLabel for="physicalAreasBeanPhysicalAreasCode" value="Code:"/>
 				<h:panelGroup>
 					<h:inputText id="physicalAreasBeanPhysicalAreasCode" value="#{physicalAreasBean.physicalAreas.code}"/>
@@ -67,12 +73,6 @@
 					<h:message for="physicalAreasBeanPhysicalAreasTelExt" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
-				<h:outputLabel for="physicalAreasBeanPhysicalAreasName" value="Name:"/>
-				<h:panelGroup>
-					<h:inputText id="physicalAreasBeanPhysicalAreasName" required="true" value="#{physicalAreasBean.physicalAreas.name}"/>
-					<h:message for="physicalAreasBeanPhysicalAreasName" styleClass="error"/>
-				</h:panelGroup>
-				<h:outputText value="*"/>
 				<h:outputLabel for="physicalAreasBeanPhysicalAreasEmployees" value="Employees:"/>
 				<h:panelGroup>
 					<ui:param name="_collection" value="#{physicalAreasBean.physicalAreas.employees}"/>
@@ -95,6 +95,86 @@
 							<f:facet name="footer">
 								<h:commandLink action="#{_collection.add(employeesBean.added)}" id="physicalAreasBeanPhysicalAreasEmployeesAdd" styleClass="add-button">
 									<f:setPropertyActionListener target="#{employeesBean.add.physicalAreas}" value="#{physicalAreasBean.physicalAreas}"/>
+								</h:commandLink>
+							</f:facet>
+						</h:column>
+					</h:dataTable>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="physicalAreasBeanPhysicalAreasPatchPanelsPorts" value="Patch Panels Ports:"/>
+				<h:panelGroup>
+					<ui:param name="_collection" value="#{physicalAreasBean.physicalAreas.patchPanelsPorts}"/>
+					<h:dataTable id="physicalAreasBeanPhysicalAreasPatchPanelsPorts" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Alias"/>
+							</f:facet>
+							<h:link outcome="/admin/patchPanelsPorts/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="_itemAlias" value="#{_item.alias}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="patchPanelsPortsBeanAddAlias" value="#{patchPanelsPortsBean.add.alias}"/>
+								<h:message for="patchPanelsPortsBeanAddAlias" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Orden"/>
+							</f:facet>
+							<h:link outcome="/admin/patchPanelsPorts/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="_itemOrden" value="#{_item.orden}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="patchPanelsPortsBeanAddOrden" value="#{patchPanelsPortsBean.add.orden}"/>
+								<h:message for="patchPanelsPortsBeanAddOrden" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Observations"/>
+							</f:facet>
+							<h:link outcome="/admin/patchPanelsPorts/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:inputTextarea id="_itemObservations" value="#{_item.observations}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputTextarea id="patchPanelsPortsBeanAddObservations" value="#{patchPanelsPortsBean.add.observations}"/>
+								<h:message for="patchPanelsPortsBeanAddObservations" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Port"/>
+							</f:facet>
+							<h:link outcome="/admin/patchPanelsPorts/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="_itemPort" value="#{_item.port}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="patchPanelsPortsBeanAddPort" value="#{patchPanelsPortsBean.add.port}"/>
+								<h:message for="patchPanelsPortsBeanAddPort" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Code"/>
+							</f:facet>
+							<h:link outcome="/admin/patchPanelsPorts/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="_itemCode" value="#{_item.code}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="patchPanelsPortsBeanAddCode" value="#{patchPanelsPortsBean.add.code}"/>
+								<h:message for="patchPanelsPortsBeanAddCode" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column footerClass="remove-column" headerClass="remove-column">
+							<h:commandLink action="#{_collection.remove(_item)}" styleClass="remove-button"/>
+							<f:facet name="footer">
+								<h:commandLink action="#{_collection.add(patchPanelsPortsBean.added)}" id="physicalAreasBeanPhysicalAreasPatchPanelsPortsAdd" styleClass="add-button">
+									<f:setPropertyActionListener target="#{patchPanelsPortsBean.add.physicalAreas}" value="#{physicalAreasBean.physicalAreas}"/>
 								</h:commandLink>
 							</f:facet>
 						</h:column>
@@ -146,28 +226,28 @@
 						</h:column>
 						<h:column>
 							<f:facet name="header">
-								<h:outputText value="Serial"/>
+								<h:outputText value="Cv Number"/>
 							</f:facet>
 							<h:link outcome="/admin/items/view">
 								<f:param name="id" value="#{_item.id}"/>
-								<h:outputText id="_itemSerial" value="#{_item.serial}"/>
+								<h:outputText id="_itemCvNumber" value="#{_item.cvNumber}"/>
 							</h:link>
 							<f:facet name="footer">
-								<h:inputText id="itemsBeanAddSerial" value="#{itemsBean.add.serial}"/>
-								<h:message for="itemsBeanAddSerial" styleClass="error"/>
+								<h:inputText id="itemsBeanAddCvNumber" value="#{itemsBean.add.cvNumber}"/>
+								<h:message for="itemsBeanAddCvNumber" styleClass="error"/>
 							</f:facet>
 						</h:column>
 						<h:column>
 							<f:facet name="header">
-								<h:outputText value="Ean Code"/>
+								<h:outputText value="Code"/>
 							</f:facet>
 							<h:link outcome="/admin/items/view">
 								<f:param name="id" value="#{_item.id}"/>
-								<h:outputText id="_itemEanCode" value="#{_item.eanCode}"/>
+								<h:outputText id="_itemCode" value="#{_item.code}"/>
 							</h:link>
 							<f:facet name="footer">
-								<h:inputText id="itemsBeanAddEanCode" value="#{itemsBean.add.eanCode}"/>
-								<h:message for="itemsBeanAddEanCode" styleClass="error"/>
+								<h:inputText id="itemsBeanAddCode" value="#{itemsBean.add.code}"/>
+								<h:message for="itemsBeanAddCode" styleClass="error"/>
 							</f:facet>
 						</h:column>
 						<h:column footerClass="remove-column" headerClass="remove-column">

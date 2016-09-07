@@ -141,6 +141,13 @@ public class PhysicalAreasBean implements Serializable {
                                iterEmployees.remove();
                                this.entityManager.merge(nextInEmployees);
                         }
+                        Iterator<PatchPanelsPorts> iterPatchPanelsPorts = deletableEntity.getPatchPanelsPorts().iterator();
+                        for (; iterPatchPanelsPorts.hasNext();){
+                               PatchPanelsPorts nextInPatchPanelsPorts = iterPatchPanelsPorts.next();
+                                nextInPatchPanelsPorts.setPhysicalAreas(null);
+                               iterPatchPanelsPorts.remove();
+                               this.entityManager.merge(nextInPatchPanelsPorts);
+                        }
                         Iterator<Items> iterItems = deletableEntity.getItems().iterator();
                         for (; iterItems.hasNext();){
                                Items nextInItems = iterItems.next();

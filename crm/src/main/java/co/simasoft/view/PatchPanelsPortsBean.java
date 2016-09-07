@@ -27,6 +27,7 @@ import javax.persistence.criteria.Root;
 import co.simasoft.models.PatchPanelsPorts;
 import co.simasoft.models.Hosts;
 import co.simasoft.models.NetworkPorts;
+import co.simasoft.models.PhysicalAreas;
 import co.simasoft.models.SwitchesPorts;
 import java.util.Iterator;
 
@@ -143,6 +144,10 @@ public class PatchPanelsPortsBean implements Serializable {
 				iterNetworkPorts.remove();
 				this.entityManager.merge(nextInNetworkPorts);
 			}
+			PhysicalAreas physicalAreas = deletableEntity.getPhysicalAreas();
+			physicalAreas.getPatchPanelsPorts().remove(deletableEntity);
+			deletableEntity.setPhysicalAreas(null);
+			this.entityManager.merge(physicalAreas);
 			SwitchesPorts switchesPorts = deletableEntity.getSwitchesPorts();
 			switchesPorts.getPatchPanelsPorts().remove(deletableEntity);
 			deletableEntity.setSwitchesPorts(null);
@@ -180,7 +185,7 @@ public class PatchPanelsPortsBean implements Serializable {
 	}
 
 	public int getPageSize() {
-		return 10;
+		return 1000;
 	}
 
 	public PatchPanelsPorts getExample() {
