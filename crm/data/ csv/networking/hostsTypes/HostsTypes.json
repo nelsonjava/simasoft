@@ -1,0 +1,25 @@
+{
+  "HostsTypes": [
+  {
+    "name": "SERVIDORES"
+  },
+  {
+    "name": "PC"
+  },
+  {
+    "name": "PORTATILES"
+  },
+  {
+    "name": "RACKS"
+  },
+  {
+    "name": "SWITCHES"
+  },
+  {
+    "name": "PATCH PANEL"
+  },
+  {
+    "name": "VIRTUALIZACIONES"
+  }
+  ]
+}

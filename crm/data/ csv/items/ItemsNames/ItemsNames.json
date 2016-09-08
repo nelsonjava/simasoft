@@ -1,0 +1,28 @@
+{
+  "ItemsNames": [
+  {
+    "name": "RACKS",
+    "model": "RACKS",
+    "productNumber": "RACKS",
+    "partNumber": "RACKS"
+  },
+  {
+    "name": "SWITCHES",
+    "model": "SWITCHES",
+    "productNumber": "SWITCHES",
+    "partNumber": "SWITCHES"
+  },
+  {
+    "name": "PATCH PANEL",
+    "model": "PATCH PANEL",
+    "productNumber": "PATCH PANEL",
+    "partNumber": "PATCH PANEL"
+  },
+  {
+    "name": "PC",
+    "model": "PC",
+    "productNumber": "PC",
+    "partNumber": "PC"
+  }
+  ]
+}

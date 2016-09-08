@@ -1,0 +1,1828 @@
+{
+  "SwitchesPorts": [
+  {
+    "port": "R01SW1-01",
+    "code": "R01SW1-01"
+  },
+  {
+    "port": "R01SW1-02",
+    "code": "R01SW1-02"
+  },
+  {
+    "port": "R01SW1-03",
+    "code": "R01SW1-03"
+  },
+  {
+    "port": "R01SW1-04",
+    "code": "R01SW1-04"
+  },
+  {
+    "port": "R01SW1-05",
+    "code": "R01SW1-05"
+  },
+  {
+    "port": "R01SW1-06",
+    "code": "R01SW1-06"
+  },
+  {
+    "port": "R01SW1-07",
+    "code": "R01SW1-07"
+  },
+  {
+    "port": "R01SW1-08",
+    "code": "R01SW1-08"
+  },
+  {
+    "port": "R01SW1-09",
+    "code": "R01SW1-09"
+  },
+  {
+    "port": "R01SW1-10",
+    "code": "R01SW1-10"
+  },
+  {
+    "port": "R01SW1-11",
+    "code": "R01SW1-11"
+  },
+  {
+    "port": "R01SW1-12",
+    "code": "R01SW1-12"
+  },
+  {
+    "port": "R01SW1-13",
+    "code": "R01SW1-13"
+  },
+  {
+    "port": "R01SW1-14",
+    "code": "R01SW1-14"
+  },
+  {
+    "port": "R01SW1-15",
+    "code": "R01SW1-15"
+  },
+  {
+    "port": "R01SW1-16",
+    "code": "R01SW1-16"
+  },
+  {
+    "port": "R01SW1-17",
+    "code": "R01SW1-17"
+  },
+  {
+    "port": "R01SW1-18",
+    "code": "R01SW1-18"
+  },
+  {
+    "port": "R01SW1-19",
+    "code": "R01SW1-19"
+  },
+  {
+    "port": "R01SW1-20",
+    "code": "R01SW1-20"
+  },
+  {
+    "port": "R01SW1-21",
+    "code": "R01SW1-21"
+  },
+  {
+    "port": "R01SW1-22",
+    "code": "R01SW1-22"
+  },
+  {
+    "port": "R01SW1-23",
+    "code": "R01SW1-23"
+  },
+  {
+    "port": "R01SW1-24",
+    "code": "R01SW1-24"
+  },
+  {
+    "port": "R01SW1-25",
+    "code": "R01SW1-25"
+  },
+  {
+    "port": "R01SW1-26",
+    "code": "R01SW1-26"
+  },
+  {
+    "port": "R01SW1-27",
+    "code": "R01SW1-27"
+  },
+  {
+    "port": "R01SW1-28",
+    "code": "R01SW1-28"
+  },
+  {
+    "port": "R01SW1-29",
+    "code": "R01SW1-29"
+  },
+  {
+    "port": "R01SW1-30",
+    "code": "R01SW1-30"
+  },
+  {
+    "port": "R01SW1-31",
+    "code": "R01SW1-31"
+  },
+  {
+    "port": "R01SW1-32",
+    "code": "R01SW1-32"
+  },
+  {
+    "port": "R01SW1-33",
+    "code": "R01SW1-33"
+  },
+  {
+    "port": "R01SW1-34",
+    "code": "R01SW1-34"
+  },
+  {
+    "port": "R01SW1-35",
+    "code": "R01SW1-35"
+  },
+  {
+    "port": "R01SW1-36",
+    "code": "R01SW1-36"
+  },
+  {
+    "port": "R01SW1-37",
+    "code": "R01SW1-37"
+  },
+  {
+    "port": "R01SW1-38",
+    "code": "R01SW1-38"
+  },
+  {
+    "port": "R01SW1-39",
+    "code": "R01SW1-39"
+  },
+  {
+    "port": "R01SW1-40",
+    "code": "R01SW1-40"
+  },
+  {
+    "port": "R01SW1-41",
+    "code": "R01SW1-41"
+  },
+  {
+    "port": "R01SW1-42",
+    "code": "R01SW1-42"
+  },
+  {
+    "port": "R01SW1-43",
+    "code": "R01SW1-43"
+  },
+  {
+    "port": "R01SW1-44",
+    "code": "R01SW1-44"
+  },
+  {
+    "port": "R01SW1-45",
+    "code": "R01SW1-45"
+  },
+  {
+    "port": "R01SW1-46",
+    "code": "R01SW1-46"
+  },
+  {
+    "port": "R01SW1-47",
+    "code": "R01SW1-47"
+  },
+  {
+    "port": "R01SW1-48",
+    "code": "R01SW1-48"
+  },
+  {
+    "port": "R02SW1-01",
+    "code": "R02SW1-01"
+  },
+  {
+    "port": "R02SW1-02",
+    "code": "R02SW1-02"
+  },
+  {
+    "port": "R02SW1-03",
+    "code": "R02SW1-03"
+  },
+  {
+    "port": "R02SW1-04",
+    "code": "R02SW1-04"
+  },
+  {
+    "port": "R02SW1-05",
+    "code": "R02SW1-05"
+  },
+  {
+    "port": "R02SW1-06",
+    "code": "R02SW1-06"
+  },
+  {
+    "port": "R02SW1-07",
+    "code": "R02SW1-07"
+  },
+  {
+    "port": "R02SW1-08",
+    "code": "R02SW1-08"
+  },
+  {
+    "port": "R02SW1-09",
+    "code": "R02SW1-09"
+  },
+  {
+    "port": "R02SW1-10",
+    "code": "R02SW1-10"
+  },
+  {
+    "port": "R02SW1-11",
+    "code": "R02SW1-11"
+  },
+  {
+    "port": "R02SW1-12",
+    "code": "R02SW1-12"
+  },
+  {
+    "port": "R02SW1-13",
+    "code": "R02SW1-13"
+  },
+  {
+    "port": "R02SW1-14",
+    "code": "R02SW1-14"
+  },
+  {
+    "port": "R02SW1-15",
+    "code": "R02SW1-15"
+  },
+  {
+    "port": "R02SW1-16",
+    "code": "R02SW1-16"
+  },
+  {
+    "port": "R02SW1-17",
+    "code": "R02SW1-17"
+  },
+  {
+    "port": "R02SW1-18",
+    "code": "R02SW1-18"
+  },
+  {
+    "port": "R02SW1-19",
+    "code": "R02SW1-19"
+  },
+  {
+    "port": "R02SW1-20",
+    "code": "R02SW1-20"
+  },
+  {
+    "port": "R02SW1-21",
+    "code": "R02SW1-21"
+  },
+  {
+    "port": "R02SW1-22",
+    "code": "R02SW1-22"
+  },
+  {
+    "port": "R02SW1-23",
+    "code": "R02SW1-23"
+  },
+  {
+    "port": "R02SW1-24",
+    "code": "R02SW1-24"
+  },
+  {
+    "port": "R02SW1-25",
+    "code": "R02SW1-25"
+  },
+  {
+    "port": "R02SW1-26",
+    "code": "R02SW1-26"
+  },
+  {
+    "port": "R02SW1-27",
+    "code": "R02SW1-27"
+  },
+  {
+    "port": "R02SW1-28",
+    "code": "R02SW1-28"
+  },
+  {
+    "port": "R02SW1-29",
+    "code": "R02SW1-29"
+  },
+  {
+    "port": "R02SW1-30",
+    "code": "R02SW1-30"
+  },
+  {
+    "port": "R02SW1-31",
+    "code": "R02SW1-31"
+  },
+  {
+    "port": "R02SW1-32",
+    "code": "R02SW1-32"
+  },
+  {
+    "port": "R02SW1-33",
+    "code": "R02SW1-33"
+  },
+  {
+    "port": "R02SW1-34",
+    "code": "R02SW1-34"
+  },
+  {
+    "port": "R02SW1-35",
+    "code": "R02SW1-35"
+  },
+  {
+    "port": "R02SW1-36",
+    "code": "R02SW1-36"
+  },
+  {
+    "port": "R02SW1-37",
+    "code": "R02SW1-37"
+  },
+  {
+    "port": "R02SW1-38",
+    "code": "R02SW1-38"
+  },
+  {
+    "port": "R02SW1-39",
+    "code": "R02SW1-39"
+  },
+  {
+    "port": "R02SW1-40",
+    "code": "R02SW1-40"
+  },
+  {
+    "port": "R02SW1-41",
+    "code": "R02SW1-41"
+  },
+  {
+    "port": "R02SW1-42",
+    "code": "R02SW1-42"
+  },
+  {
+    "port": "R02SW1-43",
+    "code": "R02SW1-43"
+  },
+  {
+    "port": "R02SW1-44",
+    "code": "R02SW1-44"
+  },
+  {
+    "port": "R02SW1-45",
+    "code": "R02SW1-45"
+  },
+  {
+    "port": "R02SW1-46",
+    "code": "R02SW1-46"
+  },
+  {
+    "port": "R02SW1-47",
+    "code": "R02SW1-47"
+  },
+  {
+    "port": "R02SW1-48",
+    "code": "R02SW1-48"
+  },
+  {
+    "port": "R03SW1-01",
+    "code": "R03SW1-01"
+  },
+  {
+    "port": "R03SW1-02",
+    "code": "R03SW1-02"
+  },
+  {
+    "port": "R03SW1-03",
+    "code": "R03SW1-03"
+  },
+  {
+    "port": "R03SW1-04",
+    "code": "R03SW1-04"
+  },
+  {
+    "port": "R03SW1-05",
+    "code": "R03SW1-05"
+  },
+  {
+    "port": "R03SW1-06",
+    "code": "R03SW1-06"
+  },
+  {
+    "port": "R03SW1-07",
+    "code": "R03SW1-07"
+  },
+  {
+    "port": "R03SW1-08",
+    "code": "R03SW1-08"
+  },
+  {
+    "port": "R03SW1-09",
+    "code": "R03SW1-09"
+  },
+  {
+    "port": "R03SW1-10",
+    "code": "R03SW1-10"
+  },
+  {
+    "port": "R03SW1-11",
+    "code": "R03SW1-11"
+  },
+  {
+    "port": "R03SW1-12",
+    "code": "R03SW1-12"
+  },
+  {
+    "port": "R03SW1-13",
+    "code": "R03SW1-13"
+  },
+  {
+    "port": "R03SW1-14",
+    "code": "R03SW1-14"
+  },
+  {
+    "port": "R03SW1-15",
+    "code": "R03SW1-15"
+  },
+  {
+    "port": "R03SW1-16",
+    "code": "R03SW1-16"
+  },
+  {
+    "port": "R03SW1-17",
+    "code": "R03SW1-17"
+  },
+  {
+    "port": "R03SW1-18",
+    "code": "R03SW1-18"
+  },
+  {
+    "port": "R03SW1-19",
+    "code": "R03SW1-19"
+  },
+  {
+    "port": "R03SW1-20",
+    "code": "R03SW1-20"
+  },
+  {
+    "port": "R03SW1-21",
+    "code": "R03SW1-21"
+  },
+  {
+    "port": "R03SW1-22",
+    "code": "R03SW1-22"
+  },
+  {
+    "port": "R03SW1-23",
+    "code": "R03SW1-23"
+  },
+  {
+    "port": "R03SW1-24",
+    "code": "R03SW1-24"
+  },
+  {
+    "port": "R03SW1-25",
+    "code": "R03SW1-25"
+  },
+  {
+    "port": "R03SW1-26",
+    "code": "R03SW1-26"
+  },
+  {
+    "port": "R03SW1-27",
+    "code": "R03SW1-27"
+  },
+  {
+    "port": "R03SW1-28",
+    "code": "R03SW1-28"
+  },
+  {
+    "port": "R03SW1-29",
+    "code": "R03SW1-29"
+  },
+  {
+    "port": "R03SW1-30",
+    "code": "R03SW1-30"
+  },
+  {
+    "port": "R03SW1-31",
+    "code": "R03SW1-31"
+  },
+  {
+    "port": "R03SW1-32",
+    "code": "R03SW1-32"
+  },
+  {
+    "port": "R03SW1-33",
+    "code": "R03SW1-33"
+  },
+  {
+    "port": "R03SW1-34",
+    "code": "R03SW1-34"
+  },
+  {
+    "port": "R03SW1-35",
+    "code": "R03SW1-35"
+  },
+  {
+    "port": "R03SW1-36",
+    "code": "R03SW1-36"
+  },
+  {
+    "port": "R03SW1-37",
+    "code": "R03SW1-37"
+  },
+  {
+    "port": "R03SW1-38",
+    "code": "R03SW1-38"
+  },
+  {
+    "port": "R03SW1-39",
+    "code": "R03SW1-39"
+  },
+  {
+    "port": "R03SW1-40",
+    "code": "R03SW1-40"
+  },
+  {
+    "port": "R03SW1-41",
+    "code": "R03SW1-41"
+  },
+  {
+    "port": "R03SW1-42",
+    "code": "R03SW1-42"
+  },
+  {
+    "port": "R03SW1-43",
+    "code": "R03SW1-43"
+  },
+  {
+    "port": "R03SW1-44",
+    "code": "R03SW1-44"
+  },
+  {
+    "port": "R03SW1-45",
+    "code": "R03SW1-45"
+  },
+  {
+    "port": "R03SW1-46",
+    "code": "R03SW1-46"
+  },
+  {
+    "port": "R03SW1-47",
+    "code": "R03SW1-47"
+  },
+  {
+    "port": "R03SW1-48",
+    "code": "R03SW1-48"
+  },
+  {
+    "port": "R04SW1-01",
+    "code": "R04SW1-01"
+  },
+  {
+    "port": "R04SW1-02",
+    "code": "R04SW1-02"
+  },
+  {
+    "port": "R04SW1-03",
+    "code": "R04SW1-03"
+  },
+  {
+    "port": "R04SW1-04",
+    "code": "R04SW1-04"
+  },
+  {
+    "port": "R04SW1-05",
+    "code": "R04SW1-05"
+  },
+  {
+    "port": "R04SW1-06",
+    "code": "R04SW1-06"
+  },
+  {
+    "port": "R04SW1-07",
+    "code": "R04SW1-07"
+  },
+  {
+    "port": "R04SW1-08",
+    "code": "R04SW1-08"
+  },
+  {
+    "port": "R04SW1-09",
+    "code": "R04SW1-09"
+  },
+  {
+    "port": "R04SW1-10",
+    "code": "R04SW1-10"
+  },
+  {
+    "port": "R04SW1-11",
+    "code": "R04SW1-11"
+  },
+  {
+    "port": "R04SW1-12",
+    "code": "R04SW1-12"
+  },
+  {
+    "port": "R04SW1-13",
+    "code": "R04SW1-13"
+  },
+  {
+    "port": "R04SW1-14",
+    "code": "R04SW1-14"
+  },
+  {
+    "port": "R04SW1-15",
+    "code": "R04SW1-15"
+  },
+  {
+    "port": "R04SW1-16",
+    "code": "R04SW1-16"
+  },
+  {
+    "port": "R04SW1-17",
+    "code": "R04SW1-17"
+  },
+  {
+    "port": "R04SW1-18",
+    "code": "R04SW1-18"
+  },
+  {
+    "port": "R04SW1-19",
+    "code": "R04SW1-19"
+  },
+  {
+    "port": "R04SW1-20",
+    "code": "R04SW1-20"
+  },
+  {
+    "port": "R04SW1-21",
+    "code": "R04SW1-21"
+  },
+  {
+    "port": "R04SW1-22",
+    "code": "R04SW1-22"
+  },
+  {
+    "port": "R04SW1-23",
+    "code": "R04SW1-23"
+  },
+  {
+    "port": "R04SW1-24",
+    "code": "R04SW1-24"
+  },
+  {
+    "port": "R05SW1-01",
+    "code": "R05SW1-01"
+  },
+  {
+    "port": "R05SW1-02",
+    "code": "R05SW1-02"
+  },
+  {
+    "port": "R05SW1-03",
+    "code": "R05SW1-03"
+  },
+  {
+    "port": "R05SW1-04",
+    "code": "R05SW1-04"
+  },
+  {
+    "port": "R05SW1-05",
+    "code": "R05SW1-05"
+  },
+  {
+    "port": "R05SW1-06",
+    "code": "R05SW1-06"
+  },
+  {
+    "port": "R05SW1-07",
+    "code": "R05SW1-07"
+  },
+  {
+    "port": "R05SW1-08",
+    "code": "R05SW1-08"
+  },
+  {
+    "port": "R05SW1-09",
+    "code": "R05SW1-09"
+  },
+  {
+    "port": "R05SW1-10",
+    "code": "R05SW1-10"
+  },
+  {
+    "port": "R05SW1-11",
+    "code": "R05SW1-11"
+  },
+  {
+    "port": "R05SW1-12",
+    "code": "R05SW1-12"
+  },
+  {
+    "port": "R05SW1-13",
+    "code": "R05SW1-13"
+  },
+  {
+    "port": "R05SW1-14",
+    "code": "R05SW1-14"
+  },
+  {
+    "port": "R05SW1-15",
+    "code": "R05SW1-15"
+  },
+  {
+    "port": "R05SW1-16",
+    "code": "R05SW1-16"
+  },
+  {
+    "port": "R05SW1-17",
+    "code": "R05SW1-17"
+  },
+  {
+    "port": "R05SW1-18",
+    "code": "R05SW1-18"
+  },
+  {
+    "port": "R05SW1-19",
+    "code": "R05SW1-19"
+  },
+  {
+    "port": "R05SW1-20",
+    "code": "R05SW1-20"
+  },
+  {
+    "port": "R05SW1-21",
+    "code": "R05SW1-21"
+  },
+  {
+    "port": "R05SW1-22",
+    "code": "R05SW1-22"
+  },
+  {
+    "port": "R05SW1-23",
+    "code": "R05SW1-23"
+  },
+  {
+    "port": "R05SW1-24",
+    "code": "R05SW1-24"
+  },
+  {
+    "port": "R06SW1-01",
+    "code": "R06SW1-01"
+  },
+  {
+    "port": "R06SW1-02",
+    "code": "R06SW1-02"
+  },
+  {
+    "port": "R06SW1-03",
+    "code": "R06SW1-03"
+  },
+  {
+    "port": "R06SW1-04",
+    "code": "R06SW1-04"
+  },
+  {
+    "port": "R06SW1-05",
+    "code": "R06SW1-05"
+  },
+  {
+    "port": "R06SW1-06",
+    "code": "R06SW1-06"
+  },
+  {
+    "port": "R06SW1-07",
+    "code": "R06SW1-07"
+  },
+  {
+    "port": "R06SW1-08",
+    "code": "R06SW1-08"
+  },
+  {
+    "port": "R06SW1-09",
+    "code": "R06SW1-09"
+  },
+  {
+    "port": "R06SW1-10",
+    "code": "R06SW1-10"
+  },
+  {
+    "port": "R06SW1-11",
+    "code": "R06SW1-11"
+  },
+  {
+    "port": "R06SW1-12",
+    "code": "R06SW1-12"
+  },
+  {
+    "port": "R06SW1-13",
+    "code": "R06SW1-13"
+  },
+  {
+    "port": "R06SW1-14",
+    "code": "R06SW1-14"
+  },
+  {
+    "port": "R06SW1-15",
+    "code": "R06SW1-15"
+  },
+  {
+    "port": "R06SW1-16",
+    "code": "R06SW1-16"
+  },
+  {
+    "port": "R06SW1-17",
+    "code": "R06SW1-17"
+  },
+  {
+    "port": "R06SW1-18",
+    "code": "R06SW1-18"
+  },
+  {
+    "port": "R06SW1-19",
+    "code": "R06SW1-19"
+  },
+  {
+    "port": "R06SW1-20",
+    "code": "R06SW1-20"
+  },
+  {
+    "port": "R06SW1-21",
+    "code": "R06SW1-21"
+  },
+  {
+    "port": "R06SW1-22",
+    "code": "R06SW1-22"
+  },
+  {
+    "port": "R06SW1-23",
+    "code": "R06SW1-23"
+  },
+  {
+    "port": "R06SW1-24",
+    "code": "R06SW1-24"
+  },
+  {
+    "port": "R07SW1-01",
+    "code": "R07SW1-01"
+  },
+  {
+    "port": "R07SW1-02",
+    "code": "R07SW1-02"
+  },
+  {
+    "port": "R07SW1-03",
+    "code": "R07SW1-03"
+  },
+  {
+    "port": "R07SW1-04",
+    "code": "R07SW1-04"
+  },
+  {
+    "port": "R07SW1-05",
+    "code": "R07SW1-05"
+  },
+  {
+    "port": "R07SW1-06",
+    "code": "R07SW1-06"
+  },
+  {
+    "port": "R07SW1-07",
+    "code": "R07SW1-07"
+  },
+  {
+    "port": "R07SW1-08",
+    "code": "R07SW1-08"
+  },
+  {
+    "port": "R07SW1-09",
+    "code": "R07SW1-09"
+  },
+  {
+    "port": "R07SW1-10",
+    "code": "R07SW1-10"
+  },
+  {
+    "port": "R07SW1-11",
+    "code": "R07SW1-11"
+  },
+  {
+    "port": "R07SW1-12",
+    "code": "R07SW1-12"
+  },
+  {
+    "port": "R07SW1-13",
+    "code": "R07SW1-13"
+  },
+  {
+    "port": "R07SW1-14",
+    "code": "R07SW1-14"
+  },
+  {
+    "port": "R07SW1-15",
+    "code": "R07SW1-15"
+  },
+  {
+    "port": "R07SW1-16",
+    "code": "R07SW1-16"
+  },
+  {
+    "port": "R07SW1-17",
+    "code": "R07SW1-17"
+  },
+  {
+    "port": "R07SW1-18",
+    "code": "R07SW1-18"
+  },
+  {
+    "port": "R07SW1-19",
+    "code": "R07SW1-19"
+  },
+  {
+    "port": "R07SW1-20",
+    "code": "R07SW1-20"
+  },
+  {
+    "port": "R07SW1-21",
+    "code": "R07SW1-21"
+  },
+  {
+    "port": "R07SW1-22",
+    "code": "R07SW1-22"
+  },
+  {
+    "port": "R07SW1-23",
+    "code": "R07SW1-23"
+  },
+  {
+    "port": "R07SW1-24",
+    "code": "R07SW1-24"
+  },
+  {
+    "port": "R08SW1-01",
+    "code": "R08SW1-01"
+  },
+  {
+    "port": "R08SW1-02",
+    "code": "R08SW1-02"
+  },
+  {
+    "port": "R08SW1-03",
+    "code": "R08SW1-03"
+  },
+  {
+    "port": "R08SW1-04",
+    "code": "R08SW1-04"
+  },
+  {
+    "port": "R08SW1-05",
+    "code": "R08SW1-05"
+  },
+  {
+    "port": "R08SW1-06",
+    "code": "R08SW1-06"
+  },
+  {
+    "port": "R08SW1-07",
+    "code": "R08SW1-07"
+  },
+  {
+    "port": "R08SW1-08",
+    "code": "R08SW1-08"
+  },
+  {
+    "port": "R08SW1-09",
+    "code": "R08SW1-09"
+  },
+  {
+    "port": "R08SW1-10",
+    "code": "R08SW1-10"
+  },
+  {
+    "port": "R08SW1-11",
+    "code": "R08SW1-11"
+  },
+  {
+    "port": "R08SW1-12",
+    "code": "R08SW1-12"
+  },
+  {
+    "port": "R08SW1-13",
+    "code": "R08SW1-13"
+  },
+  {
+    "port": "R08SW1-14",
+    "code": "R08SW1-14"
+  },
+  {
+    "port": "R08SW1-15",
+    "code": "R08SW1-15"
+  },
+  {
+    "port": "R08SW1-16",
+    "code": "R08SW1-16"
+  },
+  {
+    "port": "R08SW1-17",
+    "code": "R08SW1-17"
+  },
+  {
+    "port": "R08SW1-18",
+    "code": "R08SW1-18"
+  },
+  {
+    "port": "R08SW1-19",
+    "code": "R08SW1-19"
+  },
+  {
+    "port": "R08SW1-20",
+    "code": "R08SW1-20"
+  },
+  {
+    "port": "R08SW1-21",
+    "code": "R08SW1-21"
+  },
+  {
+    "port": "R08SW1-22",
+    "code": "R08SW1-22"
+  },
+  {
+    "port": "R08SW1-23",
+    "code": "R08SW1-23"
+  },
+  {
+    "port": "R08SW1-24",
+    "code": "R08SW1-24"
+  },
+  {
+    "port": "R09SW1-01",
+    "code": "R09SW1-01"
+  },
+  {
+    "port": "R09SW1-02",
+    "code": "R09SW1-02"
+  },
+  {
+    "port": "R09SW1-03",
+    "code": "R09SW1-03"
+  },
+  {
+    "port": "R09SW1-04",
+    "code": "R09SW1-04"
+  },
+  {
+    "port": "R09SW1-05",
+    "code": "R09SW1-05"
+  },
+  {
+    "port": "R09SW1-06",
+    "code": "R09SW1-06"
+  },
+  {
+    "port": "R09SW1-07",
+    "code": "R09SW1-07"
+  },
+  {
+    "port": "R09SW1-08",
+    "code": "R09SW1-08"
+  },
+  {
+    "port": "R09SW1-09",
+    "code": "R09SW1-09"
+  },
+  {
+    "port": "R09SW1-10",
+    "code": "R09SW1-10"
+  },
+  {
+    "port": "R09SW1-11",
+    "code": "R09SW1-11"
+  },
+  {
+    "port": "R09SW1-12",
+    "code": "R09SW1-12"
+  },
+  {
+    "port": "R09SW1-13",
+    "code": "R09SW1-13"
+  },
+  {
+    "port": "R09SW1-14",
+    "code": "R09SW1-14"
+  },
+  {
+    "port": "R09SW1-15",
+    "code": "R09SW1-15"
+  },
+  {
+    "port": "R09SW1-16",
+    "code": "R09SW1-16"
+  },
+  {
+    "port": "R09SW1-17",
+    "code": "R09SW1-17"
+  },
+  {
+    "port": "R09SW1-18",
+    "code": "R09SW1-18"
+  },
+  {
+    "port": "R09SW1-19",
+    "code": "R09SW1-19"
+  },
+  {
+    "port": "R09SW1-20",
+    "code": "R09SW1-20"
+  },
+  {
+    "port": "R09SW1-21",
+    "code": "R09SW1-21"
+  },
+  {
+    "port": "R09SW1-22",
+    "code": "R09SW1-22"
+  },
+  {
+    "port": "R09SW1-23",
+    "code": "R09SW1-23"
+  },
+  {
+    "port": "R09SW1-24",
+    "code": "R09SW1-24"
+  },
+  {
+    "port": "R09SW1-25",
+    "code": "R09SW1-25"
+  },
+  {
+    "port": "R09SW1-26",
+    "code": "R09SW1-26"
+  },
+  {
+    "port": "R09SW1-27",
+    "code": "R09SW1-27"
+  },
+  {
+    "port": "R09SW1-28",
+    "code": "R09SW1-28"
+  },
+  {
+    "port": "R09SW1-29",
+    "code": "R09SW1-29"
+  },
+  {
+    "port": "R09SW1-30",
+    "code": "R09SW1-30"
+  },
+  {
+    "port": "R09SW1-31",
+    "code": "R09SW1-31"
+  },
+  {
+    "port": "R09SW1-32",
+    "code": "R09SW1-32"
+  },
+  {
+    "port": "R09SW1-33",
+    "code": "R09SW1-33"
+  },
+  {
+    "port": "R09SW1-34",
+    "code": "R09SW1-34"
+  },
+  {
+    "port": "R09SW1-35",
+    "code": "R09SW1-35"
+  },
+  {
+    "port": "R09SW1-36",
+    "code": "R09SW1-36"
+  },
+  {
+    "port": "R09SW1-37",
+    "code": "R09SW1-37"
+  },
+  {
+    "port": "R09SW1-38",
+    "code": "R09SW1-38"
+  },
+  {
+    "port": "R09SW1-39",
+    "code": "R09SW1-39"
+  },
+  {
+    "port": "R09SW1-40",
+    "code": "R09SW1-40"
+  },
+  {
+    "port": "R09SW1-41",
+    "code": "R09SW1-41"
+  },
+  {
+    "port": "R09SW1-42",
+    "code": "R09SW1-42"
+  },
+  {
+    "port": "R09SW1-43",
+    "code": "R09SW1-43"
+  },
+  {
+    "port": "R09SW1-44",
+    "code": "R09SW1-44"
+  },
+  {
+    "port": "R09SW1-45",
+    "code": "R09SW1-45"
+  },
+  {
+    "port": "R09SW1-46",
+    "code": "R09SW1-46"
+  },
+  {
+    "port": "R09SW1-47",
+    "code": "R09SW1-47"
+  },
+  {
+    "port": "R09SW1-48",
+    "code": "R09SW1-48"
+  },
+  {
+    "port": "R10SW1-01",
+    "code": "R10SW1-01"
+  },
+  {
+    "port": "R10SW1-02",
+    "code": "R10SW1-02"
+  },
+  {
+    "port": "R10SW1-03",
+    "code": "R10SW1-03"
+  },
+  {
+    "port": "R10SW1-04",
+    "code": "R10SW1-04"
+  },
+  {
+    "port": "R10SW1-05",
+    "code": "R10SW1-05"
+  },
+  {
+    "port": "R10SW1-06",
+    "code": "R10SW1-06"
+  },
+  {
+    "port": "R10SW1-07",
+    "code": "R10SW1-07"
+  },
+  {
+    "port": "R10SW1-08",
+    "code": "R10SW1-08"
+  },
+  {
+    "port": "R10SW1-09",
+    "code": "R10SW1-09"
+  },
+  {
+    "port": "R10SW1-10",
+    "code": "R10SW1-10"
+  },
+  {
+    "port": "R10SW1-11",
+    "code": "R10SW1-11"
+  },
+  {
+    "port": "R10SW1-12",
+    "code": "R10SW1-12"
+  },
+  {
+    "port": "R10SW1-13",
+    "code": "R10SW1-13"
+  },
+  {
+    "port": "R10SW1-14",
+    "code": "R10SW1-14"
+  },
+  {
+    "port": "R10SW1-15",
+    "code": "R10SW1-15"
+  },
+  {
+    "port": "R10SW1-16",
+    "code": "R10SW1-16"
+  },
+  {
+    "port": "R10SW1-17",
+    "code": "R10SW1-17"
+  },
+  {
+    "port": "R10SW1-18",
+    "code": "R10SW1-18"
+  },
+  {
+    "port": "R10SW1-19",
+    "code": "R10SW1-19"
+  },
+  {
+    "port": "R10SW1-20",
+    "code": "R10SW1-20"
+  },
+  {
+    "port": "R10SW1-21",
+    "code": "R10SW1-21"
+  },
+  {
+    "port": "R10SW1-22",
+    "code": "R10SW1-22"
+  },
+  {
+    "port": "R10SW1-23",
+    "code": "R10SW1-23"
+  },
+  {
+    "port": "R10SW1-24",
+    "code": "R10SW1-24"
+  },
+  {
+    "port": "R11SW1-01",
+    "code": "R11SW1-01"
+  },
+  {
+    "port": "R11SW1-02",
+    "code": "R11SW1-02"
+  },
+  {
+    "port": "R11SW1-03",
+    "code": "R11SW1-03"
+  },
+  {
+    "port": "R11SW1-04",
+    "code": "R11SW1-04"
+  },
+  {
+    "port": "R11SW1-05",
+    "code": "R11SW1-05"
+  },
+  {
+    "port": "R11SW1-06",
+    "code": "R11SW1-06"
+  },
+  {
+    "port": "R11SW1-07",
+    "code": "R11SW1-07"
+  },
+  {
+    "port": "R11SW1-08",
+    "code": "R11SW1-08"
+  },
+  {
+    "port": "R11SW1-09",
+    "code": "R11SW1-09"
+  },
+  {
+    "port": "R11SW1-10",
+    "code": "R11SW1-10"
+  },
+  {
+    "port": "R11SW1-11",
+    "code": "R11SW1-11"
+  },
+  {
+    "port": "R11SW1-12",
+    "code": "R11SW1-12"
+  },
+  {
+    "port": "R11SW1-13",
+    "code": "R11SW1-13"
+  },
+  {
+    "port": "R11SW1-14",
+    "code": "R11SW1-14"
+  },
+  {
+    "port": "R11SW1-15",
+    "code": "R11SW1-15"
+  },
+  {
+    "port": "R11SW1-16",
+    "code": "R11SW1-16"
+  },
+  {
+    "port": "R11SW1-17",
+    "code": "R11SW1-17"
+  },
+  {
+    "port": "R11SW1-18",
+    "code": "R11SW1-18"
+  },
+  {
+    "port": "R11SW1-19",
+    "code": "R11SW1-19"
+  },
+  {
+    "port": "R11SW1-20",
+    "code": "R11SW1-20"
+  },
+  {
+    "port": "R11SW1-21",
+    "code": "R11SW1-21"
+  },
+  {
+    "port": "R11SW1-22",
+    "code": "R11SW1-22"
+  },
+  {
+    "port": "R11SW1-23",
+    "code": "R11SW1-23"
+  },
+  {
+    "port": "R11SW1-24",
+    "code": "R11SW1-24"
+  },
+  {
+    "port": "R11SW1-25",
+    "code": "R11SW1-25"
+  },
+  {
+    "port": "R11SW1-26",
+    "code": "R11SW1-26"
+  },
+  {
+    "port": "R11SW1-27",
+    "code": "R11SW1-27"
+  },
+  {
+    "port": "R11SW1-28",
+    "code": "R11SW1-28"
+  },
+  {
+    "port": "R11SW1-29",
+    "code": "R11SW1-29"
+  },
+  {
+    "port": "R11SW1-30",
+    "code": "R11SW1-30"
+  },
+  {
+    "port": "R11SW1-31",
+    "code": "R11SW1-31"
+  },
+  {
+    "port": "R11SW1-32",
+    "code": "R11SW1-32"
+  },
+  {
+    "port": "R11SW1-33",
+    "code": "R11SW1-33"
+  },
+  {
+    "port": "R11SW1-34",
+    "code": "R11SW1-34"
+  },
+  {
+    "port": "R11SW1-35",
+    "code": "R11SW1-35"
+  },
+  {
+    "port": "R11SW1-36",
+    "code": "R11SW1-36"
+  },
+  {
+    "port": "R11SW1-37",
+    "code": "R11SW1-37"
+  },
+  {
+    "port": "R11SW1-38",
+    "code": "R11SW1-38"
+  },
+  {
+    "port": "R11SW1-39",
+    "code": "R11SW1-39"
+  },
+  {
+    "port": "R11SW1-40",
+    "code": "R11SW1-40"
+  },
+  {
+    "port": "R11SW1-41",
+    "code": "R11SW1-41"
+  },
+  {
+    "port": "R11SW1-42",
+    "code": "R11SW1-42"
+  },
+  {
+    "port": "R11SW1-43",
+    "code": "R11SW1-43"
+  },
+  {
+    "port": "R11SW1-44",
+    "code": "R11SW1-44"
+  },
+  {
+    "port": "R11SW1-45",
+    "code": "R11SW1-45"
+  },
+  {
+    "port": "R11SW1-46",
+    "code": "R11SW1-46"
+  },
+  {
+    "port": "R11SW1-47",
+    "code": "R11SW1-47"
+  },
+  {
+    "port": "R11SW1-48",
+    "code": "R11SW1-48"
+  },
+  {
+    "port": "R12SW1-01",
+    "code": "R12SW1-01"
+  },
+  {
+    "port": "R12SW1-02",
+    "code": "R12SW1-02"
+  },
+  {
+    "port": "R12SW1-03",
+    "code": "R12SW1-03"
+  },
+  {
+    "port": "R12SW1-04",
+    "code": "R12SW1-04"
+  },
+  {
+    "port": "R12SW1-05",
+    "code": "R12SW1-05"
+  },
+  {
+    "port": "R12SW1-06",
+    "code": "R12SW1-06"
+  },
+  {
+    "port": "R12SW1-07",
+    "code": "R12SW1-07"
+  },
+  {
+    "port": "R12SW1-08",
+    "code": "R12SW1-08"
+  },
+  {
+    "port": "R12SW1-09",
+    "code": "R12SW1-09"
+  },
+  {
+    "port": "R12SW1-10",
+    "code": "R12SW1-10"
+  },
+  {
+    "port": "R12SW1-11",
+    "code": "R12SW1-11"
+  },
+  {
+    "port": "R12SW1-12",
+    "code": "R12SW1-12"
+  },
+  {
+    "port": "R12SW1-13",
+    "code": "R12SW1-13"
+  },
+  {
+    "port": "R12SW1-14",
+    "code": "R12SW1-14"
+  },
+  {
+    "port": "R12SW1-15",
+    "code": "R12SW1-15"
+  },
+  {
+    "port": "R12SW1-16",
+    "code": "R12SW1-16"
+  },
+  {
+    "port": "R12SW1-17",
+    "code": "R12SW1-17"
+  },
+  {
+    "port": "R12SW1-18",
+    "code": "R12SW1-18"
+  },
+  {
+    "port": "R12SW1-19",
+    "code": "R12SW1-19"
+  },
+  {
+    "port": "R12SW1-20",
+    "code": "R12SW1-20"
+  },
+  {
+    "port": "R12SW1-21",
+    "code": "R12SW1-21"
+  },
+  {
+    "port": "R12SW1-22",
+    "code": "R12SW1-22"
+  },
+  {
+    "port": "R12SW1-23",
+    "code": "R12SW1-23"
+  },
+  {
+    "port": "R12SW1-24",
+    "code": "R12SW1-24"
+  },
+  {
+    "port": "R13SW1-01",
+    "code": "R13SW1-01"
+  },
+  {
+    "port": "R13SW1-02",
+    "code": "R13SW1-02"
+  },
+  {
+    "port": "R13SW1-03",
+    "code": "R13SW1-03"
+  },
+  {
+    "port": "R13SW1-04",
+    "code": "R13SW1-04"
+  },
+  {
+    "port": "R13SW1-05",
+    "code": "R13SW1-05"
+  },
+  {
+    "port": "R13SW1-06",
+    "code": "R13SW1-06"
+  },
+  {
+    "port": "R13SW1-07",
+    "code": "R13SW1-07"
+  },
+  {
+    "port": "R13SW1-08",
+    "code": "R13SW1-08"
+  },
+  {
+    "port": "R13SW1-09",
+    "code": "R13SW1-09"
+  },
+  {
+    "port": "R13SW1-10",
+    "code": "R13SW1-10"
+  },
+  {
+    "port": "R13SW1-11",
+    "code": "R13SW1-11"
+  },
+  {
+    "port": "R13SW1-12",
+    "code": "R13SW1-12"
+  },
+  {
+    "port": "R13SW1-13",
+    "code": "R13SW1-13"
+  },
+  {
+    "port": "R13SW1-14",
+    "code": "R13SW1-14"
+  },
+  {
+    "port": "R13SW1-15",
+    "code": "R13SW1-15"
+  },
+  {
+    "port": "R13SW1-16",
+    "code": "R13SW1-16"
+  },
+  {
+    "port": "R13SW1-17",
+    "code": "R13SW1-17"
+  },
+  {
+    "port": "R13SW1-18",
+    "code": "R13SW1-18"
+  },
+  {
+    "port": "R13SW1-19",
+    "code": "R13SW1-19"
+  },
+  {
+    "port": "R13SW1-20",
+    "code": "R13SW1-20"
+  },
+  {
+    "port": "R13SW1-21",
+    "code": "R13SW1-21"
+  },
+  {
+    "port": "R13SW1-22",
+    "code": "R13SW1-22"
+  },
+  {
+    "port": "R13SW1-23",
+    "code": "R13SW1-23"
+  },
+  {
+    "port": "R13SW1-24",
+    "code": "R13SW1-24"
+  },
+  {
+    "port": "R14SW1-01",
+    "code": "R14SW1-01"
+  },
+  {
+    "port": "R14SW1-02",
+    "code": "R14SW1-02"
+  },
+  {
+    "port": "R14SW1-03",
+    "code": "R14SW1-03"
+  },
+  {
+    "port": "R14SW1-04",
+    "code": "R14SW1-04"
+  },
+  {
+    "port": "R14SW1-05",
+    "code": "R14SW1-05"
+  },
+  {
+    "port": "R14SW1-06",
+    "code": "R14SW1-06"
+  },
+  {
+    "port": "R14SW1-07",
+    "code": "R14SW1-07"
+  },
+  {
+    "port": "R14SW1-08",
+    "code": "R14SW1-08"
+  },
+  {
+    "port": "R14SW1-09",
+    "code": "R14SW1-09"
+  },
+  {
+    "port": "R14SW1-10",
+    "code": "R14SW1-10"
+  },
+  {
+    "port": "R14SW1-11",
+    "code": "R14SW1-11"
+  },
+  {
+    "port": "R14SW1-12",
+    "code": "R14SW1-12"
+  },
+  {
+    "port": "R14SW1-13",
+    "code": "R14SW1-13"
+  },
+  {
+    "port": "R14SW1-14",
+    "code": "R14SW1-14"
+  },
+  {
+    "port": "R14SW1-15",
+    "code": "R14SW1-15"
+  },
+  {
+    "port": "R14SW1-16",
+    "code": "R14SW1-16"
+  },
+  {
+    "port": "R14SW1-17",
+    "code": "R14SW1-17"
+  },
+  {
+    "port": "R14SW1-18",
+    "code": "R14SW1-18"
+  },
+  {
+    "port": "R14SW1-19",
+    "code": "R14SW1-19"
+  },
+  {
+    "port": "R14SW1-20",
+    "code": "R14SW1-20"
+  },
+  {
+    "port": "R14SW1-21",
+    "code": "R14SW1-21"
+  },
+  {
+    "port": "R14SW1-22",
+    "code": "R14SW1-22"
+  },
+  {
+    "port": "R14SW1-23",
+    "code": "R14SW1-23"
+  },
+  {
+    "port": "R14SW1-24",
+    "code": "R14SW1-24"
+  }
+  ]
+}

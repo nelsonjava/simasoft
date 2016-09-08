@@ -17,7 +17,7 @@
     "code": "B1P1-SA04"
   },
   {
-    "name": "Salon-Vacio",
+    "name": "Salon-Vacio1",
     "code": "B1P1-SA05"
   },
   {
@@ -141,7 +141,7 @@
     "code": "PREE-SA35"
   },
   {
-    "name": "Salon-Vacio",
+    "name": "Salon-Vacio2",
     "code": "PREE-SA36"
   },
   {
@@ -165,7 +165,7 @@
     "code": "PREE-SA41"
   },
   {
-    "name": "Salon-vacio",
+    "name": "Salon-vacio3",
     "code": "PREE-SA42"
   },
   {
@@ -271,22 +271,6 @@
   {
     "name": "OFICINA DEPARTAMENTO DE SOCIALES",
     "code": "OFICINA24"
-  },
-  {
-    "name": "OFICINA COORDINADOR PRIMERA DIVISION",
-    "code": "OFICINA25"
-  },
-  {
-    "name": "OFICINA COORDINADOR SEGUNDA DIVISION",
-    "code": "OFICINA26"
-  },
-  {
-    "name": "OFICINA COORDINADOR TERCERA DIVISION",
-    "code": "OFICINA27"
-  },
-  {
-    "name": "OFICINA COORDINADOR DE PREESCOLAR",
-    "code": "OFICINA28"
   },
   {
     "name": "SALA DE INFORMATICA No.1",

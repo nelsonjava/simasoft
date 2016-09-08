@@ -181,7 +181,7 @@ public class SwitchesPortsBean implements Serializable {
 	}
 
 	public int getPageSize() {
-		return 10;
+		return 1000;
 	}
 
 	public SwitchesPorts getExample() {

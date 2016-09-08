@@ -1,0 +1,232 @@
+{
+  "Hosts": [
+  {
+    "name": "R01"
+  },
+  {
+    "name": "R02"
+  },
+  {
+    "name": "R03"
+  },
+  {
+    "name": "R04"
+  },
+  {
+    "name": "R05"
+  },
+  {
+    "name": "R06"
+  },
+  {
+    "name": "R07"
+  },
+  {
+    "name": "R08"
+  },
+  {
+    "name": "R09"
+  },
+  {
+    "name": "R10"
+  },
+  {
+    "name": "R11"
+  },
+  {
+    "name": "R01PP1"
+  },
+  {
+    "name": "R02PP1"
+  },
+  {
+    "name": "R03PP1"
+  },
+  {
+    "name": "R04PP1"
+  },
+  {
+    "name": "R05PP1"
+  },
+  {
+    "name": "R06PP1"
+  },
+  {
+    "name": "R07PP1"
+  },
+  {
+    "name": "R08PP1"
+  },
+  {
+    "name": "R09PP1"
+  },
+  {
+    "name": "R10PP1"
+  },
+  {
+    "name": "R11PP1"
+  },
+  {
+    "name": "MXL3200LZ5"
+  },
+  {
+    "name": "MXL3200LZP"
+  },
+  {
+    "name": "MXL3200M09"
+  },
+  {
+    "name": "MXL3200LX1"
+  },
+  {
+    "name": "MXL3200LXY"
+  },
+  {
+    "name": "MXL3200LZR"
+  },
+  {
+    "name": "MXL3200LZL"
+  },
+  {
+    "name": "MXL3200LZT"
+  },
+  {
+    "name": "MXL3200M07"
+  },
+  {
+    "name": "MXL3200LXX"
+  },
+  {
+    "name": "MXL3200LWN"
+  },
+  {
+    "name": "MXL3200M0B"
+  },
+  {
+    "name": "MXL3200LXV"
+  },
+  {
+    "name": "MXL3200M3K"
+  },
+  {
+    "name": "MXL3200LZM"
+  },
+  {
+    "name": "MXL3200LY5"
+  },
+  {
+    "name": "MXL3200LY1"
+  },
+  {
+    "name": "MXL3200LWR"
+  },
+  {
+    "name": "MXL3200LZD"
+  },
+  {
+    "name": "MXL3200LYB"
+  },
+  {
+    "name": "MXL3200LXT"
+  },
+  {
+    "name": "MXL3200LYS"
+  },
+  {
+    "name": "MXL3200LX7"
+  },
+  {
+    "name": "MXL3200LWJ"
+  },
+  {
+    "name": "MXL3200LZQ"
+  },
+  {
+    "name": "MXL3200LYY"
+  },
+  {
+    "name": "MXL3200LZ2"
+  },
+  {
+    "name": "MXL3200LX9"
+  },
+  {
+    "name": "MXL3200LZC"
+  },
+  {
+    "name": "MXL3200LZK"
+  },
+  {
+    "name": "MXL3200LXJ"
+  },
+  {
+    "name": "MXL3200LX5"
+  },
+  {
+    "name": "MXL3200LY3"
+  },
+  {
+    "name": "MXL3200LZG"
+  },
+  {
+    "name": "MXL3200LX2"
+  },
+  {
+    "name": "MXL3200LY8"
+  },
+  {
+    "name": "MXL3200LYJ"
+  },
+  {
+    "name": "MXL3200LXD"
+  },
+  {
+    "name": "MXL3200LYD"
+  },
+  {
+    "name": "MXL3200LYW"
+  },
+  {
+    "name": "MXL3200LZW"
+  },
+  {
+    "name": "MXL3200LXF"
+  },
+  {
+    "name": "MXL3200M01"
+  },
+  {
+    "name": "MXL3200LXQ"
+  },
+  {
+    "name": "MXL3200LYH"
+  },
+  {
+    "name": "MXL3200LYK"
+  },
+  {
+    "name": "MXL3200LYQ"
+  },
+  {
+    "name": "MXL3200LYR"
+  },
+  {
+    "name": "MXL3200LYM"
+  },
+  {
+    "name": "MXL3200LY2"
+  },
+  {
+    "name": "MXL3200LWM"
+  },
+  {
+    "name": "MXL3200LXL"
+  },
+  {
+    "name": "MXL3200M3J"
+  },
+  {
+    "name": "MXL3200LXZ"
+  }
+  ]
+}

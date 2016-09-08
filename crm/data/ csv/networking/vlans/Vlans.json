@@ -1,0 +1,39 @@
+{
+  "Vlans": [
+  {
+    "name": "VLAN-100 SERVIDORES Y SWICHES",
+    "ipMask": "ip192.168.100.1",
+    "ipGateway": "ip255.255.255.0"
+  },
+  {
+    "name": "VLAN-101 SISTEMAS",
+    "ipMask": "ip192.168.101.1",
+    "ipGateway": "ip255.255.255.0"
+  },
+  {
+    "name": "VLAN-102 ADMINISTRATIVOS",
+    "ipMask": "ip192.168.102.1",
+    "ipGateway": "ip255.255.255.0"
+  },
+  {
+    "name": "VLAN-103 DOCENTES",
+    "ipMask": "ip192.168.103.1",
+    "ipGateway": "ip255.255.255.0"
+  },
+  {
+    "name": "VLAN-104 ESTUDIANTES",
+    "ipMask": "ip192.168.104.1",
+    "ipGateway": "ip255.255.255.0"
+  },
+  {
+    "name": "VLAN-105 VOZ-IP",
+    "ipMask": "ip192.168.105.1",
+    "ipGateway": "ip255.255.255.0"
+  },
+  {
+    "name": "VLAN-106 VIDEO-IP CAMARAS",
+    "ipMask": "ip192.168.106.1",
+    "ipGateway": "ip255.255.255.0"
+  }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "ItemsTypes": [
+  {
+    "name": "RACKS"
+  },
+  {
+    "name": "SWITCHES"
+  },
+  {
+    "name": "PATCH PANEL"
+  },
+  {
+    "name": "PC"
+  }
+  ]
+}

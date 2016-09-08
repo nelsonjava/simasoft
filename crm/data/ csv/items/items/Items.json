@@ -1,0 +1,812 @@
+{
+  "Items": [
+  {
+    "cvNumber": "R01",
+    "code": "R01",
+    "inventoryCode": "R01",
+    "serial": "R01",
+    "eanCode": "R01",
+    "located": "R01"
+  },
+  {
+    "cvNumber": "R02",
+    "code": "R02",
+    "inventoryCode": "R02",
+    "serial": "R02",
+    "eanCode": "R02",
+    "located": "R02"
+  },
+  {
+    "cvNumber": "R03",
+    "code": "R03",
+    "inventoryCode": "R03",
+    "serial": "R03",
+    "eanCode": "R03",
+    "located": "R03"
+  },
+  {
+    "cvNumber": "R04",
+    "code": "R04",
+    "inventoryCode": "R04",
+    "serial": "R04",
+    "eanCode": "R04",
+    "located": "R04"
+  },
+  {
+    "cvNumber": "R05",
+    "code": "R05",
+    "inventoryCode": "R05",
+    "serial": "R05",
+    "eanCode": "R05",
+    "located": "R05"
+  },
+  {
+    "cvNumber": "R06",
+    "code": "R06",
+    "inventoryCode": "R06",
+    "serial": "R06",
+    "eanCode": "R06",
+    "located": "R06"
+  },
+  {
+    "cvNumber": "R07",
+    "code": "R07",
+    "inventoryCode": "R07",
+    "serial": "R07",
+    "eanCode": "R07",
+    "located": "R07"
+  },
+  {
+    "cvNumber": "R08",
+    "code": "R08",
+    "inventoryCode": "R08",
+    "serial": "R08",
+    "eanCode": "R08",
+    "located": "R08"
+  },
+  {
+    "cvNumber": "R09",
+    "code": "R09",
+    "inventoryCode": "R09",
+    "serial": "R09",
+    "eanCode": "R09",
+    "located": "R09"
+  },
+  {
+    "cvNumber": "R10",
+    "code": "R10",
+    "inventoryCode": "R10",
+    "serial": "R10",
+    "eanCode": "R10",
+    "located": "R10"
+  },
+  {
+    "cvNumber": "R11",
+    "code": "R11",
+    "inventoryCode": "R11",
+    "serial": "R11",
+    "eanCode": "R11",
+    "located": "R11"
+  },
+  {
+    "cvNumber": "R12",
+    "code": "R12",
+    "inventoryCode": "R12",
+    "serial": "R12",
+    "eanCode": "R12",
+    "located": "R12"
+  },
+  {
+    "cvNumber": "R13",
+    "code": "R13",
+    "inventoryCode": "R13",
+    "serial": "R13",
+    "eanCode": "R13",
+    "located": "R13"
+  },
+  {
+    "cvNumber": "R14",
+    "code": "R14",
+    "inventoryCode": "R14",
+    "serial": "R14",
+    "eanCode": "R14",
+    "located": "R14"
+  },
+  {
+    "cvNumber": "R01SW1",
+    "code": "R01SW1",
+    "inventoryCode": "R01SW1",
+    "serial": "R01SW1",
+    "eanCode": "R01SW1",
+    "located": "R01SW1"
+  },
+  {
+    "cvNumber": "R02SW1",
+    "code": "R02SW1",
+    "inventoryCode": "R02SW1",
+    "serial": "R02SW1",
+    "eanCode": "R02SW1",
+    "located": "R02SW1"
+  },
+  {
+    "cvNumber": "R03SW1",
+    "code": "R03SW1",
+    "inventoryCode": "R03SW1",
+    "serial": "R03SW1",
+    "eanCode": "R03SW1",
+    "located": "R03SW1"
+  },
+  {
+    "cvNumber": "R04SW1",
+    "code": "R04SW1",
+    "inventoryCode": "R04SW1",
+    "serial": "R04SW1",
+    "eanCode": "R04SW1",
+    "located": "R04SW1"
+  },
+  {
+    "cvNumber": "R05SW1",
+    "code": "R05SW1",
+    "inventoryCode": "R05SW1",
+    "serial": "R05SW1",
+    "eanCode": "R05SW1",
+    "located": "R05SW1"
+  },
+  {
+    "cvNumber": "R06SW1",
+    "code": "R06SW1",
+    "inventoryCode": "R06SW1",
+    "serial": "R06SW1",
+    "eanCode": "R06SW1",
+    "located": "R06SW1"
+  },
+  {
+    "cvNumber": "R07SW1",
+    "code": "R07SW1",
+    "inventoryCode": "R07SW1",
+    "serial": "R07SW1",
+    "eanCode": "R07SW1",
+    "located": "R07SW1"
+  },
+  {
+    "cvNumber": "R08SW1",
+    "code": "R08SW1",
+    "inventoryCode": "R08SW1",
+    "serial": "R08SW1",
+    "eanCode": "R08SW1",
+    "located": "R08SW1"
+  },
+  {
+    "cvNumber": "R09SW1",
+    "code": "R09SW1",
+    "inventoryCode": "R09SW1",
+    "serial": "R09SW1",
+    "eanCode": "R09SW1",
+    "located": "R09SW1"
+  },
+  {
+    "cvNumber": "R10SW1",
+    "code": "R10SW1",
+    "inventoryCode": "R10SW1",
+    "serial": "R10SW1",
+    "eanCode": "R10SW1",
+    "located": "R10SW1"
+  },
+  {
+    "cvNumber": "R11SW1",
+    "code": "R11SW1",
+    "inventoryCode": "R11SW1",
+    "serial": "R11SW1",
+    "eanCode": "R11SW1",
+    "located": "R11SW1"
+  },
+  {
+    "cvNumber": "R12SW1",
+    "code": "R12SW1",
+    "inventoryCode": "R12SW1",
+    "serial": "R12SW1",
+    "eanCode": "R12SW1",
+    "located": "R12SW1"
+  },
+  {
+    "cvNumber": "R13SW1",
+    "code": "R13SW1",
+    "inventoryCode": "R13SW1",
+    "serial": "R13SW1",
+    "eanCode": "R13SW1",
+    "located": "R13SW1"
+  },
+  {
+    "cvNumber": "R14SW1",
+    "code": "R14SW1",
+    "inventoryCode": "R14SW1",
+    "serial": "R14SW1",
+    "eanCode": "R14SW1",
+    "located": "R14SW1"
+  },
+  {
+    "cvNumber": "R01PP1",
+    "code": "R01PP1",
+    "inventoryCode": "R01PP1",
+    "serial": "R01PP1",
+    "eanCode": "R01PP1",
+    "located": "R01PP1"
+  },
+  {
+    "cvNumber": "R01PP2",
+    "code": "R01PP2",
+    "inventoryCode": "R01PP2",
+    "serial": "R01PP2",
+    "eanCode": "R01PP2",
+    "located": "R01PP2"
+  },
+  {
+    "cvNumber": "R02PP1",
+    "code": "R02PP1",
+    "inventoryCode": "R02PP1",
+    "serial": "R02PP1",
+    "eanCode": "R02PP1",
+    "located": "R02PP1"
+  },
+  {
+    "cvNumber": "R02PP2",
+    "code": "R02PP2",
+    "inventoryCode": "R02PP2",
+    "serial": "R02PP2",
+    "eanCode": "R02PP2",
+    "located": "R02PP2"
+  },
+  {
+    "cvNumber": "R03PP1",
+    "code": "R03PP1",
+    "inventoryCode": "R03PP1",
+    "serial": "R03PP1",
+    "eanCode": "R03PP1",
+    "located": "R03PP1"
+  },
+  {
+    "cvNumber": "R03PP2",
+    "code": "R03PP2",
+    "inventoryCode": "R03PP2",
+    "serial": "R03PP2",
+    "eanCode": "R03PP2",
+    "located": "R03PP2"
+  },
+  {
+    "cvNumber": "R04PP1",
+    "code": "R04PP1",
+    "inventoryCode": "R04PP1",
+    "serial": "R04PP1",
+    "eanCode": "R04PP1",
+    "located": "R04PP1"
+  },
+  {
+    "cvNumber": "R05PP1",
+    "code": "R05PP1",
+    "inventoryCode": "R05PP1",
+    "serial": "R05PP1",
+    "eanCode": "R05PP1",
+    "located": "R05PP1"
+  },
+  {
+    "cvNumber": "R06PP1",
+    "code": "R06PP1",
+    "inventoryCode": "R06PP1",
+    "serial": "R06PP1",
+    "eanCode": "R06PP1",
+    "located": "R06PP1"
+  },
+  {
+    "cvNumber": "R07PP1",
+    "code": "R07PP1",
+    "inventoryCode": "R07PP1",
+    "serial": "R07PP1",
+    "eanCode": "R07PP1",
+    "located": "R07PP1"
+  },
+  {
+    "cvNumber": "R08PP1",
+    "code": "R08PP1",
+    "inventoryCode": "R08PP1",
+    "serial": "R08PP1",
+    "eanCode": "R08PP1",
+    "located": "R08PP1"
+  },
+  {
+    "cvNumber": "R09PP1",
+    "code": "R09PP1",
+    "inventoryCode": "R09PP1",
+    "serial": "R09PP1",
+    "eanCode": "R09PP1",
+    "located": "R09PP1"
+  },
+  {
+    "cvNumber": "R09PP2",
+    "code": "R09PP2",
+    "inventoryCode": "R09PP2",
+    "serial": "R09PP2",
+    "eanCode": "R09PP2",
+    "located": "R09PP2"
+  },
+  {
+    "cvNumber": "R10PP1",
+    "code": "R10PP1",
+    "inventoryCode": "R10PP1",
+    "serial": "R10PP1",
+    "eanCode": "R10PP1",
+    "located": "R10PP1"
+  },
+  {
+    "cvNumber": "R11PP1",
+    "code": "R11PP1",
+    "inventoryCode": "R11PP1",
+    "serial": "R11PP1",
+    "eanCode": "R11PP1",
+    "located": "R11PP1"
+  },
+  {
+    "cvNumber": "R11PP2",
+    "code": "R11PP2",
+    "inventoryCode": "R11PP2",
+    "serial": "R11PP2",
+    "eanCode": "R11PP2",
+    "located": "R11PP2"
+  },
+  {
+    "cvNumber": "R12PP1",
+    "code": "R12PP1",
+    "inventoryCode": "R12PP1",
+    "serial": "R12PP1",
+    "eanCode": "R12PP1",
+    "located": "R12PP1"
+  },
+  {
+    "cvNumber": "R13PP1",
+    "code": "R13PP1",
+    "inventoryCode": "R13PP1",
+    "serial": "R13PP1",
+    "eanCode": "R13PP1",
+    "located": "R13PP1"
+  },
+  {
+    "cvNumber": "R14PP1",
+    "code": "R14PP1",
+    "inventoryCode": "R14PP1",
+    "serial": "R14PP1",
+    "eanCode": "R14PP1",
+    "located": "R14PP1"
+  },
+  {
+    "cvNumber": "MXL3200LZ5",
+    "code": "MXL3200LZ5",
+    "inventoryCode": "MXL3200LZ5",
+    "serial": "MXL3200LZ5",
+    "eanCode": "MXL3200LZ5",
+    "located": "MXL3200LZ5"
+  },
+  {
+    "cvNumber": "MXL3200LZP",
+    "code": "MXL3200LZP",
+    "inventoryCode": "MXL3200LZP",
+    "serial": "MXL3200LZP",
+    "eanCode": "MXL3200LZP",
+    "located": "MXL3200LZP"
+  },
+  {
+    "cvNumber": "MXL3200M09",
+    "code": "MXL3200M09",
+    "inventoryCode": "MXL3200M09",
+    "serial": "MXL3200M09",
+    "eanCode": "MXL3200M09",
+    "located": "MXL3200M09"
+  },
+  {
+    "cvNumber": "MXL3200LX1",
+    "code": "MXL3200LX1",
+    "inventoryCode": "MXL3200LX1",
+    "serial": "MXL3200LX1",
+    "eanCode": "MXL3200LX1",
+    "located": "MXL3200LX1"
+  },
+  {
+    "cvNumber": "MXL3200LXY",
+    "code": "MXL3200LXY",
+    "inventoryCode": "MXL3200LXY",
+    "serial": "MXL3200LXY",
+    "eanCode": "MXL3200LXY",
+    "located": "MXL3200LXY"
+  },
+  {
+    "cvNumber": "MXL3200LZR",
+    "code": "MXL3200LZR",
+    "inventoryCode": "MXL3200LZR",
+    "serial": "MXL3200LZR",
+    "eanCode": "MXL3200LZR",
+    "located": "MXL3200LZR"
+  },
+  {
+    "cvNumber": "MXL3200LZL",
+    "code": "MXL3200LZL",
+    "inventoryCode": "MXL3200LZL",
+    "serial": "MXL3200LZL",
+    "eanCode": "MXL3200LZL",
+    "located": "MXL3200LZL"
+  },
+  {
+    "cvNumber": "MXL3200LZT",
+    "code": "MXL3200LZT",
+    "inventoryCode": "MXL3200LZT",
+    "serial": "MXL3200LZT",
+    "eanCode": "MXL3200LZT",
+    "located": "MXL3200LZT"
+  },
+  {
+    "cvNumber": "MXL3200M07",
+    "code": "MXL3200M07",
+    "inventoryCode": "MXL3200M07",
+    "serial": "MXL3200M07",
+    "eanCode": "MXL3200M07",
+    "located": "MXL3200M07"
+  },
+  {
+    "cvNumber": "MXL3200LXX",
+    "code": "MXL3200LXX",
+    "inventoryCode": "MXL3200LXX",
+    "serial": "MXL3200LXX",
+    "eanCode": "MXL3200LXX",
+    "located": "MXL3200LXX"
+  },
+  {
+    "cvNumber": "MXL3200LWN",
+    "code": "MXL3200LWN",
+    "inventoryCode": "MXL3200LWN",
+    "serial": "MXL3200LWN",
+    "eanCode": "MXL3200LWN",
+    "located": "MXL3200LWN"
+  },
+  {
+    "cvNumber": "MXL3200M0B",
+    "code": "MXL3200M0B",
+    "inventoryCode": "MXL3200M0B",
+    "serial": "MXL3200M0B",
+    "eanCode": "MXL3200M0B",
+    "located": "MXL3200M0B"
+  },
+  {
+    "cvNumber": "MXL3200LXV",
+    "code": "MXL3200LXV",
+    "inventoryCode": "MXL3200LXV",
+    "serial": "MXL3200LXV",
+    "eanCode": "MXL3200LXV",
+    "located": "MXL3200LXV"
+  },
+  {
+    "cvNumber": "MXL3200M3K",
+    "code": "MXL3200M3K",
+    "inventoryCode": "MXL3200M3K",
+    "serial": "MXL3200M3K",
+    "eanCode": "MXL3200M3K",
+    "located": "MXL3200M3K"
+  },
+  {
+    "cvNumber": "MXL3200LZM",
+    "code": "MXL3200LZM",
+    "inventoryCode": "MXL3200LZM",
+    "serial": "MXL3200LZM",
+    "eanCode": "MXL3200LZM",
+    "located": "MXL3200LZM"
+  },
+  {
+    "cvNumber": "MXL3200LY5",
+    "code": "MXL3200LY5",
+    "inventoryCode": "MXL3200LY5",
+    "serial": "MXL3200LY5",
+    "eanCode": "MXL3200LY5",
+    "located": "MXL3200LY5"
+  },
+  {
+    "cvNumber": "MXL3200LY1",
+    "code": "MXL3200LY1",
+    "inventoryCode": "MXL3200LY1",
+    "serial": "MXL3200LY1",
+    "eanCode": "MXL3200LY1",
+    "located": "MXL3200LY1"
+  },
+  {
+    "cvNumber": "MXL3200LWR",
+    "code": "MXL3200LWR",
+    "inventoryCode": "MXL3200LWR",
+    "serial": "MXL3200LWR",
+    "eanCode": "MXL3200LWR",
+    "located": "MXL3200LWR"
+  },
+  {
+    "cvNumber": "MXL3200LZD",
+    "code": "MXL3200LZD",
+    "inventoryCode": "MXL3200LZD",
+    "serial": "MXL3200LZD",
+    "eanCode": "MXL3200LZD",
+    "located": "MXL3200LZD"
+  },
+  {
+    "cvNumber": "MXL3200LYB",
+    "code": "MXL3200LYB",
+    "inventoryCode": "MXL3200LYB",
+    "serial": "MXL3200LYB",
+    "eanCode": "MXL3200LYB",
+    "located": "MXL3200LYB"
+  },
+  {
+    "cvNumber": "MXL3200LXT",
+    "code": "MXL3200LXT",
+    "inventoryCode": "MXL3200LXT",
+    "serial": "MXL3200LXT",
+    "eanCode": "MXL3200LXT",
+    "located": "MXL3200LXT"
+  },
+  {
+    "cvNumber": "MXL3200LYS",
+    "code": "MXL3200LYS",
+    "inventoryCode": "MXL3200LYS",
+    "serial": "MXL3200LYS",
+    "eanCode": "MXL3200LYS",
+    "located": "MXL3200LYS"
+  },
+  {
+    "cvNumber": "MXL3200LX7",
+    "code": "MXL3200LX7",
+    "inventoryCode": "MXL3200LX7",
+    "serial": "MXL3200LX7",
+    "eanCode": "MXL3200LX7",
+    "located": "MXL3200LX7"
+  },
+  {
+    "cvNumber": "MXL3200LWJ",
+    "code": "MXL3200LWJ",
+    "inventoryCode": "MXL3200LWJ",
+    "serial": "MXL3200LWJ",
+    "eanCode": "MXL3200LWJ",
+    "located": "MXL3200LWJ"
+  },
+  {
+    "cvNumber": "MXL3200LZQ",
+    "code": "MXL3200LZQ",
+    "inventoryCode": "MXL3200LZQ",
+    "serial": "MXL3200LZQ",
+    "eanCode": "MXL3200LZQ",
+    "located": "MXL3200LZQ"
+  },
+  {
+    "cvNumber": "MXL3200LYY",
+    "code": "MXL3200LYY",
+    "inventoryCode": "MXL3200LYY",
+    "serial": "MXL3200LYY",
+    "eanCode": "MXL3200LYY",
+    "located": "MXL3200LYY"
+  },
+  {
+    "cvNumber": "MXL3200LZ2",
+    "code": "MXL3200LZ2",
+    "inventoryCode": "MXL3200LZ2",
+    "serial": "MXL3200LZ2",
+    "eanCode": "MXL3200LZ2",
+    "located": "MXL3200LZ2"
+  },
+  {
+    "cvNumber": "MXL3200LX9",
+    "code": "MXL3200LX9",
+    "inventoryCode": "MXL3200LX9",
+    "serial": "MXL3200LX9",
+    "eanCode": "MXL3200LX9",
+    "located": "MXL3200LX9"
+  },
+  {
+    "cvNumber": "MXL3200LZC",
+    "code": "MXL3200LZC",
+    "inventoryCode": "MXL3200LZC",
+    "serial": "MXL3200LZC",
+    "eanCode": "MXL3200LZC",
+    "located": "MXL3200LZC"
+  },
+  {
+    "cvNumber": "MXL3200LZK",
+    "code": "MXL3200LZK",
+    "inventoryCode": "MXL3200LZK",
+    "serial": "MXL3200LZK",
+    "eanCode": "MXL3200LZK",
+    "located": "MXL3200LZK"
+  },
+  {
+    "cvNumber": "MXL3200LXJ",
+    "code": "MXL3200LXJ",
+    "inventoryCode": "MXL3200LXJ",
+    "serial": "MXL3200LXJ",
+    "eanCode": "MXL3200LXJ",
+    "located": "MXL3200LXJ"
+  },
+  {
+    "cvNumber": "MXL3200LX5",
+    "code": "MXL3200LX5",
+    "inventoryCode": "MXL3200LX5",
+    "serial": "MXL3200LX5",
+    "eanCode": "MXL3200LX5",
+    "located": "MXL3200LX5"
+  },
+  {
+    "cvNumber": "MXL3200LY3",
+    "code": "MXL3200LY3",
+    "inventoryCode": "MXL3200LY3",
+    "serial": "MXL3200LY3",
+    "eanCode": "MXL3200LY3",
+    "located": "MXL3200LY3"
+  },
+  {
+    "cvNumber": "MXL3200LZG",
+    "code": "MXL3200LZG",
+    "inventoryCode": "MXL3200LZG",
+    "serial": "MXL3200LZG",
+    "eanCode": "MXL3200LZG",
+    "located": "MXL3200LZG"
+  },
+  {
+    "cvNumber": "MXL3200LX2",
+    "code": "MXL3200LX2",
+    "inventoryCode": "MXL3200LX2",
+    "serial": "MXL3200LX2",
+    "eanCode": "MXL3200LX2",
+    "located": "MXL3200LX2"
+  },
+  {
+    "cvNumber": "MXL3200LY8",
+    "code": "MXL3200LY8",
+    "inventoryCode": "MXL3200LY8",
+    "serial": "MXL3200LY8",
+    "eanCode": "MXL3200LY8",
+    "located": "MXL3200LY8"
+  },
+  {
+    "cvNumber": "MXL3200LYJ",
+    "code": "MXL3200LYJ",
+    "inventoryCode": "MXL3200LYJ",
+    "serial": "MXL3200LYJ",
+    "eanCode": "MXL3200LYJ",
+    "located": "MXL3200LYJ"
+  },
+  {
+    "cvNumber": "MXL3200LXD",
+    "code": "MXL3200LXD",
+    "inventoryCode": "MXL3200LXD",
+    "serial": "MXL3200LXD",
+    "eanCode": "MXL3200LXD",
+    "located": "MXL3200LXD"
+  },
+  {
+    "cvNumber": "MXL3200LYD",
+    "code": "MXL3200LYD",
+    "inventoryCode": "MXL3200LYD",
+    "serial": "MXL3200LYD",
+    "eanCode": "MXL3200LYD",
+    "located": "MXL3200LYD"
+  },
+  {
+    "cvNumber": "MXL3200LYW",
+    "code": "MXL3200LYW",
+    "inventoryCode": "MXL3200LYW",
+    "serial": "MXL3200LYW",
+    "eanCode": "MXL3200LYW",
+    "located": "MXL3200LYW"
+  },
+  {
+    "cvNumber": "MXL3200LZW",
+    "code": "MXL3200LZW",
+    "inventoryCode": "MXL3200LZW",
+    "serial": "MXL3200LZW",
+    "eanCode": "MXL3200LZW",
+    "located": "MXL3200LZW"
+  },
+  {
+    "cvNumber": "MXL3200LXF",
+    "code": "MXL3200LXF",
+    "inventoryCode": "MXL3200LXF",
+    "serial": "MXL3200LXF",
+    "eanCode": "MXL3200LXF",
+    "located": "MXL3200LXF"
+  },
+  {
+    "cvNumber": "MXL3200M01",
+    "code": "MXL3200M01",
+    "inventoryCode": "MXL3200M01",
+    "serial": "MXL3200M01",
+    "eanCode": "MXL3200M01",
+    "located": "MXL3200M01"
+  },
+  {
+    "cvNumber": "MXL3200LXQ",
+    "code": "MXL3200LXQ",
+    "inventoryCode": "MXL3200LXQ",
+    "serial": "MXL3200LXQ",
+    "eanCode": "MXL3200LXQ",
+    "located": "MXL3200LXQ"
+  },
+  {
+    "cvNumber": "MXL3200LYH",
+    "code": "MXL3200LYH",
+    "inventoryCode": "MXL3200LYH",
+    "serial": "MXL3200LYH",
+    "eanCode": "MXL3200LYH",
+    "located": "MXL3200LYH"
+  },
+  {
+    "cvNumber": "MXL3200LYK",
+    "code": "MXL3200LYK",
+    "inventoryCode": "MXL3200LYK",
+    "serial": "MXL3200LYK",
+    "eanCode": "MXL3200LYK",
+    "located": "MXL3200LYK"
+  },
+  {
+    "cvNumber": "MXL3200LYQ",
+    "code": "MXL3200LYQ",
+    "inventoryCode": "MXL3200LYQ",
+    "serial": "MXL3200LYQ",
+    "eanCode": "MXL3200LYQ",
+    "located": "MXL3200LYQ"
+  },
+  {
+    "cvNumber": "MXL3200LYR",
+    "code": "MXL3200LYR",
+    "inventoryCode": "MXL3200LYR",
+    "serial": "MXL3200LYR",
+    "eanCode": "MXL3200LYR",
+    "located": "MXL3200LYR"
+  },
+  {
+    "cvNumber": "MXL3200LYM",
+    "code": "MXL3200LYM",
+    "inventoryCode": "MXL3200LYM",
+    "serial": "MXL3200LYM",
+    "eanCode": "MXL3200LYM",
+    "located": "MXL3200LYM"
+  },
+  {
+    "cvNumber": "MXL3200LY2",
+    "code": "MXL3200LY2",
+    "inventoryCode": "MXL3200LY2",
+    "serial": "MXL3200LY2",
+    "eanCode": "MXL3200LY2",
+    "located": "MXL3200LY2"
+  },
+  {
+    "cvNumber": "MXL3200LWM",
+    "code": "MXL3200LWM",
+    "inventoryCode": "MXL3200LWM",
+    "serial": "MXL3200LWM",
+    "eanCode": "MXL3200LWM",
+    "located": "MXL3200LWM"
+  },
+  {
+    "cvNumber": "MXL3200LXL",
+    "code": "MXL3200LXL",
+    "inventoryCode": "MXL3200LXL",
+    "serial": "MXL3200LXL",
+    "eanCode": "MXL3200LXL",
+    "located": "MXL3200LXL"
+  },
+  {
+    "cvNumber": "MXL3200M3J",
+    "code": "MXL3200M3J",
+    "inventoryCode": "MXL3200M3J",
+    "serial": "MXL3200M3J",
+    "eanCode": "MXL3200M3J",
+    "located": "MXL3200M3J"
+  },
+  {
+    "cvNumber": "MXL3200LXZ",
+    "code": "MXL3200LXZ",
+    "inventoryCode": "MXL3200LXZ",
+    "serial": "MXL3200LXZ",
+    "eanCode": "MXL3200LXZ",
+    "located": "MXL3200LXZ"
+  }
+  ]
+}
