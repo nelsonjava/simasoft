@@ -1,0 +1,102 @@
+From;FromProperty;FromValue;To;ToProperty;ToValue;Cardinalities
+ItemsNames;name;RACKS;Items;serial;R01;Uno a Muchos Bidirecccional No.5
+ItemsNames;name;RACKS;Items;serial;R02;Uno a Muchos Bidirecccional No.5
+ItemsNames;name;RACKS;Items;serial;R03;Uno a Muchos Bidirecccional No.5
+ItemsNames;name;RACKS;Items;serial;R04;Uno a Muchos Bidirecccional No.5
+ItemsNames;name;RACKS;Items;serial;R05;Uno a Muchos Bidirecccional No.5
+ItemsNames;name;RACKS;Items;serial;R06;Uno a Muchos Bidirecccional No.5
+ItemsNames;name;RACKS;Items;serial;R07;Uno a Muchos Bidirecccional No.5
+ItemsNames;name;RACKS;Items;serial;R08;Uno a Muchos Bidirecccional No.5
+ItemsNames;name;RACKS;Items;serial;R09;Uno a Muchos Bidirecccional No.5
+ItemsNames;name;RACKS;Items;serial;R10;Uno a Muchos Bidirecccional No.5
+ItemsNames;name;RACKS;Items;serial;R11;Uno a Muchos Bidirecccional No.5
+ItemsNames;name;RACKS;Items;serial;R12;Uno a Muchos Bidirecccional No.5
+ItemsNames;name;RACKS;Items;serial;R13;Uno a Muchos Bidirecccional No.5
+ItemsNames;name;RACKS;Items;serial;R14;Uno a Muchos Bidirecccional No.5
+ItemsNames;name;SWITCHES;Items;serial;R01SW1;Uno a Muchos Bidirecccional No.5
+ItemsNames;name;SWITCHES;Items;serial;R02SW1;Uno a Muchos Bidirecccional No.5
+ItemsNames;name;SWITCHES;Items;serial;R03SW1;Uno a Muchos Bidirecccional No.5
+ItemsNames;name;SWITCHES;Items;serial;R04SW1;Uno a Muchos Bidirecccional No.5
+ItemsNames;name;SWITCHES;Items;serial;R05SW1;Uno a Muchos Bidirecccional No.5
+ItemsNames;name;SWITCHES;Items;serial;R06SW1;Uno a Muchos Bidirecccional No.5
+ItemsNames;name;SWITCHES;Items;serial;R07SW1;Uno a Muchos Bidirecccional No.5
+ItemsNames;name;SWITCHES;Items;serial;R08SW1;Uno a Muchos Bidirecccional No.5
+ItemsNames;name;SWITCHES;Items;serial;R09SW1;Uno a Muchos Bidirecccional No.5
+ItemsNames;name;SWITCHES;Items;serial;R10SW1;Uno a Muchos Bidirecccional No.5
+ItemsNames;name;SWITCHES;Items;serial;R11SW1;Uno a Muchos Bidirecccional No.5
+ItemsNames;name;SWITCHES;Items;serial;R12SW1;Uno a Muchos Bidirecccional No.5
+ItemsNames;name;SWITCHES;Items;serial;R13SW1;Uno a Muchos Bidirecccional No.5
+ItemsNames;name;SWITCHES;Items;serial;R14SW1;Uno a Muchos Bidirecccional No.5
+ItemsNames;name;PATCH PANEL;Items;serial;R01PP1;Uno a Muchos Bidirecccional No.5
+ItemsNames;name;PATCH PANEL;Items;serial;R01PP2;Uno a Muchos Bidirecccional No.5
+ItemsNames;name;PATCH PANEL;Items;serial;R02PP1;Uno a Muchos Bidirecccional No.5
+ItemsNames;name;PATCH PANEL;Items;serial;R02PP2;Uno a Muchos Bidirecccional No.5
+ItemsNames;name;PATCH PANEL;Items;serial;R03PP1;Uno a Muchos Bidirecccional No.5
+ItemsNames;name;PATCH PANEL;Items;serial;R03PP2;Uno a Muchos Bidirecccional No.5
+ItemsNames;name;PATCH PANEL;Items;serial;R04PP1;Uno a Muchos Bidirecccional No.5
+ItemsNames;name;PATCH PANEL;Items;serial;R05PP1;Uno a Muchos Bidirecccional No.5
+ItemsNames;name;PATCH PANEL;Items;serial;R06PP1;Uno a Muchos Bidirecccional No.5
+ItemsNames;name;PATCH PANEL;Items;serial;R07PP1;Uno a Muchos Bidirecccional No.5
+ItemsNames;name;PATCH PANEL;Items;serial;R08PP1;Uno a Muchos Bidirecccional No.5
+ItemsNames;name;PATCH PANEL;Items;serial;R09PP1;Uno a Muchos Bidirecccional No.5
+ItemsNames;name;PATCH PANEL;Items;serial;R09PP2;Uno a Muchos Bidirecccional No.5
+ItemsNames;name;PATCH PANEL;Items;serial;R10PP1;Uno a Muchos Bidirecccional No.5
+ItemsNames;name;PATCH PANEL;Items;serial;R11PP1;Uno a Muchos Bidirecccional No.5
+ItemsNames;name;PATCH PANEL;Items;serial;R11PP2;Uno a Muchos Bidirecccional No.5
+ItemsNames;name;PATCH PANEL;Items;serial;R12PP1;Uno a Muchos Bidirecccional No.5
+ItemsNames;name;PATCH PANEL;Items;serial;R13PP1;Uno a Muchos Bidirecccional No.5
+ItemsNames;name;PATCH PANEL;Items;serial;R14PP1;Uno a Muchos Bidirecccional No.5
+ItemsNames;name;PC;Items;serial;MXL3200LZ5;Uno a Muchos Bidirecccional No.5
+ItemsNames;name;PC;Items;serial;MXL3200LZP;Uno a Muchos Bidirecccional No.5
+ItemsNames;name;PC;Items;serial;MXL3200M09;Uno a Muchos Bidirecccional No.5
+ItemsNames;name;PC;Items;serial;MXL3200LX1;Uno a Muchos Bidirecccional No.5
+ItemsNames;name;PC;Items;serial;MXL3200LXY;Uno a Muchos Bidirecccional No.5
+ItemsNames;name;PC;Items;serial;MXL3200LZR;Uno a Muchos Bidirecccional No.5
+ItemsNames;name;PC;Items;serial;MXL3200LZL;Uno a Muchos Bidirecccional No.5
+ItemsNames;name;PC;Items;serial;MXL3200LZT;Uno a Muchos Bidirecccional No.5
+ItemsNames;name;PC;Items;serial;MXL3200M07;Uno a Muchos Bidirecccional No.5
+ItemsNames;name;PC;Items;serial;MXL3200LXX;Uno a Muchos Bidirecccional No.5
+ItemsNames;name;PC;Items;serial;MXL3200LWN;Uno a Muchos Bidirecccional No.5
+ItemsNames;name;PC;Items;serial;MXL3200M0B;Uno a Muchos Bidirecccional No.5
+ItemsNames;name;PC;Items;serial;MXL3200LXV;Uno a Muchos Bidirecccional No.5
+ItemsNames;name;PC;Items;serial;MXL3200M3K;Uno a Muchos Bidirecccional No.5
+ItemsNames;name;PC;Items;serial;MXL3200LZM;Uno a Muchos Bidirecccional No.5
+ItemsNames;name;PC;Items;serial;MXL3200LY5;Uno a Muchos Bidirecccional No.5
+ItemsNames;name;PC;Items;serial;MXL3200LY1;Uno a Muchos Bidirecccional No.5
+ItemsNames;name;PC;Items;serial;MXL3200LWR;Uno a Muchos Bidirecccional No.5
+ItemsNames;name;PC;Items;serial;MXL3200LZD;Uno a Muchos Bidirecccional No.5
+ItemsNames;name;PC;Items;serial;MXL3200LYB;Uno a Muchos Bidirecccional No.5
+ItemsNames;name;PC;Items;serial;MXL3200LXT;Uno a Muchos Bidirecccional No.5
+ItemsNames;name;PC;Items;serial;MXL3200LYS;Uno a Muchos Bidirecccional No.5
+ItemsNames;name;PC;Items;serial;MXL3200LX7;Uno a Muchos Bidirecccional No.5
+ItemsNames;name;PC;Items;serial;MXL3200LWJ;Uno a Muchos Bidirecccional No.5
+ItemsNames;name;PC;Items;serial;MXL3200LZQ;Uno a Muchos Bidirecccional No.5
+ItemsNames;name;PC;Items;serial;MXL3200LYY;Uno a Muchos Bidirecccional No.5
+ItemsNames;name;PC;Items;serial;MXL3200LZ2;Uno a Muchos Bidirecccional No.5
+ItemsNames;name;PC;Items;serial;MXL3200LX9;Uno a Muchos Bidirecccional No.5
+ItemsNames;name;PC;Items;serial;MXL3200LZC;Uno a Muchos Bidirecccional No.5
+ItemsNames;name;PC;Items;serial;MXL3200LZK;Uno a Muchos Bidirecccional No.5
+ItemsNames;name;PC;Items;serial;MXL3200LXJ;Uno a Muchos Bidirecccional No.5
+ItemsNames;name;PC;Items;serial;MXL3200LX5;Uno a Muchos Bidirecccional No.5
+ItemsNames;name;PC;Items;serial;MXL3200LY3;Uno a Muchos Bidirecccional No.5
+ItemsNames;name;PC;Items;serial;MXL3200LZG;Uno a Muchos Bidirecccional No.5
+ItemsNames;name;PC;Items;serial;MXL3200LX2;Uno a Muchos Bidirecccional No.5
+ItemsNames;name;PC;Items;serial;MXL3200LY8;Uno a Muchos Bidirecccional No.5
+ItemsNames;name;PC;Items;serial;MXL3200LYJ;Uno a Muchos Bidirecccional No.5
+ItemsNames;name;PC;Items;serial;MXL3200LXD;Uno a Muchos Bidirecccional No.5
+ItemsNames;name;PC;Items;serial;MXL3200LYD;Uno a Muchos Bidirecccional No.5
+ItemsNames;name;PC;Items;serial;MXL3200LYW;Uno a Muchos Bidirecccional No.5
+ItemsNames;name;PC;Items;serial;MXL3200LZW;Uno a Muchos Bidirecccional No.5
+ItemsNames;name;PC;Items;serial;MXL3200LXF;Uno a Muchos Bidirecccional No.5
+ItemsNames;name;PC;Items;serial;MXL3200M01;Uno a Muchos Bidirecccional No.5
+ItemsNames;name;PC;Items;serial;MXL3200LXQ;Uno a Muchos Bidirecccional No.5
+ItemsNames;name;PC;Items;serial;MXL3200LYH;Uno a Muchos Bidirecccional No.5
+ItemsNames;name;PC;Items;serial;MXL3200LYK;Uno a Muchos Bidirecccional No.5
+ItemsNames;name;PC;Items;serial;MXL3200LYQ;Uno a Muchos Bidirecccional No.5
+ItemsNames;name;PC;Items;serial;MXL3200LYR;Uno a Muchos Bidirecccional No.5
+ItemsNames;name;PC;Items;serial;MXL3200LYM;Uno a Muchos Bidirecccional No.5
+ItemsNames;name;PC;Items;serial;MXL3200LY2;Uno a Muchos Bidirecccional No.5
+ItemsNames;name;PC;Items;serial;MXL3200LWM;Uno a Muchos Bidirecccional No.5
+ItemsNames;name;PC;Items;serial;MXL3200LXL;Uno a Muchos Bidirecccional No.5
+ItemsNames;name;PC;Items;serial;MXL3200M3J;Uno a Muchos Bidirecccional No.5
+ItemsNames;name;PC;Items;serial;MXL3200LXZ;Uno a Muchos Bidirecccional No.5

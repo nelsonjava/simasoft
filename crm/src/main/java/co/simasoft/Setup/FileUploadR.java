@@ -59,7 +59,7 @@ public class FileUploadR {
         this.file = file;
     }
 
-    public void items() {
+    public void relationshipsData() {
     try {
 
         if(file != null) {
@@ -78,51 +78,56 @@ public class FileUploadR {
            JSONObject jsonObject = (JSONObject) jsonParser.parse(reader);
 
            // get an array from the JSON object
-           JSONArray arrayRelationships = (JSONArray) jsonObject.get("Items");
+           JSONArray arrayRelationships = (JSONArray) jsonObject.get("RelationshipsData");
            Iterator iteRelation = arrayRelationships.iterator();
            while (iteRelation.hasNext()) {
 
                  JSONObject relationObj = (JSONObject) iteRelation.next();
 
-                 String cvNumber = (String)relationObj.get("cvNumber");
-                 String code = (String)relationObj.get("code");
-                 String inventoryCode = (String)relationObj.get("inventoryCode");
-                 String serial = (String)relationObj.get("serial");
-                 String eanCode = (String)relationObj.get("eanCode");
-                 String located = (String)relationObj.get("located");
+                 String from = (String)relationObj.get("From");
+                 String fromProperty = (String)relationObj.get("FromProperty");
+                 String fromValue = (String)relationObj.get("FromValue");
+                 String to = (String)relationObj.get("To");
+                 String toProperty = (String)relationObj.get("ToProperty");
+                 String toValue = (String)relationObj.get("ToValue");
+                 String cardinalities = (String)relationObj.get("Cardinalities");
 
-                 Items items = new Items();
+                 if (from.equals("ItemsNames")){
 
-                 items.setCvNumber(cvNumber);
-                 f.line(items.getCvNumber());
-                 f.line("");
+                     ItemsNames itemsNamesFrom = new ItemsNames();
 
-                 items.setCode(code);
-                 f.line(items.getCode());
-                 f.line("");
+                     if (fromProperty.equals("name")){
+                         itemsNamesFrom = findBean.nameItemsNames(fromValue,em);
+                         f.line(itemsNamesFrom.getName());
+                     } // ItemsNames.name
 
-                 items.setInventoryCode(inventoryCode);
-                 f.line(items.getInventoryCode());
-                 f.line("");
 
-                 items.setSerial(serial);
-                 f.line(items.getSerial());
-                 f.line("");
+                     if (to.equals("Items")){
 
-                 items.setEanCode(eanCode);
-                 f.line(items.getEanCode());
-                 f.line("");
+                         Items itemsTo = new Items();
 
-                 items.setLocated(located);
-                 f.line(items.getLocated());
-                 f.line("");
+                         if (toProperty.equals("serial")){
+                             itemsTo = findBean.serialItems(toValue,em);
+                         } // Items.serial
 
-                 em.persist(items);
-                 em.flush();
+                         if (cardinalities.equals("Uno a Muchos Bidirecccional No.5")){
+                             itemsTo.setItemsNames(itemsNamesFrom);
+                         }
+
+                         f.line(from+"."+fromProperty+"="+fromValue+"="+itemsNamesFrom.getName());
+                         f.line(to+"."+toProperty+"="+toValue+"="+itemsTo.getSerial());
+                         f.line(cardinalities);
+                         f.line("");
+
+                         em.persist(itemsTo);
+                         em.flush();
+                     } // to: Items
+                 } // from: ItemsNames
+
 
            } // while
 
-           f.saveFile("\\docs", "items.txt");
+           f.saveFile("\\docs", "relationshipsData.txt");
 
         } // if
 

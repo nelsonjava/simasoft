@@ -927,6 +927,17 @@ public class FindBean {
         return itemsNames;
     }
 
+    public ItemsNames nameItemsNames(String search,EntityManager em) {
+
+        ItemsNames itemsNames = new ItemsNames();
+        List<ItemsNames> results = em.createQuery("SELECT o FROM ItemsNames o WHERE o.name LIKE :field").setParameter("field", search).getResultList();
+
+        if (!results.isEmpty()) {
+           itemsNames = results.get(0);
+        }
+        return itemsNames;
+    }
+
 //      ---------------------- Items ------------------------
 
     public List<Items> AllItems() {
@@ -944,6 +955,17 @@ public class FindBean {
 
         if (!results.isEmpty()) {
 
+           items = results.get(0);
+        }
+        return items;
+    }
+
+    public Items serialItems(String search,EntityManager em) {
+
+        Items items = new Items();
+        List<Items> results = em.createQuery("SELECT o FROM Items o WHERE o.serial LIKE :field").setParameter("field", search).getResultList();
+
+        if (!results.isEmpty()) {
            items = results.get(0);
         }
         return items;

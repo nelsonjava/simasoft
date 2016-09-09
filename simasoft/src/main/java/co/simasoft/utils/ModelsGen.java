@@ -495,6 +495,10 @@ line(Integer.toString(i++)+":"+entidad.getName());
 
             H2FileUpload h2FileUpload = new H2FileUpload(entities);
             Utils.fileMake(pathDocs+".h2.war."+artifactId+".src.main.java."+groupId+".Setup","FileUpload.java", h2FileUpload);
+            
+            H2FileUploadR h2FileUploadR = new H2FileUploadR(entities);
+            Utils.fileMake(pathDocs+".h2.war."+artifactId+".src.main.java."+groupId+".Setup","FileUploadR.java", h2FileUpload);
+
 
             ViewH2 viewH2 = new ViewH2(entidad);
             Utils.fileMake(pathDocs+".h2.war."+artifactId+".admin."+Utils._1raMin(entidad.getName()),"view.xhtml", viewH2);

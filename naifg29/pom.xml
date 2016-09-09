@@ -4,6 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
          http://maven.apache.org/maven-v4_0_0.xsd">
 
+  <!-- https://buy.thetrackr.co/ Rastrear elementos. -->
   <!-- http://sinjava.blogspot.com/2012/10/hola-mundo-jsf.html -->
   <!-- http://localhost:8080/auth/admin/index.html -->
   <!-- mvn wildfly:undeploy -->

@@ -37,6 +37,7 @@
       <h:link id="homeLink" outcome="/index.xhtml">
         <img src='#{resource["forge-logo.png"]}' alt="Forge... get hammered" border="0" />
       </h:link>
+
       <ul>
         <li>
           <h:form>
@@ -84,7 +85,24 @@
             <p:commandButton value="ItemsStates" ajax="false" actionListener="#{fileUpload.itemsStates}" disabled="false" />
           </h:form>
         </li>
+
+        <li>
+          <p>====</p>
+        </li>
+        
+        <li>
+          <h:form enctype="multipart/form-data">
+            <p:growl id="messages" showDetail="true" />
+            <p:fileUpload value="#{fileUploadR.file}"
+                          mode="simple"
+                          skinSimple="true"/>
+            <p:commandButton value="relationshipsData" ajax="false" actionListener="#{fileUploadR.relationshipsData}" disabled="false" />
+          </h:form>
+        </li>
+
+
       </ul>
+
     </div>
 
     <div id="content">
