@@ -12,6 +12,10 @@ import java.util.Set;
 public class H2FileUploadR extends FileTxt {
 
   private ArrayList<Atributos> atributos = new ArrayList<Atributos>() ;
+  private ArrayList<Relation> relations = new ArrayList<Relation>();
+  private Entidad entityFrom = new Entidad();
+  private Entidad entityTo = new Entidad();
+  private String cardinality = "";
 
   public H2FileUploadR(ArrayList<Entidad> entidades) {
 
@@ -56,8 +60,8 @@ line("import javax.inject.Named;\n");
 
 line("@Singleton");
 line("@LocalBean");
-line("@Named(\"fileUpload\")");
-line("public class FileUpload {\n");
+line("@Named(\"fileUploadR\")");
+line("public class FileUploadR {\n");
 
 line("    private String filePath = \"\";\n");
 
@@ -76,41 +80,134 @@ line("    public void setFile(UploadedFile file) {");
 line("        this.file = file;");
 line("    }\n");
 
+line("    public void relationshipsData() {");
+line("    try {\n");
+
+line("        if(file != null) {\n");
+
+line("           filePath = \"\\docs\\\"+file.getFileName();\n");
+
+line("           FacesMessage message = new FacesMessage(\"Succesful\", filePath + \" is uploaded.\");");
+line("           FacesContext.getCurrentInstance().addMessage(null, message);\n");
+
+line("           FileTxt f = new FileTxt();\n");
+
+line("           // read the json file");
+line("           FileReader reader = new FileReader(filePath);\n");
+
+line("           JSONParser jsonParser = new JSONParser();");
+line("           JSONObject jsonObject = (JSONObject) jsonParser.parse(reader);\n");
+
+line("           // get an array from the JSON object");
+line("           JSONArray arrayRelationships = (JSONArray) jsonObject.get(\"RelationshipsData\");");
+line("           Iterator iteRelation = arrayRelationships.iterator();");
+line("           while (iteRelation.hasNext()) {\n");
+
+line("                 JSONObject relationObj = (JSONObject) iteRelation.next();\n");
+
+line("                 String from = (String)relationObj.get(\"From\");");
+line("                 String fromProperty = (String)relationObj.get(\"FromProperty\");");
+line("                 String fromValue = (String)relationObj.get(\"FromValue\");");
+line("                 String to = (String)relationObj.get(\"To\");");
+line("                 String toProperty = (String)relationObj.get(\"ToProperty\");");
+line("                 String toValue = (String)relationObj.get(\"ToValue\");");
+line("                 String cardinalities = (String)relationObj.get(\"Cardinalities\");\n");
+
       for(Entidad entidad : entidades) {
 
+         for(Relation relation :entidad.getRelations()) {
 
-         atributos = entidad.getAtributos();
-         Collections.sort(atributos);
-         for(Atributos atributo : atributos ){
-             switch (atributo.getType()) {
-                 case "String":
-line("                 String "+atributo.getField()+" = (String)relationObj.get(\""+atributo.getField()+"\");");
+             entityFrom = relation.getEntityFrom();
+             entityTo = relation.getEntityTo();
+             cardinality = relation.getNameCardinality();
+
+line("                 if (from.equals(\""+entityFrom.getName()+"\")){");
+
+line("                     "+entityFrom.getName()+" "+Utils._1raMin(entityFrom.getName())+"From = new "+entityFrom.getName()+"();\n");
+
+             atributos = entityFrom.getAtributos();
+             Collections.sort(atributos);
+             for(Atributos atributo : atributos ){
+
+                 switch (atributo.getType()) {
+                     case "String":
+
+line("                     if (fromProperty.equals(\""+atributo.getField()+"\")){");
+line("                         "+Utils._1raMin(entidad.getName())+"From = findBean."+atributo.getField()+entityFrom.getName()+"(fromValue,em);");
+line("                         f.line("+Utils._1raMin(entidad.getName())+"From.get"+Utils._1raMay(atributo.getField())+"());");
+line("                     } // "+Utils._1raMin(entidad.getName())+"\n");
+
+
+                          break;
+                     default:
+                          break;
+                 } // switch (atributo.getType())
+
+             } // for: atributos
+
+line("                     if (to.equals(\""+entityTo.getName()+"\")){");
+
+line("                         "+entityTo.getName()+" "+Utils._1raMin(entityTo.getName())+"To = new "+entityTo.getName()+"();\n");
+
+
+             atributos = entityTo.getAtributos();
+             Collections.sort(atributos);
+             for(Atributos atributo : atributos ){
+
+                 switch (atributo.getType()) {
+                     case "String":
+
+line("                         if (toProperty.equals(\""+atributo.getField()+"\")){");
+line("                             "+Utils._1raMin(entityTo.getName())+"To = findBean."+atributo.getField()+entityFrom.getName()+"(toValue,em);");
+line("                         } // "+entityTo.getName()+"."+atributo.getField()+"\n");
+
+
+                          break;
+                     default:
+                          break;
+                 } // switch (atributo.getType())
+
+             } // for: atributos
+
+             switch (cardinality) {
+                 case "Uno a Muchos Bidirecccional No.5":
+
+line("                         if (cardinalities.equals(\"Uno a Muchos Bidirecccional No.5\")){");
+line("                             "+Utils._1raMin(entityTo.getName())+"To.set"+entityFrom.getName()+"("+Utils._1raMin(entityFrom.getName())+"From);");
+line("                         }");
+line("                         em.persist("+Utils._1raMin(entityTo.getName())+"To);");
+line("                         em.flush();");
+line("                     } // to: "+entityTo.getName());
+line("                 } // from: "+entityTo.getName()+"\n");
+
+
                       break;
                  default:
                       break;
-
              } // switch (atributo.getType())
-         } // atributos
 
-line("");
-line("                 "+entidad.getName()+" "+Utils._1raMin(entidad.getName())+" = new "+entidad.getName()+"();\n");
+         } // entidad.getRelations()
 
-         for(Atributos atributo : atributos ){
-             switch (atributo.getType()) {
-                 case "String":
-line("                 "+Utils._1raMin(entidad.getName())+".set"+Utils._1raMay(atributo.getField())+"("+Utils._1raMin(atributo.getField())+");");
-line("                 f.line("+Utils._1raMin(entidad.getName())+".get"+Utils._1raMay(atributo.getField())+"());");
-line("                 f.line(\"\");\n");
-                      break;
-                 default:
-                      break;
+      } // entidades
 
-             } // switch (atributo.getType())
-         } // atributos
+line("           } // while\n");
 
+line("        } // if\n");
 
-      } // for
-      
+line("    } catch (FileNotFoundException ex) {");
+line("             ex.printStackTrace();");
+line("    } catch (IOException ex) {");
+line("             ex.printStackTrace();");
+line("    } catch (ParseException ex) {");
+line("             ex.printStackTrace();");
+line("    } catch (NullPointerException ex) {");
+line("             ex.printStackTrace();");
+line("    } catch(Exception ioe) {");
+line("            ioe.printStackTrace();");
+line("    }\n");
+
+line("    } // ojo\n");
+
 line("}\n");
 
   } // Contructor
