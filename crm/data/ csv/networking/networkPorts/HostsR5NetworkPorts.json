@@ -1,0 +1,490 @@
+{
+  "RelationshipsData": [
+  {
+    "From": "Hosts",
+    "FromProperty": "name",
+    "FromValue": "MXL3200LZ5",
+    "To": "NetworkPorts",
+    "ToProperty": "MacAddress",
+    "ToValue": "MXL3200LZ5",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Hosts",
+    "FromProperty": "name",
+    "FromValue": "MXL3200LZP",
+    "To": "NetworkPorts",
+    "ToProperty": "MacAddress",
+    "ToValue": "MXL3200LZP",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Hosts",
+    "FromProperty": "name",
+    "FromValue": "MXL3200M09",
+    "To": "NetworkPorts",
+    "ToProperty": "MacAddress",
+    "ToValue": "MXL3200M09",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Hosts",
+    "FromProperty": "name",
+    "FromValue": "MXL3200LX1",
+    "To": "NetworkPorts",
+    "ToProperty": "MacAddress",
+    "ToValue": "MXL3200LX1",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Hosts",
+    "FromProperty": "name",
+    "FromValue": "MXL3200LXY",
+    "To": "NetworkPorts",
+    "ToProperty": "MacAddress",
+    "ToValue": "MXL3200LXY",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Hosts",
+    "FromProperty": "name",
+    "FromValue": "MXL3200LZR",
+    "To": "NetworkPorts",
+    "ToProperty": "MacAddress",
+    "ToValue": "MXL3200LZR",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Hosts",
+    "FromProperty": "name",
+    "FromValue": "MXL3200LZL",
+    "To": "NetworkPorts",
+    "ToProperty": "MacAddress",
+    "ToValue": "MXL3200LZL",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Hosts",
+    "FromProperty": "name",
+    "FromValue": "MXL3200LZT",
+    "To": "NetworkPorts",
+    "ToProperty": "MacAddress",
+    "ToValue": "MXL3200LZT",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Hosts",
+    "FromProperty": "name",
+    "FromValue": "MXL3200M07",
+    "To": "NetworkPorts",
+    "ToProperty": "MacAddress",
+    "ToValue": "MXL3200M07",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Hosts",
+    "FromProperty": "name",
+    "FromValue": "MXL3200LXX",
+    "To": "NetworkPorts",
+    "ToProperty": "MacAddress",
+    "ToValue": "MXL3200LXX",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Hosts",
+    "FromProperty": "name",
+    "FromValue": "MXL3200LWN",
+    "To": "NetworkPorts",
+    "ToProperty": "MacAddress",
+    "ToValue": "MXL3200LWN",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Hosts",
+    "FromProperty": "name",
+    "FromValue": "MXL3200M0B",
+    "To": "NetworkPorts",
+    "ToProperty": "MacAddress",
+    "ToValue": "MXL3200M0B",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Hosts",
+    "FromProperty": "name",
+    "FromValue": "MXL3200LXV",
+    "To": "NetworkPorts",
+    "ToProperty": "MacAddress",
+    "ToValue": "MXL3200LXV",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Hosts",
+    "FromProperty": "name",
+    "FromValue": "MXL3200M3K",
+    "To": "NetworkPorts",
+    "ToProperty": "MacAddress",
+    "ToValue": "MXL3200M3K",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Hosts",
+    "FromProperty": "name",
+    "FromValue": "MXL3200LZM",
+    "To": "NetworkPorts",
+    "ToProperty": "MacAddress",
+    "ToValue": "MXL3200LZM",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Hosts",
+    "FromProperty": "name",
+    "FromValue": "MXL3200LY5",
+    "To": "NetworkPorts",
+    "ToProperty": "MacAddress",
+    "ToValue": "MXL3200LY5",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Hosts",
+    "FromProperty": "name",
+    "FromValue": "MXL3200LY1",
+    "To": "NetworkPorts",
+    "ToProperty": "MacAddress",
+    "ToValue": "MXL3200LY1",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Hosts",
+    "FromProperty": "name",
+    "FromValue": "MXL3200LWR",
+    "To": "NetworkPorts",
+    "ToProperty": "MacAddress",
+    "ToValue": "MXL3200LWR",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Hosts",
+    "FromProperty": "name",
+    "FromValue": "MXL3200LZD",
+    "To": "NetworkPorts",
+    "ToProperty": "MacAddress",
+    "ToValue": "MXL3200LZD",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Hosts",
+    "FromProperty": "name",
+    "FromValue": "MXL3200LYB",
+    "To": "NetworkPorts",
+    "ToProperty": "MacAddress",
+    "ToValue": "MXL3200LYB",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Hosts",
+    "FromProperty": "name",
+    "FromValue": "MXL3200LXT",
+    "To": "NetworkPorts",
+    "ToProperty": "MacAddress",
+    "ToValue": "MXL3200LXT",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Hosts",
+    "FromProperty": "name",
+    "FromValue": "MXL3200LYS",
+    "To": "NetworkPorts",
+    "ToProperty": "MacAddress",
+    "ToValue": "MXL3200LYS",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Hosts",
+    "FromProperty": "name",
+    "FromValue": "MXL3200LX7",
+    "To": "NetworkPorts",
+    "ToProperty": "MacAddress",
+    "ToValue": "MXL3200LX7",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Hosts",
+    "FromProperty": "name",
+    "FromValue": "MXL3200LWJ",
+    "To": "NetworkPorts",
+    "ToProperty": "MacAddress",
+    "ToValue": "MXL3200LWJ",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Hosts",
+    "FromProperty": "name",
+    "FromValue": "MXL3200LZQ",
+    "To": "NetworkPorts",
+    "ToProperty": "MacAddress",
+    "ToValue": "MXL3200LZQ",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Hosts",
+    "FromProperty": "name",
+    "FromValue": "MXL3200LYY",
+    "To": "NetworkPorts",
+    "ToProperty": "MacAddress",
+    "ToValue": "MXL3200LYY",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Hosts",
+    "FromProperty": "name",
+    "FromValue": "MXL3200LZ2",
+    "To": "NetworkPorts",
+    "ToProperty": "MacAddress",
+    "ToValue": "MXL3200LZ2",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Hosts",
+    "FromProperty": "name",
+    "FromValue": "MXL3200LX9",
+    "To": "NetworkPorts",
+    "ToProperty": "MacAddress",
+    "ToValue": "MXL3200LX9",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Hosts",
+    "FromProperty": "name",
+    "FromValue": "MXL3200LZC",
+    "To": "NetworkPorts",
+    "ToProperty": "MacAddress",
+    "ToValue": "MXL3200LZC",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Hosts",
+    "FromProperty": "name",
+    "FromValue": "MXL3200LZK",
+    "To": "NetworkPorts",
+    "ToProperty": "MacAddress",
+    "ToValue": "MXL3200LZK",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Hosts",
+    "FromProperty": "name",
+    "FromValue": "MXL3200LXJ",
+    "To": "NetworkPorts",
+    "ToProperty": "MacAddress",
+    "ToValue": "MXL3200LXJ",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Hosts",
+    "FromProperty": "name",
+    "FromValue": "MXL3200LX5",
+    "To": "NetworkPorts",
+    "ToProperty": "MacAddress",
+    "ToValue": "MXL3200LX5",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Hosts",
+    "FromProperty": "name",
+    "FromValue": "MXL3200LY3",
+    "To": "NetworkPorts",
+    "ToProperty": "MacAddress",
+    "ToValue": "MXL3200LY3",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Hosts",
+    "FromProperty": "name",
+    "FromValue": "MXL3200LZG",
+    "To": "NetworkPorts",
+    "ToProperty": "MacAddress",
+    "ToValue": "MXL3200LZG",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Hosts",
+    "FromProperty": "name",
+    "FromValue": "MXL3200LX2",
+    "To": "NetworkPorts",
+    "ToProperty": "MacAddress",
+    "ToValue": "MXL3200LX2",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Hosts",
+    "FromProperty": "name",
+    "FromValue": "MXL3200LY8",
+    "To": "NetworkPorts",
+    "ToProperty": "MacAddress",
+    "ToValue": "MXL3200LY8",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Hosts",
+    "FromProperty": "name",
+    "FromValue": "MXL3200LYJ",
+    "To": "NetworkPorts",
+    "ToProperty": "MacAddress",
+    "ToValue": "MXL3200LYJ",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Hosts",
+    "FromProperty": "name",
+    "FromValue": "MXL3200LXD",
+    "To": "NetworkPorts",
+    "ToProperty": "MacAddress",
+    "ToValue": "MXL3200LXD",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Hosts",
+    "FromProperty": "name",
+    "FromValue": "MXL3200LYD",
+    "To": "NetworkPorts",
+    "ToProperty": "MacAddress",
+    "ToValue": "MXL3200LYD",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Hosts",
+    "FromProperty": "name",
+    "FromValue": "MXL3200LYW",
+    "To": "NetworkPorts",
+    "ToProperty": "MacAddress",
+    "ToValue": "MXL3200LYW",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Hosts",
+    "FromProperty": "name",
+    "FromValue": "MXL3200LZW",
+    "To": "NetworkPorts",
+    "ToProperty": "MacAddress",
+    "ToValue": "MXL3200LZW",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Hosts",
+    "FromProperty": "name",
+    "FromValue": "MXL3200LXF",
+    "To": "NetworkPorts",
+    "ToProperty": "MacAddress",
+    "ToValue": "MXL3200LXF",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Hosts",
+    "FromProperty": "name",
+    "FromValue": "MXL3200M01",
+    "To": "NetworkPorts",
+    "ToProperty": "MacAddress",
+    "ToValue": "MXL3200M01",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Hosts",
+    "FromProperty": "name",
+    "FromValue": "MXL3200LXQ",
+    "To": "NetworkPorts",
+    "ToProperty": "MacAddress",
+    "ToValue": "MXL3200LXQ",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Hosts",
+    "FromProperty": "name",
+    "FromValue": "MXL3200LYH",
+    "To": "NetworkPorts",
+    "ToProperty": "MacAddress",
+    "ToValue": "MXL3200LYH",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Hosts",
+    "FromProperty": "name",
+    "FromValue": "MXL3200LYK",
+    "To": "NetworkPorts",
+    "ToProperty": "MacAddress",
+    "ToValue": "MXL3200LYK",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Hosts",
+    "FromProperty": "name",
+    "FromValue": "MXL3200LYQ",
+    "To": "NetworkPorts",
+    "ToProperty": "MacAddress",
+    "ToValue": "MXL3200LYQ",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Hosts",
+    "FromProperty": "name",
+    "FromValue": "MXL3200LYR",
+    "To": "NetworkPorts",
+    "ToProperty": "MacAddress",
+    "ToValue": "MXL3200LYR",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Hosts",
+    "FromProperty": "name",
+    "FromValue": "MXL3200LYM",
+    "To": "NetworkPorts",
+    "ToProperty": "MacAddress",
+    "ToValue": "MXL3200LYM",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Hosts",
+    "FromProperty": "name",
+    "FromValue": "MXL3200LY2",
+    "To": "NetworkPorts",
+    "ToProperty": "MacAddress",
+    "ToValue": "MXL3200LY2",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Hosts",
+    "FromProperty": "name",
+    "FromValue": "MXL3200LWM",
+    "To": "NetworkPorts",
+    "ToProperty": "MacAddress",
+    "ToValue": "MXL3200LWM",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Hosts",
+    "FromProperty": "name",
+    "FromValue": "MXL3200LXL",
+    "To": "NetworkPorts",
+    "ToProperty": "MacAddress",
+    "ToValue": "MXL3200LXL",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Hosts",
+    "FromProperty": "name",
+    "FromValue": "MXL3200M3J",
+    "To": "NetworkPorts",
+    "ToProperty": "MacAddress",
+    "ToValue": "MXL3200M3J",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Hosts",
+    "FromProperty": "name",
+    "FromValue": "MXL3200LXZ",
+    "To": "NetworkPorts",
+    "ToProperty": "MacAddress",
+    "ToValue": "MXL3200LXZ",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  }
+]
+}

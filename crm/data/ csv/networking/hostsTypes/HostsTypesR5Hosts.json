@@ -1,0 +1,688 @@
+{
+  "RelationshipsData": [
+  {
+    "From": "HostsTypes",
+    "FromProperty": "name",
+    "FromValue": "RACKS",
+    "To": "Hosts",
+    "ToProperty": "name",
+    "ToValue": "R01",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "HostsTypes",
+    "FromProperty": "name",
+    "FromValue": "RACKS",
+    "To": "Hosts",
+    "ToProperty": "name",
+    "ToValue": "R02",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "HostsTypes",
+    "FromProperty": "name",
+    "FromValue": "RACKS",
+    "To": "Hosts",
+    "ToProperty": "name",
+    "ToValue": "R03",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "HostsTypes",
+    "FromProperty": "name",
+    "FromValue": "RACKS",
+    "To": "Hosts",
+    "ToProperty": "name",
+    "ToValue": "R04",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "HostsTypes",
+    "FromProperty": "name",
+    "FromValue": "RACKS",
+    "To": "Hosts",
+    "ToProperty": "name",
+    "ToValue": "R05",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "HostsTypes",
+    "FromProperty": "name",
+    "FromValue": "RACKS",
+    "To": "Hosts",
+    "ToProperty": "name",
+    "ToValue": "R06",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "HostsTypes",
+    "FromProperty": "name",
+    "FromValue": "RACKS",
+    "To": "Hosts",
+    "ToProperty": "name",
+    "ToValue": "R07",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "HostsTypes",
+    "FromProperty": "name",
+    "FromValue": "RACKS",
+    "To": "Hosts",
+    "ToProperty": "name",
+    "ToValue": "R08",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "HostsTypes",
+    "FromProperty": "name",
+    "FromValue": "RACKS",
+    "To": "Hosts",
+    "ToProperty": "name",
+    "ToValue": "R09",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "HostsTypes",
+    "FromProperty": "name",
+    "FromValue": "RACKS",
+    "To": "Hosts",
+    "ToProperty": "name",
+    "ToValue": "R10",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "HostsTypes",
+    "FromProperty": "name",
+    "FromValue": "RACKS",
+    "To": "Hosts",
+    "ToProperty": "name",
+    "ToValue": "R11",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "HostsTypes",
+    "FromProperty": "name",
+    "FromValue": "PATCH PANEL",
+    "To": "Hosts",
+    "ToProperty": "name",
+    "ToValue": "R01PP1",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "HostsTypes",
+    "FromProperty": "name",
+    "FromValue": "PATCH PANEL",
+    "To": "Hosts",
+    "ToProperty": "name",
+    "ToValue": "R02PP1",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "HostsTypes",
+    "FromProperty": "name",
+    "FromValue": "PATCH PANEL",
+    "To": "Hosts",
+    "ToProperty": "name",
+    "ToValue": "R03PP1",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "HostsTypes",
+    "FromProperty": "name",
+    "FromValue": "PATCH PANEL",
+    "To": "Hosts",
+    "ToProperty": "name",
+    "ToValue": "R04PP1",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "HostsTypes",
+    "FromProperty": "name",
+    "FromValue": "PATCH PANEL",
+    "To": "Hosts",
+    "ToProperty": "name",
+    "ToValue": "R05PP1",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "HostsTypes",
+    "FromProperty": "name",
+    "FromValue": "PATCH PANEL",
+    "To": "Hosts",
+    "ToProperty": "name",
+    "ToValue": "R06PP1",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "HostsTypes",
+    "FromProperty": "name",
+    "FromValue": "PATCH PANEL",
+    "To": "Hosts",
+    "ToProperty": "name",
+    "ToValue": "R07PP1",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "HostsTypes",
+    "FromProperty": "name",
+    "FromValue": "PATCH PANEL",
+    "To": "Hosts",
+    "ToProperty": "name",
+    "ToValue": "R08PP1",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "HostsTypes",
+    "FromProperty": "name",
+    "FromValue": "PATCH PANEL",
+    "To": "Hosts",
+    "ToProperty": "name",
+    "ToValue": "R09PP1",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "HostsTypes",
+    "FromProperty": "name",
+    "FromValue": "PATCH PANEL",
+    "To": "Hosts",
+    "ToProperty": "name",
+    "ToValue": "R10PP1",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "HostsTypes",
+    "FromProperty": "name",
+    "FromValue": "PATCH PANEL",
+    "To": "Hosts",
+    "ToProperty": "name",
+    "ToValue": "R11PP1",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "HostsTypes",
+    "FromProperty": "name",
+    "FromValue": "PC",
+    "To": "Hosts",
+    "ToProperty": "name",
+    "ToValue": "MXL3200LZ5",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "HostsTypes",
+    "FromProperty": "name",
+    "FromValue": "PC",
+    "To": "Hosts",
+    "ToProperty": "name",
+    "ToValue": "MXL3200LZP",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "HostsTypes",
+    "FromProperty": "name",
+    "FromValue": "PC",
+    "To": "Hosts",
+    "ToProperty": "name",
+    "ToValue": "MXL3200M09",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "HostsTypes",
+    "FromProperty": "name",
+    "FromValue": "PC",
+    "To": "Hosts",
+    "ToProperty": "name",
+    "ToValue": "MXL3200LX1",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "HostsTypes",
+    "FromProperty": "name",
+    "FromValue": "PC",
+    "To": "Hosts",
+    "ToProperty": "name",
+    "ToValue": "MXL3200LXY",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "HostsTypes",
+    "FromProperty": "name",
+    "FromValue": "PC",
+    "To": "Hosts",
+    "ToProperty": "name",
+    "ToValue": "MXL3200LZR",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "HostsTypes",
+    "FromProperty": "name",
+    "FromValue": "PC",
+    "To": "Hosts",
+    "ToProperty": "name",
+    "ToValue": "MXL3200LZL",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "HostsTypes",
+    "FromProperty": "name",
+    "FromValue": "PC",
+    "To": "Hosts",
+    "ToProperty": "name",
+    "ToValue": "MXL3200LZT",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "HostsTypes",
+    "FromProperty": "name",
+    "FromValue": "PC",
+    "To": "Hosts",
+    "ToProperty": "name",
+    "ToValue": "MXL3200M07",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "HostsTypes",
+    "FromProperty": "name",
+    "FromValue": "PC",
+    "To": "Hosts",
+    "ToProperty": "name",
+    "ToValue": "MXL3200LXX",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "HostsTypes",
+    "FromProperty": "name",
+    "FromValue": "PC",
+    "To": "Hosts",
+    "ToProperty": "name",
+    "ToValue": "MXL3200LWN",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "HostsTypes",
+    "FromProperty": "name",
+    "FromValue": "PC",
+    "To": "Hosts",
+    "ToProperty": "name",
+    "ToValue": "MXL3200M0B",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "HostsTypes",
+    "FromProperty": "name",
+    "FromValue": "PC",
+    "To": "Hosts",
+    "ToProperty": "name",
+    "ToValue": "MXL3200LXV",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "HostsTypes",
+    "FromProperty": "name",
+    "FromValue": "PC",
+    "To": "Hosts",
+    "ToProperty": "name",
+    "ToValue": "MXL3200M3K",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "HostsTypes",
+    "FromProperty": "name",
+    "FromValue": "PC",
+    "To": "Hosts",
+    "ToProperty": "name",
+    "ToValue": "MXL3200LZM",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "HostsTypes",
+    "FromProperty": "name",
+    "FromValue": "PC",
+    "To": "Hosts",
+    "ToProperty": "name",
+    "ToValue": "MXL3200LY5",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "HostsTypes",
+    "FromProperty": "name",
+    "FromValue": "PC",
+    "To": "Hosts",
+    "ToProperty": "name",
+    "ToValue": "MXL3200LY1",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "HostsTypes",
+    "FromProperty": "name",
+    "FromValue": "PC",
+    "To": "Hosts",
+    "ToProperty": "name",
+    "ToValue": "MXL3200LWR",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "HostsTypes",
+    "FromProperty": "name",
+    "FromValue": "PC",
+    "To": "Hosts",
+    "ToProperty": "name",
+    "ToValue": "MXL3200LZD",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "HostsTypes",
+    "FromProperty": "name",
+    "FromValue": "PC",
+    "To": "Hosts",
+    "ToProperty": "name",
+    "ToValue": "MXL3200LYB",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "HostsTypes",
+    "FromProperty": "name",
+    "FromValue": "PC",
+    "To": "Hosts",
+    "ToProperty": "name",
+    "ToValue": "MXL3200LXT",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "HostsTypes",
+    "FromProperty": "name",
+    "FromValue": "PC",
+    "To": "Hosts",
+    "ToProperty": "name",
+    "ToValue": "MXL3200LYS",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "HostsTypes",
+    "FromProperty": "name",
+    "FromValue": "PC",
+    "To": "Hosts",
+    "ToProperty": "name",
+    "ToValue": "MXL3200LX7",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "HostsTypes",
+    "FromProperty": "name",
+    "FromValue": "PC",
+    "To": "Hosts",
+    "ToProperty": "name",
+    "ToValue": "MXL3200LWJ",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "HostsTypes",
+    "FromProperty": "name",
+    "FromValue": "PC",
+    "To": "Hosts",
+    "ToProperty": "name",
+    "ToValue": "MXL3200LZQ",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "HostsTypes",
+    "FromProperty": "name",
+    "FromValue": "PC",
+    "To": "Hosts",
+    "ToProperty": "name",
+    "ToValue": "MXL3200LYY",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "HostsTypes",
+    "FromProperty": "name",
+    "FromValue": "PC",
+    "To": "Hosts",
+    "ToProperty": "name",
+    "ToValue": "MXL3200LZ2",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "HostsTypes",
+    "FromProperty": "name",
+    "FromValue": "PC",
+    "To": "Hosts",
+    "ToProperty": "name",
+    "ToValue": "MXL3200LX9",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "HostsTypes",
+    "FromProperty": "name",
+    "FromValue": "PC",
+    "To": "Hosts",
+    "ToProperty": "name",
+    "ToValue": "MXL3200LZC",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "HostsTypes",
+    "FromProperty": "name",
+    "FromValue": "PC",
+    "To": "Hosts",
+    "ToProperty": "name",
+    "ToValue": "MXL3200LZK",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "HostsTypes",
+    "FromProperty": "name",
+    "FromValue": "PC",
+    "To": "Hosts",
+    "ToProperty": "name",
+    "ToValue": "MXL3200LXJ",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "HostsTypes",
+    "FromProperty": "name",
+    "FromValue": "PC",
+    "To": "Hosts",
+    "ToProperty": "name",
+    "ToValue": "MXL3200LX5",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "HostsTypes",
+    "FromProperty": "name",
+    "FromValue": "PC",
+    "To": "Hosts",
+    "ToProperty": "name",
+    "ToValue": "MXL3200LY3",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "HostsTypes",
+    "FromProperty": "name",
+    "FromValue": "PC",
+    "To": "Hosts",
+    "ToProperty": "name",
+    "ToValue": "MXL3200LZG",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "HostsTypes",
+    "FromProperty": "name",
+    "FromValue": "PC",
+    "To": "Hosts",
+    "ToProperty": "name",
+    "ToValue": "MXL3200LX2",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "HostsTypes",
+    "FromProperty": "name",
+    "FromValue": "PC",
+    "To": "Hosts",
+    "ToProperty": "name",
+    "ToValue": "MXL3200LY8",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "HostsTypes",
+    "FromProperty": "name",
+    "FromValue": "PC",
+    "To": "Hosts",
+    "ToProperty": "name",
+    "ToValue": "MXL3200LYJ",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "HostsTypes",
+    "FromProperty": "name",
+    "FromValue": "PC",
+    "To": "Hosts",
+    "ToProperty": "name",
+    "ToValue": "MXL3200LXD",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "HostsTypes",
+    "FromProperty": "name",
+    "FromValue": "PC",
+    "To": "Hosts",
+    "ToProperty": "name",
+    "ToValue": "MXL3200LYD",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "HostsTypes",
+    "FromProperty": "name",
+    "FromValue": "PC",
+    "To": "Hosts",
+    "ToProperty": "name",
+    "ToValue": "MXL3200LYW",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "HostsTypes",
+    "FromProperty": "name",
+    "FromValue": "PC",
+    "To": "Hosts",
+    "ToProperty": "name",
+    "ToValue": "MXL3200LZW",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "HostsTypes",
+    "FromProperty": "name",
+    "FromValue": "PC",
+    "To": "Hosts",
+    "ToProperty": "name",
+    "ToValue": "MXL3200LXF",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "HostsTypes",
+    "FromProperty": "name",
+    "FromValue": "PC",
+    "To": "Hosts",
+    "ToProperty": "name",
+    "ToValue": "MXL3200M01",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "HostsTypes",
+    "FromProperty": "name",
+    "FromValue": "PC",
+    "To": "Hosts",
+    "ToProperty": "name",
+    "ToValue": "MXL3200LXQ",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "HostsTypes",
+    "FromProperty": "name",
+    "FromValue": "PC",
+    "To": "Hosts",
+    "ToProperty": "name",
+    "ToValue": "MXL3200LYH",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "HostsTypes",
+    "FromProperty": "name",
+    "FromValue": "PC",
+    "To": "Hosts",
+    "ToProperty": "name",
+    "ToValue": "MXL3200LYK",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "HostsTypes",
+    "FromProperty": "name",
+    "FromValue": "PC",
+    "To": "Hosts",
+    "ToProperty": "name",
+    "ToValue": "MXL3200LYQ",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "HostsTypes",
+    "FromProperty": "name",
+    "FromValue": "PC",
+    "To": "Hosts",
+    "ToProperty": "name",
+    "ToValue": "MXL3200LYR",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "HostsTypes",
+    "FromProperty": "name",
+    "FromValue": "PC",
+    "To": "Hosts",
+    "ToProperty": "name",
+    "ToValue": "MXL3200LYM",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "HostsTypes",
+    "FromProperty": "name",
+    "FromValue": "PC",
+    "To": "Hosts",
+    "ToProperty": "name",
+    "ToValue": "MXL3200LY2",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "HostsTypes",
+    "FromProperty": "name",
+    "FromValue": "PC",
+    "To": "Hosts",
+    "ToProperty": "name",
+    "ToValue": "MXL3200LWM",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "HostsTypes",
+    "FromProperty": "name",
+    "FromValue": "PC",
+    "To": "Hosts",
+    "ToProperty": "name",
+    "ToValue": "MXL3200LXL",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "HostsTypes",
+    "FromProperty": "name",
+    "FromValue": "PC",
+    "To": "Hosts",
+    "ToProperty": "name",
+    "ToValue": "MXL3200M3J",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "HostsTypes",
+    "FromProperty": "name",
+    "FromValue": "PC",
+    "To": "Hosts",
+    "ToProperty": "name",
+    "ToValue": "MXL3200LXZ",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  }
+]
+}

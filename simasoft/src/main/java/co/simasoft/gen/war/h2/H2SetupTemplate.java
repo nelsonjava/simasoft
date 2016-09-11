@@ -98,6 +98,18 @@ line("        </li>");
             for(String groupId : groupIdsArtifactId) {
 line("        <li><h:link outcome=\"/resources/templates/"+groupId+"Template\" value=\""+groupId+"\"/></li>");
             }
+            
+line("        <li><p>====</p></li>");
+line("        <li>");
+line("          <h:form enctype=\"multipart/form-data\">");
+line("            <p:growl id=\"messages\" showDetail=\"true\" />");
+line("            <p:fileUpload value=\"#{fileUploadR.file}\"");
+line("                          mode=\"simple\"");
+line("                          skinSimple=\"true\"/>");
+line("            <p:commandButton value=\"relationshipsData\" ajax=\"false\" actionListener=\"#{fileUploadR.relationshipsData}\" disabled=\"false\" />");
+line("          </h:form>");
+line("        </li>");
+            
 
         }
 

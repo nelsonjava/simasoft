@@ -58,6 +58,16 @@
         <li><h:link outcome="/resources/templates/itemsTemplate" value="items"/></li>
         <li><h:link outcome="/resources/templates/tasksTemplate" value="tasks"/></li>
         <li><h:link outcome="/resources/templates/iso9001Template" value="iso9001"/></li>
+        <li><p>====</p></li>
+        <li>
+          <h:form enctype="multipart/form-data">
+            <p:growl id="messages" showDetail="true" />
+            <p:fileUpload value="#{fileUploadR.file}"
+                          mode="simple"
+                          skinSimple="true"/>
+            <p:commandButton value="relationshipsData" ajax="false" actionListener="#{fileUploadR.relationshipsData}" disabled="false" />
+          </h:form>
+        </li>
       </ul>
     </div>
 
