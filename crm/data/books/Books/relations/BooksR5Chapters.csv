@@ -1,0 +1,2 @@
+From;FromProperty;FromValue;To;ToProperty;ToValue;Cardinalities
+Books;        ;        ;Chapters;        ;        ;Uno a Muchos Bidirecccional No.5
