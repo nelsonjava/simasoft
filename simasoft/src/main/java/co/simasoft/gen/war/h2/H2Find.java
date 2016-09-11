@@ -10,7 +10,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class H2Find extends FileTxt {
-  
+
   private LinkedHashSet<String> imports = new LinkedHashSet<String>();
 
   public H2Find(String artifactId,String groupId,ArrayList<Entidad> entities) {
@@ -75,6 +75,29 @@ line("           "+Utils._1raMin(entidad.getName())+" = results.get(0);");
 line("        }");
 line("        return "+Utils._1raMin(entidad.getName())+";");
 line("    }\n");
+
+                for(Atributos atributo : entidad.getAtributos()) {
+
+                    switch (atributo.getType()) {
+                        case "String":
+
+line("    public "+entidad.getName()+" "+atributo.getField()+entidad.getName()+"(String search,EntityManager em) {\n");
+
+line("        "+entidad.getName()+" "+Utils._1raMin(entidad.getName())+" = new "+entidad.getName()+"();");
+line("        List<"+entidad.getName()+"> results = em.createQuery(\"SELECT o FROM "+entidad.getName()+" o WHERE o."+atributo.getField()+" LIKE :field\").setParameter(\"field\", search).getResultList();\n");
+
+line("        if (!results.isEmpty()) {");
+line("           "+Utils._1raMin(entidad.getName())+" = results.get(0);");
+line("        }");
+line("        return "+Utils._1raMin(entidad.getName())+";");
+line("    }\n");
+
+                             break;
+                        default:
+                             break;
+                    } // switch (atributo.getType())
+
+                } // entidad.getAtributos()
 
             } // for entities
 

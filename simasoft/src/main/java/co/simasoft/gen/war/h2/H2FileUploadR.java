@@ -16,6 +16,7 @@ public class H2FileUploadR extends FileTxt {
   private Entidad entityFrom = new Entidad();
   private Entidad entityTo = new Entidad();
   private String cardinality = "";
+  private String relationName = "";
 
   public H2FileUploadR(ArrayList<Entidad> entidades) {
 
@@ -85,7 +86,7 @@ line("    try {\n");
 
 line("        if(file != null) {\n");
 
-line("           filePath = \"\\docs\\\"+file.getFileName();\n");
+line("           filePath = \"\\\\docs\\\\\"+file.getFileName();\n");
 
 line("           FacesMessage message = new FacesMessage(\"Succesful\", filePath + \" is uploaded.\");");
 line("           FacesContext.getCurrentInstance().addMessage(null, message);\n");
@@ -113,6 +114,29 @@ line("                 String toProperty = (String)relationObj.get(\"ToProperty\
 line("                 String toValue = (String)relationObj.get(\"ToValue\");");
 line("                 String cardinalities = (String)relationObj.get(\"Cardinalities\");\n");
 
+for (Entidad entidad : entidades) {
+
+    for (Relation relation :entidad.getRelations()) {
+
+        entityFrom = relation.getEntityFrom();
+        entityTo = relation.getEntityTo();
+        cardinality = relation.getNameCardinality();
+        relationName = relation.getName();
+
+        if (!(entidad.getName().equals(entityFrom.getName()))){
+           continue;
+        }
+        if (!(cardinality.equals("Uno a Muchos Bidirecccional No.5"))){
+           continue;
+        }
+
+
+line(entidad.getName()+"::"+entityFrom.getName()+" "+cardinality+" "+entityTo.getName()+" "+relationName);
+
+    }
+
+}
+
       for(Entidad entidad : entidades) {
 
          for(Relation relation :entidad.getRelations()) {
@@ -120,8 +144,16 @@ line("                 String cardinalities = (String)relationObj.get(\"Cardinal
              entityFrom = relation.getEntityFrom();
              entityTo = relation.getEntityTo();
              cardinality = relation.getNameCardinality();
+             relationName = relation.getName();
 
-line("                 if (from.equals(\""+entityFrom.getName()+"\")){");
+             if (!(entidad.getName().equals(entityFrom.getName()))){
+                continue;
+             }
+             if (!(cardinality.equals("Uno a Muchos Bidirecccional No.5"))){
+                continue;
+             }
+
+line("                 if (from.equals(\""+entityFrom.getName()+"\")){\n");
 
 line("                     "+entityFrom.getName()+" "+Utils._1raMin(entityFrom.getName())+"From = new "+entityFrom.getName()+"();\n");
 
@@ -145,7 +177,7 @@ line("                     } // "+Utils._1raMin(entidad.getName())+"\n");
 
              } // for: atributos
 
-line("                     if (to.equals(\""+entityTo.getName()+"\")){");
+line("                     if (to.equals(\""+entityTo.getName()+"\")){\n");
 
 line("                         "+entityTo.getName()+" "+Utils._1raMin(entityTo.getName())+"To = new "+entityTo.getName()+"();\n");
 
@@ -158,7 +190,7 @@ line("                         "+entityTo.getName()+" "+Utils._1raMin(entityTo.g
                      case "String":
 
 line("                         if (toProperty.equals(\""+atributo.getField()+"\")){");
-line("                             "+Utils._1raMin(entityTo.getName())+"To = findBean."+atributo.getField()+entityFrom.getName()+"(toValue,em);");
+line("                             "+Utils._1raMin(entityTo.getName())+"To = findBean."+atributo.getField()+entityTo.getName()+"(toValue,em);");
 line("                         } // "+entityTo.getName()+"."+atributo.getField()+"\n");
 
 
@@ -173,12 +205,28 @@ line("                         } // "+entityTo.getName()+"."+atributo.getField()
                  case "Uno a Muchos Bidirecccional No.5":
 
 line("                         if (cardinalities.equals(\"Uno a Muchos Bidirecccional No.5\")){");
+                      if (entityFrom.getName().equals(entityTo.getName())){
+line("                             "+Utils._1raMin(entityTo.getName())+"To.setObjPadre("+Utils._1raMin(entityFrom.getName())+"From);");
+                      }
+                      else{
+
+                           if (relationName == null || relationName.equals("")){
 line("                             "+Utils._1raMin(entityTo.getName())+"To.set"+entityFrom.getName()+"("+Utils._1raMin(entityFrom.getName())+"From);");
-line("                         }");
+                           }
+                           else{
+line("                             "+Utils._1raMin(entityTo.getName())+"To.set"+Utils._1raMay(relationName)+"("+Utils._1raMin(entityFrom.getName())+"From);");
+                           }
+
+                      }
+
+
+line("                         }\n");
+
 line("                         em.persist("+Utils._1raMin(entityTo.getName())+"To);");
-line("                         em.flush();");
+line("                         em.flush();\n");
+
 line("                     } // to: "+entityTo.getName());
-line("                 } // from: "+entityTo.getName()+"\n");
+line("                 } // from: "+entityFrom.getName()+"\n");
 
 
                       break;
@@ -206,7 +254,7 @@ line("    } catch(Exception ioe) {");
 line("            ioe.printStackTrace();");
 line("    }\n");
 
-line("    } // ojo\n");
+line("    } // relationshipsData()\n");
 
 line("}\n");
 
