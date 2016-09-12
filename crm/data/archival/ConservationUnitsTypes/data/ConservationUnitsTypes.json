@@ -1,0 +1,13 @@
+{
+  "ConservationUnitsTypes": [
+  {
+    "name": "CARPETA"
+  },
+  {
+    "name": "CAJA"
+  },
+  {
+    "name": "PDF"
+  }
+  ]
+}

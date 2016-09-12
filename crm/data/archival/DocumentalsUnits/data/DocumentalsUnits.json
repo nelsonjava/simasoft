@@ -1,0 +1,652 @@
+{
+  "DocumentalsUnits": [
+  {
+    "name": "INFORME DE RESULTADO DE REVISIÓN POR LA DIRECCIÓN",
+    "code": "F-GD-01"
+  },
+  {
+    "name": "INFORME VISITA HERMANO PROVINCIAL",
+    "code": "F-GD-02"
+  },
+  {
+    "name": "MATRIZ DE INDICADORES DEL SISTEMA DE GESTIÓN DE LA CALIDAD",
+    "code": "F-GD-03"
+  },
+  {
+    "name": "PLAN OPERATIVO ANUAL",
+    "code": "F-GD-04"
+  },
+  {
+    "name": "INFORME DE GESTIÓN O DESEMEPEÓO DE PROCESO",
+    "code": "F-GD-05"
+  },
+  {
+    "name": "ACTA DE CONSEJO DIRECTIVO",
+    "code": "N.A-GD"
+  },
+  {
+    "name": "RESOLUCIÓN DE RECTORÓA",
+    "code": "N.A-GD"
+  },
+  {
+    "name": "CRONOGRAMA DISTRITAL",
+    "code": "N.A-GD"
+  },
+  {
+    "name": "CRONOGRAMA INSTITUCIONAL",
+    "code": "N.A-GD"
+  },
+  {
+    "name": "EVALUACIÓN INSTITUCIONAL",
+    "code": "N.A-GD"
+  },
+  {
+    "name": "GUÍA DE AUTOEVALUACIÓN",
+    "code": "N.A-GD"
+  },
+  {
+    "name": "GUÍA PARA LA ENTREGA DE UNA OBRA LASALLISTA",
+    "code": "N.A-GD"
+  },
+  {
+    "name": "CARTA DE NOMBRAMIENTO DE RECTOR",
+    "code": "N.A-GD"
+  },
+  {
+    "name": "CONVENIOS INTERINSTITUCIONALES",
+    "code": "N.A-GD"
+  },
+  {
+    "name": "ACTAS - CONSEJO DE COORDINACIÓN",
+    "code": "N.A-GD"
+  },
+  {
+    "name": "GD-CIRCULAR DE RECTORÓA",
+    "code": "N.A-GD"
+  },
+  {
+    "name": "GD-CORRESPONDENCIA",
+    "code": "N.A-GD"
+  },
+  {
+    "name": "FORMULARIO DE INSCRIPCIÓN",
+    "code": "F-AM-01"
+  },
+  {
+    "name": "REGISTRO DE RESULTADOS DE ADMISIÓN",
+    "code": "F-AM-02"
+  },
+  {
+    "name": "HOJA DE MATRÍCULA",
+    "code": "F-AM-04"
+  },
+  {
+    "name": "DEVOLUCIÓN DE DOCUMENTOS",
+    "code": "F-AM-05"
+  },
+  {
+    "name": "AUTORIZACIÓN RETIRO DE ESTUDIANTES",
+    "code": "F-AM-06"
+  },
+  {
+    "name": "LISTA DE CHEQUEO PARA RECEPCIÓN DE DOCUMENTOS PARA LA MATRICULA",
+    "code": "L-AM-01"
+  },
+  {
+    "name": "CONTRATO DE PRESTACIÓN DEL SERVICIO EDUCATIVO",
+    "code": "AM-N.A"
+  },
+  {
+    "name": "LISTADO DE ESTUDIANTES MATRICULADOS",
+    "code": "AM-N.A"
+  },
+  {
+    "name": "LISTADOS DE ASPIRANTES ADMITIDOS",
+    "code": "AM-N.A"
+  },
+  {
+    "name": "LISTADO DE ASPIRANTES INSCRITOS",
+    "code": "AM-N.A"
+  },
+  {
+    "name": "PAZ Y SALVO ESTUDIANTES",
+    "code": "AM-N.A"
+  },
+  {
+    "name": "LIBRO DE ACTAS DE GRADO",
+    "code": "AM-N.A"
+  },
+  {
+    "name": "AM-CORRESPONDENCIA",
+    "code": "AM-N.A"
+  },
+  {
+    "name": "AM-CIRCULAR",
+    "code": "AM-N.A"
+  },
+  {
+    "name": "HORARIO DE CLASES",
+    "code": "F-GE-01"
+  },
+  {
+    "name": "REGISTRO DE VALIDACIÓN DE LA PRESTACIÓN DEL SERVICIO EDUCATIVO",
+    "code": "F-GE-03"
+  },
+  {
+    "name": "CONTROL DE ACTIVIDADES DE SUPERACIÓN O RECUPERACIÓN",
+    "code": "F-GE-04"
+  },
+  {
+    "name": "OBSERVADOR DEL ESTUDIANTE",
+    "code": "F-GE-05"
+  },
+  {
+    "name": "PLAN DE CURSO",
+    "code": "F-GE-06"
+  },
+  {
+    "name": "CONTROL DE ATENCIÓN PARA ORIENTACIÓN",
+    "code": "F-GE-07"
+  },
+  {
+    "name": "AUTORIZACIÓN PARA ESTUDIANTES",
+    "code": "F-GE-08"
+  },
+  {
+    "name": "CITACIÓN A PADRES DE FAMILIA",
+    "code": "F-GE-10"
+  },
+  {
+    "name": "REMISIÓN DE ESTUDIANTES A ORIENTACIÓN",
+    "code": "F-GE-11"
+  },
+  {
+    "name": "HISTORIA Y SEGUIMIENTO PSICOLOGÓA",
+    "code": "F-GE-12"
+  },
+  {
+    "name": "AUTO REGISTRO DE RETARDOS",
+    "code": "L-GE-01"
+  },
+  {
+    "name": "CONTENIDOS PROGRAMÓTICOS",
+    "code": "L-GE-02"
+  },
+  {
+    "name": "CONTROL DE CITACIONES A PADRES DE FAMILIA",
+    "code": "L-GE-03"
+  },
+  {
+    "name": "PLAN DE ASIGNATURA",
+    "code": "L-GE-04"
+  },
+  {
+    "name": "REGISTRO DE NORMALIZACIÓN",
+    "code": "L-GE-06"
+  },
+  {
+    "name": "ACTA DE COMPROMISO ACADÓMICO",
+    "code": "L-GE-07"
+  },
+  {
+    "name": "ACTA DE COMPROMISO COMPORTAMENTAL",
+    "code": "L-GE-08"
+  },
+  {
+    "name": "CLAUSULA ESPECIAL DE MATRICULA",
+    "code": "L-GE-09"
+  },
+  {
+    "name": "CONTROL DE ASISTENCIA A ACTIVIDADES DE APOYO",
+    "code": "L-GE-10"
+  },
+  {
+    "name": "EVALUACIÓN DE ACTIVIDADES DE APOYO",
+    "code": "L-GE-11"
+  },
+  {
+    "name": "INFORME PERIÓDICO DE PSICOLOGÓA A COORDINACIÓN",
+    "code": "L-GE-12"
+  },
+  {
+    "name": "PLANILLA DE SEGUIMIENTO- NIVEL PREESCOLAR",
+    "code": "L-GE-13"
+  },
+  {
+    "name": "PLAN DE AREA",
+    "code": "L-GE-14"
+  },
+  {
+    "name": "PROYECTO PEDAGÓGICO",
+    "code": "L-GE-15"
+  },
+  {
+    "name": "REGISTRO DE ATENCIÓN A PADRES DE FAMILIA O ACUDIENTES",
+    "code": "L-GE-16"
+  },
+  {
+    "name": "ACTA DE COMISIÓN DE EVALUACIÓN Y PROMOCIÓN",
+    "code": "GE-N.A"
+  },
+  {
+    "name": "ACTA DE CONSEJO ACADÓMICO",
+    "code": "GE-N.A"
+  },
+  {
+    "name": "ACTA DE REUNIÓN DE DEPARTAMENTO O ÓREA",
+    "code": "GE-N.A"
+  },
+  {
+    "name": "PLANILLA DE CALIFICACIONES / CONTROL DE ASISTENCIA",
+    "code": "GE-N.A"
+  },
+  {
+    "name": "INFORME O RESULTADOS DE PRUEBAS EXTERNAS",
+    "code": "GE-N.A"
+  },
+  {
+    "name": "INFORME DE COMISIONES DE EVALUACIÓN Y PROMOCIÓN",
+    "code": "GE-N.A"
+  },
+  {
+    "name": "LIBRO DE CALIFICACIONES FINAL",
+    "code": "GE-N.A"
+  },
+  {
+    "name": "GE-CORRESPONDENCIA",
+    "code": "GE-N.A"
+  },
+  {
+    "name": "GE-CIRCULAR",
+    "code": "GE-N.A"
+  },
+  {
+    "name": "SOLICITUD DE PERSONAL",
+    "code": "F-GT-01"
+  },
+  {
+    "name": "FORMATO DE ENTREVISTA",
+    "code": "F-GT-02"
+  },
+  {
+    "name": "HOJA DE VIDA INSTITUCIONAL",
+    "code": "F-GT-04"
+  },
+  {
+    "name": "CONTRATO LABORAL",
+    "code": "F-GT-04*"
+  },
+  {
+    "name": "REGISTRO DE INDUCCIÓN",
+    "code": "F-GT-05"
+  },
+  {
+    "name": "INGRESO DE PERSONAL",
+    "code": "F-GT-05*"
+  },
+  {
+    "name": "EVALUACIÓN DE DESEMPEÓO",
+    "code": "F-GT-06"
+  },
+  {
+    "name": "REGISTRO DE NOVEDADES",
+    "code": "F-GT-08*"
+  },
+  {
+    "name": "ENCUESTA DE CLIMA ORGANIZACIONAL",
+    "code": "F-GT-09"
+  },
+  {
+    "name": "DECLARACIÓN DE COMPETENCIA",
+    "code": "F-GT-10"
+  },
+  {
+    "name": "PLAN DE FORMACIÓN",
+    "code": "F-GT-11"
+  },
+  {
+    "name": "SOLICITUD DE CAPACITACIÓN",
+    "code": "F-GT-12"
+  },
+  {
+    "name": "PLAN DE BIENESTAR",
+    "code": "F-GT-13"
+  },
+  {
+    "name": "RETIRO DE PERSONAL",
+    "code": "F-GT-13*"
+  },
+  {
+    "name": "SOLICITUD DE PERMISOS",
+    "code": "F-GT-14"
+  },
+  {
+    "name": "SEGUIMIENTO Y ASISTENCIA A CAPACITACIÓN",
+    "code": "F-GT-15"
+  },
+  {
+    "name": "NÓMINA MENSUAL",
+    "code": "F-GT15*"
+  },
+  {
+    "name": "ACTA DE DESCARGOS, CONCILIACIÓN O COMPROMISO",
+    "code": "F-GT-16"
+  },
+  {
+    "name": "EVALUACIÓN DE LA ATENCIÓN A PADRES DE FAMILIA O ACUDIENTES",
+    "code": "L-GT-01"
+  },
+  {
+    "name": "PAZ Y SALVO GENERAL",
+    "code": "L-GT-02"
+  },
+  {
+    "name": "EVALUACIÓN DE DOCENTES (PREESCOLAR Y PRIMERO)",
+    "code": "L-GT-03"
+  },
+  {
+    "name": "PROTOCOLIZACIÓN DEL PERSONAL DOCENTE",
+    "code": "GT-N.A"
+  },
+  {
+    "name": "ACTA DE REUNIÓN DE COPASST",
+    "code": "GT-N.A"
+  },
+  {
+    "name": "ACTAS DE COMITÓ DE CONVIVENCIA LABORAL",
+    "code": "GT-N.A"
+  },
+  {
+    "name": "DOCUMENTOS DEL SISTEMA DE GESTIÓN DE LA SEGURIDAD Y SALUD EN EL TRABAJO",
+    "code": "GT-N.A"
+  },
+  {
+    "name": "PLAN DE EMERGENCIAS",
+    "code": "GT-N.A"
+  },
+  {
+    "name": "PLAN DE MEJORAMIENTO ENCUESTA DE CLIMA ORGANIZACIONAL",
+    "code": "GT-N.A"
+  },
+  {
+    "name": "LIQUIDACIONES DE PERSONAL",
+    "code": "GT-N.A"
+  },
+  {
+    "name": "GT-CORRESPONDENCIA",
+    "code": "GT-N.A"
+  },
+  {
+    "name": "GT-CIRCULAR",
+    "code": "GT-N.A"
+  },
+  {
+    "name": "EJECUCIÓN PRESUPUESTAL",
+    "code": "F-GF-01*"
+  },
+  {
+    "name": "REQUISICIÓN",
+    "code": "F-GF-08*"
+  },
+  {
+    "name": "CARTERA ACTUALIZADA COLEGIOS",
+    "code": "F-GF-17*"
+  },
+  {
+    "name": "CONCILIACIÓN CUENTA MOROSOS",
+    "code": "F-GF-18*"
+  },
+  {
+    "name": "RESUMEN DE CARTERA MOROSA",
+    "code": "F-GF-19*"
+  },
+  {
+    "name": "PLANILLA DIARIA DE VENTAS EN CAFETERIA",
+    "code": "L-GF-01"
+  },
+  {
+    "name": "INFORME MENSUAL DE VENTAS EN CAFETERIA",
+    "code": "L-GF-02"
+  },
+  {
+    "name": "COMPROBANTES DE EGRESO",
+    "code": "GF-N.A"
+  },
+  {
+    "name": "SOPORTES COMPROBANTES DE EGRESO",
+    "code": "GF-N.A"
+  },
+  {
+    "name": "GF-CORRESPONDENCIA",
+    "code": "GF-N.A"
+  },
+  {
+    "name": "GF-CIRCULAR",
+    "code": "GF-N.A"
+  },
+  {
+    "name": "SOLICITUD Y ENTREGA DE SUMINISTROS",
+    "code": "F-GC-01"
+  },
+  {
+    "name": "COMPARATIVO DE OFERTAS",
+    "code": "F-GC-02"
+  },
+  {
+    "name": "ORDEN DE COMPRA",
+    "code": "F-GC-03"
+  },
+  {
+    "name": "DEVOLUCIÓN DE ARTÓCULOS",
+    "code": "F-GC-04"
+  },
+  {
+    "name": "RELACIÓN DE FACTURAS POR PAGAR",
+    "code": "F-GC-05"
+  },
+  {
+    "name": "INSCRIPCIÓN DE PROVEEDORES",
+    "code": "F-GC-06"
+  },
+  {
+    "name": "EVALUACIÓN Y SELECCIÓN DE PROVEEDORES",
+    "code": "F-GC-07"
+  },
+  {
+    "name": "LISTADO DE PROVEEDORES",
+    "code": "F-GC-08"
+  },
+  {
+    "name": "REEVALUACIÓN DE PROVEEDORES",
+    "code": "F-GC-09"
+  },
+  {
+    "name": "SOLICITUD DE COMPRAS",
+    "code": "F-GC-13"
+  },
+  {
+    "name": "KÓRDEX DE ALMACÓN",
+    "code": "F-GF-03*"
+  },
+  {
+    "name": "LISTADO DE INVENTARIO DE ACTIVOS Y RELACIÓN DE NOVEDADES",
+    "code": "F-GF-09*"
+  },
+  {
+    "name": "EVALUACIÓN DEL SERVICIO DE COMPRAS Y SUMINISTROS",
+    "code": "L-GC-01"
+  },
+  {
+    "name": "REGISTROS SOPORTES DE INSCRIPCIÓN Y EVALUACIÓN DE PROVEEDORES",
+    "code": "GC-N.A"
+  },
+  {
+    "name": "GC-CORRESPONDENCIA",
+    "code": "GC-N.A"
+  },
+  {
+    "name": "GC-CIRCULAR",
+    "code": "GC-N.A"
+  },
+  {
+    "name": "PLAN DE MANTENIMIENTO",
+    "code": "F-SG-01"
+  },
+  {
+    "name": "PLAN CONTROL DE PLAGAS",
+    "code": "F-SG-02"
+  },
+  {
+    "name": "SOLICITUD DE MANTENIMIENTO CORRECTIVO",
+    "code": "F-SG-03"
+  },
+  {
+    "name": "PLANILLA DE ACTIVIDADES DE MANTENIMIENTO",
+    "code": "F-SG-04"
+  },
+  {
+    "name": "HOJA DE VIDA DE EQUIPOS",
+    "code": "F-SG-05"
+  },
+  {
+    "name": "CONTROL DE ASEO SEMANAL",
+    "code": "L-SG-01"
+  },
+  {
+    "name": "CONTROL DE MANTENIMIENTO DE LA PISCINA",
+    "code": "L-SG-02"
+  },
+  {
+    "name": "EVALUACIÓN DEL SERVICIO DE ASEO Y MANTENIMIENTO",
+    "code": "L-SG-03"
+  },
+  {
+    "name": "REPORTE DE INCIDENCIAS Y DAÓOS EN AULAS Y ZONAS COMUNAS",
+    "code": "L-SG-04"
+  },
+  {
+    "name": "SG-CORRESPONDENCIA",
+    "code": "SG-N.A"
+  },
+  {
+    "name": "SG-CIRCULAR",
+    "code": "SG-N.A"
+  },
+  {
+    "name": "MATRIZ DE SERVICIOS COMPLEMENTARIOS",
+    "code": "F-SC-01"
+  },
+  {
+    "name": "SOLICITUD DEL SERVICIO DE FOTOCOPIADO E IMPRESIÓN",
+    "code": "L-SC-01"
+  },
+  {
+    "name": "SC-CORRESPONDENCIA",
+    "code": "SC-N.A"
+  },
+  {
+    "name": "SC-CIRCULAR",
+    "code": "SC-N.A"
+  },
+  {
+    "name": "ELABORACIÓN, MODIFICACIÓN O ELIMINACIÓN DE DOCUMENTOS DEL SGC",
+    "code": "F-GQ-01"
+  },
+  {
+    "name": "LISTADO MAESTRO DE DOCUMENTOS",
+    "code": "F-GQ-03"
+  },
+  {
+    "name": "LISTADO MAESTRO DE REGISTROS",
+    "code": "F-GQ-04"
+  },
+  {
+    "name": "PLAN DE AUDITORÓA INTERNA",
+    "code": "F-GQ-05"
+  },
+  {
+    "name": "ACTA DE APERTURA Y CIERRE DE AUDITORÓA INTERNA",
+    "code": "F-GQ-06"
+  },
+  {
+    "name": "LISTA DE CHEQUEO",
+    "code": "F-GQ-07"
+  },
+  {
+    "name": "EVALUACIÓN DE GESTIÓN DE LA AUDITORÓA",
+    "code": "F-GQ-08"
+  },
+  {
+    "name": "INFORME DE AUDITORÓA INTERNA",
+    "code": "F-GQ-09"
+  },
+  {
+    "name": "CONTROL DEL SERVICIO NO CONFORME",
+    "code": "F-GQ-10"
+  },
+  {
+    "name": "IMPLEMENTACIÓN DE ACCIONES CORRECTIVAS, PREVENTIVAS O DE MEJORA",
+    "code": "F-GQ-11"
+  },
+  {
+    "name": "QUEJAS, SUGERENCIAS Y FELICITACIONES",
+    "code": "F-GQ-12"
+  },
+  {
+    "name": "SEGUIMIENTO Y CONTROL DE QUEJAS, SUGERENCIAS Y FELICITACIONES",
+    "code": "F-GQ-13"
+  },
+  {
+    "name": "COMPORTAMIENTO DE LOS INDICADORES DE GESTIÓN",
+    "code": "F-GQ-14"
+  },
+  {
+    "name": "ENCUESTA DE SATISFACCIÓN DE PADRES DE FAMILIA Y ESTUDIANTES",
+    "code": "F-GQ-15"
+  },
+  {
+    "name": "MATRIZ DE POSIBLES SERVICIOS NO CONFORMES",
+    "code": "F-GQ-16"
+  },
+  {
+    "name": "NFORME DE RESULTADOS DE ENCUESTAS DE SATISFACCIÓN",
+    "code": "GQ-N.A"
+  },
+  {
+    "name": "ACTA DE REUNIÓN DEL COMITÓ DE LA CALIDAD",
+    "code": "GQ-N.A"
+  },
+  {
+    "name": "GQ-CORRESPONDENCIA",
+    "code": "GQ-N.A"
+  },
+  {
+    "name": "GQ-CIRCULAR",
+    "code": "GQ-N.A"
+  },
+  {
+    "name": "RADICACIÓN Y DISTRIBUCIÓN DE CORRESPONDENCIA RECIBIDA",
+    "code": "F-GI-01"
+  },
+  {
+    "name": "RADICACIÓN DE CORRESPONDENCIA ENVIADA",
+    "code": "F-GI-02"
+  },
+  {
+    "name": "ENTRADA DE DOCUMENTOS AL ARCHIVO CENTRAL",
+    "code": "F-GI-04"
+  },
+  {
+    "name": "DEPURACIÓN DE ARCHIVO",
+    "code": "F-GI-05"
+  },
+  {
+    "name": "GI-CORRESPONDENCIA",
+    "code": "GI-N.A"
+  },
+  {
+    "name": "GI-CIRCULAR",
+    "code": "GI-N.A"
+  }
+  ]
+}

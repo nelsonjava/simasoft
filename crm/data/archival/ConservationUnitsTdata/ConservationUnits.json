@@ -1,0 +1,408 @@
+{
+  "ConservationUnits": [
+  {
+    "name": "CARPETA",
+    "code": "CARPETA"
+  },
+  {
+    "name": "CAJA No.101",
+    "code": "CAJA No.101"
+  },
+  {
+    "name": "CAJA No.102",
+    "code": "CAJA No.102"
+  },
+  {
+    "name": "CAJA No.103",
+    "code": "CAJA No.103"
+  },
+  {
+    "name": "CAJA No.104",
+    "code": "CAJA No.104"
+  },
+  {
+    "name": "CAJA No.105",
+    "code": "CAJA No.105"
+  },
+  {
+    "name": "CAJA No.106",
+    "code": "CAJA No.106"
+  },
+  {
+    "name": "CAJA No.107",
+    "code": "CAJA No.107"
+  },
+  {
+    "name": "CAJA No.108",
+    "code": "CAJA No.108"
+  },
+  {
+    "name": "CAJA No.109",
+    "code": "CAJA No.109"
+  },
+  {
+    "name": "CAJA No.110",
+    "code": "CAJA No.110"
+  },
+  {
+    "name": "CAJA No.111",
+    "code": "CAJA No.111"
+  },
+  {
+    "name": "CAJA No.112",
+    "code": "CAJA No.112"
+  },
+  {
+    "name": "CAJA No.113",
+    "code": "CAJA No.113"
+  },
+  {
+    "name": "CAJA No.114",
+    "code": "CAJA No.114"
+  },
+  {
+    "name": "CAJA No.115",
+    "code": "CAJA No.115"
+  },
+  {
+    "name": "CAJA No.116",
+    "code": "CAJA No.116"
+  },
+  {
+    "name": "CAJA No.117",
+    "code": "CAJA No.117"
+  },
+  {
+    "name": "CAJA No.118",
+    "code": "CAJA No.118"
+  },
+  {
+    "name": "CAJA No.119",
+    "code": "CAJA No.119"
+  },
+  {
+    "name": "CAJA No.120",
+    "code": "CAJA No.120"
+  },
+  {
+    "name": "CAJA No.121",
+    "code": "CAJA No.121"
+  },
+  {
+    "name": "CAJA No.122",
+    "code": "CAJA No.122"
+  },
+  {
+    "name": "CAJA No.123",
+    "code": "CAJA No.123"
+  },
+  {
+    "name": "CAJA No.124",
+    "code": "CAJA No.124"
+  },
+  {
+    "name": "CAJA No.125",
+    "code": "CAJA No.125"
+  },
+  {
+    "name": "CAJA No.126",
+    "code": "CAJA No.126"
+  },
+  {
+    "name": "CAJA No.127",
+    "code": "CAJA No.127"
+  },
+  {
+    "name": "CAJA No.128",
+    "code": "CAJA No.128"
+  },
+  {
+    "name": "CAJA No.129",
+    "code": "CAJA No.129"
+  },
+  {
+    "name": "CAJA No.130",
+    "code": "CAJA No.130"
+  },
+  {
+    "name": "CAJA No.131",
+    "code": "CAJA No.131"
+  },
+  {
+    "name": "CAJA No.132",
+    "code": "CAJA No.132"
+  },
+  {
+    "name": "CAJA No.133",
+    "code": "CAJA No.133"
+  },
+  {
+    "name": "CAJA No.134",
+    "code": "CAJA No.134"
+  },
+  {
+    "name": "CAJA No.135",
+    "code": "CAJA No.135"
+  },
+  {
+    "name": "CAJA No.136",
+    "code": "CAJA No.136"
+  },
+  {
+    "name": "CAJA No.137",
+    "code": "CAJA No.137"
+  },
+  {
+    "name": "CAJA No.138",
+    "code": "CAJA No.138"
+  },
+  {
+    "name": "CAJA No.139",
+    "code": "CAJA No.139"
+  },
+  {
+    "name": "CAJA No.140",
+    "code": "CAJA No.140"
+  },
+  {
+    "name": "CAJA No.141",
+    "code": "CAJA No.141"
+  },
+  {
+    "name": "CAJA No.142",
+    "code": "CAJA No.142"
+  },
+  {
+    "name": "CAJA No.143",
+    "code": "CAJA No.143"
+  },
+  {
+    "name": "CAJA No.144",
+    "code": "CAJA No.144"
+  },
+  {
+    "name": "CAJA No.145",
+    "code": "CAJA No.145"
+  },
+  {
+    "name": "CAJA No.146",
+    "code": "CAJA No.146"
+  },
+  {
+    "name": "CAJA No.147",
+    "code": "CAJA No.147"
+  },
+  {
+    "name": "CAJA No.148",
+    "code": "CAJA No.148"
+  },
+  {
+    "name": "CAJA No.149",
+    "code": "CAJA No.149"
+  },
+  {
+    "name": "CAJA No.150",
+    "code": "CAJA No.150"
+  },
+  {
+    "name": "CAJA No.201",
+    "code": "CAJA No.201"
+  },
+  {
+    "name": "CAJA No.202",
+    "code": "CAJA No.202"
+  },
+  {
+    "name": "CAJA No.203",
+    "code": "CAJA No.203"
+  },
+  {
+    "name": "CAJA No.204",
+    "code": "CAJA No.204"
+  },
+  {
+    "name": "CAJA No.205",
+    "code": "CAJA No.205"
+  },
+  {
+    "name": "CAJA No.206",
+    "code": "CAJA No.206"
+  },
+  {
+    "name": "CAJA No.207",
+    "code": "CAJA No.207"
+  },
+  {
+    "name": "CAJA No.208",
+    "code": "CAJA No.208"
+  },
+  {
+    "name": "CAJA No.209",
+    "code": "CAJA No.209"
+  },
+  {
+    "name": "CAJA No.210",
+    "code": "CAJA No.210"
+  },
+  {
+    "name": "CAJA No.211",
+    "code": "CAJA No.211"
+  },
+  {
+    "name": "CAJA No.212",
+    "code": "CAJA No.212"
+  },
+  {
+    "name": "CAJA No.213",
+    "code": "CAJA No.213"
+  },
+  {
+    "name": "CAJA No.214",
+    "code": "CAJA No.214"
+  },
+  {
+    "name": "CAJA No.215",
+    "code": "CAJA No.215"
+  },
+  {
+    "name": "CAJA No.216",
+    "code": "CAJA No.216"
+  },
+  {
+    "name": "CAJA No.217",
+    "code": "CAJA No.217"
+  },
+  {
+    "name": "CAJA No.218",
+    "code": "CAJA No.218"
+  },
+  {
+    "name": "CAJA No.219",
+    "code": "CAJA No.219"
+  },
+  {
+    "name": "CAJA No.220",
+    "code": "CAJA No.220"
+  },
+  {
+    "name": "CAJA No.221",
+    "code": "CAJA No.221"
+  },
+  {
+    "name": "CAJA No.222",
+    "code": "CAJA No.222"
+  },
+  {
+    "name": "CAJA No.223",
+    "code": "CAJA No.223"
+  },
+  {
+    "name": "CAJA No.224",
+    "code": "CAJA No.224"
+  },
+  {
+    "name": "CAJA No.225",
+    "code": "CAJA No.225"
+  },
+  {
+    "name": "CAJA No.226",
+    "code": "CAJA No.226"
+  },
+  {
+    "name": "CAJA No.227",
+    "code": "CAJA No.227"
+  },
+  {
+    "name": "CAJA No.228",
+    "code": "CAJA No.228"
+  },
+  {
+    "name": "CAJA No.229",
+    "code": "CAJA No.229"
+  },
+  {
+    "name": "CAJA No.230",
+    "code": "CAJA No.230"
+  },
+  {
+    "name": "CAJA No.231",
+    "code": "CAJA No.231"
+  },
+  {
+    "name": "CAJA No.232",
+    "code": "CAJA No.232"
+  },
+  {
+    "name": "CAJA No.233",
+    "code": "CAJA No.233"
+  },
+  {
+    "name": "CAJA No.234",
+    "code": "CAJA No.234"
+  },
+  {
+    "name": "CAJA No.235",
+    "code": "CAJA No.235"
+  },
+  {
+    "name": "CAJA No.236",
+    "code": "CAJA No.236"
+  },
+  {
+    "name": "CAJA No.237",
+    "code": "CAJA No.237"
+  },
+  {
+    "name": "CAJA No.238",
+    "code": "CAJA No.238"
+  },
+  {
+    "name": "CAJA No.239",
+    "code": "CAJA No.239"
+  },
+  {
+    "name": "CAJA No.240",
+    "code": "CAJA No.240"
+  },
+  {
+    "name": "CAJA No.241",
+    "code": "CAJA No.241"
+  },
+  {
+    "name": "CAJA No.242",
+    "code": "CAJA No.242"
+  },
+  {
+    "name": "CAJA No.243",
+    "code": "CAJA No.243"
+  },
+  {
+    "name": "CAJA No.244",
+    "code": "CAJA No.244"
+  },
+  {
+    "name": "CAJA No.245",
+    "code": "CAJA No.245"
+  },
+  {
+    "name": "CAJA No.246",
+    "code": "CAJA No.246"
+  },
+  {
+    "name": "CAJA No.247",
+    "code": "CAJA No.247"
+  },
+  {
+    "name": "CAJA No.248",
+    "code": "CAJA No.248"
+  },
+  {
+    "name": "CAJA No.249",
+    "code": "CAJA No.249"
+  },
+  {
+    "name": "CAJA No.250",
+    "code": "CAJA No.250"
+  }
+  ]
+}

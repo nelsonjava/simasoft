@@ -1,0 +1,16 @@
+{
+  "DocumentalsSupports": [
+  {
+    "name": "FISICO",
+    "code": "F"
+  },
+  {
+    "name": "DIGITAL",
+    "code": "D"
+  },
+  {
+    "name": "FISICO Y/DIGITAL",
+    "code": "FD"
+  }
+  ]
+}

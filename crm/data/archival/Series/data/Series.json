@@ -1,0 +1,673 @@
+{
+  "Series": [
+  {
+    "name": "ACTAS"
+  },
+  {
+    "name": "AUTORIZACIONES"
+  },
+  {
+    "name": "CARTAS"
+  },
+  {
+    "name": "CARTERAS"
+  },
+  {
+    "name": "CIRCULARES"
+  },
+  {
+    "name": "CITACIONES"
+  },
+  {
+    "name": "CLAUSULAS"
+  },
+  {
+    "name": "COMPARATIVOS"
+  },
+  {
+    "name": "COMPORTAMIENTOS"
+  },
+  {
+    "name": "COMPROBANTES"
+  },
+  {
+    "name": "CONCILIACIONES"
+  },
+  {
+    "name": "CONTENIDOS"
+  },
+  {
+    "name": "CONTRATOS"
+  },
+  {
+    "name": "CONVENIOS"
+  },
+  {
+    "name": "CORRESPONDENCIA"
+  },
+  {
+    "name": "CRONOGRAMAS"
+  },
+  {
+    "name": "DECLARACIONES"
+  },
+  {
+    "name": "DEPURACIONES"
+  },
+  {
+    "name": "DEVOLUCIONES"
+  },
+  {
+    "name": "DOCUMENTOS"
+  },
+  {
+    "name": "EJECUCIONES"
+  },
+  {
+    "name": "ENCUESTAS"
+  },
+  {
+    "name": "ENTRADAS"
+  },
+  {
+    "name": "EVALUACIONES"
+  },
+  {
+    "name": "FORMATOS"
+  },
+  {
+    "name": "FORMULARIOS"
+  },
+  {
+    "name": "GUÍAS"
+  },
+  {
+    "name": "HISTORIAS"
+  },
+  {
+    "name": "HOJAS"
+  },
+  {
+    "name": "HOJAS DE VIDA"
+  },
+  {
+    "name": "HORARIOS"
+  },
+  {
+    "name": "IMPLEMENTACIONES"
+  },
+  {
+    "name": "INFORMES"
+  },
+  {
+    "name": "INSCRIPCIONES"
+  },
+  {
+    "name": "KÁRDEXS"
+  },
+  {
+    "name": "LIBROS"
+  },
+  {
+    "name": "LIQUIDACIONES"
+  },
+  {
+    "name": "LISTADOS"
+  },
+  {
+    "name": "LISTAS"
+  },
+  {
+    "name": "MATRICES"
+  },
+  {
+    "name": "NÓMINAS"
+  },
+  {
+    "name": "OBSERVADORES"
+  },
+  {
+    "name": "ORDENES"
+  },
+  {
+    "name": "PAZ Y SALVOS"
+  },
+  {
+    "name": "PLANES"
+  },
+  {
+    "name": "PLANILLAS"
+  },
+  {
+    "name": "PROTOCOLIZACIONES"
+  },
+  {
+    "name": "PROYECTOS"
+  },
+  {
+    "name": "QUEJAS"
+  },
+  {
+    "name": "RADICACIONES"
+  },
+  {
+    "name": "REEVALUACIONES"
+  },
+  {
+    "name": "REGISTROS"
+  },
+  {
+    "name": "RELACIONES"
+  },
+  {
+    "name": "REMISIONES"
+  },
+  {
+    "name": "REPORTES"
+  },
+  {
+    "name": "REQUISICIONES"
+  },
+  {
+    "name": "RESOLUCIÓNES"
+  },
+  {
+    "name": "RESUMENES"
+  },
+  {
+    "name": "RETIROS"
+  },
+  {
+    "name": "SEGUIMIENTOS"
+  },
+  {
+    "name": "SOLICITUDES"
+  },
+  {
+    "name": "SOPORTES"
+  },
+  {
+    "name": "INFORMES DE RESULTADO DE REVISIÓN POR LA DIRECCIÓN"
+  },
+  {
+    "name": "INFORMES VISITA HERMANO PROVINCIAL"
+  },
+  {
+    "name": "MATRICES DE INDICADORES DEL SISTEMA DE GESTIÓN DE LA CALIDAD"
+  },
+  {
+    "name": "PLANES OPERATIVOS ANUALES"
+  },
+  {
+    "name": "INFORMES DE GESTIÓN O DESEMEPEÑO DE PROCESO"
+  },
+  {
+    "name": "ACTAS DE CONSEJO DIRECTIVO"
+  },
+  {
+    "name": "RESOLUCIÓNES DE RECTORÍA"
+  },
+  {
+    "name": "CRONOGRAMAS DISTRITALES"
+  },
+  {
+    "name": "CRONOGRAMAS INSTITUCIONALES"
+  },
+  {
+    "name": "EVALUACIONES INSTITUCIONALES"
+  },
+  {
+    "name": "GUIAS DE AUTOEVALUACIÓN"
+  },
+  {
+    "name": "GUIAS PARA LA ENTREGA DE UNA OBRA LASALLISTA"
+  },
+  {
+    "name": "CARTAS DE NOMBRAMIENTO DE RECTOR"
+  },
+  {
+    "name": "CONVENIOS INTERINSTITUCIONALES"
+  },
+  {
+    "name": "ACTAS DEL CONSEJO DE COORDINACIÓN"
+  },
+  {
+    "name": "GD-CIRCULAR DE RECTORÍA"
+  },
+  {
+    "name": "GD-CORRESPONDENCIA"
+  },
+  {
+    "name": "FORMULARIOS DE INSCRIPCIÓN"
+  },
+  {
+    "name": "REGISTROS DE RESULTADOS DE ADMISIÓN"
+  },
+  {
+    "name": "HOJAS DE MATRÍCULA"
+  },
+  {
+    "name": "DEVOLUCIONES DE DOCUMENTOS"
+  },
+  {
+    "name": "AUTORIZACIONES RETIRO DE ESTUDIANTES"
+  },
+  {
+    "name": "LISTAS DE CHEQUEO PARA RECEPCIÓN DE DOCUMENTOS PARA LA MATRICULA"
+  },
+  {
+    "name": "CONTRATOS DE PRESTACIÓN DEL SERVICIO EDUCATIVO"
+  },
+  {
+    "name": "LISTADOS DE ESTUDIANTES MATRICULADOS"
+  },
+  {
+    "name": "LISTADOS DE ASPIRANTES ADMITIDOS"
+  },
+  {
+    "name": "LISTADOS DE ASPIRANTES INSCRITOS"
+  },
+  {
+    "name": "PAZ Y SALVO ESTUDIANTES"
+  },
+  {
+    "name": "LIBROS DE ACTAS DE GRADO"
+  },
+  {
+    "name": "AM-CORRESPONDENCIA"
+  },
+  {
+    "name": "AM-CIRCULAR"
+  },
+  {
+    "name": "HORARIOS DE CLASES"
+  },
+  {
+    "name": "REGISTROS DE VALIDACIÓN DE LA PRESTACIÓN DEL SERVICIO EDUCATIVO"
+  },
+  {
+    "name": "CONTROLES DE ACTIVIDADES DE SUPERACIÓN O RECUPERACIÓN"
+  },
+  {
+    "name": "OBSERVADORES DEL ESTUDIANTE"
+  },
+  {
+    "name": "PLANES DE CURSO"
+  },
+  {
+    "name": "CONTROLES DE ATENCIÓN PARA ORIENTACIÓN"
+  },
+  {
+    "name": "AUTORIZACIONES PARA ESTUDIANTES"
+  },
+  {
+    "name": "CITACIONES A PADRES DE FAMILIA"
+  },
+  {
+    "name": "REMISIONES DE ESTUDIANTES A ORIENTACIÓN"
+  },
+  {
+    "name": "HISTORIAS Y SEGUIMIENTO PSICOLOGÍA"
+  },
+  {
+    "name": "AUTOS REGISTRO DE RETARDOS"
+  },
+  {
+    "name": "CONTENIDOS PROGRAMÁTICOS"
+  },
+  {
+    "name": "CONTROLES DE CITACIONES A PADRES DE FAMILIA"
+  },
+  {
+    "name": "PLANES DE ASIGNATURA"
+  },
+  {
+    "name": "REGISTROS DE NORMALIZACIÓN"
+  },
+  {
+    "name": "ACTAS DE COMPROMISO ACADÉMICO"
+  },
+  {
+    "name": "ACTAS DE COMPROMISO COMPORTAMENTAL"
+  },
+  {
+    "name": "CLAUSULAS ESPECIALES DE MATRICULA"
+  },
+  {
+    "name": "CONTROLES DE ASISTENCIA A ACTIVIDADES DE APOYO"
+  },
+  {
+    "name": "EVALUACIONES DE ACTIVIDADES DE APOYO"
+  },
+  {
+    "name": "INFORMES PERIODICOS DE PSICOLOGÍA A COORDINACIÓN"
+  },
+  {
+    "name": "PLANILLAS DE SEGUIMIENTO- NIVEL PREESCOLAR"
+  },
+  {
+    "name": "PLANES DE ÁREA"
+  },
+  {
+    "name": "PROYECTOS PEDAGÓGICO"
+  },
+  {
+    "name": "REGISTROS DE ATENCIÓN A PADRES DE FAMILIA O ACUDIENTES"
+  },
+  {
+    "name": "ACTAS DE COMISIÓN DE EVALUACIÓN Y PROMOCIÓN"
+  },
+  {
+    "name": "ACTAS DE CONSEJO ACADÉMICO"
+  },
+  {
+    "name": "ACTAS DE REUNIÓN DE DEPARTAMENTO O ÁREA"
+  },
+  {
+    "name": "PLANILLAS DE CALIFICACIONES / CONTROL DE ASISTENCIA"
+  },
+  {
+    "name": "INFORMES O RESULTADOS DE PRUEBAS EXTERNAS"
+  },
+  {
+    "name": "INFORMES DE COMISIONES DE EVALUACIÓN Y PROMOCIÓN"
+  },
+  {
+    "name": "LIBROS DE CALIFICACIONES FINALES"
+  },
+  {
+    "name": "GE-CORRESPONDENCIA"
+  },
+  {
+    "name": "GE-CIRCULAR"
+  },
+  {
+    "name": "SOLICITUDES DE PERSONAL"
+  },
+  {
+    "name": "FORMATOS DE ENTREVISTA"
+  },
+  {
+    "name": "HOJAS DE VIDA INSTITUCIONAL"
+  },
+  {
+    "name": "CONTRATOS LABORALES"
+  },
+  {
+    "name": "REGISTROS DE INDUCCIÓN"
+  },
+  {
+    "name": "INGRESOS DE PERSONAL"
+  },
+  {
+    "name": "EVALUACIONES DE DESEMPEÑO"
+  },
+  {
+    "name": "REGISTROS DE NOVEDADES"
+  },
+  {
+    "name": "ENCUESTAS DE CLIMA ORGANIZACIONAL"
+  },
+  {
+    "name": "DECLARACIONES DE COMPETENCIA"
+  },
+  {
+    "name": "PLANES DE FORMACIÓN"
+  },
+  {
+    "name": "SOLICITUDES DE CAPACITACIÓN"
+  },
+  {
+    "name": "PLANES DE BIENESTAR"
+  },
+  {
+    "name": "RETIROS DE PERSONAL"
+  },
+  {
+    "name": "SOLICITUDES DE PERMISOS"
+  },
+  {
+    "name": "SEGUIMIENTOS Y ASISTENCIA A CAPACITACIÓN"
+  },
+  {
+    "name": "NOMINAS MENSUALES"
+  },
+  {
+    "name": "ACTAS DE DESCARGOS"
+  },
+  {
+    "name": "EVALUACIONES DE LA ATENCIÓN A PADRES DE FAMILIA O ACUDIENTES"
+  },
+  {
+    "name": "PAZ Y SALVOS GENERALES"
+  },
+  {
+    "name": "EVALUACIONES DE DOCENTES (PREESCOLAR Y PRIMERO)"
+  },
+  {
+    "name": "PROTOCOLIZACIONES DEL PERSONAL DOCENTE"
+  },
+  {
+    "name": "ACTAS DE REUNIÓN DE COPASST"
+  },
+  {
+    "name": "ACTAS DE COMITÉ DE CONVIVENCIA LABORAL"
+  },
+  {
+    "name": "DOCUMENTOS DEL SISTEMA DE GESTIÓN DE LA SEGURIDAD Y SALUD EN EL TRABAJO"
+  },
+  {
+    "name": "PLANES DE EMERGENCIAS"
+  },
+  {
+    "name": "PLANES DE MEJORAMIENTO ENCUESTA DE CLIMA ORGANIZACIONAL"
+  },
+  {
+    "name": "LIQUIDACIONES DE PERSONAL"
+  },
+  {
+    "name": "GT-CORRESPONDENCIA"
+  },
+  {
+    "name": "GT-CIRCULAR"
+  },
+  {
+    "name": "EJECUCIONES PRESUPUESTALES"
+  },
+  {
+    "name": "REQUISICIONES GF"
+  },
+  {
+    "name": "CARTERAS ACTUALIZADAS DE LOS COLEGIOS"
+  },
+  {
+    "name": "CONCILIACIONES  CUENTA DE MOROSOS"
+  },
+  {
+    "name": "RESUMENES DE CARTERA MOROSA"
+  },
+  {
+    "name": "PLANILLAS DIARIAS DE VENTAS EN CAFETERIA"
+  },
+  {
+    "name": "INFORMES MENSUALES DE VENTAS EN CAFETERIA"
+  },
+  {
+    "name": "COMPROBANTES DE EGRESO"
+  },
+  {
+    "name": "SOPORTES COMPROBANTES DE EGRESO"
+  },
+  {
+    "name": "GF-CORRESPONDENCIA"
+  },
+  {
+    "name": "GF-CIRCULAR"
+  },
+  {
+    "name": "SOLICITUDES Y ENTREGAS DE SUMINISTROS"
+  },
+  {
+    "name": "COMPARATIVOS DE OFERTAS"
+  },
+  {
+    "name": "ORDENES DE COMPRA"
+  },
+  {
+    "name": "DEVOLUCIONES DE ARTÍCULOS"
+  },
+  {
+    "name": "RELACIONES DE FACTURAS POR PAGAR"
+  },
+  {
+    "name": "INSCRIPCIONES DE PROVEEDORES"
+  },
+  {
+    "name": "EVALUACIONES Y SELECCIÓN DE PROVEEDORES"
+  },
+  {
+    "name": "LISTADOS DE PROVEEDORES"
+  },
+  {
+    "name": "REEVALUACIONES DE PROVEEDORES"
+  },
+  {
+    "name": "SOLICITUDES DE COMPRAS"
+  },
+  {
+    "name": "KÁRDEX DE ALMACÉN"
+  },
+  {
+    "name": "LISTADOS DE INVENTARIOS DE ACTIVOS Y RELACIÓN DE NOVEDADES"
+  },
+  {
+    "name": "EVALUACIONES DEL SERVICIO DE COMPRAS Y SUMINISTROS"
+  },
+  {
+    "name": "REGISTROS DE SOPORTES DE INSCRIPCIÓN Y EVALUACIÓN DE PROVEEDORES"
+  },
+  {
+    "name": "GC-CORRESPONDENCIA"
+  },
+  {
+    "name": "GC-CIRCULAR"
+  },
+  {
+    "name": "PLANES DE MANTENIMIENTOS"
+  },
+  {
+    "name": "PLANES DE CONTROL DE PLAGAS"
+  },
+  {
+    "name": "SOLICITUDES DE MANTENIMIENTOS CORRECTIVOS"
+  },
+  {
+    "name": "PLANILLAS DE ACTIVIDADES DE MANTENIMIENTO"
+  },
+  {
+    "name": "HOJAS DE VIDA DE EQUIPOS"
+  },
+  {
+    "name": "CONTROLES DE ASEO SEMANAL"
+  },
+  {
+    "name": "CONTROLES DE MANTENIMIENTO DE LA PISCINA"
+  },
+  {
+    "name": "EVALUACIONES DEL SERVICIO DE ASEO Y MANTENIMIENTO"
+  },
+  {
+    "name": "REPORTES DE INCIDENCIAS Y DAÑOS EN AULAS Y ZONAS COMUNAS"
+  },
+  {
+    "name": "SG-CORRESPONDENCIA"
+  },
+  {
+    "name": "SG-CIRCULAR"
+  },
+  {
+    "name": "MATRICES DE SERVICIOS COMPLEMENTARIOS"
+  },
+  {
+    "name": "SOLICITUDES DE SERVICIOS DE FOTOCOPIADO E IMPRESIÓN"
+  },
+  {
+    "name": "SC-CORRESPONDENCIA"
+  },
+  {
+    "name": "SC-CIRCULAR"
+  },
+  {
+    "name": "ELABORACIÓN"
+  },
+  {
+    "name": "LISTADOS MAESTRO DE DOCUMENTOS"
+  },
+  {
+    "name": "LISTADOS MAESTRO DE REGISTROS"
+  },
+  {
+    "name": "PLANES DE AUDITORÍA INTERNA"
+  },
+  {
+    "name": "ACTAS DE APERTURA Y CIERRE DE AUDITORÍA INTERNA"
+  },
+  {
+    "name": "LISTAS DE CHEQUEO"
+  },
+  {
+    "name": "EVALUACIONES DE GESTIÓN DE LA AUDITORÍA"
+  },
+  {
+    "name": "INFORMES DE AUDITORÍA INTERNA"
+  },
+  {
+    "name": "CONTROLES DEL SERVICIO NO CONFORME"
+  },
+  {
+    "name": "IMPLEMENTACIONES DE ACCIONES CORRECTIVAS"
+  },
+  {
+    "name": "SEGUIMIENTOS Y CONTROLES DE QUEJAS"
+  },
+  {
+    "name": "COMPORTAMIENTOS DE LOS INDICADORES DE GESTIÓN"
+  },
+  {
+    "name": "ENCUESTAS DE SATISFACCIÓN DE PADRES DE FAMILIA Y ESTUDIANTES"
+  },
+  {
+    "name": "MATRICES DE POSIBLES SERVICIOS NO CONFORMES"
+  },
+  {
+    "name": "INFORMES DE RESULTADOS DE ENCUESTAS DE SATISFACCIÓN"
+  },
+  {
+    "name": "ACTAS DE REUNIONES DEL COMITÉ DE LA CALIDAD"
+  },
+  {
+    "name": "GQ-CORRESPONDENCIA"
+  },
+  {
+    "name": "GQ-CIRCULAR"
+  },
+  {
+    "name": "RADICACIONES Y DISTRIBUCIÓN DE CORRESPONDENCIA RECIBIDA"
+  },
+  {
+    "name": "RADICACIONES DE CORRESPONDENCIA ENVIADA"
+  },
+  {
+    "name": "ENTRADAS DE DOCUMENTOS AL ARCHIVO CENTRAL"
+  },
+  {
+    "name": "DEPURACIONES DE ARCHIVO"
+  },
+  {
+    "name": "GI-CORRESPONDENCIA"
+  },
+  {
+    "name": "GI-CIRCULAR"
+  }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "Sections": [
+  {
+    "name": "GD - GESTIÓN DIRECTIVA",
+    "code": "GD",
+    "dir": ""
+  },
+  {
+    "name": "AM - ADMISIONES Y MATRICULAS",
+    "code": "AM",
+    "dir": ""
+  },
+  {
+    "name": "GE - GESTIÓN EDUCATIVA",
+    "code": "GE",
+    "dir": ""
+  },
+  {
+    "name": "GT - GESTIÓN DEL TALENTO HUMANO",
+    "code": "GT",
+    "dir": ""
+  },
+  {
+    "name": "GF - GESTIÓN FINANCIERA",
+    "code": "GF",
+    "dir": ""
+  },
+  {
+    "name": "GC - GESTIÓN DE COMPRAS",
+    "code": "GC",
+    "dir": ""
+  },
+  {
+    "name": "SG - SERVICIOS GENERALES",
+    "code": "SG",
+    "dir": ""
+  },
+  {
+    "name": "SC - SERVICIOS COMPLEMENTARIOS",
+    "code": "SC",
+    "dir": ""
+  },
+  {
+    "name": "GQ - GESTIÓN DE LA CALIDAD",
+    "code": "GQ",
+    "dir": ""
+  },
+  {
+    "name": "GI - GESTIÓN DE LA INFORMACIÓN",
+    "code": "GI",
+    "dir": ""
+  }
+  ]
+}

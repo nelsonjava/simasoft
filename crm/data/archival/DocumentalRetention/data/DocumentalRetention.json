@@ -1,0 +1,76 @@
+{
+  "DocumentalRetention": [
+  {
+    "name": "N.A"
+  },
+  {
+    "name": "AÑO ACTUAL"
+  },
+  {
+    "name": "AÑO LECTIVO"
+  },
+  {
+    "name": "1 AÑO"
+  },
+  {
+    "name": "2 AÑOS"
+  },
+  {
+    "name": "3 AÑOS"
+  },
+  {
+    "name": "5 AÑOS"
+  },
+  {
+    "name": "10 AÑOS"
+  },
+  {
+    "name": "100 AÑOS"
+  },
+  {
+    "name": "CONSERVACIÑN TOTAL"
+  },
+  {
+    "name": "INDEFINIDO"
+  },
+  {
+    "name": "PERMANENCIA DEL ALUMNO"
+  },
+  {
+    "name": "PERMANENCIA DEL EMPLEADO"
+  },
+  {
+    "name": "PERMANENCIA DEL ESTUDIANTE"
+  },
+  {
+    "name": "PERMANENCIA DEL ESTUDIANTE Y PAZ Y SALVO"
+  },
+  {
+    "name": "PERMANENCIA DEL RECTOR"
+  },
+  {
+    "name": "PERMANENTE"
+  },
+  {
+    "name": "VIDA ÚTIL DEL EQUIPO"
+  },
+  {
+    "name": "VIGENCIA DE LA CLÑUSULA"
+  },
+  {
+    "name": "VIGENCIA DE LA MATRIZ"
+  },
+  {
+    "name": "VIGENCIA DEL ACTA"
+  },
+  {
+    "name": "VIGENCIA DEL CONVENIO"
+  },
+  {
+    "name": "VIGENCIA DEL LISTADO"
+  },
+  {
+    "name": "VIGENCIA DEL PROVEEDOR"
+  }
+  ]
+}
