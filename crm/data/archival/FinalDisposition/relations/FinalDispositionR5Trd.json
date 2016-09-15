@@ -1,0 +1,346 @@
+{
+  "RelationshipsData": [
+  {
+    "From": "FinalDisposition",
+    "FromProperty": "name",
+    "FromValue": "ELIMINAR",
+    "To": "Trd",
+    "ToProperty": "name",
+    "ToValue": "GESTION=1 Y CENTRAL=2",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "FinalDisposition",
+    "FromProperty": "name",
+    "FromValue": "ELIMINAR",
+    "To": "Trd",
+    "ToProperty": "name",
+    "ToValue": "GESTION=VIGENCIA DEL CONVENIO Y CENTRAL=2",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "FinalDisposition",
+    "FromProperty": "name",
+    "FromValue": "ELIMINAR",
+    "To": "Trd",
+    "ToProperty": "name",
+    "ToValue": "GESTION=ANO ACTUAL Y CENTRAL=2",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "FinalDisposition",
+    "FromProperty": "name",
+    "FromValue": "ELIMINAR",
+    "To": "Trd",
+    "ToProperty": "name",
+    "ToValue": "GESTION=VIDA UTIL DEL EQUIPO Y CENTRAL=2",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "FinalDisposition",
+    "FromProperty": "name",
+    "FromValue": "ELIMINAR",
+    "To": "Trd",
+    "ToProperty": "name",
+    "ToValue": "GESTION=ANO ACTUAL Y CENTRAL=3",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "FinalDisposition",
+    "FromProperty": "name",
+    "FromValue": "ELIMINAR",
+    "To": "Trd",
+    "ToProperty": "name",
+    "ToValue": "GESTION=ANO LECTIVO Y CENTRAL=5",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "FinalDisposition",
+    "FromProperty": "name",
+    "FromValue": "ELIMINAR",
+    "To": "Trd",
+    "ToProperty": "name",
+    "ToValue": "GESTION=1 Y CENTRAL=5",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "FinalDisposition",
+    "FromProperty": "name",
+    "FromValue": "ELIMINAR",
+    "To": "Trd",
+    "ToProperty": "name",
+    "ToValue": "GESTION=2 Y CENTRAL=5",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "FinalDisposition",
+    "FromProperty": "name",
+    "FromValue": "ELIMINAR",
+    "To": "Trd",
+    "ToProperty": "name",
+    "ToValue": "GESTION=PERMANENCIA DEL RECTOR Y CENTRAL=5",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "FinalDisposition",
+    "FromProperty": "name",
+    "FromValue": "ELIMINAR",
+    "To": "Trd",
+    "ToProperty": "name",
+    "ToValue": "GESTION=ANO ACTUAL Y CENTRAL=5",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "FinalDisposition",
+    "FromProperty": "name",
+    "FromValue": "ELIMINAR",
+    "To": "Trd",
+    "ToProperty": "name",
+    "ToValue": "GESTION=PERMANENCIA DEL ALUMNO Y CENTRAL=5",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "FinalDisposition",
+    "FromProperty": "name",
+    "FromValue": "ELIMINAR",
+    "To": "Trd",
+    "ToProperty": "name",
+    "ToValue": "GESTION=PERMANENCIA DEL EMPLEADO Y CENTRAL=5",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "FinalDisposition",
+    "FromProperty": "name",
+    "FromValue": "ELIMINAR",
+    "To": "Trd",
+    "ToProperty": "name",
+    "ToValue": "GESTION=2 Y CENTRAL=20",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "FinalDisposition",
+    "FromProperty": "name",
+    "FromValue": "ELIMINAR",
+    "To": "Trd",
+    "ToProperty": "name",
+    "ToValue": "GESTION=ANO ACTUAL Y CENTRAL=15",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "FinalDisposition",
+    "FromProperty": "name",
+    "FromValue": "ELIMINAR",
+    "To": "Trd",
+    "ToProperty": "name",
+    "ToValue": "GESTION=ANO LECTIVO Y CENTRAL=100",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "FinalDisposition",
+    "FromProperty": "name",
+    "FromValue": "ELIMINAR",
+    "To": "Trd",
+    "ToProperty": "name",
+    "ToValue": "GESTION=2 Y CENTRAL=100",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "FinalDisposition",
+    "FromProperty": "name",
+    "FromValue": "ELIMINAR",
+    "To": "Trd",
+    "ToProperty": "name",
+    "ToValue": "GESTION=PERMANENCIA DEL EMPLEADO Y CENTRAL=100",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "FinalDisposition",
+    "FromProperty": "name",
+    "FromValue": "ELIMINAR",
+    "To": "Trd",
+    "ToProperty": "name",
+    "ToValue": "GESTION=N.A Y CENTRAL=100",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "FinalDisposition",
+    "FromProperty": "name",
+    "FromValue": "ELIMINAR",
+    "To": "Trd",
+    "ToProperty": "name",
+    "ToValue": "GESTION=1 Y CENTRAL=INDEFINIDO",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "FinalDisposition",
+    "FromProperty": "name",
+    "FromValue": "ELIMINAR",
+    "To": "Trd",
+    "ToProperty": "name",
+    "ToValue": "GESTION=2 Y CENTRAL=INDEFINIDO",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "FinalDisposition",
+    "FromProperty": "name",
+    "FromValue": "ELIMINAR",
+    "To": "Trd",
+    "ToProperty": "name",
+    "ToValue": "ANO ACTUAL Y CENTRAL=INDEFINIDO",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "FinalDisposition",
+    "FromProperty": "name",
+    "FromValue": "ELIMINAR",
+    "To": "Trd",
+    "ToProperty": "name",
+    "ToValue": "GESTION=ANO ACTUAL Y CENTRAL=CONSERVACION TOTAL",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "FinalDisposition",
+    "FromProperty": "name",
+    "FromValue": "ELIMINAR",
+    "To": "Trd",
+    "ToProperty": "name",
+    "ToValue": "GESTION=PERMANENCIA DEL ESTUDIANTE Y CENTRAL=N.A",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "FinalDisposition",
+    "FromProperty": "name",
+    "FromValue": "ELIMINAR",
+    "To": "Trd",
+    "ToProperty": "name",
+    "ToValue": "GESTION=ANO LECTIVO Y CENTRAL=N.A",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "FinalDisposition",
+    "FromProperty": "name",
+    "FromValue": "ELIMINAR",
+    "To": "Trd",
+    "ToProperty": "name",
+    "ToValue": "GESTION=PERMANENCIA DEL ESTUDIANTE Y PAZ Y SALVO Y CENTRAL=N.A",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "FinalDisposition",
+    "FromProperty": "name",
+    "FromValue": "ELIMINAR",
+    "To": "Trd",
+    "ToProperty": "name",
+    "ToValue": "GESTION=CONSERVACI?N TOTAL Y CENTRAL=N.A",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "FinalDisposition",
+    "FromProperty": "name",
+    "FromValue": "ELIMINAR",
+    "To": "Trd",
+    "ToProperty": "name",
+    "ToValue": "GESTION=2 Y CENTRAL=N.A",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "FinalDisposition",
+    "FromProperty": "name",
+    "FromValue": "ELIMINAR",
+    "To": "Trd",
+    "ToProperty": "name",
+    "ToValue": "GESTION=VIGENCIA DEL PROVEEDOR Y CENTRAL=N.A",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "FinalDisposition",
+    "FromProperty": "name",
+    "FromValue": "ELIMINAR",
+    "To": "Trd",
+    "ToProperty": "name",
+    "ToValue": "GESTION=PERMANENTE Y CENTRAL=N.A",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "FinalDisposition",
+    "FromProperty": "name",
+    "FromValue": "ELIMINAR",
+    "To": "Trd",
+    "ToProperty": "name",
+    "ToValue": "GESTION=1 Y CENTRAL=N.A",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "FinalDisposition",
+    "FromProperty": "name",
+    "FromValue": "ELIMINAR",
+    "To": "Trd",
+    "ToProperty": "name",
+    "ToValue": "GESTION=VIGENCIA DE LA MATRIZ Y CENTRAL=N.A",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "FinalDisposition",
+    "FromProperty": "name",
+    "FromValue": "ELIMINAR",
+    "To": "Trd",
+    "ToProperty": "name",
+    "ToValue": "GESTION=ANO ACTUAL Y CENTRAL=N.A",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "FinalDisposition",
+    "FromProperty": "name",
+    "FromValue": "ELIMINAR",
+    "To": "Trd",
+    "ToProperty": "name",
+    "ToValue": "GESTION=VIGENCIA DEL ACTA Y CENTRAL=N.A",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "FinalDisposition",
+    "FromProperty": "name",
+    "FromValue": "ELIMINAR",
+    "To": "Trd",
+    "ToProperty": "name",
+    "ToValue": "GESTION=VIGENCIA DE LA CL?USULA Y CENTRAL=N.A",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "FinalDisposition",
+    "FromProperty": "name",
+    "FromValue": "ELIMINAR",
+    "To": "Trd",
+    "ToProperty": "name",
+    "ToValue": "GESTION=5 Y CENTRAL=N.A",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "FinalDisposition",
+    "FromProperty": "name",
+    "FromValue": "ELIMINAR",
+    "To": "Trd",
+    "ToProperty": "name",
+    "ToValue": "GESTION=10 Y CENTRAL=N.A",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "FinalDisposition",
+    "FromProperty": "name",
+    "FromValue": "ELIMINAR",
+    "To": "Trd",
+    "ToProperty": "name",
+    "ToValue": "GESTION=VIGENCIA DEL LISTADO Y CENTRAL=N.A",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "FinalDisposition",
+    "FromProperty": "name",
+    "FromValue": "ELIMINAR",
+    "To": "Trd",
+    "ToProperty": "name",
+    "ToValue": "GESTION=PERMANENCIA DEL EMPLEADO Y CENTRAL=N.A",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  }
+  ]
+}

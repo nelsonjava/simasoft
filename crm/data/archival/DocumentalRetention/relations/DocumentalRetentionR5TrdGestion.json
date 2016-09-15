@@ -1,0 +1,384 @@
+{
+  "RelationshipsData": [
+  {
+    "From": "DocumentalRetention",
+    "FromProperty": "name",
+    "FromValue": "1 ANO",
+    "To": "Trd",
+    "ToProperty": "name",
+    "ToValue": "GESTION=1 Y CENTRAL=2",
+    "Name": "gestion",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "DocumentalRetention",
+    "FromProperty": "name",
+    "FromValue": "VIGENCIA DEL CONVENIO",
+    "To": "Trd",
+    "ToProperty": "name",
+    "ToValue": "GESTION=VIGENCIA DEL CONVENIO Y CENTRAL=2",
+    "Name": "gestion",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "DocumentalRetention",
+    "FromProperty": "name",
+    "FromValue": "ANO ACTUAL",
+    "To": "Trd",
+    "ToProperty": "name",
+    "ToValue": "GESTION=ANO ACTUAL Y CENTRAL=2",
+    "Name": "gestion",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "DocumentalRetention",
+    "FromProperty": "name",
+    "FromValue": "VIDA UTIL DEL EQUIPO",
+    "To": "Trd",
+    "ToProperty": "name",
+    "ToValue": "GESTION=VIDA UTIL DEL EQUIPO Y CENTRAL=2",
+    "Name": "gestion",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "DocumentalRetention",
+    "FromProperty": "name",
+    "FromValue": "ANO ACTUAL",
+    "To": "Trd",
+    "ToProperty": "name",
+    "ToValue": "GESTION=ANO ACTUAL Y CENTRAL=3",
+    "Name": "gestion",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "DocumentalRetention",
+    "FromProperty": "name",
+    "FromValue": "ANO LECTIVO",
+    "To": "Trd",
+    "ToProperty": "name",
+    "ToValue": "GESTION=ANO LECTIVO Y CENTRAL=5",
+    "Name": "gestion",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "DocumentalRetention",
+    "FromProperty": "name",
+    "FromValue": "1 ANO",
+    "To": "Trd",
+    "ToProperty": "name",
+    "ToValue": "GESTION=1 Y CENTRAL=5",
+    "Name": "gestion",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "DocumentalRetention",
+    "FromProperty": "name",
+    "FromValue": "2 ANOS",
+    "To": "Trd",
+    "ToProperty": "name",
+    "ToValue": "GESTION=2 Y CENTRAL=5",
+    "Name": "gestion",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "DocumentalRetention",
+    "FromProperty": "name",
+    "FromValue": "PERMANENCIA DEL RECTOR",
+    "To": "Trd",
+    "ToProperty": "name",
+    "ToValue": "GESTION=PERMANENCIA DEL RECTOR Y CENTRAL=5",
+    "Name": "gestion",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "DocumentalRetention",
+    "FromProperty": "name",
+    "FromValue": "ANO ACTUAL",
+    "To": "Trd",
+    "ToProperty": "name",
+    "ToValue": "GESTION=ANO ACTUAL Y CENTRAL=5",
+    "Name": "gestion",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "DocumentalRetention",
+    "FromProperty": "name",
+    "FromValue": "PERMANENCIA DEL ALUMNO",
+    "To": "Trd",
+    "ToProperty": "name",
+    "ToValue": "GESTION=PERMANENCIA DEL ALUMNO Y CENTRAL=5",
+    "Name": "gestion",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "DocumentalRetention",
+    "FromProperty": "name",
+    "FromValue": "PERMANENCIA DEL EMPLEADO",
+    "To": "Trd",
+    "ToProperty": "name",
+    "ToValue": "GESTION=PERMANENCIA DEL EMPLEADO Y CENTRAL=5",
+    "Name": "gestion",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "DocumentalRetention",
+    "FromProperty": "name",
+    "FromValue": "2 ANOS",
+    "To": "Trd",
+    "ToProperty": "name",
+    "ToValue": "GESTION=2 Y CENTRAL=20",
+    "Name": "gestion",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "DocumentalRetention",
+    "FromProperty": "name",
+    "FromValue": "ANO ACTUAL",
+    "To": "Trd",
+    "ToProperty": "name",
+    "ToValue": "GESTION=ANO ACTUAL Y CENTRAL=15",
+    "Name": "gestion",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "DocumentalRetention",
+    "FromProperty": "name",
+    "FromValue": "ANO LECTIVO",
+    "To": "Trd",
+    "ToProperty": "name",
+    "ToValue": "GESTION=ANO LECTIVO Y CENTRAL=100",
+    "Name": "gestion",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "DocumentalRetention",
+    "FromProperty": "name",
+    "FromValue": "2 ANOS",
+    "To": "Trd",
+    "ToProperty": "name",
+    "ToValue": "GESTION=2 Y CENTRAL=100",
+    "Name": "gestion",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "DocumentalRetention",
+    "FromProperty": "name",
+    "FromValue": "PERMANENCIA DEL EMPLEADO",
+    "To": "Trd",
+    "ToProperty": "name",
+    "ToValue": "GESTION=PERMANENCIA DEL EMPLEADO Y CENTRAL=100",
+    "Name": "gestion",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "DocumentalRetention",
+    "FromProperty": "name",
+    "FromValue": "N.A",
+    "To": "Trd",
+    "ToProperty": "name",
+    "ToValue": "GESTION=N.A Y CENTRAL=100",
+    "Name": "gestion",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "DocumentalRetention",
+    "FromProperty": "name",
+    "FromValue": "1 ANO",
+    "To": "Trd",
+    "ToProperty": "name",
+    "ToValue": "GESTION=1 Y CENTRAL=INDEFINIDO",
+    "Name": "gestion",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "DocumentalRetention",
+    "FromProperty": "name",
+    "FromValue": "2 ANOS",
+    "To": "Trd",
+    "ToProperty": "name",
+    "ToValue": "GESTION=2 Y CENTRAL=INDEFINIDO",
+    "Name": "gestion",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "DocumentalRetention",
+    "FromProperty": "name",
+    "FromValue": "ANO ACTUAL",
+    "To": "Trd",
+    "ToProperty": "name",
+    "ToValue": "ANO ACTUAL Y CENTRAL=INDEFINIDO",
+    "Name": "gestion",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "DocumentalRetention",
+    "FromProperty": "name",
+    "FromValue": "ANO ACTUAL",
+    "To": "Trd",
+    "ToProperty": "name",
+    "ToValue": "GESTION=ANO ACTUAL Y CENTRAL=CONSERVACION TOTAL",
+    "Name": "gestion",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "DocumentalRetention",
+    "FromProperty": "name",
+    "FromValue": "PERMANENCIA DEL ESTUDIANTE",
+    "To": "Trd",
+    "ToProperty": "name",
+    "ToValue": "GESTION=PERMANENCIA DEL ESTUDIANTE Y CENTRAL=N.A",
+    "Name": "gestion",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "DocumentalRetention",
+    "FromProperty": "name",
+    "FromValue": "ANO LECTIVO",
+    "To": "Trd",
+    "ToProperty": "name",
+    "ToValue": "GESTION=ANO LECTIVO Y CENTRAL=N.A",
+    "Name": "gestion",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "DocumentalRetention",
+    "FromProperty": "name",
+    "FromValue": "PERMANENCIA DEL ESTUDIANTE Y PAZ Y SALVO",
+    "To": "Trd",
+    "ToProperty": "name",
+    "ToValue": "GESTION=PERMANENCIA DEL ESTUDIANTE Y PAZ Y SALVO Y CENTRAL=N.A",
+    "Name": "gestion",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "DocumentalRetention",
+    "FromProperty": "name",
+    "FromValue": "CONSERVACION TOTAL",
+    "To": "Trd",
+    "ToProperty": "name",
+    "ToValue": "GESTION=CONSERVACI?N TOTAL Y CENTRAL=N.A",
+    "Name": "gestion",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "DocumentalRetention",
+    "FromProperty": "name",
+    "FromValue": "2 ANOS",
+    "To": "Trd",
+    "ToProperty": "name",
+    "ToValue": "GESTION=2 Y CENTRAL=N.A",
+    "Name": "gestion",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "DocumentalRetention",
+    "FromProperty": "name",
+    "FromValue": "VIGENCIA DEL PROVEEDOR",
+    "To": "Trd",
+    "ToProperty": "name",
+    "ToValue": "GESTION=VIGENCIA DEL PROVEEDOR Y CENTRAL=N.A",
+    "Name": "gestion",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "DocumentalRetention",
+    "FromProperty": "name",
+    "FromValue": "PERMANENTE",
+    "To": "Trd",
+    "ToProperty": "name",
+    "ToValue": "GESTION=PERMANENTE Y CENTRAL=N.A",
+    "Name": "gestion",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "DocumentalRetention",
+    "FromProperty": "name",
+    "FromValue": "2 ANOS",
+    "To": "Trd",
+    "ToProperty": "name",
+    "ToValue": "GESTION=1 Y CENTRAL=N.A",
+    "Name": "gestion",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "DocumentalRetention",
+    "FromProperty": "name",
+    "FromValue": "VIGENCIA DE LA MATRIZ",
+    "To": "Trd",
+    "ToProperty": "name",
+    "ToValue": "GESTION=VIGENCIA DE LA MATRIZ Y CENTRAL=N.A",
+    "Name": "gestion",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "DocumentalRetention",
+    "FromProperty": "name",
+    "FromValue": "ANO ACTUAL",
+    "To": "Trd",
+    "ToProperty": "name",
+    "ToValue": "GESTION=ANO ACTUAL Y CENTRAL=N.A",
+    "Name": "gestion",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "DocumentalRetention",
+    "FromProperty": "name",
+    "FromValue": "VIGENCIA DEL ACTA",
+    "To": "Trd",
+    "ToProperty": "name",
+    "ToValue": "GESTION=VIGENCIA DEL ACTA Y CENTRAL=N.A",
+    "Name": "gestion",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "DocumentalRetention",
+    "FromProperty": "name",
+    "FromValue": "VIGENCIA DE LA CLAUSULA",
+    "To": "Trd",
+    "ToProperty": "name",
+    "ToValue": "GESTION=VIGENCIA DE LA CL?USULA Y CENTRAL=N.A",
+    "Name": "gestion",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "DocumentalRetention",
+    "FromProperty": "name",
+    "FromValue": "5 ANOS",
+    "To": "Trd",
+    "ToProperty": "name",
+    "ToValue": "GESTION=5 Y CENTRAL=N.A",
+    "Name": "gestion",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "DocumentalRetention",
+    "FromProperty": "name",
+    "FromValue": "10 ANOS",
+    "To": "Trd",
+    "ToProperty": "name",
+    "ToValue": "GESTION=10 Y CENTRAL=N.A",
+    "Name": "gestion",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "DocumentalRetention",
+    "FromProperty": "name",
+    "FromValue": "VIGENCIA DEL LISTADO",
+    "To": "Trd",
+    "ToProperty": "name",
+    "ToValue": "GESTION=VIGENCIA DEL LISTADO Y CENTRAL=N.A",
+    "Name": "gestion",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "DocumentalRetention",
+    "FromProperty": "name",
+    "FromValue": "PERMANENCIA DEL EMPLEADO",
+    "To": "Trd",
+    "ToProperty": "name",
+    "ToValue": "GESTION=PERMANENCIA DEL EMPLEADO Y CENTRAL=N.A",
+    "Name": "gestion",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  }
+  ]
+}

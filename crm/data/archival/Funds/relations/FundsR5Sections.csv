@@ -1,2 +1,11 @@
 From;FromProperty;FromValue;To;ToProperty;ToValue;Cardinalities
-Funds;        ;        ;Sections;        ;        ;Uno a Muchos Bidirecccional No.5
+Funds;name;SGC;Sections;code;GD;Uno a Muchos Bidirecccional No.5
+Funds;name;SGC;Sections;code;AM;Uno a Muchos Bidirecccional No.5
+Funds;name;SGC;Sections;code;GE;Uno a Muchos Bidirecccional No.5
+Funds;name;SGC;Sections;code;GT;Uno a Muchos Bidirecccional No.5
+Funds;name;SGC;Sections;code;GF;Uno a Muchos Bidirecccional No.5
+Funds;name;SGC;Sections;code;GC;Uno a Muchos Bidirecccional No.5
+Funds;name;SGC;Sections;code;SG;Uno a Muchos Bidirecccional No.5
+Funds;name;SGC;Sections;code;SC;Uno a Muchos Bidirecccional No.5
+Funds;name;SGC;Sections;code;GQ;Uno a Muchos Bidirecccional No.5
+Funds;name;SGC;Sections;code;GI;Uno a Muchos Bidirecccional No.5

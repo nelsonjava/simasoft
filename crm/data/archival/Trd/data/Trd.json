@@ -1,0 +1,118 @@
+{
+  "Trd": [
+  {
+    "name": "GESTION=1 Y CENTRAL=2"
+  },
+  {
+    "name": "GESTION=VIGENCIA DEL CONVENIO Y CENTRAL=2"
+  },
+  {
+    "name": "GESTION=ANO ACTUAL Y CENTRAL=2"
+  },
+  {
+    "name": "GESTION=VIDA UTIL DEL EQUIPO Y CENTRAL=2"
+  },
+  {
+    "name": "GESTION=ANO ACTUAL Y CENTRAL=3"
+  },
+  {
+    "name": "GESTION=ANO LECTIVO Y CENTRAL=5"
+  },
+  {
+    "name": "GESTION=1 Y CENTRAL=5"
+  },
+  {
+    "name": "GESTION=2 Y CENTRAL=5"
+  },
+  {
+    "name": "GESTION=PERMANENCIA DEL RECTOR Y CENTRAL=5"
+  },
+  {
+    "name": "GESTION=ANO ACTUAL Y CENTRAL=5"
+  },
+  {
+    "name": "GESTION=PERMANENCIA DEL ALUMNO Y CENTRAL=5"
+  },
+  {
+    "name": "GESTION=PERMANENCIA DEL EMPLEADO Y CENTRAL=5"
+  },
+  {
+    "name": "GESTION=2 Y CENTRAL=20"
+  },
+  {
+    "name": "GESTION=ANO ACTUAL Y CENTRAL=15"
+  },
+  {
+    "name": "GESTION=ANO LECTIVO Y CENTRAL=100"
+  },
+  {
+    "name": "GESTION=2 Y CENTRAL=100"
+  },
+  {
+    "name": "GESTION=PERMANENCIA DEL EMPLEADO Y CENTRAL=100"
+  },
+  {
+    "name": "GESTION=N.A Y CENTRAL=100"
+  },
+  {
+    "name": "GESTION=1 Y CENTRAL=INDEFINIDO"
+  },
+  {
+    "name": "GESTION=2 Y CENTRAL=INDEFINIDO"
+  },
+  {
+    "name": "ANO ACTUAL Y CENTRAL=INDEFINIDO"
+  },
+  {
+    "name": "GESTION=ANO ACTUAL Y CENTRAL=CONSERVACION TOTAL"
+  },
+  {
+    "name": "GESTION=PERMANENCIA DEL ESTUDIANTE Y CENTRAL=N.A"
+  },
+  {
+    "name": "GESTION=ANO LECTIVO Y CENTRAL=N.A"
+  },
+  {
+    "name": "GESTION=PERMANENCIA DEL ESTUDIANTE Y PAZ Y SALVO Y CENTRAL=N.A"
+  },
+  {
+    "name": "GESTION=CONSERVACI?N TOTAL Y CENTRAL=N.A"
+  },
+  {
+    "name": "GESTION=2 Y CENTRAL=N.A"
+  },
+  {
+    "name": "GESTION=VIGENCIA DEL PROVEEDOR Y CENTRAL=N.A"
+  },
+  {
+    "name": "GESTION=PERMANENTE Y CENTRAL=N.A"
+  },
+  {
+    "name": "GESTION=1 Y CENTRAL=N.A"
+  },
+  {
+    "name": "GESTION=VIGENCIA DE LA MATRIZ Y CENTRAL=N.A"
+  },
+  {
+    "name": "GESTION=ANO ACTUAL Y CENTRAL=N.A"
+  },
+  {
+    "name": "GESTION=VIGENCIA DEL ACTA Y CENTRAL=N.A"
+  },
+  {
+    "name": "GESTION=VIGENCIA DE LA CL?USULA Y CENTRAL=N.A"
+  },
+  {
+    "name": "GESTION=5 Y CENTRAL=N.A"
+  },
+  {
+    "name": "GESTION=10 Y CENTRAL=N.A"
+  },
+  {
+    "name": "GESTION=VIGENCIA DEL LISTADO Y CENTRAL=N.A"
+  },
+  {
+    "name": "GESTION=PERMANENCIA DEL EMPLEADO Y CENTRAL=N.A"
+  }
+  ]
+}

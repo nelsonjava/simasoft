@@ -1,7 +1,7 @@
 {
   "DocumentalsUnits": [
   {
-    "name": "INFORME DE RESULTADO DE REVISIÓN POR LA DIRECCIÓN",
+    "name": "INFORME DE RESULTADO DE REVISION POR LA DIRECCION",
     "code": "F-GD-01"
   },
   {
@@ -9,7 +9,7 @@
     "code": "F-GD-02"
   },
   {
-    "name": "MATRIZ DE INDICADORES DEL SISTEMA DE GESTIÓN DE LA CALIDAD",
+    "name": "MATRIZ DE INDICADORES DEL SISTEMA DE GESTION DE LA CALIDAD",
     "code": "F-GD-03"
   },
   {
@@ -17,7 +17,7 @@
     "code": "F-GD-04"
   },
   {
-    "name": "INFORME DE GESTIÓN O DESEMEPEÓO DE PROCESO",
+    "name": "INFORME DE GESTION O DESEMEPENO DE PROCESO",
     "code": "F-GD-05"
   },
   {
@@ -25,7 +25,7 @@
     "code": "N.A-GD"
   },
   {
-    "name": "RESOLUCIÓN DE RECTORÓA",
+    "name": "RESOLUCION DE RECTORIA",
     "code": "N.A-GD"
   },
   {
@@ -37,15 +37,15 @@
     "code": "N.A-GD"
   },
   {
-    "name": "EVALUACIÓN INSTITUCIONAL",
+    "name": "EVALUACION INSTITUCIONAL",
     "code": "N.A-GD"
   },
   {
-    "name": "GUÍA DE AUTOEVALUACIÓN",
+    "name": "GUIA DE AUTOEVALUACION",
     "code": "N.A-GD"
   },
   {
-    "name": "GUÍA PARA LA ENTREGA DE UNA OBRA LASALLISTA",
+    "name": "GUIA PARA LA ENTREGA DE UNA OBRA LASALLISTA",
     "code": "N.A-GD"
   },
   {
@@ -57,11 +57,11 @@
     "code": "N.A-GD"
   },
   {
-    "name": "ACTAS - CONSEJO DE COORDINACIÓN",
+    "name": "ACTAS - CONSEJO DE COORDINACION",
     "code": "N.A-GD"
   },
   {
-    "name": "GD-CIRCULAR DE RECTORÓA",
+    "name": "GD-CIRCULAR DE RECTORIA",
     "code": "N.A-GD"
   },
   {
@@ -69,31 +69,31 @@
     "code": "N.A-GD"
   },
   {
-    "name": "FORMULARIO DE INSCRIPCIÓN",
+    "name": "FORMULARIO DE INSCRIPCION",
     "code": "F-AM-01"
   },
   {
-    "name": "REGISTRO DE RESULTADOS DE ADMISIÓN",
+    "name": "REGISTRO DE RESULTADOS DE ADMISION",
     "code": "F-AM-02"
   },
   {
-    "name": "HOJA DE MATRÍCULA",
+    "name": "HOJA DE MATRICULA",
     "code": "F-AM-04"
   },
   {
-    "name": "DEVOLUCIÓN DE DOCUMENTOS",
+    "name": "DEVOLUCION DE DOCUMENTOS",
     "code": "F-AM-05"
   },
   {
-    "name": "AUTORIZACIÓN RETIRO DE ESTUDIANTES",
+    "name": "AUTORIZACION RETIRO DE ESTUDIANTES",
     "code": "F-AM-06"
   },
   {
-    "name": "LISTA DE CHEQUEO PARA RECEPCIÓN DE DOCUMENTOS PARA LA MATRICULA",
+    "name": "LISTA DE CHEQUEO PARA RECEPCION DE DOCUMENTOS PARA LA MATRICULA",
     "code": "L-AM-01"
   },
   {
-    "name": "CONTRATO DE PRESTACIÓN DEL SERVICIO EDUCATIVO",
+    "name": "CONTRATO DE PRESTACION DEL SERVICIO EDUCATIVO",
     "code": "AM-N.A"
   },
   {
@@ -129,11 +129,11 @@
     "code": "F-GE-01"
   },
   {
-    "name": "REGISTRO DE VALIDACIÓN DE LA PRESTACIÓN DEL SERVICIO EDUCATIVO",
+    "name": "REGISTRO DE VALIDACION DE LA PRESTACION DEL SERVICIO EDUCATIVO",
     "code": "F-GE-03"
   },
   {
-    "name": "CONTROL DE ACTIVIDADES DE SUPERACIÓN O RECUPERACIÓN",
+    "name": "CONTROL DE ACTIVIDADES DE SUPERACION O RECUPERACION",
     "code": "F-GE-04"
   },
   {
@@ -145,23 +145,23 @@
     "code": "F-GE-06"
   },
   {
-    "name": "CONTROL DE ATENCIÓN PARA ORIENTACIÓN",
+    "name": "CONTROL DE ATENCION PARA ORIENTACION",
     "code": "F-GE-07"
   },
   {
-    "name": "AUTORIZACIÓN PARA ESTUDIANTES",
+    "name": "AUTORIZACION PARA ESTUDIANTES",
     "code": "F-GE-08"
   },
   {
-    "name": "CITACIÓN A PADRES DE FAMILIA",
+    "name": "CITACION A PADRES DE FAMILIA",
     "code": "F-GE-10"
   },
   {
-    "name": "REMISIÓN DE ESTUDIANTES A ORIENTACIÓN",
+    "name": "REMISION DE ESTUDIANTES A ORIENTACION",
     "code": "F-GE-11"
   },
   {
-    "name": "HISTORIA Y SEGUIMIENTO PSICOLOGÓA",
+    "name": "HISTORIA Y SEGUIMIENTO PSICOLOGIA",
     "code": "F-GE-12"
   },
   {
@@ -169,7 +169,7 @@
     "code": "L-GE-01"
   },
   {
-    "name": "CONTENIDOS PROGRAMÓTICOS",
+    "name": "CONTENIDOS PROGRAMATICOS",
     "code": "L-GE-02"
   },
   {
@@ -181,11 +181,11 @@
     "code": "L-GE-04"
   },
   {
-    "name": "REGISTRO DE NORMALIZACIÓN",
+    "name": "REGISTRO DE NORMALIZACION",
     "code": "L-GE-06"
   },
   {
-    "name": "ACTA DE COMPROMISO ACADÓMICO",
+    "name": "ACTA DE COMPROMISO ACADEMICO",
     "code": "L-GE-07"
   },
   {
@@ -201,11 +201,11 @@
     "code": "L-GE-10"
   },
   {
-    "name": "EVALUACIÓN DE ACTIVIDADES DE APOYO",
+    "name": "EVALUACION DE ACTIVIDADES DE APOYO",
     "code": "L-GE-11"
   },
   {
-    "name": "INFORME PERIÓDICO DE PSICOLOGÓA A COORDINACIÓN",
+    "name": "INFORME PERIODICO DE PSICOLOGIA A COORDINACION",
     "code": "L-GE-12"
   },
   {
@@ -217,23 +217,23 @@
     "code": "L-GE-14"
   },
   {
-    "name": "PROYECTO PEDAGÓGICO",
+    "name": "PROYECTO PEDAGOGICO",
     "code": "L-GE-15"
   },
   {
-    "name": "REGISTRO DE ATENCIÓN A PADRES DE FAMILIA O ACUDIENTES",
+    "name": "REGISTRO DE ATENCION A PADRES DE FAMILIA O ACUDIENTES",
     "code": "L-GE-16"
   },
   {
-    "name": "ACTA DE COMISIÓN DE EVALUACIÓN Y PROMOCIÓN",
+    "name": "ACTA DE COMISION DE EVALUACION Y PROMOCION",
     "code": "GE-N.A"
   },
   {
-    "name": "ACTA DE CONSEJO ACADÓMICO",
+    "name": "ACTA DE CONSEJO ACADEMICO",
     "code": "GE-N.A"
   },
   {
-    "name": "ACTA DE REUNIÓN DE DEPARTAMENTO O ÓREA",
+    "name": "ACTA DE REUNION DE DEPARTAMENTO O AREA",
     "code": "GE-N.A"
   },
   {
@@ -245,7 +245,7 @@
     "code": "GE-N.A"
   },
   {
-    "name": "INFORME DE COMISIONES DE EVALUACIÓN Y PROMOCIÓN",
+    "name": "INFORME DE COMISIONES DE EVALUACION Y PROMOCION",
     "code": "GE-N.A"
   },
   {
@@ -277,7 +277,7 @@
     "code": "F-GT-04*"
   },
   {
-    "name": "REGISTRO DE INDUCCIÓN",
+    "name": "REGISTRO DE INDUCCION",
     "code": "F-GT-05"
   },
   {
@@ -285,7 +285,7 @@
     "code": "F-GT-05*"
   },
   {
-    "name": "EVALUACIÓN DE DESEMPEÓO",
+    "name": "EVALUACION DE DESEMPENO",
     "code": "F-GT-06"
   },
   {
@@ -297,15 +297,15 @@
     "code": "F-GT-09"
   },
   {
-    "name": "DECLARACIÓN DE COMPETENCIA",
+    "name": "DECLARACION DE COMPETENCIA",
     "code": "F-GT-10"
   },
   {
-    "name": "PLAN DE FORMACIÓN",
+    "name": "PLAN DE FORMACION",
     "code": "F-GT-11"
   },
   {
-    "name": "SOLICITUD DE CAPACITACIÓN",
+    "name": "SOLICITUD DE CAPACITACION",
     "code": "F-GT-12"
   },
   {
@@ -321,19 +321,19 @@
     "code": "F-GT-14"
   },
   {
-    "name": "SEGUIMIENTO Y ASISTENCIA A CAPACITACIÓN",
+    "name": "SEGUIMIENTO Y ASISTENCIA A CAPACITACION",
     "code": "F-GT-15"
   },
   {
-    "name": "NÓMINA MENSUAL",
+    "name": "NOMINA MENSUAL",
     "code": "F-GT15*"
   },
   {
-    "name": "ACTA DE DESCARGOS, CONCILIACIÓN O COMPROMISO",
+    "name": "ACTA DE DESCARGOS, CONCILIACION O COMPROMISO",
     "code": "F-GT-16"
   },
   {
-    "name": "EVALUACIÓN DE LA ATENCIÓN A PADRES DE FAMILIA O ACUDIENTES",
+    "name": "EVALUACION DE LA ATENCION A PADRES DE FAMILIA O ACUDIENTES",
     "code": "L-GT-01"
   },
   {
@@ -341,23 +341,23 @@
     "code": "L-GT-02"
   },
   {
-    "name": "EVALUACIÓN DE DOCENTES (PREESCOLAR Y PRIMERO)",
+    "name": "EVALUACION DE DOCENTES (PREESCOLAR Y PRIMERO)",
     "code": "L-GT-03"
   },
   {
-    "name": "PROTOCOLIZACIÓN DEL PERSONAL DOCENTE",
+    "name": "PROTOCOLIZACION DEL PERSONAL DOCENTE",
     "code": "GT-N.A"
   },
   {
-    "name": "ACTA DE REUNIÓN DE COPASST",
+    "name": "ACTA DE REUNION DE COPASST",
     "code": "GT-N.A"
   },
   {
-    "name": "ACTAS DE COMITÓ DE CONVIVENCIA LABORAL",
+    "name": "ACTAS DE COMITE DE CONVIVENCIA LABORAL",
     "code": "GT-N.A"
   },
   {
-    "name": "DOCUMENTOS DEL SISTEMA DE GESTIÓN DE LA SEGURIDAD Y SALUD EN EL TRABAJO",
+    "name": "DOCUMENTOS DEL SISTEMA DE GESTION DE LA SEGURIDAD Y SALUD EN EL TRABAJO",
     "code": "GT-N.A"
   },
   {
@@ -381,11 +381,11 @@
     "code": "GT-N.A"
   },
   {
-    "name": "EJECUCIÓN PRESUPUESTAL",
+    "name": "EJECUCION PRESUPUESTAL",
     "code": "F-GF-01*"
   },
   {
-    "name": "REQUISICIÓN",
+    "name": "REQUISICION",
     "code": "F-GF-08*"
   },
   {
@@ -393,7 +393,7 @@
     "code": "F-GF-17*"
   },
   {
-    "name": "CONCILIACIÓN CUENTA MOROSOS",
+    "name": "CONCILIACION CUENTA MOROSOS",
     "code": "F-GF-18*"
   },
   {
@@ -437,19 +437,19 @@
     "code": "F-GC-03"
   },
   {
-    "name": "DEVOLUCIÓN DE ARTÓCULOS",
+    "name": "DEVOLUCION DE ARTICULOS",
     "code": "F-GC-04"
   },
   {
-    "name": "RELACIÓN DE FACTURAS POR PAGAR",
+    "name": "RELACION DE FACTURAS POR PAGAR",
     "code": "F-GC-05"
   },
   {
-    "name": "INSCRIPCIÓN DE PROVEEDORES",
+    "name": "INSCRIPCION DE PROVEEDORES",
     "code": "F-GC-06"
   },
   {
-    "name": "EVALUACIÓN Y SELECCIÓN DE PROVEEDORES",
+    "name": "EVALUACION Y SELECCION DE PROVEEDORES",
     "code": "F-GC-07"
   },
   {
@@ -457,7 +457,7 @@
     "code": "F-GC-08"
   },
   {
-    "name": "REEVALUACIÓN DE PROVEEDORES",
+    "name": "REEVALUACION DE PROVEEDORES",
     "code": "F-GC-09"
   },
   {
@@ -465,19 +465,19 @@
     "code": "F-GC-13"
   },
   {
-    "name": "KÓRDEX DE ALMACÓN",
+    "name": "KARDEX DE ALMACEN",
     "code": "F-GF-03*"
   },
   {
-    "name": "LISTADO DE INVENTARIO DE ACTIVOS Y RELACIÓN DE NOVEDADES",
+    "name": "LISTADO DE INVENTARIO DE ACTIVOS Y RELACION DE NOVEDADES",
     "code": "F-GF-09*"
   },
   {
-    "name": "EVALUACIÓN DEL SERVICIO DE COMPRAS Y SUMINISTROS",
+    "name": "EVALUACION DEL SERVICIO DE COMPRAS Y SUMINISTROS",
     "code": "L-GC-01"
   },
   {
-    "name": "REGISTROS SOPORTES DE INSCRIPCIÓN Y EVALUACIÓN DE PROVEEDORES",
+    "name": "REGISTROS SOPORTES DE INSCRIPCION Y EVALUACION DE PROVEEDORES",
     "code": "GC-N.A"
   },
   {
@@ -517,11 +517,11 @@
     "code": "L-SG-02"
   },
   {
-    "name": "EVALUACIÓN DEL SERVICIO DE ASEO Y MANTENIMIENTO",
+    "name": "EVALUACION DEL SERVICIO DE ASEO Y MANTENIMIENTO",
     "code": "L-SG-03"
   },
   {
-    "name": "REPORTE DE INCIDENCIAS Y DAÓOS EN AULAS Y ZONAS COMUNAS",
+    "name": "REPORTE DE INCIDENCIAS Y DANOS EN AULAS Y ZONAS COMUNAS",
     "code": "L-SG-04"
   },
   {
@@ -537,7 +537,7 @@
     "code": "F-SC-01"
   },
   {
-    "name": "SOLICITUD DEL SERVICIO DE FOTOCOPIADO E IMPRESIÓN",
+    "name": "SOLICITUD DEL SERVICIO DE FOTOCOPIADO E IMPRESION",
     "code": "L-SC-01"
   },
   {
@@ -549,7 +549,7 @@
     "code": "SC-N.A"
   },
   {
-    "name": "ELABORACIÓN, MODIFICACIÓN O ELIMINACIÓN DE DOCUMENTOS DEL SGC",
+    "name": "ELABORACION, MODIFICACION O ELIMINACION DE DOCUMENTOS DEL SGC",
     "code": "F-GQ-01"
   },
   {
@@ -561,11 +561,11 @@
     "code": "F-GQ-04"
   },
   {
-    "name": "PLAN DE AUDITORÓA INTERNA",
+    "name": "PLAN DE AUDITORIA INTERNA",
     "code": "F-GQ-05"
   },
   {
-    "name": "ACTA DE APERTURA Y CIERRE DE AUDITORÓA INTERNA",
+    "name": "ACTA DE APERTURA Y CIERRE DE AUDITORIA INTERNA",
     "code": "F-GQ-06"
   },
   {
@@ -573,11 +573,11 @@
     "code": "F-GQ-07"
   },
   {
-    "name": "EVALUACIÓN DE GESTIÓN DE LA AUDITORÓA",
+    "name": "EVALUACION DE GESTION DE LA AUDITORIA",
     "code": "F-GQ-08"
   },
   {
-    "name": "INFORME DE AUDITORÓA INTERNA",
+    "name": "INFORME DE AUDITORIA INTERNA",
     "code": "F-GQ-09"
   },
   {
@@ -585,7 +585,7 @@
     "code": "F-GQ-10"
   },
   {
-    "name": "IMPLEMENTACIÓN DE ACCIONES CORRECTIVAS, PREVENTIVAS O DE MEJORA",
+    "name": "IMPLEMENTACION DE ACCIONES CORRECTIVAS, PREVENTIVAS O DE MEJORA",
     "code": "F-GQ-11"
   },
   {
@@ -597,11 +597,11 @@
     "code": "F-GQ-13"
   },
   {
-    "name": "COMPORTAMIENTO DE LOS INDICADORES DE GESTIÓN",
+    "name": "COMPORTAMIENTO DE LOS INDICADORES DE GESTION",
     "code": "F-GQ-14"
   },
   {
-    "name": "ENCUESTA DE SATISFACCIÓN DE PADRES DE FAMILIA Y ESTUDIANTES",
+    "name": "ENCUESTA DE SATISFACCION DE PADRES DE FAMILIA Y ESTUDIANTES",
     "code": "F-GQ-15"
   },
   {
@@ -609,11 +609,11 @@
     "code": "F-GQ-16"
   },
   {
-    "name": "NFORME DE RESULTADOS DE ENCUESTAS DE SATISFACCIÓN",
+    "name": "NFORME DE RESULTADOS DE ENCUESTAS DE SATISFACCION",
     "code": "GQ-N.A"
   },
   {
-    "name": "ACTA DE REUNIÓN DEL COMITÓ DE LA CALIDAD",
+    "name": "ACTA DE REUNION DEL COMITE DE LA CALIDAD",
     "code": "GQ-N.A"
   },
   {
@@ -625,11 +625,11 @@
     "code": "GQ-N.A"
   },
   {
-    "name": "RADICACIÓN Y DISTRIBUCIÓN DE CORRESPONDENCIA RECIBIDA",
+    "name": "RADICACION Y DISTRIBUCION DE CORRESPONDENCIA RECIBIDA",
     "code": "F-GI-01"
   },
   {
-    "name": "RADICACIÓN DE CORRESPONDENCIA ENVIADA",
+    "name": "RADICACION DE CORRESPONDENCIA ENVIADA",
     "code": "F-GI-02"
   },
   {
@@ -637,7 +637,7 @@
     "code": "F-GI-04"
   },
   {
-    "name": "DEPURACIÓN DE ARCHIVO",
+    "name": "DEPURACION DE ARCHIVO",
     "code": "F-GI-05"
   },
   {

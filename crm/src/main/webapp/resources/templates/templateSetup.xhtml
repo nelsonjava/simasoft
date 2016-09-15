@@ -65,7 +65,17 @@
             <p:fileUpload value="#{fileUploadR.file}"
                           mode="simple"
                           skinSimple="true"/>
-            <p:commandButton value="relationshipsData" ajax="false" actionListener="#{fileUploadR.relationshipsData}" disabled="false" />
+            <p:commandButton value="relationshipsData" ajax="false" actionListener="#{fileUploadR.relationshipsData(false)}" disabled="false" />
+          </h:form>
+        </li>
+        <li><p>====</p></li>
+        <li>
+          <h:form enctype="multipart/form-data">
+            <p:growl id="messages" showDetail="true" />
+            <p:fileUpload value="#{fileUploadR.file}"
+                          mode="simple"
+                          skinSimple="true"/>
+            <p:commandButton value="relationshipsVali" ajax="false" actionListener="#{fileUploadR.relationshipsData(true)}" disabled="false" />
           </h:form>
         </li>
       </ul>

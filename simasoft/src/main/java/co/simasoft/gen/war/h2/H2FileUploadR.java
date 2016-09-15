@@ -81,7 +81,7 @@ line("    public void setFile(UploadedFile file) {");
 line("        this.file = file;");
 line("    }\n");
 
-line("    public void relationshipsData() {");
+line("    public void relationshipsData(Boolean isValidate) {");
 line("    try {\n");
 
 line("        if(file != null) {\n");
@@ -112,8 +112,10 @@ line("                 String fromValue = (String)relationObj.get(\"FromValue\")
 line("                 String to = (String)relationObj.get(\"To\");");
 line("                 String toProperty = (String)relationObj.get(\"ToProperty\");");
 line("                 String toValue = (String)relationObj.get(\"ToValue\");");
+line("                 String name = (String)relationObj.get(\"Name\");");
 line("                 String cardinalities = (String)relationObj.get(\"Cardinalities\");\n");
 
+line("/*");
 for (Entidad entidad : entidades) {
 
     for (Relation relation :entidad.getRelations()) {
@@ -136,6 +138,8 @@ line(entidad.getName()+"::"+entityFrom.getName()+" "+cardinality+" "+entityTo.ge
     }
 
 }
+line("*/");
+line("");
 
       for(Entidad entidad : entidades) {
 
@@ -153,9 +157,22 @@ line(entidad.getName()+"::"+entityFrom.getName()+" "+cardinality+" "+entityTo.ge
                 continue;
              }
 
-line("                 if (from.equals(\""+entityFrom.getName()+"\")){\n");
+
+             if (relationName == null || relationName.equals("")){
+line("                 if (from.equals(\""+entityFrom.getName()+"\") &&");
+line("                     cardinalities.equals(\"Uno a Muchos Bidirecccional No.5\") &&");
+line("                     to.equals(\""+entityTo.getName()+"\") &&");
+line("                     name.equals(\"\")){\n");
+             }
+             else{
+line("                 if (from.equals(\""+entityFrom.getName()+"\") &&");
+line("                     cardinalities.equals(\"Uno a Muchos Bidirecccional No.5\") &&");
+line("                     to.equals(\""+entityTo.getName()+"\") &&");
+line("                     name.equals(\""+relationName+"\")){\n");
+             }
 
 line("                     "+entityFrom.getName()+" "+Utils._1raMin(entityFrom.getName())+"From = new "+entityFrom.getName()+"();\n");
+line("                     "+entityTo.getName()+" "+Utils._1raMin(entityTo.getName())+"To = new "+entityTo.getName()+"();\n");
 
              atributos = entityFrom.getAtributos();
              Collections.sort(atributos);
@@ -164,10 +181,10 @@ line("                     "+entityFrom.getName()+" "+Utils._1raMin(entityFrom.g
                  switch (atributo.getType()) {
                      case "String":
 
-line("                     if (fromProperty.equals(\""+atributo.getField()+"\")){");
-line("                         "+Utils._1raMin(entidad.getName())+"From = findBean."+atributo.getField()+entityFrom.getName()+"(fromValue,em);");
-line("                         f.line("+Utils._1raMin(entidad.getName())+"From.get"+Utils._1raMay(atributo.getField())+"());");
-line("                     } // "+Utils._1raMin(entidad.getName())+"\n");
+line("                 if (fromProperty.equals(\""+atributo.getField()+"\")){");
+line("                     "+Utils._1raMin(entidad.getName())+"From = findBean."+atributo.getField()+entityFrom.getName()+"(fromValue,em);");
+line("                     f.line(\"from:\"+fromValue+\":\"+"+Utils._1raMin(entidad.getName())+"From.get"+Utils._1raMay(atributo.getField())+"());");
+line("                 } // "+Utils._1raMin(entidad.getName())+"\n");
 
 
                           break;
@@ -177,11 +194,6 @@ line("                     } // "+Utils._1raMin(entidad.getName())+"\n");
 
              } // for: atributos
 
-line("                     if (to.equals(\""+entityTo.getName()+"\")){\n");
-
-line("                         "+entityTo.getName()+" "+Utils._1raMin(entityTo.getName())+"To = new "+entityTo.getName()+"();\n");
-
-
              atributos = entityTo.getAtributos();
              Collections.sort(atributos);
              for(Atributos atributo : atributos ){
@@ -189,9 +201,10 @@ line("                         "+entityTo.getName()+" "+Utils._1raMin(entityTo.g
                  switch (atributo.getType()) {
                      case "String":
 
-line("                         if (toProperty.equals(\""+atributo.getField()+"\")){");
-line("                             "+Utils._1raMin(entityTo.getName())+"To = findBean."+atributo.getField()+entityTo.getName()+"(toValue,em);");
-line("                         } // "+entityTo.getName()+"."+atributo.getField()+"\n");
+line("                     if (toProperty.equals(\""+atributo.getField()+"\")){");
+line("                         "+Utils._1raMin(entityTo.getName())+"To = findBean."+atributo.getField()+entityTo.getName()+"(toValue,em);");
+line("                         f.line(\"to:\"+toValue+\":\"+"+Utils._1raMin(entityTo.getName())+"To.get"+Utils._1raMay(atributo.getField())+"());");
+line("                     } // "+entityTo.getName()+"."+atributo.getField()+"\n");
 
 
                           break;
@@ -204,28 +217,34 @@ line("                         } // "+entityTo.getName()+"."+atributo.getField()
              switch (cardinality) {
                  case "Uno a Muchos Bidirecccional No.5":
 
-line("                         if (cardinalities.equals(\"Uno a Muchos Bidirecccional No.5\")){");
+line("                     if (cardinalities.equals(\"Uno a Muchos Bidirecccional No.5\")){");
                       if (entityFrom.getName().equals(entityTo.getName())){
-line("                             "+Utils._1raMin(entityTo.getName())+"To.setObjPadre("+Utils._1raMin(entityFrom.getName())+"From);");
+line("                         "+Utils._1raMin(entityTo.getName())+"To.setObjPadre("+Utils._1raMin(entityFrom.getName())+"From);");
                       }
                       else{
 
                            if (relationName == null || relationName.equals("")){
-line("                             "+Utils._1raMin(entityTo.getName())+"To.set"+entityFrom.getName()+"("+Utils._1raMin(entityFrom.getName())+"From);");
+line("                         "+Utils._1raMin(entityTo.getName())+"To.set"+entityFrom.getName()+"("+Utils._1raMin(entityFrom.getName())+"From);");
                            }
                            else{
-line("                             "+Utils._1raMin(entityTo.getName())+"To.set"+Utils._1raMay(relationName)+"("+Utils._1raMin(entityFrom.getName())+"From);");
+line("                         "+Utils._1raMin(entityTo.getName())+"To.set"+Utils._1raMay(relationName)+"("+Utils._1raMin(entityFrom.getName())+"From);");
                            }
 
                       }
 
 
-line("                         }\n");
+line("                     }\n");
 
-line("                         em.persist("+Utils._1raMin(entityTo.getName())+"To);");
-line("                         em.flush();\n");
+line("                     if (!isValidate) {");
+line("                         em.merge("+Utils._1raMin(entityTo.getName())+"To);");
+line("                         em.flush();");
+line("                     }\n");
 
-line("                     } // to: "+entityTo.getName());
+line("                     if (isValidate) {");
+line("                         f.saveFile(\"\\\\docs\", \""+Utils._1raMin(entityFrom.getName())+".txt\");\n");
+line("                     }\n");
+
+
 line("                 } // from: "+entityFrom.getName()+"\n");
 
 

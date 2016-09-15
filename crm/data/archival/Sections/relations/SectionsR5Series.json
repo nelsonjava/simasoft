@@ -1,0 +1,1417 @@
+{
+  "RelationshipsData": [
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GD",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "INFORMES DE RESULTADO DE REVISIÓN POR LA DIRECCIÓN",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GD",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "INFORMES VISITA HERMANO PROVINCIAL",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GD",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "MATRICES DE INDICADORES DEL SISTEMA DE GESTIÓN DE LA CALIDAD",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GD",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "PLANES OPERATIVOS ANUALES",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GD",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "INFORMES DE GESTIÓN O DESEMEPEÑO DE PROCESO",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GD",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "ACTAS DE CONSEJO DIRECTIVO",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GD",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "RESOLUCIÓNES DE RECTORÍA",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GD",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "CRONOGRAMAS DISTRITALES",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GD",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "CRONOGRAMAS INSTITUCIONALES",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GD",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "EVALUACIONES INSTITUCIONALES",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GD",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "GUIAS DE AUTOEVALUACIÓN",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GD",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "GUIAS PARA LA ENTREGA DE UNA OBRA LASALLISTA",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GD",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "CARTAS DE NOMBRAMIENTO DE RECTOR",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GD",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "CONVENIOS INTERINSTITUCIONALES",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GD",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "ACTAS DEL CONSEJO DE COORDINACIÓN",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GD",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "GD-CIRCULAR DE RECTORÍA",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GD",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "GD-CORRESPONDENCIA",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "AM",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "FORMULARIOS DE INSCRIPCIÓN",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "AM",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "REGISTROS DE RESULTADOS DE ADMISIÓN",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "AM",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "HOJAS DE MATRÍCULA",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "AM",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "DEVOLUCIONES DE DOCUMENTOS",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "AM",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "AUTORIZACIONES RETIRO DE ESTUDIANTES",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "AM",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "LISTAS DE CHEQUEO PARA RECEPCIÓN DE DOCUMENTOS PARA LA MATRICULA",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "AM",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "CONTRATOS DE PRESTACIÓN DEL SERVICIO EDUCATIVO",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "AM",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "LISTADOS DE ESTUDIANTES MATRICULADOS",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "AM",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "LISTADOS DE ASPIRANTES ADMITIDOS",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "AM",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "LISTADOS DE ASPIRANTES INSCRITOS",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "AM",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "PAZ Y SALVO ESTUDIANTES",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "AM",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "LIBROS DE ACTAS DE GRADO",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "AM",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "AM-CORRESPONDENCIA",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "AM",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "AM-CIRCULAR",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GE",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "HORARIOS DE CLASES",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GE",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "REGISTROS DE VALIDACIÓN DE LA PRESTACIÓN DEL SERVICIO EDUCATIVO",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GE",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "CONTROLES DE ACTIVIDADES DE SUPERACIÓN O RECUPERACIÓN",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GE",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "OBSERVADORES DEL ESTUDIANTE",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GE",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "PLANES DE CURSO",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GE",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "CONTROLES DE ATENCIÓN PARA ORIENTACIÓN",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GE",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "AUTORIZACIONES PARA ESTUDIANTES",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GE",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "CITACIONES A PADRES DE FAMILIA",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GE",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "REMISIONES DE ESTUDIANTES A ORIENTACIÓN",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GE",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "HISTORIAS Y SEGUIMIENTO PSICOLOGÍA",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GE",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "AUTOS REGISTRO DE RETARDOS",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GE",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "CONTENIDOS PROGRAMÁTICOS",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GE",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "CONTROLES DE CITACIONES A PADRES DE FAMILIA",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GE",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "PLANES DE ASIGNATURA",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GE",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "REGISTROS DE NORMALIZACIÓN",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GE",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "ACTAS DE COMPROMISO ACADÉMICO",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GE",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "ACTAS DE COMPROMISO COMPORTAMENTAL",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GE",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "CLAUSULAS ESPECIALES DE MATRICULA",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GE",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "CONTROLES DE ASISTENCIA A ACTIVIDADES DE APOYO",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GE",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "EVALUACIONES DE ACTIVIDADES DE APOYO",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GE",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "INFORMES PERIODICOS DE PSICOLOGÍA A COORDINACIÓN",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GE",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "PLANILLAS DE SEGUIMIENTO- NIVEL PREESCOLAR",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GE",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "PLANES DE ÁREA",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GE",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "PROYECTOS PEDAGÓGICO",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GE",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "REGISTROS DE ATENCIÓN A PADRES DE FAMILIA O ACUDIENTES",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GE",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "ACTAS DE COMISIÓN DE EVALUACIÓN Y PROMOCIÓN",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GE",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "ACTAS DE CONSEJO ACADÉMICO",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GE",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "ACTAS DE REUNIÓN DE DEPARTAMENTO O ÁREA",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GE",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "PLANILLAS DE CALIFICACIONES / CONTROL DE ASISTENCIA",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GE",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "INFORMES O RESULTADOS DE PRUEBAS EXTERNAS",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GE",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "INFORMES DE COMISIONES DE EVALUACIÓN Y PROMOCIÓN",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GE",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "LIBROS DE CALIFICACIONES FINALES",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GE",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "GE-CORRESPONDENCIA",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GE",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "GE-CIRCULAR",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GT",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "SOLICITUDES DE PERSONAL",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GT",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "FORMATOS DE ENTREVISTA",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GT",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "HOJAS DE VIDA INSTITUCIONAL",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GT",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "CONTRATOS LABORALES",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GT",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "REGISTROS DE INDUCCIÓN",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GT",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "INGRESOS DE PERSONAL",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GT",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "EVALUACIONES DE DESEMPEÑO",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GT",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "REGISTROS DE NOVEDADES",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GT",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "ENCUESTAS DE CLIMA ORGANIZACIONAL",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GT",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "DECLARACIONES DE COMPETENCIA",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GT",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "PLANES DE FORMACIÓN",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GT",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "SOLICITUDES DE CAPACITACIÓN",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GT",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "PLANES DE BIENESTAR",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GT",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "RETIROS DE PERSONAL",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GT",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "SOLICITUDES DE PERMISOS",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GT",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "SEGUIMIENTOS Y ASISTENCIA A CAPACITACIÓN",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GT",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "NOMINAS MENSUALES",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GT",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "EVALUACIONES DE LA ATENCIÓN A PADRES DE FAMILIA O ACUDIENTES",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GT",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "PAZ Y SALVOS GENERALES",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GT",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "EVALUACIONES DE DOCENTES (PREESCOLAR Y PRIMERO)",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GT",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "PROTOCOLIZACIONES DEL PERSONAL DOCENTE",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GT",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "ACTAS DE REUNIÓN DE COPASST",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GT",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "ACTAS DE COMITÉ DE CONVIVENCIA LABORAL",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GT",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "DOCUMENTOS DEL SISTEMA DE GESTIÓN DE LA SEGURIDAD Y SALUD EN EL TRABAJO",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GT",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "PLANES DE EMERGENCIAS",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GT",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "PLANES DE MEJORAMIENTO ENCUESTA DE CLIMA ORGANIZACIONAL",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GT",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "LIQUIDACIONES DE PERSONAL",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GT",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "GT-CORRESPONDENCIA",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GT",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "GT-CIRCULAR",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GF",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "EJECUCIONES PRESUPUESTALES",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GF",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "REQUISICIONES GF",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GF",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "CARTERAS ACTUALIZADAS DE LOS COLEGIOS",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GF",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "CONCILIACIONES  CUENTA DE MOROSOS",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GF",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "RESUMENES DE CARTERA MOROSA",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GF",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "PLANILLAS DIARIAS DE VENTAS EN CAFETERIA",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GF",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "INFORMES MENSUALES DE VENTAS EN CAFETERIA",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GF",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "COMPROBANTES DE EGRESO",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GF",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "SOPORTES COMPROBANTES DE EGRESO",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GF",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "GF-CORRESPONDENCIA",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GF",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "GF-CIRCULAR",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GC",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "SOLICITUDES Y ENTREGAS DE SUMINISTROS",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GC",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "COMPARATIVOS DE OFERTAS",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GC",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "ORDENES DE COMPRA",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GC",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "DEVOLUCIONES DE ARTÍCULOS",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GC",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "RELACIONES DE FACTURAS POR PAGAR",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GC",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "INSCRIPCIONES DE PROVEEDORES",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GC",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "EVALUACIONES Y SELECCIÓN DE PROVEEDORES",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GC",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "LISTADOS DE PROVEEDORES",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GC",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "REEVALUACIONES DE PROVEEDORES",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GC",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "SOLICITUDES DE COMPRAS",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GC",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "KÁRDEX DE ALMACÉN",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GC",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "LISTADOS DE INVENTARIOS DE ACTIVOS Y RELACIÓN DE NOVEDADES",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GC",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "EVALUACIONES DEL SERVICIO DE COMPRAS Y SUMINISTROS",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GC",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "REGISTROS DE SOPORTES DE INSCRIPCIÓN Y EVALUACIÓN DE PROVEEDORES",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GC",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "GC-CORRESPONDENCIA",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GC",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "GC-CIRCULAR",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "SG",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "PLANES DE MANTENIMIENTOS",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "SG",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "PLANES DE CONTROL DE PLAGAS",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "SG",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "SOLICITUDES DE MANTENIMIENTOS CORRECTIVOS",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "SG",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "PLANILLAS DE ACTIVIDADES DE MANTENIMIENTO",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "SG",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "HOJAS DE VIDA DE EQUIPOS",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "SG",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "CONTROLES DE ASEO SEMANAL",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "SG",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "CONTROLES DE MANTENIMIENTO DE LA PISCINA",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "SG",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "EVALUACIONES DEL SERVICIO DE ASEO Y MANTENIMIENTO",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "SG",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "REPORTES DE INCIDENCIAS Y DAÑOS EN AULAS Y ZONAS COMUNAS",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "SG",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "SG-CORRESPONDENCIA",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "SG",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "SG-CIRCULAR",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "SC",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "MATRICES DE SERVICIOS COMPLEMENTARIOS",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "SC",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "SOLICITUDES DE SERVICIOS DE FOTOCOPIADO E IMPRESIÓN",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "SC",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "SC-CORRESPONDENCIA",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "SC",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "SC-CIRCULAR",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GQ",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "LISTADOS MAESTRO DE DOCUMENTOS",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GQ",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "LISTADOS MAESTRO DE REGISTROS",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GQ",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "PLANES DE AUDITORÍA INTERNA",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GQ",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "ACTAS DE APERTURA Y CIERRE DE AUDITORÍA INTERNA",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GQ",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "LISTAS DE CHEQUEO",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GQ",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "EVALUACIONES DE GESTIÓN DE LA AUDITORÍA",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GQ",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "INFORMES DE AUDITORÍA INTERNA",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GQ",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "CONTROLES DEL SERVICIO NO CONFORME",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GQ",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "COMPORTAMIENTOS DE LOS INDICADORES DE GESTIÓN",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GQ",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "ENCUESTAS DE SATISFACCIÓN DE PADRES DE FAMILIA Y ESTUDIANTES",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GQ",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "MATRICES DE POSIBLES SERVICIOS NO CONFORMES",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GQ",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "INFORMES DE RESULTADOS DE ENCUESTAS DE SATISFACCIÓN",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GQ",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "ACTAS DE REUNIONES DEL COMITÉ DE LA CALIDAD",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GQ",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "GQ-CORRESPONDENCIA",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GQ",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "GQ-CIRCULAR",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GI",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "RADICACIONES Y DISTRIBUCIÓN DE CORRESPONDENCIA RECIBIDA",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GI",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "RADICACIONES DE CORRESPONDENCIA ENVIADA",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GI",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "ENTRADAS DE DOCUMENTOS AL ARCHIVO CENTRAL",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GI",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "DEPURACIONES DE ARCHIVO",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GI",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "GI-CORRESPONDENCIA",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Sections",
+    "FromProperty": "code",
+    "FromValue": "GI",
+    "To": "Series",
+    "ToProperty": "name",
+    "ToValue": "GI-CIRCULAR",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  }
+  ]
+}

@@ -1,2 +1,163 @@
 From;FromProperty;FromValue;To;ToProperty;ToValue;Cardinalities
-Series;        ;        ;Series;        ;        ;Uno a Muchos Bidirecccional No.5
+Series;name;ACTAS;Series;name;ACTAS DE APERTURA Y CIERRE DE AUDITORIIIA INTERNA;Uno a Muchos Bidirecccional No.5
+Series;name;ACTAS;Series;name;ACTAS DE COMISIOOON DE EVALUACIOOON Y PROMOCIOOON;Uno a Muchos Bidirecccional No.5
+Series;name;ACTAS;Series;name;ACTAS DE COMITEEE DE CONVIVENCIA LABORAL;Uno a Muchos Bidirecccional No.5
+Series;name;ACTAS;Series;name;ACTAS DE COMPROMISO ACADEEEMICO;Uno a Muchos Bidirecccional No.5
+Series;name;ACTAS;Series;name;ACTAS DE COMPROMISO COMPORTAMENTAL;Uno a Muchos Bidirecccional No.5
+Series;name;ACTAS;Series;name;ACTAS DE CONSEJO ACADEEEMICO;Uno a Muchos Bidirecccional No.5
+Series;name;ACTAS;Series;name;ACTAS DE CONSEJO DIRECTIVO;Uno a Muchos Bidirecccional No.5
+Series;name;ACTAS;Series;name;ACTAS DE DESCARGOS, CONCILIACIOOON O COMPROMISO;Uno a Muchos Bidirecccional No.5
+Series;name;ACTAS;Series;name;ACTAS DE REUNIOOON DE COPASST;Uno a Muchos Bidirecccional No.5
+Series;name;ACTAS;Series;name;ACTAS DE REUNIOOON DE DEPARTAMENTO O AAAREA;Uno a Muchos Bidirecccional No.5
+Series;name;ACTAS;Series;name;ACTAS DE REUNIONES DEL COMITEEE DE LA CALIDAD;Uno a Muchos Bidirecccional No.5
+Series;name;ACTAS;Series;name;ACTAS DEL CONSEJO DE COORDINACIOOON;Uno a Muchos Bidirecccional No.5
+Series;name;CIRCULARES;Series;name;AM-CIRCULAR;Uno a Muchos Bidirecccional No.5
+Series;name;CORRESPONDENCIA;Series;name;AM-CORRESPONDENCIA;Uno a Muchos Bidirecccional No.5
+Series;name;AUTORIZACIONES;Series;name;AUTORIZACIONES PARA ESTUDIANTES;Uno a Muchos Bidirecccional No.5
+Series;name;AUTORIZACIONES;Series;name;AUTORIZACIONES RETIRO DE ESTUDIANTES;Uno a Muchos Bidirecccional No.5
+Series;name;REGISTROS;Series;name;AUTOS REGISTRO DE RETARDOS;Uno a Muchos Bidirecccional No.5
+Series;name;CARTAS;Series;name;CARTAS DE NOMBRAMIENTO DE RECTOR;Uno a Muchos Bidirecccional No.5
+Series;name;CARTERAS;Series;name;CARTERAS ACTUALIZADAS DE LOS COLEGIOS;Uno a Muchos Bidirecccional No.5
+Series;name;CITACIONES;Series;name;CITACIONES A PADRES DE FAMILIA;Uno a Muchos Bidirecccional No.5
+Series;name;CLAUSULAS;Series;name;CLAUSULAS ESPECIALES DE MATRICULA;Uno a Muchos Bidirecccional No.5
+Series;name;COMPARATIVOS;Series;name;COMPARATIVOS DE OFERTAS;Uno a Muchos Bidirecccional No.5
+Series;name;COMPORTAMIENTOS;Series;name;COMPORTAMIENTOS DE LOS INDICADORES DE GESTIOOON;Uno a Muchos Bidirecccional No.5
+Series;name;COMPROBANTES;Series;name;COMPROBANTES DE EGRESO;Uno a Muchos Bidirecccional No.5
+Series;name;CONCILIACIONES;Series;name;CONCILIACIONES  CUENTA DE MOROSOS;Uno a Muchos Bidirecccional No.5
+Series;name;CONTENIDOS;Series;name;CONTENIDOS PROGRAMAAATICOS;Uno a Muchos Bidirecccional No.5
+Series;name;CONTRATOS;Series;name;CONTRATOS DE PRESTACIOOON DEL SERVICIO EDUCATIVO;Uno a Muchos Bidirecccional No.5
+Series;name;CONTRATOS;Series;name;CONTRATOS LABORALES;Uno a Muchos Bidirecccional No.5
+Series;name;CONTROLES;Series;name;CONTROLES DE ACTIVIDADES DE SUPERACIOOON O RECUPERACIOOON;Uno a Muchos Bidirecccional No.5
+Series;name;CONTROLES;Series;name;CONTROLES DE ASEO SEMANAL;Uno a Muchos Bidirecccional No.5
+Series;name;CONTROLES;Series;name;CONTROLES DE ASISTENCIA A ACTIVIDADES DE APOYO;Uno a Muchos Bidirecccional No.5
+Series;name;CONTROLES;Series;name;CONTROLES DE ATENCIOOON PARA ORIENTACIOOON;Uno a Muchos Bidirecccional No.5
+Series;name;CONTROLES;Series;name;CONTROLES DE CITACIONES A PADRES DE FAMILIA;Uno a Muchos Bidirecccional No.5
+Series;name;CONTROLES;Series;name;CONTROLES DE MANTENIMIENTO DE LA PISCINA;Uno a Muchos Bidirecccional No.5
+Series;name;CONTROLES;Series;name;CONTROLES DEL SERVICIO NO CONFORME;Uno a Muchos Bidirecccional No.5
+Series;name;CONVENIOS;Series;name;CONVENIOS INTERINSTITUCIONALES;Uno a Muchos Bidirecccional No.5
+Series;name;CRONOGRAMAS;Series;name;CRONOGRAMAS DISTRITALES;Uno a Muchos Bidirecccional No.5
+Series;name;CRONOGRAMAS;Series;name;CRONOGRAMAS INSTITUCIONALES;Uno a Muchos Bidirecccional No.5
+Series;name;DECLARACIONES;Series;name;DECLARACIONES DE COMPETENCIA;Uno a Muchos Bidirecccional No.5
+Series;name;DEPURACIONES;Series;name;DEPURACIONES DE ARCHIVO;Uno a Muchos Bidirecccional No.5
+Series;name;DEVOLUCIONES;Series;name;DEVOLUCIONES DE ARTIIICULOS;Uno a Muchos Bidirecccional No.5
+Series;name;DEVOLUCIONES;Series;name;DEVOLUCIONES DE DOCUMENTOS;Uno a Muchos Bidirecccional No.5
+Series;name;DOCUMENTOS;Series;name;DOCUMENTOS DEL SISTEMA DE GESTIOOON DE LA SEGURIDAD Y SALUD EN EL TRABAJO;Uno a Muchos Bidirecccional No.5
+Series;name;EJECUCIONES;Series;name;EJECUCIONES PRESUPUESTALES;Uno a Muchos Bidirecccional No.5
+Series;name;DOCUMENTOS;Series;name;ELABORACIOOON, MODIFICACIOOON O ELIMINACIOOON DE DOCUMENTOS DEL SGC;Uno a Muchos Bidirecccional No.5
+Series;name;ENCUESTAS;Series;name;ENCUESTAS DE CLIMA ORGANIZACIONAL;Uno a Muchos Bidirecccional No.5
+Series;name;ENCUESTAS;Series;name;ENCUESTAS DE SATISFACCIOOON DE PADRES DE FAMILIA Y ESTUDIANTES;Uno a Muchos Bidirecccional No.5
+Series;name;ENTRADAS;Series;name;ENTRADAS DE DOCUMENTOS AL ARCHIVO CENTRAL;Uno a Muchos Bidirecccional No.5
+Series;name;EVALUACIONES;Series;name;EVALUACIONES DE ACTIVIDADES DE APOYO;Uno a Muchos Bidirecccional No.5
+Series;name;EVALUACIONES;Series;name;EVALUACIONES DE DESEMPE¥O;Uno a Muchos Bidirecccional No.5
+Series;name;EVALUACIONES;Series;name;EVALUACIONES DE DOCENTES (PREESCOLAR Y PRIMERO);Uno a Muchos Bidirecccional No.5
+Series;name;EVALUACIONES;Series;name;EVALUACIONES DE GESTIOOON DE LA AUDITORIIIA;Uno a Muchos Bidirecccional No.5
+Series;name;EVALUACIONES;Series;name;EVALUACIONES DE LA ATENCIOOON A PADRES DE FAMILIA O ACUDIENTES;Uno a Muchos Bidirecccional No.5
+Series;name;EVALUACIONES;Series;name;EVALUACIONES DEL SERVICIO DE ASEO Y MANTENIMIENTO;Uno a Muchos Bidirecccional No.5
+Series;name;EVALUACIONES;Series;name;EVALUACIONES DEL SERVICIO DE COMPRAS Y SUMINISTROS;Uno a Muchos Bidirecccional No.5
+Series;name;EVALUACIONES;Series;name;EVALUACIONES INSTITUCIONALES;Uno a Muchos Bidirecccional No.5
+Series;name;EVALUACIONES;Series;name;EVALUACIONES Y SELECCIOOON DE PROVEEDORES;Uno a Muchos Bidirecccional No.5
+Series;name;FORMATOS;Series;name;FORMATOS DE ENTREVISTA;Uno a Muchos Bidirecccional No.5
+Series;name;FORMULARIOS;Series;name;FORMULARIOS DE INSCRIPCIOOON;Uno a Muchos Bidirecccional No.5
+Series;name;CIRCULARES;Series;name;GC-CIRCULAR;Uno a Muchos Bidirecccional No.5
+Series;name;CORRESPONDENCIA;Series;name;GC-CORRESPONDENCIA;Uno a Muchos Bidirecccional No.5
+Series;name;CIRCULARES;Series;name;GD-CIRCULAR DE RECTORIIIA;Uno a Muchos Bidirecccional No.5
+Series;name;CORRESPONDENCIA;Series;name;GD-CORRESPONDENCIA;Uno a Muchos Bidirecccional No.5
+Series;name;CIRCULARES;Series;name;GE-CIRCULAR;Uno a Muchos Bidirecccional No.5
+Series;name;CORRESPONDENCIA;Series;name;GE-CORRESPONDENCIA;Uno a Muchos Bidirecccional No.5
+Series;name;CIRCULARES;Series;name;GF-CIRCULAR;Uno a Muchos Bidirecccional No.5
+Series;name;CORRESPONDENCIA;Series;name;GF-CORRESPONDENCIA;Uno a Muchos Bidirecccional No.5
+Series;name;CIRCULARES;Series;name;GI-CIRCULAR;Uno a Muchos Bidirecccional No.5
+Series;name;CORRESPONDENCIA;Series;name;GI-CORRESPONDENCIA;Uno a Muchos Bidirecccional No.5
+Series;name;CIRCULARES;Series;name;GQ-CIRCULAR;Uno a Muchos Bidirecccional No.5
+Series;name;CORRESPONDENCIA;Series;name;GQ-CORRESPONDENCIA;Uno a Muchos Bidirecccional No.5
+Series;name;CIRCULARES;Series;name;GT-CIRCULAR;Uno a Muchos Bidirecccional No.5
+Series;name;CORRESPONDENCIA;Series;name;GT-CORRESPONDENCIA;Uno a Muchos Bidirecccional No.5
+Series;name;GUIAS;Series;name;GUIIIAS DE AUTOEVALUACIOOON;Uno a Muchos Bidirecccional No.5
+Series;name;GUIAS;Series;name;GUIIIAS PARA LA ENTREGA DE UNA OBRA LASALLISTA;Uno a Muchos Bidirecccional No.5
+Series;name;HISTORIAS;Series;name;HISTORIAS Y SEGUIMIENTO PSICOLOGIIIA;Uno a Muchos Bidirecccional No.5
+Series;name;HOJAS;Series;name;HOJAS DE MATRIIICULA;Uno a Muchos Bidirecccional No.5
+Series;name;HOJAS DE VIDA;Series;name;HOJAS DE VIDA DE EQUIPOS;Uno a Muchos Bidirecccional No.5
+Series;name;HOJAS DE VIDA;Series;name;HOJAS DE VIDA INSTITUCIONAL;Uno a Muchos Bidirecccional No.5
+Series;name;HORARIOS;Series;name;HORARIOS DE CLASES;Uno a Muchos Bidirecccional No.5
+Series;name;IMPLEMENTACIONES;Series;name;IMPLEMENTACIONES DE ACCIONES CORRECTIVAS, PREVENTIVAS O DE MEJORA;Uno a Muchos Bidirecccional No.5
+Series;name;INFORMES;Series;name;INFORMES DE AUDITORIIIA INTERNA;Uno a Muchos Bidirecccional No.5
+Series;name;INFORMES;Series;name;INFORMES DE COMISIONES DE EVALUACIOOON Y PROMOCIOOON;Uno a Muchos Bidirecccional No.5
+Series;name;INFORMES;Series;name;INFORMES DE GESTIOOON O DESEMEPE¥O DE PROCESO;Uno a Muchos Bidirecccional No.5
+Series;name;INFORMES;Series;name;INFORMES DE RESULTADO DE REVISIOOON POR LA DIRECCIOOON;Uno a Muchos Bidirecccional No.5
+Series;name;INFORMES;Series;name;INFORMES DE RESULTADOS DE ENCUESTAS DE SATISFACCIOOON;Uno a Muchos Bidirecccional No.5
+Series;name;INFORMES;Series;name;INFORMES MENSUALES DE VENTAS EN CAFETERIA;Uno a Muchos Bidirecccional No.5
+Series;name;INFORMES;Series;name;INFORMES O RESULTADOS DE PRUEBAS EXTERNAS;Uno a Muchos Bidirecccional No.5
+Series;name;INFORMES;Series;name;INFORMES PERIODICOS DE PSICOLOGIIIA A COORDINACIOOON;Uno a Muchos Bidirecccional No.5
+Series;name;INFORMES;Series;name;INFORMES VISITA HERMANO PROVINCIAL;Uno a Muchos Bidirecccional No.5
+Series;name;INGRESOS;Series;name;INGRESOS DE PERSONAL;Uno a Muchos Bidirecccional No.5
+Series;name;INSCRIPCIONES;Series;name;INSCRIPCIONES DE PROVEEDORES;Uno a Muchos Bidirecccional No.5
+Series;name;KARDEX;Series;name;KAAARDEX DE ALMACEEEN;Uno a Muchos Bidirecccional No.5
+Series;name;LIBROS;Series;name;LIBROS DE ACTAS DE GRADO;Uno a Muchos Bidirecccional No.5
+Series;name;LIBROS;Series;name;LIBROS DE CALIFICACIONES FINALES;Uno a Muchos Bidirecccional No.5
+Series;name;LIQUIDACIONES;Series;name;LIQUIDACIONES DE PERSONAL;Uno a Muchos Bidirecccional No.5
+Series;name;LISTADOS;Series;name;LISTADOS DE ASPIRANTES ADMITIDOS;Uno a Muchos Bidirecccional No.5
+Series;name;LISTADOS;Series;name;LISTADOS DE ASPIRANTES INSCRITOS;Uno a Muchos Bidirecccional No.5
+Series;name;LISTADOS;Series;name;LISTADOS DE ESTUDIANTES MATRICULADOS;Uno a Muchos Bidirecccional No.5
+Series;name;LISTADOS;Series;name;LISTADOS DE INVENTARIOS DE ACTIVOS Y RELACIOOON DE NOVEDADES;Uno a Muchos Bidirecccional No.5
+Series;name;LISTADOS;Series;name;LISTADOS DE PROVEEDORES;Uno a Muchos Bidirecccional No.5
+Series;name;LISTADOS;Series;name;LISTADOS MAESTRO DE DOCUMENTOS;Uno a Muchos Bidirecccional No.5
+Series;name;LISTADOS;Series;name;LISTADOS MAESTRO DE REGISTROS;Uno a Muchos Bidirecccional No.5
+Series;name;LISTAS;Series;name;LISTAS DE CHEQUEO;Uno a Muchos Bidirecccional No.5
+Series;name;LISTAS;Series;name;LISTAS DE CHEQUEO PARA RECEPCIOOON DE DOCUMENTOS PARA LA MATRICULA;Uno a Muchos Bidirecccional No.5
+Series;name;MATRICES;Series;name;MATRICES DE INDICADORES DEL SISTEMA DE GESTIOOON DE LA CALIDAD;Uno a Muchos Bidirecccional No.5
+Series;name;MATRICES;Series;name;MATRICES DE POSIBLES SERVICIOS NO CONFORMES;Uno a Muchos Bidirecccional No.5
+Series;name;MATRICES;Series;name;MATRICES DE SERVICIOS COMPLEMENTARIOS;Uno a Muchos Bidirecccional No.5
+Series;name;NOMINAS;Series;name;NOMINAS MENSUALES;Uno a Muchos Bidirecccional No.5
+Series;name;OBSERVADORES;Series;name;OBSERVADORES DEL ESTUDIANTE;Uno a Muchos Bidirecccional No.5
+Series;name;ORDENES;Series;name;ORDENES DE COMPRA;Uno a Muchos Bidirecccional No.5
+Series;name;PAZ Y SALVOS;Series;name;PAZ Y SALVO ESTUDIANTES;Uno a Muchos Bidirecccional No.5
+Series;name;PAZ Y SALVOS;Series;name;PAZ Y SALVOS GENERALES;Uno a Muchos Bidirecccional No.5
+Series;name;PLANES;Series;name;PLANES DE AAAREA;Uno a Muchos Bidirecccional No.5
+Series;name;PLANES;Series;name;PLANES DE ASIGNATURA;Uno a Muchos Bidirecccional No.5
+Series;name;PLANES;Series;name;PLANES DE AUDITORIIIA INTERNA;Uno a Muchos Bidirecccional No.5
+Series;name;PLANES;Series;name;PLANES DE BIENESTAR;Uno a Muchos Bidirecccional No.5
+Series;name;PLANES;Series;name;PLANES DE CONTROL DE PLAGAS;Uno a Muchos Bidirecccional No.5
+Series;name;PLANES;Series;name;PLANES DE CURSO;Uno a Muchos Bidirecccional No.5
+Series;name;PLANES;Series;name;PLANES DE EMERGENCIAS;Uno a Muchos Bidirecccional No.5
+Series;name;PLANES;Series;name;PLANES DE FORMACIOOON;Uno a Muchos Bidirecccional No.5
+Series;name;PLANES;Series;name;PLANES DE MANTENIMIENTOS;Uno a Muchos Bidirecccional No.5
+Series;name;PLANES;Series;name;PLANES DE MEJORAMIENTO ENCUESTA DE CLIMA ORGANIZACIONAL;Uno a Muchos Bidirecccional No.5
+Series;name;PLANES;Series;name;PLANES OPERATIVOS ANUALES;Uno a Muchos Bidirecccional No.5
+Series;name;PLANILLAS;Series;name;PLANILLAS DE ACTIVIDADES DE MANTENIMIENTO;Uno a Muchos Bidirecccional No.5
+Series;name;PLANILLAS;Series;name;PLANILLAS DE CALIFICACIONES / CONTROL DE ASISTENCIA;Uno a Muchos Bidirecccional No.5
+Series;name;PLANILLAS;Series;name;PLANILLAS DE SEGUIMIENTO- NIVEL PREESCOLAR;Uno a Muchos Bidirecccional No.5
+Series;name;PLANILLAS;Series;name;PLANILLAS DIARIAS DE VENTAS EN CAFETERIA;Uno a Muchos Bidirecccional No.5
+Series;name;PROTOCOLIZACIONES;Series;name;PROTOCOLIZACIONES DEL PERSONAL DOCENTE;Uno a Muchos Bidirecccional No.5
+Series;name;PROYECTOS;Series;name;PROYECTOS PEDAGOOOGICO;Uno a Muchos Bidirecccional No.5
+Series;name;QUEJAS;Series;name;QUEJAS, SUGERENCIAS Y FELICITACIONES;Uno a Muchos Bidirecccional No.5
+Series;name;RADICACIONES;Series;name;RADICACIONES DE CORRESPONDENCIA ENVIADA;Uno a Muchos Bidirecccional No.5
+Series;name;RADICACIONES;Series;name;RADICACIONES Y DISTRIBUCIOOON DE CORRESPONDENCIA RECIBIDA;Uno a Muchos Bidirecccional No.5
+Series;name;REEVALUACIONES;Series;name;REEVALUACIONES DE PROVEEDORES;Uno a Muchos Bidirecccional No.5
+Series;name;REGISTROS;Series;name;REGISTROS DE ATENCIOOON A PADRES DE FAMILIA O ACUDIENTES;Uno a Muchos Bidirecccional No.5
+Series;name;REGISTROS;Series;name;REGISTROS DE INDUCCIOOON;Uno a Muchos Bidirecccional No.5
+Series;name;REGISTROS;Series;name;REGISTROS DE NORMALIZACIOOON;Uno a Muchos Bidirecccional No.5
+Series;name;REGISTROS;Series;name;REGISTROS DE NOVEDADES;Uno a Muchos Bidirecccional No.5
+Series;name;REGISTROS;Series;name;REGISTROS DE RESULTADOS DE ADMISIOOON;Uno a Muchos Bidirecccional No.5
+Series;name;REGISTROS;Series;name;REGISTROS DE SOPORTES DE INSCRIPCIOOON Y EVALUACIOOON DE PROVEEDORES;Uno a Muchos Bidirecccional No.5
+Series;name;REGISTROS;Series;name;REGISTROS DE VALIDACIOOON DE LA PRESTACIOOON DEL SERVICIO EDUCATIVO;Uno a Muchos Bidirecccional No.5
+Series;name;RELACIONES;Series;name;RELACIONES DE FACTURAS POR PAGAR;Uno a Muchos Bidirecccional No.5
+Series;name;REMISIONES;Series;name;REMISIONES DE ESTUDIANTES A ORIENTACIOOON;Uno a Muchos Bidirecccional No.5
+Series;name;REPORTES;Series;name;REPORTES DE INCIDENCIAS Y DA¥OS EN AULAS Y ZONAS COMUNAS;Uno a Muchos Bidirecccional No.5
+Series;name;REQUISICIONES;Series;name;REQUISICIONES GF;Uno a Muchos Bidirecccional No.5
+Series;name;RESOLUCIONES;Series;name;RESOLUCIOOONES DE RECTORIIIA;Uno a Muchos Bidirecccional No.5
+Series;name;RESUMENES;Series;name;RESUMENES DE CARTERA MOROSA;Uno a Muchos Bidirecccional No.5
+Series;name;RETIROS;Series;name;RETIROS DE PERSONAL;Uno a Muchos Bidirecccional No.5
+Series;name;CIRCULARES;Series;name;SC-CIRCULAR;Uno a Muchos Bidirecccional No.5
+Series;name;CORRESPONDENCIA;Series;name;SC-CORRESPONDENCIA;Uno a Muchos Bidirecccional No.5
+Series;name;SEGUIMIENTOS;Series;name;SEGUIMIENTOS Y ASISTENCIA A CAPACITACIOOON;Uno a Muchos Bidirecccional No.5
+Series;name;SEGUIMIENTOS;Series;name;SEGUIMIENTOS Y CONTROLES DE QUEJAS, SUGERENCIAS Y FELICITACIONES;Uno a Muchos Bidirecccional No.5
+Series;name;CIRCULARES;Series;name;SG-CIRCULAR;Uno a Muchos Bidirecccional No.5
+Series;name;CORRESPONDENCIA;Series;name;SG-CORRESPONDENCIA;Uno a Muchos Bidirecccional No.5
+Series;name;SOLICITUDES;Series;name;SOLICITUDES DE CAPACITACIOOON;Uno a Muchos Bidirecccional No.5
+Series;name;SOLICITUDES;Series;name;SOLICITUDES DE COMPRAS;Uno a Muchos Bidirecccional No.5
+Series;name;SOLICITUDES;Series;name;SOLICITUDES DE MANTENIMIENTOS CORRECTIVOS;Uno a Muchos Bidirecccional No.5
+Series;name;SOLICITUDES;Series;name;SOLICITUDES DE PERMISOS;Uno a Muchos Bidirecccional No.5
+Series;name;SOLICITUDES;Series;name;SOLICITUDES DE PERSONAL;Uno a Muchos Bidirecccional No.5
+Series;name;SOLICITUDES;Series;name;SOLICITUDES DE SERVICIOS DE FOTOCOPIADO E IMPRESIOOON;Uno a Muchos Bidirecccional No.5
+Series;name;SOLICITUDES;Series;name;SOLICITUDES Y ENTREGAS DE SUMINISTROS;Uno a Muchos Bidirecccional No.5
+Series;name;SOPORTES;Series;name;SOPORTES COMPROBANTES DE EGRESO;Uno a Muchos Bidirecccional No.5

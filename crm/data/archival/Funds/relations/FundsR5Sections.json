@@ -1,0 +1,94 @@
+{
+  "RelationshipsData": [
+  {
+    "From": "Funds",
+    "FromProperty": "name",
+    "FromValue": "SGC",
+    "To": "Sections",
+    "ToProperty": "code",
+    "ToValue": "GD",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Funds",
+    "FromProperty": "name",
+    "FromValue": "SGC",
+    "To": "Sections",
+    "ToProperty": "code",
+    "ToValue": "AM",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Funds",
+    "FromProperty": "name",
+    "FromValue": "SGC",
+    "To": "Sections",
+    "ToProperty": "code",
+    "ToValue": "GE",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Funds",
+    "FromProperty": "name",
+    "FromValue": "SGC",
+    "To": "Sections",
+    "ToProperty": "code",
+    "ToValue": "GT",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Funds",
+    "FromProperty": "name",
+    "FromValue": "SGC",
+    "To": "Sections",
+    "ToProperty": "code",
+    "ToValue": "GF",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Funds",
+    "FromProperty": "name",
+    "FromValue": "SGC",
+    "To": "Sections",
+    "ToProperty": "code",
+    "ToValue": "GC",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Funds",
+    "FromProperty": "name",
+    "FromValue": "SGC",
+    "To": "Sections",
+    "ToProperty": "code",
+    "ToValue": "SG",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Funds",
+    "FromProperty": "name",
+    "FromValue": "SGC",
+    "To": "Sections",
+    "ToProperty": "code",
+    "ToValue": "SC",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Funds",
+    "FromProperty": "name",
+    "FromValue": "SGC",
+    "To": "Sections",
+    "ToProperty": "code",
+    "ToValue": "GQ",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Funds",
+    "FromProperty": "name",
+    "FromValue": "SGC",
+    "To": "Sections",
+    "ToProperty": "code",
+    "ToValue": "GI",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  }
+  ]
+}
