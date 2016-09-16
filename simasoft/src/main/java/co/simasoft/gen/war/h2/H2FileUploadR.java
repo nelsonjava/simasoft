@@ -181,10 +181,10 @@ line("                     "+entityTo.getName()+" "+Utils._1raMin(entityTo.getNa
                  switch (atributo.getType()) {
                      case "String":
 
-line("                 if (fromProperty.equals(\""+atributo.getField()+"\")){");
-line("                     "+Utils._1raMin(entidad.getName())+"From = findBean."+atributo.getField()+entityFrom.getName()+"(fromValue,em);");
-line("                     f.line(\"from:\"+fromValue+\":\"+"+Utils._1raMin(entidad.getName())+"From.get"+Utils._1raMay(atributo.getField())+"());");
-line("                 } // "+Utils._1raMin(entidad.getName())+"\n");
+line("                     if (fromProperty.equals(\""+atributo.getField()+"\")){");
+line("                         "+Utils._1raMin(entidad.getName())+"From = findBean."+atributo.getField()+entityFrom.getName()+"(fromValue,em);");
+line("                         f.line(\"from:\"+fromValue+\":\"+"+Utils._1raMin(entidad.getName())+"From.get"+Utils._1raMay(atributo.getField())+"());");
+line("                     } // "+Utils._1raMin(entidad.getName())+"\n");
 
 
                           break;

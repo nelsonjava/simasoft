@@ -52,8 +52,8 @@ public class H2FileCsv extends FileTxt {
             switch (relation.getNameCardinality()) {
                 case "Uno a Muchos Bidirecccional No.5":
                      clearFileTxt();
-                     line("From;FromProperty;FromValue;To;ToProperty;ToValue;Cardinalities");
-                     line(relation.getEntityFrom().getName()+";"+"        ;        ;"+relation.getEntityTo().getName()+";        ;        ;Uno a Muchos Bidirecccional No.5");
+                     line("From;FromProperty;FromValue;To;ToProperty;ToValue;Name;Cardinalities");
+                     line(relation.getEntityFrom().getName()+";"+"        ;        ;"+relation.getEntityTo().getName()+";        ;        ;       ;Uno a Muchos Bidirecccional No.5");
                      saveFile(path+"."+entidad.getGroupIds()+"."+entidad.getName()+".relations",relation.getEntityFrom().getName()+"R5"+relation.getEntityTo().getName()+".csv");
                      break;
                 default:

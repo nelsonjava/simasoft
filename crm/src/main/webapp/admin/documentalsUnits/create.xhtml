@@ -137,7 +137,7 @@
                                 <h:panelGroup>
                                          <h:selectOneMenu converter="#{documentalsUnitsTypesBean.converter}" id="documentalsUnitsBeanDocumentalsUnitsDocumentalsUnitsTypes" value="#{documentalsUnitsBean.documentalsUnits.documentalsUnitsTypes}">
                                                 <f:selectItem/>
-                                                <f:selectItems itemLabel="#{forgeview:display(_item.)}" itemValue="#{_item}" value="#{documentalsUnitsTypesBean.all}" var="_item"/>
+                                                <f:selectItems itemLabel="#{forgeview:display(_item.name)}" itemValue="#{_item}" value="#{documentalsUnitsTypesBean.all}" var="_item"/>
                                         </h:selectOneMenu>
                                         <h:message for="documentalsUnitsBeanDocumentalsUnits" styleClass="error"/>
                                 </h:panelGroup>
