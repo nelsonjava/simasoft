@@ -1,0 +1,182 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:c="http://java.sun.com/jsp/jstl/core"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:forgeview="http://jboss.org/forge/view"
+        template="/resources/scaffold/archivalTemplate.xhtml">
+
+        <f:metadata>
+                <f:viewParam name="id" value='#{documentalsUnitsBean.id}'/>
+                <f:event type="preRenderView" listener='#{documentalsUnitsBean.retrieve}'/>
+        </f:metadata>
+
+        <ui:param name="pageTitle" value="Create DocumentalsUnits"/>
+
+        <ui:define name="header">
+                DocumentalsUnits
+        </ui:define>
+
+        <ui:define name="subheader">
+                <c:choose>
+                        <c:when test='#{!empty documentalsUnitsBean.id}'>
+                                Edit existing DocumentalsUnits
+                        </c:when>
+                        <c:otherwise>
+                                Create a new DocumentalsUnits
+                        </c:otherwise>
+                </c:choose>
+        </ui:define>
+
+        <ui:define name="footer"/>
+
+        <ui:define name="main">
+                <h:form id="create">
+                        <h:messages globalOnly="true" styleClass="error"/>
+
+                        <h:panelGrid columnClasses="label,component,required" columns="3">
+
+                                <h:outputLabel for="documentalsUnitsBeanDocumentalsUnitsOrden" value="Orden:"/>
+                                <h:panelGroup>
+                                        <h:inputText id="documentalsUnitsBeanDocumentalsUnitsOrden" value="#{documentalsUnitsBean.documentalsUnits.orden}"/>
+                                        <h:message for="documentalsUnitsBeanDocumentalsUnitsOrden" styleClass="error"/>
+                                </h:panelGroup>
+                                <h:outputText/>
+
+                                <h:outputLabel for="documentalsUnitsBeanDocumentalsUnitsName" value="Name:"/>
+                                <h:panelGroup>
+                                        <h:inputText id="documentalsUnitsBeanDocumentalsUnitsName" required="true" value="#{documentalsUnitsBean.documentalsUnits.name}"/>
+                                        <h:message for="documentalsUnitsBeanDocumentalsUnitsName" styleClass="error"/>
+                                </h:panelGroup>
+                                <h:outputText value="*"/>
+
+                                <h:outputLabel for="documentalsUnitsBeanDocumentalsUnitsCode" value="Code:"/>
+                                <h:panelGroup>
+                                        <h:inputText id="documentalsUnitsBeanDocumentalsUnitsCode" value="#{documentalsUnitsBean.documentalsUnits.code}"/>
+                                        <h:message for="documentalsUnitsBeanDocumentalsUnitsCode" styleClass="error"/>
+                                </h:panelGroup>
+                                <h:outputText/>
+
+                                <h:outputLabel for="documentalsUnitsBeanDocumentalsUnitsStartDate" value="StartDate:"/>
+                                <h:panelGroup>
+                                <p:calendar id="developmentsBeanDevelopmentsStartDate"
+                                            showButtonPanel="true"
+                                            pattern="dd/MM/yyyy HH:mm a"
+                                            value="#{documentalsUnitsBean.documentalsUnits.startDate}"/>
+                                </h:panelGroup>
+                                <h:outputText/>
+
+
+
+
+
+                                <h:outputLabel for="documentalsUnitsBeanDocumentalsUnitsAlmacenamiento" value="Almacenamiento:"/>
+                                <h:panelGroup>
+                                         <h:selectOneMenu converter="#{companiesRolesBean.converter}" id="documentalsUnitsBeandocumentalsUnitsAlmacenamiento" value="#{documentalsUnitsBean.documentalsUnits.almacenamiento}">
+                                                <f:selectItem/>
+                                                <f:selectItems itemLabel="#{forgeview:display(_item.name)}" itemValue="#{_item}" value="#{companiesRolesBean.all}" var="_item"/>
+                                        </h:selectOneMenu>
+                                        <h:message for="entitiesBeanEntitiesIsSimplified" styleClass="error"/>
+                                </h:panelGroup>
+                                <h:outputText/>
+
+                                <h:outputLabel for="documentalsUnitsBeanDocumentalsUnitsProteccion" value="Proteccion:"/>
+                                <h:panelGroup>
+                                         <h:selectOneMenu converter="#{companiesRolesBean.converter}" id="documentalsUnitsBeandocumentalsUnitsProteccion" value="#{documentalsUnitsBean.documentalsUnits.proteccion}">
+                                                <f:selectItem/>
+                                                <f:selectItems itemLabel="#{forgeview:display(_item.name)}" itemValue="#{_item}" value="#{companiesRolesBean.all}" var="_item"/>
+                                        </h:selectOneMenu>
+                                        <h:message for="entitiesBeanEntitiesIsSimplified" styleClass="error"/>
+                                </h:panelGroup>
+                                <h:outputText/>
+
+                                <h:outputLabel for="documentalsUnitsBeanDocumentalsUnitsSeries" value="Series:"/>
+                                <h:panelGroup>
+                                         <h:selectOneMenu converter="#{seriesBean.converter}" id="documentalsUnitsBeanDocumentalsUnitsSeries" value="#{documentalsUnitsBean.documentalsUnits.series}">
+                                                <f:selectItem/>
+                                                <f:selectItems itemLabel="#{forgeview:display(_item.name)}" itemValue="#{_item}" value="#{seriesBean.all}" var="_item"/>
+                                        </h:selectOneMenu>
+                                        <h:message for="documentalsUnitsBeanDocumentalsUnits" styleClass="error"/>
+                                </h:panelGroup>
+                                <h:outputText/>
+
+                                <h:outputLabel for="documentalsUnitsBeanDocumentalsUnitsOrganizeds" value="Organizeds:"/>
+                                <h:panelGroup>
+                                         <h:selectOneMenu converter="#{organizedsBean.converter}" id="documentalsUnitsBeanDocumentalsUnitsOrganizeds" value="#{documentalsUnitsBean.documentalsUnits.organizeds}">
+                                                <f:selectItem/>
+                                                <f:selectItems itemLabel="#{forgeview:display(_item.name)}" itemValue="#{_item}" value="#{organizedsBean.all}" var="_item"/>
+                                        </h:selectOneMenu>
+                                        <h:message for="documentalsUnitsBeanDocumentalsUnits" styleClass="error"/>
+                                </h:panelGroup>
+                                <h:outputText/>
+
+                                <h:outputLabel for="documentalsUnitsBeanDocumentalsUnitsAccess" value="Access:"/>
+                                <h:panelGroup>
+                                         <h:selectOneMenu converter="#{accessBean.converter}" id="documentalsUnitsBeanDocumentalsUnitsAccess" value="#{documentalsUnitsBean.documentalsUnits.access}">
+                                                <f:selectItem/>
+                                                <f:selectItems itemLabel="#{forgeview:display(_item.name)}" itemValue="#{_item}" value="#{accessBean.all}" var="_item"/>
+                                        </h:selectOneMenu>
+                                        <h:message for="documentalsUnitsBeanDocumentalsUnits" styleClass="error"/>
+                                </h:panelGroup>
+                                <h:outputText/>
+
+                                <h:outputLabel for="documentalsUnitsBeanDocumentalsUnitsFrequentlyQuery" value="FrequentlyQuery:"/>
+                                <h:panelGroup>
+                                         <h:selectOneMenu converter="#{frequentlyQueryBean.converter}" id="documentalsUnitsBeanDocumentalsUnitsFrequentlyQuery" value="#{documentalsUnitsBean.documentalsUnits.frequentlyQuery}">
+                                                <f:selectItem/>
+                                                <f:selectItems itemLabel="#{forgeview:display(_item.name)}" itemValue="#{_item}" value="#{frequentlyQueryBean.all}" var="_item"/>
+                                        </h:selectOneMenu>
+                                        <h:message for="documentalsUnitsBeanDocumentalsUnits" styleClass="error"/>
+                                </h:panelGroup>
+                                <h:outputText/>
+
+                                <h:outputLabel for="documentalsUnitsBeanDocumentalsUnitsDocumentalsUnitsTypes" value="DocumentalsUnitsTypes:"/>
+                                <h:panelGroup>
+                                         <h:selectOneMenu converter="#{documentalsUnitsTypesBean.converter}" id="documentalsUnitsBeanDocumentalsUnitsDocumentalsUnitsTypes" value="#{documentalsUnitsBean.documentalsUnits.documentalsUnitsTypes}">
+                                                <f:selectItem/>
+                                                <f:selectItems itemLabel="#{forgeview:display(_item.name)}" itemValue="#{_item}" value="#{documentalsUnitsTypesBean.all}" var="_item"/>
+                                        </h:selectOneMenu>
+                                        <h:message for="documentalsUnitsBeanDocumentalsUnits" styleClass="error"/>
+                                </h:panelGroup>
+                                <h:outputText/>
+
+                                <h:outputLabel for="documentalsUnitsBeandocumentalsUnitsobjPadre" value="DocumentalsUnits:"/>
+                                <h:panelGroup>
+                                         <h:selectOneMenu converter="#{documentalsUnitsBean.converter}" id="documentalsUnitsBeanDocumentalsUnitsobjPadre" value="#{documentalsUnitsBean.documentalsUnits.objPadre}">
+                                                <f:selectItem/>
+                                                <f:selectItems itemLabel="#{forgeview:display(_item.name)}" itemValue="#{_item}" value="#{documentalsUnitsBean.all}" var="_item"/>
+                                        </h:selectOneMenu>
+                                        <h:message for="entitiesBeanEntitiesIsSimplified" styleClass="error"/>
+                                </h:panelGroup>
+                                <h:outputText/>
+
+                                <h:outputLabel for="documentalsUnitsBeanDocumentalsUnitsObservations" value="Observations:"/>
+                                <h:panelGroup>
+                                        <p:editor id="documentalsUnitsBeanDocumentalsUnitsObservations" value="#{documentalsUnitsBean.documentalsUnits.observations}"/>
+                                        <h:message for="documentalsUnitsBeanDocumentalsUnitsObservations" styleClass="error"/>
+                                </h:panelGroup>
+                                <h:outputText/>
+
+                        </h:panelGrid>
+
+                        <div class="buttons">
+                                <h:commandLink value="Save" action='#{documentalsUnitsBean.update}' styleClass="btn btn-primary"/>
+                                <c:choose>
+                                        <c:when test='#{!empty documentalsUnitsBean.id}'>
+                                                <h:link value="Cancel" outcome="view" styleClass="btn btn-primary">
+                                                        <f:param name="id" value='#{documentalsUnitsBean.id}'/>
+                                                </h:link>
+                                                <h:commandLink value="Delete" action='#{documentalsUnitsBean.delete}' styleClass="btn btn-primary"/>
+                                        </c:when>
+                                        <c:otherwise>
+                                                <h:link value="Cancel" outcome="search" styleClass="btn btn-primary"/>
+                                        </c:otherwise>
+                                </c:choose>
+                        </div>
+                </h:form>
+        </ui:define>
+
+</ui:composition>

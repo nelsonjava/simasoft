@@ -1,0 +1,164 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:forgeview="http://jboss.org/forge/view"
+        template="/resources/scaffold/iso9001Template.xhtml">
+
+        <f:metadata>
+                <f:viewParam name="id" value='#{improvementClosuresBean.id}'/>
+                <f:event type="preRenderView" listener='#{improvementClosuresBean.retrieve}'/>
+        </f:metadata>
+
+        <ui:param name="pageTitle" value="View ImprovementClosures"/>
+
+        <ui:define name="header">
+                ImprovementClosures
+        </ui:define>
+
+        <ui:define name="subheader">
+                View existing ImprovementClosures
+        </ui:define>
+
+        <ui:define name="footer"/>
+
+        <ui:define name="main">
+                <h:panelGrid columnClasses="label,component,required" columns="3">
+
+                        <h:outputLabel for="improvementClosuresBeanImprovementClosuresOrden" value="Orden:"/>
+                        <h:outputText id="improvementClosuresBeanImprovementClosuresOrden" value="#{improvementClosuresBean.improvementClosures.orden}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="improvementClosuresBeanImprovementClosuresDateClosing" value="DateClosing:"/>
+                        <h:outputText id="improvementClosuresBeanImprovementClosuresDateClosing" value="Pendiente"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="improvementClosuresBeanImprovementClosuresObservations" value="Observations:"/>
+                        <h:outputText id="improvementClosuresBeanImprovementClosuresObservations" value="#{improvementClosuresBean.improvementClosures.observations}" escape="false" />
+                        <h:outputText/>
+
+                        <h:outputLabel for="ImprovementClosuresBeanImprovementClosuresClosingActivities" value="ClosingActivities:"/>
+                        <h:dataTable id="improvementClosuresBeanImprovementClosuresclosingActivities" styleClass="data-table" value="#{forgeview:asList(improvementClosuresBean.improvementClosures.closingActivities)}" var="_item">
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Orden"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/closingActivities/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemOrden" value="#{_item.orden}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Name"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/closingActivities/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemName" value="#{_item.name}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="IsSiorNo"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/closingActivities/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText styleClass="#{_item.isSiorNo ? 'boolean-true' : 'boolean-false'}" value=""/>                                              </h:link>
+                                           </h:column>
+
+                        </h:dataTable>
+                        <h:outputText/>
+
+                        <h:outputLabel for="ImprovementClosuresBeanImprovementClosuresContinualImprovements" value="ContinualImprovements:"/>
+                        <h:dataTable id="improvementClosuresBeanImprovementClosurescontinualImprovements" styleClass="data-table" value="#{forgeview:asList(improvementClosuresBean.improvementClosures.continualImprovements)}" var="_item">
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Orden"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/continualImprovements/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemOrden" value="#{_item.orden}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Code"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/continualImprovements/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemCode" value="#{_item.code}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Description"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/continualImprovements/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemDescription" value="#{_item.description}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="CausesAnalysis"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/continualImprovements/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemCausesAnalysis" value="#{_item.causesAnalysis}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="RootCause"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/continualImprovements/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemRootCause" value="#{_item.rootCause}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="ImmediateCorrection"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/continualImprovements/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemImmediateCorrection" value="#{_item.immediateCorrection}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="DateCorrection"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/continualImprovements/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemDateCorrection" value="#{_item.dateCorrection}"/>
+                                                              <f:convertDateTime type="date"/>
+                                                     <h:outputText/>
+                                              </h:link>
+                                           </h:column>
+
+                        </h:dataTable>
+                        <h:outputText/>
+
+                </h:panelGrid>
+
+                <div class="buttons">
+                        <h:link value="View All" outcome="search" styleClass="btn btn-primary"/>
+                        <h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
+                        <h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
+                </div>
+        </ui:define>
+</ui:composition>

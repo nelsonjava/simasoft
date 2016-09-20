@@ -1,0 +1,123 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:forgeview="http://jboss.org/forge/view"
+        template="/resources/scaffold/networkingTemplate.xhtml">
+
+        <f:metadata>
+                <f:viewParam name="id" value='#{patchPanelsPortsBean.id}'/>
+                <f:event type="preRenderView" listener='#{patchPanelsPortsBean.retrieve}'/>
+        </f:metadata>
+
+        <ui:param name="pageTitle" value="View PatchPanelsPorts"/>
+
+        <ui:define name="header">
+                PatchPanelsPorts
+        </ui:define>
+
+        <ui:define name="subheader">
+                View existing PatchPanelsPorts
+        </ui:define>
+
+        <ui:define name="footer"/>
+
+        <ui:define name="main">
+                <h:panelGrid columnClasses="label,component,required" columns="3">
+
+                        <h:outputLabel for="patchPanelsPortsBeanPatchPanelsPortsOrden" value="Orden:"/>
+                        <h:outputText id="patchPanelsPortsBeanPatchPanelsPortsOrden" value="#{patchPanelsPortsBean.patchPanelsPorts.orden}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="patchPanelsPortsBeanPatchPanelsPortsPort" value="Port:"/>
+                        <h:outputText id="patchPanelsPortsBeanPatchPanelsPortsPort" value="#{patchPanelsPortsBean.patchPanelsPorts.port}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="patchPanelsPortsBeanPatchPanelsPortsCode" value="Code:"/>
+                        <h:outputText id="patchPanelsPortsBeanPatchPanelsPortsCode" value="#{patchPanelsPortsBean.patchPanelsPorts.code}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="patchPanelsPortsBeanPatchPanelsPortsMts" value="Mts:"/>
+                        <h:outputText id="patchPanelsPortsBeanPatchPanelsPortsMts" value="#{patchPanelsPortsBean.patchPanelsPorts.mts}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="patchPanelsPortsBeanPatchPanelsPortsObservations" value="Observations:"/>
+                        <h:outputText id="patchPanelsPortsBeanPatchPanelsPortsObservations" value="#{patchPanelsPortsBean.patchPanelsPorts.observations}" escape="false" />
+                        <h:outputText/>
+
+                        <h:outputLabel for="PatchPanelsPortsBeanPatchPanelsPortsNetworkPorts" value="NetworkPorts:"/>
+                        <h:dataTable id="patchPanelsPortsBeanPatchPanelsPortsnetworkPorts" styleClass="data-table" value="#{forgeview:asList(patchPanelsPortsBean.patchPanelsPorts.networkPorts)}" var="_item">
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Orden"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/networkPorts/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemOrden" value="#{_item.orden}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="MacAddress"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/networkPorts/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemMacAddress" value="#{_item.macAddress}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="IpAddress"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/networkPorts/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemIpAddress" value="#{_item.ipAddress}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="State"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/networkPorts/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemState" value="#{_item.state}"/>
+                                              </h:link>
+                                           </h:column>
+
+                        </h:dataTable>
+                        <h:outputText/>
+
+                        <h:outputLabel for="patchPanelsPortsBeanPatchPanelsPortsPhysicalAreas" value="PhysicalAreas:"/>
+                        <h:link id="patchPanelsPortsBeanPatchPanelsPortsPhysicalAreas" outcome="/admin/physicalAreas/view" rendered="#{!empty patchPanelsPortsBean.patchPanelsPorts.physicalAreas}" value="#{patchPanelsPortsBean.patchPanelsPorts.physicalAreas.code}">
+                                 <f:param name="id" value="#{patchPanelsPortsBean.patchPanelsPorts.physicalAreas.id}"/>
+                        </h:link>
+                        <h:outputText/>
+
+                        <h:outputLabel for="patchPanelsPortsBeanPatchPanelsPortsSwitchesPorts" value="SwitchesPorts:"/>
+                        <h:link id="patchPanelsPortsBeanPatchPanelsPortsSwitchesPorts" outcome="/admin/switchesPorts/view" rendered="#{!empty patchPanelsPortsBean.patchPanelsPorts.switchesPorts}" value="#{patchPanelsPortsBean.patchPanelsPorts.switchesPorts.port}">
+                                 <f:param name="id" value="#{patchPanelsPortsBean.patchPanelsPorts.switchesPorts.id}"/>
+                        </h:link>
+                        <h:outputText/>
+
+                        <h:outputLabel for="patchPanelsPortsBeanPatchPanelsPortsHosts" value="Hosts:"/>
+                        <h:link id="patchPanelsPortsBeanPatchPanelsPortsHosts" outcome="/admin/hosts/view" rendered="#{!empty patchPanelsPortsBean.patchPanelsPorts.hosts}" value="#{patchPanelsPortsBean.patchPanelsPorts.hosts.name}">
+                                 <f:param name="id" value="#{patchPanelsPortsBean.patchPanelsPorts.hosts.id}"/>
+                        </h:link>
+                        <h:outputText/>
+
+                </h:panelGrid>
+
+                <div class="buttons">
+                        <h:link value="View All" outcome="search" styleClass="btn btn-primary"/>
+                        <h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
+                        <h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
+                </div>
+        </ui:define>
+</ui:composition>
