@@ -101,12 +101,19 @@
                                  <f:param name="id" value="#{fundsBean.funds.fundsLife.id}"/>
                         </h:link>
                         <h:outputText/>
-                        
+
                         <h:outputLabel for="FundsGenerate" value="Generate:"/>
                         <h:form>
                           <h:commandButton value="LMR" action="#{FundsGen.lmr(fundsBean.funds)}" />
                         </h:form>
 			<h:outputText/>
+			
+                        <h:outputLabel for="FundsGenerate" value="Generate:"/>
+                        <h:form>
+                          <h:commandButton value="ConservationUnits" action="#{FundsGen.ConservationUnitsData()}" />
+                        </h:form>
+			<h:outputText/>
+
 
 
                 </h:panelGrid>

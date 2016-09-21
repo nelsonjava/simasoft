@@ -60,7 +60,7 @@ public class FindBean {
 
 //      ---------------------- Funds ------------------------
 
-    public List<Funds> AllFunds() {
+    public List<Funds> AllFunds(EntityManager em) {
         List<Funds> results = em.createQuery("SELECT o FROM Funds o").getResultList();
         if (results.isEmpty()) {
             return new ArrayList<Funds>();
@@ -478,7 +478,7 @@ public class FindBean {
 
 //      ---------------------- ConservationUnits ------------------------
 
-    public List<ConservationUnits> AllConservationUnits() {
+    public List<ConservationUnits> AllConservationUnits(EntityManager em) {
         List<ConservationUnits> results = em.createQuery("SELECT o FROM ConservationUnits o").getResultList();
         if (results.isEmpty()) {
             return new ArrayList<ConservationUnits>();

@@ -4,8 +4,10 @@ import co.simasoft.utils.*;
 import co.simasoft.beans.*;
 
 import co.simasoft.models.*;
+import co.simasoft.view.*;
 
 import java.io.*;
+
 import java.util.*;
 
 import javax.ejb.LocalBean;
@@ -37,18 +39,78 @@ public class FundsGen extends FileTxt {
     private Integer gestionYear = 0;
     private Integer centralYear = 0;
 
-
     private String gestion = "";
     private String central = "";
+    private Map<String, String> trd = new HashMap<String, String>();
 
     private static final Logger log = Logger.getLogger(FundsGen.class.getName());
 
     @PersistenceContext(unitName = "crmPU-JTA")
     private EntityManager em;
 
+    FindBean findBean = new FindBean();
+
     FileTxt f1 = new FileTxt();
     FileTxt f2 = new FileTxt();
     FileTxt f3 = new FileTxt();
+
+    public Map<String, String> trd(Set<TrdSeries> trdSeries,String year) {
+
+        trd = new HashMap<String, String>();
+
+        for (TrdSeries trdSerie : trdSeries){
+
+             gestion = trdSerie.getTrd().getGestion().getName();
+             trd.put("gestion", gestion);
+
+             central = trdSerie.getTrd().getCentral().getName();
+             trd.put("central", central);
+
+             debug = trdSerie.getTrd().getFinalDisposition().getName();
+             trd.put("debug", debug);
+
+             gestionYear = trdSerie.getTrd().getGestion().getYear();
+             if (gestionYear == null){
+                 gestionYear = 0;
+             }
+             iniYear = Integer.parseInt(year) - gestionYear + 1;
+             initialYear = String.valueOf(iniYear);
+             trd.put("iniYear", initialYear);
+
+             centralYear = trdSerie.getTrd().getCentral().getYear();
+             if (centralYear == null){
+                 centralYear = 0;
+             }
+             finYear = Integer.valueOf(year);
+             finalYear = String.valueOf(finYear);
+             trd.put("finYear", finalYear);
+             trd.put("trdYear", finalYear);
+
+
+             debugYear = String.valueOf(finYear+centralYear);
+             trd.put("debugYear", debugYear);
+
+
+        } // trdSeries
+        return trd;
+    } // trd
+
+
+/*
+    public String central(Set<TrdSeries> trdSeries) {
+        for (TrdSeries trdSerie : trdSeries){
+             central = trdSerie.getTrd().getCentral().getName();
+        } // trdSeries
+        return central;
+    } // central
+
+    public String debug(Set<TrdSeries> trdSeries) {
+        for (TrdSeries trdSerie : trdSeries){
+             debug = trdSerie.getTrd().getFinalDisposition().getName();
+        } // trdSeries
+        return debug;
+    } // debug
+*/
 
     public void lmr(Funds funds) {
     try {
@@ -164,7 +226,53 @@ public class FundsGen extends FileTxt {
       ioe.printStackTrace();
     }
 
-    } // data()
+    } // lmr()
+
+    public void ConservationUnitsData() {
+    try {
+
+        clearFileTxt();
+
+        List<ConservationUnits> conservationUnits;
+        Set<OriginalOrders> originalOrders = new HashSet<OriginalOrders>();
+
+        conservationUnits = findBean.AllConservationUnits(em);
+
+        for (ConservationUnits conservationUnit : conservationUnits){
+
+            originalOrders = conservationUnit.getOriginalOrders();
+            originalOrders.size();
+            if (originalOrders.size() > 0){
+
+               line(conservationUnit.getName()+" - ARCHIVO INACTIVO");
+               line("year;codigo;nombre;trd;debug");
+//               line(originalOrders.getDocumentalsUnits().getCode)+originalOrders.getDocumentalsUnits().getSeries().getSections().getFunds().getCompanies())
+
+               for (OriginalOrders originalOrder : originalOrders){
+
+                   trd = trd(originalOrder.getDocumentalsUnits().getSeries().getTrdSeries(),originalOrder.getCode());
+
+                   line(trd.get("trdYear")+";"+
+                        originalOrder.getDocumentalsUnits().getCode()+";"+
+                        originalOrder.getDocumentalsUnits().getName()+";"+
+                        trd.get("central")+";"+
+                        trd.get("debugYear"));
+               }
+               line("-----------------------------------------------------------------------------------------------------------------------------");
+               line("");
+
+            }
+
+        } // funds
+
+        saveFile("\\docs","conservationUnit.csv");
+
+    }
+    catch(Exception ioe) {
+      ioe.printStackTrace();
+    }
+
+    } // ConservationUnitsData()
 
 
 } // FundsGen
