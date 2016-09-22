@@ -1,0 +1,17 @@
+MODELOS PENDIENTES
+
+ScopeCanvas
+- Es el nombre del proyecto
+
+Riesgos.
+- Sobre Costos
+- Incumplimientos analizar los diferentes tipos de incumplimientos en tiempos de ejecución
+- Trabajos mal realizados
+- Materiales de mala calidad
+- Riesgos laborales
+
+Indicadores
+- Matriz de Indicadores
+
+
+
