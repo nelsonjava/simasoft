@@ -161,7 +161,7 @@ public class Entidad implements Comparable<Entidad> {
 
         switch (type) {
 
-            case "double":
+            case "Double":
 
                  xhtml = space+"<h:outputLabel for=\""+entity+"Bean"+Entity+Attribute+"\" value=\""+Attribute+":\"/>"+"\n"+
                          space+"<h:outputText id=\""+entity+"Bean"+Entity+Attribute+"\" value=\"#{"+entity+"Bean."+entity+"."+attribute+"}\"/>\n"+
@@ -437,7 +437,7 @@ public class Entidad implements Comparable<Entidad> {
 
         switch (type) {
 
-            case "double":
+            case "Double":
 
                  xhtml = space+"     <h:column>\n";
                  xhtml +=space+"        <f:facet name=\"header\">\n";
@@ -538,7 +538,7 @@ public class Entidad implements Comparable<Entidad> {
 
         switch (type) {
 
-            case "double":
+            case "Double":
 
                  xhtml =  space+"<h:outputLabel for=\""+entity+"Bean"+Entity+Attribute+"\" value=\""+Attribute+":\"/>"+"\n";
                  xhtml += space+"<h:panelGroup>\n";
@@ -843,7 +843,7 @@ public class Entidad implements Comparable<Entidad> {
 
         switch (type) {
 
-            case "double":
+            case "Double":
 
                  xhtml =  space+"<h:outputLabel for=\""+entity+"BeanExample"+Attribute+"\" value=\""+Attribute+":\"/>"+"\n";
                  xhtml += space+"<h:panelGroup>\n";
@@ -938,7 +938,7 @@ public class Entidad implements Comparable<Entidad> {
 
         switch (type) {
 
-            case "double":
+            case "Double":
 
                  xhtml = space+"<h:column>\n";
                  xhtml +=space+"        <f:facet name=\"header\">\n";
