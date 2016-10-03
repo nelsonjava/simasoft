@@ -102,18 +102,17 @@ public class FileUploadEntities {
 
                  groupId = findBean.artifactIdGroupIds(artifactId,em);
                  if (groupId  == null){
-
                     groupId = new GroupIds();
                     groupId.setArtifactId(artifactId);
                     groupId.setGroupId("co.simasoft.models");
                     groupId.setVersion(version);
-
-                    em.persist(groupId);
-                    em.flush();
-
                  }
+
                  f.line("groupIds:"+groupId.getArtifactId());
                  f.line("version:"+groupId.getVersion());
+
+                 em.persist(groupId);
+                 em.flush();
 
                  groupId = findBean.artifactIdGroupIds(artifactId,em);
 
@@ -146,6 +145,61 @@ public class FileUploadEntities {
                  em.flush();
 
            } // while
+
+
+           f.line("");
+
+           JSONArray arrayAttributes = (JSONArray) jsonObject.get("Attributes");
+           Iterator iteAttribute = arrayAttributes.iterator();
+           while (iteAttribute.hasNext()) {
+
+                 JSONObject attributeObj = (JSONObject) iteAttribute.next();
+
+                 String attributeEntity = (String)attributeObj.get("entity");
+                 String attributeOrden = (String)attributeObj.get("orden");
+                 String attributeName = (String)attributeObj.get("name");
+                 Boolean attributeIsNullable = (Boolean)attributeObj.get("isNullable");
+                 Boolean attributeIsUnique = (Boolean)attributeObj.get("isUnique");
+                 String attributeAttributesTypes = (String)attributeObj.get("AttributesTypes");
+
+                 Boolean attributeIsSimplified = (Boolean)attributeObj.get("isSimplified");
+                 Boolean attributeIsCreate = (Boolean)attributeObj.get("isCreate");
+                 Boolean attributeIsSearch = (Boolean)attributeObj.get("isSearch");
+                 Boolean attributeIsView = (Boolean)attributeObj.get("isView");
+                 Boolean attributeIsViewRelation = (Boolean)attributeObj.get("isViewRelation");
+                 Boolean attributeIsViewColumn = (Boolean)attributeObj.get("isViewColumn");
+
+                 f.line("entity:"+attributeEntity);
+                 f.line("name:"+attributeName);
+                 f.line("isNullable:"+String.valueOf(attributeIsNullable));
+                 f.line("isUnique:"+String.valueOf(attributeIsUnique));
+                 f.line("AttributesTypes:"+attributeAttributesTypes);
+                 f.line("");
+
+                 Attributes attributes = new Attributes();
+                 attributes.setOrden(Double.parseDouble(attributeOrden));
+                 attributes.setName(attributeName);
+                 attributes.setIsNullable(attributeIsNullable);
+                 attributes.setIsUnique(attributeIsUnique);
+                 attributes.setIsCreate(attributeIsCreate);
+                 attributes.setIsSearch(attributeIsSearch);
+                 attributes.setIsView(attributeIsView);
+                 attributes.setIsViewRelation(attributeIsViewRelation);
+                 attributes.setIsViewColumn(attributeIsViewColumn);
+
+                 Entities entity1 = new Entities();
+                 entity1 = findBean.nameEntities(attributeEntity,em);
+                 attributes.setEntities(entity1);
+
+                 AttributesTypes attributesTypes = new AttributesTypes();
+                 attributesTypes = findBean.nameAttributesTypes(attributeAttributesTypes,em);
+                 attributes.setAttributesTypes(attributesTypes);
+
+                 em.persist(attributes);
+                 em.flush();
+
+           } // while
+
 
            f.saveFile("\\docs", "Entities.txt");
 

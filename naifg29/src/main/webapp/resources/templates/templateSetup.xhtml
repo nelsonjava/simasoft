@@ -42,7 +42,7 @@
                               <h:commandButton value="Click Me to Populate Data Setup Init!" action="#{Setup.data()}" />
                             </h:form>
                           </li>
-                          
+
                           <li>
                             <h:form enctype="multipart/form-data">
                               <p:growl id="messages" showDetail="true" />
@@ -60,6 +60,16 @@
                                             mode="simple"
                                             skinSimple="true"/>
                               <p:commandButton value="EntitiesJson" ajax="false" actionListener="#{fileUploadEntities.upload}" disabled="false" />
+                            </h:form>
+                          </li>
+                          
+                          <li>
+                            <h:form enctype="multipart/form-data">
+                              <p:growl id="messages" showDetail="true" />
+                              <p:fileUpload value="#{fileUploadAttributes.file}"
+                                            mode="simple"
+                                            skinSimple="true"/>
+                              <p:commandButton value="AttributesJson" ajax="false" actionListener="#{fileUploadAttributes.upload}" disabled="false" />
                             </h:form>
                           </li>
 

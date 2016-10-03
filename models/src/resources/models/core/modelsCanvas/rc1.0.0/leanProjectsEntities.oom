@@ -9,10 +9,10 @@
 <o:Model Id="o2">
 <a:ObjectID>8AB058EA-E372-4D7C-ABFE-011229FE95B9</a:ObjectID>
 <a:Name>rc1.0.0</a:Name>
-<a:Code>modelsCanvas</a:Code>
+<a:Code>leanProjects</a:Code>
 <a:CreationDate>1444224098</a:CreationDate>
 <a:Creator>admin</a:Creator>
-<a:ModificationDate>1475098381</a:ModificationDate>
+<a:ModificationDate>1475343151</a:ModificationDate>
 <a:Modifier>admin</a:Modifier>
 <a:PackageOptionsText>[FolderOptions]
 
@@ -916,11 +916,11 @@ NameToCode=No</a:ModelOptionsText>
 <c:ClassDiagrams>
 <o:ClassDiagram Id="o5">
 <a:ObjectID>691E796A-3035-4790-A035-18EA4AE8E2E4</a:ObjectID>
-<a:Name>modelsCanvasEntities-rc1.0.0.</a:Name>
-<a:Code>modelsCanvasEntities_rc1_0_0_</a:Code>
+<a:Name>leanProjectsEntities-rc1.0.0.</a:Name>
+<a:Code>leanProjectsEntities_rc1_0_0_</a:Code>
 <a:CreationDate>1444224098</a:CreationDate>
 <a:Creator>admin</a:Creator>
-<a:ModificationDate>1475098064</a:ModificationDate>
+<a:ModificationDate>1475343134</a:ModificationDate>
 <a:Modifier>admin</a:Modifier>
 <a:DisplayPreferences>[DisplayPreferences]
 
@@ -1297,7 +1297,7 @@ Shadow=0</a:DisplayPreferences>
 <a:PageOrientation>1</a:PageOrientation>
 <a:PaperSource>7</a:PaperSource>
 <a:PageFooterTemplate>core</a:PageFooterTemplate>
-<a:PageHeaderTemplate>modelsCanvasEntities-rc1.0.0</a:PageHeaderTemplate>
+<a:PageHeaderTemplate>leanProjectsEntities-rc1.0.0</a:PageHeaderTemplate>
 <a:PageNumberTemplate>%PAGE% / %TOTALPAGE%</a:PageNumberTemplate>
 <c:Symbols>
 <o:ClassSymbol Id="o6">
@@ -1462,11 +1462,11 @@ LABL 0 Arial,8,N</a:FontList>
 </o:Class>
 <o:Class Id="o13">
 <a:ObjectID>BA41E2C2-3E8C-4793-8336-D5AEB676D1D4</a:ObjectID>
-<a:Name>ModelsCanvasTypes</a:Name>
-<a:Code>ModelsCanvasTypes</a:Code>
+<a:Name>LeanProjects</a:Name>
+<a:Code>LeanProjects</a:Code>
 <a:CreationDate>1475092914</a:CreationDate>
 <a:Creator>admin</a:Creator>
-<a:ModificationDate>1475093127</a:ModificationDate>
+<a:ModificationDate>1475343412</a:ModificationDate>
 <a:Modifier>admin</a:Modifier>
 <a:UseParentNamespace>0</a:UseParentNamespace>
 <c:Attributes>

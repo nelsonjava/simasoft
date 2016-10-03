@@ -105,12 +105,13 @@ public void entities(String fileJson) throws IOException {
         }
         i++;
     } // entidades
-    line("  ],");
+    line("  ]");
 
-    attributes();
     line("}");
 
-    saveFile("\\docs",fileJson+"entities.json");
+    saveFile("\\docs",fileJson+"Entities.json");
+
+    attributes(fileJson);
 
     } // try
     catch(Exception ioe) {
@@ -119,9 +120,12 @@ public void entities(String fileJson) throws IOException {
 
 } // entities()
 
-public void attributes() throws IOException {
+public void attributes(String fileJson) throws IOException {
     try {
 
+    clearFileTxt();
+
+    line("{");
     line("  \"Attributes\": [");
     i = 1;
     for (Entidad entidad : entidades ) {
@@ -154,6 +158,9 @@ public void attributes() throws IOException {
         i++;
     } // entidades
     line("  ]");
+    line("}");
+
+    saveFile("\\docs",fileJson+"Attributes.json");
 
     } // try
     catch(Exception ioe) {
