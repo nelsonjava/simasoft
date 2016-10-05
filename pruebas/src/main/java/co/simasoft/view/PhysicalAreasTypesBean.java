@@ -171,7 +171,7 @@ public class PhysicalAreasTypesBean implements Serializable {
 	}
 
 	public int getPageSize() {
-		return 10;
+		return 1000;
 	}
 
 	public PhysicalAreasTypes getExample() {

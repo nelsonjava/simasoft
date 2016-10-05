@@ -182,7 +182,7 @@ public class PhysicalSpacesTypesBean implements Serializable {
 	}
 
 	public int getPageSize() {
-		return 10;
+		return 1000;
 	}
 
 	public PhysicalSpacesTypes getExample() {
