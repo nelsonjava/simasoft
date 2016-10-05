@@ -1,0 +1,239 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:forgeview="http://jboss.org/forge/view"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="id" value='#{legisTopicTypesBean.id}'/>
+		<f:event type="preRenderView" listener='#{legisTopicTypesBean.retrieve}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="Create Legis Topic Types"/>
+
+	<ui:define name="header">
+		Legis Topic Types
+	</ui:define>
+
+	<ui:define name="subheader">
+		<c:choose>
+			<c:when test='#{!empty legisTopicTypesBean.id}'>
+				Edit existing Legis Topic Types
+			</c:when>
+			<c:otherwise>
+				Create a new Legis Topic Types
+			</c:otherwise>
+		</c:choose>
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:form id="create">
+			<h:messages globalOnly="true" styleClass="error"/>
+
+			<h:panelGrid columnClasses="label,component,required" columns="3">
+				<h:outputLabel for="legisTopicTypesBeanLegisTopicTypesAlias" value="Alias:"/>
+				<h:panelGroup>
+					<h:inputText id="legisTopicTypesBeanLegisTopicTypesAlias" value="#{legisTopicTypesBean.legisTopicTypes.alias}"/>
+					<h:message for="legisTopicTypesBeanLegisTopicTypesAlias" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="legisTopicTypesBeanLegisTopicTypesOrden" value="Orden:"/>
+				<h:panelGroup>
+					<h:inputText id="legisTopicTypesBeanLegisTopicTypesOrden" value="#{legisTopicTypesBean.legisTopicTypes.orden}"/>
+					<h:message for="legisTopicTypesBeanLegisTopicTypesOrden" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="legisTopicTypesBeanLegisTopicTypesObservations" value="Observations:"/>
+				<h:panelGroup>
+					<h:inputTextarea id="legisTopicTypesBeanLegisTopicTypesObservations" value="#{legisTopicTypesBean.legisTopicTypes.observations}"/>
+					<h:message for="legisTopicTypesBeanLegisTopicTypesObservations" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="legisTopicTypesBeanLegisTopicTypesName" value="Name:"/>
+				<h:panelGroup>
+					<h:inputText id="legisTopicTypesBeanLegisTopicTypesName" value="#{legisTopicTypesBean.legisTopicTypes.name}"/>
+					<h:message for="legisTopicTypesBeanLegisTopicTypesName" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="legisTopicTypesBeanLegisTopicTypesLegisTopic" value="Legis Topic:"/>
+				<h:panelGroup>
+					<ui:param name="_collection" value="#{legisTopicTypesBean.legisTopicTypes.legisTopic}"/>
+					<h:dataTable id="legisTopicTypesBeanLegisTopicTypesLegisTopic" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Alias"/>
+							</f:facet>
+							<h:link outcome="/admin/legisTopic/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="_itemAlias" value="#{_item.alias}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="legisTopicBeanAddAlias" value="#{legisTopicBean.add.alias}"/>
+								<h:message for="legisTopicBeanAddAlias" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Orden"/>
+							</f:facet>
+							<h:link outcome="/admin/legisTopic/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="_itemOrden" value="#{_item.orden}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="legisTopicBeanAddOrden" value="#{legisTopicBean.add.orden}"/>
+								<h:message for="legisTopicBeanAddOrden" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Observations"/>
+							</f:facet>
+							<h:link outcome="/admin/legisTopic/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:inputTextarea id="_itemObservations" value="#{_item.observations}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputTextarea id="legisTopicBeanAddObservations" value="#{legisTopicBean.add.observations}"/>
+								<h:message for="legisTopicBeanAddObservations" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Code"/>
+							</f:facet>
+							<h:link outcome="/admin/legisTopic/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="_itemCode" value="#{_item.code}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="legisTopicBeanAddCode" value="#{legisTopicBean.add.code}"/>
+								<h:message for="legisTopicBeanAddCode" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Name"/>
+							</f:facet>
+							<h:link outcome="/admin/legisTopic/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="_itemName" value="#{_item.name}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="legisTopicBeanAddName" value="#{legisTopicBean.add.name}"/>
+								<h:message for="legisTopicBeanAddName" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column footerClass="remove-column" headerClass="remove-column">
+							<h:commandLink action="#{_collection.remove(_item)}" styleClass="remove-button"/>
+							<f:facet name="footer">
+								<h:commandLink action="#{_collection.add(legisTopicBean.added)}" id="legisTopicTypesBeanLegisTopicTypesLegisTopicAdd" styleClass="add-button">
+									<f:setPropertyActionListener target="#{legisTopicBean.add.legisTopicTypes}" value="#{legisTopicTypesBean.legisTopicTypes}"/>
+								</h:commandLink>
+							</f:facet>
+						</h:column>
+					</h:dataTable>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="legisTopicTypesBeanLegisTopicTypesObjHijos" value="Obj Hijos:"/>
+				<h:panelGroup>
+					<ui:param name="_collection" value="#{legisTopicTypesBean.legisTopicTypes.objHijos}"/>
+					<h:dataTable id="legisTopicTypesBeanLegisTopicTypesObjHijos" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Alias"/>
+							</f:facet>
+							<h:link outcome="/admin/legisTopicTypes/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="_itemAlias" value="#{_item.alias}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="legisTopicTypesBeanAddAlias" value="#{legisTopicTypesBean.add.alias}"/>
+								<h:message for="legisTopicTypesBeanAddAlias" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Orden"/>
+							</f:facet>
+							<h:link outcome="/admin/legisTopicTypes/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="_itemOrden" value="#{_item.orden}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="legisTopicTypesBeanAddOrden" value="#{legisTopicTypesBean.add.orden}"/>
+								<h:message for="legisTopicTypesBeanAddOrden" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Observations"/>
+							</f:facet>
+							<h:link outcome="/admin/legisTopicTypes/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:inputTextarea id="_itemObservations" value="#{_item.observations}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputTextarea id="legisTopicTypesBeanAddObservations" value="#{legisTopicTypesBean.add.observations}"/>
+								<h:message for="legisTopicTypesBeanAddObservations" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Name"/>
+							</f:facet>
+							<h:link outcome="/admin/legisTopicTypes/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="_itemName" value="#{_item.name}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="legisTopicTypesBeanAddName" value="#{legisTopicTypesBean.add.name}"/>
+								<h:message for="legisTopicTypesBeanAddName" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column footerClass="remove-column" headerClass="remove-column">
+							<h:commandLink action="#{_collection.remove(_item)}" styleClass="remove-button"/>
+							<f:facet name="footer">
+								<h:commandLink action="#{_collection.add(legisTopicTypesBean.added)}" id="legisTopicTypesBeanLegisTopicTypesObjHijosAdd" styleClass="add-button">
+									<f:setPropertyActionListener target="#{legisTopicTypesBean.add.objPadre}" value="#{legisTopicTypesBean.legisTopicTypes}"/>
+								</h:commandLink>
+							</f:facet>
+						</h:column>
+					</h:dataTable>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="legisTopicTypesBeanLegisTopicTypesObjPadre" value="Obj Padre:"/>
+				<h:panelGroup>
+					<h:selectOneMenu converter="#{legisTopicTypesBean.converter}" id="legisTopicTypesBeanLegisTopicTypesObjPadre" value="#{legisTopicTypesBean.legisTopicTypes.objPadre}">
+						<f:selectItem/>
+						<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{legisTopicTypesBean.all}" var="_item"/>
+					</h:selectOneMenu>
+					<h:message for="legisTopicTypesBeanLegisTopicTypesObjPadre" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+			</h:panelGrid>
+
+			<div class="buttons">
+				<h:commandLink value="Save" action='#{legisTopicTypesBean.update}' styleClass="btn btn-primary"/>
+				<c:choose>
+					<c:when test='#{!empty legisTopicTypesBean.id}'>
+						<h:link value="Cancel" outcome="view" styleClass="btn btn-primary">
+							<f:param name="id" value='#{legisTopicTypesBean.id}'/>
+						</h:link>
+						<h:commandLink value="Delete" action='#{legisTopicTypesBean.delete}' styleClass="btn btn-primary"/>
+					</c:when>
+					<c:otherwise>
+						<h:link value="Cancel" outcome="search" styleClass="btn btn-primary"/>
+					</c:otherwise>
+				</c:choose>
+			</div>
+		</h:form>
+	</ui:define>
+
+</ui:composition>

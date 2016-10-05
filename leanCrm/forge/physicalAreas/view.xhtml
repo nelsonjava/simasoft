@@ -1,0 +1,140 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:forgeview="http://jboss.org/forge/view"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="id" value='#{physicalAreasBean.id}'/>
+		<f:event type="preRenderView" listener='#{physicalAreasBean.retrieve}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="View Physical Areas"/>
+
+	<ui:define name="header">
+		Physical Areas
+	</ui:define>
+
+	<ui:define name="subheader">
+		View existing Physical Areas
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:panelGrid columnClasses="label,component,required" columns="3">
+			<h:outputLabel for="physicalAreasBeanPhysicalAreasAlias" value="Alias:"/>
+			<h:outputText id="physicalAreasBeanPhysicalAreasAlias" value="#{physicalAreasBean.physicalAreas.alias}"/>
+			<h:outputText/>
+			<h:outputLabel for="physicalAreasBeanPhysicalAreasOrden" value="Orden:"/>
+			<h:outputText id="physicalAreasBeanPhysicalAreasOrden" value="#{physicalAreasBean.physicalAreas.orden}"/>
+			<h:outputText/>
+			<h:outputLabel for="physicalAreasBeanPhysicalAreasObservations" value="Observations:"/>
+			<h:inputTextarea id="physicalAreasBeanPhysicalAreasObservations" value="#{physicalAreasBean.physicalAreas.observations}"/>
+			<h:outputText/>
+			<h:outputLabel for="physicalAreasBeanPhysicalAreasName" value="Name:"/>
+			<h:outputText id="physicalAreasBeanPhysicalAreasName" value="#{physicalAreasBean.physicalAreas.name}"/>
+			<h:outputText/>
+			<h:outputLabel for="physicalAreasBeanPhysicalAreasCode" value="Code:"/>
+			<h:outputText id="physicalAreasBeanPhysicalAreasCode" value="#{physicalAreasBean.physicalAreas.code}"/>
+			<h:outputText/>
+			<h:outputLabel for="physicalAreasBeanPhysicalAreasWidth" value="Width:"/>
+			<h:outputText id="physicalAreasBeanPhysicalAreasWidth" value="#{physicalAreasBean.physicalAreas.width}"/>
+			<h:outputText/>
+			<h:outputLabel for="physicalAreasBeanPhysicalAreasHigh" value="High:"/>
+			<h:outputText id="physicalAreasBeanPhysicalAreasHigh" value="#{physicalAreasBean.physicalAreas.high}"/>
+			<h:outputText/>
+			<h:outputLabel for="physicalAreasBeanPhysicalAreasProf" value="Prof:"/>
+			<h:outputText id="physicalAreasBeanPhysicalAreasProf" value="#{physicalAreasBean.physicalAreas.prof}"/>
+			<h:outputText/>
+			<h:outputLabel for="physicalAreasBeanPhysicalAreasArea" value="Area:"/>
+			<h:outputText id="physicalAreasBeanPhysicalAreasArea" value="#{physicalAreasBean.physicalAreas.area}"/>
+			<h:outputText/>
+			<h:outputLabel for="physicalAreasBeanPhysicalAreasVolume" value="Volume:"/>
+			<h:outputText id="physicalAreasBeanPhysicalAreasVolume" value="#{physicalAreasBean.physicalAreas.volume}"/>
+			<h:outputText/>
+			<h:outputLabel for="physicalAreasBeanPhysicalAreasObjHijos" value="Obj Hijos:"/>
+			<h:dataTable id="physicalAreasBeanPhysicalAreasObjHijos" styleClass="data-table" value="#{forgeview:asList(physicalAreasBean.physicalAreas.objHijos)}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Alias"/>
+					</f:facet>
+					<h:link outcome="/admin/physicalAreas/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemAlias" value="#{_item.alias}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Orden"/>
+					</f:facet>
+					<h:link outcome="/admin/physicalAreas/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemOrden" value="#{_item.orden}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Observations"/>
+					</f:facet>
+					<h:link outcome="/admin/physicalAreas/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:inputTextarea id="_itemObservations" value="#{_item.observations}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Name"/>
+					</f:facet>
+					<h:link outcome="/admin/physicalAreas/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemName" value="#{_item.name}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Code"/>
+					</f:facet>
+					<h:link outcome="/admin/physicalAreas/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemCode" value="#{_item.code}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<h:outputText/>
+			<h:outputLabel for="physicalAreasBeanPhysicalAreasPhysicalSpaces" value="Physical Spaces:"/>
+			<h:dataTable id="physicalAreasBeanPhysicalAreasPhysicalSpaces" styleClass="data-table" value="#{forgeview:asList(physicalAreasBean.physicalAreas.physicalSpaces)}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Name"/>
+					</f:facet>
+					<h:link outcome="/admin/physicalSpaces/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemName" value="#{_item.name}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<h:outputText/>
+			<h:outputLabel for="physicalAreasBeanPhysicalAreasPhysicalAreasTypes" value="Physical Areas Types:"/>
+			<h:link id="physicalAreasBeanPhysicalAreasPhysicalAreasTypes" outcome="/admin/physicalAreasTypes/view" rendered="#{!empty physicalAreasBean.physicalAreas.physicalAreasTypes}" value="#{physicalAreasBean.physicalAreas.physicalAreasTypes}">
+				<f:param name="id" value="#{physicalAreasBean.physicalAreas.physicalAreasTypes.id}"/>
+			</h:link>
+			<h:outputText/>
+			<h:outputLabel for="physicalAreasBeanPhysicalAreasObjPadre" value="Obj Padre:"/>
+			<h:link id="physicalAreasBeanPhysicalAreasObjPadre" outcome="/admin/physicalAreas/view" rendered="#{!empty physicalAreasBean.physicalAreas.objPadre}" value="#{physicalAreasBean.physicalAreas.objPadre}">
+				<f:param name="id" value="#{physicalAreasBean.physicalAreas.objPadre.id}"/>
+			</h:link>
+			<h:outputText/>
+		</h:panelGrid>
+
+		<div class="buttons">
+			<h:link value="View All" outcome="search" styleClass="btn btn-primary"/> 
+			<h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
+			<h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
+		</div>
+	</ui:define>
+
+</ui:composition>

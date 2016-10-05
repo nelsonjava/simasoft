@@ -1,0 +1,152 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:forgeview="http://jboss.org/forge/view"
+        template="/resources/scaffold/physicalAreasTemplate.xhtml">
+
+        <f:metadata>
+                <f:viewParam name="id" value='#{predioBean.id}'/>
+                <f:event type="preRenderView" listener='#{predioBean.retrieve}'/>
+        </f:metadata>
+
+        <ui:param name="pageTitle" value="View Predio"/>
+
+        <ui:define name="header">
+                Predio
+        </ui:define>
+
+        <ui:define name="subheader">
+                View existing Predio
+        </ui:define>
+
+        <ui:define name="footer"/>
+
+        <ui:define name="main">
+                <h:panelGrid columnClasses="label,component,required" columns="3">
+
+
+                        <h:outputLabel for="predioBeanPredioNomenclatura" value="Nomenclatura:"/>
+                        <h:outputText id="predioBeanPredioNomenclatura" value="#{predioBean.predio.nomenclatura}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="predioBeanPredioPredial" value="Predial:"/>
+                        <h:outputText id="predioBeanPredioPredial" value="#{predioBean.predio.predial}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="predioBeanPredioEstrato" value="Estrato:"/>
+                        <h:outputText id="predioBeanPredioEstrato" value="#{predioBean.predio.estrato}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="predioBeanPredioMatricula" value="Matricula:"/>
+                        <h:outputText id="predioBeanPredioMatricula" value="#{predioBean.predio.matricula}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="predioBeanPredioArea" value="Area:"/>
+                        <h:outputText id="predioBeanPredioArea" value="#{predioBean.predio.area}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="predioBeanPredioObservations" value="Observations:"/>
+                        <h:outputText id="predioBeanPredioObservations" value="#{predioBean.predio.observations}" escape="false" />
+                        <h:outputText/>
+
+                        <h:outputLabel for="PredioBeanPredioPhysicalSpaces" value="PhysicalSpaces:"/>
+                        <h:dataTable id="predioBeanPrediophysicalSpaces" styleClass="data-table" value="#{forgeview:asList(predioBean.predio.physicalSpaces)}" var="_item">
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Name"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/physicalSpaces/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemName" value="#{_item.name}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="TelExt"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/physicalSpaces/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemTelExt" value="#{_item.telExt}"/>
+                                              </h:link>
+                                           </h:column>
+
+                        </h:dataTable>
+                        <h:outputText/>
+
+                        <h:outputLabel for="PredioBeanPredioPredio" value="Predio:"/>
+                        <h:dataTable id="predioBeanPrediopredio" styleClass="data-table" value="#{forgeview:asList(predioBean.predio.objHijos)}" var="_item">
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Nomenclatura"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/predio/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemNomenclatura" value="#{_item.nomenclatura}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Predial"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/predio/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemPredial" value="#{_item.predial}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Estrato"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/predio/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemEstrato" value="#{_item.estrato}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Matricula"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/predio/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemMatricula" value="#{_item.matricula}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Area"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/predio/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemArea" value="#{_item.area}"/>
+                                              </h:link>
+                                           </h:column>
+
+                        </h:dataTable>
+                        <h:outputText/>
+
+                        <h:outputLabel for="predioBeanPredioobjPadre" value="Predio:"/>
+                        <h:link id="predioBeanPredioobjPadre" outcome="/admin/predio/view" rendered="#{!empty predioBean.predio.objPadre}" value="#{predioBean.predio.objPadre.nomenclatura}">
+                                 <f:param name="id" value="#{predioBean.predio.objPadre.id}"/>
+                        </h:link>
+                        <h:outputText/>
+
+                </h:panelGrid>
+
+                <div class="buttons">
+                        <h:link value="View All" outcome="search" styleClass="btn btn-primary"/>
+                        <h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
+                        <h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
+                </div>
+        </ui:define>
+</ui:composition>

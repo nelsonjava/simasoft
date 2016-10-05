@@ -1,0 +1,334 @@
+{
+  "RelationshipsData": [
+  {
+    "From": "Predio",
+    "FromProperty": "nomenclatura",
+    "FromValue": "C 26 22 138",
+    "To": "PhysicalSpaces",
+    "ToProperty": "name",
+    "ToValue": "Fachada",
+    "Name": "",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Predio",
+    "FromProperty": "nomenclatura",
+    "FromValue": "C 26 22 138",
+    "To": "PhysicalSpaces",
+    "ToProperty": "name",
+    "ToValue": "Ingreso Escalera 1 Piso",
+    "Name": "",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Predio",
+    "FromProperty": "nomenclatura",
+    "FromValue": "C 26 22 138",
+    "To": "PhysicalSpaces",
+    "ToProperty": "name",
+    "ToValue": "Escalera 1 Piso",
+    "Name": "",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Predio",
+    "FromProperty": "nomenclatura",
+    "FromValue": "C 26 22 138",
+    "To": "PhysicalSpaces",
+    "ToProperty": "name",
+    "ToValue": "Pasillo 2 piso",
+    "Name": "",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Predio",
+    "FromProperty": "nomenclatura",
+    "FromValue": "C 26 22 138",
+    "To": "PhysicalSpaces",
+    "ToProperty": "name",
+    "ToValue": "placa 2 piso",
+    "Name": "",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Predio",
+    "FromProperty": "nomenclatura",
+    "FromValue": "C 26 22 138",
+    "To": "PhysicalSpaces",
+    "ToProperty": "name",
+    "ToValue": "placa 3 piso",
+    "Name": "",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Predio",
+    "FromProperty": "nomenclatura",
+    "FromValue": "LOCAL No.1",
+    "To": "PhysicalSpaces",
+    "ToProperty": "name",
+    "ToValue": "Local No.1",
+    "Name": "",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Predio",
+    "FromProperty": "nomenclatura",
+    "FromValue": "LOCAL No.1",
+    "To": "PhysicalSpaces",
+    "ToProperty": "name",
+    "ToValue": "Local No.1 Baño",
+    "Name": "",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Predio",
+    "FromProperty": "nomenclatura",
+    "FromValue": "LOCAL No.1",
+    "To": "PhysicalSpaces",
+    "ToProperty": "name",
+    "ToValue": "Local No.1 Cocina",
+    "Name": "",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Predio",
+    "FromProperty": "nomenclatura",
+    "FromValue": "LOCAL No.2",
+    "To": "PhysicalSpaces",
+    "ToProperty": "name",
+    "ToValue": "Local No.2",
+    "Name": "",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Predio",
+    "FromProperty": "nomenclatura",
+    "FromValue": "LOCAL No.2",
+    "To": "PhysicalSpaces",
+    "ToProperty": "name",
+    "ToValue": "Local No.2 Rincon",
+    "Name": "",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Predio",
+    "FromProperty": "nomenclatura",
+    "FromValue": "LOCAL No.2",
+    "To": "PhysicalSpaces",
+    "ToProperty": "name",
+    "ToValue": "Local No.2 Baño",
+    "Name": "",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Predio",
+    "FromProperty": "nomenclatura",
+    "FromValue": "LOCAL No.3",
+    "To": "PhysicalSpaces",
+    "ToProperty": "name",
+    "ToValue": "Local No.3",
+    "Name": "",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Predio",
+    "FromProperty": "nomenclatura",
+    "FromValue": "LOCAL No.3",
+    "To": "PhysicalSpaces",
+    "ToProperty": "name",
+    "ToValue": "Local No.3 Rincon",
+    "Name": "",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Predio",
+    "FromProperty": "nomenclatura",
+    "FromValue": "LOCAL No.3",
+    "To": "PhysicalSpaces",
+    "ToProperty": "name",
+    "ToValue": "Local No.3 Baño",
+    "Name": "",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Predio",
+    "FromProperty": "nomenclatura",
+    "FromValue": "LOCAL No.4",
+    "To": "PhysicalSpaces",
+    "ToProperty": "name",
+    "ToValue": "Local No.4",
+    "Name": "",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Predio",
+    "FromProperty": "nomenclatura",
+    "FromValue": "LOCAL No.4",
+    "To": "PhysicalSpaces",
+    "ToProperty": "name",
+    "ToValue": "Local No.4 Cocina",
+    "Name": "",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Predio",
+    "FromProperty": "nomenclatura",
+    "FromValue": "LOCAL No.4",
+    "To": "PhysicalSpaces",
+    "ToProperty": "name",
+    "ToValue": "Local No.4 Alcoba",
+    "Name": "",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Predio",
+    "FromProperty": "nomenclatura",
+    "FromValue": "LOCAL No.4",
+    "To": "PhysicalSpaces",
+    "ToProperty": "name",
+    "ToValue": "Local No.4 Patio",
+    "Name": "",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Predio",
+    "FromProperty": "nomenclatura",
+    "FromValue": "LOCAL No.4",
+    "To": "PhysicalSpaces",
+    "ToProperty": "name",
+    "ToValue": "Local No.4 Baño",
+    "Name": "",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Predio",
+    "FromProperty": "nomenclatura",
+    "FromValue": "LOCAL No.5",
+    "To": "PhysicalSpaces",
+    "ToProperty": "name",
+    "ToValue": "Local No.5",
+    "Name": "",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Predio",
+    "FromProperty": "nomenclatura",
+    "FromValue": "LOCAL No.5",
+    "To": "PhysicalSpaces",
+    "ToProperty": "name",
+    "ToValue": "Local No.5 Baño",
+    "Name": "",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Predio",
+    "FromProperty": "nomenclatura",
+    "FromValue": "APTO 201",
+    "To": "PhysicalSpaces",
+    "ToProperty": "name",
+    "ToValue": "Apto 201 Sala Comedor",
+    "Name": "",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Predio",
+    "FromProperty": "nomenclatura",
+    "FromValue": "APTO 201",
+    "To": "PhysicalSpaces",
+    "ToProperty": "name",
+    "ToValue": "Apto 201 Cocina",
+    "Name": "",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Predio",
+    "FromProperty": "nomenclatura",
+    "FromValue": "APTO 201",
+    "To": "PhysicalSpaces",
+    "ToProperty": "name",
+    "ToValue": "Apto 201 Alcoba Principal",
+    "Name": "",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Predio",
+    "FromProperty": "nomenclatura",
+    "FromValue": "APTO 201",
+    "To": "PhysicalSpaces",
+    "ToProperty": "name",
+    "ToValue": "Apto 201 Alcoba Secundaria",
+    "Name": "",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Predio",
+    "FromProperty": "nomenclatura",
+    "FromValue": "APTO 201",
+    "To": "PhysicalSpaces",
+    "ToProperty": "name",
+    "ToValue": "Apto 201 Baño",
+    "Name": "",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Predio",
+    "FromProperty": "nomenclatura",
+    "FromValue": "APTO 202",
+    "To": "PhysicalSpaces",
+    "ToProperty": "name",
+    "ToValue": "Apto 202 Sala Comedor",
+    "Name": "",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Predio",
+    "FromProperty": "nomenclatura",
+    "FromValue": "APTO 202",
+    "To": "PhysicalSpaces",
+    "ToProperty": "name",
+    "ToValue": "Apto 202 Baño",
+    "Name": "",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Predio",
+    "FromProperty": "nomenclatura",
+    "FromValue": "APTO 202",
+    "To": "PhysicalSpaces",
+    "ToProperty": "name",
+    "ToValue": "Apto 202 Cocina",
+    "Name": "",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Predio",
+    "FromProperty": "nomenclatura",
+    "FromValue": "APTO 202",
+    "To": "PhysicalSpaces",
+    "ToProperty": "name",
+    "ToValue": "Apto 202 Baño Cocina",
+    "Name": "",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Predio",
+    "FromProperty": "nomenclatura",
+    "FromValue": "APTO 202",
+    "To": "PhysicalSpaces",
+    "ToProperty": "name",
+    "ToValue": "Apto 202 Alcoba Principal",
+    "Name": "",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Predio",
+    "FromProperty": "nomenclatura",
+    "FromValue": "APTO 202",
+    "To": "PhysicalSpaces",
+    "ToProperty": "name",
+    "ToValue": "Apto 202 Alcoba Secundaria",
+    "Name": "",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  }
+  ]
+}

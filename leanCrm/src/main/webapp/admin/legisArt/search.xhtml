@@ -1,0 +1,115 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        template="/resources/scaffold/legisTemplate.xhtml">
+
+        <f:metadata>
+                <f:viewParam name="page" value='#{legisArtBean.page}'/>
+                <f:event type="preRenderView" listener='#{legisArtBean.paginate}'/>
+        </f:metadata>
+
+        <ui:param name="pageTitle" value="Search LegisArt entities"/>
+
+        <ui:define name="header">
+                LegisArt
+        </ui:define>
+
+        <ui:define name="subheader">
+                Search LegisArt entities
+        </ui:define>
+
+        <ui:define name="footer"/>
+
+        <ui:define name="main">
+                <h:form id="search">
+                        <f:validateBean disabled="true">
+                                <h:panelGroup styleClass="search">
+
+                                        <h:panelGrid columnClasses="label,component,required" columns="3">
+                                                <h:outputLabel for="legisArtBeanExampleCode" value="Code:"/>
+                                                <h:panelGroup>
+                                                        <h:inputText id="legisArtBeanExampleCode" value="#{legisArtBean.example.code}"/>
+                                                        <h:message for="legisArtBeanExampleCode" styleClass="error"/>
+                                                </h:panelGroup>
+                                                <h:outputText/>
+
+                                                <h:outputLabel for="legisArtBeanExampleName" value="Name:"/>
+                                                <h:panelGroup>
+                                                        <h:inputText id="legisArtBeanExampleName" value="#{legisArtBean.example.name}"/>
+                                                        <h:message for="legisArtBeanExampleName" styleClass="error"/>
+                                                </h:panelGroup>
+                                                <h:outputText/>
+
+                                                <h:outputLabel for="legisArtBeanExampleContent" value="Content:"/>
+                                                <h:panelGroup>
+                                                        <h:inputText id="legisArtBeanExampleContent" value="#{legisArtBean.example.content}"/>
+                                                        <h:message for="legisArtBeanExampleContent" styleClass="error"/>
+                                                </h:panelGroup>
+                                                <h:outputText/>
+
+                                        </h:panelGrid>
+                                        <h:panelGroup styleClass="buttons">
+                                                <h:commandLink value="Search" action='#{legisArtBean.search}' styleClass="btn btn-primary"/>
+                                                <h:commandLink value="Create New" action='#{legisArtBean.create}' styleClass="btn btn-primary"/>
+                                        </h:panelGroup>
+                                </h:panelGroup>
+                        </f:validateBean>
+
+                        <h:dataTable id="legisArtBeanPageItems" styleClass="data-table" value="#{legisArtBean.pageItems}" var="_item">
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Orden"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/legisArt/view">
+                                                <f:param name="id" value="#{_item.orden}"/>
+                                                <h:outputText id="itemOrden" value="#{_item.orden}"/>
+                                        </h:link>
+                                </h:column>
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Code"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/legisArt/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemCode" value="#{_item.code}"/>
+                                        </h:link>
+                                </h:column>
+
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Name"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/legisArt/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemName" value="#{_item.name}"/>
+                                        </h:link>
+                                </h:column>
+
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Content"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/legisArt/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemContent" value="#{_item.content}"/>
+                                        </h:link>
+                                </h:column>
+
+
+                        </h:dataTable>
+                        <ui:include src="/resources/scaffold/paginator.xhtml">
+                                <ui:param name="paginatorBean" value='#{legisArtBean}'/>
+                        </ui:include>
+                </h:form>
+
+        </ui:define>
+
+</ui:composition>

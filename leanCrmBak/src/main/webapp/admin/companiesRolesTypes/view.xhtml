@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:forgeview="http://jboss.org/forge/view"
+        template="/resources/scaffold/companiesTemplate.xhtml">
+
+        <f:metadata>
+                <f:viewParam name="id" value='#{companiesRolesTypesBean.id}'/>
+                <f:event type="preRenderView" listener='#{companiesRolesTypesBean.retrieve}'/>
+        </f:metadata>
+
+        <ui:param name="pageTitle" value="View CompaniesRolesTypes"/>
+
+        <ui:define name="header">
+                CompaniesRolesTypes
+        </ui:define>
+
+        <ui:define name="subheader">
+                View existing CompaniesRolesTypes
+        </ui:define>
+
+        <ui:define name="footer"/>
+
+        <ui:define name="main">
+                <h:panelGrid columnClasses="label,component,required" columns="3">
+
+
+                        <h:outputLabel for="companiesRolesTypesBeanCompaniesRolesTypesName" value="Name:"/>
+                        <h:outputText id="companiesRolesTypesBeanCompaniesRolesTypesName" value="#{companiesRolesTypesBean.companiesRolesTypes.name}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="companiesRolesTypesBeanCompaniesRolesTypesObservations" value="Observations:"/>
+                        <h:outputText id="companiesRolesTypesBeanCompaniesRolesTypesObservations" value="#{companiesRolesTypesBean.companiesRolesTypes.observations}" escape="false" />
+                        <h:outputText/>
+
+                        <h:outputLabel for="CompaniesRolesTypesBeanCompaniesRolesTypesCompaniesRoles" value="CompaniesRoles:"/>
+                        <h:dataTable id="companiesRolesTypesBeanCompaniesRolesTypescompaniesRoles" styleClass="data-table" value="#{forgeview:asList(companiesRolesTypesBean.companiesRolesTypes.companiesRoles)}" var="_item">
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Name"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/companiesRoles/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemName" value="#{_item.name}"/>
+                                              </h:link>
+                                           </h:column>
+
+                        </h:dataTable>
+                        <h:outputText/>
+
+                        <h:outputLabel for="CompaniesRolesTypesBeanCompaniesRolesTypesCompaniesRolesTypes" value="CompaniesRolesTypes:"/>
+                        <h:dataTable id="companiesRolesTypesBeanCompaniesRolesTypescompaniesRolesTypes" styleClass="data-table" value="#{forgeview:asList(companiesRolesTypesBean.companiesRolesTypes.objHijos)}" var="_item">
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Name"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/companiesRolesTypes/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemName" value="#{_item.name}"/>
+                                              </h:link>
+                                           </h:column>
+
+                        </h:dataTable>
+                        <h:outputText/>
+
+                        <h:outputLabel for="companiesRolesTypesBeanCompaniesRolesTypesobjPadre" value="CompaniesRolesTypes:"/>
+                        <h:link id="companiesRolesTypesBeanCompaniesRolesTypesobjPadre" outcome="/admin/companiesRolesTypes/view" rendered="#{!empty companiesRolesTypesBean.companiesRolesTypes.objPadre}" value="#{companiesRolesTypesBean.companiesRolesTypes.objPadre.name}">
+                                 <f:param name="id" value="#{companiesRolesTypesBean.companiesRolesTypes.objPadre.id}"/>
+                        </h:link>
+                        <h:outputText/>
+
+                </h:panelGrid>
+
+                <div class="buttons">
+                        <h:link value="View All" outcome="search" styleClass="btn btn-primary"/>
+                        <h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
+                        <h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
+                </div>
+        </ui:define>
+</ui:composition>

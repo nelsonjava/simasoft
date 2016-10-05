@@ -1,0 +1,49 @@
+{
+  "PhysicalSpacesTypes": [
+  {
+    "name": "Fachada"
+  },
+  {
+    "name": "Local"
+  },
+  {
+    "name": "Baño"
+  },
+  {
+    "name": "Cocina"
+  },
+  {
+    "name": "Rincon"
+  },
+  {
+    "name": "Estudio"
+  },
+  {
+    "name": "Sala"
+  },
+  {
+    "name": "Comedor"
+  },
+  {
+    "name": "Sala Comedor"
+  },
+  {
+    "name": "Alcoba"
+  },
+  {
+    "name": "Patio"
+  },
+  {
+    "name": "Balcon"
+  },
+  {
+    "name": "Escaleras"
+  },
+  {
+    "name": "Pasillo"
+  },
+  {
+    "name": "placa"
+  },
+  ]
+}

@@ -1,0 +1,8 @@
+From;FromProperty;FromValue;To;ToProperty;ToValue;Name;Cardinalities
+Predio;nomenclatura;C 26 22 138;Predio;nomenclatura;LOCAL No.1;       ;Uno a Muchos Bidirecccional No.5
+Predio;nomenclatura;C 26 22 138;Predio;nomenclatura;LOCAL No.2;;Uno a Muchos Bidirecccional No.5
+Predio;nomenclatura;C 26 22 138;Predio;nomenclatura;LOCAL No.3;;Uno a Muchos Bidirecccional No.5
+Predio;nomenclatura;C 26 22 138;Predio;nomenclatura;LOCAL No.4;;Uno a Muchos Bidirecccional No.5
+Predio;nomenclatura;C 26 22 138;Predio;nomenclatura;LOCAL No.5;;Uno a Muchos Bidirecccional No.5
+Predio;nomenclatura;C 26 22 138;Predio;nomenclatura;APTO 201;;Uno a Muchos Bidirecccional No.5
+Predio;nomenclatura;C 26 22 138;Predio;nomenclatura;APTO 202;;Uno a Muchos Bidirecccional No.5

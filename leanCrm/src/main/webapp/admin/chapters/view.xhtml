@@ -1,0 +1,192 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:forgeview="http://jboss.org/forge/view"
+        template="/resources/scaffold/booksTemplate.xhtml">
+
+        <f:metadata>
+                <f:viewParam name="id" value='#{chaptersBean.id}'/>
+                <f:event type="preRenderView" listener='#{chaptersBean.retrieve}'/>
+        </f:metadata>
+
+        <ui:param name="pageTitle" value="View Chapters"/>
+
+        <ui:define name="header">
+                Chapters
+        </ui:define>
+
+        <ui:define name="subheader">
+                View existing Chapters
+        </ui:define>
+
+        <ui:define name="footer"/>
+
+        <ui:define name="main">
+                <h:panelGrid columnClasses="label,component,required" columns="3">
+
+
+                        <h:outputLabel for="chaptersBeanChaptersCode" value="Code:"/>
+                        <h:outputText id="chaptersBeanChaptersCode" value="#{chaptersBean.chapters.code}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="chaptersBeanChaptersName" value="Name:"/>
+                        <h:outputText id="chaptersBeanChaptersName" value="#{chaptersBean.chapters.name}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="chaptersBeanChaptersObservations" value="Observations:"/>
+                        <h:outputText id="chaptersBeanChaptersObservations" value="#{chaptersBean.chapters.observations}" escape="false" />
+                        <h:outputText/>
+
+                        <h:outputLabel for="ChaptersBeanChaptersDiaries" value="Diaries:"/>
+                        <h:dataTable id="chaptersBeanChaptersdiaries" styleClass="data-table" value="#{forgeview:asList(chaptersBean.chapters.diaries)}" var="_item">
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Name"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/diaries/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemName" value="#{_item.name}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Date"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/diaries/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemDate" value="#{_item.date}"/>
+                                                              <f:convertDateTime type="date"/>
+                                                     <h:outputText/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Description"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/diaries/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemDescription" value="#{_item.description}"/>
+                                              </h:link>
+                                           </h:column>
+
+                        </h:dataTable>
+                        <h:outputText/>
+
+                        <h:outputLabel for="ChaptersBeanChaptersTasks" value="Tasks:"/>
+                        <h:dataTable id="chaptersBeanChapterstasks" styleClass="data-table" value="#{forgeview:asList(chaptersBean.chapters.tasks)}" var="_item">
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Name"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/tasks/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemName" value="#{_item.name}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="OptimisticDate"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/tasks/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemOptimisticDate" value="#{_item.optimisticDate}"/>
+                                                              <f:convertDateTime type="date"/>
+                                                     <h:outputText/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="PessimisticDate"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/tasks/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemPessimisticDate" value="#{_item.pessimisticDate}"/>
+                                                              <f:convertDateTime type="date"/>
+                                                     <h:outputText/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="StartDate"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/tasks/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemStartDate" value="#{_item.startDate}"/>
+                                                              <f:convertDateTime type="date"/>
+                                                     <h:outputText/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="FinalDate"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/tasks/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemFinalDate" value="#{_item.finalDate}"/>
+                                                              <f:convertDateTime type="date"/>
+                                                     <h:outputText/>
+                                              </h:link>
+                                           </h:column>
+
+                        </h:dataTable>
+                        <h:outputText/>
+
+                        <h:outputLabel for="ChaptersBeanChaptersChapters" value="Chapters:"/>
+                        <h:dataTable id="chaptersBeanChapterschapters" styleClass="data-table" value="#{forgeview:asList(chaptersBean.chapters.objHijos)}" var="_item">
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Code"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/chapters/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemCode" value="#{_item.code}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Name"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/chapters/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemName" value="#{_item.name}"/>
+                                              </h:link>
+                                           </h:column>
+
+                        </h:dataTable>
+                        <h:outputText/>
+
+                        <h:outputLabel for="chaptersBeanChaptersBooks" value="Books:"/>
+                        <h:link id="chaptersBeanChaptersBooks" outcome="/admin/books/view" rendered="#{!empty chaptersBean.chapters.books}" value="#{chaptersBean.chapters.books.code}">
+                                 <f:param name="id" value="#{chaptersBean.chapters.books.id}"/>
+                        </h:link>
+                        <h:outputText/>
+
+                        <h:outputLabel for="chaptersBeanChaptersobjPadre" value="Chapters:"/>
+                        <h:link id="chaptersBeanChaptersobjPadre" outcome="/admin/chapters/view" rendered="#{!empty chaptersBean.chapters.objPadre}" value="#{chaptersBean.chapters.objPadre.code}">
+                                 <f:param name="id" value="#{chaptersBean.chapters.objPadre.id}"/>
+                        </h:link>
+                        <h:outputText/>
+
+                </h:panelGrid>
+
+                <div class="buttons">
+                        <h:link value="View All" outcome="search" styleClass="btn btn-primary"/>
+                        <h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
+                        <h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
+                </div>
+        </ui:define>
+</ui:composition>

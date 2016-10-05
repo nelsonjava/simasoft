@@ -1,0 +1,151 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        template="/resources/scaffold/legisTemplate.xhtml">
+
+        <f:metadata>
+                <f:viewParam name="page" value='#{legisTopicBean.page}'/>
+                <f:event type="preRenderView" listener='#{legisTopicBean.paginate}'/>
+        </f:metadata>
+
+        <ui:param name="pageTitle" value="Search LegisTopic entities"/>
+
+        <ui:define name="header">
+                LegisTopic
+        </ui:define>
+
+        <ui:define name="subheader">
+                Search LegisTopic entities
+        </ui:define>
+
+        <ui:define name="footer"/>
+
+        <ui:define name="main">
+                <h:form id="search">
+                        <f:validateBean disabled="true">
+                                <h:panelGroup styleClass="search">
+
+                                        <h:panelGrid columnClasses="label,component,required" columns="3">
+                                                <h:outputLabel for="legisTopicBeanExampleCode" value="Code:"/>
+                                                <h:panelGroup>
+                                                        <h:inputText id="legisTopicBeanExampleCode" value="#{legisTopicBean.example.code}"/>
+                                                        <h:message for="legisTopicBeanExampleCode" styleClass="error"/>
+                                                </h:panelGroup>
+                                                <h:outputText/>
+
+                                                <h:outputLabel for="legisTopicBeanExampleName" value="Name:"/>
+                                                <h:panelGroup>
+                                                        <h:inputText id="legisTopicBeanExampleName" value="#{legisTopicBean.example.name}"/>
+                                                        <h:message for="legisTopicBeanExampleName" styleClass="error"/>
+                                                </h:panelGroup>
+                                                <h:outputText/>
+
+                                                <h:outputLabel for="legisTopicBeanExampleLink" value="Link:"/>
+                                                <h:panelGroup>
+                                                        <h:inputText id="legisTopicBeanExampleLink" value="#{legisTopicBean.example.link}"/>
+                                                        <h:message for="legisTopicBeanExampleLink" styleClass="error"/>
+                                                </h:panelGroup>
+                                                <h:outputText/>
+
+                                                <h:outputLabel for="legisTopicBeanExampleLocated" value="Located:"/>
+                                                <h:panelGroup>
+                                                        <h:inputText id="legisTopicBeanExampleLocated" value="#{legisTopicBean.example.located}"/>
+                                                        <h:message for="legisTopicBeanExampleLocated" styleClass="error"/>
+                                                </h:panelGroup>
+                                                <h:outputText/>
+
+                                                <h:outputLabel for="legisTopicBeanExampleLinkMail" value="LinkMail:"/>
+                                                <h:panelGroup>
+                                                        <h:inputText id="legisTopicBeanExampleLinkMail" value="#{legisTopicBean.example.linkMail}"/>
+                                                        <h:message for="legisTopicBeanExampleLinkMail" styleClass="error"/>
+                                                </h:panelGroup>
+                                                <h:outputText/>
+
+                                        </h:panelGrid>
+                                        <h:panelGroup styleClass="buttons">
+                                                <h:commandLink value="Search" action='#{legisTopicBean.search}' styleClass="btn btn-primary"/>
+                                                <h:commandLink value="Create New" action='#{legisTopicBean.create}' styleClass="btn btn-primary"/>
+                                        </h:panelGroup>
+                                </h:panelGroup>
+                        </f:validateBean>
+
+                        <h:dataTable id="legisTopicBeanPageItems" styleClass="data-table" value="#{legisTopicBean.pageItems}" var="_item">
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Orden"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/legisTopic/view">
+                                                <f:param name="id" value="#{_item.orden}"/>
+                                                <h:outputText id="itemOrden" value="#{_item.orden}"/>
+                                        </h:link>
+                                </h:column>
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Code"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/legisTopic/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemCode" value="#{_item.code}"/>
+                                        </h:link>
+                                </h:column>
+
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Name"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/legisTopic/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemName" value="#{_item.name}"/>
+                                        </h:link>
+                                </h:column>
+
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Link"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/legisTopic/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemLink" value="#{_item.link}"/>
+                                        </h:link>
+                                </h:column>
+
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Located"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/legisTopic/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemLocated" value="#{_item.located}"/>
+                                        </h:link>
+                                </h:column>
+
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="LinkMail"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/legisTopic/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemLinkMail" value="#{_item.linkMail}"/>
+                                        </h:link>
+                                </h:column>
+
+
+                        </h:dataTable>
+                        <ui:include src="/resources/scaffold/paginator.xhtml">
+                                <ui:param name="paginatorBean" value='#{legisTopicBean}'/>
+                        </ui:include>
+                </h:form>
+
+        </ui:define>
+
+</ui:composition>

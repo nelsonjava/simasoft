@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="id" value='#{legisArtSubjectBean.id}'/>
+		<f:event type="preRenderView" listener='#{legisArtSubjectBean.retrieve}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="View Legis Art Subject"/>
+
+	<ui:define name="header">
+		Legis Art Subject
+	</ui:define>
+
+	<ui:define name="subheader">
+		View existing Legis Art Subject
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:panelGrid columnClasses="label,component,required" columns="3">
+			<h:outputLabel for="legisArtSubjectBeanLegisArtSubjectAlias" value="Alias:"/>
+			<h:outputText id="legisArtSubjectBeanLegisArtSubjectAlias" value="#{legisArtSubjectBean.legisArtSubject.alias}"/>
+			<h:outputText/>
+			<h:outputLabel for="legisArtSubjectBeanLegisArtSubjectOrden" value="Orden:"/>
+			<h:outputText id="legisArtSubjectBeanLegisArtSubjectOrden" value="#{legisArtSubjectBean.legisArtSubject.orden}"/>
+			<h:outputText/>
+			<h:outputLabel for="legisArtSubjectBeanLegisArtSubjectObservations" value="Observations:"/>
+			<h:inputTextarea id="legisArtSubjectBeanLegisArtSubjectObservations" value="#{legisArtSubjectBean.legisArtSubject.observations}"/>
+			<h:outputText/>
+			<h:outputLabel for="legisArtSubjectBeanLegisArtSubjectName" value="Name:"/>
+			<h:outputText id="legisArtSubjectBeanLegisArtSubjectName" value="#{legisArtSubjectBean.legisArtSubject.name}"/>
+			<h:outputText/>
+			<h:outputLabel for="legisArtSubjectBeanLegisArtSubjectLegisArt" value="Legis Art:"/>
+			<h:link id="legisArtSubjectBeanLegisArtSubjectLegisArt" outcome="/admin/legisArt/view" rendered="#{!empty legisArtSubjectBean.legisArtSubject.legisArt}" value="#{legisArtSubjectBean.legisArtSubject.legisArt}">
+				<f:param name="id" value="#{legisArtSubjectBean.legisArtSubject.legisArt.id}"/>
+			</h:link>
+			<h:outputText/>
+			<h:outputLabel for="legisArtSubjectBeanLegisArtSubjectLegisSubject" value="Legis Subject:"/>
+			<h:link id="legisArtSubjectBeanLegisArtSubjectLegisSubject" outcome="/admin/legisSubject/view" rendered="#{!empty legisArtSubjectBean.legisArtSubject.legisSubject}" value="#{legisArtSubjectBean.legisArtSubject.legisSubject}">
+				<f:param name="id" value="#{legisArtSubjectBean.legisArtSubject.legisSubject.id}"/>
+			</h:link>
+			<h:outputText/>
+		</h:panelGrid>
+
+		<div class="buttons">
+			<h:link value="View All" outcome="search" styleClass="btn btn-primary"/> 
+			<h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
+			<h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
+		</div>
+	</ui:define>
+
+</ui:composition>

@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:forgeview="http://jboss.org/forge/view"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="page" value='#{modelsCanvasBean.page}'/>
+		<f:event type="preRenderView" listener='#{modelsCanvasBean.paginate}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="Search Models Canvas entities"/>
+
+	<ui:define name="header">
+		Models Canvas
+	</ui:define>
+
+	<ui:define name="subheader">
+		Search Models Canvas entities
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:form id="search">
+			<f:validateBean disabled="true">
+				<h:panelGroup styleClass="search">
+
+					<h:panelGrid columnClasses="label,component,required" columns="3">
+						<h:outputLabel for="modelsCanvasBeanExampleAlias" value="Alias:"/>
+						<h:panelGroup>
+							<h:inputText id="modelsCanvasBeanExampleAlias" value="#{modelsCanvasBean.example.alias}"/>
+							<h:message for="modelsCanvasBeanExampleAlias" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="modelsCanvasBeanExampleObservations" value="Observations:"/>
+						<h:panelGroup>
+							<h:inputTextarea id="modelsCanvasBeanExampleObservations" value="#{modelsCanvasBean.example.observations}"/>
+							<h:message for="modelsCanvasBeanExampleObservations" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="modelsCanvasBeanExampleName" value="Name:"/>
+						<h:panelGroup>
+							<h:inputText id="modelsCanvasBeanExampleName" value="#{modelsCanvasBean.example.name}"/>
+							<h:message for="modelsCanvasBeanExampleName" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="modelsCanvasBeanExampleLeanProjects" value="Lean Projects:"/>
+						<h:panelGroup>
+							<h:selectOneMenu converter="#{leanProjectsBean.converter}" id="modelsCanvasBeanExampleLeanProjects" value="#{modelsCanvasBean.example.leanProjects}">
+								<f:selectItem/>
+								<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{leanProjectsBean.all}" var="_item"/>
+							</h:selectOneMenu>
+							<h:message for="modelsCanvasBeanExampleLeanProjects" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+					</h:panelGrid>
+					<h:panelGroup styleClass="buttons">
+						<h:commandLink value="Search" action='#{modelsCanvasBean.search}' styleClass="btn btn-primary"/>
+						<h:commandLink value="Create New" action='#{modelsCanvasBean.create}' styleClass="btn btn-primary"/>
+					</h:panelGroup>
+				</h:panelGroup>
+			</f:validateBean>
+			
+			<h:dataTable id="modelsCanvasBeanPageItems" styleClass="data-table" value="#{modelsCanvasBean.pageItems}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Name"/>
+					</f:facet>
+					<h:link outcome="/admin/modelsCanvas/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemName" value="#{_item.name}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<ui:include src="/resources/scaffold/paginator.xhtml">
+				<ui:param name="paginatorBean" value='#{modelsCanvasBean}'/>
+			</ui:include>
+		</h:form>
+			
+	</ui:define>
+
+</ui:composition>

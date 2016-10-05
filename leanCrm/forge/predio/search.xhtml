@@ -1,0 +1,124 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="page" value='#{predioBean.page}'/>
+		<f:event type="preRenderView" listener='#{predioBean.paginate}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="Search Predio entities"/>
+
+	<ui:define name="header">
+		Predio
+	</ui:define>
+
+	<ui:define name="subheader">
+		Search Predio entities
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:form id="search">
+			<f:validateBean disabled="true">
+				<h:panelGroup styleClass="search">
+
+					<h:panelGrid columnClasses="label,component,required" columns="3">
+						<h:outputLabel for="predioBeanExampleAlias" value="Alias:"/>
+						<h:panelGroup>
+							<h:inputText id="predioBeanExampleAlias" value="#{predioBean.example.alias}"/>
+							<h:message for="predioBeanExampleAlias" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="predioBeanExampleObservations" value="Observations:"/>
+						<h:panelGroup>
+							<h:inputTextarea id="predioBeanExampleObservations" value="#{predioBean.example.observations}"/>
+							<h:message for="predioBeanExampleObservations" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="predioBeanExampleNomenclatura" value="Nomenclatura:"/>
+						<h:panelGroup>
+							<h:inputText id="predioBeanExampleNomenclatura" value="#{predioBean.example.nomenclatura}"/>
+							<h:message for="predioBeanExampleNomenclatura" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="predioBeanExamplePredial" value="Predial:"/>
+						<h:panelGroup>
+							<h:inputText id="predioBeanExamplePredial" value="#{predioBean.example.predial}"/>
+							<h:message for="predioBeanExamplePredial" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="predioBeanExampleEstrato" value="Estrato:"/>
+						<h:panelGroup>
+							<h:inputText id="predioBeanExampleEstrato" value="#{predioBean.example.estrato}"/>
+							<h:message for="predioBeanExampleEstrato" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+					</h:panelGrid>
+					<h:panelGroup styleClass="buttons">
+						<h:commandLink value="Search" action='#{predioBean.search}' styleClass="btn btn-primary"/>
+						<h:commandLink value="Create New" action='#{predioBean.create}' styleClass="btn btn-primary"/>
+					</h:panelGroup>
+				</h:panelGroup>
+			</f:validateBean>
+			
+			<h:dataTable id="predioBeanPageItems" styleClass="data-table" value="#{predioBean.pageItems}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Alias"/>
+					</f:facet>
+					<h:link outcome="/admin/predio/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemAlias" value="#{_item.alias}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Orden"/>
+					</f:facet>
+					<h:link outcome="/admin/predio/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemOrden" value="#{_item.orden}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Observations"/>
+					</f:facet>
+					<h:link outcome="/admin/predio/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:inputTextarea id="_itemObservations" value="#{_item.observations}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Nomenclatura"/>
+					</f:facet>
+					<h:link outcome="/admin/predio/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemNomenclatura" value="#{_item.nomenclatura}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Predial"/>
+					</f:facet>
+					<h:link outcome="/admin/predio/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemPredial" value="#{_item.predial}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<ui:include src="/resources/scaffold/paginator.xhtml">
+				<ui:param name="paginatorBean" value='#{predioBean}'/>
+			</ui:include>
+		</h:form>
+			
+	</ui:define>
+
+</ui:composition>

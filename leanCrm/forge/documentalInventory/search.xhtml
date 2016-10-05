@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:forgeview="http://jboss.org/forge/view"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="page" value='#{documentalInventoryBean.page}'/>
+		<f:event type="preRenderView" listener='#{documentalInventoryBean.paginate}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="Search Documental Inventory entities"/>
+
+	<ui:define name="header">
+		Documental Inventory
+	</ui:define>
+
+	<ui:define name="subheader">
+		Search Documental Inventory entities
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:form id="search">
+			<f:validateBean disabled="true">
+				<h:panelGroup styleClass="search">
+
+					<h:panelGrid columnClasses="label,component,required" columns="3">
+						<h:outputLabel for="documentalInventoryBeanExampleAlias" value="Alias:"/>
+						<h:panelGroup>
+							<h:inputText id="documentalInventoryBeanExampleAlias" value="#{documentalInventoryBean.example.alias}"/>
+							<h:message for="documentalInventoryBeanExampleAlias" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="documentalInventoryBeanExampleObservations" value="Observations:"/>
+						<h:panelGroup>
+							<h:inputTextarea id="documentalInventoryBeanExampleObservations" value="#{documentalInventoryBean.example.observations}"/>
+							<h:message for="documentalInventoryBeanExampleObservations" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="documentalInventoryBeanExampleObject" value="Object:"/>
+						<h:panelGroup>
+							<h:inputText id="documentalInventoryBeanExampleObject" value="#{documentalInventoryBean.example.object}"/>
+							<h:message for="documentalInventoryBeanExampleObject" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="documentalInventoryBeanExampleTransferNumber" value="Transfer Number:"/>
+						<h:panelGroup>
+							<h:inputText id="documentalInventoryBeanExampleTransferNumber" value="#{documentalInventoryBean.example.transferNumber}"/>
+							<h:message for="documentalInventoryBeanExampleTransferNumber" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="documentalInventoryBeanExampleInventoryFinality" value="Inventory Finality:"/>
+						<h:panelGroup>
+							<h:selectOneMenu converter="#{inventoryFinalityBean.converter}" id="documentalInventoryBeanExampleInventoryFinality" value="#{documentalInventoryBean.example.inventoryFinality}">
+								<f:selectItem/>
+								<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{inventoryFinalityBean.all}" var="_item"/>
+							</h:selectOneMenu>
+							<h:message for="documentalInventoryBeanExampleInventoryFinality" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+					</h:panelGrid>
+					<h:panelGroup styleClass="buttons">
+						<h:commandLink value="Search" action='#{documentalInventoryBean.search}' styleClass="btn btn-primary"/>
+						<h:commandLink value="Create New" action='#{documentalInventoryBean.create}' styleClass="btn btn-primary"/>
+					</h:panelGroup>
+				</h:panelGroup>
+			</f:validateBean>
+			
+			<h:dataTable id="documentalInventoryBeanPageItems" styleClass="data-table" value="#{documentalInventoryBean.pageItems}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Object"/>
+					</f:facet>
+					<h:link outcome="/admin/documentalInventory/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemObject" value="#{_item.object}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<ui:include src="/resources/scaffold/paginator.xhtml">
+				<ui:param name="paginatorBean" value='#{documentalInventoryBean}'/>
+			</ui:include>
+		</h:form>
+			
+	</ui:define>
+
+</ui:composition>

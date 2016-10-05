@@ -1,0 +1,334 @@
+{
+  "RelationshipsData": [
+  {
+    "From": "PhysicalSpacesTypes",
+    "FromProperty": "name",
+    "FromValue": "Fachada",
+    "To": "PhysicalSpaces",
+    "ToProperty": "name",
+    "ToValue": "Fachada",
+    "Name": "",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "PhysicalSpacesTypes",
+    "FromProperty": "name",
+    "FromValue": "Escaleras",
+    "To": "PhysicalSpaces",
+    "ToProperty": "name",
+    "ToValue": "Ingreso Escalera 1 Piso",
+    "Name": "",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "PhysicalSpacesTypes",
+    "FromProperty": "name",
+    "FromValue": "Escaleras",
+    "To": "PhysicalSpaces",
+    "ToProperty": "name",
+    "ToValue": "Escalera 1 Piso",
+    "Name": "",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "PhysicalSpacesTypes",
+    "FromProperty": "name",
+    "FromValue": "Pasillo",
+    "To": "PhysicalSpaces",
+    "ToProperty": "name",
+    "ToValue": "Pasillo 2 piso",
+    "Name": "",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "PhysicalSpacesTypes",
+    "FromProperty": "name",
+    "FromValue": "placa",
+    "To": "PhysicalSpaces",
+    "ToProperty": "name",
+    "ToValue": "placa 2 piso",
+    "Name": "",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "PhysicalSpacesTypes",
+    "FromProperty": "name",
+    "FromValue": "placa",
+    "To": "PhysicalSpaces",
+    "ToProperty": "name",
+    "ToValue": "placa 3 piso",
+    "Name": "",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "PhysicalSpacesTypes",
+    "FromProperty": "name",
+    "FromValue": "Local",
+    "To": "PhysicalSpaces",
+    "ToProperty": "name",
+    "ToValue": "Local L1",
+    "Name": "",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "PhysicalSpacesTypes",
+    "FromProperty": "name",
+    "FromValue": "Baño",
+    "To": "PhysicalSpaces",
+    "ToProperty": "name",
+    "ToValue": "Baño L1",
+    "Name": "",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "PhysicalSpacesTypes",
+    "FromProperty": "name",
+    "FromValue": "Cocina",
+    "To": "PhysicalSpaces",
+    "ToProperty": "name",
+    "ToValue": "Cocina L1",
+    "Name": "",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "PhysicalSpacesTypes",
+    "FromProperty": "name",
+    "FromValue": "Local",
+    "To": "PhysicalSpaces",
+    "ToProperty": "name",
+    "ToValue": "Local L2",
+    "Name": "",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "PhysicalSpacesTypes",
+    "FromProperty": "name",
+    "FromValue": "Rincon",
+    "To": "PhysicalSpaces",
+    "ToProperty": "name",
+    "ToValue": "Rincon L2",
+    "Name": "",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "PhysicalSpacesTypes",
+    "FromProperty": "name",
+    "FromValue": "Baño",
+    "To": "PhysicalSpaces",
+    "ToProperty": "name",
+    "ToValue": "Baño L2",
+    "Name": "",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "PhysicalSpacesTypes",
+    "FromProperty": "name",
+    "FromValue": "Local",
+    "To": "PhysicalSpaces",
+    "ToProperty": "name",
+    "ToValue": "Local L3",
+    "Name": "",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "PhysicalSpacesTypes",
+    "FromProperty": "name",
+    "FromValue": "Rincon",
+    "To": "PhysicalSpaces",
+    "ToProperty": "name",
+    "ToValue": "Rincon  L3",
+    "Name": "",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "PhysicalSpacesTypes",
+    "FromProperty": "name",
+    "FromValue": "Baño",
+    "To": "PhysicalSpaces",
+    "ToProperty": "name",
+    "ToValue": "Baño  L3",
+    "Name": "",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "PhysicalSpacesTypes",
+    "FromProperty": "name",
+    "FromValue": "Local",
+    "To": "PhysicalSpaces",
+    "ToProperty": "name",
+    "ToValue": "Local  L4",
+    "Name": "",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "PhysicalSpacesTypes",
+    "FromProperty": "name",
+    "FromValue": "Cocina",
+    "To": "PhysicalSpaces",
+    "ToProperty": "name",
+    "ToValue": "Cocina  L4",
+    "Name": "",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "PhysicalSpacesTypes",
+    "FromProperty": "name",
+    "FromValue": "Alcoba",
+    "To": "PhysicalSpaces",
+    "ToProperty": "name",
+    "ToValue": "Alcoba  L4",
+    "Name": "",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "PhysicalSpacesTypes",
+    "FromProperty": "name",
+    "FromValue": "Patio",
+    "To": "PhysicalSpaces",
+    "ToProperty": "name",
+    "ToValue": "Patio  L4",
+    "Name": "",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "PhysicalSpacesTypes",
+    "FromProperty": "name",
+    "FromValue": "Baño",
+    "To": "PhysicalSpaces",
+    "ToProperty": "name",
+    "ToValue": "Baño  L4",
+    "Name": "",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "PhysicalSpacesTypes",
+    "FromProperty": "name",
+    "FromValue": "Local",
+    "To": "PhysicalSpaces",
+    "ToProperty": "name",
+    "ToValue": "Local  L5",
+    "Name": "",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "PhysicalSpacesTypes",
+    "FromProperty": "name",
+    "FromValue": "Baño",
+    "To": "PhysicalSpaces",
+    "ToProperty": "name",
+    "ToValue": "Baño  L5",
+    "Name": "",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "PhysicalSpacesTypes",
+    "FromProperty": "name",
+    "FromValue": "Sala Comedor",
+    "To": "PhysicalSpaces",
+    "ToProperty": "name",
+    "ToValue": "Sala Comedor A201",
+    "Name": "",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "PhysicalSpacesTypes",
+    "FromProperty": "name",
+    "FromValue": "Cocina",
+    "To": "PhysicalSpaces",
+    "ToProperty": "name",
+    "ToValue": "Cocina A201",
+    "Name": "",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "PhysicalSpacesTypes",
+    "FromProperty": "name",
+    "FromValue": "Alcoba",
+    "To": "PhysicalSpaces",
+    "ToProperty": "name",
+    "ToValue": "Alcoba Principal A201",
+    "Name": "",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "PhysicalSpacesTypes",
+    "FromProperty": "name",
+    "FromValue": "Alcoba",
+    "To": "PhysicalSpaces",
+    "ToProperty": "name",
+    "ToValue": "Alcoba Secundaria  A201",
+    "Name": "",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "PhysicalSpacesTypes",
+    "FromProperty": "name",
+    "FromValue": "Baño",
+    "To": "PhysicalSpaces",
+    "ToProperty": "name",
+    "ToValue": "Baño A201",
+    "Name": "",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "PhysicalSpacesTypes",
+    "FromProperty": "name",
+    "FromValue": "Sala Comedor",
+    "To": "PhysicalSpaces",
+    "ToProperty": "name",
+    "ToValue": "Sala Comedor A202",
+    "Name": "",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "PhysicalSpacesTypes",
+    "FromProperty": "name",
+    "FromValue": "Baño",
+    "To": "PhysicalSpaces",
+    "ToProperty": "name",
+    "ToValue": "Baño A202",
+    "Name": "",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "PhysicalSpacesTypes",
+    "FromProperty": "name",
+    "FromValue": "Cocina",
+    "To": "PhysicalSpaces",
+    "ToProperty": "name",
+    "ToValue": "Cocina A202",
+    "Name": "",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "PhysicalSpacesTypes",
+    "FromProperty": "name",
+    "FromValue": "Baño",
+    "To": "PhysicalSpaces",
+    "ToProperty": "name",
+    "ToValue": "Baño Cocina A202",
+    "Name": "",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "PhysicalSpacesTypes",
+    "FromProperty": "name",
+    "FromValue": "Alcoba",
+    "To": "PhysicalSpaces",
+    "ToProperty": "name",
+    "ToValue": "Alcoba Principal A202",
+    "Name": "",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "PhysicalSpacesTypes",
+    "FromProperty": "name",
+    "FromValue": "Alcoba",
+    "To": "PhysicalSpaces",
+    "ToProperty": "name",
+    "ToValue": "Alcoba Secundaria A202",
+    "Name": "",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  }
+  ]
+}

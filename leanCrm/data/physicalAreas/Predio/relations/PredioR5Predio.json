@@ -1,0 +1,74 @@
+{
+  "RelationshipsData": [
+  {
+    "From": "Predio",
+    "FromProperty": "nomenclatura",
+    "FromValue": "C 26 22 138",
+    "To": "Predio",
+    "ToProperty": "nomenclatura",
+    "ToValue": "LOCAL No.1",
+    "Name": "",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Predio",
+    "FromProperty": "nomenclatura",
+    "FromValue": "C 26 22 138",
+    "To": "Predio",
+    "ToProperty": "nomenclatura",
+    "ToValue": "LOCAL No.2",
+    "Name": "",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Predio",
+    "FromProperty": "nomenclatura",
+    "FromValue": "C 26 22 138",
+    "To": "Predio",
+    "ToProperty": "nomenclatura",
+    "ToValue": "LOCAL No.3",
+    "Name": "",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Predio",
+    "FromProperty": "nomenclatura",
+    "FromValue": "C 26 22 138",
+    "To": "Predio",
+    "ToProperty": "nomenclatura",
+    "ToValue": "LOCAL No.4",
+    "Name": "",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Predio",
+    "FromProperty": "nomenclatura",
+    "FromValue": "C 26 22 138",
+    "To": "Predio",
+    "ToProperty": "nomenclatura",
+    "ToValue": "LOCAL No.5",
+    "Name": "",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Predio",
+    "FromProperty": "nomenclatura",
+    "FromValue": "C 26 22 138",
+    "To": "Predio",
+    "ToProperty": "nomenclatura",
+    "ToValue": "APTO 201",
+    "Name": "",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  },
+  {
+    "From": "Predio",
+    "FromProperty": "nomenclatura",
+    "FromValue": "C 26 22 138",
+    "To": "Predio",
+    "ToProperty": "nomenclatura",
+    "ToValue": "APTO 202",
+    "Name": "",
+    "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+  }
+  ]
+}

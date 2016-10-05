@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:forgeview="http://jboss.org/forge/view"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="id" value='#{seriesReportsBean.id}'/>
+		<f:event type="preRenderView" listener='#{seriesReportsBean.retrieve}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="View Series Reports"/>
+
+	<ui:define name="header">
+		Series Reports
+	</ui:define>
+
+	<ui:define name="subheader">
+		View existing Series Reports
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:panelGrid columnClasses="label,component,required" columns="3">
+			<h:outputLabel for="seriesReportsBeanSeriesReportsAlias" value="Alias:"/>
+			<h:outputText id="seriesReportsBeanSeriesReportsAlias" value="#{seriesReportsBean.seriesReports.alias}"/>
+			<h:outputText/>
+			<h:outputLabel for="seriesReportsBeanSeriesReportsOrden" value="Orden:"/>
+			<h:outputText id="seriesReportsBeanSeriesReportsOrden" value="#{seriesReportsBean.seriesReports.orden}"/>
+			<h:outputText/>
+			<h:outputLabel for="seriesReportsBeanSeriesReportsObservations" value="Observations:"/>
+			<h:inputTextarea id="seriesReportsBeanSeriesReportsObservations" value="#{seriesReportsBean.seriesReports.observations}"/>
+			<h:outputText/>
+			<h:outputLabel for="seriesReportsBeanSeriesReportsName" value="Name:"/>
+			<h:outputText id="seriesReportsBeanSeriesReportsName" value="#{seriesReportsBean.seriesReports.name}"/>
+			<h:outputText/>
+			<h:outputLabel for="seriesReportsBeanSeriesReportsCode" value="Code:"/>
+			<h:outputText id="seriesReportsBeanSeriesReportsCode" value="#{seriesReportsBean.seriesReports.code}"/>
+			<h:outputText/>
+			<h:outputLabel for="seriesReportsBeanSeriesReportsReports" value="Reports:"/>
+			<h:dataTable id="seriesReportsBeanSeriesReportsReports" styleClass="data-table" value="#{forgeview:asList(seriesReportsBean.seriesReports.reports)}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Name"/>
+					</f:facet>
+					<h:link outcome="/admin/reports/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemName" value="#{_item.name}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<h:outputText/>
+			<h:outputLabel for="seriesReportsBeanSeriesReportsSectionsReports" value="Sections Reports:"/>
+			<h:link id="seriesReportsBeanSeriesReportsSectionsReports" outcome="/admin/sectionsReports/view" rendered="#{!empty seriesReportsBean.seriesReports.sectionsReports}" value="#{seriesReportsBean.seriesReports.sectionsReports}">
+				<f:param name="id" value="#{seriesReportsBean.seriesReports.sectionsReports.id}"/>
+			</h:link>
+			<h:outputText/>
+		</h:panelGrid>
+
+		<div class="buttons">
+			<h:link value="View All" outcome="search" styleClass="btn btn-primary"/> 
+			<h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
+			<h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
+		</div>
+	</ui:define>
+
+</ui:composition>

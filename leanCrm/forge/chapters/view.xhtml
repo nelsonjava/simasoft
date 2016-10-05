@@ -1,0 +1,176 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:forgeview="http://jboss.org/forge/view"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="id" value='#{chaptersBean.id}'/>
+		<f:event type="preRenderView" listener='#{chaptersBean.retrieve}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="View Chapters"/>
+
+	<ui:define name="header">
+		Chapters
+	</ui:define>
+
+	<ui:define name="subheader">
+		View existing Chapters
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:panelGrid columnClasses="label,component,required" columns="3">
+			<h:outputLabel for="chaptersBeanChaptersAlias" value="Alias:"/>
+			<h:outputText id="chaptersBeanChaptersAlias" value="#{chaptersBean.chapters.alias}"/>
+			<h:outputText/>
+			<h:outputLabel for="chaptersBeanChaptersOrden" value="Orden:"/>
+			<h:outputText id="chaptersBeanChaptersOrden" value="#{chaptersBean.chapters.orden}"/>
+			<h:outputText/>
+			<h:outputLabel for="chaptersBeanChaptersObservations" value="Observations:"/>
+			<h:inputTextarea id="chaptersBeanChaptersObservations" value="#{chaptersBean.chapters.observations}"/>
+			<h:outputText/>
+			<h:outputLabel for="chaptersBeanChaptersCode" value="Code:"/>
+			<h:outputText id="chaptersBeanChaptersCode" value="#{chaptersBean.chapters.code}"/>
+			<h:outputText/>
+			<h:outputLabel for="chaptersBeanChaptersName" value="Name:"/>
+			<h:outputText id="chaptersBeanChaptersName" value="#{chaptersBean.chapters.name}"/>
+			<h:outputText/>
+			<h:outputLabel for="chaptersBeanChaptersDiaries" value="Diaries:"/>
+			<h:dataTable id="chaptersBeanChaptersDiaries" styleClass="data-table" value="#{forgeview:asList(chaptersBean.chapters.diaries)}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Alias"/>
+					</f:facet>
+					<h:link outcome="/admin/diaries/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemAlias" value="#{_item.alias}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Orden"/>
+					</f:facet>
+					<h:link outcome="/admin/diaries/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemOrden" value="#{_item.orden}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Observations"/>
+					</f:facet>
+					<h:link outcome="/admin/diaries/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:inputTextarea id="_itemObservations" value="#{_item.observations}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Name"/>
+					</f:facet>
+					<h:link outcome="/admin/diaries/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemName" value="#{_item.name}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Date"/>
+					</f:facet>
+					<h:link outcome="/admin/diaries/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemDate" value="#{_item.date}">
+							<f:convertDateTime type="date"/>
+						</h:outputText>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<h:outputText/>
+			<h:outputLabel for="chaptersBeanChaptersTasks" value="Tasks:"/>
+			<h:dataTable id="chaptersBeanChaptersTasks" styleClass="data-table" value="#{forgeview:asList(chaptersBean.chapters.tasks)}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Name"/>
+					</f:facet>
+					<h:link outcome="/admin/tasks/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemName" value="#{_item.name}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<h:outputText/>
+			<h:outputLabel for="chaptersBeanChaptersObjHijos" value="Obj Hijos:"/>
+			<h:dataTable id="chaptersBeanChaptersObjHijos" styleClass="data-table" value="#{forgeview:asList(chaptersBean.chapters.objHijos)}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Alias"/>
+					</f:facet>
+					<h:link outcome="/admin/chapters/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemAlias" value="#{_item.alias}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Orden"/>
+					</f:facet>
+					<h:link outcome="/admin/chapters/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemOrden" value="#{_item.orden}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Observations"/>
+					</f:facet>
+					<h:link outcome="/admin/chapters/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:inputTextarea id="_itemObservations" value="#{_item.observations}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Code"/>
+					</f:facet>
+					<h:link outcome="/admin/chapters/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemCode" value="#{_item.code}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Name"/>
+					</f:facet>
+					<h:link outcome="/admin/chapters/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemName" value="#{_item.name}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<h:outputText/>
+			<h:outputLabel for="chaptersBeanChaptersBooks" value="Books:"/>
+			<h:link id="chaptersBeanChaptersBooks" outcome="/admin/books/view" rendered="#{!empty chaptersBean.chapters.books}" value="#{chaptersBean.chapters.books}">
+				<f:param name="id" value="#{chaptersBean.chapters.books.id}"/>
+			</h:link>
+			<h:outputText/>
+			<h:outputLabel for="chaptersBeanChaptersObjPadre" value="Obj Padre:"/>
+			<h:link id="chaptersBeanChaptersObjPadre" outcome="/admin/chapters/view" rendered="#{!empty chaptersBean.chapters.objPadre}" value="#{chaptersBean.chapters.objPadre}">
+				<f:param name="id" value="#{chaptersBean.chapters.objPadre.id}"/>
+			</h:link>
+			<h:outputText/>
+		</h:panelGrid>
+
+		<div class="buttons">
+			<h:link value="View All" outcome="search" styleClass="btn btn-primary"/> 
+			<h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
+			<h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
+		</div>
+	</ui:define>
+
+</ui:composition>

@@ -1,0 +1,133 @@
+ El volumen de la unidad D no tiene etiqueta.
+ El n£mero de serie del volumen es: 3029-3EA4
+
+ Directorio de d:\dev\njava\simasoft\pruebas\data\physicalAreas
+
+05/10/2016  09:48 a. m.    <DIR>          .
+05/10/2016  09:48 a. m.    <DIR>          ..
+05/10/2016  09:48 a. m.                 0 a.txt
+04/10/2016  02:05 p. m.    <DIR>          PhysicalAreas
+04/10/2016  02:05 p. m.    <DIR>          PhysicalAreasTypes
+04/10/2016  02:05 p. m.    <DIR>          PhysicalSpaces
+04/10/2016  02:05 p. m.    <DIR>          PhysicalSpacesTypes
+04/10/2016  02:05 p. m.    <DIR>          Predio
+               1 archivos              0 bytes
+
+ Directorio de d:\dev\njava\simasoft\pruebas\data\physicalAreas\PhysicalAreas
+
+04/10/2016  02:05 p. m.    <DIR>          .
+04/10/2016  02:05 p. m.    <DIR>          ..
+05/10/2016  07:08 a. m.    <DIR>          data
+04/10/2016  02:05 p. m.    <DIR>          relations
+               0 archivos              0 bytes
+
+ Directorio de d:\dev\njava\simasoft\pruebas\data\physicalAreas\PhysicalAreas\data
+
+05/10/2016  07:08 a. m.    <DIR>          .
+05/10/2016  07:08 a. m.    <DIR>          ..
+05/10/2016  07:08 a. m.                31 PhysicalAreas.csv
+05/10/2016  07:08 a. m.            10.177 PhysicalAreas.xlsx
+               2 archivos         10.208 bytes
+
+ Directorio de d:\dev\njava\simasoft\pruebas\data\physicalAreas\PhysicalAreas\relations
+
+04/10/2016  02:05 p. m.    <DIR>          .
+04/10/2016  02:05 p. m.    <DIR>          ..
+04/10/2016  01:14 p. m.               174 PhysicalAreasR5PhysicalAreas.csv
+               1 archivos            174 bytes
+
+ Directorio de d:\dev\njava\simasoft\pruebas\data\physicalAreas\PhysicalAreasTypes
+
+04/10/2016  02:05 p. m.    <DIR>          .
+04/10/2016  02:05 p. m.    <DIR>          ..
+04/10/2016  02:05 p. m.    <DIR>          data
+04/10/2016  02:05 p. m.    <DIR>          relations
+               0 archivos              0 bytes
+
+ Directorio de d:\dev\njava\simasoft\pruebas\data\physicalAreas\PhysicalAreasTypes\data
+
+04/10/2016  02:05 p. m.    <DIR>          .
+04/10/2016  02:05 p. m.    <DIR>          ..
+04/10/2016  01:14 p. m.                 6 PhysicalAreasTypes.csv
+               1 archivos              6 bytes
+
+ Directorio de d:\dev\njava\simasoft\pruebas\data\physicalAreas\PhysicalAreasTypes\relations
+
+04/10/2016  02:05 p. m.    <DIR>          .
+04/10/2016  02:05 p. m.    <DIR>          ..
+04/10/2016  01:14 p. m.               179 PhysicalAreasTypesR5PhysicalAreas.csv
+               1 archivos            179 bytes
+
+ Directorio de d:\dev\njava\simasoft\pruebas\data\physicalAreas\PhysicalSpaces
+
+04/10/2016  02:05 p. m.    <DIR>          .
+04/10/2016  02:05 p. m.    <DIR>          ..
+05/10/2016  07:08 a. m.    <DIR>          data
+04/10/2016  02:05 p. m.    <DIR>          relations
+               0 archivos              0 bytes
+
+ Directorio de d:\dev\njava\simasoft\pruebas\data\physicalAreas\PhysicalSpaces\data
+
+05/10/2016  07:08 a. m.    <DIR>          .
+05/10/2016  07:08 a. m.    <DIR>          ..
+04/10/2016  01:14 p. m.                18 PhysicalSpaces.csv
+05/10/2016  07:08 a. m.             9.792 PhysicalSpaces.xlsx
+               2 archivos          9.810 bytes
+
+ Directorio de d:\dev\njava\simasoft\pruebas\data\physicalAreas\PhysicalSpaces\relations
+
+04/10/2016  02:05 p. m.    <DIR>          .
+04/10/2016  02:05 p. m.    <DIR>          ..
+04/10/2016  01:14 p. m.               171 PhysicalSpacesR5Employees.csv
+04/10/2016  01:14 p. m.               176 PhysicalSpacesR5PhysicalSpaces.csv
+               2 archivos            347 bytes
+
+ Directorio de d:\dev\njava\simasoft\pruebas\data\physicalAreas\PhysicalSpacesTypes
+
+04/10/2016  02:05 p. m.    <DIR>          .
+04/10/2016  02:05 p. m.    <DIR>          ..
+04/10/2016  02:05 p. m.    <DIR>          data
+04/10/2016  02:05 p. m.    <DIR>          relations
+               0 archivos              0 bytes
+
+ Directorio de d:\dev\njava\simasoft\pruebas\data\physicalAreas\PhysicalSpacesTypes\data
+
+04/10/2016  02:05 p. m.    <DIR>          .
+04/10/2016  02:05 p. m.    <DIR>          ..
+04/10/2016  01:14 p. m.                 6 PhysicalSpacesTypes.csv
+               1 archivos              6 bytes
+
+ Directorio de d:\dev\njava\simasoft\pruebas\data\physicalAreas\PhysicalSpacesTypes\relations
+
+04/10/2016  02:05 p. m.    <DIR>          .
+04/10/2016  02:05 p. m.    <DIR>          ..
+04/10/2016  01:14 p. m.               181 PhysicalSpacesTypesR5PhysicalSpaces.csv
+04/10/2016  01:14 p. m.               186 PhysicalSpacesTypesR5PhysicalSpacesTypes.csv
+               2 archivos            367 bytes
+
+ Directorio de d:\dev\njava\simasoft\pruebas\data\physicalAreas\Predio
+
+04/10/2016  02:05 p. m.    <DIR>          .
+04/10/2016  02:05 p. m.    <DIR>          ..
+04/10/2016  02:05 p. m.    <DIR>          data
+04/10/2016  02:05 p. m.    <DIR>          relations
+               0 archivos              0 bytes
+
+ Directorio de d:\dev\njava\simasoft\pruebas\data\physicalAreas\Predio\data
+
+04/10/2016  02:05 p. m.    <DIR>          .
+04/10/2016  02:05 p. m.    <DIR>          ..
+04/10/2016  01:14 p. m.                40 Predio.csv
+               1 archivos             40 bytes
+
+ Directorio de d:\dev\njava\simasoft\pruebas\data\physicalAreas\Predio\relations
+
+04/10/2016  02:05 p. m.    <DIR>          .
+04/10/2016  02:05 p. m.    <DIR>          ..
+04/10/2016  01:14 p. m.               168 PredioR5PhysicalSpaces.csv
+04/10/2016  01:14 p. m.               160 PredioR5Predio.csv
+               2 archivos            328 bytes
+
+     Total de archivos en la lista:
+              16 archivos         21.465 bytes
+              47 dirs   9.651.515.392 bytes libres

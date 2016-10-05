@@ -1,0 +1,187 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:forgeview="http://jboss.org/forge/view"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="id" value='#{legisArtBean.id}'/>
+		<f:event type="preRenderView" listener='#{legisArtBean.retrieve}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="Create Legis Art"/>
+
+	<ui:define name="header">
+		Legis Art
+	</ui:define>
+
+	<ui:define name="subheader">
+		<c:choose>
+			<c:when test='#{!empty legisArtBean.id}'>
+				Edit existing Legis Art
+			</c:when>
+			<c:otherwise>
+				Create a new Legis Art
+			</c:otherwise>
+		</c:choose>
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:form id="create">
+			<h:messages globalOnly="true" styleClass="error"/>
+
+			<h:panelGrid columnClasses="label,component,required" columns="3">
+				<h:outputLabel for="legisArtBeanLegisArtAlias" value="Alias:"/>
+				<h:panelGroup>
+					<h:inputText id="legisArtBeanLegisArtAlias" value="#{legisArtBean.legisArt.alias}"/>
+					<h:message for="legisArtBeanLegisArtAlias" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="legisArtBeanLegisArtOrden" value="Orden:"/>
+				<h:panelGroup>
+					<h:inputText id="legisArtBeanLegisArtOrden" value="#{legisArtBean.legisArt.orden}"/>
+					<h:message for="legisArtBeanLegisArtOrden" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="legisArtBeanLegisArtObservations" value="Observations:"/>
+				<h:panelGroup>
+					<h:inputTextarea id="legisArtBeanLegisArtObservations" value="#{legisArtBean.legisArt.observations}"/>
+					<h:message for="legisArtBeanLegisArtObservations" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="legisArtBeanLegisArtCode" value="Code:"/>
+				<h:panelGroup>
+					<h:inputText id="legisArtBeanLegisArtCode" value="#{legisArtBean.legisArt.code}"/>
+					<h:message for="legisArtBeanLegisArtCode" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="legisArtBeanLegisArtName" value="Name:"/>
+				<h:panelGroup>
+					<h:inputText id="legisArtBeanLegisArtName" value="#{legisArtBean.legisArt.name}"/>
+					<h:message for="legisArtBeanLegisArtName" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="legisArtBeanLegisArtContent" value="Content:"/>
+				<h:panelGroup>
+					<h:inputText id="legisArtBeanLegisArtContent" value="#{legisArtBean.legisArt.content}"/>
+					<h:message for="legisArtBeanLegisArtContent" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="legisArtBeanLegisArtLegisArtSubject" value="Legis Art Subject:"/>
+				<h:panelGroup>
+					<ui:param name="_collection" value="#{legisArtBean.legisArt.legisArtSubject}"/>
+					<h:dataTable id="legisArtBeanLegisArtLegisArtSubject" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Alias"/>
+							</f:facet>
+							<h:link outcome="/admin/legisArtSubject/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="_itemAlias" value="#{_item.alias}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="legisArtSubjectBeanAddAlias" value="#{legisArtSubjectBean.add.alias}"/>
+								<h:message for="legisArtSubjectBeanAddAlias" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Orden"/>
+							</f:facet>
+							<h:link outcome="/admin/legisArtSubject/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="_itemOrden" value="#{_item.orden}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="legisArtSubjectBeanAddOrden" value="#{legisArtSubjectBean.add.orden}"/>
+								<h:message for="legisArtSubjectBeanAddOrden" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Observations"/>
+							</f:facet>
+							<h:link outcome="/admin/legisArtSubject/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:inputTextarea id="_itemObservations" value="#{_item.observations}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputTextarea id="legisArtSubjectBeanAddObservations" value="#{legisArtSubjectBean.add.observations}"/>
+								<h:message for="legisArtSubjectBeanAddObservations" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Name"/>
+							</f:facet>
+							<h:link outcome="/admin/legisArtSubject/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="_itemName" value="#{_item.name}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="legisArtSubjectBeanAddName" value="#{legisArtSubjectBean.add.name}"/>
+								<h:message for="legisArtSubjectBeanAddName" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Legis Subject"/>
+							</f:facet>
+							<h:link outcome="/admin/legisArtSubject/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="forgeview:display(_itemLegisSubject)" value="#{forgeview:display(_item.legisSubject)}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:selectOneMenu converter="#{legisSubjectBean.converter}" id="legisArtSubjectBeanAddLegisSubject" value="#{legisArtSubjectBean.add.legisSubject}">
+									<f:selectItem/>
+									<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{legisSubjectBean.all}" var="_item"/>
+								</h:selectOneMenu>
+								<h:message for="legisArtSubjectBeanAddLegisSubject" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column footerClass="remove-column" headerClass="remove-column">
+							<h:commandLink action="#{_collection.remove(_item)}" styleClass="remove-button"/>
+							<f:facet name="footer">
+								<h:commandLink action="#{_collection.add(legisArtSubjectBean.added)}" id="legisArtBeanLegisArtLegisArtSubjectAdd" styleClass="add-button">
+									<f:setPropertyActionListener target="#{legisArtSubjectBean.add.legisArt}" value="#{legisArtBean.legisArt}"/>
+								</h:commandLink>
+							</f:facet>
+						</h:column>
+					</h:dataTable>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="legisArtBeanLegisArtLegis" value="Legis:"/>
+				<h:panelGroup>
+					<h:selectOneMenu converter="#{legisBean.converter}" id="legisArtBeanLegisArtLegis" value="#{legisArtBean.legisArt.legis}">
+						<f:selectItem/>
+						<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{legisBean.all}" var="_item"/>
+					</h:selectOneMenu>
+					<h:message for="legisArtBeanLegisArtLegis" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+			</h:panelGrid>
+
+			<div class="buttons">
+				<h:commandLink value="Save" action='#{legisArtBean.update}' styleClass="btn btn-primary"/>
+				<c:choose>
+					<c:when test='#{!empty legisArtBean.id}'>
+						<h:link value="Cancel" outcome="view" styleClass="btn btn-primary">
+							<f:param name="id" value='#{legisArtBean.id}'/>
+						</h:link>
+						<h:commandLink value="Delete" action='#{legisArtBean.delete}' styleClass="btn btn-primary"/>
+					</c:when>
+					<c:otherwise>
+						<h:link value="Cancel" outcome="search" styleClass="btn btn-primary"/>
+					</c:otherwise>
+				</c:choose>
+			</div>
+		</h:form>
+	</ui:define>
+
+</ui:composition>

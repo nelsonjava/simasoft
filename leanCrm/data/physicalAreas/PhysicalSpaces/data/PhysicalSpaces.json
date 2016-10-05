@@ -1,0 +1,103 @@
+{
+  "PhysicalSpaces": [
+  {
+    "name": "Fachada"
+  },
+  {
+    "name": "Ingreso Escalera 1 Piso"
+  },
+  {
+    "name": "Escalera 1 Piso"
+  },
+  {
+    "name": "Pasillo 2 piso"
+  },
+  {
+    "name": "placa 2 piso"
+  },
+  {
+    "name": "placa 3 piso"
+  },
+  {
+    "name": "Local L1"
+  },
+  {
+    "name": "Baño L1"
+  },
+  {
+    "name": "Cocina L1"
+  },
+  {
+    "name": "Local L2"
+  },
+  {
+    "name": "Rincon L2"
+  },
+  {
+    "name": "Baño L2"
+  },
+  {
+    "name": "Local L3"
+  },
+  {
+    "name": "Rincon  L3"
+  },
+  {
+    "name": "Baño  L3"
+  },
+  {
+    "name": "Local  L4"
+  },
+  {
+    "name": "Cocina  L4"
+  },
+  {
+    "name": "Alcoba  L4"
+  },
+  {
+    "name": "Patio  L4"
+  },
+  {
+    "name": "Baño  L4"
+  },
+  {
+    "name": "Local  L5"
+  },
+  {
+    "name": "Baño  L5"
+  },
+  {
+    "name": "Sala Comedor A201"
+  },
+  {
+    "name": "Cocina A201"
+  },
+  {
+    "name": "Alcoba Principal A201"
+  },
+  {
+    "name": "Alcoba Secundaria  A201"
+  },
+  {
+    "name": "Baño A201"
+  },
+  {
+    "name": "Sala Comedor A202"
+  },
+  {
+    "name": "Baño A202"
+  },
+  {
+    "name": "Cocina A202"
+  },
+  {
+    "name": "Baño Cocina A202"
+  },
+  {
+    "name": "Alcoba Principal A202"
+  },
+  {
+    "name": "Alcoba Secundaria A202"
+  }
+  ]
+}

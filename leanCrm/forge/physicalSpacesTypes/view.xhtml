@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:forgeview="http://jboss.org/forge/view"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="id" value='#{physicalSpacesTypesBean.id}'/>
+		<f:event type="preRenderView" listener='#{physicalSpacesTypesBean.retrieve}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="View Physical Spaces Types"/>
+
+	<ui:define name="header">
+		Physical Spaces Types
+	</ui:define>
+
+	<ui:define name="subheader">
+		View existing Physical Spaces Types
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:panelGrid columnClasses="label,component,required" columns="3">
+			<h:outputLabel for="physicalSpacesTypesBeanPhysicalSpacesTypesAlias" value="Alias:"/>
+			<h:outputText id="physicalSpacesTypesBeanPhysicalSpacesTypesAlias" value="#{physicalSpacesTypesBean.physicalSpacesTypes.alias}"/>
+			<h:outputText/>
+			<h:outputLabel for="physicalSpacesTypesBeanPhysicalSpacesTypesOrden" value="Orden:"/>
+			<h:outputText id="physicalSpacesTypesBeanPhysicalSpacesTypesOrden" value="#{physicalSpacesTypesBean.physicalSpacesTypes.orden}"/>
+			<h:outputText/>
+			<h:outputLabel for="physicalSpacesTypesBeanPhysicalSpacesTypesObservations" value="Observations:"/>
+			<h:inputTextarea id="physicalSpacesTypesBeanPhysicalSpacesTypesObservations" value="#{physicalSpacesTypesBean.physicalSpacesTypes.observations}"/>
+			<h:outputText/>
+			<h:outputLabel for="physicalSpacesTypesBeanPhysicalSpacesTypesName" value="Name:"/>
+			<h:outputText id="physicalSpacesTypesBeanPhysicalSpacesTypesName" value="#{physicalSpacesTypesBean.physicalSpacesTypes.name}"/>
+			<h:outputText/>
+			<h:outputLabel for="physicalSpacesTypesBeanPhysicalSpacesTypesCode" value="Code:"/>
+			<h:outputText id="physicalSpacesTypesBeanPhysicalSpacesTypesCode" value="#{physicalSpacesTypesBean.physicalSpacesTypes.code}"/>
+			<h:outputText/>
+			<h:outputLabel for="physicalSpacesTypesBeanPhysicalSpacesTypesPhysicalSpaces" value="Physical Spaces:"/>
+			<h:dataTable id="physicalSpacesTypesBeanPhysicalSpacesTypesPhysicalSpaces" styleClass="data-table" value="#{forgeview:asList(physicalSpacesTypesBean.physicalSpacesTypes.physicalSpaces)}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Name"/>
+					</f:facet>
+					<h:link outcome="/admin/physicalSpaces/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemName" value="#{_item.name}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<h:outputText/>
+			<h:outputLabel for="physicalSpacesTypesBeanPhysicalSpacesTypesObjHijos" value="Obj Hijos:"/>
+			<h:dataTable id="physicalSpacesTypesBeanPhysicalSpacesTypesObjHijos" styleClass="data-table" value="#{forgeview:asList(physicalSpacesTypesBean.physicalSpacesTypes.objHijos)}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Name"/>
+					</f:facet>
+					<h:link outcome="/admin/physicalSpacesTypes/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemName" value="#{_item.name}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Code"/>
+					</f:facet>
+					<h:link outcome="/admin/physicalSpacesTypes/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemCode" value="#{_item.code}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<h:outputText/>
+			<h:outputLabel for="physicalSpacesTypesBeanPhysicalSpacesTypesObjPadre" value="Obj Padre:"/>
+			<h:link id="physicalSpacesTypesBeanPhysicalSpacesTypesObjPadre" outcome="/admin/physicalSpacesTypes/view" rendered="#{!empty physicalSpacesTypesBean.physicalSpacesTypes.objPadre}" value="#{physicalSpacesTypesBean.physicalSpacesTypes.objPadre}">
+				<f:param name="id" value="#{physicalSpacesTypesBean.physicalSpacesTypes.objPadre.id}"/>
+			</h:link>
+			<h:outputText/>
+		</h:panelGrid>
+
+		<div class="buttons">
+			<h:link value="View All" outcome="search" styleClass="btn btn-primary"/> 
+			<h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
+			<h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
+		</div>
+	</ui:define>
+
+</ui:composition>

@@ -1,0 +1,34 @@
+name;code
+Fachada;FP
+Ingreso Escalera 1 Piso;IS
+Escalera 1 Piso;ES
+Pasillo 2 piso;PA
+placa 2 piso;PL01
+placa 3 piso;PL02
+Local;L1
+Baño;L1BA
+Cocina;L1CO
+Local;L2
+Rincon;L2RI
+Baño;L2BA
+Local;L3
+Rincon;L3RI
+Baño;L3BA
+Local;L4
+Cocina;L4CO
+Alcoba;L4AL
+Patio;L4PA
+Baño;L4BA
+Local;L5
+Baño;L5BA
+Sala Comedor;L5SC
+Cocina;A201CO
+Alcoba Principal;A201AL
+Alcoba Secundaria;A201AL
+Baño;A201BA
+Sala Comedor;A202SC
+Baño;A202BA
+Cocina;A202CO
+Baño Cocina;A202BA
+Alcoba Principal;A202AL
+Alcoba Secundaria;A202AL

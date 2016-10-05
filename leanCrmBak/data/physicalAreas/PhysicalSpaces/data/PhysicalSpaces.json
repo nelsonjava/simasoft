@@ -1,0 +1,136 @@
+{
+  "PhysicalSpaces": [
+  {
+    "name": "Fachada",
+    "code": "FP"
+  },
+  {
+    "name": "Ingreso Escalera 1 Piso",
+    "code": "IS"
+  },
+  {
+    "name": "Escalera 1 Piso",
+    "code": "ES"
+  },
+  {
+    "name": "Pasillo 2 piso",
+    "code": "PA"
+  },
+  {
+    "name": "placa 2 piso",
+    "code": "PL01"
+  },
+  {
+    "name": "placa 3 piso",
+    "code": "PL02"
+  },
+  {
+    "name": "Local",
+    "code": "L1"
+  },
+  {
+    "name": "Baño",
+    "code": "L1BA"
+  },
+  {
+    "name": "Cocina",
+    "code": "L1CO"
+  },
+  {
+    "name": "Local",
+    "code": "L2"
+  },
+  {
+    "name": "Rincon",
+    "code": "L2RI"
+  },
+  {
+    "name": "Baño",
+    "code": "L2BA"
+  },
+  {
+    "name": "Local",
+    "code": "L3"
+  },
+  {
+    "name": "Rincon",
+    "code": "L3RI"
+  },
+  {
+    "name": "Baño",
+    "code": "L3BA"
+  },
+  {
+    "name": "Local",
+    "code": "L4"
+  },
+  {
+    "name": "Cocina",
+    "code": "L4CO"
+  },
+  {
+    "name": "Alcoba",
+    "code": "L4AL"
+  },
+  {
+    "name": "Patio",
+    "code": "L4PA"
+  },
+  {
+    "name": "Baño",
+    "code": "L4BA"
+  },
+  {
+    "name": "Local",
+    "code": "L5"
+  },
+  {
+    "name": "Baño",
+    "code": "L5BA"
+  },
+  {
+    "name": "Sala Comedor",
+    "code": "L5SC"
+  },
+  {
+    "name": "Cocina",
+    "code": "A201CO"
+  },
+  {
+    "name": "Alcoba Principal",
+    "code": "A201AL"
+  },
+  {
+    "name": "Alcoba Secundaria",
+    "code": "A201AL"
+  },
+  {
+    "name": "Baño",
+    "code": "A201BA"
+  },
+  {
+    "name": "Sala Comedor",
+    "code": "A202SC"
+  },
+  {
+    "name": "Baño",
+    "code": "A202BA"
+  },
+  {
+    "name": "Cocina",
+    "code": "A202CO"
+  },
+  {
+    "name": "Baño Cocina",
+    "code": "A202BA"
+  },
+  {
+    "name": "Alcoba Principal",
+    "code": "A202AL"
+  },
+  {
+    "name": "Alcoba Secundaria",
+    "code": "A202AL"
+  }
+  ]
+}
