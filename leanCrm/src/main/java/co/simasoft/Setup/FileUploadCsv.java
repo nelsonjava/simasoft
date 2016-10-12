@@ -5,6 +5,9 @@ import co.simasoft.utils.*;
 
 import co.simasoft.models.*;
 
+import java.util.*;
+import java.util.Map.*;
+
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -33,14 +36,19 @@ public class FileUploadCsv {
     String csvFile = "/Users/mkyong/csv/country.csv";
     BufferedReader br = null;
 
-    int i = 0;
-    int j = 0;
+    Integer i = 0;
+    Integer j = 0;
+
     String entity = "";
     String fieldType = "";
     String fieldName = "";
     String fieldValue = "";
     String line = "";
     String cvsSplitBy = ";";
+
+    Map<Integer, String> types = new HashMap<Integer, String>();
+    Map<Integer, String> fields = new HashMap<Integer, String>();
+    Map<Integer, String> registro = new HashMap<Integer, String>();
 
     @PersistenceContext(unitName = "leanCrmPU-JTA")
     private EntityManager em;
@@ -87,12 +95,18 @@ public class FileUploadCsv {
                        for (String type : data) {
                            j++;
                            if (j < data.length-1 ){
+                               types.put(j,type);
                                fieldType += type+";";
                            }
                        }
 
                        f.line("Entidad:"+entity);
-                       f.line("Tipos:"+fieldType);
+//                       f.line("Tipos:"+fieldType);
+
+                       for (Entry<Integer, String> e: types.entrySet()) {
+                            System.out.println("["+e.getKey() + "=" + e.getValue()+"]");
+                       }
+
                        break;
 
                   case 2:
@@ -102,11 +116,17 @@ public class FileUploadCsv {
                        for (String field : data) {
                            j++;
                            if (j < data.length-1 ){
+                               fields.put(j,field);
                                fieldName += field+";";
                            }
                        }
                        f.line("campos:");
-                       f.line(fieldName);
+//                       f.line(fieldName);
+
+                       for (Entry<Integer, String> e: fields.entrySet()) {
+                            System.out.println("["+e.getKey() + "=" + e.getValue()+"]");
+                       }
+
                        break;
 
                   default:
@@ -115,9 +135,34 @@ public class FileUploadCsv {
                        fieldValue = "";
                        for (String value : data) {
                             fieldValue += value+";";
+                            registro.put(j,value);
                        }
 
-                       f.line(fieldValue);
+/*
+                       for (Entry<Integer, String> e: registro.entrySet()) {
+                            System.out.println("["+e.getKey() + "=" + e.getValue()+"]");
+                            f.line(fieldValue);
+                            f.line("["+e.getKey() + "=" + e.getValue()+"]");
+                       }
+*/
+
+
+                       for (Entry<Integer, String> e: registro.keySet()) {
+                            System.out.println("["+e.getKey() + "=" + e.getValue()+"]");
+                            f.line(fieldValue);
+                            f.line("["+e.getKey() + "=" + e.getValue()+"]");
+                       }
+
+
+/*
+                       Iterator it = registro.keySet().iterator();
+                       while(it.hasNext()){
+                              Integer key = it.next();
+                              System.out.println("Clave: " + key + " -> Valor: " + registro.get(key));
+                       }
+*/
+
+
                        break;
               } // switch (atributo.getType())
 
