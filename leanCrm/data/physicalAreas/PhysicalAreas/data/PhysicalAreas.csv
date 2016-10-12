@@ -1,27 +1,38 @@
-name
-Porton L2
-Pared Fachada Interior L2
-Pared Frontal L2
-Pared Lado Derecho L2
-Pared Lado Izquierdo L2
-Ventana L2
-Marco Ventana Baño L2
-Marco Interior Porton L2
-Pared Fachada Interior Rincon L2
-Pared Frontal Rinco L2
-Pared Lado Derecho Rincon L2
-Pared Frontal Baño L2
-Pared Lado Derecho Baño L2
-Pared Lado Izquierdo Baño L2
-Filos Marco Ventana Baño L2
-Filos Marco Puerta Interior L2
-Filos Ventana L2
-Filos Porton L2
-Piso L2
-Piso Rincon L2
-Piso Baño L2
-Guardascoba L2
-Guardaescoba Rincon L2
-Techo L2
-Techo Rincon L2
-Techo Baño L2
+String;String;Double;Double;Double;Double;Double;PhysicalAreas
+name;code;width;high;prof;area;volume;
+Porton Local L1;Porton Local L1;1,125;2,125;3,125;4,125;5,125;
+Marco  Porton Local  L1;Marco  Porton Local  L1;1,125;2,125;3,125;4,125;5,125;
+Pared Frontal Local L1;Pared Frontal Local L1;1,125;2,125;3,125;4,125;5,125;
+Pared Lado Derecho Local  L1;Pared Lado Derecho Local  L1;1,125;2,125;3,125;4,125;5,125;
+Pared Lado Izquierdo Local  L1;Pared Lado Izquierdo Local  L1;1,125;2,125;3,125;4,125;5,125;
+Filos Columnas PFI Local  L1;Filos Columnas PFI Local  L1;1,125;2,125;3,125;4,125;5,125;
+Filos Columnas PFR Local  L1;Filos Columnas PFR Local  L1;1,125;2,125;3,125;4,125;5,125;
+Filos Columna PLD Local  L1;Filos Columna PLD Local  L1;1,125;2,125;3,125;4,125;5,125;
+Filos Columnas PLI Local  L1;Filos Columnas PLI Local  L1;1,125;2,125;3,125;4,125;5,125;
+Piso Local  L1;Piso Local  L1;1,125;2,125;3,125;4,125;5,125;
+Guardascoba Local  L1;Guardascoba Local  L1;1,125;2,125;3,125;4,125;5,125;
+Techo Local  L1;Techo Local  L1;1,125;2,125;3,125;4,125;5,125;
+Marco Puerta Baño L1;Marco Puerta Baño L1;1,125;2,125;3,125;4,125;5,125;
+Pared Frontal Baño L1;Pared Frontal Baño L1;1,125;2,125;3,125;4,125;5,125;
+Pared Lado Derecho Baño L1;Pared Lado Derecho Baño L1;1,125;2,125;3,125;4,125;5,125;
+Pared Lado Izquierdo Baño L1;Pared Lado Izquierdo Baño L1;1,125;2,125;3,125;4,125;5,125;
+Filo Columna PFI Baño L1;Filo Columna PFI Baño L1;1,125;2,125;3,125;4,125;5,125;
+Filos Columna PLD Baño L1;Filos Columna PLD Baño L1;1,125;2,125;3,125;4,125;5,125;
+Piso Baño L1;Piso Baño L1;1,125;2,125;3,125;4,125;5,125;
+Techo Baño L1;Techo Baño L1;1,125;2,125;3,125;4,125;5,125;
+Pared Fachada Interior Cocina L1;Pared Fachada Interior Cocina L1;1,125;2,125;3,125;4,125;5,125;
+Pared Frontal Cocina L1;Pared Frontal Cocina L1;1,125;2,125;3,125;4,125;5,125;
+Pared Lado Derecho Cocina L1;Pared Lado Derecho Cocina L1;1,125;2,125;3,125;4,125;5,125;
+Pared Lado Izquierdo Cocina L1;Pared Lado Izquierdo Cocina L1;1,125;2,125;3,125;4,125;5,125;
+Vacio Pared Frontal Cocina L1;Vacio Pared Frontal Cocina L1;1,125;2,125;3,125;4,125;5,125;
+Marco ventana PLD Cocina L1;Marco ventana PLD Cocina L1;1,125;2,125;3,125;4,125;5,125;
+Filo PFR Cocina L1;Filo PFR Cocina L1;1,125;2,125;3,125;4,125;5,125;
+Filos Columna PFR Cocina L1;Filos Columna PFR Cocina L1;1,125;2,125;3,125;4,125;5,125;
+Filos Columna PFI Cocina L1?;Filos Columna PFI Cocina L1?;1,125;2,125;3,125;4,125;5,125;
+Filos PLI Cocina L1;Filos PLI Cocina L1;1,125;2,125;3,125;4,125;5,125;
+Base Derecha Cocina L1;Base Derecha Cocina L1;1,125;2,125;3,125;4,125;5,125;
+Base Izquierda Cocina L1;Base Izquierda Cocina L1;1,125;2,125;3,125;4,125;5,125;
+Filo Base Derecha Cocina L1;Filo Base Derecha Cocina L1;1,125;2,125;3,125;4,125;5,125;
+Filo Base Izquierda Cocina L1;Filo Base Izquierda Cocina L1;1,125;2,125;3,125;4,125;5,125;
+Piso Cocina L1;Piso Cocina L1;1,125;2,125;3,125;4,125;5,125;
+Techo Cocina L1;Techo Cocina L1;1,125;2,125;3,125;4,125;5,125;

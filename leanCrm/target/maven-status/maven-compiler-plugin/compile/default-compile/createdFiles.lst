@@ -124,6 +124,7 @@ co\simasoft\view\LegisArtBean$1.class
 co\simasoft\view\PredioBean$1.class
 co\simasoft\models\FinalDisposition.class
 co\simasoft\models\Companies.class
+co\simasoft\setup\FileUploadCsv.class
 co\simasoft\view\TasksBean$1.class
 co\simasoft\models\ActionPlans.class
 co\simasoft\view\ImprovementTypesBean$1.class

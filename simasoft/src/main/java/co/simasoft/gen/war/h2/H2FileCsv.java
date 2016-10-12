@@ -32,17 +32,25 @@ public class H2FileCsv extends FileTxt {
         clearFileTxt();
         atributos = entidad.getAtributos();
         Collections.sort(atributos);
-        String texto = "";
+        String fieldType = "";
+        String fieldName = "";
         for(Atributos atributo : atributos) {
            switch (atributo.getType()) {
                case "String":
-                    texto += atributo.getField()+";";
+                    fieldType += atributo.getType()+";";
+                    fieldName += atributo.getField()+";";
+                    break;
+               case "Double":
+                    fieldType += atributo.getType()+";";
+                    fieldName += atributo.getField()+";";
                     break;
                default:
                     break;
            } // switch (atributo.getType())
         }
-        line(texto);
+        fieldType += entidad.getName();
+        line(fieldType);
+        line(fieldName);
         saveFile(path+"."+entidad.getGroupIds()+"."+entidad.getName()+".data",entidad.getName()+".csv");
 
         clearFileTxt();

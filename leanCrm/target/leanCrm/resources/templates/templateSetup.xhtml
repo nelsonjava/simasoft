@@ -80,6 +80,16 @@
             <p:commandButton value="relationshipsVali" ajax="false" actionListener="#{fileUploadR.relationshipsData(true)}" disabled="false" />
           </h:form>
         </li>
+        <li><p>====</p></li>
+        <li>
+          <h:form enctype="multipart/form-data">
+            <p:growl id="messages" showDetail="true" />
+            <p:fileUpload value="#{fileUploadCsv.file}"
+                          mode="simple"
+                          skinSimple="true"/>
+            <p:commandButton value="fileCsv" ajax="false" actionListener="#{fileUploadCsv.data()}" disabled="false" />
+          </h:form>
+        </li>
       </ul>
     </div>
 
