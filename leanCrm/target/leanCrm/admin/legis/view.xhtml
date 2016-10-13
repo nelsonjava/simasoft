@@ -1,0 +1,102 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:forgeview="http://jboss.org/forge/view"
+        template="/resources/scaffold/legisTemplate.xhtml">
+
+        <f:metadata>
+                <f:viewParam name="id" value='#{legisBean.id}'/>
+                <f:event type="preRenderView" listener='#{legisBean.retrieve}'/>
+        </f:metadata>
+
+        <ui:param name="pageTitle" value="View Legis"/>
+
+        <ui:define name="header">
+                Legis
+        </ui:define>
+
+        <ui:define name="subheader">
+                View existing Legis
+        </ui:define>
+
+        <ui:define name="footer"/>
+
+        <ui:define name="main">
+                <h:panelGrid columnClasses="label,component,required" columns="3">
+
+
+                        <h:outputLabel for="legisBeanLegisCode" value="Code:"/>
+                        <h:outputText id="legisBeanLegisCode" value="#{legisBean.legis.code}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="legisBeanLegisName" value="Name:"/>
+                        <h:outputText id="legisBeanLegisName" value="#{legisBean.legis.name}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="legisBeanLegisDate" value="Date:"/>
+                        <h:outputText id="legisBeanLegisDate" value="Pendiente"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="legisBeanLegisLink" value="Link:"/>
+                        <h:outputText id="legisBeanLegisLink" value="#{legisBean.legis.link}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="legisBeanLegisObservations" value="Observations:"/>
+                        <h:outputText id="legisBeanLegisObservations" value="#{legisBean.legis.observations}" escape="false" />
+                        <h:outputText/>
+
+                        <h:outputLabel for="LegisBeanLegisLegisArt" value="LegisArt:"/>
+                        <h:dataTable id="legisBeanLegislegisArt" styleClass="data-table" value="#{forgeview:asList(legisBean.legis.legisArt)}" var="_item">
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Code"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/legisArt/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemCode" value="#{_item.code}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Name"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/legisArt/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemName" value="#{_item.name}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Content"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/legisArt/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemContent" value="#{_item.content}"/>
+                                              </h:link>
+                                           </h:column>
+
+                        </h:dataTable>
+                        <h:outputText/>
+
+                        <h:outputLabel for="legisBeanLegisLegisTypes" value="LegisTypes:"/>
+                        <h:link id="legisBeanLegisLegisTypes" outcome="/admin/legisTypes/view" rendered="#{!empty legisBean.legis.legisTypes}" value="#{legisBean.legis.legisTypes.name}">
+                                 <f:param name="id" value="#{legisBean.legis.legisTypes.id}"/>
+                        </h:link>
+                        <h:outputText/>
+
+                </h:panelGrid>
+
+                <div class="buttons">
+                        <h:link value="View All" outcome="search" styleClass="btn btn-primary"/>
+                        <h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
+                        <h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
+                </div>
+        </ui:define>
+</ui:composition>

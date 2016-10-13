@@ -1,0 +1,100 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:forgeview="http://jboss.org/forge/view"
+        template="/resources/scaffold/physicalAreasTemplate.xhtml">
+
+        <f:metadata>
+                <f:viewParam name="id" value='#{physicalSpacesTypesBean.id}'/>
+                <f:event type="preRenderView" listener='#{physicalSpacesTypesBean.retrieve}'/>
+        </f:metadata>
+
+        <ui:param name="pageTitle" value="View PhysicalSpacesTypes"/>
+
+        <ui:define name="header">
+                PhysicalSpacesTypes
+        </ui:define>
+
+        <ui:define name="subheader">
+                View existing PhysicalSpacesTypes
+        </ui:define>
+
+        <ui:define name="footer"/>
+
+        <ui:define name="main">
+                <h:panelGrid columnClasses="label,component,required" columns="3">
+
+
+                        <h:outputLabel for="physicalSpacesTypesBeanPhysicalSpacesTypesName" value="Name:"/>
+                        <h:outputText id="physicalSpacesTypesBeanPhysicalSpacesTypesName" value="#{physicalSpacesTypesBean.physicalSpacesTypes.name}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="physicalSpacesTypesBeanPhysicalSpacesTypesCode" value="Code:"/>
+                        <h:outputText id="physicalSpacesTypesBeanPhysicalSpacesTypesCode" value="#{physicalSpacesTypesBean.physicalSpacesTypes.code}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="physicalSpacesTypesBeanPhysicalSpacesTypesObservations" value="Observations:"/>
+                        <h:outputText id="physicalSpacesTypesBeanPhysicalSpacesTypesObservations" value="#{physicalSpacesTypesBean.physicalSpacesTypes.observations}" escape="false" />
+                        <h:outputText/>
+
+                        <h:outputLabel for="PhysicalSpacesTypesBeanPhysicalSpacesTypesPhysicalSpaces" value="PhysicalSpaces:"/>
+                        <h:dataTable id="physicalSpacesTypesBeanPhysicalSpacesTypesphysicalSpaces" styleClass="data-table" value="#{forgeview:asList(physicalSpacesTypesBean.physicalSpacesTypes.physicalSpaces)}" var="_item">
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Name"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/physicalSpaces/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemName" value="#{_item.name}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="TelExt"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/physicalSpaces/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemTelExt" value="#{_item.telExt}"/>
+                                              </h:link>
+                                           </h:column>
+
+                        </h:dataTable>
+                        <h:outputText/>
+
+                        <h:outputLabel for="PhysicalSpacesTypesBeanPhysicalSpacesTypesPhysicalSpacesTypes" value="PhysicalSpacesTypes:"/>
+                        <h:dataTable id="physicalSpacesTypesBeanPhysicalSpacesTypesphysicalSpacesTypes" styleClass="data-table" value="#{forgeview:asList(physicalSpacesTypesBean.physicalSpacesTypes.objHijos)}" var="_item">
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Name"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/physicalSpacesTypes/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemName" value="#{_item.name}"/>
+                                              </h:link>
+                                           </h:column>
+
+                        </h:dataTable>
+                        <h:outputText/>
+
+                        <h:outputLabel for="physicalSpacesTypesBeanPhysicalSpacesTypesobjPadre" value="PhysicalSpacesTypes:"/>
+                        <h:link id="physicalSpacesTypesBeanPhysicalSpacesTypesobjPadre" outcome="/admin/physicalSpacesTypes/view" rendered="#{!empty physicalSpacesTypesBean.physicalSpacesTypes.objPadre}" value="#{physicalSpacesTypesBean.physicalSpacesTypes.objPadre.name}">
+                                 <f:param name="id" value="#{physicalSpacesTypesBean.physicalSpacesTypes.objPadre.id}"/>
+                        </h:link>
+                        <h:outputText/>
+
+                </h:panelGrid>
+
+                <div class="buttons">
+                        <h:link value="View All" outcome="search" styleClass="btn btn-primary"/>
+                        <h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
+                        <h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
+                </div>
+        </ui:define>
+</ui:composition>

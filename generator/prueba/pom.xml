@@ -2,6 +2,7 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
+  <!-- https://www.mkyong.com/java/how-to-read-and-parse-csv-file-in-java/  -->
   <!-- java -jar target/prueba-1.0-SNAPSHOT.jar -->
   <!-- java -jar target/prueba-1.0-SNAPSHOT-jar-with-dependencies.jar  -->
   <!-- mvn clean compile assembly:single -->

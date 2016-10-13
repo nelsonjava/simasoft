@@ -45,6 +45,9 @@ public class FileUploadCsv {
     String fieldValue = "";
     String line = "";
     String cvsSplitBy = ";";
+    
+    String[] fieldTypes = new String[100];
+    String[] fieldsEntity = new String[100];
 
     Map<Integer, String> types = new HashMap<Integer, String>();
     Map<Integer, String> fields = new HashMap<Integer, String>();
@@ -86,86 +89,22 @@ public class FileUploadCsv {
 
               i++;
               switch (i) {
-                  case 1 :
-
+                  case 1:
                        entity = data[data.length-1];
-
-                       j = 0;
-                       fieldType = "";
-                       for (String type : data) {
-                           j++;
-                           if (j < data.length-1 ){
-                               types.put(j,type);
-                               fieldType += type+";";
-                           }
-                       }
-
-                       f.line("Entidad:"+entity);
-//                       f.line("Tipos:"+fieldType);
-
-                       for (Entry<Integer, String> e: types.entrySet()) {
-                            System.out.println("["+e.getKey() + "=" + e.getValue()+"]");
-                       }
-
+                       fieldTypes = data;
                        break;
 
                   case 2:
-
-                       j = 0;
-                       fieldName = "";
-                       for (String field : data) {
-                           j++;
-                           if (j < data.length-1 ){
-                               fields.put(j,field);
-                               fieldName += field+";";
-                           }
-                       }
-                       f.line("campos:");
-//                       f.line(fieldName);
-
-                       for (Entry<Integer, String> e: fields.entrySet()) {
-                            System.out.println("["+e.getKey() + "=" + e.getValue()+"]");
-                       }
-
+                       fieldsEntity = data;
                        break;
 
                   default:
-                       f.line("registro:");
-                       j = 0;
-                       fieldValue = "";
-                       for (String value : data) {
-                            fieldValue += value+";";
-                            registro.put(j,value);
+
+                       for(Integer x=0;x<=data.length-1;x+=1){
+                          f.line("("+fieldTypes[x]+")"+fieldsEntity[x]+"="+data[x]);
                        }
-
-/*
-                       for (Entry<Integer, String> e: registro.entrySet()) {
-                            System.out.println("["+e.getKey() + "=" + e.getValue()+"]");
-                            f.line(fieldValue);
-                            f.line("["+e.getKey() + "=" + e.getValue()+"]");
-                       }
-*/
-
-
-                       for (Entry<Integer, String> e: registro.keySet()) {
-                            System.out.println("["+e.getKey() + "=" + e.getValue()+"]");
-                            f.line(fieldValue);
-                            f.line("["+e.getKey() + "=" + e.getValue()+"]");
-                       }
-
-
-/*
-                       Iterator it = registro.keySet().iterator();
-                       while(it.hasNext()){
-                              Integer key = it.next();
-                              System.out.println("Clave: " + key + " -> Valor: " + registro.get(key));
-                       }
-*/
-
-
                        break;
-              } // switch (atributo.getType())
-
+              }
            }
 
            f.saveFile("\\docs", "logcvs.txt");
