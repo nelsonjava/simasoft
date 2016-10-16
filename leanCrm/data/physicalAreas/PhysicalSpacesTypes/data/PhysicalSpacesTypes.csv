@@ -1,16 +1,17 @@
-name;code
-Fachada;FAC
-Local;LOC
-Baño;BAÑ
-Cocina;COC
-Rincon;RIN
-Estudio;EST
-Sala;SAL
-Comedor;COM
-Sala Comedor;SCO
-Alcoba;ALC
-Patio;PAT
-Balcon;BAL
-Escaleras;ESC
-Pasillo;PAS
-placa;PLA
+String;String;PhysicalAreasTypes
+name;code;
+Fachada;FAC;
+Local;LOC;
+Baño;BAÑ;
+Cocina;COC;
+Rincon;RIN;
+Estudio;EST;
+Sala;SAL;
+Comedor;COM;
+Sala Comedor;SCO;
+Alcoba;ALC;
+Patio;PAT;
+Balcon;BAL;
+Escaleras;ESC;
+Pasillo;PAS;
+placa;PLA;

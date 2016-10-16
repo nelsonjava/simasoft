@@ -21,7 +21,7 @@ public class Setup {
     private EntityManager em;
 
     private static final Logger log = Logger.getLogger(Setup.class.getName());
-
+    
     public void data() {
 
     } // data

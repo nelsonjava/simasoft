@@ -1,0 +1,2 @@
+From;FromProperty;FromValue;To;ToProperty;ToValue;Name;Cardinalities
+Employees;        ;        ;Charges;        ;        ;       ;Muchos a Muchos Bidirecccional No.7

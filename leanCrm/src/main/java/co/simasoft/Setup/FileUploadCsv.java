@@ -61,6 +61,8 @@ public class FileUploadCsv {
     try {
 
         if(file != null) {
+          
+           i = 0;
 
            FileTxt f = new FileTxt();
 
@@ -116,6 +118,8 @@ public class FileUploadCsv {
     } // data()
 
     public void entitiesData(String entity,String[] fields,String[] types,String[] data,FileTxt f,EntityManager em) {
+
+        f.line(entity);
 
         switch (entity) {
             case "FundsLife":

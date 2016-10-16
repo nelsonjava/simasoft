@@ -95,6 +95,7 @@ co\simasoft\models\ActivitiesTypes.class
 co\simasoft\view\CompaniesRolesBean.class
 co\simasoft\view\PhysicalAreasTypesBean.class
 co\simasoft\models\DocumentalsUnits.class
+co\simasoft\setup\FileUploadCsvR.class
 co\simasoft\view\ConservationUnitsTypesBean$1.class
 co\simasoft\models\DocumentalInventory.class
 co\simasoft\models\Legis.class

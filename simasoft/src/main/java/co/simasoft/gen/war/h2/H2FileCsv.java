@@ -64,6 +64,13 @@ public class H2FileCsv extends FileTxt {
                      line(relation.getEntityFrom().getName()+";"+"        ;        ;"+relation.getEntityTo().getName()+";        ;        ;       ;Uno a Muchos Bidirecccional No.5");
                      saveFile(path+"."+entidad.getGroupIds()+"."+entidad.getName()+".relations",relation.getEntityFrom().getName()+"R5"+relation.getEntityTo().getName()+".csv");
                      break;
+                case "Muchos a Muchos Bidirecccional No.7":
+                     clearFileTxt();
+                     line("From;FromProperty;FromValue;To;ToProperty;ToValue;Name;Cardinalities");
+                     line(relation.getEntityFrom().getName()+";"+"        ;        ;"+relation.getEntityTo().getName()+";        ;        ;       ;Muchos a Muchos Bidirecccional No.7");
+                     saveFile(path+"."+entidad.getGroupIds()+"."+entidad.getName()+".relations",relation.getEntityFrom().getName()+"R7"+relation.getEntityTo().getName()+".csv");
+                     break;
+
                 default:
                      break;
             } // switch (atributo.getType())

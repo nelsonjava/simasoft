@@ -1,0 +1,364 @@
+{
+  "RelationshipsData": [
+  {
+    "From": "PhysicalSpaces",
+    "FromProperty": "name",
+    "FromValue": "Local L1",
+    "To": "PhysicalAreas",
+    "ToProperty": "name",
+    "ToValue": "Porton Local L1",
+    "Name": "",
+    "Cardinalities": "Muchos a Muchos Bidirecccional No.7"
+  },
+  {
+    "From": "PhysicalSpaces",
+    "FromProperty": "name",
+    "FromValue": "Local L1",
+    "To": "PhysicalAreas",
+    "ToProperty": "name",
+    "ToValue": "Marco  Porton Local  L1",
+    "Name": "",
+    "Cardinalities": "Muchos a Muchos Bidirecccional No.7"
+  },
+  {
+    "From": "PhysicalSpaces",
+    "FromProperty": "name",
+    "FromValue": "Local L1",
+    "To": "PhysicalAreas",
+    "ToProperty": "name",
+    "ToValue": "Pared Frontal Local L1",
+    "Name": "",
+    "Cardinalities": "Muchos a Muchos Bidirecccional No.7"
+  },
+  {
+    "From": "PhysicalSpaces",
+    "FromProperty": "name",
+    "FromValue": "Local L1",
+    "To": "PhysicalAreas",
+    "ToProperty": "name",
+    "ToValue": "Pared Lado Derecho Local  L1",
+    "Name": "",
+    "Cardinalities": "Muchos a Muchos Bidirecccional No.7"
+  },
+  {
+    "From": "PhysicalSpaces",
+    "FromProperty": "name",
+    "FromValue": "Local L1",
+    "To": "PhysicalAreas",
+    "ToProperty": "name",
+    "ToValue": "Pared Lado Izquierdo Local  L1",
+    "Name": "",
+    "Cardinalities": "Muchos a Muchos Bidirecccional No.7"
+  },
+  {
+    "From": "PhysicalSpaces",
+    "FromProperty": "name",
+    "FromValue": "Local L1",
+    "To": "PhysicalAreas",
+    "ToProperty": "name",
+    "ToValue": "Filos Columnas PFI Local  L1",
+    "Name": "",
+    "Cardinalities": "Muchos a Muchos Bidirecccional No.7"
+  },
+  {
+    "From": "PhysicalSpaces",
+    "FromProperty": "name",
+    "FromValue": "Local L1",
+    "To": "PhysicalAreas",
+    "ToProperty": "name",
+    "ToValue": "Filos Columnas PFR Local  L1",
+    "Name": "",
+    "Cardinalities": "Muchos a Muchos Bidirecccional No.7"
+  },
+  {
+    "From": "PhysicalSpaces",
+    "FromProperty": "name",
+    "FromValue": "Local L1",
+    "To": "PhysicalAreas",
+    "ToProperty": "name",
+    "ToValue": "Filos Columna PLD Local  L1",
+    "Name": "",
+    "Cardinalities": "Muchos a Muchos Bidirecccional No.7"
+  },
+  {
+    "From": "PhysicalSpaces",
+    "FromProperty": "name",
+    "FromValue": "Local L1",
+    "To": "PhysicalAreas",
+    "ToProperty": "name",
+    "ToValue": "Filos Columnas PLI Local  L1",
+    "Name": "",
+    "Cardinalities": "Muchos a Muchos Bidirecccional No.7"
+  },
+  {
+    "From": "PhysicalSpaces",
+    "FromProperty": "name",
+    "FromValue": "Local L1",
+    "To": "PhysicalAreas",
+    "ToProperty": "name",
+    "ToValue": "Piso Local  L1",
+    "Name": "",
+    "Cardinalities": "Muchos a Muchos Bidirecccional No.7"
+  },
+  {
+    "From": "PhysicalSpaces",
+    "FromProperty": "name",
+    "FromValue": "Local L1",
+    "To": "PhysicalAreas",
+    "ToProperty": "name",
+    "ToValue": "Guardascoba Local  L1",
+    "Name": "",
+    "Cardinalities": "Muchos a Muchos Bidirecccional No.7"
+  },
+  {
+    "From": "PhysicalSpaces",
+    "FromProperty": "name",
+    "FromValue": "Local L1",
+    "To": "PhysicalAreas",
+    "ToProperty": "name",
+    "ToValue": "Techo Local  L1",
+    "Name": "",
+    "Cardinalities": "Muchos a Muchos Bidirecccional No.7"
+  },
+  {
+    "From": "PhysicalSpaces",
+    "FromProperty": "name",
+    "FromValue": "Ba?o L1",
+    "To": "PhysicalAreas",
+    "ToProperty": "name",
+    "ToValue": "Marco Puerta Ba?o L1",
+    "Name": "",
+    "Cardinalities": "Muchos a Muchos Bidirecccional No.7"
+  },
+  {
+    "From": "PhysicalSpaces",
+    "FromProperty": "name",
+    "FromValue": "Ba?o L1",
+    "To": "PhysicalAreas",
+    "ToProperty": "name",
+    "ToValue": "Pared Frontal Ba?o L1",
+    "Name": "",
+    "Cardinalities": "Muchos a Muchos Bidirecccional No.7"
+  },
+  {
+    "From": "PhysicalSpaces",
+    "FromProperty": "name",
+    "FromValue": "Ba?o L1",
+    "To": "PhysicalAreas",
+    "ToProperty": "name",
+    "ToValue": "Pared Lado Derecho Ba?o L1",
+    "Name": "",
+    "Cardinalities": "Muchos a Muchos Bidirecccional No.7"
+  },
+  {
+    "From": "PhysicalSpaces",
+    "FromProperty": "name",
+    "FromValue": "Ba?o L1",
+    "To": "PhysicalAreas",
+    "ToProperty": "name",
+    "ToValue": "Pared Lado Izquierdo Ba?o L1",
+    "Name": "",
+    "Cardinalities": "Muchos a Muchos Bidirecccional No.7"
+  },
+  {
+    "From": "PhysicalSpaces",
+    "FromProperty": "name",
+    "FromValue": "Ba?o L1",
+    "To": "PhysicalAreas",
+    "ToProperty": "name",
+    "ToValue": "Filo Columna PFI Ba?o L1",
+    "Name": "",
+    "Cardinalities": "Muchos a Muchos Bidirecccional No.7"
+  },
+  {
+    "From": "PhysicalSpaces",
+    "FromProperty": "name",
+    "FromValue": "Ba?o L1",
+    "To": "PhysicalAreas",
+    "ToProperty": "name",
+    "ToValue": "Filos Columna PLD Ba?o L1",
+    "Name": "",
+    "Cardinalities": "Muchos a Muchos Bidirecccional No.7"
+  },
+  {
+    "From": "PhysicalSpaces",
+    "FromProperty": "name",
+    "FromValue": "Ba?o L1",
+    "To": "PhysicalAreas",
+    "ToProperty": "name",
+    "ToValue": "Piso Ba?o L1",
+    "Name": "",
+    "Cardinalities": "Muchos a Muchos Bidirecccional No.7"
+  },
+  {
+    "From": "PhysicalSpaces",
+    "FromProperty": "name",
+    "FromValue": "Ba?o L1",
+    "To": "PhysicalAreas",
+    "ToProperty": "name",
+    "ToValue": "Techo Ba?o L1",
+    "Name": "",
+    "Cardinalities": "Muchos a Muchos Bidirecccional No.7"
+  },
+  {
+    "From": "PhysicalSpaces",
+    "FromProperty": "name",
+    "FromValue": "Cocina L1",
+    "To": "PhysicalAreas",
+    "ToProperty": "name",
+    "ToValue": "Pared Fachada Interior Cocina L1",
+    "Name": "",
+    "Cardinalities": "Muchos a Muchos Bidirecccional No.7"
+  },
+  {
+    "From": "PhysicalSpaces",
+    "FromProperty": "name",
+    "FromValue": "Cocina L1",
+    "To": "PhysicalAreas",
+    "ToProperty": "name",
+    "ToValue": "Pared Frontal Cocina L1",
+    "Name": "",
+    "Cardinalities": "Muchos a Muchos Bidirecccional No.7"
+  },
+  {
+    "From": "PhysicalSpaces",
+    "FromProperty": "name",
+    "FromValue": "Cocina L1",
+    "To": "PhysicalAreas",
+    "ToProperty": "name",
+    "ToValue": "Pared Lado Derecho Cocina L1",
+    "Name": "",
+    "Cardinalities": "Muchos a Muchos Bidirecccional No.7"
+  },
+  {
+    "From": "PhysicalSpaces",
+    "FromProperty": "name",
+    "FromValue": "Cocina L1",
+    "To": "PhysicalAreas",
+    "ToProperty": "name",
+    "ToValue": "Pared Lado Izquierdo Cocina L1",
+    "Name": "",
+    "Cardinalities": "Muchos a Muchos Bidirecccional No.7"
+  },
+  {
+    "From": "PhysicalSpaces",
+    "FromProperty": "name",
+    "FromValue": "Cocina L1",
+    "To": "PhysicalAreas",
+    "ToProperty": "name",
+    "ToValue": "Vacio Pared Frontal Cocina L1",
+    "Name": "",
+    "Cardinalities": "Muchos a Muchos Bidirecccional No.7"
+  },
+  {
+    "From": "PhysicalSpaces",
+    "FromProperty": "name",
+    "FromValue": "Cocina L1",
+    "To": "PhysicalAreas",
+    "ToProperty": "name",
+    "ToValue": "Marco ventana PLD Cocina L1",
+    "Name": "",
+    "Cardinalities": "Muchos a Muchos Bidirecccional No.7"
+  },
+  {
+    "From": "PhysicalSpaces",
+    "FromProperty": "name",
+    "FromValue": "Cocina L1",
+    "To": "PhysicalAreas",
+    "ToProperty": "name",
+    "ToValue": "Filo PFR Cocina L1",
+    "Name": "",
+    "Cardinalities": "Muchos a Muchos Bidirecccional No.7"
+  },
+  {
+    "From": "PhysicalSpaces",
+    "FromProperty": "name",
+    "FromValue": "Cocina L1",
+    "To": "PhysicalAreas",
+    "ToProperty": "name",
+    "ToValue": "Filos Columna PFR Cocina L1",
+    "Name": "",
+    "Cardinalities": "Muchos a Muchos Bidirecccional No.7"
+  },
+  {
+    "From": "PhysicalSpaces",
+    "FromProperty": "name",
+    "FromValue": "Cocina L1",
+    "To": "PhysicalAreas",
+    "ToProperty": "name",
+    "ToValue": "Filos Columna PFI Cocina L1?",
+    "Name": "",
+    "Cardinalities": "Muchos a Muchos Bidirecccional No.7"
+  },
+  {
+    "From": "PhysicalSpaces",
+    "FromProperty": "name",
+    "FromValue": "Cocina L1",
+    "To": "PhysicalAreas",
+    "ToProperty": "name",
+    "ToValue": "Filos PLI Cocina L1",
+    "Name": "",
+    "Cardinalities": "Muchos a Muchos Bidirecccional No.7"
+  },
+  {
+    "From": "PhysicalSpaces",
+    "FromProperty": "name",
+    "FromValue": "Cocina L1",
+    "To": "PhysicalAreas",
+    "ToProperty": "name",
+    "ToValue": "Base Derecha Cocina L1",
+    "Name": "",
+    "Cardinalities": "Muchos a Muchos Bidirecccional No.7"
+  },
+  {
+    "From": "PhysicalSpaces",
+    "FromProperty": "name",
+    "FromValue": "Cocina L1",
+    "To": "PhysicalAreas",
+    "ToProperty": "name",
+    "ToValue": "Base Izquierda Cocina L1",
+    "Name": "",
+    "Cardinalities": "Muchos a Muchos Bidirecccional No.7"
+  },
+  {
+    "From": "PhysicalSpaces",
+    "FromProperty": "name",
+    "FromValue": "Cocina L1",
+    "To": "PhysicalAreas",
+    "ToProperty": "name",
+    "ToValue": "Filo Base Derecha Cocina L1",
+    "Name": "",
+    "Cardinalities": "Muchos a Muchos Bidirecccional No.7"
+  },
+  {
+    "From": "PhysicalSpaces",
+    "FromProperty": "name",
+    "FromValue": "Cocina L1",
+    "To": "PhysicalAreas",
+    "ToProperty": "name",
+    "ToValue": "Filo Base Izquierda Cocina L1",
+    "Name": "",
+    "Cardinalities": "Muchos a Muchos Bidirecccional No.7"
+  },
+  {
+    "From": "PhysicalSpaces",
+    "FromProperty": "name",
+    "FromValue": "Cocina L1",
+    "To": "PhysicalAreas",
+    "ToProperty": "name",
+    "ToValue": "Piso Cocina L1",
+    "Name": "",
+    "Cardinalities": "Muchos a Muchos Bidirecccional No.7"
+  },
+  {
+    "From": "PhysicalSpaces",
+    "FromProperty": "name",
+    "FromValue": "Cocina L1",
+    "To": "PhysicalAreas",
+    "ToProperty": "name",
+    "ToValue": "Techo Cocina L1",
+    "Name": "",
+    "Cardinalities": "Muchos a Muchos Bidirecccional No.7"
+  }
+  ]
+}
