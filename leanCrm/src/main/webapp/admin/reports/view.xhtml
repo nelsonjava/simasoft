@@ -53,6 +53,13 @@
 
                 </h:panelGrid>
 
+                <h:outputText/>
+                <h:outputLabel for="PrediosGen" value="Generate:"/>
+                   <h:form>
+                      <h:commandButton value="Generar" action="#{reportsBean.reports.link}" />
+                   </h:form>
+		<h:outputText/>
+
                 <div class="buttons">
                         <h:link value="View All" outcome="search" styleClass="btn btn-primary"/>
                         <h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>

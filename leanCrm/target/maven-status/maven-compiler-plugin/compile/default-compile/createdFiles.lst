@@ -49,6 +49,7 @@ co\simasoft\view\SitesTypesBean.class
 co\simasoft\view\ItemsTypesBean$1.class
 co\simasoft\view\DiariesBean$1.class
 co\simasoft\view\FundsBean.class
+co\simasoft\setup\PrediosGen.class
 co\simasoft\view\BooksTypesBean.class
 co\simasoft\models\ConservationUnitsTypes.class
 co\simasoft\view\SectionsTypesBean$1.class

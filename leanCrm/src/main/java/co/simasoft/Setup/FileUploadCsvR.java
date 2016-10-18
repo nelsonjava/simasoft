@@ -203,6 +203,7 @@ relationshipsR7(filePath,em,isValidate,f);
         String cvsSplitBy = ";";
         String[] fields = new String[100];
 
+        String ant = "";
         String actual = "";
         String anterior = "";
         Boolean isCambio = false;
@@ -217,20 +218,20 @@ relationshipsR7(filePath,em,isValidate,f);
         String cardinalities = "";
 
         FindBean findBean = new FindBean();
-        
+
         Set<PhysicalAreas> physicalAreas = new HashSet<PhysicalAreas>();
         PhysicalAreas physicalArea = new PhysicalAreas();
 
 
     try {
 
-        f.line("paso");
-
         anterior = "xyz";
         br = new BufferedReader(new FileReader(filePath));
         while ((line = br.readLine()) != null) {
 
            String[] data = line.split(cvsSplitBy);
+
+f.line(line);
 
            from = data[0];
            fromProperty = data[1];
@@ -255,14 +256,15 @@ relationshipsR7(filePath,em,isValidate,f);
                   }
                   else {
                       isCambio = true;
+                      ant = anterior;
                       anterior = actual;
                   }
 
                   if (isCambio){
-                      f.line("cambio");
+                      f.line("cambio:"+ant);
 
                       if (physicalAreas.size() > 0){
-                          PhysicalSpaces physicalSpaces = findBean.namePhysicalSpaces(fromValue,em);
+                          PhysicalSpaces physicalSpaces = findBean.namePhysicalSpaces(ant,em);
                           physicalSpaces.setPhysicalAreas(physicalAreas);
                           if (!isValidate) {
                               em.merge(physicalSpaces);
@@ -278,7 +280,7 @@ relationshipsR7(filePath,em,isValidate,f);
                       f.line("igual");
                   }
 
-                  f.line("from:"+fromValue+" to:"+toValue);
+//                  f.line("from:"+fromValue+" to:"+toValue);
 
                   physicalArea = findBean.namePhysicalAreas(toValue,em);
 
@@ -291,6 +293,15 @@ relationshipsR7(filePath,em,isValidate,f);
            } // i > 1
 
         } // while
+
+        if (physicalAreas.size() > 0){
+            PhysicalSpaces physicalSpaces = findBean.namePhysicalSpaces(fromValue,em);
+            physicalSpaces.setPhysicalAreas(physicalAreas);
+            if (!isValidate) {
+                em.merge(physicalSpaces);
+                em.flush();
+            }
+        }
 
         if (isValidate) {
             f.saveFile("\\docs", "R7predio.txt");

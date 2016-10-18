@@ -1,14 +1,14 @@
 String;String;PhysicalAreasTypes
 name;code;
-Portones;POR;
-Puertas;PUE;
-Marcos Portones;MPO;
-Marcos Puertas;MPU;
-Paredes;PAR;
-Ventanas;VEN;
-Marco Ventanas;MVE;
-Filos;FIL;
-columnas;COL;
-Pisos;PIS;
-Guardaescobas;GUA;
-Techos;TEC;
+Portones;1;
+Puertas;2;
+Marcos Portones;3;
+Marcos Puertas;4;
+Paredes;5;
+Ventanas;6;
+Marco Ventanas;7;
+Filos;8;
+columnas;9;
+Pisos;10;
+Guardaescobas;11;
+Techos;12;

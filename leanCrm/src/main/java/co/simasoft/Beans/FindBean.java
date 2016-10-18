@@ -2403,7 +2403,7 @@ public class FindBean {
 
 //      ---------------------- Predio ------------------------
 
-    public List<Predio> AllPredio() {
+    public List<Predio> AllPredio(EntityManager em) {
         List<Predio> results = em.createQuery("SELECT o FROM Predio o").getResultList();
         if (results.isEmpty()) {
             return new ArrayList<Predio>();
