@@ -497,6 +497,10 @@ line(Integer.toString(i++)+":"+entidad.getName());
 
             H2FileUploadCsv h2FileUploadCsv = new H2FileUploadCsv(entities);
             Utils.fileMake(pathDocs+".h2.war."+artifactId+".src.main.java."+groupId+".Setup","FileUploadCsv.java", h2FileUploadCsv);
+            
+            H2FileUploadCsvR h2FileUploadCsvR = new H2FileUploadCsvR(entities);
+            Utils.fileMake(pathDocs+".h2.war."+artifactId+".src.main.java."+groupId+".Setup","FileUploadCsvR.java", h2FileUploadCsvR);
+
 
             H2FileUploadR h2FileUploadR = new H2FileUploadR(entities);
             Utils.fileMake(pathDocs+".h2.war."+artifactId+".src.main.java."+groupId+".Setup","FileUploadR.java", h2FileUploadR);

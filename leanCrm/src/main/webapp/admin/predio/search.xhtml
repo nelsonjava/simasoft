@@ -44,6 +44,13 @@
                                                 </h:panelGroup>
                                                 <h:outputText/>
 
+                                                <h:outputLabel for="predioBeanExampleCode" value="Code:"/>
+                                                <h:panelGroup>
+                                                        <h:inputText id="predioBeanExampleCode" value="#{predioBean.example.code}"/>
+                                                        <h:message for="predioBeanExampleCode" styleClass="error"/>
+                                                </h:panelGroup>
+                                                <h:outputText/>
+
                                                 <h:outputLabel for="predioBeanExampleEstrato" value="Estrato:"/>
                                                 <h:panelGroup>
                                                         <h:inputText id="predioBeanExampleEstrato" value="#{predioBean.example.estrato}"/>
@@ -103,6 +110,17 @@
                                         <h:link outcome="/admin/predio/view">
                                                 <f:param name="id" value="#{_item.id}"/>
                                                 <h:outputText id="itemPredial" value="#{_item.predial}"/>
+                                        </h:link>
+                                </h:column>
+
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Code"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/predio/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemCode" value="#{_item.code}"/>
                                         </h:link>
                                 </h:column>
 

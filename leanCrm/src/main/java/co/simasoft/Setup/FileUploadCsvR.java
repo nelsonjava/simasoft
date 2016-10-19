@@ -57,19 +57,14 @@ public class FileUploadCsvR {
            FacesMessage message = new FacesMessage("Succesful", filePath + " is uploaded.");
            FacesContext.getCurrentInstance().addMessage(null, message);
 
-relationshipsR7(filePath,em,isValidate,f);
 
-
-/*
-           if("R5".indexOf(file.getFileName()) == - 1){
+           if(file.getFileName().indexOf("R5") > 0){
               relationshipsR5(filePath,em,isValidate,f);
            }
 
-           if("R7".indexOf(file.getFileName()) == - 1){
+           if(file.getFileName().indexOf("R7") > 0){
               relationshipsR7(filePath,em,isValidate,f);
            }
-*/
-
 
         } // if
 
@@ -222,16 +217,14 @@ relationshipsR7(filePath,em,isValidate,f);
         Set<PhysicalAreas> physicalAreas = new HashSet<PhysicalAreas>();
         PhysicalAreas physicalArea = new PhysicalAreas();
 
+        anterior = "xyz";
 
     try {
 
-        anterior = "xyz";
         br = new BufferedReader(new FileReader(filePath));
         while ((line = br.readLine()) != null) {
 
            String[] data = line.split(cvsSplitBy);
-
-f.line(line);
 
            from = data[0];
            fromProperty = data[1];
@@ -243,6 +236,7 @@ f.line(line);
            cardinalities = data[7];
 
            i++;
+
            if (i > 1){
 
               if (from.equals("PhysicalSpaces") &&
@@ -276,17 +270,11 @@ f.line(line);
                       physicalArea = new PhysicalAreas();
 
                   }
-                  else{
-                      f.line("igual");
-                  }
-
-//                  f.line("from:"+fromValue+" to:"+toValue);
 
                   physicalArea = findBean.namePhysicalAreas(toValue,em);
-
-                  f.line(toValue+"="+physicalArea.getName());
-
                   physicalAreas.add(physicalArea);
+
+                  f.line("from:"+fromValue+" to:"+toValue);
 
               }  // from: PhysicalSpaces
 
@@ -304,7 +292,7 @@ f.line(line);
         }
 
         if (isValidate) {
-            f.saveFile("\\docs", "R7predio.txt");
+            f.saveFile("\\docs","R7.txt");
         }
 
     } catch (FileNotFoundException ex) {
@@ -327,7 +315,5 @@ f.line(line);
     }
 
     } // relationshipsR7
-
-
 
 } // Class

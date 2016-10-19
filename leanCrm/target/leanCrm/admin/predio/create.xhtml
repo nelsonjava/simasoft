@@ -54,6 +54,13 @@
                                 </h:panelGroup>
                                 <h:outputText/>
 
+                                <h:outputLabel for="predioBeanPredioCode" value="Code:"/>
+                                <h:panelGroup>
+                                        <h:inputText id="predioBeanPredioCode" value="#{predioBean.predio.code}"/>
+                                        <h:message for="predioBeanPredioCode" styleClass="error"/>
+                                </h:panelGroup>
+                                <h:outputText/>
+
                                 <h:outputLabel for="predioBeanPredioEstrato" value="Estrato:"/>
                                 <h:panelGroup>
                                         <h:inputText id="predioBeanPredioEstrato" value="#{predioBean.predio.estrato}"/>

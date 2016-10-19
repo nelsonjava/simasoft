@@ -1659,6 +1659,9 @@ public class FileUploadCsv {
                 case "nomenclatura":
                      predio.setNomenclatura(data[i]);
                      break;
+                case "code":
+                     predio.setCode(data[i]);
+                     break;
                 case "predial":
                      predio.setPredial(data[i]);
                      break;

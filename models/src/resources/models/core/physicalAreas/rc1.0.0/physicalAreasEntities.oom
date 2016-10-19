@@ -1387,7 +1387,7 @@ LABL 0 Arial,8,N</a:FontList>
 <o:ClassSymbol Id="o14">
 <a:CreationDate>1475508514</a:CreationDate>
 <a:ModificationDate>1475508534</a:ModificationDate>
-<a:Rect>((-15326,24642), (-4924,32658))</a:Rect>
+<a:Rect>((-15326,24155), (-4924,33145))</a:Rect>
 <a:LineColor>16744448</a:LineColor>
 <a:FillColor>16770222</a:FillColor>
 <a:ShadowColor>12632256</a:ShadowColor>
@@ -1620,7 +1620,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Code>1</a:Code>
 <a:CreationDate>1475508514</a:CreationDate>
 <a:Creator>admin</a:Creator>
-<a:ModificationDate>1475520461</a:ModificationDate>
+<a:ModificationDate>1476834940</a:ModificationDate>
 <a:Modifier>admin</a:Modifier>
 <a:UseParentNamespace>0</a:UseParentNamespace>
 <c:Attributes>
@@ -1636,6 +1636,17 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Attribute.Visibility>-</a:Attribute.Visibility>
 </o:Attribute>
 <o:Attribute Id="o31">
+<a:ObjectID>99CFAB05-23F2-41DB-9A4E-F8B7527BF43A</a:ObjectID>
+<a:Name>*code</a:Name>
+<a:Code>_code</a:Code>
+<a:CreationDate>1476834940</a:CreationDate>
+<a:Creator>admin</a:Creator>
+<a:ModificationDate>1476834967</a:ModificationDate>
+<a:Modifier>admin</a:Modifier>
+<a:DataType>*String</a:DataType>
+<a:Attribute.Visibility>-</a:Attribute.Visibility>
+</o:Attribute>
+<o:Attribute Id="o32">
 <a:ObjectID>0CD2D090-A94D-4070-B8C6-7DA6F3A9DCBA</a:ObjectID>
 <a:Name>predial</a:Name>
 <a:Code>predial</a:Code>
@@ -1646,7 +1657,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:DataType>String</a:DataType>
 <a:Attribute.Visibility>-</a:Attribute.Visibility>
 </o:Attribute>
-<o:Attribute Id="o32">
+<o:Attribute Id="o33">
 <a:ObjectID>25424209-E6E4-4E36-9EE6-E596D77E961E</a:ObjectID>
 <a:Name>estrato</a:Name>
 <a:Code>estrato</a:Code>
@@ -1657,7 +1668,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:DataType>String</a:DataType>
 <a:Attribute.Visibility>-</a:Attribute.Visibility>
 </o:Attribute>
-<o:Attribute Id="o33">
+<o:Attribute Id="o34">
 <a:ObjectID>0020CD6E-5C3E-4BBC-8F70-9115872110C3</a:ObjectID>
 <a:Name>matricula</a:Name>
 <a:Code>matricula</a:Code>
@@ -1668,7 +1679,7 @@ LABL 0 Arial,8,N</a:FontList>
 <a:DataType>String</a:DataType>
 <a:Attribute.Visibility>-</a:Attribute.Visibility>
 </o:Attribute>
-<o:Attribute Id="o34">
+<o:Attribute Id="o35">
 <a:ObjectID>83264964-D4DC-4CA4-9C65-C7805A5AEF6F</a:ObjectID>
 <a:Name>area</a:Name>
 <a:Code>area</a:Code>
@@ -1683,7 +1694,7 @@ LABL 0 Arial,8,N</a:FontList>
 </o:Class>
 </c:Classes>
 <c:TargetModels>
-<o:TargetModel Id="o35">
+<o:TargetModel Id="o36">
 <a:ObjectID>89D37B69-586D-4917-8671-4C086EBE4D20</a:ObjectID>
 <a:Name>Java</a:Name>
 <a:Code>Java</a:Code>
@@ -1698,7 +1709,7 @@ LABL 0 Arial,8,N</a:FontList>
 <o:Shortcut Ref="o3"/>
 </c:SessionShortcuts>
 </o:TargetModel>
-<o:TargetModel Id="o36">
+<o:TargetModel Id="o37">
 <a:ObjectID>136F9532-970E-460E-A47C-45218AA7C3AC</a:ObjectID>
 <a:Name>WSDL for Java</a:Name>
 <a:Code>WSDLJava</a:Code>

@@ -1,10 +1,10 @@
-String;String;String;String;Double;Predio
-nomenclatura;predial;estrato;matricula;area;
-C 26 22 138;;;;;
-LOCAL No.1;;;;;
-LOCAL No.2;;;;;
-LOCAL No.3;;;;;
-LOCAL No.4;;;;;
-LOCAL No.5;;;;;
-APTO 201;;;;;
-APTO 202;;;;;
+String;String;String;String;String;Double;Predio
+nomenclatura;code;predial;estrato;matricula;area;
+C 26 22 138;CL26;;;;;
+LOCAL No.1;L1;;;;;
+LOCAL No.2;L2;;;;;
+LOCAL No.3;L3;;;;;
+LOCAL No.4;L4;;;;;
+LOCAL No.5;L4;;;;;
+APTO 201;A201;;;;;
+APTO 202;A202;;;;;

@@ -1,17 +1,17 @@
-String;String;PhysicalAreasTypes
+String;String;PhysicalSpacesTypes
 name;code;
-Fachada;FAC;
-Local;LOC;
-Baño;BAÑ;
-Cocina;COC;
-Rincon;RIN;
-Estudio;EST;
-Sala;SAL;
-Comedor;COM;
-Sala Comedor;SCO;
-Alcoba;ALC;
-Patio;PAT;
-Balcon;BAL;
-Escaleras;ESC;
-Pasillo;PAS;
-placa;PLA;
+Fachada;1;
+Local;2;
+Baño;3;
+Cocina;4;
+Rincon;5;
+Estudio;6;
+Sala;7;
+Comedor;8;
+Sala Comedor;9;
+Alcoba;10;
+Patio;11;
+Balcon;12;
+Escaleras;13;
+Pasillo;14;
+placa;15;

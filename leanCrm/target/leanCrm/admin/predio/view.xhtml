@@ -37,6 +37,10 @@
                         <h:outputText id="predioBeanPredioPredial" value="#{predioBean.predio.predial}"/>
                         <h:outputText/>
 
+                        <h:outputLabel for="predioBeanPredioCode" value="Code:"/>
+                        <h:outputText id="predioBeanPredioCode" value="#{predioBean.predio.code}"/>
+                        <h:outputText/>
+
                         <h:outputLabel for="predioBeanPredioEstrato" value="Estrato:"/>
                         <h:outputText id="predioBeanPredioEstrato" value="#{predioBean.predio.estrato}"/>
                         <h:outputText/>
@@ -104,6 +108,16 @@
 
                                            <h:column>
                                               <f:facet name="header">
+                                                      <h:outputText value="Code"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/predio/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemCode" value="#{_item.code}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
                                                       <h:outputText value="Estrato"/>
                                               </f:facet>
                                               <h:link outcome="/admin/predio/view">
@@ -140,13 +154,12 @@
                                  <f:param name="id" value="#{predioBean.predio.objPadre.id}"/>
                         </h:link>
                         <h:outputText/>
-
+                        
                         <h:outputLabel for="PrediosGen" value="Generate:"/>
                         <h:form>
                           <h:commandButton value="PrediosGen" action="#{PrediosGen.PhysicalAreasData()}" />
                         </h:form>
 			<h:outputText/>
-
 
                 </h:panelGrid>
 
