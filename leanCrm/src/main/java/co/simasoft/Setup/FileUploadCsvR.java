@@ -143,7 +143,6 @@ public class FileUploadCsvR {
             name.equals("")){
 
             Predio predioFrom = new Predio();
-
             PhysicalSpaces physicalSpacesTo = new PhysicalSpaces();
 
             if (fromProperty.equals("nomenclatura")){
@@ -170,7 +169,7 @@ public class FileUploadCsvR {
                 physicalSpacesTo = findBean.namePhysicalSpaces(toValue,em);
                 f.line("to:"+toValue+":"+physicalSpacesTo.getName());
             } // PhysicalSpaces.name
-
+            
             if (toProperty.equals("telExt")){
                 physicalSpacesTo = findBean.telExtPhysicalSpaces(toValue,em);
                 f.line("to:"+toValue+":"+physicalSpacesTo.getTelExt());
@@ -186,6 +185,85 @@ public class FileUploadCsvR {
             }
 
         } // from: Predio
+
+        if (from.equals("PhysicalAreasTypes") &&
+            cardinalities.equals("Uno a Muchos Bidirecccional No.5") &&
+            to.equals("PhysicalAreas") &&
+            name.equals("")){
+
+            PhysicalAreasTypes physicalAreasTypesFrom = new PhysicalAreasTypes();
+            PhysicalAreas physicalAreasTo = new PhysicalAreas();
+
+            if (fromProperty.equals("name")){
+                physicalAreasTypesFrom = findBean.namePhysicalAreasTypes(fromValue,em);
+                f.line("from:"+fromValue+":"+physicalAreasTypesFrom.getName());
+            } // physicalAreasTypes
+
+            if (fromProperty.equals("code")){
+                physicalAreasTypesFrom = findBean.codePhysicalAreasTypes(fromValue,em);
+                f.line("from:"+fromValue+":"+physicalAreasTypesFrom.getCode());
+            } // physicalAreasTypes
+
+            if (toProperty.equals("name")){
+                physicalAreasTo = findBean.namePhysicalAreas(toValue,em);
+                f.line("to:"+toValue+":"+physicalAreasTo.getName());
+            } // physicalAreas
+
+            if (toProperty.equals("code")){
+                physicalAreasTo = findBean.codePhysicalAreas(toValue,em);
+                f.line("to:"+toValue+":"+physicalAreasTo.getCode());
+            } // physicalAreas
+
+            if (cardinalities.equals("Uno a Muchos Bidirecccional No.5")){
+                physicalAreasTo.setPhysicalAreasTypes(physicalAreasTypesFrom);
+            }
+
+            if (!isValidate) {
+                em.merge(physicalAreasTo);
+                em.flush();
+            }
+
+        } // from: PhysicalAreasTypes
+        
+        if (from.equals("PhysicalSpacesTypes") &&
+            cardinalities.equals("Uno a Muchos Bidirecccional No.5") &&
+            to.equals("PhysicalSpaces") &&
+            name.equals("")){
+
+            PhysicalSpacesTypes physicalSpacesTypesFrom = new PhysicalSpacesTypes();
+            PhysicalSpaces physicalSpacesTo = new PhysicalSpaces();
+
+            if (fromProperty.equals("name")){
+                physicalSpacesTypesFrom = findBean.namePhysicalSpacesTypes(fromValue,em);
+                f.line("from:"+fromValue+":"+physicalSpacesTypesFrom.getName());
+            } // physicalSpacesTypes
+
+            if (fromProperty.equals("code")){
+                physicalSpacesTypesFrom = findBean.codePhysicalSpacesTypes(fromValue,em);
+                f.line("from:"+fromValue+":"+physicalSpacesTypesFrom.getCode());
+            } // physicalSpacesTypes
+
+            if (toProperty.equals("name")){
+                physicalSpacesTo = findBean.namePhysicalSpaces(toValue,em);
+                f.line("to:"+toValue+":"+physicalSpacesTo.getName());
+            } // physicalSpaces
+
+            if (toProperty.equals("telExt")){
+                physicalSpacesTo = findBean.telExtPhysicalSpaces(toValue,em);
+                f.line("to:"+toValue+":"+physicalSpacesTo.getTelExt());
+            } // physicalSpaces
+
+            if (cardinalities.equals("Uno a Muchos Bidirecccional No.5")){
+                physicalSpacesTo.setPhysicalSpacesTypes(physicalSpacesTypesFrom);
+            }
+
+            if (!isValidate) {
+                em.merge(physicalSpacesTo);
+                em.flush();
+            }
+
+        } // from: PhysicalSpacesTypes
+
 
     } // relationshipsR5Data
 

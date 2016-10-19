@@ -47,7 +47,7 @@ public class PrediosGen extends FileTxt {
 
         predios = findBean.AllPredio(em);
 
-        line("predio;physicalSpaces;physicalAreas;width;high;area");
+        line("code;predio;physicalSpaces;physicalAreas;width;high;area");
 
         for(Predio predio : predios){
 
@@ -55,7 +55,8 @@ public class PrediosGen extends FileTxt {
 
                 for(PhysicalAreas physicalAreas : physicalSpaces.getPhysicalAreas()){
 
-                   line(predio.getNomenclatura()+";"+
+                   line(predio.getCode()+"."+physicalSpaces.getPhysicalSpacesTypes().getCode()+"."+physicalAreas.getPhysicalAreasTypes().getCode()+";"+
+                        predio.getNomenclatura()+";"+
                         physicalSpaces.getName()+";"+
                         physicalAreas.getName()+";"+
                         physicalAreas.getWidth()+";"+

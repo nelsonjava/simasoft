@@ -77,11 +77,11 @@
 
                                 <h:column>
                                         <f:facet name="header">
-                                                <h:outputText value="TelExt"/>
+                                                <h:outputText value="Type"/>
                                         </f:facet>
                                         <h:link outcome="/admin/physicalSpaces/view">
                                                 <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemTelExt" value="#{_item.telExt}"/>
+                                                <h:outputText id="itemType" value="#{_item.physicalSpacesTypes.name}"/>
                                         </h:link>
                                 </h:column>
 

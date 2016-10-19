@@ -1,2 +1,65 @@
 From;FromProperty;FromValue;To;ToProperty;ToValue;Name;Cardinalities
-PhysicalAreasTypes;        ;        ;PhysicalAreas;        ;        ;       ;Uno a Muchos Bidirecccional No.5
+PhysicalAreasTypes;name;Paredes;PhysicalAreas;name;Base Derecha Cocina L1;       ;Uno a Muchos Bidirecccional No.5
+PhysicalAreasTypes;name;Paredes;PhysicalAreas;name;Base Izquierda Cocina L1;;Uno a Muchos Bidirecccional No.5
+PhysicalAreasTypes;name;Filos;PhysicalAreas;name;Filo Base Derecha Cocina L1;;Uno a Muchos Bidirecccional No.5
+PhysicalAreasTypes;name;Filos;PhysicalAreas;name;Filo Base Izquierda Cocina L1;;Uno a Muchos Bidirecccional No.5
+PhysicalAreasTypes;name;Filos;PhysicalAreas;name;Filo Columna PFI Baño L1;;Uno a Muchos Bidirecccional No.5
+PhysicalAreasTypes;name;Filos;PhysicalAreas;name;Filo PFR Cocina L1;;Uno a Muchos Bidirecccional No.5
+PhysicalAreasTypes;name;Filos;PhysicalAreas;name;Filos Columna PFI Cocina L1?;;Uno a Muchos Bidirecccional No.5
+PhysicalAreasTypes;name;Filos;PhysicalAreas;name;Filos Columna PFR Cocina L1;;Uno a Muchos Bidirecccional No.5
+PhysicalAreasTypes;name;Filos;PhysicalAreas;name;Filos Columna PLD Baño L1;;Uno a Muchos Bidirecccional No.5
+PhysicalAreasTypes;name;Filos;PhysicalAreas;name;Filos Columna PLD Local  L1;;Uno a Muchos Bidirecccional No.5
+PhysicalAreasTypes;name;Filos;PhysicalAreas;name;Filos Columnas PFI Local  L1;;Uno a Muchos Bidirecccional No.5
+PhysicalAreasTypes;name;Filos;PhysicalAreas;name;Filos Columnas PFR Local  L1;;Uno a Muchos Bidirecccional No.5
+PhysicalAreasTypes;name;Filos;PhysicalAreas;name;Filos Columnas PLI Local  L1;;Uno a Muchos Bidirecccional No.5
+PhysicalAreasTypes;name;Filos;PhysicalAreas;name;Filos Marco Puerta Interior L2;;Uno a Muchos Bidirecccional No.5
+PhysicalAreasTypes;name;Filos;PhysicalAreas;name;Filos Marco Ventana Baño L2;;Uno a Muchos Bidirecccional No.5
+PhysicalAreasTypes;name;Filos;PhysicalAreas;name;Filos PLI Cocina L1;;Uno a Muchos Bidirecccional No.5
+PhysicalAreasTypes;name;Filos;PhysicalAreas;name;Filos Porton L2;;Uno a Muchos Bidirecccional No.5
+PhysicalAreasTypes;name;Filos;PhysicalAreas;name;Filos Ventana L2;;Uno a Muchos Bidirecccional No.5
+PhysicalAreasTypes;name;Guardaescobas;PhysicalAreas;name;Guardaescoba Baño L2;;Uno a Muchos Bidirecccional No.5
+PhysicalAreasTypes;name;Guardaescobas;PhysicalAreas;name;Guardaescoba Rincon L2;;Uno a Muchos Bidirecccional No.5
+PhysicalAreasTypes;name;Guardaescobas;PhysicalAreas;name;Guardascoba L2;;Uno a Muchos Bidirecccional No.5
+PhysicalAreasTypes;name;Guardaescobas;PhysicalAreas;name;Guardascoba Local  L1;;Uno a Muchos Bidirecccional No.5
+PhysicalAreasTypes;name;Marcos Portones;PhysicalAreas;name;Marco  Porton Local  L1;;Uno a Muchos Bidirecccional No.5
+PhysicalAreasTypes;name;Marcos Portones;PhysicalAreas;name;Marco Porton Local L2;;Uno a Muchos Bidirecccional No.5
+PhysicalAreasTypes;name;Marcos Puertas;PhysicalAreas;name;Marco Puerta Baño L1;;Uno a Muchos Bidirecccional No.5
+PhysicalAreasTypes;name;Marcos Puertas;PhysicalAreas;name;Marco Puerta Rincon L2;;Uno a Muchos Bidirecccional No.5
+PhysicalAreasTypes;name;Marco Ventanas;PhysicalAreas;name;Marco ventana PLD Cocina L1;;Uno a Muchos Bidirecccional No.5
+PhysicalAreasTypes;name;Marco Ventanas;PhysicalAreas;name;Marco Ventana PLI Baño L2;;Uno a Muchos Bidirecccional No.5
+PhysicalAreasTypes;name;Paredes;PhysicalAreas;name;Pared Fachada Interior Cocina L1;;Uno a Muchos Bidirecccional No.5
+PhysicalAreasTypes;name;Paredes;PhysicalAreas;name;Pared Fachada Interior Local L2;;Uno a Muchos Bidirecccional No.5
+PhysicalAreasTypes;name;Paredes;PhysicalAreas;name;Pared Fachada Interior Rincon L2;;Uno a Muchos Bidirecccional No.5
+PhysicalAreasTypes;name;Paredes;PhysicalAreas;name;Pared Frontal Baño L1;;Uno a Muchos Bidirecccional No.5
+PhysicalAreasTypes;name;Paredes;PhysicalAreas;name;Pared Frontal Baño L2;;Uno a Muchos Bidirecccional No.5
+PhysicalAreasTypes;name;Paredes;PhysicalAreas;name;Pared Frontal Cocina L1;;Uno a Muchos Bidirecccional No.5
+PhysicalAreasTypes;name;Paredes;PhysicalAreas;name;Pared Frontal Local L1;;Uno a Muchos Bidirecccional No.5
+PhysicalAreasTypes;name;Paredes;PhysicalAreas;name;Pared Frontal Local L2;;Uno a Muchos Bidirecccional No.5
+PhysicalAreasTypes;name;Paredes;PhysicalAreas;name;Pared Frontal Rinco L2;;Uno a Muchos Bidirecccional No.5
+PhysicalAreasTypes;name;Paredes;PhysicalAreas;name;Pared Lado Derecho Baño L1;;Uno a Muchos Bidirecccional No.5
+PhysicalAreasTypes;name;Paredes;PhysicalAreas;name;Pared Lado Derecho Baño L2;;Uno a Muchos Bidirecccional No.5
+PhysicalAreasTypes;name;Paredes;PhysicalAreas;name;Pared Lado Derecho Cocina L1;;Uno a Muchos Bidirecccional No.5
+PhysicalAreasTypes;name;Paredes;PhysicalAreas;name;Pared Lado Derecho Local  L1;;Uno a Muchos Bidirecccional No.5
+PhysicalAreasTypes;name;Paredes;PhysicalAreas;name;Pared Lado Derecho Local L2;;Uno a Muchos Bidirecccional No.5
+PhysicalAreasTypes;name;Paredes;PhysicalAreas;name;Pared Lado Derecho Rincon L2;;Uno a Muchos Bidirecccional No.5
+PhysicalAreasTypes;name;Paredes;PhysicalAreas;name;Pared Lado Izquierdo Baño L1;;Uno a Muchos Bidirecccional No.5
+PhysicalAreasTypes;name;Paredes;PhysicalAreas;name;Pared Lado Izquierdo Baño L2;;Uno a Muchos Bidirecccional No.5
+PhysicalAreasTypes;name;Paredes;PhysicalAreas;name;Pared Lado Izquierdo Cocina L1;;Uno a Muchos Bidirecccional No.5
+PhysicalAreasTypes;name;Paredes;PhysicalAreas;name;Pared Lado Izquierdo Local  L1;;Uno a Muchos Bidirecccional No.5
+PhysicalAreasTypes;name;Paredes;PhysicalAreas;name;Pared Lado Izquierdo Local L2;;Uno a Muchos Bidirecccional No.5
+PhysicalAreasTypes;name;Pisos;PhysicalAreas;name;Piso Baño L1;;Uno a Muchos Bidirecccional No.5
+PhysicalAreasTypes;name;Pisos;PhysicalAreas;name;Piso Baño L2;;Uno a Muchos Bidirecccional No.5
+PhysicalAreasTypes;name;Pisos;PhysicalAreas;name;Piso Cocina L1;;Uno a Muchos Bidirecccional No.5
+PhysicalAreasTypes;name;Pisos;PhysicalAreas;name;Piso L2;;Uno a Muchos Bidirecccional No.5
+PhysicalAreasTypes;name;Pisos;PhysicalAreas;name;Piso Local  L1;;Uno a Muchos Bidirecccional No.5
+PhysicalAreasTypes;name;Pisos;PhysicalAreas;name;Piso Rincon L2;;Uno a Muchos Bidirecccional No.5
+PhysicalAreasTypes;name;Portones;PhysicalAreas;name;Porton Local L1;;Uno a Muchos Bidirecccional No.5
+PhysicalAreasTypes;name;Portones;PhysicalAreas;name;Porton Local L2;;Uno a Muchos Bidirecccional No.5
+PhysicalAreasTypes;name;Techos;PhysicalAreas;name;Techo Baño L1;;Uno a Muchos Bidirecccional No.5
+PhysicalAreasTypes;name;Techos;PhysicalAreas;name;Techo Baño L2;;Uno a Muchos Bidirecccional No.5
+PhysicalAreasTypes;name;Techos;PhysicalAreas;name;Techo Cocina L1;;Uno a Muchos Bidirecccional No.5
+PhysicalAreasTypes;name;Techos;PhysicalAreas;name;Techo L2;;Uno a Muchos Bidirecccional No.5
+PhysicalAreasTypes;name;Techos;PhysicalAreas;name;Techo Local  L1;;Uno a Muchos Bidirecccional No.5
+PhysicalAreasTypes;name;Techos;PhysicalAreas;name;Techo Rincon L2;;Uno a Muchos Bidirecccional No.5
+PhysicalAreasTypes;name;Marco Ventanas;PhysicalAreas;name;Vacio Pared Frontal Cocina L1;;Uno a Muchos Bidirecccional No.5
+PhysicalAreasTypes;name;Ventanas;PhysicalAreas;name;Ventana PLD Local L2;;Uno a Muchos Bidirecccional No.5

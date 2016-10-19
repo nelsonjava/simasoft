@@ -112,11 +112,11 @@
 
                                 <h:column>
                                         <f:facet name="header">
-                                                <h:outputText value="Code"/>
+                                                <h:outputText value="Type"/>
                                         </f:facet>
                                         <h:link outcome="/admin/physicalAreas/view">
                                                 <f:param name="id" value="#{_item.id}"/>
-                                                <h:outputText id="itemCode" value="#{_item.code}"/>
+                                                <h:outputText id="itemType" value="#{_item.physicalAreasTypes.name}"/>
                                         </h:link>
                                 </h:column>
 
