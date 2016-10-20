@@ -169,7 +169,7 @@ public class FileUploadCsvR {
                 physicalSpacesTo = findBean.namePhysicalSpaces(toValue,em);
                 f.line("to:"+toValue+":"+physicalSpacesTo.getName());
             } // PhysicalSpaces.name
-            
+
             if (toProperty.equals("telExt")){
                 physicalSpacesTo = findBean.telExtPhysicalSpaces(toValue,em);
                 f.line("to:"+toValue+":"+physicalSpacesTo.getTelExt());
@@ -224,7 +224,7 @@ public class FileUploadCsvR {
             }
 
         } // from: PhysicalAreasTypes
-        
+
         if (from.equals("PhysicalSpacesTypes") &&
             cardinalities.equals("Uno a Muchos Bidirecccional No.5") &&
             to.equals("PhysicalSpaces") &&
@@ -292,35 +292,35 @@ public class FileUploadCsvR {
 
         FindBean findBean = new FindBean();
 
-        Set<PhysicalAreas> physicalAreas = new HashSet<PhysicalAreas>();
-        PhysicalAreas physicalArea = new PhysicalAreas();
-
-        anterior = "xyz";
-
     try {
 
-        br = new BufferedReader(new FileReader(filePath));
-        while ((line = br.readLine()) != null) {
-
-           String[] data = line.split(cvsSplitBy);
-
-           from = data[0];
-           fromProperty = data[1];
-           fromValue = data[2];
-           to = data[3];
-           toProperty = data[4];
-           toValue = data[5];
-           name = data[6];
-           cardinalities = data[7];
-
-           i++;
-
-           if (i > 1){
-
-              if (from.equals("PhysicalSpaces") &&
+        if (from.equals("PhysicalSpaces") &&
                   cardinalities.equals("Muchos a Muchos Bidirecccional No.7") &&
                   to.equals("PhysicalAreas") &&
                   name.equals("")){
+
+            Set<PhysicalAreas> physicalAreas = new HashSet<PhysicalAreas>();
+            PhysicalAreas physicalArea = new PhysicalAreas();
+
+            anterior = "xyz";
+
+            br = new BufferedReader(new FileReader(filePath));
+            while ((line = br.readLine()) != null) {
+
+               String[] data = line.split(cvsSplitBy);
+
+               from = data[0];
+               fromProperty = data[1];
+               fromValue = data[2];
+               to = data[3];
+               toProperty = data[4];
+               toValue = data[5];
+               name = data[6];
+               cardinalities = data[7];
+
+               i++;
+
+               if (i > 1){
 
                   actual = data[2];
                   if (actual.equals(anterior)){
@@ -333,6 +333,7 @@ public class FileUploadCsvR {
                   }
 
                   if (isCambio){
+
                       f.line("cambio:"+ant);
 
                       if (physicalAreas.size() > 0){
@@ -347,31 +348,32 @@ public class FileUploadCsvR {
                       physicalAreas = new HashSet<PhysicalAreas>();
                       physicalArea = new PhysicalAreas();
 
-                  }
+                  } // isCambio
 
                   physicalArea = findBean.namePhysicalAreas(toValue,em);
                   physicalAreas.add(physicalArea);
 
                   f.line("from:"+fromValue+" to:"+toValue);
 
-              }  // from: PhysicalSpaces
+               } // i > 1
 
-           } // i > 1
+            } // // while
 
-        } // while
-
-        if (physicalAreas.size() > 0){
-            PhysicalSpaces physicalSpaces = findBean.namePhysicalSpaces(fromValue,em);
-            physicalSpaces.setPhysicalAreas(physicalAreas);
-            if (!isValidate) {
-                em.merge(physicalSpaces);
-                em.flush();
+            if (physicalAreas.size() > 0){
+                PhysicalSpaces physicalSpaces = findBean.namePhysicalSpaces(fromValue,em);
+                physicalSpaces.setPhysicalAreas(physicalAreas);
+                if (!isValidate) {
+                    em.merge(physicalSpaces);
+                    em.flush();
+                }
             }
-        }
 
-        if (isValidate) {
-            f.saveFile("\\docs","R7.txt");
-        }
+            if (isValidate) {
+                f.saveFile("\\docs","R7.txt");
+            }
+
+        } // from: PhysicalSpaces
+
 
     } catch (FileNotFoundException ex) {
              ex.printStackTrace();

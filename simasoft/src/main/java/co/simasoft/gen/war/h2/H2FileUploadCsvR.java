@@ -20,8 +20,6 @@ public class H2FileUploadCsvR extends FileTxt {
 
     public H2FileUploadCsvR(ArrayList<Entidad> entidades) {
 
-// ===
-
 line("package co.simasoft.setup;\n");
 
 line("import co.simasoft.beans.*;");
@@ -74,7 +72,7 @@ line("    public void data(Boolean isValidate) {\n");
 
 line("        if(file != null) {\n");
 
-line("           filePath = \"\\docs\\\"+file.getFileName();\n");
+line("           filePath = \"\\\\docs\\\\\"+file.getFileName();\n");
 
 line("           FileTxt f = new FileTxt();\n");
 
@@ -122,7 +120,7 @@ line("           }");
 line("        }\n");
 
 line("        if (isValidate) {");
-line("            f.saveFile(\"\\docs\", \"R5.txt\");");
+line("            f.saveFile(\"\\\\docs\", \"R5.txt\");\n");
 line("        }\n");
 
 line("    } catch (FileNotFoundException ex) {");
@@ -248,7 +246,6 @@ line("        } // from: "+entityFrom.getName()+"\n");
 
 line("    } // relationshipsR5Data\n");
 
-
 line("    public void relationshipsR7(String filePath,EntityManager em,Boolean isValidate,FileTxt f) {\n");
 
 line("        BufferedReader br = null;\n");
@@ -274,59 +271,8 @@ line("        String cardinalities = \"\";\n");
 
 line("        FindBean findBean = new FindBean();\n");
 
-    LinkedHashSet<Entidad> entitiesTo = new LinkedHashSet<Entidad>();
-    for(Entidad entidad : entidades) {
-
-        for(Relation relation : entidad.getRelations()) {
-
-            entityFrom = relation.getEntityFrom();
-            entityTo = relation.getEntityTo();
-            cardinality = relation.getNameCardinality();
-            relationName = relation.getName();
-
-            if (!(entidad.getName().equals(entityFrom.getName()))){
-                continue;
-            }
-            if (!(cardinality.equals("Muchos a Muchos Bidirecccional No.7"))){
-                continue;
-            }
-
-            entitiesTo.add(entityTo);
-
-        } // entidad.getRelations()
-
-    } // entidades
-
-    for (Entidad entityTo : entitiesTo) {
-
-line("        Set<"+entityTo.getName()+"> "+Utils._1raMin(entityTo.getName())+"s = new HashSet<"+entityTo.getName()+">();");
-line("        "+entityTo.getName()+" "+Utils._1raMin(entityTo.getName())+" = new "+entityTo.getName()+"();\n");
-
-    } //
-
-line("        anterior = \"xyz\";\n");
-
 line("    try {\n");
 
-line("        br = new BufferedReader(new FileReader(filePath));");
-line("        while ((line = br.readLine()) != null) {\n");
-
-line("           String[] data = line.split(cvsSplitBy);\n");
-
-line("           from = data[0];");
-line("           fromProperty = data[1];");
-line("           fromValue = data[2];");
-line("           to = data[3];");
-line("           toProperty = data[4];");
-line("           toValue = data[5];");
-line("           name = data[6];");
-line("           cardinalities = data[7];\n");
-
-line("           i++;\n");
-
-line("           if (i > 1){\n");
-
-
     for(Entidad entidad : entidades) {
 
         for(Relation relation : entidad.getRelations()) {
@@ -343,10 +289,35 @@ line("           if (i > 1){\n");
                 continue;
             }
 
-line("              if (from.equals(\""+entityFrom.getName()+"\") &&");
-line("                  cardinalities.equals(\""+cardinality+"\") &&");
-line("                  to.equals(\""+entityTo.getName()+"\") &&");
-line("                  name.equals(\"\")){\n");
+line("        if (from.equals(\""+entityFrom.getName()+"\") &&");
+line("            cardinalities.equals(\""+cardinality+"\") &&");
+line("            to.equals(\""+entityTo.getName()+"\") &&");
+line("            name.equals(\"\")){\n");
+
+line("            "+entityFrom.getName()+" "+Utils._1raMin(entityFrom.getName())+" = new "+entityFrom.getName()+"();\n");
+
+line("            Set<"+entityTo.getName()+"> "+Utils._1raMin(entityTo.getName())+"s = new HashSet<"+entityTo.getName()+">();");
+line("            "+entityTo.getName()+" "+Utils._1raMin(entityTo.getName())+" = new "+entityTo.getName()+"();\n");
+
+line("            anterior = \"xyz\";\n");
+
+line("            br = new BufferedReader(new FileReader(filePath));");
+line("            while ((line = br.readLine()) != null) {\n");
+
+line("               String[] data = line.split(cvsSplitBy);\n");
+
+line("               from = data[0];");
+line("               fromProperty = data[1];");
+line("               fromValue = data[2];");
+line("               to = data[3];");
+line("               toProperty = data[4];");
+line("               toValue = data[5];");
+line("               name = data[6];");
+line("               cardinalities = data[7];\n");
+
+line("               i++;\n");
+
+line("               if (i > 1){\n");
 
 line("                  actual = data[2];");
 line("                  if (actual.equals(anterior)){");
@@ -362,47 +333,97 @@ line("                  if (isCambio){\n");
 
 line("                      f.line(\"cambio:\"+ant);\n");
 
-line("                      if ("+Utils._1raMin(entityTo.getName())+"s.size() > 0){");
-line("                          "+entityFrom.getName()+" "+Utils._1raMin(entityFrom.getName())+" = findBean.name"+entityFrom.getName()+"(ant,em);");
-line("                          "+Utils._1raMin(entityFrom.getName())+".set+"+Utils._1raMin(entityTo.getName())+"s("+Utils._1raMin(entityTo.getName())+");");
+line("                      if ("+Utils._1raMin(entityTo.getName())+"s.size() > 0){\n");
+
+            atributos = entityFrom.getAtributos();
+            Collections.sort(atributos);
+            for(Atributos atributo : atributos ){ // to
+
+                switch (atributo.getType()) {
+                    case "String":
+
+line("                          if (fromProperty.equals(\""+atributo.getField()+"\")){");
+line("                              "+Utils._1raMin(entityFrom.getName())+" = findBean."+atributo.getField()+entityFrom.getName()+"(ant,em);");
+line("                              "+Utils._1raMin(entityFrom.getName())+".set"+entityTo.getName()+"("+Utils._1raMin(entityTo.getName())+"s);\n");
+line("                          } // "+Utils._1raMin(entityFrom.getName())+"\n");
+
+                         break;
+                    default:
+                         break;
+                } // switch (atributo.getType())
+
+            } // atributos
+
 line("                          if (!isValidate) {");
 line("                              em.merge("+Utils._1raMin(entityFrom.getName())+");");
 line("                              em.flush();");
 line("                          }");
 line("                      }\n");
 
-line("                      "+Utils._1raMin(entityTo.getName())+"s = new HashSet<"+Utils._1raMin(entityTo.getName())+"s>();");
-line("                      "+Utils._1raMin(entityTo.getName())+" = new "+Utils._1raMin(entityTo.getName())+"();\n");
+line("                      "+Utils._1raMin(entityTo.getName())+"s = new HashSet<"+entityTo.getName()+">();");
+line("                      "+Utils._1raMin(entityTo.getName())+" = new "+entityTo.getName()+"();\n");
 
-line("                  }\n");
+line("                  } \n");
 
-line("                  "+Utils._1raMin(entityTo.getName())+" = findBean.name"+Utils._1raMin(entityTo.getName())+"s(toValue,em);");
+
+            atributos = entityTo.getAtributos();
+            Collections.sort(atributos);
+            for(Atributos atributo : atributos ){ // to
+
+                switch (atributo.getType()) {
+                    case "String":
+
+line("                  if (toProperty.equals(\""+atributo.getField()+"\")){");
+line("                      "+Utils._1raMin(entityTo.getName())+" = findBean."+atributo.getField()+entityTo.getName()+"(toValue,em);");
+line("                  } // "+Utils._1raMin(entityTo.getName())+"\n");
+
+                         break;
+                    default:
+                         break;
+                } // switch (atributo.getType())
+
+            } // atributos
+
 line("                  "+Utils._1raMin(entityTo.getName())+"s.add("+Utils._1raMin(entityTo.getName())+");\n");
 
 line("                  f.line(\"from:\"+fromValue+\" to:\"+toValue);\n");
 
-line("              } // from: "+entityFrom.getName()+"\n");
+line("               } // i > 1\n");
+
+line("            } // while\n");
+
+line("            if ("+Utils._1raMin(entityTo.getName())+"s.size() > 0){\n");
+
+            atributos = entityFrom.getAtributos();
+            Collections.sort(atributos);
+            for(Atributos atributo : atributos ){ // from
+
+                switch (atributo.getType()) {
+                    case "String":
+
+line("               if (fromProperty.equals(\""+atributo.getField()+"\")){");
+line("                   "+Utils._1raMin(entityFrom.getName())+" = findBean."+atributo.getField()+entityFrom.getName()+"(ant,em);");
+line("                   "+Utils._1raMin(entityFrom.getName())+".set"+entityTo.getName()+"("+Utils._1raMin(entityTo.getName())+"s);\n");
+line("               } // "+Utils._1raMin(entityTo.getName())+"\n");
+
+                         break;
+                    default:
+                         break;
+                } // switch (atributo.getType())
+
+            } // atributos
+
+line("               if (!isValidate) {");
+line("                   em.merge("+Utils._1raMin(entityFrom.getName())+");");
+line("                   em.flush();");
+line("               }");
+line("            }\n");
+
+line("        } // from: "+entityFrom.getName()+"\n");
 
         } // entidad.getRelations()
 
     } // entidades
-
-line("           } // i > 1\n");
-
-line("        } // while\n");
-
-line("        if (physicalAreas.size() > 0){");
-line("            PhysicalSpaces physicalSpaces = findBean.namePhysicalSpaces(fromValue,em);");
-line("            physicalSpaces.setPhysicalAreas(physicalAreas);");
-line("            if (!isValidate) {");
-line("                em.merge(physicalSpaces);");
-line("                em.flush();");
-line("            }");
-line("        }");
-
-line("        if (isValidate) {");
-line("            f.saveFile(\"\\docs\",\"R7.txt\");");
-line("        }");
 
 line("    } catch (FileNotFoundException ex) {");
 line("             ex.printStackTrace();");
@@ -426,91 +447,6 @@ line("    }");
 line("    } // relationshipsR7");
 
 line("} // Class");
-
-/*
-
-              if (from.equals(\"PhysicalSpaces\") &&
-                  cardinalities.equals(\"Muchos a Muchos Bidirecccional No.7\") &&
-                  to.equals(\"PhysicalAreas\") &&
-                  name.equals(\"\")){
-
-                  actual = data[2];
-                  if (actual.equals(anterior)){
-                      isCambio = false;
-                  }
-                  else {
-                      isCambio = true;
-                      ant = anterior;
-                      anterior = actual;
-                  }
-
-                  if (isCambio){
-                      f.line(\"cambio:\"+ant);
-
-                      if (physicalAreas.size() > 0){
-                          PhysicalSpaces physicalSpaces = findBean.namePhysicalSpaces(ant,em);
-                          physicalSpaces.setPhysicalAreas(physicalAreas);
-                          if (!isValidate) {
-                              em.merge(physicalSpaces);
-                              em.flush();
-                          }
-                      }
-
-                      physicalAreas = new HashSet<PhysicalAreas>();
-                      physicalArea = new PhysicalAreas();
-
-                  }
-
-                  physicalArea = findBean.namePhysicalAreas(toValue,em);
-                  physicalAreas.add(physicalArea);
-
-                  f.line(\"from:\"+fromValue+\" to:\"+toValue);
-
-              }  // from: PhysicalSpaces
-
-           } // i > 1
-
-        } // while
-
-        if (physicalAreas.size() > 0){
-            PhysicalSpaces physicalSpaces = findBean.namePhysicalSpaces(fromValue,em);
-            physicalSpaces.setPhysicalAreas(physicalAreas);
-            if (!isValidate) {
-                em.merge(physicalSpaces);
-                em.flush();
-            }
-        }
-
-        if (isValidate) {
-            f.saveFile(\"\\docs\",\"R7.txt\");
-        }
-
-    } catch (FileNotFoundException ex) {
-             ex.printStackTrace();
-    } catch (IOException ex) {
-             ex.printStackTrace();
-    } catch (NullPointerException ex) {
-             ex.printStackTrace();
-    } catch(Exception ioe) {
-            ioe.printStackTrace();
-    } finally {
-        if (br != null) {
-            try {
-              br.close();
-            }
-            catch (IOException e) {
-                  e.printStackTrace();
-            }
-        }
-    }
-
-    } // relationshipsR7
-
-} // Class
-
-*/
-
-//===
 
   } // Contructor
 
