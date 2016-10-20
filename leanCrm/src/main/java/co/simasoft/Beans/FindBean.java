@@ -2433,6 +2433,17 @@ public class FindBean {
         }
         return predio;
     }
+    
+    public Predio codePredio(String search,EntityManager em) {
+
+        Predio predio = new Predio();
+        List<Predio> results = em.createQuery("SELECT o FROM Predio o WHERE o.code LIKE :field").setParameter("field", search).getResultList();
+
+        if (!results.isEmpty()) {
+           predio = results.get(0);
+        }
+        return predio;
+    }    
 
     public Predio predialPredio(String search,EntityManager em) {
 

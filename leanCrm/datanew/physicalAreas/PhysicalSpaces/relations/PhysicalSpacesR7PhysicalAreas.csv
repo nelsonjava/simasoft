@@ -1,2 +1,37 @@
 From;FromProperty;FromValue;To;ToProperty;ToValue;Name;Cardinalities
-PhysicalSpaces;        ;        ;PhysicalAreas;        ;        ;       ;Muchos a Muchos Bidirecccional No.7
+PhysicalSpaces;name;Local L1;PhysicalAreas;name;Porton Local L1;       ;Muchos a Muchos Bidirecccional No.7
+PhysicalSpaces;name;Local L1;PhysicalAreas;name;Marco  Porton Local  L1;;Muchos a Muchos Bidirecccional No.7
+PhysicalSpaces;name;Local L1;PhysicalAreas;name;Pared Frontal Local L1;;Muchos a Muchos Bidirecccional No.7
+PhysicalSpaces;name;Local L1;PhysicalAreas;name;Pared Lado Derecho Local  L1;;Muchos a Muchos Bidirecccional No.7
+PhysicalSpaces;name;Local L1;PhysicalAreas;name;Pared Lado Izquierdo Local  L1;;Muchos a Muchos Bidirecccional No.7
+PhysicalSpaces;name;Local L1;PhysicalAreas;name;Filos Columnas PFI Local  L1;;Muchos a Muchos Bidirecccional No.7
+PhysicalSpaces;name;Local L1;PhysicalAreas;name;Filos Columnas PFR Local  L1;;Muchos a Muchos Bidirecccional No.7
+PhysicalSpaces;name;Local L1;PhysicalAreas;name;Filos Columna PLD Local  L1;;Muchos a Muchos Bidirecccional No.7
+PhysicalSpaces;name;Local L1;PhysicalAreas;name;Filos Columnas PLI Local  L1;;Muchos a Muchos Bidirecccional No.7
+PhysicalSpaces;name;Local L1;PhysicalAreas;name;Piso Local  L1;;Muchos a Muchos Bidirecccional No.7
+PhysicalSpaces;name;Local L1;PhysicalAreas;name;Guardascoba Local  L1;;Muchos a Muchos Bidirecccional No.7
+PhysicalSpaces;name;Local L1;PhysicalAreas;name;Techo Local  L1;;Muchos a Muchos Bidirecccional No.7
+PhysicalSpaces;name;Baño L1;PhysicalAreas;name;Marco Puerta Baño L1;;Muchos a Muchos Bidirecccional No.7
+PhysicalSpaces;name;Baño L1;PhysicalAreas;name;Pared Frontal Baño L1;;Muchos a Muchos Bidirecccional No.7
+PhysicalSpaces;name;Baño L1;PhysicalAreas;name;Pared Lado Derecho Baño L1;;Muchos a Muchos Bidirecccional No.7
+PhysicalSpaces;name;Baño L1;PhysicalAreas;name;Pared Lado Izquierdo Baño L1;;Muchos a Muchos Bidirecccional No.7
+PhysicalSpaces;name;Baño L1;PhysicalAreas;name;Filo Columna PFI Baño L1;;Muchos a Muchos Bidirecccional No.7
+PhysicalSpaces;name;Baño L1;PhysicalAreas;name;Filos Columna PLD Baño L1;;Muchos a Muchos Bidirecccional No.7
+PhysicalSpaces;name;Baño L1;PhysicalAreas;name;Piso Baño L1;;Muchos a Muchos Bidirecccional No.7
+PhysicalSpaces;name;Baño L1;PhysicalAreas;name;Techo Baño L1;;Muchos a Muchos Bidirecccional No.7
+PhysicalSpaces;name;Cocina L1;PhysicalAreas;name;Pared Fachada Interior Cocina L1;;Muchos a Muchos Bidirecccional No.7
+PhysicalSpaces;name;Cocina L1;PhysicalAreas;name;Pared Frontal Cocina L1;;Muchos a Muchos Bidirecccional No.7
+PhysicalSpaces;name;Cocina L1;PhysicalAreas;name;Pared Lado Derecho Cocina L1;;Muchos a Muchos Bidirecccional No.7
+PhysicalSpaces;name;Cocina L1;PhysicalAreas;name;Pared Lado Izquierdo Cocina L1;;Muchos a Muchos Bidirecccional No.7
+PhysicalSpaces;name;Cocina L1;PhysicalAreas;name;Vacio Pared Frontal Cocina L1;;Muchos a Muchos Bidirecccional No.7
+PhysicalSpaces;name;Cocina L1;PhysicalAreas;name;Marco ventana PLD Cocina L1;;Muchos a Muchos Bidirecccional No.7
+PhysicalSpaces;name;Cocina L1;PhysicalAreas;name;Filo PFR Cocina L1;;Muchos a Muchos Bidirecccional No.7
+PhysicalSpaces;name;Cocina L1;PhysicalAreas;name;Filos Columna PFR Cocina L1;;Muchos a Muchos Bidirecccional No.7
+PhysicalSpaces;name;Cocina L1;PhysicalAreas;name;Filos Columna PFI Cocina L1?;;Muchos a Muchos Bidirecccional No.7
+PhysicalSpaces;name;Cocina L1;PhysicalAreas;name;Filos PLI Cocina L1;;Muchos a Muchos Bidirecccional No.7
+PhysicalSpaces;name;Cocina L1;PhysicalAreas;name;Base Derecha Cocina L1;;Muchos a Muchos Bidirecccional No.7
+PhysicalSpaces;name;Cocina L1;PhysicalAreas;name;Base Izquierda Cocina L1;;Muchos a Muchos Bidirecccional No.7
+PhysicalSpaces;name;Cocina L1;PhysicalAreas;name;Filo Base Derecha Cocina L1;;Muchos a Muchos Bidirecccional No.7
+PhysicalSpaces;name;Cocina L1;PhysicalAreas;name;Filo Base Izquierda Cocina L1;;Muchos a Muchos Bidirecccional No.7
+PhysicalSpaces;name;Cocina L1;PhysicalAreas;name;Piso Cocina L1;;Muchos a Muchos Bidirecccional No.7
+PhysicalSpaces;name;Cocina L1;PhysicalAreas;name;Techo Cocina L1;;Muchos a Muchos Bidirecccional No.7

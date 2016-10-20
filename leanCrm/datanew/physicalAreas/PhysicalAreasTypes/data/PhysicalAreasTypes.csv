@@ -1,0 +1,14 @@
+String;String;PhysicalAreasTypes
+name;code;
+Portones;T01;
+Puertas;T02;
+Marcos Portones;T03;
+Marcos Puertas;T04;
+Paredes;T05;
+Ventanas;T06;
+Marco Ventanas;T07;
+Filos;T08;
+columnas;T09;
+Pisos;T10;
+Guardaescobas;T11;
+Techos;T12;

@@ -22,6 +22,9 @@ public class FileTxt {
     }
 
     public void line(String linea) {
+        if(Utils.isEmpty(linea)){
+           linea = "";
+        }
         stringBuilder.append(linea);
         stringBuilder.append("\n");
     }

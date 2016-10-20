@@ -229,7 +229,20 @@ line("            } // "+Utils._1raMin(entityTo.getName())+"\n");
             } // atributos
 
 line("            if (cardinalities.equals(\""+cardinality+"\")){");
+
+            if (entityFrom.getName().equals(entityTo.getName())){
+line("                "+Utils._1raMin(entityTo.getName())+"To.setObjPadre("+Utils._1raMin(entityFrom.getName())+"From);");
+            }
+            else{
+                 if(Utils.isEmpty(relationName)){
 line("                "+Utils._1raMin(entityTo.getName())+"To.set"+entityFrom.getName()+"("+Utils._1raMin(entityFrom.getName())+"From);");
+                 }
+                 else{
+line("                "+Utils._1raMin(entityTo.getName())+"To.set"+Utils._1raMay(relationName)+"("+Utils._1raMin(entityFrom.getName())+"From);");
+                 }
+            }
+
+
 line("            }\n");
 
 
