@@ -70,6 +70,7 @@ public class FileUploadCsvR {
         BufferedReader br = null;
 
         Integer i = 0;
+        Integer j = 0;
         String line = "";
         String cvsSplitBy = ";";
         String[] fields = new String[100];
@@ -112,26 +113,26 @@ public class FileUploadCsvR {
               toValue = data[5];
               name = data[6];
               cardinalities = data[7];
-
+              
               i++;
-              if (i==1){
-                 f.line(Integer.toString(i)+"=from:"+fromValue+" to:"+toValue);
-                 continue;
+              f.line(Integer.toString(i)+"=From:"+from+"\n"+
+                                         "  FromProperty:"+fromProperty+"\n"+
+                                         "  FromValue:"+fromValue+"\n"+
+                                         "  To:"+to+"\n"+
+                                         "  ToProperty:"+toProperty+"\n"+
+                                         "  ToValue:"+toValue+"\n"+
+                                         "  Name:"+name+"\n"+
+                                         "  Cardinalities:"+cardinalities);
+
+              if(cardinalities.equals("Cardinalities")){
+                 continue; // Descarta el primer registro
               }
 
-              if (i==2){
+              if(i==2){
                  anterior = fromValue;
-                 f.line(Integer.toString(i)+"=from:"+fromValue+" to:"+toValue);
-
-                 continue;
               }
 
-
-              if (isValidate) {
-                  f.line(Integer.toString(i)+"=from:"+fromValue+" to:"+toValue);
-              }
-
-              actual = data[2];
+              actual = fromValue;
               if (actual.equals(anterior)){
                   isCambio = false;
               }
@@ -142,15 +143,15 @@ public class FileUploadCsvR {
               }
 
               if (from.equals("PhysicalSpaces") &&
-                         cardinalities.equals("Muchos a Muchos Bidirecccional No.7") &&
-                         to.equals("PhysicalAreas") &&
-                         name.equals("")){
+                  cardinalities.equals("Muchos a Muchos Bidirecccional No.7") &&
+                  to.equals("PhysicalAreas") &&
+                  Utils.isEmpty(name)){
 
                   if (isCambio){
 
                       f.line("cambio:"+ant);
 
-                      if (!ant.equals("xyz")){
+                      if (physicalAreass.size() > 0){
 
                          if(fromProperty.equals("name")){
                             physicalSpaces = findBean.namePhysicalSpaces(ant,em);
@@ -163,11 +164,18 @@ public class FileUploadCsvR {
                          } // physicalSpaces
 
                          if(!isValidate) {
+
                             em.merge(physicalSpaces);
                             em.flush();
+
+                            j = 0;
+                            for(PhysicalAreas physicalAreasx : physicalAreass){
+                                f.line("       "+Integer.toString(++j)+":"+physicalAreasx.getName());
+                            }
+
                          }
 
-                      } // xyz
+                      } // size()
 
                       physicalAreass = new HashSet<PhysicalAreas>();
                       physicalAreas = new PhysicalAreas();
@@ -183,8 +191,6 @@ public class FileUploadCsvR {
                   } // physicalAreas
 
                   physicalAreass.add(physicalAreas);
-
-                  f.line(Integer.toString(i)+"=from:"+fromValue+" to:"+toValue);
 
               } // from: PhysicalSpaces
 
@@ -221,7 +227,6 @@ public class FileUploadCsvR {
         else{
             f.saveFile("\\docs", "DR7.txt");
         }
-
 
     } catch (FileNotFoundException ex) {
              ex.printStackTrace();

@@ -18,6 +18,9 @@ public class H2FileUploadCsvR extends FileTxt {
     private String cardinality = "";
     private String relationName = "";
 
+    private LinkedHashSet<Entidad> entities = new LinkedHashSet<Entidad>();
+    private LinkedHashSet<Entidad> entitiesTo = new LinkedHashSet<Entidad>();
+
     public H2FileUploadCsvR(ArrayList<Entidad> entidades) {
 
 line("package co.simasoft.setup;\n");
@@ -264,6 +267,7 @@ line("    public void relationshipsR7(String filePath,EntityManager em,Boolean i
 line("        BufferedReader br = null;\n");
 
 line("        Integer i = 0;");
+line("        Integer j = 0;");
 line("        String line = \"\";");
 line("        String cvsSplitBy = \";\";");
 line("        String[] fields = new String[100];\n");
@@ -286,6 +290,8 @@ line("        FindBean findBean = new FindBean();\n");
 
 line("    try {\n");
 
+line("            anterior = \"\";\n");
+
     for(Entidad entidad : entidades) {
 
         for(Relation relation : entidad.getRelations()) {
@@ -295,169 +301,29 @@ line("    try {\n");
             cardinality = relation.getNameCardinality();
             relationName = relation.getName();
 
-            if (!(entidad.getName().equals(entityFrom.getName()))){
-                continue;
-            }
-            if (!(cardinality.equals("Muchos a Muchos Bidirecccional No.7"))){
-                continue;
-            }
-
-line("        if (from.equals(\""+entityFrom.getName()+"\") &&");
-line("            cardinalities.equals(\""+cardinality+"\") &&");
-line("            to.equals(\""+entityTo.getName()+"\") &&");
-line("            name.equals(\"\")){\n");
-
-line("            "+entityFrom.getName()+" "+Utils._1raMin(entityFrom.getName())+" = new "+entityFrom.getName()+"();\n");
-
-line("            Set<"+entityTo.getName()+"> "+Utils._1raMin(entityTo.getName())+"s = new HashSet<"+entityTo.getName()+">();");
-line("            "+entityTo.getName()+" "+Utils._1raMin(entityTo.getName())+" = new "+entityTo.getName()+"();\n");
-
-line("            anterior = \"xyz\";\n");
-
-line("            br = new BufferedReader(new FileReader(filePath));");
-line("            while ((line = br.readLine()) != null) {\n");
-
-line("               String[] data = line.split(cvsSplitBy);\n");
-
-line("               from = data[0];");
-line("               fromProperty = data[1];");
-line("               fromValue = data[2];");
-line("               to = data[3];");
-line("               toProperty = data[4];");
-line("               toValue = data[5];");
-line("               name = data[6];");
-line("               cardinalities = data[7];\n");
-
-line("               i++;\n");
-
-line("               if (i > 1){\n");
-
-line("                  actual = data[2];");
-line("                  if (actual.equals(anterior)){");
-line("                      isCambio = false;");
-line("                  }");
-line("                  else {");
-line("                      isCambio = true;");
-line("                      ant = anterior;");
-line("                      anterior = actual;");
-line("                  }\n");
-
-line("                  if (isCambio){\n");
-
-line("                      f.line(\"cambio:\"+ant);\n");
-
-line("                      if ("+Utils._1raMin(entityTo.getName())+"s.size() > 0){\n");
-
-            atributos = entityFrom.getAtributos();
-            Collections.sort(atributos);
-            for(Atributos atributo : atributos ){ // to
-
-                switch (atributo.getType()) {
-                    case "String":
-
-line("                          if (fromProperty.equals(\""+atributo.getField()+"\")){");
-line("                              "+Utils._1raMin(entityFrom.getName())+" = findBean."+atributo.getField()+entityFrom.getName()+"(ant,em);");
-line("                              "+Utils._1raMin(entityFrom.getName())+".set"+entityTo.getName()+"("+Utils._1raMin(entityTo.getName())+"s);\n");
-line("                          } // "+Utils._1raMin(entityFrom.getName())+"\n");
-
-                         break;
-                    default:
-                         break;
-                } // switch (atributo.getType())
-
-            } // atributos
-
-line("                          if (!isValidate) {");
-line("                              em.merge("+Utils._1raMin(entityFrom.getName())+");");
-line("                              em.flush();");
-line("                          }");
-line("                      }\n");
-
-line("                      "+Utils._1raMin(entityTo.getName())+"s = new HashSet<"+entityTo.getName()+">();");
-line("                      "+Utils._1raMin(entityTo.getName())+" = new "+entityTo.getName()+"();\n");
-
-line("                  } \n");
-
-
-            atributos = entityTo.getAtributos();
-            Collections.sort(atributos);
-            for(Atributos atributo : atributos ){ // to
-
-                switch (atributo.getType()) {
-                    case "String":
-
-line("                  if (toProperty.equals(\""+atributo.getField()+"\")){");
-line("                      "+Utils._1raMin(entityTo.getName())+" = findBean."+atributo.getField()+entityTo.getName()+"(toValue,em);");
-line("                  } // "+Utils._1raMin(entityTo.getName())+"\n");
-
-                         break;
-                    default:
-                         break;
-                } // switch (atributo.getType())
-
-            } // atributos
-
-line("                  "+Utils._1raMin(entityTo.getName())+"s.add("+Utils._1raMin(entityTo.getName())+");\n");
-
-line("                  f.line(\"from:\"+fromValue+\" to:\"+toValue);\n");
-
-line("               } // i > 1\n");
-
-line("            } // while\n");
-
-line("            if ("+Utils._1raMin(entityTo.getName())+"s.size() > 0){\n");
-
-            atributos = entityFrom.getAtributos();
-            Collections.sort(atributos);
-            for(Atributos atributo : atributos ){ // from
-
-                switch (atributo.getType()) {
-                    case "String":
-
-line("               if (fromProperty.equals(\""+atributo.getField()+"\")){");
-line("                   "+Utils._1raMin(entityFrom.getName())+" = findBean."+atributo.getField()+entityFrom.getName()+"(ant,em);");
-line("                   "+Utils._1raMin(entityFrom.getName())+".set"+entityTo.getName()+"("+Utils._1raMin(entityTo.getName())+"s);\n");
-line("               } // "+Utils._1raMin(entityTo.getName())+"\n");
-
-                         break;
-                    default:
-                         break;
-                } // switch (atributo.getType())
-
-            } // atributos
-
-line("               if (!isValidate) {");
-line("                   em.merge("+Utils._1raMin(entityFrom.getName())+");");
-line("                   em.flush();");
-line("               }");
-line("            }\n");
-
-line("        } // from: "+entityFrom.getName()+"\n");
+            entities.add(entityFrom);
+            entities.add(entityTo);
+            entitiesTo.add(entityTo);
 
         } // entidad.getRelations()
 
     } // entidades
 
-line("    } catch (FileNotFoundException ex) {");
-line("             ex.printStackTrace();");
-line("    } catch (IOException ex) {");
-line("             ex.printStackTrace();");
-line("    } catch (NullPointerException ex) {");
-line("             ex.printStackTrace();");
-line("    } catch(Exception ioe) {");
-line("            ioe.printStackTrace();");
-line("    } finally {");
-line("        if (br != null) {");
-line("            try {");
-line("              br.close();");
-line("            }");
-line("            catch (IOException e) {");
-line("                  e.printStackTrace();");
-line("            }");
-line("        }");
-line("    }");
+    for(Entidad entity : entities) {
+line("            "+entity.getName()+" "+Utils._1raMin(entity.getName())+" = new "+entity.getName()+"();");
+    } //
 
-line("    } // relationshipsR7");
+line("");
+
+    for(Entidad entity : entitiesTo) {
+line("            Set<"+entity.getName()+"> "+Utils._1raMin(entity.getName())+"s = new HashSet<"+entity.getName()+">();");
+    } //
+    
+line("            br = new BufferedReader(new FileReader(filePath));");
+
+==
+voy aqui
+==
 
 line("} // Class");
 

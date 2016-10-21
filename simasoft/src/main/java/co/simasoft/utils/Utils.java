@@ -18,6 +18,7 @@ import java.io.ObjectStreamClass;
 public class Utils {
 
     public static Boolean isEmpty(String text) {
+        text = text.trim();
         if (text == null || text.isEmpty()){
            return true;
         }
