@@ -1,11 +1,12 @@
 String;String;PhysicalSpaces
 name;telExt;
-Fachada;;
-Ingreso Escalera 1 Piso;;
-Escalera 1 Piso;;
-Pasillo 2 piso;;
-placa 2 piso;;
-placa 3 piso;;
+Area Común CL26;;
+Fachada CL26;;
+Ingreso Escalera 1 Piso CL26;;
+Escalera 1 Piso CL26;;
+Pasillo 2 piso CL26;;
+placa 2 piso CL26;;
+placa 3 piso CL26;;
 Local L1;;
 Baño L1;;
 Cocina L1;;

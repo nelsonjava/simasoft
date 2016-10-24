@@ -47,7 +47,7 @@ public class PrediosGen extends FileTxt {
 
         predios = findBean.AllPredio(em);
 
-        line("code;predio;physicalSpaces;physicalAreas;width;high;area");
+        line("Code;Predios;Spaces;PhysicalAreas;Width;High;Area");
 
         for(Predio predio : predios){
 
@@ -77,6 +77,103 @@ public class PrediosGen extends FileTxt {
     }
 
     } // PhysicalAreasData()
+
+    public void PhysicalSpacesData() {
+    try {
+
+        clearFileTxt();
+
+        List<Predio> predios;
+
+        predios = findBean.AllPredio(em);
+
+        line("Code;Predios;PhysicalSpaces");
+
+        for(Predio predio : predios){
+
+            for(PhysicalSpaces physicalSpaces : predio.getPhysicalSpaces()){
+
+                line(predio.getCode()+"."+physicalSpaces.getPhysicalSpacesTypes().getCode()+";"+
+                     predio.getNomenclatura()+";"+physicalSpaces.getName());
+
+                for(PhysicalSpaces hijo : physicalSpaces.getObjHijos() ){
+                    line(predio.getCode()+"."+physicalSpaces.getPhysicalSpacesTypes().getCode()+"."+hijo.getPhysicalSpacesTypes().getCode()+";;"+
+                         "  "+hijo.getName());
+                }
+
+
+            } // predio.getPhysicalSpaces()
+
+        } // predios
+
+        saveFile("\\docs","SpacesData.csv");
+
+    }
+    catch(Exception ioe) {
+      ioe.printStackTrace();
+    }
+
+    } // PhysicalSpacesData()
+
+    public void PhysicalSpacesTypesData() {
+    try {
+
+        clearFileTxt();
+
+        List<PhysicalSpacesTypes> physicalSpacesTypes;
+
+        physicalSpacesTypes = findBean.AllPhysicalSpacesTypes(em);
+
+        line("Code;Types;");
+
+        for(PhysicalSpacesTypes type : physicalSpacesTypes){
+
+            line(type.getCode()+";"+
+                 type.getName());
+
+            for(PhysicalSpacesTypes hijo : type.getObjHijos() ){
+                line("  "+hijo.getCode()+";"+"  "+type.getName());
+            }
+
+
+        } // physicalSpacesTypes
+
+        saveFile("\\docs","PhysicalSpacesTypesData.csv");
+
+    }
+    catch(Exception ioe) {
+      ioe.printStackTrace();
+    }
+
+    } // PhysicalSpacesTypesData()
+
+    public void PhysicalAreasTypesData() {
+    try {
+
+        clearFileTxt();
+
+        List<PhysicalAreasTypes> physicalAreasTypes;
+
+        physicalAreasTypes = findBean.AllPhysicalAreasTypes(em);
+
+        line("Code;Types;");
+
+        for(PhysicalAreasTypes type : physicalAreasTypes){
+
+            line(type.getCode()+";"+
+                 type.getName());
+
+        } // physicalAreasTypes
+
+        saveFile("\\docs","PhysicalAreasTypesData.csv");
+
+    }
+    catch(Exception ioe) {
+      ioe.printStackTrace();
+    }
+
+    } // PhysicalSpacesTypesData()
+
 
 
 } // PrediosGen

@@ -1,10 +1,11 @@
 From;FromProperty;FromValue;To;ToProperty;ToValue;Name;Cardinalities
-PhysicalSpacesTypes;name;Fachada;PhysicalSpaces;name;Fachada;       ;Uno a Muchos Bidirecccional No.5
-PhysicalSpacesTypes;name;Escaleras;PhysicalSpaces;name;Ingreso Escalera 1 Piso;;Uno a Muchos Bidirecccional No.5
-PhysicalSpacesTypes;name;Escaleras;PhysicalSpaces;name;Escalera 1 Piso;;Uno a Muchos Bidirecccional No.5
-PhysicalSpacesTypes;name;Pasillo;PhysicalSpaces;name;Pasillo 2 piso;;Uno a Muchos Bidirecccional No.5
-PhysicalSpacesTypes;name;placa;PhysicalSpaces;name;placa 2 piso;;Uno a Muchos Bidirecccional No.5
-PhysicalSpacesTypes;name;placa;PhysicalSpaces;name;placa 3 piso;;Uno a Muchos Bidirecccional No.5
+PhysicalSpacesTypes;name;Area Común;PhysicalSpaces;name;Area Común CL26;;Uno a Muchos Bidirecccional No.5
+PhysicalSpacesTypes;name;Fachada;PhysicalSpaces;name;Fachada CL26;       ;Uno a Muchos Bidirecccional No.5
+PhysicalSpacesTypes;name;Escaleras;PhysicalSpaces;name;Ingreso Escalera 1 Piso CL26;;Uno a Muchos Bidirecccional No.5
+PhysicalSpacesTypes;name;Escaleras;PhysicalSpaces;name;Escalera 1 Piso CL26;;Uno a Muchos Bidirecccional No.5
+PhysicalSpacesTypes;name;Pasillo;PhysicalSpaces;name;Pasillo 2 piso CL26;;Uno a Muchos Bidirecccional No.5
+PhysicalSpacesTypes;name;placa;PhysicalSpaces;name;placa 2 piso CL26;;Uno a Muchos Bidirecccional No.5
+PhysicalSpacesTypes;name;placa;PhysicalSpaces;name;placa 3 piso CL26;;Uno a Muchos Bidirecccional No.5
 PhysicalSpacesTypes;name;Local;PhysicalSpaces;name;Local L1;;Uno a Muchos Bidirecccional No.5
 PhysicalSpacesTypes;name;Baño;PhysicalSpaces;name;Baño L1;;Uno a Muchos Bidirecccional No.5
 PhysicalSpacesTypes;name;Cocina;PhysicalSpaces;name;Cocina L1;;Uno a Muchos Bidirecccional No.5

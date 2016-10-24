@@ -288,9 +288,9 @@ line("        String cardinalities = \"\";\n");
 
 line("        FindBean findBean = new FindBean();\n");
 
-line("    try {\n");
+line("    try{\n");
 
-line("            anterior = \"\";\n");
+line("        anterior = \"\";\n");
 
     for(Entidad entidad : entidades) {
 
@@ -317,63 +317,64 @@ line("            anterior = \"\";\n");
     } // entidades
 
     for(Entidad entity : entities) {
-line("            "+entity.getName()+" "+Utils._1raMin(entity.getName())+" = new "+entity.getName()+"();");
+line("        "+entity.getName()+" "+Utils._1raMin(entity.getName())+" = new "+entity.getName()+"();");
     } //
 
 line("");
 
     for(Entidad entity : entitiesTo) {
-line("            Set<"+entity.getName()+"> "+Utils._1raMin(entity.getName())+"s = new HashSet<"+entity.getName()+">();");
-line("            "+entity.getName()+" "+Utils._1raMin(entity.getName())+" = new "+entity.getName()+"();");
+line("        Set<"+entity.getName()+"> "+Utils._1raMin(entity.getName())+"s = new HashSet<"+entity.getName()+">();");
 
     } //
 
-line("            br = new BufferedReader(new FileReader(filePath));");
-line("            while ((line = br.readLine()) != null) {\n");
+line("");
 
-line("               String[] data = line.split(cvsSplitBy);\n");
+line("        br = new BufferedReader(new FileReader(filePath));");
+line("        while ((line = br.readLine()) != null) {\n");
 
-line("               from = data[0];");
-line("               fromProperty = data[1];");
-line("               fromValue = data[2];");
-line("               to = data[3];");
-line("               toProperty = data[4];");
-line("               toValue = data[5];");
-line("               name = data[6];");
-line("               cardinalities = data[7];\n");
+line("           String[] data = line.split(cvsSplitBy);\n");
 
-line("               i++;");
-line("               f.line(Integer.toString(i)+\"=From:\"+from+\"\\n\"+");
-line("                                          \"  FromProperty:\"+fromProperty+\"\\n\"+");
-line("                                          \"  FromValue:\"+fromValue+\"\\n\"+");
-line("                                          \"  To:\"+to+\"\\n\"+");
-line("                                          \"  ToProperty:\"+toProperty+\"\\n\"+");
-line("                                          \"  ToValue:\"+toValue+\"\\n\"+");
-line("                                          \"  Name:\"+name+\"\\n\"+");
-line("                                          \"  Cardinalities:\"+cardinalities);\n");
+line("           from = data[0];");
+line("           fromProperty = data[1];");
+line("           fromValue = data[2];");
+line("           to = data[3];");
+line("           toProperty = data[4];");
+line("           toValue = data[5];");
+line("           name = data[6];");
+line("           cardinalities = data[7];\n");
 
-line("               if(cardinalities.equals(\"Cardinalities\")){");
-line("                  continue; // Descarta el primer registro");
-line("               }\n");
+line("           i++;");
+line("           f.line(Integer.toString(i)+\"=From:\"+from+\"\\n\"+");
+line("                                      \" FromProperty:\"+fromProperty+\"\\n\"+");
+line("                                      \" FromValue:\"+fromValue+\"\\n\"+");
+line("                                      \" To:\"+to+\"\\n\"+");
+line("                                      \" ToProperty:\"+toProperty+\"\\n\"+");
+line("                                      \" ToValue:\"+toValue+\"\\n\"+");
+line("                                      \" Name:\"+name+\"\\n\"+");
+line("                                      \" Cardinalities:\"+cardinalities);\n");
 
-line("               if(i==2){");
-line("                  anterior = fromValue;");
-line("               }\n");
+line("           if(cardinalities.equals(\"Cardinalities\")){");
+line("              continue; // Descarta el primer registro");
+line("           }\n");
 
-line("               actual = fromValue;");
-line("               if (actual.equals(anterior)){");
-line("                   isCambio = false;");
-line("               }");
-line("               else {");
-line("                   isCambio = true;");
-line("                   ant = anterior;");
-line("                   anterior = actual;");
-line("               }\n");
+line("           if(i==2){");
+line("              anterior = fromValue;");
+line("           }\n");
+
+line("           actual = fromValue;");
+line("           if (actual.equals(anterior)){");
+line("               isCambio = false;");
+line("           }");
+line("           else {");
+line("               isCambio = true;");
+line("               ant = anterior;");
+line("               anterior = actual;");
+line("           }\n");
 
     for(Entidad entidad : entidades) {
 
         for(Relation relation :entidad.getRelations()) {
-          
+
             entityFrom = relation.getEntityFrom();
             entityTo = relation.getEntityTo();
             cardinality = relation.getNameCardinality();
@@ -386,16 +387,16 @@ line("               }\n");
                 continue;
             }
 
-line("               if (from.equals(\""+entityFrom.getName()+"\") &&");
-line("                   cardinalities.equals(\""+cardinality+"\") &&");
-line("                   to.equals(\""+entityTo.getName()+"\") &&");
-line("                   Utils.isEmpty(name)){\n");
+line("           if (from.equals(\""+entityFrom.getName()+"\") &&");
+line("               cardinalities.equals(\""+cardinality+"\") &&");
+line("               to.equals(\""+entityTo.getName()+"\") &&");
+line("               Utils.isEmpty(name)){\n");
 
-line("                   if (isCambio){\n");
+line("               if (isCambio){\n");
 
-line("                      f.line(\"cambio:\"+ant);\n");
+line("                  f.line(\"cambio:\"+ant);\n");
 
-line("                      if ("+Utils._1raMin(entityTo.getName())+"s.size() > 0){\n");
+line("                  if ("+Utils._1raMin(entityTo.getName())+"s.size() > 0){\n");
 
             atributos = entityFrom.getAtributos();
             Collections.sort(atributos);
@@ -404,36 +405,22 @@ line("                      if ("+Utils._1raMin(entityTo.getName())+"s.size() > 
                 switch (atributo.getType()) {
                     case "String":
 
-line("                          if (fromProperty.equals(\""+atributo.getField()+"\")){");
-line("                              "+Utils._1raMin(entityFrom.getName())+" = findBean."+atributo.getField()+entityFrom.getName()+"(ant,em);");
-line("                              "+Utils._1raMin(entityFrom.getName())+".set"+entityTo.getName()+"("+Utils._1raMin(entityTo.getName())+"s);\n");
-line("                          } // "+Utils._1raMin(entityFrom.getName())+"\n");
+line("                      if (fromProperty.equals(\""+atributo.getField()+"\")){");
+line("                          "+Utils._1raMin(entityFrom.getName())+" = findBean."+atributo.getField()+entityFrom.getName()+"(ant,em);");
+line("                          "+Utils._1raMin(entityFrom.getName())+".set"+entityTo.getName()+"("+Utils._1raMin(entityTo.getName())+"s);\n");
+line("                      } // "+Utils._1raMin(entityFrom.getName())+"\n");
 
                          break;
                     default:
                          break;
                 } // switch (atributo.getType())
 
-line("                          if (!isValidate) {");
-line("                              em.merge("+Utils._1raMin(entityFrom.getName())+");");
-line("                              em.flush();\n");
-
-line("                              j = 0;");
-line("                              for("+entityTo.getName()+" "+Utils._1raMin(entityTo.getName())+"x : "+Utils._1raMin(entityTo.getName())+"s){");
-line("                                  f.line(\"       \"+Integer.toString(++j)+\":\"+"+Utils._1raMin(entityTo.getName())+"x.getName());");
-line("                              }\n");
-
-line("                          }\n");
-
             } //atributos
 
+line("                      if (!isValidate) {\n");
 
-line("                      } \\size()\n");
-
-line("                      "+Utils._1raMin(entityTo.getName())+"s = new HashSet<"+entityTo.getName()+">();");
-line("                      "+Utils._1raMin(entityTo.getName())+" = new "+entityTo.getName()+"();\n");
-
-line("                   } \\isCambio \n");
+line("                          em.merge("+Utils._1raMin(entityFrom.getName())+");");
+line("                          em.flush();\n");
 
             atributos = entityTo.getAtributos();
             Collections.sort(atributos);
@@ -442,9 +429,40 @@ line("                   } \\isCambio \n");
                 switch (atributo.getType()) {
                     case "String":
 
-line("                  if (toProperty.equals(\""+atributo.getField()+"\")){");
-line("                      "+Utils._1raMin(entityTo.getName())+" = findBean."+atributo.getField()+entityTo.getName()+"(toValue,em);");
-line("                  } // "+Utils._1raMin(entityTo.getName())+"\n");
+line("                          if (fromProperty.equals(\""+atributo.getField()+"\")){");
+line("                              j = 0;");
+line("                              for("+entityTo.getName()+" "+Utils._1raMin(entityTo.getName())+"x : "+Utils._1raMin(entityTo.getName())+"s){");
+line("                                  f.line(\"       \"+Integer.toString(++j)+\":\"+"+Utils._1raMin(entityTo.getName())+"x.get"+Utils._1raMay(atributo.getField())+"());");
+line("                              }\n");
+line("                          } // "+Utils._1raMin(entityFrom.getName())+"\n");
+
+                         break;
+                    default:
+                         break;
+                } // switch (atributo.getType())
+
+            } //atributos
+
+line("                      }\n");
+
+
+line("                  } // size()\n");
+
+line("                  "+Utils._1raMin(entityTo.getName())+"s = new HashSet<"+entityTo.getName()+">();");
+line("                  "+Utils._1raMin(entityTo.getName())+" = new "+entityTo.getName()+"();\n");
+
+line("               } // isCambio \n");
+
+            atributos = entityTo.getAtributos();
+            Collections.sort(atributos);
+            for(Atributos atributo : atributos ){ // to
+
+                switch (atributo.getType()) {
+                    case "String":
+
+line("              if (toProperty.equals(\""+atributo.getField()+"\")){");
+line("                  "+Utils._1raMin(entityTo.getName())+" = findBean."+atributo.getField()+entityTo.getName()+"(toValue,em);");
+line("              } // "+Utils._1raMin(entityTo.getName())+"\n");
 
                          break;
                     default:
@@ -452,17 +470,17 @@ line("                  } // "+Utils._1raMin(entityTo.getName())+"\n");
                 } // switch (atributo.getType())
 
             } // atributos
-            
-line("                  "+Utils._1raMin(entityTo.getName())+"s.add("+Utils._1raMin(entityTo.getName())+");\n");
 
-line("               } // from: "+entityFrom.getName()+"\n");
+line("              "+Utils._1raMin(entityTo.getName())+"s.add("+Utils._1raMin(entityTo.getName())+");\n");
+
+line("           } // from: "+entityFrom.getName()+"\n");
 
 
         } // entidad.getRelations()
 
     } // entidades
 
-line("            } // while\n");
+line("        } // while\n");
 
     for(Entidad entidad : entidades) {
 
@@ -480,12 +498,12 @@ line("            } // while\n");
                 continue;
             }
 
-line("            if (from.equals(\""+entityFrom.getName()+"\") &&");
-line("                cardinalities.equals(\""+cardinality+"\") &&");
-line("                to.equals(\""+entityTo.getName()+"\") &&");
-line("                Utils.isEmpty(name)){\n");
+line("        if (from.equals(\""+entityFrom.getName()+"\") &&");
+line("            cardinalities.equals(\""+cardinality+"\") &&");
+line("            to.equals(\""+entityTo.getName()+"\") &&");
+line("            Utils.isEmpty(name)){\n");
 
-line("                if ("+Utils._1raMin(entityTo.getName())+"s.size() > 0){\n");
+line("            if ("+Utils._1raMin(entityTo.getName())+"s.size() > 0){\n");
 
 
             atributos = entityFrom.getAtributos();
@@ -495,10 +513,10 @@ line("                if ("+Utils._1raMin(entityTo.getName())+"s.size() > 0){\n"
                 switch (atributo.getType()) {
                     case "String":
 
-line("                    if (fromProperty.equals(\""+atributo.getField()+"\")){");
-line("                        "+Utils._1raMin(entityFrom.getName())+" = findBean."+atributo.getField()+entityFrom.getName()+"(ant,em);");
-line("                        "+Utils._1raMin(entityFrom.getName())+".set"+entityTo.getName()+"("+Utils._1raMin(entityTo.getName())+"s);\n");
-line("                    } // "+Utils._1raMin(entityFrom.getName())+"\n");
+line("                if (fromProperty.equals(\""+atributo.getField()+"\")){");
+line("                    "+Utils._1raMin(entityFrom.getName())+" = findBean."+atributo.getField()+entityFrom.getName()+"(anterior,em);");
+line("                    "+Utils._1raMin(entityFrom.getName())+".set"+entityTo.getName()+"("+Utils._1raMin(entityTo.getName())+"s);\n");
+line("                } // "+Utils._1raMin(entityFrom.getName())+"\n");
 
                          break;
                     default:
@@ -507,31 +525,48 @@ line("                    } // "+Utils._1raMin(entityFrom.getName())+"\n");
 
             } //atributos
 
-line("                if (!isValidate) {");
-line("                    em.merge("+Utils._1raMin(entityFrom.getName())+");");
-line("                    em.flush();\n");
+line("            if (!isValidate) {\n");
 
-line("                    j = 0;");
-line("                    for("+entityTo.getName()+" "+Utils._1raMin(entityTo.getName())+"x : "+Utils._1raMin(entityTo.getName())+"s){");
-line("                        f.line(\"       \"+Integer.toString(++j)+\":\"+"+Utils._1raMin(entityTo.getName())+"x.getName());");
-line("                    }\n");
+line("                em.merge("+Utils._1raMin(entityFrom.getName())+");");
+line("                em.flush();\n");
 
-line("                }\n");
+            atributos = entityTo.getAtributos();
+            Collections.sort(atributos);
+            for(Atributos atributo : atributos ){ // to
 
-line("                } \\size()\n");
+                switch (atributo.getType()) {
+                    case "String":
 
-line("            } // from: "+entityFrom.getName()+"\n");
+line("                          if (fromProperty.equals(\""+atributo.getField()+"\")){");
+line("                              j = 0;");
+line("                              for("+entityTo.getName()+" "+Utils._1raMin(entityTo.getName())+"x : "+Utils._1raMin(entityTo.getName())+"s){");
+line("                                  f.line(\"       \"+Integer.toString(++j)+\":\"+"+Utils._1raMin(entityTo.getName())+"x.get"+Utils._1raMay(atributo.getField())+"());");
+line("                              }\n");
+line("                          } // "+Utils._1raMin(entityFrom.getName())+"\n");
+
+                         break;
+                    default:
+                         break;
+                } // switch (atributo.getType())
+
+            } //atributos
+
+line("            }\n");
+
+line("            } //size()\n");
+
+line("        } // from: "+entityFrom.getName()+"\n");
 
         } // entidad.getRelations()
 
     } // entidades
 
-line("            if (isValidate) {");
-line("                f.saveFile(\"\\\\docs\", \"VR7.txt\");\n");
-line("            }");
-line("            else{");
-line("                f.saveFile(\"\\\\docs\", \"DR7.txt\");\n");
-line("            }\n");
+line("        if (isValidate) {");
+line("            f.saveFile(\"\\\\docs\", \"VR7.txt\");\n");
+line("        }");
+line("        else{");
+line("            f.saveFile(\"\\\\docs\", \"DR7.txt\");\n");
+line("        }\n");
 
 line("    } catch (FileNotFoundException ex) {");
 line("             ex.printStackTrace();");

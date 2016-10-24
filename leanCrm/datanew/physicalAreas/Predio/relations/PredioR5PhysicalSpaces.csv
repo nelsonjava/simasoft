@@ -1,10 +1,5 @@
 From;FromProperty;FromValue;To;ToProperty;ToValue;Name;Cardinalities
-Predio;nomenclatura;C 26 22 138;PhysicalSpaces;name;Fachada;       ;Uno a Muchos Bidirecccional No.5
-Predio;nomenclatura;C 26 22 138;PhysicalSpaces;name;Ingreso Escalera 1 Piso;;Uno a Muchos Bidirecccional No.5
-Predio;nomenclatura;C 26 22 138;PhysicalSpaces;name;Escalera 1 Piso;;Uno a Muchos Bidirecccional No.5
-Predio;nomenclatura;C 26 22 138;PhysicalSpaces;name;Pasillo 2 piso;;Uno a Muchos Bidirecccional No.5
-Predio;nomenclatura;C 26 22 138;PhysicalSpaces;name;placa 2 piso;;Uno a Muchos Bidirecccional No.5
-Predio;nomenclatura;C 26 22 138;PhysicalSpaces;name;placa 3 piso;;Uno a Muchos Bidirecccional No.5
+Predio;nomenclatura;C 26 22 138;PhysicalSpaces;name;Area Común CL26;       ;Uno a Muchos Bidirecccional No.5
 Predio;nomenclatura;LOCAL No.1;PhysicalSpaces;name;Local L1;;Uno a Muchos Bidirecccional No.5
 Predio;nomenclatura;LOCAL No.1;PhysicalSpaces;name;Baño L1;;Uno a Muchos Bidirecccional No.5
 Predio;nomenclatura;LOCAL No.1;PhysicalSpaces;name;Cocina L1;;Uno a Muchos Bidirecccional No.5

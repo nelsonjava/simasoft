@@ -2443,7 +2443,7 @@ public class FindBean {
            predio = results.get(0);
         }
         return predio;
-    }    
+    }
 
     public Predio predialPredio(String search,EntityManager em) {
 
@@ -2524,7 +2524,7 @@ public class FindBean {
 
 //      ---------------------- PhysicalSpacesTypes ------------------------
 
-    public List<PhysicalSpacesTypes> AllPhysicalSpacesTypes() {
+    public List<PhysicalSpacesTypes> AllPhysicalSpacesTypes(EntityManager em) {
         List<PhysicalSpacesTypes> results = em.createQuery("SELECT o FROM PhysicalSpacesTypes o").getResultList();
         if (results.isEmpty()) {
             return new ArrayList<PhysicalSpacesTypes>();
@@ -2612,7 +2612,7 @@ public class FindBean {
 
 //      ---------------------- PhysicalAreasTypes ------------------------
 
-    public List<PhysicalAreasTypes> AllPhysicalAreasTypes() {
+    public List<PhysicalAreasTypes> AllPhysicalAreasTypes(EntityManager em) {
         List<PhysicalAreasTypes> results = em.createQuery("SELECT o FROM PhysicalAreasTypes o").getResultList();
         if (results.isEmpty()) {
             return new ArrayList<PhysicalAreasTypes>();
