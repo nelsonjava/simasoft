@@ -301,13 +301,6 @@ line("            anterior = \"\";\n");
             cardinality = relation.getNameCardinality();
             relationName = relation.getName();
 
-            if (!(entidad.getName().equals(entityFrom.getName()))){
-                continue;
-            }
-            if (!(cardinality.equals("Muchos a Muchos Bidirecccional No.7"))){
-                continue;
-            }
-
             entities.add(entityFrom);
             entities.add(entityTo);
             entitiesTo.add(entityTo);
@@ -342,11 +335,12 @@ line("               toValue = data[5];");
 line("               name = data[6];");
 line("               cardinalities = data[7];\n");
 
-line("               i++;");
+line("               i++;\n");
+
 line("               f.line(Integer.toString(i)+\"=From:\"+from+\"\\n\"+");
 line("                                          \"  FromProperty:\"+fromProperty+\"\\n\"+");
 line("                                          \"  FromValue:\"+fromValue+\"\\n\"+");
-line("                                          \"  To:\"+to+\"\\n\"+");
+line("                                          \"  To:\"+to+\"\n\"+");
 line("                                          \"  ToProperty:\"+toProperty+\"\\n\"+");
 line("                                          \"  ToValue:\"+toValue+\"\\n\"+");
 line("                                          \"  Name:\"+name+\"\\n\"+");
@@ -373,7 +367,7 @@ line("               }\n");
     for(Entidad entidad : entidades) {
 
         for(Relation relation :entidad.getRelations()) {
-          
+
             entityFrom = relation.getEntityFrom();
             entityTo = relation.getEntityTo();
             cardinality = relation.getNameCardinality();
@@ -433,6 +427,7 @@ line("                      } \\size()\n");
 line("                      "+Utils._1raMin(entityTo.getName())+"s = new HashSet<"+entityTo.getName()+">();");
 line("                      "+Utils._1raMin(entityTo.getName())+" = new "+entityTo.getName()+"();\n");
 
+
 line("                   } \\isCambio \n");
 
             atributos = entityTo.getAtributos();
@@ -452,41 +447,19 @@ line("                  } // "+Utils._1raMin(entityTo.getName())+"\n");
                 } // switch (atributo.getType())
 
             } // atributos
-            
+
 line("                  "+Utils._1raMin(entityTo.getName())+"s.add("+Utils._1raMin(entityTo.getName())+");\n");
+
 
 line("               } // from: "+entityFrom.getName()+"\n");
 
 
-        } // entidad.getRelations()
+line("               if (from.equals(\""+entityFrom.getName()+"\") &&");
+line("                   cardinalities.equals(\""+cardinality+"\") &&");
+line("                   to.equals(\""+entityTo.getName()+"\") &&");
+line("                   Utils.isEmpty(name)){\n");
 
-    } // entidades
-
-line("            } // while\n");
-
-    for(Entidad entidad : entidades) {
-
-        for(Relation relation : entidad.getRelations()) {
-
-            entityFrom = relation.getEntityFrom();
-            entityTo = relation.getEntityTo();
-            cardinality = relation.getNameCardinality();
-            relationName = relation.getName();
-
-            if (!(entidad.getName().equals(entityFrom.getName()))){
-                continue;
-            }
-            if (!(cardinality.equals("Muchos a Muchos Bidirecccional No.7"))){
-                continue;
-            }
-
-line("            if (from.equals(\""+entityFrom.getName()+"\") &&");
-line("                cardinalities.equals(\""+cardinality+"\") &&");
-line("                to.equals(\""+entityTo.getName()+"\") &&");
-line("                Utils.isEmpty(name)){\n");
-
-line("                if ("+Utils._1raMin(entityTo.getName())+"s.size() > 0){\n");
-
+line("                   if ("+Utils._1raMin(entityTo.getName())+"s.size() > 0){\n");
 
             atributos = entityFrom.getAtributos();
             Collections.sort(atributos);
@@ -495,10 +468,10 @@ line("                if ("+Utils._1raMin(entityTo.getName())+"s.size() > 0){\n"
                 switch (atributo.getType()) {
                     case "String":
 
-line("                    if (fromProperty.equals(\""+atributo.getField()+"\")){");
-line("                        "+Utils._1raMin(entityFrom.getName())+" = findBean."+atributo.getField()+entityFrom.getName()+"(ant,em);");
-line("                        "+Utils._1raMin(entityFrom.getName())+".set"+entityTo.getName()+"("+Utils._1raMin(entityTo.getName())+"s);\n");
-line("                    } // "+Utils._1raMin(entityFrom.getName())+"\n");
+line("                          if (fromProperty.equals(\""+atributo.getField()+"\")){");
+line("                              "+Utils._1raMin(entityFrom.getName())+" = findBean."+atributo.getField()+entityFrom.getName()+"(ant,em);");
+line("                              "+Utils._1raMin(entityFrom.getName())+".set"+entityTo.getName()+"("+Utils._1raMin(entityTo.getName())+"s);\n");
+line("                          } // "+Utils._1raMin(entityFrom.getName())+"\n");
 
                          break;
                     default:
@@ -507,31 +480,27 @@ line("                    } // "+Utils._1raMin(entityFrom.getName())+"\n");
 
             } //atributos
 
-line("                if (!isValidate) {");
-line("                    em.merge("+Utils._1raMin(entityFrom.getName())+");");
-line("                    em.flush();\n");
+line("                          if (!isValidate) {");
+line("                              em.merge("+Utils._1raMin(entityFrom.getName())+");");
+line("                              em.flush();\n");
 
-line("                    j = 0;");
-line("                    for("+entityTo.getName()+" "+Utils._1raMin(entityTo.getName())+"x : "+Utils._1raMin(entityTo.getName())+"s){");
-line("                        f.line(\"       \"+Integer.toString(++j)+\":\"+"+Utils._1raMin(entityTo.getName())+"x.getName());");
-line("                    }\n");
+line("                              j = 0;");
+line("                              for("+entityTo.getName()+" "+Utils._1raMin(entityTo.getName())+"x : "+Utils._1raMin(entityTo.getName())+"s){");
+line("                                  f.line(\"       \"+Integer.toString(++j)+\":\"+"+Utils._1raMin(entityTo.getName())+"x.getName());");
+line("                              }\n");
 
-line("                }\n");
+line("                          }\n");
 
-line("                } \\size()\n");
+line("                   } \\size()\n");
 
-line("            } // from: "+entityFrom.getName()+"\n");
+line("               } // from: "+entityFrom.getName()+"\n");
 
-        } // entidad.getRelations()
-
-    } // entidades
-
-line("            if (isValidate) {");
-line("                f.saveFile(\"\\\\docs\", \"VR7.txt\");\n");
-line("            }");
-line("            else{");
-line("                f.saveFile(\"\\\\docs\", \"DR7.txt\");\n");
-line("            }\n");
+line("               if (isValidate) {");
+line("                   f.saveFile(\"\\\\docs\", \"VR7.txt\");\n");
+line("               }");
+line("               else{");
+line("                   f.saveFile(\"\\\\docs\", \"DR7.txt\");\n");
+line("               }");
 
 line("    } catch (FileNotFoundException ex) {");
 line("             ex.printStackTrace();");
@@ -556,6 +525,15 @@ line("    } // relationshipsR7");
 
 line("} // Class");
 
+        } // entidad.getRelations())
+
+    } // entidades
+
+
+
+line("            } // while\n");
+
+line("} // Class");
 
   } // Contructor
 
