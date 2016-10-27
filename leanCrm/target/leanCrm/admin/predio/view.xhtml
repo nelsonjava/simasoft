@@ -53,10 +53,6 @@
                         <h:outputText id="predioBeanPredioArea" value="#{predioBean.predio.area}"/>
                         <h:outputText/>
 
-                        <h:outputLabel for="predioBeanPredioObservations" value="Observations:"/>
-                        <h:outputText id="predioBeanPredioObservations" value="#{predioBean.predio.observations}" escape="false" />
-                        <h:outputText/>
-
                         <h:outputLabel for="PredioBeanPredioPhysicalSpaces" value="PhysicalSpaces:"/>
                         <h:dataTable id="predioBeanPrediophysicalSpaces" styleClass="data-table" value="#{forgeview:asList(predioBean.predio.physicalSpaces)}" var="_item">
 
@@ -155,18 +151,22 @@
                         </h:link>
                         <h:outputText/>
                         
+                        <h:outputLabel for="predioBeanPredioObservations" value="Observations:"/>
+                        <h:outputText id="predioBeanPredioObservations" value="#{predioBean.predio.observations}" escape="false" />
+                        <h:outputText/>
+                        
                         <h:outputLabel for="PrediosGen" value="Generate:"/>
                         <h:form>
                           <h:commandButton value="PrediosGen" action="#{PrediosGen.PhysicalAreasData()}" />
                         </h:form>
 			<h:outputText/>
-			
+
                         <h:outputLabel for="PrediosGen" value="Generate:"/>
                         <h:form>
                           <h:commandButton value="SpacesGen" action="#{PrediosGen.PhysicalSpacesData()}" />
                         </h:form>
 			<h:outputText/>
-			
+
                         <h:outputLabel for="PrediosGen" value="Generate:"/>
                         <h:form>
                           <h:commandButton value="PhysicalSpacesTypesGen" action="#{PrediosGen.PhysicalSpacesTypesData()}" />
