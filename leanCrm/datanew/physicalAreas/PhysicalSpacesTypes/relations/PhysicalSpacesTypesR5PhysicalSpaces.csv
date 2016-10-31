@@ -1,35 +1,40 @@
 From;FromProperty;FromValue;To;ToProperty;ToValue;Name;Cardinalities
-PhysicalSpacesTypes;name;Area Común;PhysicalSpaces;name;Area Común CL26;;Uno a Muchos Bidirecccional No.5
-PhysicalSpacesTypes;name;Fachada;PhysicalSpaces;name;Fachada CL26;       ;Uno a Muchos Bidirecccional No.5
-PhysicalSpacesTypes;name;Escaleras;PhysicalSpaces;name;Ingreso Escalera 1 Piso CL26;;Uno a Muchos Bidirecccional No.5
-PhysicalSpacesTypes;name;Escaleras;PhysicalSpaces;name;Escalera 1 Piso CL26;;Uno a Muchos Bidirecccional No.5
-PhysicalSpacesTypes;name;Pasillo;PhysicalSpaces;name;Pasillo 2 piso CL26;;Uno a Muchos Bidirecccional No.5
-PhysicalSpacesTypes;name;placa;PhysicalSpaces;name;placa 2 piso CL26;;Uno a Muchos Bidirecccional No.5
-PhysicalSpacesTypes;name;placa;PhysicalSpaces;name;placa 3 piso CL26;;Uno a Muchos Bidirecccional No.5
-PhysicalSpacesTypes;name;Local;PhysicalSpaces;name;Local L1;;Uno a Muchos Bidirecccional No.5
-PhysicalSpacesTypes;name;Baño;PhysicalSpaces;name;Baño L1;;Uno a Muchos Bidirecccional No.5
-PhysicalSpacesTypes;name;Cocina;PhysicalSpaces;name;Cocina L1;;Uno a Muchos Bidirecccional No.5
-PhysicalSpacesTypes;name;Local;PhysicalSpaces;name;Local L2;;Uno a Muchos Bidirecccional No.5
-PhysicalSpacesTypes;name;Rincon;PhysicalSpaces;name;Rincon L2;;Uno a Muchos Bidirecccional No.5
-PhysicalSpacesTypes;name;Baño;PhysicalSpaces;name;Baño L2;;Uno a Muchos Bidirecccional No.5
-PhysicalSpacesTypes;name;Local;PhysicalSpaces;name;Local L3;;Uno a Muchos Bidirecccional No.5
-PhysicalSpacesTypes;name;Rincon;PhysicalSpaces;name;Rincon  L3;;Uno a Muchos Bidirecccional No.5
-PhysicalSpacesTypes;name;Baño;PhysicalSpaces;name;Baño  L3;;Uno a Muchos Bidirecccional No.5
-PhysicalSpacesTypes;name;Local;PhysicalSpaces;name;Local  L4;;Uno a Muchos Bidirecccional No.5
-PhysicalSpacesTypes;name;Cocina;PhysicalSpaces;name;Cocina  L4;;Uno a Muchos Bidirecccional No.5
 PhysicalSpacesTypes;name;Alcoba;PhysicalSpaces;name;Alcoba  L4;;Uno a Muchos Bidirecccional No.5
-PhysicalSpacesTypes;name;Patio;PhysicalSpaces;name;Patio  L4;;Uno a Muchos Bidirecccional No.5
+PhysicalSpacesTypes;name;Alcoba;PhysicalSpaces;name;Alcoba1 A201;;Uno a Muchos Bidirecccional No.5
+PhysicalSpacesTypes;name;Alcoba;PhysicalSpaces;name;Alcoba1 A202;;Uno a Muchos Bidirecccional No.5
+PhysicalSpacesTypes;name;Alcoba;PhysicalSpaces;name;Alcoba2 A201;;Uno a Muchos Bidirecccional No.5
+PhysicalSpacesTypes;name;Alcoba;PhysicalSpaces;name;Alcoba2 A202;;Uno a Muchos Bidirecccional No.5
+PhysicalSpacesTypes;name;Area Común;PhysicalSpaces;name;Area Común CR23;;Uno a Muchos Bidirecccional No.5
+PhysicalSpacesTypes;name;Balcon;PhysicalSpaces;name;Balcon A201;;Uno a Muchos Bidirecccional No.5
+PhysicalSpacesTypes;name;Balcon;PhysicalSpaces;name;Balcon A202;;Uno a Muchos Bidirecccional No.5
+PhysicalSpacesTypes;name;Baño;PhysicalSpaces;name;Baño  L3;;Uno a Muchos Bidirecccional No.5
 PhysicalSpacesTypes;name;Baño;PhysicalSpaces;name;Baño  L4;;Uno a Muchos Bidirecccional No.5
-PhysicalSpacesTypes;name;Local;PhysicalSpaces;name;Local  L5;;Uno a Muchos Bidirecccional No.5
 PhysicalSpacesTypes;name;Baño;PhysicalSpaces;name;Baño  L5;;Uno a Muchos Bidirecccional No.5
-PhysicalSpacesTypes;name;Sala Comedor;PhysicalSpaces;name;Sala Comedor A201;;Uno a Muchos Bidirecccional No.5
-PhysicalSpacesTypes;name;Cocina;PhysicalSpaces;name;Cocina A201;;Uno a Muchos Bidirecccional No.5
-PhysicalSpacesTypes;name;Alcoba;PhysicalSpaces;name;Alcoba Principal A201;;Uno a Muchos Bidirecccional No.5
-PhysicalSpacesTypes;name;Alcoba;PhysicalSpaces;name;Alcoba Secundaria  A201;;Uno a Muchos Bidirecccional No.5
 PhysicalSpacesTypes;name;Baño;PhysicalSpaces;name;Baño A201;;Uno a Muchos Bidirecccional No.5
-PhysicalSpacesTypes;name;Sala Comedor;PhysicalSpaces;name;Sala Comedor A202;;Uno a Muchos Bidirecccional No.5
 PhysicalSpacesTypes;name;Baño;PhysicalSpaces;name;Baño A202;;Uno a Muchos Bidirecccional No.5
-PhysicalSpacesTypes;name;Cocina;PhysicalSpaces;name;Cocina A202;;Uno a Muchos Bidirecccional No.5
 PhysicalSpacesTypes;name;Baño;PhysicalSpaces;name;Baño Cocina A202;;Uno a Muchos Bidirecccional No.5
-PhysicalSpacesTypes;name;Alcoba;PhysicalSpaces;name;Alcoba Principal A202;;Uno a Muchos Bidirecccional No.5
-PhysicalSpacesTypes;name;Alcoba;PhysicalSpaces;name;Alcoba Secundaria A202;;Uno a Muchos Bidirecccional No.5
+PhysicalSpacesTypes;name;Baño;PhysicalSpaces;name;Baño L1;;Uno a Muchos Bidirecccional No.5
+PhysicalSpacesTypes;name;Baño;PhysicalSpaces;name;Baño L2;;Uno a Muchos Bidirecccional No.5
+PhysicalSpacesTypes;name;Cocina;PhysicalSpaces;name;Cocina  L4;;Uno a Muchos Bidirecccional No.5
+PhysicalSpacesTypes;name;Cocina;PhysicalSpaces;name;Cocina A201;;Uno a Muchos Bidirecccional No.5
+PhysicalSpacesTypes;name;Cocina;PhysicalSpaces;name;Cocina A202;;Uno a Muchos Bidirecccional No.5
+PhysicalSpacesTypes;name;Cocina;PhysicalSpaces;name;Cocina L1;;Uno a Muchos Bidirecccional No.5
+PhysicalSpacesTypes;name;Escaleras;PhysicalSpaces;name;Escalera 1 Piso CR23;;Uno a Muchos Bidirecccional No.5
+PhysicalSpacesTypes;name;Fachada;PhysicalSpaces;name;Fachada CR23;;Uno a Muchos Bidirecccional No.5
+PhysicalSpacesTypes;name;Garajes;PhysicalSpaces;name;Garaje L1;;Uno a Muchos Bidirecccional No.5
+PhysicalSpacesTypes;name;Ingresos;PhysicalSpaces;name;Ingreso Escalera 1 Piso CR23;;Uno a Muchos Bidirecccional No.5
+PhysicalSpacesTypes;name;Local;PhysicalSpaces;name;Local  L4;;Uno a Muchos Bidirecccional No.5
+PhysicalSpacesTypes;name;Local;PhysicalSpaces;name;Local  L5;;Uno a Muchos Bidirecccional No.5
+PhysicalSpacesTypes;name;Local;PhysicalSpaces;name;Local L1;;Uno a Muchos Bidirecccional No.5
+PhysicalSpacesTypes;name;Local;PhysicalSpaces;name;Local L2;;Uno a Muchos Bidirecccional No.5
+PhysicalSpacesTypes;name;Local;PhysicalSpaces;name;Local L3;;Uno a Muchos Bidirecccional No.5
+PhysicalSpacesTypes;name;Pasillo;PhysicalSpaces;name;Pasillo 2 piso CR23;;Uno a Muchos Bidirecccional No.5
+PhysicalSpacesTypes;name;Pasillo;PhysicalSpaces;name;Pasillo A201;;Uno a Muchos Bidirecccional No.5
+PhysicalSpacesTypes;name;Pasillo;PhysicalSpaces;name;Pasillo A202;;Uno a Muchos Bidirecccional No.5
+PhysicalSpacesTypes;name;Patios;PhysicalSpaces;name;Patio  L4;;Uno a Muchos Bidirecccional No.5
+PhysicalSpacesTypes;name;placa;PhysicalSpaces;name;Placa 2 piso CR23;;Uno a Muchos Bidirecccional No.5
+PhysicalSpacesTypes;name;placa;PhysicalSpaces;name;Placa 3 piso CR23;;Uno a Muchos Bidirecccional No.5
+PhysicalSpacesTypes;name;Rincon;PhysicalSpaces;name;Rincon  L3;;Uno a Muchos Bidirecccional No.5
+PhysicalSpacesTypes;name;Rincon;PhysicalSpaces;name;Rincon L2;;Uno a Muchos Bidirecccional No.5
+PhysicalSpacesTypes;name;Sala Comedor;PhysicalSpaces;name;Sala Comedor A201;;Uno a Muchos Bidirecccional No.5
+PhysicalSpacesTypes;name;Sala Comedor;PhysicalSpaces;name;Sala Comedor A202;;Uno a Muchos Bidirecccional No.5

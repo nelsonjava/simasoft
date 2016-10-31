@@ -55,6 +55,17 @@ public class PrediosGen extends FileTxt {
 
                 for(PhysicalAreas physicalAreas : physicalSpaces.getPhysicalAreas()){
 
+
+                   line(predio.getCode()+"."+physicalSpaces.getPhysicalSpacesTypes().getCode()+"."+physicalAreas.getPhysicalAreasTypes().getCode()+";"+
+                        predio.getNomenclatura()+";"+
+                        physicalSpaces.getName()+";"+
+                        physicalAreas.getName()+";"+
+                        physicalAreas.getWidth()+";"+
+                        physicalAreas.getHigh()+";"+
+                        physicalAreas.getHigh()+";"+
+                        physicalAreas.getPhysicalAreasTypes().getName());
+
+/*
                    line(predio.getCode()+"."+physicalSpaces.getPhysicalSpacesTypes().getCode()+"."+physicalAreas.getPhysicalAreasTypes().getCode()+";"+
                         predio.getNomenclatura()+";"+
                         physicalSpaces.getName()+";"+
@@ -62,6 +73,7 @@ public class PrediosGen extends FileTxt {
                         physicalAreas.getWidth()+";"+
                         physicalAreas.getHigh()+";"+
                         physicalAreas.getWidth()*physicalAreas.getHigh());
+*/
 
                 } // physicalSpaces.getPhysicalAreas()
 

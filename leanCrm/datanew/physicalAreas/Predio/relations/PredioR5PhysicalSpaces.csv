@@ -1,8 +1,9 @@
 From;FromProperty;FromValue;To;ToProperty;ToValue;Name;Cardinalities
-Predio;nomenclatura;C 26 22 138;PhysicalSpaces;name;Area Común CL26;       ;Uno a Muchos Bidirecccional No.5
+Predio;nomenclatura;C 26 22 138;PhysicalSpaces;name;Area Común CR23;;Uno a Muchos Bidirecccional No.5
 Predio;nomenclatura;LOCAL No.1;PhysicalSpaces;name;Local L1;;Uno a Muchos Bidirecccional No.5
 Predio;nomenclatura;LOCAL No.1;PhysicalSpaces;name;Baño L1;;Uno a Muchos Bidirecccional No.5
 Predio;nomenclatura;LOCAL No.1;PhysicalSpaces;name;Cocina L1;;Uno a Muchos Bidirecccional No.5
+Predio;nomenclatura;LOCAL No.1;PhysicalSpaces;name;Garaje L1;;Uno a Muchos Bidirecccional No.5
 Predio;nomenclatura;LOCAL No.2;PhysicalSpaces;name;Local L2;;Uno a Muchos Bidirecccional No.5
 Predio;nomenclatura;LOCAL No.2;PhysicalSpaces;name;Rincon L2;;Uno a Muchos Bidirecccional No.5
 Predio;nomenclatura;LOCAL No.2;PhysicalSpaces;name;Baño L2;;Uno a Muchos Bidirecccional No.5
@@ -16,16 +17,18 @@ Predio;nomenclatura;LOCAL No.4;PhysicalSpaces;name;Patio  L4;;Uno a Muchos Bidir
 Predio;nomenclatura;LOCAL No.4;PhysicalSpaces;name;Baño  L4;;Uno a Muchos Bidirecccional No.5
 Predio;nomenclatura;LOCAL No.5;PhysicalSpaces;name;Local  L5;;Uno a Muchos Bidirecccional No.5
 Predio;nomenclatura;LOCAL No.5;PhysicalSpaces;name;Baño  L5;;Uno a Muchos Bidirecccional No.5
+Predio;nomenclatura;APTO 201;PhysicalSpaces;name;Pasillo A201;;Uno a Muchos Bidirecccional No.5
 Predio;nomenclatura;APTO 201;PhysicalSpaces;name;Sala Comedor A201;;Uno a Muchos Bidirecccional No.5
 Predio;nomenclatura;APTO 201;PhysicalSpaces;name;Cocina A201;;Uno a Muchos Bidirecccional No.5
-Predio;nomenclatura;APTO 201;PhysicalSpaces;name;Alcoba Principal A201;;Uno a Muchos Bidirecccional No.5
-Predio;nomenclatura;APTO 201;PhysicalSpaces;name;Alcoba Secundaria  A201;;Uno a Muchos Bidirecccional No.5
+Predio;nomenclatura;APTO 201;PhysicalSpaces;name;Alcoba1 A201;;Uno a Muchos Bidirecccional No.5
+Predio;nomenclatura;APTO 201;PhysicalSpaces;name;Alcoba2 A201;;Uno a Muchos Bidirecccional No.5
 Predio;nomenclatura;APTO 201;PhysicalSpaces;name;Baño A201;;Uno a Muchos Bidirecccional No.5
 Predio;nomenclatura;APTO 201;PhysicalSpaces;name;Balcon A201;;Uno a Muchos Bidirecccional No.5
+Predio;nomenclatura;APTO 202;PhysicalSpaces;name;Pasillo A202;;Uno a Muchos Bidirecccional No.5
 Predio;nomenclatura;APTO 202;PhysicalSpaces;name;Sala Comedor A202;;Uno a Muchos Bidirecccional No.5
 Predio;nomenclatura;APTO 202;PhysicalSpaces;name;Baño A202;;Uno a Muchos Bidirecccional No.5
 Predio;nomenclatura;APTO 202;PhysicalSpaces;name;Cocina A202;;Uno a Muchos Bidirecccional No.5
 Predio;nomenclatura;APTO 202;PhysicalSpaces;name;Baño Cocina A202;;Uno a Muchos Bidirecccional No.5
-Predio;nomenclatura;APTO 202;PhysicalSpaces;name;Alcoba Principal A202;;Uno a Muchos Bidirecccional No.5
-Predio;nomenclatura;APTO 202;PhysicalSpaces;name;Alcoba Secundaria A202;;Uno a Muchos Bidirecccional No.5
+Predio;nomenclatura;APTO 202;PhysicalSpaces;name;Alcoba1 A202;;Uno a Muchos Bidirecccional No.5
+Predio;nomenclatura;APTO 202;PhysicalSpaces;name;Alcoba2 A202;;Uno a Muchos Bidirecccional No.5
 Predio;nomenclatura;APTO 202;PhysicalSpaces;name;Balcon A202;;Uno a Muchos Bidirecccional No.5

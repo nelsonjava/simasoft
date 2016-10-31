@@ -1,7 +1,7 @@
 From;FromProperty;FromValue;To;ToProperty;ToValue;Name;Cardinalities
-PhysicalSpaces;name;Area Común CL26;PhysicalSpaces;name;Fachada CL26;       ;Uno a Muchos Bidirecccional No.5
-PhysicalSpaces;name;Area Común CL26;PhysicalSpaces;name;Ingreso Escalera 1 Piso CL26;;Uno a Muchos Bidirecccional No.5
-PhysicalSpaces;name;Area Común CL26;PhysicalSpaces;name;Escalera 1 Piso CL26;;Uno a Muchos Bidirecccional No.5
-PhysicalSpaces;name;Area Común CL26;PhysicalSpaces;name;Pasillo 2 piso CL26;;Uno a Muchos Bidirecccional No.5
-PhysicalSpaces;name;Area Común CL26;PhysicalSpaces;name;placa 2 piso CL26;;Uno a Muchos Bidirecccional No.5
-PhysicalSpaces;name;Area Común CL26;PhysicalSpaces;name;placa 3 piso CL26;;Uno a Muchos Bidirecccional No.5
+PhysicalSpaces;name;Area Común CR23;PhysicalSpaces;name;Fachada CR23;       ;Uno a Muchos Bidirecccional No.5
+PhysicalSpaces;name;Area Común CR23;PhysicalSpaces;name;Ingreso Escalera 1 Piso CR23;;Uno a Muchos Bidirecccional No.5
+PhysicalSpaces;name;Area Común CR23;PhysicalSpaces;name;Escalera 1 Piso CR23;;Uno a Muchos Bidirecccional No.5
+PhysicalSpaces;name;Area Común CR23;PhysicalSpaces;name;Pasillo 2 piso CR23;;Uno a Muchos Bidirecccional No.5
+PhysicalSpaces;name;Area Común CR23;PhysicalSpaces;name;Placa 2 piso CR23;;Uno a Muchos Bidirecccional No.5
+PhysicalSpaces;name;Area Común CR23;PhysicalSpaces;name;Placa 3 piso CR23;;Uno a Muchos Bidirecccional No.5
