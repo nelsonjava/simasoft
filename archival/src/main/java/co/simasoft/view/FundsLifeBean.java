@@ -215,21 +215,27 @@ public class FundsLifeBean implements Serializable {
 		CriteriaBuilder builder = this.entityManager.getCriteriaBuilder();
 		List<Predicate> predicatesList = new ArrayList<Predicate>();
 
+		String alias = this.example.getAlias();
+		if (alias != null && !"".equals(alias)) {
+			predicatesList.add(builder.like(
+					builder.lower(root.<String> get("alias")),
+					'%' + alias.toLowerCase() + '%'));
+		}
 		String observations = this.example.getObservations();
 		if (observations != null && !"".equals(observations)) {
 			predicatesList.add(builder.like(
 					builder.lower(root.<String> get("observations")),
 					'%' + observations.toLowerCase() + '%'));
 		}
-		Boolean isOpen = this.example.getIsOpen();
-		if (isOpen != null) {
-			predicatesList.add(builder.equal(root.get("isOpen"), isOpen));
-		}
 		String name = this.example.getName();
 		if (name != null && !"".equals(name)) {
 			predicatesList.add(builder.like(
 					builder.lower(root.<String> get("name")),
 					'%' + name.toLowerCase() + '%'));
+		}
+		Boolean isOpen = this.example.getIsOpen();
+		if (isOpen != null) {
+			predicatesList.add(builder.equal(root.get("isOpen"), isOpen));
 		}
 
 		return predicatesList.toArray(new Predicate[predicatesList.size()]);

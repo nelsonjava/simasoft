@@ -16,191 +16,224 @@ import javax.persistence.Column;
 import javax.persistence.Lob;
 import javax.xml.bind.annotation.XmlRootElement;
 
-import co.simasoft.models.*;
+import org.hibernate.search.annotations.Indexed;
+import org.hibernate.search.annotations.Store;
 import org.hibernate.search.annotations.Analyze;
 import org.hibernate.search.annotations.DocumentId;
 import org.hibernate.search.annotations.Field;
 import org.hibernate.search.annotations.Index;
-import org.hibernate.search.annotations.Indexed;
-import org.hibernate.search.annotations.Store;
-import javax.persistence.OneToMany;
-import javax.persistence.ManyToOne;
+import org.hibernate.search.annotations.Resolution;
+import org.hibernate.search.annotations.DateBridge;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import org.hibernate.search.annotations.DateBridge;
-import org.hibernate.search.annotations.Resolution;
-
+import co.simasoft.models.*;
+import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.ManyToMany;
 
 // @Indexed
 @Entity
 @XmlRootElement
 public class Sections implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
-    @Id
-    @DocumentId
-    @GeneratedValue(strategy=GenerationType.TABLE)
-    private Long id;
+	@Id
+	@DocumentId
+	@GeneratedValue(strategy = GenerationType.TABLE)
+	private Long id;
 
-    @Version
-    private Integer optlock;
+	@Version
+	private Integer optlock;
 
-    private double orden;
+	private double orden;
 
-    @Lob
-    @Column(nullable = true, unique = false)
-    // @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-    private String observations;
+	private String alias;
 
-    @Column(nullable = true, unique = false)
-    // @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-    private String email;
+	@Lob
+	@Column(nullable = true, unique = false)
+	// @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+	private String observations;
 
-    @Column(nullable = true, unique = false)
-    // @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-    private String code;
+	@Column(nullable = false, unique = true)
+	// @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+	private String name;
 
-    @Column(nullable = true, unique = false)
-    // @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-    private String name;
+	@Column(nullable = true, unique = false)
+	// @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+	private String code;
 
-    @OneToMany(mappedBy = "objPadre")
-    private Set<Sections> objHijos = new HashSet<Sections>();
+	@Column(nullable = true, unique = false)
+	// @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+	private String dir;
 
-    @OneToMany(mappedBy = "sections")
-    private Set<Series> series = new HashSet<Series>();
+	@OneToMany(mappedBy = "sections")
+	private Set<Activities> activities = new HashSet<Activities>();
 
-    @ManyToOne
-    private SectionsTypes sectionsTypes;
+	@OneToMany(mappedBy = "sections")
+	private Set<Tasks> tasks = new HashSet<Tasks>();
 
-    @ManyToOne
-    private Funds funds;
+	@OneToMany(mappedBy = "objPadre")
+	private Set<Sections> objHijos = new HashSet<Sections>();
 
-    @ManyToOne
-    private Sections objPadre;
+	@OneToMany(mappedBy = "sections")
+	private Set<Series> series = new HashSet<Series>();
 
-    public Sections() {
-    }
+	@ManyToOne
+	private SectionsTypes sectionsTypes;
 
-    public Sections(String email,String code,String name) {
-        this.email = email;
-        this.code = code;
-        this.name = name;
-    }
+	@ManyToOne
+	private Sections objPadre;
 
-    public Long getId() {
-        return this.id;
-    }
-    public void setId(Long id) {
-        this.id = id;
-    }
+	@ManyToOne
+	private Funds funds;
 
-    public Integer getOptlock() {
-        return this.optlock;
-    }
-    public void setOptlock(Integer optlock) {
-        this.optlock = optlock;
-    }
+	public Sections() {
+	}
 
-    public double getOrden() {
-        return this.orden;
-    }
-    public void setOrden(double orden) {
-        this.orden = orden;
-    }
+	public Sections(String name, String code, String dir) {
+		this.name = name;
+		this.code = code;
+		this.dir = dir;
+	}
 
-    public String getObservations() {
-        return observations;
-    }
-    public void setObservations(String observations) {
-        this.observations = observations;
-    }
-    public String getEmail() {
-        return email;
-    }
-    public void setEmail(String email) {
-        this.email = email;
-    }
+	public Long getId() {
+		return this.id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-    public String getCode() {
-        return code;
-    }
-    public void setCode(String code) {
-        this.code = code;
-    }
+	public Integer getOptlock() {
+		return this.optlock;
+	}
+	public void setOptlock(Integer optlock) {
+		this.optlock = optlock;
+	}
 
-    public String getName() {
-        return name;
-    }
-    public void setName(String name) {
-        this.name = name;
-    }
+	public String getAlias() {
+		return this.alias;
+	}
+	public void setAlias(String alias) {
+		this.alias = alias;
+	}
 
-    public Set<Sections> getObjHijos() {
-        return this.objHijos;
-    }
-    public void setObjHijos(Set<Sections> objHijos) {
-        this.objHijos = objHijos;
-    }
+	public double getOrden() {
+		return this.orden;
+	}
+	public void setOrden(double orden) {
+		this.orden = orden;
+	}
 
-    public Set<Series> getSeries() {
-        return series;
-    }
-    public void setSeries(Set<Series> series) {
-        this.series = series;
-    }
+	public String getObservations() {
+		return observations;
+	}
+	public void setObservations(String observations) {
+		this.observations = observations;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
 
-    public SectionsTypes getSectionsTypes() {
-        return sectionsTypes;
-    }
-    public void setSectionsTypes(SectionsTypes sectionsTypes) {
-        this.sectionsTypes = sectionsTypes;
-    }
+	public String getCode() {
+		return code;
+	}
+	public void setCode(String code) {
+		this.code = code;
+	}
 
-    public Funds getFunds() {
-        return funds;
-    }
-    public void setFunds(Funds funds) {
-        this.funds = funds;
-    }
+	public String getDir() {
+		return dir;
+	}
+	public void setDir(String dir) {
+		this.dir = dir;
+	}
 
-    public Sections getObjPadre() {
-        return this.objPadre;
-    }
-    public void setObjPadre(Sections objPadre) {
-        this.objPadre = objPadre;
-    }
+	public Set<Activities> getActivities() {
+		return activities;
+	}
+	public void setActivities(Set<Activities> activities) {
+		this.activities = activities;
+	}
 
-   @Override
-   public int hashCode() {
-      final int prime  = 31;
-            int result =  1;
+	public Set<Tasks> getTasks() {
+		return tasks;
+	}
+	public void setTasks(Set<Tasks> tasks) {
+		this.tasks = tasks;
+	}
 
-      result = prime * result + ((id == null) ? 0 : id.hashCode());
+	public Set<Sections> getObjHijos() {
+		return this.objHijos;
+	}
+	public void setObjHijos(Set<Sections> objHijos) {
+		this.objHijos = objHijos;
+	}
 
-      return result;
-   }
+	public Set<Series> getSeries() {
+		return series;
+	}
+	public void setSeries(Set<Series> series) {
+		this.series = series;
+	}
 
-   @Override
-   public boolean equals(Object ojt) {
-      if (      this == ojt           ) return true;
-      if (       ojt == null          ) return false;
-      if (getClass() != ojt.getClass()) return false;
+	public SectionsTypes getSectionsTypes() {
+		return sectionsTypes;
+	}
+	public void setSectionsTypes(SectionsTypes sectionsTypes) {
+		this.sectionsTypes = sectionsTypes;
+	}
 
-      Sections other = (Sections) ojt;
-      if (id == null) {
-         if (other.id != null) {
-            return false;
-         }
-      } else {
-         if (!id.equals(other.id)) {
-            return false;
-         }
-      }
+	public Sections getObjPadre() {
+		return this.objPadre;
+	}
+	public void setObjPadre(Sections objPadre) {
+		this.objPadre = objPadre;
+	}
 
-      return true;
-   }
+	public Funds getFunds() {
+		return funds;
+	}
+	public void setFunds(Funds funds) {
+		this.funds = funds;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object ojt) {
+		if (this == ojt)
+			return true;
+		if (ojt == null)
+			return false;
+		if (getClass() != ojt.getClass())
+			return false;
+
+		Sections other = (Sections) ojt;
+		if (id == null) {
+			if (other.id != null) {
+				return false;
+			}
+		} else {
+			if (!id.equals(other.id)) {
+				return false;
+			}
+		}
+
+		return true;
+	}
 
 } // entity
 

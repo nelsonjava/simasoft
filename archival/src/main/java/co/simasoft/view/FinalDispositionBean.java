@@ -25,7 +25,7 @@ import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
 import co.simasoft.models.FinalDisposition;
-import co.simasoft.models.Series;
+import co.simasoft.models.Trd;
 import java.util.Iterator;
 
 /**
@@ -133,13 +133,12 @@ public class FinalDispositionBean implements Serializable {
 
 		try {
 			FinalDisposition deletableEntity = findById(getId());
-			Iterator<Series> iterSeries = deletableEntity.getSeries()
-					.iterator();
-			for (; iterSeries.hasNext();) {
-				Series nextInSeries = iterSeries.next();
-				nextInSeries.setFinalDisposition(null);
-				iterSeries.remove();
-				this.entityManager.merge(nextInSeries);
+			Iterator<Trd> iterTrd = deletableEntity.getTrd().iterator();
+			for (; iterTrd.hasNext();) {
+				Trd nextInTrd = iterTrd.next();
+				nextInTrd.setFinalDisposition(null);
+				iterTrd.remove();
+				this.entityManager.merge(nextInTrd);
 			}
 			this.entityManager.remove(deletableEntity);
 			this.entityManager.flush();
@@ -218,6 +217,12 @@ public class FinalDispositionBean implements Serializable {
 		CriteriaBuilder builder = this.entityManager.getCriteriaBuilder();
 		List<Predicate> predicatesList = new ArrayList<Predicate>();
 
+		String alias = this.example.getAlias();
+		if (alias != null && !"".equals(alias)) {
+			predicatesList.add(builder.like(
+					builder.lower(root.<String> get("alias")),
+					'%' + alias.toLowerCase() + '%'));
+		}
 		String observations = this.example.getObservations();
 		if (observations != null && !"".equals(observations)) {
 			predicatesList.add(builder.like(

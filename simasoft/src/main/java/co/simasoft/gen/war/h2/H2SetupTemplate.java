@@ -49,23 +49,24 @@ line("    </div>");
 line("  </div>\n");
 
 line("  <div class=\"container forgecontainer\">");
-line("    <div id=\"navigation\">");
+line("    <div id=\"navigation\">\n");
+
 line("      <h:link id=\"homeLink\" outcome=\"/index.xhtml\">");
 line("        <img src='#{resource[\"forge-logo.png\"]}' alt=\"Forge... get hammered\" border=\"0\" />");
-line("      </h:link>");
-line("      <ul>");
+line("      </h:link>\n");
 
+line("      <ul>");
 line("        <li>");
 line("          <h:form>");
 line("            <h:commandButton value=\"Click Me to Populate Data Setup Init!\" action=\"#{Setup.data()}\" />");
 line("          </h:form>");
-line("        </li>");
+line("        </li>\n");
 
 line("        <li>");
 line("          <h:form>");
 line("            <h:commandButton value=\"Click Me to Populate DomainModels Data!\" action=\"#{DomainModelsSetup.data()}\" />");
 line("          </h:form>");
-line("        </li>");
+line("        </li>\n");
 
 
 
@@ -95,31 +96,42 @@ line("        </li>");
             }
         }
         else{
+
+/*
             for(String groupId : groupIdsArtifactId) {
 line("        <li><h:link outcome=\"/resources/templates/"+groupId+"Template\" value=\""+groupId+"\"/></li>");
             }
+*/
 
-line("        <li><p>====</p></li>");
+line("        <li>");
+line("          <h:form enctype=\"multipart/form-data\">");
+line("            <p:growl id=\"messages\" showDetail=\"true\" />");
+line("            <p:fileUpload value=\"#{fileUploadCsv.file}\"");
+line("                          mode=\"simple\"");
+line("                          skinSimple=\"true\"/>");
+line("            <p:commandButton value=\"DataCsv\" ajax=\"false\" actionListener=\"#{fileUploadCsv.data()}\" disabled=\"false\" />");
+line("          </h:form>");
+line("        </li>\n");
+
+line("        <li>");
+line("          <h:form enctype=\"multipart/form-data\">");
+line("            <p:growl id=\"messages\" showDetail=\"true\" />");
+line("            <p:fileUpload value=\"#{fileUploadCsvR.file}\"");
+line("                          mode=\"simple\"");
+line("                          skinSimple=\"true\"/>");
+line("            <p:commandButton value=\"RelationshipsCsv\" ajax=\"false\" actionListener=\"#{fileUploadCsvR.data(false)}\" disabled=\"false\" />");
+line("          </h:form>");
+line("        </li>\n");
+
 line("        <li>");
 line("          <h:form enctype=\"multipart/form-data\">");
 line("            <p:growl id=\"messages\" showDetail=\"true\" />");
 line("            <p:fileUpload value=\"#{fileUploadR.file}\"");
 line("                          mode=\"simple\"");
 line("                          skinSimple=\"true\"/>");
-line("            <p:commandButton value=\"relationshipsData\" ajax=\"false\" actionListener=\"#{fileUploadR.relationshipsData(false)}\" disabled=\"false\" />");
+line("            <p:commandButton value=\"RelationshipsCsvVali\" ajax=\"false\" actionListener=\"#{fileUploadCsvR.data(true)}\" disabled=\"false\" />");
 line("          </h:form>");
-line("        </li>");
-
-line("        <li><p>====</p></li>");
-line("        <li>");
-line("          <h:form enctype=\"multipart/form-data\">");
-line("            <p:growl id=\"messages\" showDetail=\"true\" />");
-line("            <p:fileUpload value=\"#{fileUploadR.file}\"");
-line("                          mode=\"simple\"");
-line("                          skinSimple=\"true\"/>");
-line("            <p:commandButton value=\"relationshipsVali\" ajax=\"false\" actionListener=\"#{fileUploadR.relationshipsData(true)}\" disabled=\"false\" />");
-line("          </h:form>");
-line("        </li>");
+line("        </li>\n");
 
 
         }

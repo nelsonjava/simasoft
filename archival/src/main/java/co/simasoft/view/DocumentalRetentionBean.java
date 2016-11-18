@@ -25,7 +25,7 @@ import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
 import co.simasoft.models.DocumentalRetention;
-import co.simasoft.models.Series;
+import co.simasoft.models.Trd;
 import java.util.Iterator;
 
 /**
@@ -133,18 +133,16 @@ public class DocumentalRetentionBean implements Serializable {
 
 		try {
 			DocumentalRetention deletableEntity = findById(getId());
-			Iterator<Series> iterGestion = deletableEntity.getGestion()
-					.iterator();
+			Iterator<Trd> iterGestion = deletableEntity.getGestion().iterator();
 			for (; iterGestion.hasNext();) {
-				Series nextInGestion = iterGestion.next();
+				Trd nextInGestion = iterGestion.next();
 				nextInGestion.setGestion(null);
 				iterGestion.remove();
 				this.entityManager.merge(nextInGestion);
 			}
-			Iterator<Series> iterCentral = deletableEntity.getCentral()
-					.iterator();
+			Iterator<Trd> iterCentral = deletableEntity.getCentral().iterator();
 			for (; iterCentral.hasNext();) {
-				Series nextInCentral = iterCentral.next();
+				Trd nextInCentral = iterCentral.next();
 				nextInCentral.setCentral(null);
 				iterCentral.remove();
 				this.entityManager.merge(nextInCentral);
@@ -226,21 +224,27 @@ public class DocumentalRetentionBean implements Serializable {
 		CriteriaBuilder builder = this.entityManager.getCriteriaBuilder();
 		List<Predicate> predicatesList = new ArrayList<Predicate>();
 
+		String alias = this.example.getAlias();
+		if (alias != null && !"".equals(alias)) {
+			predicatesList.add(builder.like(
+					builder.lower(root.<String> get("alias")),
+					'%' + alias.toLowerCase() + '%'));
+		}
 		String observations = this.example.getObservations();
 		if (observations != null && !"".equals(observations)) {
 			predicatesList.add(builder.like(
 					builder.lower(root.<String> get("observations")),
 					'%' + observations.toLowerCase() + '%'));
 		}
-		Integer year = this.example.getYear();
-		if (year != null && year.intValue() != 0) {
-			predicatesList.add(builder.equal(root.get("year"), year));
-		}
 		String name = this.example.getName();
 		if (name != null && !"".equals(name)) {
 			predicatesList.add(builder.like(
 					builder.lower(root.<String> get("name")),
 					'%' + name.toLowerCase() + '%'));
+		}
+		Integer year = this.example.getYear();
+		if (year != null && year.intValue() != 0) {
+			predicatesList.add(builder.equal(root.get("year"), year));
 		}
 
 		return predicatesList.toArray(new Predicate[predicatesList.size()]);

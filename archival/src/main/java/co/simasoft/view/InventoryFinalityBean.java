@@ -219,6 +219,12 @@ public class InventoryFinalityBean implements Serializable {
 		CriteriaBuilder builder = this.entityManager.getCriteriaBuilder();
 		List<Predicate> predicatesList = new ArrayList<Predicate>();
 
+		String alias = this.example.getAlias();
+		if (alias != null && !"".equals(alias)) {
+			predicatesList.add(builder.like(
+					builder.lower(root.<String> get("alias")),
+					'%' + alias.toLowerCase() + '%'));
+		}
 		String observations = this.example.getObservations();
 		if (observations != null && !"".equals(observations)) {
 			predicatesList.add(builder.like(
@@ -230,10 +236,6 @@ public class InventoryFinalityBean implements Serializable {
 			predicatesList.add(builder.like(
 					builder.lower(root.<String> get("name")),
 					'%' + name.toLowerCase() + '%'));
-		}
-		Integer year = this.example.getYear();
-		if (year != null && year.intValue() != 0) {
-			predicatesList.add(builder.equal(root.get("year"), year));
 		}
 
 		return predicatesList.toArray(new Predicate[predicatesList.size()]);

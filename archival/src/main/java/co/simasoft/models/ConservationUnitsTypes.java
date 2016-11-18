@@ -16,127 +16,150 @@ import javax.persistence.Column;
 import javax.persistence.Lob;
 import javax.xml.bind.annotation.XmlRootElement;
 
-import co.simasoft.models.*;
+import org.hibernate.search.annotations.Indexed;
+import org.hibernate.search.annotations.Store;
 import org.hibernate.search.annotations.Analyze;
 import org.hibernate.search.annotations.DocumentId;
 import org.hibernate.search.annotations.Field;
 import org.hibernate.search.annotations.Index;
-import org.hibernate.search.annotations.Indexed;
-import org.hibernate.search.annotations.Store;
-import javax.persistence.OneToMany;
-import javax.persistence.ManyToOne;
+import org.hibernate.search.annotations.Resolution;
+import org.hibernate.search.annotations.DateBridge;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import org.hibernate.search.annotations.DateBridge;
-import org.hibernate.search.annotations.Resolution;
-
+import co.simasoft.models.*;
+import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.ManyToMany;
 
 // @Indexed
 @Entity
 @XmlRootElement
 public class ConservationUnitsTypes implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
-    @Id
-    @DocumentId
-    @GeneratedValue(strategy=GenerationType.TABLE)
-    private Long id;
+	@Id
+	@DocumentId
+	@GeneratedValue(strategy = GenerationType.TABLE)
+	private Long id;
 
-    @Version
-    private Integer optlock;
+	@Version
+	private Integer optlock;
 
-    private double orden;
+	private double orden;
 
-    @Lob
-    @Column(nullable = true, unique = false)
-    // @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-    private String observations;
+	private String alias;
 
-    @Column(nullable = false, unique = true)
-    // @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-    private String name;
+	@Lob
+	@Column(nullable = true, unique = false)
+	// @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+	private String observations;
 
-    @OneToMany(mappedBy = "conservationUnitsTypes")
-    private Set<ConservationUnits> conservationUnits = new HashSet<ConservationUnits>();
+	@Column(nullable = false, unique = true)
+	// @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+	private String name;
 
-    public ConservationUnitsTypes() {
-    }
+	@OneToMany(mappedBy = "conservationUnitsTypes")
+	private Set<ConservationUnits> conservationUnits = new HashSet<ConservationUnits>();
 
-    public ConservationUnitsTypes(String name) {
-        this.name = name;
-    }
+	@OneToMany(mappedBy = "conservationUnitsTypes")
+	private Set<OriginalOrders> originalOrders = new HashSet<OriginalOrders>();
 
-    public Long getId() {
-        return this.id;
-    }
-    public void setId(Long id) {
-        this.id = id;
-    }
+	public ConservationUnitsTypes() {
+	}
 
-    public Integer getOptlock() {
-        return this.optlock;
-    }
-    public void setOptlock(Integer optlock) {
-        this.optlock = optlock;
-    }
+	public ConservationUnitsTypes(String name) {
+		this.name = name;
+	}
 
-    public double getOrden() {
-        return this.orden;
-    }
-    public void setOrden(double orden) {
-        this.orden = orden;
-    }
+	public Long getId() {
+		return this.id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-    public String getObservations() {
-        return observations;
-    }
-    public void setObservations(String observations) {
-        this.observations = observations;
-    }
-    public String getName() {
-        return name;
-    }
-    public void setName(String name) {
-        this.name = name;
-    }
+	public Integer getOptlock() {
+		return this.optlock;
+	}
+	public void setOptlock(Integer optlock) {
+		this.optlock = optlock;
+	}
 
-    public Set<ConservationUnits> getConservationUnits() {
-        return conservationUnits;
-    }
-    public void setConservationUnits(Set<ConservationUnits> conservationUnits) {
-        this.conservationUnits = conservationUnits;
-    }
+	public String getAlias() {
+		return this.alias;
+	}
+	public void setAlias(String alias) {
+		this.alias = alias;
+	}
 
-   @Override
-   public int hashCode() {
-      final int prime  = 31;
-            int result =  1;
+	public double getOrden() {
+		return this.orden;
+	}
+	public void setOrden(double orden) {
+		this.orden = orden;
+	}
 
-      result = prime * result + ((id == null) ? 0 : id.hashCode());
+	public String getObservations() {
+		return observations;
+	}
+	public void setObservations(String observations) {
+		this.observations = observations;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
 
-      return result;
-   }
+	public Set<ConservationUnits> getConservationUnits() {
+		return conservationUnits;
+	}
+	public void setConservationUnits(Set<ConservationUnits> conservationUnits) {
+		this.conservationUnits = conservationUnits;
+	}
 
-   @Override
-   public boolean equals(Object ojt) {
-      if (      this == ojt           ) return true;
-      if (       ojt == null          ) return false;
-      if (getClass() != ojt.getClass()) return false;
+	public Set<OriginalOrders> getOriginalOrders() {
+		return originalOrders;
+	}
+	public void setOriginalOrders(Set<OriginalOrders> originalOrders) {
+		this.originalOrders = originalOrders;
+	}
 
-      ConservationUnitsTypes other = (ConservationUnitsTypes) ojt;
-      if (id == null) {
-         if (other.id != null) {
-            return false;
-         }
-      } else {
-         if (!id.equals(other.id)) {
-            return false;
-         }
-      }
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
 
-      return true;
-   }
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object ojt) {
+		if (this == ojt)
+			return true;
+		if (ojt == null)
+			return false;
+		if (getClass() != ojt.getClass())
+			return false;
+
+		ConservationUnitsTypes other = (ConservationUnitsTypes) ojt;
+		if (id == null) {
+			if (other.id != null) {
+				return false;
+			}
+		} else {
+			if (!id.equals(other.id)) {
+				return false;
+			}
+		}
+
+		return true;
+	}
 
 } // entity
 

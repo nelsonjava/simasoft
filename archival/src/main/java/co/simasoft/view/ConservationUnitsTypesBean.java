@@ -26,6 +26,7 @@ import javax.persistence.criteria.Root;
 
 import co.simasoft.models.ConservationUnitsTypes;
 import co.simasoft.models.ConservationUnits;
+import co.simasoft.models.OriginalOrders;
 import java.util.Iterator;
 
 /**
@@ -143,6 +144,14 @@ public class ConservationUnitsTypesBean implements Serializable {
 				iterConservationUnits.remove();
 				this.entityManager.merge(nextInConservationUnits);
 			}
+			Iterator<OriginalOrders> iterOriginalOrders = deletableEntity
+					.getOriginalOrders().iterator();
+			for (; iterOriginalOrders.hasNext();) {
+				OriginalOrders nextInOriginalOrders = iterOriginalOrders.next();
+				nextInOriginalOrders.setConservationUnitsTypes(null);
+				iterOriginalOrders.remove();
+				this.entityManager.merge(nextInOriginalOrders);
+			}
 			this.entityManager.remove(deletableEntity);
 			this.entityManager.flush();
 			return "search?faces-redirect=true";
@@ -220,6 +229,12 @@ public class ConservationUnitsTypesBean implements Serializable {
 		CriteriaBuilder builder = this.entityManager.getCriteriaBuilder();
 		List<Predicate> predicatesList = new ArrayList<Predicate>();
 
+		String alias = this.example.getAlias();
+		if (alias != null && !"".equals(alias)) {
+			predicatesList.add(builder.like(
+					builder.lower(root.<String> get("alias")),
+					'%' + alias.toLowerCase() + '%'));
+		}
 		String observations = this.example.getObservations();
 		if (observations != null && !"".equals(observations)) {
 			predicatesList.add(builder.like(

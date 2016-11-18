@@ -26,7 +26,7 @@ import javax.persistence.criteria.Root;
 
 import co.simasoft.models.DocumentalInventory;
 import co.simasoft.models.InventoryFinality;
-import co.simasoft.models.OriginalOrder;
+import co.simasoft.models.OriginalOrders;
 import java.util.Iterator;
 
 /**
@@ -134,13 +134,13 @@ public class DocumentalInventoryBean implements Serializable {
 
 		try {
 			DocumentalInventory deletableEntity = findById(getId());
-			Iterator<OriginalOrder> iterOriginalOrder = deletableEntity
-					.getOriginalOrder().iterator();
-			for (; iterOriginalOrder.hasNext();) {
-				OriginalOrder nextInOriginalOrder = iterOriginalOrder.next();
-				nextInOriginalOrder.setDocumentalInventory(null);
-				iterOriginalOrder.remove();
-				this.entityManager.merge(nextInOriginalOrder);
+			Iterator<OriginalOrders> iterOriginalOrders = deletableEntity
+					.getOriginalOrders().iterator();
+			for (; iterOriginalOrders.hasNext();) {
+				OriginalOrders nextInOriginalOrders = iterOriginalOrders.next();
+				nextInOriginalOrders.setDocumentalInventory(null);
+				iterOriginalOrders.remove();
+				this.entityManager.merge(nextInOriginalOrders);
 			}
 			InventoryFinality inventoryFinality = deletableEntity
 					.getInventoryFinality();
@@ -224,6 +224,12 @@ public class DocumentalInventoryBean implements Serializable {
 		CriteriaBuilder builder = this.entityManager.getCriteriaBuilder();
 		List<Predicate> predicatesList = new ArrayList<Predicate>();
 
+		String alias = this.example.getAlias();
+		if (alias != null && !"".equals(alias)) {
+			predicatesList.add(builder.like(
+					builder.lower(root.<String> get("alias")),
+					'%' + alias.toLowerCase() + '%'));
+		}
 		String observations = this.example.getObservations();
 		if (observations != null && !"".equals(observations)) {
 			predicatesList.add(builder.like(

@@ -25,6 +25,7 @@ import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
 import co.simasoft.models.Funds;
+import co.simasoft.models.Companies;
 import co.simasoft.models.FundsLife;
 import co.simasoft.models.Sections;
 import java.util.Iterator;
@@ -141,6 +142,10 @@ public class FundsBean implements Serializable {
 				iterSections.remove();
 				this.entityManager.merge(nextInSections);
 			}
+			Companies companies = deletableEntity.getCompanies();
+			companies.getFunds().remove(deletableEntity);
+			deletableEntity.setCompanies(null);
+			this.entityManager.merge(companies);
 			FundsLife fundsLife = deletableEntity.getFundsLife();
 			fundsLife.getFunds().remove(deletableEntity);
 			deletableEntity.setFundsLife(null);
@@ -219,17 +224,17 @@ public class FundsBean implements Serializable {
 		CriteriaBuilder builder = this.entityManager.getCriteriaBuilder();
 		List<Predicate> predicatesList = new ArrayList<Predicate>();
 
+		String alias = this.example.getAlias();
+		if (alias != null && !"".equals(alias)) {
+			predicatesList.add(builder.like(
+					builder.lower(root.<String> get("alias")),
+					'%' + alias.toLowerCase() + '%'));
+		}
 		String observations = this.example.getObservations();
 		if (observations != null && !"".equals(observations)) {
 			predicatesList.add(builder.like(
 					builder.lower(root.<String> get("observations")),
 					'%' + observations.toLowerCase() + '%'));
-		}
-		String code = this.example.getCode();
-		if (code != null && !"".equals(code)) {
-			predicatesList.add(builder.like(
-					builder.lower(root.<String> get("code")),
-					'%' + code.toLowerCase() + '%'));
 		}
 		String name = this.example.getName();
 		if (name != null && !"".equals(name)) {
@@ -237,9 +242,15 @@ public class FundsBean implements Serializable {
 					builder.lower(root.<String> get("name")),
 					'%' + name.toLowerCase() + '%'));
 		}
-		FundsLife fundsLife = this.example.getFundsLife();
-		if (fundsLife != null) {
-			predicatesList.add(builder.equal(root.get("fundsLife"), fundsLife));
+		String code = this.example.getCode();
+		if (code != null && !"".equals(code)) {
+			predicatesList.add(builder.like(
+					builder.lower(root.<String> get("code")),
+					'%' + code.toLowerCase() + '%'));
+		}
+		Companies companies = this.example.getCompanies();
+		if (companies != null) {
+			predicatesList.add(builder.equal(root.get("companies"), companies));
 		}
 
 		return predicatesList.toArray(new Predicate[predicatesList.size()]);

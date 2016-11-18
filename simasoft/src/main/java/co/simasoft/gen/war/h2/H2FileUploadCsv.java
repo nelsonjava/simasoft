@@ -79,6 +79,8 @@ line("    try {\n");
 
 line("        if(file != null) {\n");
 
+line("           i = 0;");
+
 line("           FileTxt f = new FileTxt();\n");
 
 line("           filePath = \"\\\\docs\\\\\"+file.getFileName();\n");

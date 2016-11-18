@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:forgeview="http://jboss.org/forge/view"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="id" value='#{inventoryFinalityBean.id}'/>
+		<f:event type="preRenderView" listener='#{inventoryFinalityBean.retrieve}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="View Inventory Finality"/>
+
+	<ui:define name="header">
+		Inventory Finality
+	</ui:define>
+
+	<ui:define name="subheader">
+		View existing Inventory Finality
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:panelGrid columnClasses="label,component,required" columns="3">
+			<h:outputLabel for="inventoryFinalityBeanInventoryFinalityAlias" value="Alias:"/>
+			<h:outputText id="inventoryFinalityBeanInventoryFinalityAlias" value="#{inventoryFinalityBean.inventoryFinality.alias}"/>
+			<h:outputText/>
+			<h:outputLabel for="inventoryFinalityBeanInventoryFinalityOrden" value="Orden:"/>
+			<h:outputText id="inventoryFinalityBeanInventoryFinalityOrden" value="#{inventoryFinalityBean.inventoryFinality.orden}"/>
+			<h:outputText/>
+			<h:outputLabel for="inventoryFinalityBeanInventoryFinalityObservations" value="Observations:"/>
+			<h:inputTextarea id="inventoryFinalityBeanInventoryFinalityObservations" value="#{inventoryFinalityBean.inventoryFinality.observations}"/>
+			<h:outputText/>
+			<h:outputLabel for="inventoryFinalityBeanInventoryFinalityName" value="Name:"/>
+			<h:outputText id="inventoryFinalityBeanInventoryFinalityName" value="#{inventoryFinalityBean.inventoryFinality.name}"/>
+			<h:outputText/>
+			<h:outputLabel for="inventoryFinalityBeanInventoryFinalityDocumentalInventory" value="Documental Inventory:"/>
+			<h:dataTable id="inventoryFinalityBeanInventoryFinalityDocumentalInventory" styleClass="data-table" value="#{forgeview:asList(inventoryFinalityBean.inventoryFinality.documentalInventory)}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Object"/>
+					</f:facet>
+					<h:link outcome="/admin/documentalInventory/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemObject" value="#{_item.object}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<h:outputText/>
+		</h:panelGrid>
+
+		<div class="buttons">
+			<h:link value="View All" outcome="search" styleClass="btn btn-primary"/> 
+			<h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
+			<h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
+		</div>
+	</ui:define>
+
+</ui:composition>

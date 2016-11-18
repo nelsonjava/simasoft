@@ -25,9 +25,11 @@ import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
 import co.simasoft.models.Sections;
+import co.simasoft.models.Activities;
 import co.simasoft.models.Funds;
 import co.simasoft.models.SectionsTypes;
 import co.simasoft.models.Series;
+import co.simasoft.models.Tasks;
 import java.util.Iterator;
 
 /**
@@ -134,6 +136,21 @@ public class SectionsBean implements Serializable {
 
 		try {
 			Sections deletableEntity = findById(getId());
+			Iterator<Activities> iterActivities = deletableEntity
+					.getActivities().iterator();
+			for (; iterActivities.hasNext();) {
+				Activities nextInActivities = iterActivities.next();
+				nextInActivities.setSections(null);
+				iterActivities.remove();
+				this.entityManager.merge(nextInActivities);
+			}
+			Iterator<Tasks> iterTasks = deletableEntity.getTasks().iterator();
+			for (; iterTasks.hasNext();) {
+				Tasks nextInTasks = iterTasks.next();
+				nextInTasks.setSections(null);
+				iterTasks.remove();
+				this.entityManager.merge(nextInTasks);
+			}
 			Iterator<Sections> iterObjHijos = deletableEntity.getObjHijos()
 					.iterator();
 			for (; iterObjHijos.hasNext();) {
@@ -154,14 +171,14 @@ public class SectionsBean implements Serializable {
 			sectionsTypes.getSections().remove(deletableEntity);
 			deletableEntity.setSectionsTypes(null);
 			this.entityManager.merge(sectionsTypes);
-			Funds funds = deletableEntity.getFunds();
-			funds.getSections().remove(deletableEntity);
-			deletableEntity.setFunds(null);
-			this.entityManager.merge(funds);
 			Sections objPadre = deletableEntity.getObjPadre();
 			objPadre.getObjHijos().remove(deletableEntity);
 			deletableEntity.setObjPadre(null);
 			this.entityManager.merge(objPadre);
+			Funds funds = deletableEntity.getFunds();
+			funds.getSections().remove(deletableEntity);
+			deletableEntity.setFunds(null);
+			this.entityManager.merge(funds);
 			this.entityManager.remove(deletableEntity);
 			this.entityManager.flush();
 			return "search?faces-redirect=true";
@@ -236,23 +253,17 @@ public class SectionsBean implements Serializable {
 		CriteriaBuilder builder = this.entityManager.getCriteriaBuilder();
 		List<Predicate> predicatesList = new ArrayList<Predicate>();
 
+		String alias = this.example.getAlias();
+		if (alias != null && !"".equals(alias)) {
+			predicatesList.add(builder.like(
+					builder.lower(root.<String> get("alias")),
+					'%' + alias.toLowerCase() + '%'));
+		}
 		String observations = this.example.getObservations();
 		if (observations != null && !"".equals(observations)) {
 			predicatesList.add(builder.like(
 					builder.lower(root.<String> get("observations")),
 					'%' + observations.toLowerCase() + '%'));
-		}
-		String email = this.example.getEmail();
-		if (email != null && !"".equals(email)) {
-			predicatesList.add(builder.like(
-					builder.lower(root.<String> get("email")),
-					'%' + email.toLowerCase() + '%'));
-		}
-		String code = this.example.getCode();
-		if (code != null && !"".equals(code)) {
-			predicatesList.add(builder.like(
-					builder.lower(root.<String> get("code")),
-					'%' + code.toLowerCase() + '%'));
 		}
 		String name = this.example.getName();
 		if (name != null && !"".equals(name)) {
@@ -260,10 +271,17 @@ public class SectionsBean implements Serializable {
 					builder.lower(root.<String> get("name")),
 					'%' + name.toLowerCase() + '%'));
 		}
-		SectionsTypes sectionsTypes = this.example.getSectionsTypes();
-		if (sectionsTypes != null) {
-			predicatesList.add(builder.equal(root.get("sectionsTypes"),
-					sectionsTypes));
+		String code = this.example.getCode();
+		if (code != null && !"".equals(code)) {
+			predicatesList.add(builder.like(
+					builder.lower(root.<String> get("code")),
+					'%' + code.toLowerCase() + '%'));
+		}
+		String dir = this.example.getDir();
+		if (dir != null && !"".equals(dir)) {
+			predicatesList.add(builder.like(
+					builder.lower(root.<String> get("dir")),
+					'%' + dir.toLowerCase() + '%'));
 		}
 
 		return predicatesList.toArray(new Predicate[predicatesList.size()]);

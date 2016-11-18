@@ -89,35 +89,13 @@ public class SearchBean {
 
     // QUERIES //
 
-    public List<SectionsTypes> selectAllSectionsTypes(EntityManager em) {
-        prepare(SectionsTypes.class,em);
+    public List<FundsLife> selectAllFundsLife(EntityManager em) {
+        prepare(FundsLife.class,em);
 
         Query query = qb.all().createQuery();
 
-        List<SectionsTypes> results = execute(query,
-                                              new Class[]{SectionsTypes.class}, null,
-                                              new SortField("orden", SortField.DOUBLE));
-        return results;
-    }
-
-    public List<FrequentlyQuery> selectAllFrequentlyQuery(EntityManager em) {
-        prepare(FrequentlyQuery.class,em);
-
-        Query query = qb.all().createQuery();
-
-        List<FrequentlyQuery> results = execute(query,
-                                              new Class[]{FrequentlyQuery.class}, null,
-                                              new SortField("orden", SortField.DOUBLE));
-        return results;
-    }
-
-    public List<Series> selectAllSeries(EntityManager em) {
-        prepare(Series.class,em);
-
-        Query query = qb.all().createQuery();
-
-        List<Series> results = execute(query,
-                                              new Class[]{Series.class}, null,
+        List<FundsLife> results = execute(query,
+                                              new Class[]{FundsLife.class}, null,
                                               new SortField("orden", SortField.DOUBLE));
         return results;
     }
@@ -133,6 +111,17 @@ public class SearchBean {
         return results;
     }
 
+    public List<SectionsTypes> selectAllSectionsTypes(EntityManager em) {
+        prepare(SectionsTypes.class,em);
+
+        Query query = qb.all().createQuery();
+
+        List<SectionsTypes> results = execute(query,
+                                              new Class[]{SectionsTypes.class}, null,
+                                              new SortField("orden", SortField.DOUBLE));
+        return results;
+    }
+
     public List<Sections> selectAllSections(EntityManager em) {
         prepare(Sections.class,em);
 
@@ -144,79 +133,35 @@ public class SearchBean {
         return results;
     }
 
-    public List<DocumentalsUnits> selectAllDocumentalsUnits(EntityManager em) {
-        prepare(DocumentalsUnits.class,em);
+    public List<Series> selectAllSeries(EntityManager em) {
+        prepare(Series.class,em);
 
         Query query = qb.all().createQuery();
 
-        List<DocumentalsUnits> results = execute(query,
-                                              new Class[]{DocumentalsUnits.class}, null,
+        List<Series> results = execute(query,
+                                              new Class[]{Series.class}, null,
                                               new SortField("orden", SortField.DOUBLE));
         return results;
     }
 
-    public List<DocumentalsSupports> selectAllDocumentalsSupports(EntityManager em) {
-        prepare(DocumentalsSupports.class,em);
+    public List<TrdSeries> selectAllTrdSeries(EntityManager em) {
+        prepare(TrdSeries.class,em);
 
         Query query = qb.all().createQuery();
 
-        List<DocumentalsSupports> results = execute(query,
-                                              new Class[]{DocumentalsSupports.class}, null,
+        List<TrdSeries> results = execute(query,
+                                              new Class[]{TrdSeries.class}, null,
                                               new SortField("orden", SortField.DOUBLE));
         return results;
     }
 
-    public List<InventoryFinality> selectAllInventoryFinality(EntityManager em) {
-        prepare(InventoryFinality.class,em);
+    public List<Trd> selectAllTrd(EntityManager em) {
+        prepare(Trd.class,em);
 
         Query query = qb.all().createQuery();
 
-        List<InventoryFinality> results = execute(query,
-                                              new Class[]{InventoryFinality.class}, null,
-                                              new SortField("orden", SortField.DOUBLE));
-        return results;
-    }
-
-    public List<ConservationUnits> selectAllConservationUnits(EntityManager em) {
-        prepare(ConservationUnits.class,em);
-
-        Query query = qb.all().createQuery();
-
-        List<ConservationUnits> results = execute(query,
-                                              new Class[]{ConservationUnits.class}, null,
-                                              new SortField("orden", SortField.DOUBLE));
-        return results;
-    }
-
-    public List<DocumentalRetention> selectAllDocumentalRetention(EntityManager em) {
-        prepare(DocumentalRetention.class,em);
-
-        Query query = qb.all().createQuery();
-
-        List<DocumentalRetention> results = execute(query,
-                                              new Class[]{DocumentalRetention.class}, null,
-                                              new SortField("orden", SortField.DOUBLE));
-        return results;
-    }
-
-    public List<DocumentalInventory> selectAllDocumentalInventory(EntityManager em) {
-        prepare(DocumentalInventory.class,em);
-
-        Query query = qb.all().createQuery();
-
-        List<DocumentalInventory> results = execute(query,
-                                              new Class[]{DocumentalInventory.class}, null,
-                                              new SortField("orden", SortField.DOUBLE));
-        return results;
-    }
-
-    public List<FundsLife> selectAllFundsLife(EntityManager em) {
-        prepare(FundsLife.class,em);
-
-        Query query = qb.all().createQuery();
-
-        List<FundsLife> results = execute(query,
-                                              new Class[]{FundsLife.class}, null,
+        List<Trd> results = execute(query,
+                                              new Class[]{Trd.class}, null,
                                               new SortField("orden", SortField.DOUBLE));
         return results;
     }
@@ -232,6 +177,138 @@ public class SearchBean {
         return results;
     }
 
+    public List<DocumentalRetention> selectAllDocumentalRetention(EntityManager em) {
+        prepare(DocumentalRetention.class,em);
+
+        Query query = qb.all().createQuery();
+
+        List<DocumentalRetention> results = execute(query,
+                                              new Class[]{DocumentalRetention.class}, null,
+                                              new SortField("orden", SortField.DOUBLE));
+        return results;
+    }
+
+    public List<FrequentlyQuery> selectAllFrequentlyQuery(EntityManager em) {
+        prepare(FrequentlyQuery.class,em);
+
+        Query query = qb.all().createQuery();
+
+        List<FrequentlyQuery> results = execute(query,
+                                              new Class[]{FrequentlyQuery.class}, null,
+                                              new SortField("orden", SortField.DOUBLE));
+        return results;
+    }
+
+    public List<DocumentalsUnits> selectAllDocumentalsUnits(EntityManager em) {
+        prepare(DocumentalsUnits.class,em);
+
+        Query query = qb.all().createQuery();
+
+        List<DocumentalsUnits> results = execute(query,
+                                              new Class[]{DocumentalsUnits.class}, null,
+                                              new SortField("orden", SortField.DOUBLE));
+        return results;
+    }
+
+    public List<ConservationUnits> selectAllConservationUnits(EntityManager em) {
+        prepare(ConservationUnits.class,em);
+
+        Query query = qb.all().createQuery();
+
+        List<ConservationUnits> results = execute(query,
+                                              new Class[]{ConservationUnits.class}, null,
+                                              new SortField("orden", SortField.DOUBLE));
+        return results;
+    }
+
+    public List<VersionsControls> selectAllVersionsControls(EntityManager em) {
+        prepare(VersionsControls.class,em);
+
+        Query query = qb.all().createQuery();
+
+        List<VersionsControls> results = execute(query,
+                                              new Class[]{VersionsControls.class}, null,
+                                              new SortField("orden", SortField.DOUBLE));
+        return results;
+    }
+
+    public List<DocumentalInventory> selectAllDocumentalInventory(EntityManager em) {
+        prepare(DocumentalInventory.class,em);
+
+        Query query = qb.all().createQuery();
+
+        List<DocumentalInventory> results = execute(query,
+                                              new Class[]{DocumentalInventory.class}, null,
+                                              new SortField("orden", SortField.DOUBLE));
+        return results;
+    }
+
+    public List<OriginalOrders> selectAllOriginalOrders(EntityManager em) {
+        prepare(OriginalOrders.class,em);
+
+        Query query = qb.all().createQuery();
+
+        List<OriginalOrders> results = execute(query,
+                                              new Class[]{OriginalOrders.class}, null,
+                                              new SortField("orden", SortField.DOUBLE));
+        return results;
+    }
+
+    public List<DocumentalsUnitsTypes> selectAllDocumentalsUnitsTypes(EntityManager em) {
+        prepare(DocumentalsUnitsTypes.class,em);
+
+        Query query = qb.all().createQuery();
+
+        List<DocumentalsUnitsTypes> results = execute(query,
+                                              new Class[]{DocumentalsUnitsTypes.class}, null,
+                                              new SortField("orden", SortField.DOUBLE));
+        return results;
+    }
+
+    public List<Access> selectAllAccess(EntityManager em) {
+        prepare(Access.class,em);
+
+        Query query = qb.all().createQuery();
+
+        List<Access> results = execute(query,
+                                              new Class[]{Access.class}, null,
+                                              new SortField("orden", SortField.DOUBLE));
+        return results;
+    }
+
+    public List<Organizeds> selectAllOrganizeds(EntityManager em) {
+        prepare(Organizeds.class,em);
+
+        Query query = qb.all().createQuery();
+
+        List<Organizeds> results = execute(query,
+                                              new Class[]{Organizeds.class}, null,
+                                              new SortField("orden", SortField.DOUBLE));
+        return results;
+    }
+
+    public List<InventoryFinality> selectAllInventoryFinality(EntityManager em) {
+        prepare(InventoryFinality.class,em);
+
+        Query query = qb.all().createQuery();
+
+        List<InventoryFinality> results = execute(query,
+                                              new Class[]{InventoryFinality.class}, null,
+                                              new SortField("orden", SortField.DOUBLE));
+        return results;
+    }
+
+    public List<DocumentalsSupports> selectAllDocumentalsSupports(EntityManager em) {
+        prepare(DocumentalsSupports.class,em);
+
+        Query query = qb.all().createQuery();
+
+        List<DocumentalsSupports> results = execute(query,
+                                              new Class[]{DocumentalsSupports.class}, null,
+                                              new SortField("orden", SortField.DOUBLE));
+        return results;
+    }
+
     public List<ConservationUnitsTypes> selectAllConservationUnitsTypes(EntityManager em) {
         prepare(ConservationUnitsTypes.class,em);
 
@@ -243,13 +320,46 @@ public class SearchBean {
         return results;
     }
 
-    public List<OriginalOrder> selectAllOriginalOrder(EntityManager em) {
-        prepare(OriginalOrder.class,em);
+    public List<Companies> selectAllCompanies(EntityManager em) {
+        prepare(Companies.class,em);
 
         Query query = qb.all().createQuery();
 
-        List<OriginalOrder> results = execute(query,
-                                              new Class[]{OriginalOrder.class}, null,
+        List<Companies> results = execute(query,
+                                              new Class[]{Companies.class}, null,
+                                              new SortField("orden", SortField.DOUBLE));
+        return results;
+    }
+
+    public List<CompaniesRoles> selectAllCompaniesRoles(EntityManager em) {
+        prepare(CompaniesRoles.class,em);
+
+        Query query = qb.all().createQuery();
+
+        List<CompaniesRoles> results = execute(query,
+                                              new Class[]{CompaniesRoles.class}, null,
+                                              new SortField("orden", SortField.DOUBLE));
+        return results;
+    }
+
+    public List<Activities> selectAllActivities(EntityManager em) {
+        prepare(Activities.class,em);
+
+        Query query = qb.all().createQuery();
+
+        List<Activities> results = execute(query,
+                                              new Class[]{Activities.class}, null,
+                                              new SortField("orden", SortField.DOUBLE));
+        return results;
+    }
+
+    public List<Tasks> selectAllTasks(EntityManager em) {
+        prepare(Tasks.class,em);
+
+        Query query = qb.all().createQuery();
+
+        List<Tasks> results = execute(query,
+                                              new Class[]{Tasks.class}, null,
                                               new SortField("orden", SortField.DOUBLE));
         return results;
     }

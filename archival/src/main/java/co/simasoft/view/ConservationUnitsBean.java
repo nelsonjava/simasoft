@@ -26,7 +26,7 @@ import javax.persistence.criteria.Root;
 
 import co.simasoft.models.ConservationUnits;
 import co.simasoft.models.ConservationUnitsTypes;
-import co.simasoft.models.OriginalOrder;
+import co.simasoft.models.OriginalOrders;
 import java.util.Iterator;
 
 /**
@@ -134,13 +134,13 @@ public class ConservationUnitsBean implements Serializable {
 
 		try {
 			ConservationUnits deletableEntity = findById(getId());
-			Iterator<OriginalOrder> iterOriginalOrder = deletableEntity
-					.getOriginalOrder().iterator();
-			for (; iterOriginalOrder.hasNext();) {
-				OriginalOrder nextInOriginalOrder = iterOriginalOrder.next();
-				nextInOriginalOrder.setConservationUnits(null);
-				iterOriginalOrder.remove();
-				this.entityManager.merge(nextInOriginalOrder);
+			Iterator<OriginalOrders> iterOriginalOrders = deletableEntity
+					.getOriginalOrders().iterator();
+			for (; iterOriginalOrders.hasNext();) {
+				OriginalOrders nextInOriginalOrders = iterOriginalOrders.next();
+				nextInOriginalOrders.setConservationUnits(null);
+				iterOriginalOrders.remove();
+				this.entityManager.merge(nextInOriginalOrders);
 			}
 			ConservationUnitsTypes conservationUnitsTypes = deletableEntity
 					.getConservationUnitsTypes();
@@ -225,23 +225,29 @@ public class ConservationUnitsBean implements Serializable {
 		CriteriaBuilder builder = this.entityManager.getCriteriaBuilder();
 		List<Predicate> predicatesList = new ArrayList<Predicate>();
 
+		String alias = this.example.getAlias();
+		if (alias != null && !"".equals(alias)) {
+			predicatesList.add(builder.like(
+					builder.lower(root.<String> get("alias")),
+					'%' + alias.toLowerCase() + '%'));
+		}
 		String observations = this.example.getObservations();
 		if (observations != null && !"".equals(observations)) {
 			predicatesList.add(builder.like(
 					builder.lower(root.<String> get("observations")),
 					'%' + observations.toLowerCase() + '%'));
 		}
-		String code = this.example.getCode();
-		if (code != null && !"".equals(code)) {
-			predicatesList.add(builder.like(
-					builder.lower(root.<String> get("code")),
-					'%' + code.toLowerCase() + '%'));
-		}
 		String name = this.example.getName();
 		if (name != null && !"".equals(name)) {
 			predicatesList.add(builder.like(
 					builder.lower(root.<String> get("name")),
 					'%' + name.toLowerCase() + '%'));
+		}
+		String code = this.example.getCode();
+		if (code != null && !"".equals(code)) {
+			predicatesList.add(builder.like(
+					builder.lower(root.<String> get("code")),
+					'%' + code.toLowerCase() + '%'));
 		}
 		ConservationUnitsTypes conservationUnitsTypes = this.example
 				.getConservationUnitsTypes();

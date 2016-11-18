@@ -25,10 +25,11 @@ import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
 import co.simasoft.models.Series;
-import co.simasoft.models.DocumentalRetention;
 import co.simasoft.models.DocumentalsUnits;
-import co.simasoft.models.FinalDisposition;
 import co.simasoft.models.Sections;
+import co.simasoft.models.Tasks;
+import co.simasoft.models.TrdSeries;
+import co.simasoft.models.VersionsControls;
 import java.util.Iterator;
 
 /**
@@ -135,13 +136,12 @@ public class SeriesBean implements Serializable {
 
 		try {
 			Series deletableEntity = findById(getId());
-			Iterator<Series> iterObjHijos = deletableEntity.getObjHijos()
-					.iterator();
-			for (; iterObjHijos.hasNext();) {
-				Series nextInObjHijos = iterObjHijos.next();
-				nextInObjHijos.setObjPadre(null);
-				iterObjHijos.remove();
-				this.entityManager.merge(nextInObjHijos);
+			Iterator<Tasks> iterTasks = deletableEntity.getTasks().iterator();
+			for (; iterTasks.hasNext();) {
+				Tasks nextInTasks = iterTasks.next();
+				nextInTasks.setSeries(null);
+				iterTasks.remove();
+				this.entityManager.merge(nextInTasks);
 			}
 			Iterator<DocumentalsUnits> iterDocumentalsUnits = deletableEntity
 					.getDocumentalsUnits().iterator();
@@ -152,27 +152,39 @@ public class SeriesBean implements Serializable {
 				iterDocumentalsUnits.remove();
 				this.entityManager.merge(nextInDocumentalsUnits);
 			}
-			FinalDisposition finalDisposition = deletableEntity
-					.getFinalDisposition();
-			finalDisposition.getSeries().remove(deletableEntity);
-			deletableEntity.setFinalDisposition(null);
-			this.entityManager.merge(finalDisposition);
-			Series objPadre = deletableEntity.getObjPadre();
-			objPadre.getObjHijos().remove(deletableEntity);
-			deletableEntity.setObjPadre(null);
-			this.entityManager.merge(objPadre);
+			Iterator<Series> iterObjHijos = deletableEntity.getObjHijos()
+					.iterator();
+			for (; iterObjHijos.hasNext();) {
+				Series nextInObjHijos = iterObjHijos.next();
+				nextInObjHijos.setObjPadre(null);
+				iterObjHijos.remove();
+				this.entityManager.merge(nextInObjHijos);
+			}
+			Iterator<VersionsControls> iterVersionsControls = deletableEntity
+					.getVersionsControls().iterator();
+			for (; iterVersionsControls.hasNext();) {
+				VersionsControls nextInVersionsControls = iterVersionsControls
+						.next();
+				nextInVersionsControls.setSeries(null);
+				iterVersionsControls.remove();
+				this.entityManager.merge(nextInVersionsControls);
+			}
+			Iterator<TrdSeries> iterTrdSeries = deletableEntity.getTrdSeries()
+					.iterator();
+			for (; iterTrdSeries.hasNext();) {
+				TrdSeries nextInTrdSeries = iterTrdSeries.next();
+				nextInTrdSeries.setSeries(null);
+				iterTrdSeries.remove();
+				this.entityManager.merge(nextInTrdSeries);
+			}
 			Sections sections = deletableEntity.getSections();
 			sections.getSeries().remove(deletableEntity);
 			deletableEntity.setSections(null);
 			this.entityManager.merge(sections);
-			DocumentalRetention gestion = deletableEntity.getGestion();
-			gestion.getGestion().remove(deletableEntity);
-			deletableEntity.setGestion(null);
-			this.entityManager.merge(gestion);
-			DocumentalRetention central = deletableEntity.getCentral();
-			central.getCentral().remove(deletableEntity);
-			deletableEntity.setCentral(null);
-			this.entityManager.merge(central);
+			Series objPadre = deletableEntity.getObjPadre();
+			objPadre.getObjHijos().remove(deletableEntity);
+			deletableEntity.setObjPadre(null);
+			this.entityManager.merge(objPadre);
 			this.entityManager.remove(deletableEntity);
 			this.entityManager.flush();
 			return "search?faces-redirect=true";
@@ -202,7 +214,7 @@ public class SeriesBean implements Serializable {
 	}
 
 	public int getPageSize() {
-		return 1000;
+		return 10;
 	}
 
 	public Series getExample() {
@@ -247,17 +259,17 @@ public class SeriesBean implements Serializable {
 		CriteriaBuilder builder = this.entityManager.getCriteriaBuilder();
 		List<Predicate> predicatesList = new ArrayList<Predicate>();
 
+		String alias = this.example.getAlias();
+		if (alias != null && !"".equals(alias)) {
+			predicatesList.add(builder.like(
+					builder.lower(root.<String> get("alias")),
+					'%' + alias.toLowerCase() + '%'));
+		}
 		String observations = this.example.getObservations();
 		if (observations != null && !"".equals(observations)) {
 			predicatesList.add(builder.like(
 					builder.lower(root.<String> get("observations")),
 					'%' + observations.toLowerCase() + '%'));
-		}
-		String procedures = this.example.getProcedures();
-		if (procedures != null && !"".equals(procedures)) {
-			predicatesList.add(builder.like(
-					builder.lower(root.<String> get("procedures")),
-					'%' + procedures.toLowerCase() + '%'));
 		}
 		String name = this.example.getName();
 		if (name != null && !"".equals(name)) {
@@ -265,17 +277,17 @@ public class SeriesBean implements Serializable {
 					builder.lower(root.<String> get("name")),
 					'%' + name.toLowerCase() + '%'));
 		}
-		String dir = this.example.getDir();
-		if (dir != null && !"".equals(dir)) {
-			predicatesList.add(builder.like(
-					builder.lower(root.<String> get("dir")),
-					'%' + dir.toLowerCase() + '%'));
-		}
 		String code = this.example.getCode();
 		if (code != null && !"".equals(code)) {
 			predicatesList.add(builder.like(
 					builder.lower(root.<String> get("code")),
 					'%' + code.toLowerCase() + '%'));
+		}
+		String located = this.example.getLocated();
+		if (located != null && !"".equals(located)) {
+			predicatesList.add(builder.like(
+					builder.lower(root.<String> get("located")),
+					'%' + located.toLowerCase() + '%'));
 		}
 
 		return predicatesList.toArray(new Predicate[predicatesList.size()]);

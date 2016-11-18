@@ -1,0 +1,175 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:forgeview="http://jboss.org/forge/view"
+        template="/resources/scaffold/pageTemplate.xhtml">
+
+        <f:metadata>
+                <f:viewParam name="id" value='#{documentalsUnitsBean.id}'/>
+                <f:event type="preRenderView" listener='#{documentalsUnitsBean.retrieve}'/>
+        </f:metadata>
+
+        <ui:param name="pageTitle" value="View DocumentalsUnits"/>
+
+        <ui:define name="header">
+                DocumentalsUnits
+        </ui:define>
+
+        <ui:define name="subheader">
+                View existing DocumentalsUnits
+        </ui:define>
+
+        <ui:define name="footer"/>
+
+        <ui:define name="main">
+                <h:panelGrid columnClasses="label,component,required" columns="3">
+
+                        <h:outputLabel for="documentalsUnitsBeanDocumentalsUnitsOrden" value="Orden:"/>
+                        <h:outputText id="documentalsUnitsBeanDocumentalsUnitsOrden" value="#{documentalsUnitsBean.documentalsUnits.orden}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="documentalsUnitsBeanDocumentalsUnitsStartDate" value="StartDate:"/>
+                        <h:outputText id="documentalsUnitsBeanDocumentalsUnitsStartDate" value="Pendiente"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="documentalsUnitsBeanDocumentalsUnitsCode" value="Code:"/>
+                        <h:outputText id="documentalsUnitsBeanDocumentalsUnitsCode" value="#{documentalsUnitsBean.documentalsUnits.code}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="documentalsUnitsBeanDocumentalsUnitsName" value="Name:"/>
+                        <h:outputText id="documentalsUnitsBeanDocumentalsUnitsName" value="#{documentalsUnitsBean.documentalsUnits.name}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="documentalsUnitsBeanDocumentalsUnitsObservations" value="Observations:"/>
+                        <h:outputText id="documentalsUnitsBeanDocumentalsUnitsObservations" value="#{documentalsUnitsBean.documentalsUnits.observations}" escape="false" />
+                        <h:outputText/>
+
+                        <h:outputLabel for="DocumentalsUnitsBeanDocumentalsUnitsOriginalOrder" value="OriginalOrder:"/>
+                        <h:dataTable id="documentalsUnitsBeanDocumentalsUnitsoriginalOrder" styleClass="data-table" value="#{forgeview:asList(documentalsUnitsBean.documentalsUnits.originalOrder)}" var="_item">
+
+                                     <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Orden"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/originalOrder/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemOrden" value="#{_item.orden}"/>
+                                        </h:link>
+                                     </h:column>
+
+                                     <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="FinalDate"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/originalOrder/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemFinalDate" value="#{_item.finalDate}"/>
+                                                        <f:convertDateTime type="date"/>
+                                               <h:outputText/>
+                                        </h:link>
+                                     </h:column>
+
+                                     <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Folios"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/originalOrder/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemFolios" value="#{_item.folios}"/>
+                                        </h:link>
+                                     </h:column>
+
+                                     <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="EntryDate"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/originalOrder/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemEntryDate" value="#{_item.entryDate}"/>
+                                                        <f:convertDateTime type="date"/>
+                                               <h:outputText/>
+                                        </h:link>
+                                     </h:column>
+
+                                     <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="StartDate"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/originalOrder/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemStartDate" value="#{_item.startDate}"/>
+                                                        <f:convertDateTime type="date"/>
+                                               <h:outputText/>
+                                        </h:link>
+                                     </h:column>
+
+                        </h:dataTable>
+                        <h:outputText/>
+
+                        <h:outputLabel for="DocumentalsUnitsBeanDocumentalsUnitsDocumentalsUnits" value="DocumentalsUnits:"/>
+                        <h:dataTable id="documentalsUnitsBeanDocumentalsUnitsdocumentalsUnits" styleClass="data-table" value="#{forgeview:asList(documentalsUnitsBean.documentalsUnits.objHijos)}" var="_item">
+
+                                     <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Orden"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/documentalsUnits/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemOrden" value="#{_item.orden}"/>
+                                        </h:link>
+                                     </h:column>
+
+                                     <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Code"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/documentalsUnits/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemCode" value="#{_item.code}"/>
+                                        </h:link>
+                                     </h:column>
+
+                                     <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Name"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/documentalsUnits/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemName" value="#{_item.name}"/>
+                                        </h:link>
+                                     </h:column>
+
+                        </h:dataTable>
+                        <h:outputText/>
+
+                        <h:outputLabel for="documentalsUnitsBeanDocumentalsUnitsFrequentlyQuery" value="frequentlyQuery:"/>
+                        <h:link id="documentalsUnitsBeanDocumentalsUnitsFrequentlyQuery" outcome="/admin/frequentlyQuery/view" rendered="#{!empty documentalsUnitsBean.documentalsUnits.frequentlyQuery}" value="#{documentalsUnitsBean.documentalsUnits.frequentlyQuery.name}">
+                                <f:param name="id" value="#{documentalsUnitsBean.documentalsUnits.frequentlyQuery.id}"/>
+                        </h:link>
+                        <h:outputText/>
+
+                        <h:outputLabel for="documentalsUnitsBeanDocumentalsUnitsSeries" value="series:"/>
+                        <h:link id="documentalsUnitsBeanDocumentalsUnitsSeries" outcome="/admin/series/view" rendered="#{!empty documentalsUnitsBean.documentalsUnits.series}" value="#{documentalsUnitsBean.documentalsUnits.series.name}">
+                                <f:param name="id" value="#{documentalsUnitsBean.documentalsUnits.series.id}"/>
+                        </h:link>
+                        <h:outputText/>
+
+                        <h:outputLabel for="documentalsUnitsBeanDocumentalsUnitsobjPadre" value="documentalsUnits:"/>
+                        <h:link id="documentalsUnitsBeanDocumentalsUnitsobjPadre" outcome="/admin/documentalsUnits/view" rendered="#{!empty documentalsUnitsBean.documentalsUnits.objPadre}" value="#{documentalsUnitsBean.documentalsUnits.objPadre}">
+                                <f:param name="id" value="#{documentalsUnitsBean.documentalsUnits.objPadre.id}"/>
+                        </h:link>
+                        <h:outputText/>
+
+                </h:panelGrid>
+
+                <div class="buttons">
+                        <h:link value="View All" outcome="search" styleClass="btn btn-primary"/>
+                        <h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
+                        <h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
+                </div>
+        </ui:define>
+</ui:composition>

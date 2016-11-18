@@ -1,0 +1,410 @@
+[[wildfly-instalacion]]
+////
+a=&#225; e=&#233; i=&#237; o=&#243; u=&#250;
+A=&#193; E=&#201; I=&#205; O=&#211; U=&#218;
+n=&#241; N=&#209;
+////
+== MODELO
+image::images/modelo.jpg[]
+== ENTITY:FundsLife
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|name|null|String|null|null|false|true|false|true|true|true|true|true
+|isOpen|null|Boolean|null|null|true|false|false|false|true|true|true|true
+|===
+*RELATIONS:* 1
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|FundsLife|1..*|Funds|true|false|name
+|===
+== ENTITY:Funds
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|name|null|String|null|null|false|true|false|true|true|true|true|true
+|code|null|String|null|null|true|false|false|false|true|true|true|true
+|===
+*RELATIONS:* 3
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|Funds|1..*|Sections|true|false|name
+|Funds|*..1|Companies|true|false|name
+|Funds|*..1|FundsLife|true|false|name
+|===
+== ENTITY:SectionsTypes
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|name|null|String|null|null|false|true|false|true|true|true|true|true
+|===
+*RELATIONS:* 1
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|SectionsTypes|1..*|Sections|true|false|name
+|===
+== ENTITY:Sections
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|name|null|String|null|null|false|true|false|true|true|true|true|true
+|code|null|String|null|null|true|false|false|false|true|true|true|true
+|dir|null|String|null|null|true|false|false|false|true|true|true|true
+|===
+*RELATIONS:* 7
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|Sections|1..*|Activities|true|false|name
+|Sections|1..*|Tasks|true|false|finalDate
+|Sections|1..*|Sections|true|false|name
+|Sections|1..*|Series|true|false|name
+|Sections|*..1|SectionsTypes|true|false|name
+|Sections|*..1|Sections|true|false|name
+|Sections|*..1|Funds|true|false|name
+|===
+== ENTITY:Series
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|name|null|String|null|null|false|true|false|true|true|true|true|true
+|code|null|String|null|null|true|false|false|false|true|true|true|true
+|located|null|String|null|null|true|false|false|false|true|true|true|true
+|procedures|null|String|null|null|true|false|false|false|true|true|true|true
+|dir|null|String|null|null|true|false|false|false|true|true|true|true
+|===
+*RELATIONS:* 7
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|Series|1..*|Tasks|true|false|finalDate
+|Series|1..*|DocumentalsUnits|true|false|name
+|Series|1..*|Series|true|false|name
+|Series|1..*|VersionsControls|true|false|name
+|Series|1..*|TrdSeries|true|false|name
+|Series|*..1|Sections|true|false|name
+|Series|*..1|Series|true|false|name
+|===
+== ENTITY:TrdSeries
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|name|null|String|null|null|false|true|false|true|true|true|true|true
+|===
+*RELATIONS:* 2
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|TrdSeries|*..1|Trd|true|false|name
+|TrdSeries|*..1|Series|true|false|name
+|===
+== ENTITY:Trd
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|name|null|String|null|null|false|true|false|true|true|true|true|true
+|===
+*RELATIONS:* 4
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|Trd|1..*|TrdSeries|true|false|name
+|Trd|*..1|DocumentalRetention|true|false|name
+|Trd|*..1|DocumentalRetention|true|false|name
+|Trd|*..1|FinalDisposition|true|false|name
+|===
+== ENTITY:FinalDisposition
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|name|null|String|null|null|false|true|false|true|true|true|true|true
+|===
+*RELATIONS:* 1
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|FinalDisposition|1..*|Trd|true|false|name
+|===
+== ENTITY:DocumentalRetention
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|name|null|String|null|null|false|true|false|true|true|true|true|true
+|year|null|Integer|null|null|true|false|false|false|true|true|true|true
+|===
+*RELATIONS:* 2
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|DocumentalRetention|1..*|Trd|true|false|name
+|DocumentalRetention|1..*|Trd|true|false|name
+|===
+== ENTITY:FrequentlyQuery
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|name|null|String|null|null|false|true|false|true|true|true|true|true
+|===
+*RELATIONS:* 1
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|FrequentlyQuery|1..*|DocumentalsUnits|true|false|name
+|===
+== ENTITY:DocumentalsUnits
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|name|null|String|null|null|false|true|false|true|true|true|true|true
+|code|null|String|null|null|true|false|false|false|true|true|true|true
+|startDate|null|Date|null|null|true|false|false|false|true|true|true|true
+|===
+*RELATIONS:* 11
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|DocumentalsUnits|1..*|OriginalOrders|true|false|code
+|DocumentalsUnits|1..*|VersionsControls|true|false|name
+|DocumentalsUnits|1..*|DocumentalsUnits|true|false|name
+|DocumentalsUnits|*..1|CompaniesRoles|true|false|name
+|DocumentalsUnits|*..1|CompaniesRoles|true|false|name
+|DocumentalsUnits|*..1|Series|true|false|name
+|DocumentalsUnits|*..1|Organizeds|true|false|name
+|DocumentalsUnits|*..1|Access|true|false|name
+|DocumentalsUnits|*..1|FrequentlyQuery|true|false|name
+|DocumentalsUnits|*..1|DocumentalsUnitsTypes|true|false|name
+|DocumentalsUnits|*..1|DocumentalsUnits|true|false|name
+|===
+== ENTITY:ConservationUnits
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|name|null|String|null|null|false|true|false|true|true|true|true|true
+|code|null|String|null|null|true|false|false|false|true|true|true|true
+|===
+*RELATIONS:* 2
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|ConservationUnits|1..*|OriginalOrders|true|false|code
+|ConservationUnits|*..1|ConservationUnitsTypes|true|false|name
+|===
+== ENTITY:VersionsControls
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|name|null|String|null|null|false|true|false|true|true|true|true|true
+|code|null|String|null|null|true|false|false|false|true|true|true|true
+|version|null|String|null|null|true|false|false|false|true|true|true|true
+|date|null|Date|null|null|true|false|false|false|true|true|true|true
+|request|null|String|null|null|true|false|false|false|true|true|true|true
+|responsible|null|String|null|null|true|false|false|false|true|true|true|true
+|description|null|String|null|null|true|false|false|false|true|true|true|true
+|===
+*RELATIONS:* 2
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|VersionsControls|*..1|DocumentalsUnits|true|false|name
+|VersionsControls|*..1|Series|true|false|name
+|===
+== ENTITY:DocumentalInventory
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|object|null|String|null|null|false|true|false|true|true|true|true|true
+|deliveryDate|null|Date|null|null|true|false|false|false|true|true|true|true
+|transferNumber|null|Integer|null|null|true|false|false|false|true|true|true|true
+|debugDate|null|Date|null|null|true|false|false|false|true|true|true|true
+|===
+*RELATIONS:* 2
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|DocumentalInventory|1..*|OriginalOrders|true|false|code
+|DocumentalInventory|*..1|InventoryFinality|true|false|name
+|===
+== ENTITY:OriginalOrders
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|subject|null|String|null|null|true|false|false|true|true|true|true|true
+|code|null|String|null|null|true|false|false|false|true|true|true|true
+|entryDate|null|Date|null|null|true|false|false|false|true|true|true|true
+|startDate|null|Date|null|null|true|false|false|false|true|true|true|true
+|finalDate|null|Date|null|null|true|false|false|false|true|true|true|true
+|folios|null|Integer|null|null|true|false|false|false|true|true|true|true
+|quantity|null|Integer|null|null|true|false|false|false|true|true|true|true
+|located|null|String|null|null|true|false|false|false|true|true|true|true
+|mail|null|String|null|null|true|false|false|false|true|true|true|true
+|notes|null|String|null|null|true|false|false|false|true|true|true|true
+|fileName|null|String|null|null|true|false|false|false|true|true|true|true
+|fileType|null|String|null|null|true|false|false|false|true|true|true|true
+|filedir|null|String|null|null|true|false|false|false|true|true|true|true
+|===
+*RELATIONS:* 5
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|OriginalOrders|*..1|DocumentalsUnits|true|false|name
+|OriginalOrders|*..1|DocumentalsSupports|true|false|name
+|OriginalOrders|*..1|ConservationUnits|true|false|name
+|OriginalOrders|*..1|ConservationUnitsTypes|true|false|name
+|OriginalOrders|*..1|DocumentalInventory|true|false|transferNumber
+|===
+== ENTITY:DocumentalsUnitsTypes
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|name|null|String|null|null|false|false|false|false|true|true|true|true
+|===
+*RELATIONS:* 1
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|DocumentalsUnitsTypes|1..*|DocumentalsUnits|true|false|name
+|===
+== ENTITY:Access
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|name|null|String|null|null|false|false|false|true|true|true|true|true
+|===
+*RELATIONS:* 1
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|Access|1..*|DocumentalsUnits|true|false|name
+|===
+== ENTITY:Organizeds
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|name|null|String|null|null|false|false|false|true|true|true|true|true
+|===
+*RELATIONS:* 1
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|Organizeds|1..*|DocumentalsUnits|true|false|name
+|===
+== ENTITY:InventoryFinality
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|name|null|String|null|null|false|true|false|true|true|true|true|true
+|===
+*RELATIONS:* 1
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|InventoryFinality|1..*|DocumentalInventory|true|false|transferNumber
+|===
+== ENTITY:DocumentalsSupports
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|name|null|String|null|null|false|true|false|true|true|true|true|true
+|code|null|String|null|null|true|false|false|false|true|true|true|true
+|===
+*RELATIONS:* 1
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|DocumentalsSupports|1..*|OriginalOrders|true|false|code
+|===
+== ENTITY:ConservationUnitsTypes
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|name|null|String|null|null|false|true|false|true|true|true|true|true
+|===
+*RELATIONS:* 2
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|ConservationUnitsTypes|1..*|ConservationUnits|true|false|name
+|ConservationUnitsTypes|1..*|OriginalOrders|true|false|code
+|===
+== ENTITY:Companies
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|name|null|String|null|null|true|false|false|true|true|true|true|true
+|===
+*RELATIONS:* 1
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|Companies|1..*|Funds|true|false|name
+|===
+== ENTITY:CompaniesRoles
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|name|null|String|null|null|false|false|false|true|true|true|true|true
+|===
+*RELATIONS:* 2
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|CompaniesRoles|1..*|DocumentalsUnits|true|false|name
+|CompaniesRoles|1..*|DocumentalsUnits|true|false|name
+|===
+== ENTITY:Activities
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|name|null|String|null|null|false|true|false|true|true|true|true|true
+|===
+*RELATIONS:* 1
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|Activities|*..1|Sections|true|false|name
+|===
+== ENTITY:Tasks
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|name|null|String|null|null|false|true|false|true|true|true|true|true
+|optimisticDate|null|Date|null|null|true|false|false|false|true|true|true|true
+|pessimisticDate|null|Date|null|null|true|false|false|false|true|true|true|true
+|startDate|null|Date|null|null|true|false|false|false|true|true|true|true
+|finalDate|null|Date|null|null|true|false|false|false|true|true|true|true
+|===
+*RELATIONS:* 2
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|Tasks|*..1|Sections|true|false|name
+|Tasks|*..1|Series|true|false|name
+|===

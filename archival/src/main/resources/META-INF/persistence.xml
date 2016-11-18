@@ -9,21 +9,31 @@
 
     <provider>org.hibernate.ejb.HibernatePersistence</provider>
 
-    <class>co.simasoft.models.SectionsTypes</class>
-    <class>co.simasoft.models.FrequentlyQuery</class>
-    <class>co.simasoft.models.Series</class>
-    <class>co.simasoft.models.Funds</class>
-    <class>co.simasoft.models.Sections</class>
-    <class>co.simasoft.models.DocumentalsUnits</class>
-    <class>co.simasoft.models.DocumentalsSupports</class>
-    <class>co.simasoft.models.InventoryFinality</class>
-    <class>co.simasoft.models.ConservationUnits</class>
-    <class>co.simasoft.models.DocumentalRetention</class>
-    <class>co.simasoft.models.DocumentalInventory</class>
     <class>co.simasoft.models.FundsLife</class>
+    <class>co.simasoft.models.Funds</class>
+    <class>co.simasoft.models.SectionsTypes</class>
+    <class>co.simasoft.models.Sections</class>
+    <class>co.simasoft.models.Series</class>
+    <class>co.simasoft.models.TrdSeries</class>
+    <class>co.simasoft.models.Trd</class>
     <class>co.simasoft.models.FinalDisposition</class>
+    <class>co.simasoft.models.DocumentalRetention</class>
+    <class>co.simasoft.models.FrequentlyQuery</class>
+    <class>co.simasoft.models.DocumentalsUnits</class>
+    <class>co.simasoft.models.ConservationUnits</class>
+    <class>co.simasoft.models.VersionsControls</class>
+    <class>co.simasoft.models.DocumentalInventory</class>
+    <class>co.simasoft.models.OriginalOrders</class>
+    <class>co.simasoft.models.DocumentalsUnitsTypes</class>
+    <class>co.simasoft.models.Access</class>
+    <class>co.simasoft.models.Organizeds</class>
+    <class>co.simasoft.models.InventoryFinality</class>
+    <class>co.simasoft.models.DocumentalsSupports</class>
     <class>co.simasoft.models.ConservationUnitsTypes</class>
-    <class>co.simasoft.models.OriginalOrder</class>
+    <class>co.simasoft.models.Companies</class>
+    <class>co.simasoft.models.CompaniesRoles</class>
+    <class>co.simasoft.models.Activities</class>
+    <class>co.simasoft.models.Tasks</class>
 
     <exclude-unlisted-classes>true</exclude-unlisted-classes>
     <jta-data-source>java:jboss/datasources/archivalDS</jta-data-source>

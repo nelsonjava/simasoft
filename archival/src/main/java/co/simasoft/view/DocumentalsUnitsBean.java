@@ -25,9 +25,14 @@ import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
 import co.simasoft.models.DocumentalsUnits;
+import co.simasoft.models.Access;
+import co.simasoft.models.CompaniesRoles;
+import co.simasoft.models.DocumentalsUnitsTypes;
 import co.simasoft.models.FrequentlyQuery;
-import co.simasoft.models.OriginalOrder;
+import co.simasoft.models.Organizeds;
+import co.simasoft.models.OriginalOrders;
 import co.simasoft.models.Series;
+import co.simasoft.models.VersionsControls;
 import java.util.Iterator;
 
 /**
@@ -135,13 +140,22 @@ public class DocumentalsUnitsBean implements Serializable {
 
 		try {
 			DocumentalsUnits deletableEntity = findById(getId());
-			Iterator<OriginalOrder> iterOriginalOrder = deletableEntity
-					.getOriginalOrder().iterator();
-			for (; iterOriginalOrder.hasNext();) {
-				OriginalOrder nextInOriginalOrder = iterOriginalOrder.next();
-				nextInOriginalOrder.setDocumentalsUnits(null);
-				iterOriginalOrder.remove();
-				this.entityManager.merge(nextInOriginalOrder);
+			Iterator<OriginalOrders> iterOriginalOrders = deletableEntity
+					.getOriginalOrders().iterator();
+			for (; iterOriginalOrders.hasNext();) {
+				OriginalOrders nextInOriginalOrders = iterOriginalOrders.next();
+				nextInOriginalOrders.setDocumentalsUnits(null);
+				iterOriginalOrders.remove();
+				this.entityManager.merge(nextInOriginalOrders);
+			}
+			Iterator<VersionsControls> iterVersionsControls = deletableEntity
+					.getVersionsControls().iterator();
+			for (; iterVersionsControls.hasNext();) {
+				VersionsControls nextInVersionsControls = iterVersionsControls
+						.next();
+				nextInVersionsControls.setDocumentalsUnits(null);
+				iterVersionsControls.remove();
+				this.entityManager.merge(nextInVersionsControls);
 			}
 			Iterator<DocumentalsUnits> iterObjHijos = deletableEntity
 					.getObjHijos().iterator();
@@ -151,15 +165,36 @@ public class DocumentalsUnitsBean implements Serializable {
 				iterObjHijos.remove();
 				this.entityManager.merge(nextInObjHijos);
 			}
+			CompaniesRoles almacenamiento = deletableEntity.getAlmacenamiento();
+			almacenamiento.getAlmacenamiento().remove(deletableEntity);
+			deletableEntity.setAlmacenamiento(null);
+			this.entityManager.merge(almacenamiento);
+			CompaniesRoles proteccion = deletableEntity.getProteccion();
+			proteccion.getProteccion().remove(deletableEntity);
+			deletableEntity.setProteccion(null);
+			this.entityManager.merge(proteccion);
+			Series series = deletableEntity.getSeries();
+			series.getDocumentalsUnits().remove(deletableEntity);
+			deletableEntity.setSeries(null);
+			this.entityManager.merge(series);
+			Organizeds organizeds = deletableEntity.getOrganizeds();
+			organizeds.getDocumentalsUnits().remove(deletableEntity);
+			deletableEntity.setOrganizeds(null);
+			this.entityManager.merge(organizeds);
+			Access access = deletableEntity.getAccess();
+			access.getDocumentalsUnits().remove(deletableEntity);
+			deletableEntity.setAccess(null);
+			this.entityManager.merge(access);
 			FrequentlyQuery frequentlyQuery = deletableEntity
 					.getFrequentlyQuery();
 			frequentlyQuery.getDocumentalsUnits().remove(deletableEntity);
 			deletableEntity.setFrequentlyQuery(null);
 			this.entityManager.merge(frequentlyQuery);
-			Series series = deletableEntity.getSeries();
-			series.getDocumentalsUnits().remove(deletableEntity);
-			deletableEntity.setSeries(null);
-			this.entityManager.merge(series);
+			DocumentalsUnitsTypes documentalsUnitsTypes = deletableEntity
+					.getDocumentalsUnitsTypes();
+			documentalsUnitsTypes.getDocumentalsUnits().remove(deletableEntity);
+			deletableEntity.setDocumentalsUnitsTypes(null);
+			this.entityManager.merge(documentalsUnitsTypes);
 			DocumentalsUnits objPadre = deletableEntity.getObjPadre();
 			objPadre.getObjHijos().remove(deletableEntity);
 			deletableEntity.setObjPadre(null);
@@ -193,7 +228,7 @@ public class DocumentalsUnitsBean implements Serializable {
 	}
 
 	public int getPageSize() {
-		return 1000;
+		return 10;
 	}
 
 	public DocumentalsUnits getExample() {
@@ -241,17 +276,17 @@ public class DocumentalsUnitsBean implements Serializable {
 		CriteriaBuilder builder = this.entityManager.getCriteriaBuilder();
 		List<Predicate> predicatesList = new ArrayList<Predicate>();
 
+		String alias = this.example.getAlias();
+		if (alias != null && !"".equals(alias)) {
+			predicatesList.add(builder.like(
+					builder.lower(root.<String> get("alias")),
+					'%' + alias.toLowerCase() + '%'));
+		}
 		String observations = this.example.getObservations();
 		if (observations != null && !"".equals(observations)) {
 			predicatesList.add(builder.like(
 					builder.lower(root.<String> get("observations")),
 					'%' + observations.toLowerCase() + '%'));
-		}
-		String code = this.example.getCode();
-		if (code != null && !"".equals(code)) {
-			predicatesList.add(builder.like(
-					builder.lower(root.<String> get("code")),
-					'%' + code.toLowerCase() + '%'));
 		}
 		String name = this.example.getName();
 		if (name != null && !"".equals(name)) {
@@ -259,14 +294,16 @@ public class DocumentalsUnitsBean implements Serializable {
 					builder.lower(root.<String> get("name")),
 					'%' + name.toLowerCase() + '%'));
 		}
-		FrequentlyQuery frequentlyQuery = this.example.getFrequentlyQuery();
-		if (frequentlyQuery != null) {
-			predicatesList.add(builder.equal(root.get("frequentlyQuery"),
-					frequentlyQuery));
+		String code = this.example.getCode();
+		if (code != null && !"".equals(code)) {
+			predicatesList.add(builder.like(
+					builder.lower(root.<String> get("code")),
+					'%' + code.toLowerCase() + '%'));
 		}
-		Series series = this.example.getSeries();
-		if (series != null) {
-			predicatesList.add(builder.equal(root.get("series"), series));
+		CompaniesRoles almacenamiento = this.example.getAlmacenamiento();
+		if (almacenamiento != null) {
+			predicatesList.add(builder.equal(root.get("almacenamiento"),
+					almacenamiento));
 		}
 
 		return predicatesList.toArray(new Predicate[predicatesList.size()]);

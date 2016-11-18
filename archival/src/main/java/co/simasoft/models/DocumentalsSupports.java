@@ -16,139 +16,152 @@ import javax.persistence.Column;
 import javax.persistence.Lob;
 import javax.xml.bind.annotation.XmlRootElement;
 
-import co.simasoft.models.*;
+import org.hibernate.search.annotations.Indexed;
+import org.hibernate.search.annotations.Store;
 import org.hibernate.search.annotations.Analyze;
 import org.hibernate.search.annotations.DocumentId;
 import org.hibernate.search.annotations.Field;
 import org.hibernate.search.annotations.Index;
-import org.hibernate.search.annotations.Indexed;
-import org.hibernate.search.annotations.Store;
-import javax.persistence.OneToMany;
-import javax.persistence.ManyToOne;
+import org.hibernate.search.annotations.Resolution;
+import org.hibernate.search.annotations.DateBridge;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import org.hibernate.search.annotations.DateBridge;
-import org.hibernate.search.annotations.Resolution;
-
+import co.simasoft.models.*;
+import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.ManyToMany;
 
 // @Indexed
 @Entity
 @XmlRootElement
 public class DocumentalsSupports implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
-    @Id
-    @DocumentId
-    @GeneratedValue(strategy=GenerationType.TABLE)
-    private Long id;
+	@Id
+	@DocumentId
+	@GeneratedValue(strategy = GenerationType.TABLE)
+	private Long id;
 
-    @Version
-    private Integer optlock;
+	@Version
+	private Integer optlock;
 
-    private double orden;
+	private double orden;
 
-    @Lob
-    @Column(nullable = true, unique = false)
-    // @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-    private String observations;
+	private String alias;
 
-    @Column(nullable = true, unique = false)
-    // @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-    private String name;
+	@Lob
+	@Column(nullable = true, unique = false)
+	// @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+	private String observations;
 
-    @Column(nullable = true, unique = false)
-    // @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
-    private String code;
+	@Column(nullable = false, unique = true)
+	// @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+	private String name;
 
-    @OneToMany(mappedBy = "documentalsSupports")
-    private Set<OriginalOrder> originalOrder = new HashSet<OriginalOrder>();
+	@Column(nullable = true, unique = false)
+	// @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
+	private String code;
 
-    public DocumentalsSupports() {
-    }
+	@OneToMany(mappedBy = "documentalsSupports")
+	private Set<OriginalOrders> originalOrders = new HashSet<OriginalOrders>();
 
-    public DocumentalsSupports(String name,String code) {
-        this.name = name;
-        this.code = code;
-    }
+	public DocumentalsSupports() {
+	}
 
-    public Long getId() {
-        return this.id;
-    }
-    public void setId(Long id) {
-        this.id = id;
-    }
+	public DocumentalsSupports(String name, String code) {
+		this.name = name;
+		this.code = code;
+	}
 
-    public Integer getOptlock() {
-        return this.optlock;
-    }
-    public void setOptlock(Integer optlock) {
-        this.optlock = optlock;
-    }
+	public Long getId() {
+		return this.id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-    public double getOrden() {
-        return this.orden;
-    }
-    public void setOrden(double orden) {
-        this.orden = orden;
-    }
+	public Integer getOptlock() {
+		return this.optlock;
+	}
+	public void setOptlock(Integer optlock) {
+		this.optlock = optlock;
+	}
 
-    public String getObservations() {
-        return observations;
-    }
-    public void setObservations(String observations) {
-        this.observations = observations;
-    }
-    public String getName() {
-        return name;
-    }
-    public void setName(String name) {
-        this.name = name;
-    }
+	public String getAlias() {
+		return this.alias;
+	}
+	public void setAlias(String alias) {
+		this.alias = alias;
+	}
 
-    public String getCode() {
-        return code;
-    }
-    public void setCode(String code) {
-        this.code = code;
-    }
+	public double getOrden() {
+		return this.orden;
+	}
+	public void setOrden(double orden) {
+		this.orden = orden;
+	}
 
-    public Set<OriginalOrder> getOriginalOrder() {
-        return originalOrder;
-    }
-    public void setOriginalOrder(Set<OriginalOrder> originalOrder) {
-        this.originalOrder = originalOrder;
-    }
+	public String getObservations() {
+		return observations;
+	}
+	public void setObservations(String observations) {
+		this.observations = observations;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
 
-   @Override
-   public int hashCode() {
-      final int prime  = 31;
-            int result =  1;
+	public String getCode() {
+		return code;
+	}
+	public void setCode(String code) {
+		this.code = code;
+	}
 
-      result = prime * result + ((id == null) ? 0 : id.hashCode());
+	public Set<OriginalOrders> getOriginalOrders() {
+		return originalOrders;
+	}
+	public void setOriginalOrders(Set<OriginalOrders> originalOrders) {
+		this.originalOrders = originalOrders;
+	}
 
-      return result;
-   }
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
 
-   @Override
-   public boolean equals(Object ojt) {
-      if (      this == ojt           ) return true;
-      if (       ojt == null          ) return false;
-      if (getClass() != ojt.getClass()) return false;
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
 
-      DocumentalsSupports other = (DocumentalsSupports) ojt;
-      if (id == null) {
-         if (other.id != null) {
-            return false;
-         }
-      } else {
-         if (!id.equals(other.id)) {
-            return false;
-         }
-      }
+		return result;
+	}
 
-      return true;
-   }
+	@Override
+	public boolean equals(Object ojt) {
+		if (this == ojt)
+			return true;
+		if (ojt == null)
+			return false;
+		if (getClass() != ojt.getClass())
+			return false;
+
+		DocumentalsSupports other = (DocumentalsSupports) ojt;
+		if (id == null) {
+			if (other.id != null) {
+				return false;
+			}
+		} else {
+			if (!id.equals(other.id)) {
+				return false;
+			}
+		}
+
+		return true;
+	}
 
 } // entity
 
