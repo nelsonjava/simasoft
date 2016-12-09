@@ -405,7 +405,8 @@ public class FileUploadCsvR {
 
             if (toProperty.equals("name")){
                 seriesTo = findBean.nameSeries(toValue,em);
-                f.line("to:"+toValue+":"+seriesTo.getName());
+//                f.line("to:"+toValue+":"+seriesTo.getName());
+                f.line("to:"+toValue+":"+toValue);
             } // series
 
             if (toProperty.equals("code")){

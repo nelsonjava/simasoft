@@ -1,0 +1,127 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:forgeview="http://jboss.org/forge/view"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="id" value='#{activitiesBean.id}'/>
+		<f:event type="preRenderView" listener='#{activitiesBean.retrieve}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="View Activities"/>
+
+	<ui:define name="header">
+		Activities
+	</ui:define>
+
+	<ui:define name="subheader">
+		View existing Activities
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:panelGrid columnClasses="label,component,required" columns="3">
+			<h:outputLabel for="activitiesBeanActivitiesAlias" value="Alias:"/>
+			<h:outputText id="activitiesBeanActivitiesAlias" value="#{activitiesBean.activities.alias}"/>
+			<h:outputText/>
+			<h:outputLabel for="activitiesBeanActivitiesOrden" value="Orden:"/>
+			<h:outputText id="activitiesBeanActivitiesOrden" value="#{activitiesBean.activities.orden}"/>
+			<h:outputText/>
+			<h:outputLabel for="activitiesBeanActivitiesObservations" value="Observations:"/>
+			<h:inputTextarea id="activitiesBeanActivitiesObservations" value="#{activitiesBean.activities.observations}"/>
+			<h:outputText/>
+			<h:outputLabel for="activitiesBeanActivitiesName" value="Name:"/>
+			<h:outputText id="activitiesBeanActivitiesName" value="#{activitiesBean.activities.name}"/>
+			<h:outputText/>
+			<h:outputLabel for="activitiesBeanActivitiesObjHijos" value="Obj Hijos:"/>
+			<h:dataTable id="activitiesBeanActivitiesObjHijos" styleClass="data-table" value="#{forgeview:asList(activitiesBean.activities.objHijos)}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Name"/>
+					</f:facet>
+					<h:link outcome="/admin/activities/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemName" value="#{_item.name}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<h:outputText/>
+			<h:outputLabel for="activitiesBeanActivitiesCalendars" value="Calendars:"/>
+			<h:dataTable id="activitiesBeanActivitiesCalendars" styleClass="data-table" value="#{forgeview:asList(activitiesBean.activities.calendars)}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Name"/>
+					</f:facet>
+					<h:link outcome="/admin/calendars/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemName" value="#{_item.name}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<h:outputText/>
+			<h:outputLabel for="activitiesBeanActivitiesTasks" value="Tasks:"/>
+			<h:dataTable id="activitiesBeanActivitiesTasks" styleClass="data-table" value="#{forgeview:asList(activitiesBean.activities.tasks)}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Name"/>
+					</f:facet>
+					<h:link outcome="/admin/tasks/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemName" value="#{_item.name}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<h:outputText/>
+			<h:outputLabel for="activitiesBeanActivitiesSites" value="Sites:"/>
+			<h:dataTable id="activitiesBeanActivitiesSites" styleClass="data-table" value="#{forgeview:asList(activitiesBean.activities.sites)}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Link"/>
+					</f:facet>
+					<h:link outcome="/admin/sites/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemLink" value="#{_item.link}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<h:outputText/>
+			<h:outputLabel for="activitiesBeanActivitiesBooks" value="Books:"/>
+			<h:link id="activitiesBeanActivitiesBooks" outcome="/admin/books/view" rendered="#{!empty activitiesBean.activities.books}" value="#{activitiesBean.activities.books}">
+				<f:param name="id" value="#{activitiesBean.activities.books.id}"/>
+			</h:link>
+			<h:outputText/>
+			<h:outputLabel for="activitiesBeanActivitiesPersons" value="Persons:"/>
+			<h:link id="activitiesBeanActivitiesPersons" outcome="/admin/persons/view" rendered="#{!empty activitiesBean.activities.persons}" value="#{activitiesBean.activities.persons}">
+				<f:param name="id" value="#{activitiesBean.activities.persons.id}"/>
+			</h:link>
+			<h:outputText/>
+			<h:outputLabel for="activitiesBeanActivitiesObjPadre" value="Obj Padre:"/>
+			<h:link id="activitiesBeanActivitiesObjPadre" outcome="/admin/activities/view" rendered="#{!empty activitiesBean.activities.objPadre}" value="#{activitiesBean.activities.objPadre}">
+				<f:param name="id" value="#{activitiesBean.activities.objPadre.id}"/>
+			</h:link>
+			<h:outputText/>
+			<h:outputLabel for="activitiesBeanActivitiesActivitiesTypes" value="Activities Types:"/>
+			<h:link id="activitiesBeanActivitiesActivitiesTypes" outcome="/admin/activitiesTypes/view" rendered="#{!empty activitiesBean.activities.activitiesTypes}" value="#{activitiesBean.activities.activitiesTypes}">
+				<f:param name="id" value="#{activitiesBean.activities.activitiesTypes.id}"/>
+			</h:link>
+			<h:outputText/>
+			<h:outputLabel for="activitiesBeanActivitiesSections" value="Sections:"/>
+			<h:link id="activitiesBeanActivitiesSections" outcome="/admin/sections/view" rendered="#{!empty activitiesBean.activities.sections}" value="#{activitiesBean.activities.sections}">
+				<f:param name="id" value="#{activitiesBean.activities.sections.id}"/>
+			</h:link>
+			<h:outputText/>
+		</h:panelGrid>
+
+		<div class="buttons">
+			<h:link value="View All" outcome="search" styleClass="btn btn-primary"/> 
+			<h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
+			<h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
+		</div>
+	</ui:define>
+
+</ui:composition>

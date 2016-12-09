@@ -61,6 +61,16 @@
             <p:commandButton value="DataCsv" ajax="false" actionListener="#{fileUploadCsv.data()}" disabled="false" />
           </h:form>
         </li>
+        
+        <li>
+          <h:form enctype="multipart/form-data">
+            <p:growl id="messages" showDetail="true" />
+            <p:fileUpload value="#{fileUpdateCsv.file}"
+                          mode="simple"
+                          skinSimple="true"/>
+            <p:commandButton value="UpdateDataCsv" ajax="false" actionListener="#{fileUpdateCsv.data(true)}" disabled="false" />
+          </h:form>
+        </li>
 
         <li>
           <h:form enctype="multipart/form-data">
@@ -79,7 +89,7 @@
                           mode="simple"
                           skinSimple="true"/>
             <p:commandButton value="RelationshipsCsvVali" ajax="false" actionListener="#{fileUploadCsvR.data(true)}" disabled="false" />
-          </h:form>                                                 
+          </h:form>
         </li>
 
       </ul>

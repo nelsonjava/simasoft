@@ -429,7 +429,7 @@ saveFile("\\docs", "ModelsGen.txt");
         H2SimpleAuthenticator h2SimpleAuthenticator = new H2SimpleAuthenticator();
         Utils.fileMake(pathDocs+".h2.war."+artifactId+".src.main.java."+groupId+".authentication","SimpleAuthenticator.java", h2SimpleAuthenticator);
 
-        H2PageTemplateGen(pathDocs+".h2.war."+artifactId+".admin",artifactId,entities,groupIdsArtifactId);
+        H2PageTemplateGen(pathDocs+".h2.war."+artifactId+".admin.resources.scaffold",artifactId,entities,groupIdsArtifactId);
         H2SetupTemplateGen(pathDocs+".h2.war."+artifactId+".src.main.webapp.resources.templates",artifactId,entities,groupIdsArtifactId);
 
         H2FileCsv h2FileCsv = new H2FileCsv(pathDocs+".h2.war."+artifactId+".data",groupIdsArtifactId,entities);
@@ -497,7 +497,7 @@ line(Integer.toString(i++)+":"+entidad.getName());
 
             H2FileUploadCsv h2FileUploadCsv = new H2FileUploadCsv(entities);
             Utils.fileMake(pathDocs+".h2.war."+artifactId+".src.main.java."+groupId+".Setup","FileUploadCsv.java", h2FileUploadCsv);
-            
+
             H2FileUploadCsvR h2FileUploadCsvR = new H2FileUploadCsvR(entities);
             Utils.fileMake(pathDocs+".h2.war."+artifactId+".src.main.java."+groupId+".Setup","FileUploadCsvR.java", h2FileUploadCsvR);
 
@@ -507,13 +507,13 @@ line(Integer.toString(i++)+":"+entidad.getName());
 
 
             ViewH2 viewH2 = new ViewH2(entidad);
-            Utils.fileMake(pathDocs+".h2.war."+artifactId+".admin."+Utils._1raMin(entidad.getName()),"view.xhtml", viewH2);
+            Utils.fileMake(pathDocs+".h2.war."+artifactId+".admin.view."+Utils._1raMin(entidad.getName()),"view.xhtml", viewH2);
 
             CreateH2 createH2 = new CreateH2(entidad);
-            Utils.fileMake(pathDocs+".h2.war."+artifactId+".admin."+Utils._1raMin(entidad.getName()),"create.xhtml", createH2);
+            Utils.fileMake(pathDocs+".h2.war."+artifactId+".admin.view."+Utils._1raMin(entidad.getName()),"create.xhtml", createH2);
 
             SearchH2 searchH2 = new SearchH2(entidad);
-            Utils.fileMake(pathDocs+".h2.war."+artifactId+".admin."+Utils._1raMin(entidad.getName()),"search.xhtml", searchH2);
+            Utils.fileMake(pathDocs+".h2.war."+artifactId+".admin.view."+Utils._1raMin(entidad.getName()),"search.xhtml", searchH2);
 
             BeanH2 beanH2 = new BeanH2(artifactId,groupId,entidad,imports);
             Utils.fileMake(pathDocs+".h2.war."+artifactId+".view",entidad.getName()+"Bean.java", beanH2);
@@ -678,7 +678,7 @@ line(Integer.toString(i++)+":"+entidad.getName());
         entiyForgeH2();
 
 
-        saveFile("\\docs.h2.war","f"+artifactId+".fsh");
+        saveFile("\\docs.h2.war\\"+artifactId,"f"+artifactId+".fsh");
 
     }
     catch(Exception ioe) {
@@ -937,10 +937,12 @@ line(Integer.toString(i++)+":"+entidad.getName());
         H2SetupTemplate h2SetupTemplate = new H2SetupTemplate(artifactId,entities,groupIdsArtifactId,null);
         Utils.fileMake(path,"templateSetup.xhtml", h2SetupTemplate);
 
+/*
         for (String groupIds : groupIdsArtifactId) {
             h2SetupTemplate = new H2SetupTemplate(artifactId,entities,null,groupIds);
             Utils.fileMake(path,groupIds+"Template.xhtml", h2SetupTemplate);
         }
+*/        
 
     } // H2PageTemplate
 

@@ -1,0 +1,26 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+apply plugin: 'java'
+apply plugin: 'war'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+war {
+    baseName = 'crmNaifg'
+    version = '0.0.1-SNAPSHOT'
+}
+
+dependencies {
+    compile 'org.springframework:spring-context:4.2.1.RELEASE'
+}

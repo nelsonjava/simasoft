@@ -1,0 +1,31 @@
+",",,,,,,,
+From,FromProperty,FromValue,To,ToProperty,ToValue,Name,Cardinalities
+Dependencies,artifactId,persistence-api,Imports,name,import javax.persistence.Basic;,,Uno a Muchos Bidirecccional No.5
+Dependencies,artifactId,persistence-api,Imports,name,import javax.persistence.CascadeType;,,Uno a Muchos Bidirecccional No.5
+Dependencies,artifactId,persistence-api,Imports,name,import javax.persistence.Column;,,Uno a Muchos Bidirecccional No.5
+Dependencies,artifactId,persistence-api,Imports,name,import javax.persistence.Embedded;,,Uno a Muchos Bidirecccional No.5
+Dependencies,artifactId,persistence-api,Imports,name,import javax.persistence.FetchType;,,Uno a Muchos Bidirecccional No.5
+Dependencies,artifactId,persistence-api,Imports,name,import javax.persistence.Lob;,,Uno a Muchos Bidirecccional No.5
+Dependencies,artifactId,persistence-api,Imports,name,import javax.persistence.ManyToMany;,,Uno a Muchos Bidirecccional No.5
+Dependencies,artifactId,persistence-api,Imports,name,import javax.persistence.ManyToOne;,,Uno a Muchos Bidirecccional No.5
+Dependencies,artifactId,persistence-api,Imports,name,import javax.persistence.OneToMany;,,Uno a Muchos Bidirecccional No.5
+Dependencies,artifactId,persistence-api,Imports,name,import javax.persistence.OneToOne;,,Uno a Muchos Bidirecccional No.5
+Dependencies,artifactId,persistence-api,Imports,name,import javax.persistence.Temporal;,,Uno a Muchos Bidirecccional No.5
+Dependencies,artifactId,persistence-api,Imports,name,import javax.persistence.TemporalType;,,Uno a Muchos Bidirecccional No.5
+Dependencies,artifactId,validation-api,Imports,name,import javax.validation.constraints.Digits;,,Uno a Muchos Bidirecccional No.5
+Dependencies,artifactId,validation-api,Imports,name,import javax.validation.constraints.NotNull;,,Uno a Muchos Bidirecccional No.5
+Dependencies,artifactId,validation-api,Imports,name,import javax.validation.constraints.Pattern;,,Uno a Muchos Bidirecccional No.5
+Dependencies,artifactId,validation-api,Imports,name,import javax.validation.constraints.Size;,,Uno a Muchos Bidirecccional No.5
+Dependencies,artifactId,hibernate-search,Imports,name,import org.hibernate.search.annotations.Analyze;,,Uno a Muchos Bidirecccional No.5
+Dependencies,artifactId,hibernate-search,Imports,name,import org.hibernate.search.annotations.DateBridge;,,Uno a Muchos Bidirecccional No.5
+Dependencies,artifactId,hibernate-search,Imports,name,import org.hibernate.search.annotations.DocumentId;,,Uno a Muchos Bidirecccional No.5
+Dependencies,artifactId,hibernate-search,Imports,name,import org.hibernate.search.annotations.Field;,,Uno a Muchos Bidirecccional No.5
+Dependencies,artifactId,hibernate-search,Imports,name,import org.hibernate.search.annotations.Index;,,Uno a Muchos Bidirecccional No.5
+Dependencies,artifactId,hibernate-search,Imports,name,import org.hibernate.search.annotations.Indexed;,,Uno a Muchos Bidirecccional No.5
+Dependencies,artifactId,hibernate-search,Imports,name,import org.hibernate.search.annotations.IndexedEmbedded;,,Uno a Muchos Bidirecccional No.5
+Dependencies,artifactId,hibernate-search,Imports,name,import org.hibernate.search.annotations.NumericField;,,Uno a Muchos Bidirecccional No.5
+Dependencies,artifactId,hibernate-search,Imports,name,import org.hibernate.search.annotations.Resolution;,,Uno a Muchos Bidirecccional No.5
+Dependencies,artifactId,hibernate-search,Imports,name,import org.hibernate.search.annotations.Store;,,Uno a Muchos Bidirecccional No.5
+Dependencies,artifactId,hibernate-validator,Imports,name,import org.hibernate.validator.constraints.Email;,,Uno a Muchos Bidirecccional No.5
+Dependencies,artifactId,hibernate-validator,Imports,name,import org.hibernate.validator.constraints.NotEmpty;,,Uno a Muchos Bidirecccional No.5
+Dependencies,artifactId,hibernate-validator,Imports,name,import org.hibernate.validator.Length;,,Uno a Muchos Bidirecccional No.5

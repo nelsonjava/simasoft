@@ -1,0 +1,7 @@
+";";;;;;;
+String;String;String;String;String;String;Dependencies
+groupId;artifactId;version;type;scope;maven;
+javax.persistence;persistence-api;;;;maven1;
+javax.validation;validation-api;;;;maven2;
+org.hibernate;hibernate-validator;;;;maven3;
+org.hibernate;hibernate-search;;;;maven4;

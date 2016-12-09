@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:forgeview="http://jboss.org/forge/view"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="id" value='#{activitiesTypesBean.id}'/>
+		<f:event type="preRenderView" listener='#{activitiesTypesBean.retrieve}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="View Activities Types"/>
+
+	<ui:define name="header">
+		Activities Types
+	</ui:define>
+
+	<ui:define name="subheader">
+		View existing Activities Types
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:panelGrid columnClasses="label,component,required" columns="3">
+			<h:outputLabel for="activitiesTypesBeanActivitiesTypesAlias" value="Alias:"/>
+			<h:outputText id="activitiesTypesBeanActivitiesTypesAlias" value="#{activitiesTypesBean.activitiesTypes.alias}"/>
+			<h:outputText/>
+			<h:outputLabel for="activitiesTypesBeanActivitiesTypesOrden" value="Orden:"/>
+			<h:outputText id="activitiesTypesBeanActivitiesTypesOrden" value="#{activitiesTypesBean.activitiesTypes.orden}"/>
+			<h:outputText/>
+			<h:outputLabel for="activitiesTypesBeanActivitiesTypesObservations" value="Observations:"/>
+			<h:inputTextarea id="activitiesTypesBeanActivitiesTypesObservations" value="#{activitiesTypesBean.activitiesTypes.observations}"/>
+			<h:outputText/>
+			<h:outputLabel for="activitiesTypesBeanActivitiesTypesName" value="Name:"/>
+			<h:outputText id="activitiesTypesBeanActivitiesTypesName" value="#{activitiesTypesBean.activitiesTypes.name}"/>
+			<h:outputText/>
+			<h:outputLabel for="activitiesTypesBeanActivitiesTypesActivities" value="Activities:"/>
+			<h:dataTable id="activitiesTypesBeanActivitiesTypesActivities" styleClass="data-table" value="#{forgeview:asList(activitiesTypesBean.activitiesTypes.activities)}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Name"/>
+					</f:facet>
+					<h:link outcome="/admin/activities/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemName" value="#{_item.name}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<h:outputText/>
+		</h:panelGrid>
+
+		<div class="buttons">
+			<h:link value="View All" outcome="search" styleClass="btn btn-primary"/> 
+			<h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
+			<h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
+		</div>
+	</ui:define>
+
+</ui:composition>

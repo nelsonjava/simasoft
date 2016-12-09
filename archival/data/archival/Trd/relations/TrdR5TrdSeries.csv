@@ -1,2 +1,161 @@
 From;FromProperty;FromValue;To;ToProperty;ToValue;Name;Cardinalities
-Trd;        ;        ;TrdSeries;        ;        ;       ;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=2 Y CENTRAL=5;TrdSeries;name;INFORMES DE RESULTADO DE REVISIÓN POR LA DIRECCIÓN;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=2 Y CENTRAL=5;TrdSeries;name;INFORMES VISITA HERMANO PROVINCIAL;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=VIGENCIA DE LA MATRIZ Y CENTRAL=N.A;TrdSeries;name;MATRICES DE INDICADORES DEL SISTEMA DE GESTIÓN DE LA CALIDAD;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=2 Y CENTRAL=5;TrdSeries;name;PLANES OPERATIVO ANUAL;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=2 Y CENTRAL=5;TrdSeries;name;INFORMES DE  GESTIÓN O DESEMPEÑO DEL PROCESO;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=1 Y CENTRAL=INDEFINIDO;TrdSeries;name;ACTAS DE CONSEJO DIRECTIVO;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=2 Y CENTRAL=INDEFINIDO;TrdSeries;name;RESOLUCIONES DE RECTORÍA;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=2 Y CENTRAL=5;TrdSeries;name;CIRCULARES DE RECTORÍA;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=2 Y CENTRAL=5;TrdSeries;name;CRONOGRAMAS DISTRITALES;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=2 Y CENTRAL=5;TrdSeries;name;CRONOGRAMAS INSTITUCIONALES;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=2 Y CENTRAL=5;TrdSeries;name;EVALUACIONES INSTITUCIONALES;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=2 Y CENTRAL=5;TrdSeries;name;GUÍAS DE AUTOEVALUACIÓN;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=PERMANENCIA DEL RECTOR Y CENTRAL=5;TrdSeries;name;GUÍAS PARA LA ENTREGA DE UNA OBRA LASALLISTA;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=PERMANENCIA DEL RECTOR Y CENTRAL=N.A;TrdSeries;name;CARTAS DE NOMBRAMIENTO DE RECTOR;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=VIGENCIA DEL CONVENIO Y CENTRAL=2;TrdSeries;name;CONVENIOS INTERINSTITUCIONALES;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=1 Y CENTRAL=N.A;TrdSeries;name;ACTAS - COMITÉ DE COORDINACIÓN;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=2 Y CENTRAL=5;TrdSeries;name;GD - CORRESPONDENCIA ENVIADA;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=2 Y CENTRAL=5;TrdSeries;name;GD - CIRCULARES EXTERNAS;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=PERMANENCIA DEL ESTUDIANTE Y CENTRAL=N.A;TrdSeries;name;FORMULARIOS DE INSCRIPCIÓN;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=PERMANENCIA DEL ESTUDIANTE Y CENTRAL=N.A;TrdSeries;name;REGISTROS DE RESULTADOS DE ADMISIÓN;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=1 Y CENTRAL=50;TrdSeries;name;HOJAS DE MATRÍCULA;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=1 Y CENTRAL=5;TrdSeries;name;DEVOLUCIONES DE DOCUMENTOS;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=1 Y CENTRAL=5;TrdSeries;name;AUTORIZACIONES RETIRO DE ESTUDIANTES;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=ANO LECTIVO Y CENTRAL=N.A;TrdSeries;name;LISTAS DE CHEQUEO PARA RECEPCIÓN DE DOCUMENTOS PARA LA MATRICULA;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=PERMANENCIA DEL ESTUDIANTE Y CENTRAL=N.A;TrdSeries;name;CONTRATOS DE PRESTACIÓN DEL SERVICIO EDUCATIVO;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=1 Y CENTRAL=N.A;TrdSeries;name;LISTADOS DE ESTUDIANTES MATRICULADOS;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=ANO LECTIVO Y CENTRAL=N.A;TrdSeries;name;LISTADOS DE ASPIRANTES INSCRITOS;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=1 Y CENTRAL=N.A;TrdSeries;name;LISTADOS DE ASPIRANTES ADMITIDOS;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=PERMANENCIA DEL ESTUDIANTE Y CENTRAL=N.A;TrdSeries;name;PAZ Y SALVOS ESTUDIANTES;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=CONSERVACIÓN TOTAL Y CENTRAL=N.A;TrdSeries;name;LIBROS DE ACTAS DE GRADO;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=2 Y CENTRAL=5;TrdSeries;name;AM - CORRESPONDENCIA ENVIADA;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=2 Y CENTRAL=5;TrdSeries;name;AM - CIRCULARES;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=1 Y CENTRAL=3;TrdSeries;name;HORARIOS DE CLASES;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=1 Y CENTRAL=5;TrdSeries;name;REGISTROS DE VALIDACIÓN DE LA PRESTACIÓN DEL SERVICIO EDUCATIVO;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=1 Y CENTRAL=5;TrdSeries;name;CONTROLES DE ACTIVIDADES DE SUPERACIÓN O RECUPERACIÓN;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=ANO ACTUAL Y CENTRAL=15;TrdSeries;name;OBSERVADORES DEL ESTUDIANTE;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=1 Y CENTRAL=3;TrdSeries;name;PLANES DE CURSO;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=1 Y CENTRAL=2;TrdSeries;name;CONTROLES DE ATENCIÓN PARA ORIENTACIÓN;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=1 Y CENTRAL=2;TrdSeries;name;AUTORIZACIONES PARA ESTUDIANTES;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=1 Y CENTRAL=2;TrdSeries;name;CITACIONES A PADRES DE FAMILIA;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=1 Y CENTRAL=2;TrdSeries;name;REMISIONES DE ESTUDIANTES A ORIENTACIÓN;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=PERMANENCIA DEL ALUMNO Y CENTRAL=5;TrdSeries;name;HISTORIAS Y SEGUIMIENTOS PSICOLOGÍA;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=1 Y CENTRAL=5;TrdSeries;name;PLANES DE ÁREA;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=1 Y CENTRAL=5;TrdSeries;name;PLANES DE ASIGNATURA;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=1 Y CENTRAL=5;TrdSeries;name;PROYECTOS PEDAGÓGICO;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=1 Y CENTRAL=15;TrdSeries;name;COMPROMISOS ACADÉMICO;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=1 Y CENTRAL=15;TrdSeries;name;COMPROMISOS COMPORTAMENTAL;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=1 Y CENTRAL=N.A;TrdSeries;name;AUTO REGISTROS DE RETARDOS;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=1 Y CENTRAL=5;TrdSeries;name;CONTENIDOS PROGRAMATICOS;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=1 Y CENTRAL=N.A;TrdSeries;name;CONTROLES DE CITACIONES A PADRES DE FAMILIA;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=1 Y CENTRAL=N.A;TrdSeries;name;REGISTROS DE NORMALIZACIÓN;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=ANO ACTUAL Y CENTRAL=N.A;TrdSeries;name;CONTROLES DE ASISTENCIA A ACTIVIDADES DE APOYO;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=ANO ACTUAL Y CENTRAL=N.A;TrdSeries;name;EVALUACIONES DE ACTIVIDADES D APOYO;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=ANO ACTUAL Y CENTRAL=N.A;TrdSeries;name;INFORMES PERIÓDICOS DE PSICOLOGÍA A COORDINACIÓN;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=VIGENCIA DE LA CLÁUSULA Y CENTRAL=N.A;TrdSeries;name;CLAUSULAS ESPECIALES DE MATRICULA;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=1 Y CENTRAL=5;TrdSeries;name;PROYECTOS DE AULA PRE-ESCOLAR;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=1 Y CENTRAL=15;TrdSeries;name;ACTAS DE COMISIONES DE EVALUACIÓN Y PROMOCIÓN;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=1 Y CENTRAL=INDEFINIDO;TrdSeries;name;ACTAS DE CONSEJO ACADÉMICO;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=1 Y CENTRAL=5;TrdSeries;name;ACTAS REUNIÓN DE DEPARTAMENTO O ÁREA;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=INDEFINIDO Y CENTRAL=N.A;TrdSeries;name;LIBROS DE CALIFICACIONES FINAL;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=2 Y CENTRAL=5;TrdSeries;name;GE - CORRESPONDENCIA ENVIADA;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=2 Y CENTRAL=5;TrdSeries;name;GE - CIRCULARES;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=2 Y CENTRAL=N.A;TrdSeries;name;SOLICITUDES DE PERSONAL;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=PERMANENCIA DEL EMPLEADO Y CENTRAL=100;TrdSeries;name;FORMATOS DE ENTREVISTA;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=PERMANENCIA DEL EMPLEADO Y CENTRAL=100;TrdSeries;name;HOJAS DE VIDA INSTITUCIONAL;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=PERMANENCIA DEL EMPLEADO Y CENTRAL=100;TrdSeries;name;REGISTROS DE INDUCCIÓN;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=PERMANENCIA DEL EMPLEADO Y CENTRAL=5;TrdSeries;name;EVALUACIONES DE DESEMPEÑO;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=2 Y CENTRAL=5;TrdSeries;name;ENCUESTAS DE CLIMA ORGANIZACIONAL;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=PERMANENCIA DEL EMPLEADO Y CENTRAL=100;TrdSeries;name;DECLARACIONES DE COMPETENCIA;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=2 Y CENTRAL=N.A;TrdSeries;name;PLANES DE FORMACIÓN;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=2 Y CENTRAL=N.A;TrdSeries;name;SOLICITUDES DE CAPACITACIÓN;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=2 Y CENTRAL=N.A;TrdSeries;name;PLANES DE BIENESTAR;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=PERMANENCIA DEL EMPLEADO Y CENTRAL=N.A;TrdSeries;name;SOLICITUDES DE PERMISOS;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=2 Y CENTRAL=N.A;TrdSeries;name;SEGUIMIENTOS Y ASISTENCIA A CAPACITACIÓN;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=PERMANENCIA DEL EMPLEADO Y CENTRAL=100;TrdSeries;name;ACTAS DE DESCARGOS, CONCILIACIÓN O COMPROMISO;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=PERMANENCIA DEL EMPLEADO Y CENTRAL=100;TrdSeries;name;CONTRATOS LABORALES;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=PERMANENCIA DEL EMPLEADO Y CENTRAL=100;TrdSeries;name;INGRESOS DE PERSONAL;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=1 Y CENTRAL=5;TrdSeries;name;REGISTROS DE NOVEDADES;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=N.A Y CENTRAL=100;TrdSeries;name;RETIROS DE PERSONAL;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=1 Y CENTRAL=5;TrdSeries;name;NOMINAS MENSUALES;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=PERMANENCIA DEL EMPLEADO Y CENTRAL=100;TrdSeries;name;CONTRATOS INDIVIDUALS DE TRABAJO PARA PERSONAL DOCENTE AÑO ESCOLAR;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=1 Y CENTRAL=INDEFINIDO;TrdSeries;name;PROTOCOLIZACIONES DEL PERSONAL DOCENTE;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=PERMANENCIA DEL EMPLEADO Y CENTRAL=100;TrdSeries;name;PAZ Y SALVOS GENERALES;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=2 Y CENTRAL=N.A;TrdSeries;name;EVALUACIONES DE DOCENTES;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=2 Y CENTRAL=5;TrdSeries;name;ACTAS DE REUNIONES DE COPASST;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=2 Y CENTRAL=5;TrdSeries;name;ACTAS DE COMITÉ DE CONVIVENCIA LABORAL;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=2 Y CENTRAL=20;TrdSeries;name;DOCUMENTOS DEL SISTEMA DE GESTIÓN DE LA SEGURIDAD Y SALUD EN EL TRABAJO;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=2 Y CENTRAL=N.A;TrdSeries;name;PLANES DE EMERGENCIAS;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=2 Y CENTRAL=N.A;TrdSeries;name;PLANES DE MEJORAMIENTO ENCUESTA DE CLIMA ORGANIZACIONAL.;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=2 Y CENTRAL=100;TrdSeries;name;LIQUIDACIONES DE PERSONAL;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=2 Y CENTRAL=5;TrdSeries;name;GT - CORRESPONDENCIA ENVIADA;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=2 Y CENTRAL=5;TrdSeries;name;GT - CIRCULARES;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=5 Y CENTRAL=N.A;TrdSeries;name;EJECUCIONES PRESUPUESTALES;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=2 Y CENTRAL=N.A;TrdSeries;name;GF - REQUISICIÓNES;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=2 Y CENTRAL=N.A;TrdSeries;name;CARTERAS ACTUALIZADAS DE COLEGIOS;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=2 Y CENTRAL=N.A;TrdSeries;name;CONCILIACIONES CUENTAS DE MOROSOS;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=2 Y CENTRAL=N.A;TrdSeries;name;RESUMENES DE CARTERA MOROSA;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=2 Y CENTRAL=N.A;TrdSeries;name;PLANILLAS DIARIAS DE VENTAS EN CAFETERÍA;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=10 Y CENTRAL=N.A;TrdSeries;name;COMPROBANTES DE EGRESO;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=10 Y CENTRAL=N.A;TrdSeries;name;SOPORTES COMPROBANTES DE EGRESO;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=2 Y CENTRAL=5;TrdSeries;name;GF - CORRESPONDENCIA ENVIADA;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=2 Y CENTRAL=5;TrdSeries;name;GF - CIRCULARES;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=2 Y CENTRAL=N.A;TrdSeries;name;SOLICITUDES Y ENTREGAS DE SUMINISTROS;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=2 Y CENTRAL=N.A;TrdSeries;name;COMPARATIVOS DE OFERTAS;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=2 Y CENTRAL=N.A;TrdSeries;name;ORDENES DE COMPRA;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=2 Y CENTRAL=N.A;TrdSeries;name;DEVOLUCIONES DE ARTÍCULOS;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=2 Y CENTRAL=N.A;TrdSeries;name;RELACIONES DE FACTURAS POR PAGAR;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=VIGENCIA DEL PROVEEDOR Y CENTRAL=N.A;TrdSeries;name;INSCRIPCIONES DE PROVEEDORES;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=VIGENCIA DEL PROVEEDOR Y CENTRAL=N.A;TrdSeries;name;EVALUACIONES Y SELECCIÓN DE PROVEEDORES;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=PERMANENTE Y CENTRAL=N.A;TrdSeries;name;LISTADOS DE PROVEEDORES;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=1 Y CENTRAL=2;TrdSeries;name;REEVALUACIONES DE PROVEEDORES;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=1 Y CENTRAL=2;TrdSeries;name;SOLICITUDES DE COMPRAS;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=1 Y CENTRAL=2;TrdSeries;name;KÁRDEX DE ALMACÉN;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=1 Y CENTRAL=2;TrdSeries;name;GC - REQUISICIONES;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=5 Y CENTRAL=N.A;TrdSeries;name;LISTADOS DE INVENTARIO DE ACTIVOS Y RELACIÓN DE NOVEDADES;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=1 Y CENTRAL=N.A;TrdSeries;name;EVALUACIONES DEL SERVICIO DE COMPRAS Y SUMINISTROS;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=VIGENCIA DEL PROVEEDOR Y CENTRAL=N.A;TrdSeries;name;REGISTROS SOPORTES DE INSCRIPCIÓN Y EVALUACIÓN DE PROVEEDORES;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=2 Y CENTRAL=5;TrdSeries;name;GC - CORRESPONDENCIA ENVIADA;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=2 Y CENTRAL=5;TrdSeries;name;GC - CIRCULARES;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=2 Y CENTRAL=N.A;TrdSeries;name;PLANES DE MANTENIMIENTO;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=2 Y CENTRAL=N.A;TrdSeries;name;PLANES CONTROL DE PLAGAS;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=2 Y CENTRAL=N.A;TrdSeries;name;SOLICITUDES DE MANTENIMIENTO CORRECTIVO;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=2 Y CENTRAL=N.A;TrdSeries;name;PLANILLAS DE ACTIVIDADES DE MANTENIMIENTO;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=VIDA UTIL DEL EQUIPO Y CENTRAL=2;TrdSeries;name;HOJAS DE VIDA DE EQUIPOS;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=1 Y CENTRAL=N.A;TrdSeries;name;CONTROLES DE ASEO SEMANAL;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=2 Y CENTRAL=N.A;TrdSeries;name;CONTROLES DE MANTENIMIENTO DE LA PISCINA;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=1 Y CENTRAL=N.A;TrdSeries;name;EVALUACIONES DEL SERVICIO DE ASEO Y MANTENIMIENTO;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=1 Y CENTRAL=N.A;TrdSeries;name;REPORTES DE  DAÑOS;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=2 Y CENTRAL=5;TrdSeries;name;SG - CORRESPONDENCIA ENVIADA;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=2 Y CENTRAL=5;TrdSeries;name;SG - CIRCULARES;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=2 Y CENTRAL=N.A;TrdSeries;name;MATRICES DE SERVICIOS COMPLEMENTARIOS;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=1 Y CENTRAL=N.A;TrdSeries;name;SOLICITUDES DEL SERVICIO DE FOTOCOPIADO E IMPRESIÓN;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=2 Y CENTRAL=5;TrdSeries;name;SC - CORRESPONDENCIA ENVIADA;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=2 Y CENTRAL=5;TrdSeries;name;SC - CIRCULARES;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=ANO ACTUAL Y CENTRAL=2;TrdSeries;name;RADICACIONES Y DISTRIBUCIÓN DE CORRESPONDENCIA ENVIADA RECIBIDA;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=ANO ACTUAL Y CENTRAL=2;TrdSeries;name;RADICACIONES DE CORRESPONDENCIA ENVIADA ENVIADA;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=ANO ACTUAL Y CENTRAL=2;TrdSeries;name;ENTRADAS DE DOCUMENTOS AL ARCHIVO CENTRAL;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=ANO ACTUAL Y CENTRAL=5;TrdSeries;name;DEPURACIONES DE ARCHIVO;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=2 Y CENTRAL=5;TrdSeries;name;GI - CORRESPONDENCIA ENVIADA;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=2 Y CENTRAL=5;TrdSeries;name;GI - CIRCULARES;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=VIGENCIA DEL LISTADO Y CENTRAL=N.A;TrdSeries;name;ELABORACIÓN, MODIFICACIÓN O ELIMINACIÓN DE DOCUMENTOS DEL SGC;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=VIGENCIA DEL LISTADO Y CENTRAL=N.A;TrdSeries;name;LISTADOS MAESTRO DE DOCUMENTOS;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=VIGENCIA DEL LISTADO Y CENTRAL=N.A;TrdSeries;name;LISTADOS MAESTRO DE REGISTROS;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=2 Y CENTRAL=5;TrdSeries;name;PLANES DE AUDITORÍA INTERNA;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=1 Y CENTRAL=5;TrdSeries;name;ACTAS DE APERTURA Y CIERRE DE AUDITORÍA INTERNA;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=2 Y CENTRAL=N.A;TrdSeries;name;LISTAS DE CHEQUEO;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=1 Y CENTRAL=5;TrdSeries;name;EVALUACIONES DE GESTIÓN DE LA AUDITORÍA;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=2 Y CENTRAL=5;TrdSeries;name;INFORMES DE AUDITORÍA INTERNA;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=1 Y CENTRAL=5;TrdSeries;name;CONTROLES DEL SERVICIO NO CONFORME;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=5 Y CENTRAL=N.A;TrdSeries;name;IMPLEMENTACIONES DE ACCIONES CORRECTIVAS, PREVENTIVAS O DE MEJORA;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=2 Y CENTRAL=N.A;TrdSeries;name;QUEJAS, SUGERENCIAS Y FELICITACIONES;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=2 Y CENTRAL=N.A;TrdSeries;name;SEGUIMIENTOS Y CONTROL DE QUEJAS, SUGERENCIAS Y FELICITACIONES;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=5 Y CENTRAL=N.A;TrdSeries;name;COMPORTAMIENTOS DE LOS INDICADORES DE GESTIÓN;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=1 Y CENTRAL=N.A;TrdSeries;name;ENCUESTAS DE SATISFACCIÓN DE PADRES DE FAMILIA Y ESTUDIANTES;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=VIGENCIA DE LA MATRIZ Y CENTRAL=N.A;TrdSeries;name;MATRICES DE POSIBLES SERVICIOS NO CONFORMES;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=2 Y CENTRAL=5;TrdSeries;name;PROGRAMAS DE AUDITORIA;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=2 Y CENTRAL=5;TrdSeries;name;INFORMES DE RESULTADOS DE ENCUESTAS DE SATISFACCIÓN;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=5 Y CENTRAL=N.A;TrdSeries;name;ACTAS DE REUNIÓN DEL COMITÉ DE LA CALIDAD;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=2 Y CENTRAL=5;TrdSeries;name;GQ - CORRESPONDENCIA ENVIADA;;Uno a Muchos Bidirecccional No.5
+Trd;name;GESTION=2 Y CENTRAL=5;TrdSeries;name;GQ - CIRCULARES;;Uno a Muchos Bidirecccional No.5

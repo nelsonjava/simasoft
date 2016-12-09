@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="page" value='#{entitiesBean.page}'/>
+		<f:event type="preRenderView" listener='#{entitiesBean.paginate}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="Search Entities entities"/>
+
+	<ui:define name="header">
+		Entities
+	</ui:define>
+
+	<ui:define name="subheader">
+		Search Entities entities
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:form id="search">
+			<f:validateBean disabled="true">
+				<h:panelGroup styleClass="search">
+
+					<h:panelGrid columnClasses="label,component,required" columns="3">
+						<h:outputLabel for="entitiesBeanExampleAlias" value="Alias:"/>
+						<h:panelGroup>
+							<h:inputText id="entitiesBeanExampleAlias" value="#{entitiesBean.example.alias}"/>
+							<h:message for="entitiesBeanExampleAlias" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="entitiesBeanExampleObservations" value="Observations:"/>
+						<h:panelGroup>
+							<h:inputTextarea id="entitiesBeanExampleObservations" value="#{entitiesBean.example.observations}"/>
+							<h:message for="entitiesBeanExampleObservations" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="entitiesBeanExampleName" value="Name:"/>
+						<h:panelGroup>
+							<h:inputText id="entitiesBeanExampleName" value="#{entitiesBean.example.name}"/>
+							<h:message for="entitiesBeanExampleName" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="entitiesBeanExampleSerialID" value="Serial ID:"/>
+						<h:panelGroup>
+							<h:inputText id="entitiesBeanExampleSerialID" value="#{entitiesBean.example.serialID}"/>
+							<h:message for="entitiesBeanExampleSerialID" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="entitiesBeanExampleTable" value="Table:"/>
+						<h:panelGroup>
+							<h:inputText id="entitiesBeanExampleTable" value="#{entitiesBean.example.table}"/>
+							<h:message for="entitiesBeanExampleTable" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+					</h:panelGrid>
+					<h:panelGroup styleClass="buttons">
+						<h:commandLink value="Search" action='#{entitiesBean.search}' styleClass="btn btn-primary"/>
+						<h:commandLink value="Create New" action='#{entitiesBean.create}' styleClass="btn btn-primary"/>
+					</h:panelGroup>
+				</h:panelGroup>
+			</f:validateBean>
+			
+			<h:dataTable id="entitiesBeanPageItems" styleClass="data-table" value="#{entitiesBean.pageItems}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Name"/>
+					</f:facet>
+					<h:link outcome="/admin/entities/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemName" value="#{_item.name}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<ui:include src="/resources/scaffold/paginator.xhtml">
+				<ui:param name="paginatorBean" value='#{entitiesBean}'/>
+			</ui:include>
+		</h:form>
+			
+	</ui:define>
+
+</ui:composition>

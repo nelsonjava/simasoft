@@ -99,7 +99,7 @@ line("        BufferedReader br = null;\n");
 
 line("        Integer i = 0;");
 line("        String line = \"\";");
-line("        String cvsSplitBy = \";\";");
+line("        String cvsSplitBy = \",\";");
 line("        String[] fields = new String[100];\n");
 
 line("    try {\n");
@@ -255,7 +255,7 @@ line("        BufferedReader br = null;\n");
 
 line("        Integer i = 0;");
 line("        String line = \"\";");
-line("        String cvsSplitBy = \";\";");
+line("        String cvsSplitBy = \",\";");
 line("        String[] fields = new String[100];\n");
 
 line("        String ant = \"\";");

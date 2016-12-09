@@ -1,0 +1,9 @@
+String,String,Boolean,Cardinalities
+name,cardinality,isUnidirectional,
+Uno a Uno Unidireccional No.1,1..1,true,
+Uno a Uno Bidirecccional No.2,1..1,false,
+Muchos a Uno Unidireccional No.3,*..1,true,
+Uno a Muchos Unidireccional No.4,1..*,true,
+Uno a Muchos Bidirecccional No.5,1..*,false,
+Muchos a Muchos Unidireccional No.6,*..*,true,
+Muchos a Muchos Bidirecccional No.7,*..*,false,

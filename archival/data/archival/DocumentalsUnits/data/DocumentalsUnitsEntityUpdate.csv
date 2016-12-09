@@ -1,0 +1,161 @@
+Entity;FindProperty;Findvalue;UpdateProperty;UpdateValue
+DocumentalsUnits;name;INFORME DE RESULTADO DE REVISIÓN POR LA DIRECCIÓN;orden;1
+DocumentalsUnits;name;INFORME VISITA HERMANO PROVINCIAL;orden;2
+DocumentalsUnits;name;MATRIZ DE INDICADORES DEL SISTEMA DE GESTIÓN DE LA CALIDAD;orden;3
+DocumentalsUnits;name;PLAN OPERATIVO ANUAL;orden;4
+DocumentalsUnits;name;INFORME DE  GESTIÓN O DESEMPEÑO DEL PROCESO;orden;5
+DocumentalsUnits;name;ACTA DE CONSEJO DIRECTIVO;orden;6
+DocumentalsUnits;name;RESOLUCIONES DE RECTORÍA;orden;7
+DocumentalsUnits;name;CIRCULARES DE RECTORÍA;orden;8
+DocumentalsUnits;name;CRONOGRAMA DISTRITAL;orden;9
+DocumentalsUnits;name;CRONOGRAMA INSTITUCIONAL;orden;10
+DocumentalsUnits;name;EVALUACIÓN INSTITUCIONAL;orden;11
+DocumentalsUnits;name;GUÍA DE AUTOEVALUACIÓN;orden;12
+DocumentalsUnits;name;GUÍA PARA LA ENTREGA DE UNA OBRA LASALLISTA;orden;13
+DocumentalsUnits;name;CARTA DE NOMBRAMIENTO DE RECTOR;orden;14
+DocumentalsUnits;name;CONVENIOS INTERINSTITUCIONALES;orden;15
+DocumentalsUnits;name;ACTAS - COMITÉ DE COORDINACIÓN;orden;16
+DocumentalsUnits;name;GD - CORRESPONDENCIA ENVIADA;orden;17
+DocumentalsUnits;name;GD - CIRCULARES EXTERNAS;orden;18
+DocumentalsUnits;name;FORMULARIO DE INSCRIPCIÓN;orden;1
+DocumentalsUnits;name;REGISTRO DE RESULTADOS DE ADMISIÓN;orden;2
+DocumentalsUnits;name;HOJA DE MATRÍCULA;orden;3
+DocumentalsUnits;name;DEVOLUCIÓN DE DOCUMENTOS;orden;4
+DocumentalsUnits;name;AUTORIZACIÓN RETIRO DE ESTUDIANTES;orden;5
+DocumentalsUnits;name;LISTA DE CHEQUEO PARA RECEPCIÓN DE DOCUMENTOS PARA LA MATRICULA;orden;6
+DocumentalsUnits;name;CONTRATO DE PRESTACIÓN DEL SERVICIO EDUCATIVO;orden;7
+DocumentalsUnits;name;LISTADO DE ESTUDIANTES MATRICULADOS;orden;8
+DocumentalsUnits;name;LISTADO DE ASPIRANTES INSCRITOS;orden;9
+DocumentalsUnits;name;LISTADOS DE ASPIRANTES ADMITIDOS;orden;10
+DocumentalsUnits;name;PAZ Y SALVO ESTUDIANTES;orden;11
+DocumentalsUnits;name;LIBRO DE ACTAS DE GRADO;orden;12
+DocumentalsUnits;name;AM - CORRESPONDENCIA ENVIADA;orden;13
+DocumentalsUnits;name;AM - CIRCULARES;orden;14
+DocumentalsUnits;name;HORARIO DE CLASES;orden;1
+DocumentalsUnits;name;REGISTRO DE VALIDACIÓN DE LA PRESTACIÓN DEL SERVICIO EDUCATIVO;orden;2
+DocumentalsUnits;name;CONTROL DE ACTIVIDADES DE SUPERACIÓN O RECUPERACIÓN;orden;3
+DocumentalsUnits;name;OBSERVADOR DEL ESTUDIANTE;orden;4
+DocumentalsUnits;name;PLAN DE CURSO;orden;5
+DocumentalsUnits;name;CONTROL DE ATENCIÓN PARA ORIENTACIÓN;orden;6
+DocumentalsUnits;name;AUTORIZACIÓN PARA ESTUDIANTES;orden;7
+DocumentalsUnits;name;CITACIÓN A PADRES DE FAMILIA;orden;8
+DocumentalsUnits;name;REMISIÓN DE ESTUDIANTES A ORIENTACIÓN;orden;9
+DocumentalsUnits;name;HISTORIA Y SEGUIMIENTO PSICOLOGÍA;orden;10
+DocumentalsUnits;name;PLAN DE ÁREA;orden;11
+DocumentalsUnits;name;PLAN DE ASIGNATURA;orden;12
+DocumentalsUnits;name;PROYECTO PEDAGÓGICO;orden;13
+DocumentalsUnits;name;COMPROMISO ACADÉMICO;orden;14
+DocumentalsUnits;name;COMPROMISO COMPORTAMENTAL;orden;15
+DocumentalsUnits;name;AUTO REGISTRO DE RETARDOS;orden;16
+DocumentalsUnits;name;CONTENIDOS PROGRAMATICOS;orden;17
+DocumentalsUnits;name;CONTROL DE CITACIONES A PADRES DE FAMILIA;orden;18
+DocumentalsUnits;name;REGISTRO DE NORMALIZACIÓN;orden;19
+DocumentalsUnits;name;CONTROL DE ASISTENCIA A ACTIVIDADES DE APOYO;orden;20
+DocumentalsUnits;name;EVALUACIÓN DE ACTIVIDADES D APOYO;orden;21
+DocumentalsUnits;name;INFORME PERIÓDICO DE PSICOLOGÍA A COORDINACIÓN;orden;22
+DocumentalsUnits;name;CLAUSULA ESPECIAL DE MATRICULA;orden;23
+DocumentalsUnits;name;PROYECTOS DE AULA PRE-ESCOLAR;orden;24
+DocumentalsUnits;name;ACTAS (COMISIÓN DE EVALUACIÓN Y PROMOCIÓN);orden;25
+DocumentalsUnits;name;ACTAS (CONSEJO ACADÉMICO);orden;26
+DocumentalsUnits;name;ACTAS (REUNIÓN DE DEPARTAMENTO O ÁREA);orden;27
+DocumentalsUnits;name;LIBRO DE CALIFICACIONES FINAL;orden;28
+DocumentalsUnits;name;GE - CORRESPONDENCIA ENVIADA;orden;29
+DocumentalsUnits;name;GE - CIRCULARES;orden;30
+DocumentalsUnits;name;SOLICITUD DE PERSONAL;orden;1
+DocumentalsUnits;name;FORMATO DE ENTREVISTA;orden;2
+DocumentalsUnits;name;HOJA DE VIDA INSTITUCIONAL;orden;3
+DocumentalsUnits;name;REGISTRO DE INDUCCIÓN;orden;4
+DocumentalsUnits;name;EVALUACIÓN DE DESEMPEÑO;orden;5
+DocumentalsUnits;name;ENCUESTA DE CLIMA ORGANIZACIONAL;orden;6
+DocumentalsUnits;name;DECLARACIÓN DE COMPETENCIA;orden;7
+DocumentalsUnits;name;PLAN DE FORMACIÓN;orden;8
+DocumentalsUnits;name;SOLICITUD DE CAPACITACIÓN;orden;9
+DocumentalsUnits;name;PLAN DE BIENESTAR;orden;10
+DocumentalsUnits;name;SOLICITUD DE PERMISOS;orden;11
+DocumentalsUnits;name;SEGUIMIENTO Y ASISTENCIA A CAPACITACIÓN;orden;12
+DocumentalsUnits;name;ACTA DE DESCARGOS, CONCILIACIÓN O COMPROMISO;orden;13
+DocumentalsUnits;name;CONTRATO LABORAL;orden;14
+DocumentalsUnits;name;INGRESO DE PERSONAL;orden;15
+DocumentalsUnits;name;REGISTRO DE NOVEDADES;orden;16
+DocumentalsUnits;name;RETIRO DE PERSONAL;orden;17
+DocumentalsUnits;name;NÓMINA MENSUAL;orden;18
+DocumentalsUnits;name;CONTRATO INDIVIDUAL DE TRABAJO PARA PERSONAL DOCENTE AÑO ESCOLAR;orden;19
+DocumentalsUnits;name;PROTOCOLIZACIÓN DEL PERSONAL DOCENTE;orden;20
+DocumentalsUnits;name;PAZ Y SALVO GENERAL;orden;21
+DocumentalsUnits;name;EVALUACIÓN DE DOCENTES(PREESCOLAR Y PRIMERO);orden;22
+DocumentalsUnits;name;ACTA DE REUNIÓN DE COPASST;orden;23
+DocumentalsUnits;name;ACTAS DE COMITÉ DE CONVIVENCIA LABORAL;orden;24
+DocumentalsUnits;name;DOCUMENTOS DEL SISTEMA DE GESTIÓN DE LA SEGURIDAD Y SALUD EN EL TRABAJO;orden;25
+DocumentalsUnits;name;PLAN DE EMERGENCIAS;orden;26
+DocumentalsUnits;name;PLAN DE MEJORAMIENTO ENCUESTA DE CLIMA ORGANIZACIONAL.;orden;27
+DocumentalsUnits;name;LIQUIDACIONES DE PERSONAL;orden;28
+DocumentalsUnits;name;GT - CORRESPONDENCIA ENVIADA;orden;29
+DocumentalsUnits;name;GT - CIRCULARES;orden;30
+DocumentalsUnits;name;EJECUCIÓN PRESUPUESTAL;orden;1
+DocumentalsUnits;name;GF - REQUISICIÓN;orden;2
+DocumentalsUnits;name;CARTERA ACTUALIZADA COLEGIOS;orden;3
+DocumentalsUnits;name;CONCILIACIÓN CUENTA MOROSOS;orden;4
+DocumentalsUnits;name;RESUMEN DE CARTERA MOROSA;orden;5
+DocumentalsUnits;name;PLANILLA DIARIA DE VENTAS EN CAFETERÍA;orden;6
+DocumentalsUnits;name;COMPROBANTES DE EGRESO;orden;7
+DocumentalsUnits;name;SOPORTES COMPROBANTES DE EGRESO;orden;8
+DocumentalsUnits;name;GF - CORRESPONDENCIA ENVIADA;orden;9
+DocumentalsUnits;name;GF - CIRCULARES;orden;10
+DocumentalsUnits;name;SOLICITUD Y ENTREGA DE SUMINISTROS;orden;1
+DocumentalsUnits;name;COMPARATIVO DE OFERTAS;orden;2
+DocumentalsUnits;name;ORDEN DE COMPRA;orden;3
+DocumentalsUnits;name;DEVOLUCIÓN DE ARTÍCULOS;orden;4
+DocumentalsUnits;name;RELACIÓN DE FACTURAS POR PAGAR;orden;5
+DocumentalsUnits;name;INSCRIPCIÓN DE PROVEEDORES;orden;6
+DocumentalsUnits;name;EVALUACIÓN Y SELECCIÓN DE PROVEEDORES;orden;7
+DocumentalsUnits;name;LISTADO DE PROVEEDORES;orden;8
+DocumentalsUnits;name;REEVALUACIÓN DE PROVEEDORES;orden;9
+DocumentalsUnits;name;SOLICITUD DE COMPRAS;orden;10
+DocumentalsUnits;name;KÁRDEX DE ALMACÉN;orden;11
+DocumentalsUnits;name;GC - REQUISICIÓN;orden;12
+DocumentalsUnits;name;LISTADO DE INVENTARIO DE ACTIVOS Y RELACIÓN DE NOVEDADES;orden;13
+DocumentalsUnits;name;EVALUACIÓN DEL SERVICIO DE COMPRAS Y SUMINISTROS;orden;14
+DocumentalsUnits;name;REGISTROS SOPORTES DE INSCRIPCIÓN Y EVALUACIÓN DE PROVEEDORES;orden;15
+DocumentalsUnits;name;GC - CORRESPONDENCIA ENVIADA;orden;16
+DocumentalsUnits;name;GC - CIRCULARES;orden;17
+DocumentalsUnits;name;PLAN DE MANTENIMIENTO;orden;1
+DocumentalsUnits;name;PLAN CONTROL DE PLAGAS;orden;2
+DocumentalsUnits;name;SOLICITUD DE MANTENIMIENTO CORRECTIVO;orden;3
+DocumentalsUnits;name;PLANILLA DE ACTIVIDADES DE MANTENIMIENTO;orden;4
+DocumentalsUnits;name;HOJA DE VIDA DE EQUIPOS;orden;5
+DocumentalsUnits;name;CONTROL DE ASEO SEMANAL;orden;6
+DocumentalsUnits;name;CONTROL DE MANTENIMIENTO DE LA PISCINA;orden;7
+DocumentalsUnits;name;EVALUACIÓN DEL SERVICIO DE ASEO Y MANTENIMIENTO;orden;8
+DocumentalsUnits;name;REPORTE DE  DAÑOS;orden;9
+DocumentalsUnits;name;SG - CORRESPONDENCIA ENVIADA;orden;10
+DocumentalsUnits;name;SG - CIRCULARES;orden;11
+DocumentalsUnits;name;MATRIZ DE SERVICIOS COMPLEMENTARIOS;orden;1
+DocumentalsUnits;name;SOLICITUD DEL SERVICIO DE FOTOCOPIADO E IMPRESIÓN;orden;2
+DocumentalsUnits;name;SC - CORRESPONDENCIA ENVIADA;orden;3
+DocumentalsUnits;name;SC - CIRCULARES;orden;4
+DocumentalsUnits;name;RADICACIÓN Y DISTRIBUCIÓN DE CORRESPONDENCIA ENVIADA RECIBIDA;orden;1
+DocumentalsUnits;name;RADICACIÓN DE CORRESPONDENCIA ENVIADA ENVIADA;orden;2
+DocumentalsUnits;name;ENTRADA DE DOCUMENTOS AL ARCHIVO CENTRAL;orden;3
+DocumentalsUnits;name;DEPURACIÓN DE ARCHIVO;orden;4
+DocumentalsUnits;name;GI - CORRESPONDENCIA ENVIADA;orden;5
+DocumentalsUnits;name;GI - CIRCULARES;orden;6
+DocumentalsUnits;name;ELABORACIÓN, MODIFICACIÓN O ELIMINACIÓN DE DOCUMENTOS DEL SGC;orden;1
+DocumentalsUnits;name;LISTADO MAESTRO DE DOCUMENTOS;orden;2
+DocumentalsUnits;name;LISTADO MAESTRO DE REGISTROS;orden;3
+DocumentalsUnits;name;PLAN DE AUDITORÍA INTERNA;orden;4
+DocumentalsUnits;name;ACTA DE APERTURA Y CIERRE DE AUDITORÍA INTERNA;orden;5
+DocumentalsUnits;name;LISTA DE CHEQUEO;orden;6
+DocumentalsUnits;name;EVALUACIÓN DE GESTIÓN DE LA AUDITORÍA;orden;7
+DocumentalsUnits;name;INFORME DE AUDITORÍA INTERNA;orden;8
+DocumentalsUnits;name;CONTROL DEL SERVICIO NO CONFORME;orden;9
+DocumentalsUnits;name;IMPLEMENTACIÓN DE ACCIONES CORRECTIVAS, PREVENTIVAS O DE MEJORA;orden;10
+DocumentalsUnits;name;QUEJAS, SUGERENCIAS Y FELICITACIONES;orden;11
+DocumentalsUnits;name;SEGUIMIENTO Y CONTROL DE QUEJAS, SUGERENCIAS Y FELICITACIONES;orden;12
+DocumentalsUnits;name;COMPORTAMIENTO DE LOS INDICADORES DE GESTIÓN;orden;13
+DocumentalsUnits;name;ENCUESTA DE SATISFACCIÓN DE PADRES DE FAMILIA Y ESTUDIANTES;orden;14
+DocumentalsUnits;name;MATRIZ DE POSIBLES SERVICIOS NO CONFORMES;orden;15
+DocumentalsUnits;name;PROGRAMA DE AUDITORIA;orden;16
+DocumentalsUnits;name;INFORME DE RESULTADOS DE ENCUESTAS DE SATISFACCIÓN;orden;17
+DocumentalsUnits;name;ACTA DE REUNIÓN DEL COMITÉ DE LA CALIDAD;orden;18
+DocumentalsUnits;name;GQ - CORRESPONDENCIA ENVIADA;orden;19
+DocumentalsUnits;name;GQ - CIRCULARES;orden;20

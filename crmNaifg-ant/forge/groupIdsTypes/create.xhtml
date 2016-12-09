@@ -1,0 +1,152 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:forgeview="http://jboss.org/forge/view"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="id" value='#{groupIdsTypesBean.id}'/>
+		<f:event type="preRenderView" listener='#{groupIdsTypesBean.retrieve}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="Create Group Ids Types"/>
+
+	<ui:define name="header">
+		Group Ids Types
+	</ui:define>
+
+	<ui:define name="subheader">
+		<c:choose>
+			<c:when test='#{!empty groupIdsTypesBean.id}'>
+				Edit existing Group Ids Types
+			</c:when>
+			<c:otherwise>
+				Create a new Group Ids Types
+			</c:otherwise>
+		</c:choose>
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:form id="create">
+			<h:messages globalOnly="true" styleClass="error"/>
+
+			<h:panelGrid columnClasses="label,component,required" columns="3">
+				<h:outputLabel for="groupIdsTypesBeanGroupIdsTypesAlias" value="Alias:"/>
+				<h:panelGroup>
+					<h:inputText id="groupIdsTypesBeanGroupIdsTypesAlias" value="#{groupIdsTypesBean.groupIdsTypes.alias}"/>
+					<h:message for="groupIdsTypesBeanGroupIdsTypesAlias" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="groupIdsTypesBeanGroupIdsTypesOrden" value="Orden:"/>
+				<h:panelGroup>
+					<h:inputText id="groupIdsTypesBeanGroupIdsTypesOrden" value="#{groupIdsTypesBean.groupIdsTypes.orden}"/>
+					<h:message for="groupIdsTypesBeanGroupIdsTypesOrden" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="groupIdsTypesBeanGroupIdsTypesObservations" value="Observations:"/>
+				<h:panelGroup>
+					<h:inputTextarea id="groupIdsTypesBeanGroupIdsTypesObservations" value="#{groupIdsTypesBean.groupIdsTypes.observations}"/>
+					<h:message for="groupIdsTypesBeanGroupIdsTypesObservations" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="groupIdsTypesBeanGroupIdsTypesName" value="Name:"/>
+				<h:panelGroup>
+					<h:inputText id="groupIdsTypesBeanGroupIdsTypesName" required="true" value="#{groupIdsTypesBean.groupIdsTypes.name}"/>
+					<h:message for="groupIdsTypesBeanGroupIdsTypesName" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText value="*"/>
+				<h:outputLabel for="groupIdsTypesBeanGroupIdsTypesModelsGroups" value="Models Groups:"/>
+				<h:panelGroup>
+					<ui:param name="_collection" value="#{groupIdsTypesBean.groupIdsTypes.modelsGroups}"/>
+					<h:dataTable id="groupIdsTypesBeanGroupIdsTypesModelsGroups" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Name"/>
+							</f:facet>
+							<h:link outcome="/admin/modelsGroups/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="_itemName" value="#{_item.name}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="modelsGroupsBeanAddName" value="#{modelsGroupsBean.add.name}"/>
+								<h:message for="modelsGroupsBeanAddName" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column footerClass="remove-column" headerClass="remove-column">
+							<h:commandLink action="#{_collection.remove(_item)}" styleClass="remove-button"/>
+							<f:facet name="footer">
+								<h:commandLink action="#{_collection.add(modelsGroupsBean.added)}" id="groupIdsTypesBeanGroupIdsTypesModelsGroupsAdd" styleClass="add-button">
+									<f:setPropertyActionListener target="#{modelsGroupsBean.add.groupIdsTypes}" value="#{groupIdsTypesBean.groupIdsTypes}"/>
+								</h:commandLink>
+							</f:facet>
+						</h:column>
+					</h:dataTable>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="groupIdsTypesBeanGroupIdsTypesGroupIds" value="Group Ids:"/>
+				<h:panelGroup>
+					<ui:param name="_collection" value="#{groupIdsTypesBean.groupIdsTypes.groupIds}"/>
+					<h:dataTable id="groupIdsTypesBeanGroupIdsTypesGroupIds" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Artifact Id"/>
+							</f:facet>
+							<h:link outcome="/admin/groupIds/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="_itemArtifactId" value="#{_item.artifactId}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="groupIdsBeanAddArtifactId" value="#{groupIdsBean.add.artifactId}"/>
+								<h:message for="groupIdsBeanAddArtifactId" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Group Id"/>
+							</f:facet>
+							<h:link outcome="/admin/groupIds/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="_itemGroupId" value="#{_item.groupId}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="groupIdsBeanAddGroupId" value="#{groupIdsBean.add.groupId}"/>
+								<h:message for="groupIdsBeanAddGroupId" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column footerClass="remove-column" headerClass="remove-column">
+							<h:commandLink action="#{_collection.remove(_item)}" styleClass="remove-button"/>
+							<f:facet name="footer">
+								<h:commandLink action="#{_collection.add(groupIdsBean.added)}" id="groupIdsTypesBeanGroupIdsTypesGroupIdsAdd" styleClass="add-button">
+									<f:setPropertyActionListener target="#{groupIdsBean.add.groupIdsTypes}" value="#{groupIdsTypesBean.groupIdsTypes}"/>
+								</h:commandLink>
+							</f:facet>
+						</h:column>
+					</h:dataTable>
+				</h:panelGroup>
+				<h:outputText/>
+			</h:panelGrid>
+
+			<div class="buttons">
+				<h:commandLink value="Save" action='#{groupIdsTypesBean.update}' styleClass="btn btn-primary"/>
+				<c:choose>
+					<c:when test='#{!empty groupIdsTypesBean.id}'>
+						<h:link value="Cancel" outcome="view" styleClass="btn btn-primary">
+							<f:param name="id" value='#{groupIdsTypesBean.id}'/>
+						</h:link>
+						<h:commandLink value="Delete" action='#{groupIdsTypesBean.delete}' styleClass="btn btn-primary"/>
+					</c:when>
+					<c:otherwise>
+						<h:link value="Cancel" outcome="search" styleClass="btn btn-primary"/>
+					</c:otherwise>
+				</c:choose>
+			</div>
+		</h:form>
+	</ui:define>
+
+</ui:composition>

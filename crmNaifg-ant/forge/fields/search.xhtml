@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="page" value='#{fieldsBean.page}'/>
+		<f:event type="preRenderView" listener='#{fieldsBean.paginate}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="Search Fields entities"/>
+
+	<ui:define name="header">
+		Fields
+	</ui:define>
+
+	<ui:define name="subheader">
+		Search Fields entities
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:form id="search">
+			<f:validateBean disabled="true">
+				<h:panelGroup styleClass="search">
+
+					<h:panelGrid columnClasses="label,component,required" columns="3">
+						<h:outputLabel for="fieldsBeanExampleAlias" value="Alias:"/>
+						<h:panelGroup>
+							<h:inputText id="fieldsBeanExampleAlias" value="#{fieldsBean.example.alias}"/>
+							<h:message for="fieldsBeanExampleAlias" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="fieldsBeanExampleObservations" value="Observations:"/>
+						<h:panelGroup>
+							<h:inputTextarea id="fieldsBeanExampleObservations" value="#{fieldsBean.example.observations}"/>
+							<h:message for="fieldsBeanExampleObservations" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="fieldsBeanExampleName" value="Name:"/>
+						<h:panelGroup>
+							<h:inputText id="fieldsBeanExampleName" value="#{fieldsBean.example.name}"/>
+							<h:message for="fieldsBeanExampleName" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="fieldsBeanExampleDescription" value="Description:"/>
+						<h:panelGroup>
+							<h:inputText id="fieldsBeanExampleDescription" value="#{fieldsBean.example.description}"/>
+							<h:message for="fieldsBeanExampleDescription" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="fieldsBeanExampleLength" value="Length:"/>
+						<h:panelGroup>
+							<h:inputText id="fieldsBeanExampleLength" value="#{fieldsBean.example.length}"/>
+							<h:message for="fieldsBeanExampleLength" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+					</h:panelGrid>
+					<h:panelGroup styleClass="buttons">
+						<h:commandLink value="Search" action='#{fieldsBean.search}' styleClass="btn btn-primary"/>
+						<h:commandLink value="Create New" action='#{fieldsBean.create}' styleClass="btn btn-primary"/>
+					</h:panelGroup>
+				</h:panelGroup>
+			</f:validateBean>
+			
+			<h:dataTable id="fieldsBeanPageItems" styleClass="data-table" value="#{fieldsBean.pageItems}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Name"/>
+					</f:facet>
+					<h:link outcome="/admin/fields/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemName" value="#{_item.name}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<ui:include src="/resources/scaffold/paginator.xhtml">
+				<ui:param name="paginatorBean" value='#{fieldsBean}'/>
+			</ui:include>
+		</h:form>
+			
+	</ui:define>
+
+</ui:composition>

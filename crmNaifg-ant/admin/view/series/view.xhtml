@@ -1,0 +1,328 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:forgeview="http://jboss.org/forge/view"
+        template="/resources/scaffold/archivalTemplate.xhtml">
+
+        <f:metadata>
+                <f:viewParam name="id" value='#{seriesBean.id}'/>
+                <f:event type="preRenderView" listener='#{seriesBean.retrieve}'/>
+        </f:metadata>
+
+        <ui:param name="pageTitle" value="View Series"/>
+
+        <ui:define name="header">
+                Series
+        </ui:define>
+
+        <ui:define name="subheader">
+                View existing Series
+        </ui:define>
+
+        <ui:define name="footer"/>
+
+        <ui:define name="main">
+                <h:panelGrid columnClasses="label,component,required" columns="3">
+
+
+                        <h:outputLabel for="seriesBeanSeriesName" value="Name:"/>
+                        <h:outputText id="seriesBeanSeriesName" value="#{seriesBean.series.name}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="seriesBeanSeriesCode" value="Code:"/>
+                        <h:outputText id="seriesBeanSeriesCode" value="#{seriesBean.series.code}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="seriesBeanSeriesLocated" value="Located:"/>
+                        <h:outputText id="seriesBeanSeriesLocated" value="#{seriesBean.series.located}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="seriesBeanSeriesProcedures" value="Procedures:"/>
+                        <h:outputText id="seriesBeanSeriesProcedures" value="#{seriesBean.series.procedures}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="seriesBeanSeriesDir" value="Dir:"/>
+                        <h:outputText id="seriesBeanSeriesDir" value="#{seriesBean.series.dir}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="seriesBeanSeriesObservations" value="Observations:"/>
+                        <h:outputText id="seriesBeanSeriesObservations" value="#{seriesBean.series.observations}" escape="false" />
+                        <h:outputText/>
+
+                        <h:outputLabel for="SeriesBeanSeriesTasks" value="Tasks:"/>
+                        <h:dataTable id="seriesBeanSeriestasks" styleClass="data-table" value="#{forgeview:asList(seriesBean.series.tasks)}" var="_item">
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Name"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/tasks/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemName" value="#{_item.name}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="OptimisticDate"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/tasks/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemOptimisticDate" value="#{_item.optimisticDate}"/>
+                                                              <f:convertDateTime type="date"/>
+                                                     <h:outputText/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="PessimisticDate"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/tasks/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemPessimisticDate" value="#{_item.pessimisticDate}"/>
+                                                              <f:convertDateTime type="date"/>
+                                                     <h:outputText/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="StartDate"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/tasks/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemStartDate" value="#{_item.startDate}"/>
+                                                              <f:convertDateTime type="date"/>
+                                                     <h:outputText/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="FinalDate"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/tasks/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemFinalDate" value="#{_item.finalDate}"/>
+                                                              <f:convertDateTime type="date"/>
+                                                     <h:outputText/>
+                                              </h:link>
+                                           </h:column>
+
+                        </h:dataTable>
+                        <h:outputText/>
+
+                        <h:outputLabel for="SeriesBeanSeriesDocumentalsUnits" value="DocumentalsUnits:"/>
+                        <h:dataTable id="seriesBeanSeriesdocumentalsUnits" styleClass="data-table" value="#{forgeview:asList(seriesBean.series.documentalsUnits)}" var="_item">
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Name"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/documentalsUnits/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemName" value="#{_item.name}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Code"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/documentalsUnits/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemCode" value="#{_item.code}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="StartDate"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/documentalsUnits/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemStartDate" value="#{_item.startDate}"/>
+                                                              <f:convertDateTime type="date"/>
+                                                     <h:outputText/>
+                                              </h:link>
+                                           </h:column>
+
+                        </h:dataTable>
+                        <h:outputText/>
+
+                        <h:outputLabel for="SeriesBeanSeriesSeries" value="Series:"/>
+                        <h:dataTable id="seriesBeanSeriesseries" styleClass="data-table" value="#{forgeview:asList(seriesBean.series.objHijos)}" var="_item">
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Name"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/series/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemName" value="#{_item.name}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Code"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/series/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemCode" value="#{_item.code}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Located"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/series/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemLocated" value="#{_item.located}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Procedures"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/series/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemProcedures" value="#{_item.procedures}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Dir"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/series/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemDir" value="#{_item.dir}"/>
+                                              </h:link>
+                                           </h:column>
+
+                        </h:dataTable>
+                        <h:outputText/>
+
+                        <h:outputLabel for="SeriesBeanSeriesVersionsControls" value="VersionsControls:"/>
+                        <h:dataTable id="seriesBeanSeriesversionsControls" styleClass="data-table" value="#{forgeview:asList(seriesBean.series.versionsControls)}" var="_item">
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Name"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/versionsControls/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemName" value="#{_item.name}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Code"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/versionsControls/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemCode" value="#{_item.code}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Version"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/versionsControls/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemVersion" value="#{_item.version}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Date"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/versionsControls/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemDate" value="#{_item.date}"/>
+                                                              <f:convertDateTime type="date"/>
+                                                     <h:outputText/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Request"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/versionsControls/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemRequest" value="#{_item.request}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Responsible"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/versionsControls/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemResponsible" value="#{_item.responsible}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Description"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/versionsControls/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemDescription" value="#{_item.description}"/>
+                                              </h:link>
+                                           </h:column>
+
+                        </h:dataTable>
+                        <h:outputText/>
+
+                        <h:outputLabel for="SeriesBeanSeriesTrdSeries" value="TrdSeries:"/>
+                        <h:dataTable id="seriesBeanSeriestrdSeries" styleClass="data-table" value="#{forgeview:asList(seriesBean.series.trdSeries)}" var="_item">
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Name"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/trdSeries/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemName" value="#{_item.name}"/>
+                                              </h:link>
+                                           </h:column>
+
+                        </h:dataTable>
+                        <h:outputText/>
+
+                        <h:outputLabel for="seriesBeanSeriesSections" value="Sections:"/>
+                        <h:link id="seriesBeanSeriesSections" outcome="/admin/sections/view" rendered="#{!empty seriesBean.series.sections}" value="#{seriesBean.series.sections.name}">
+                                 <f:param name="id" value="#{seriesBean.series.sections.id}"/>
+                        </h:link>
+                        <h:outputText/>
+
+                        <h:outputLabel for="seriesBeanSeriesobjPadre" value="Series:"/>
+                        <h:link id="seriesBeanSeriesobjPadre" outcome="/admin/series/view" rendered="#{!empty seriesBean.series.objPadre}" value="#{seriesBean.series.objPadre.name}">
+                                 <f:param name="id" value="#{seriesBean.series.objPadre.id}"/>
+                        </h:link>
+                        <h:outputText/>
+
+                </h:panelGrid>
+
+                <div class="buttons">
+                        <h:link value="View All" outcome="search" styleClass="btn btn-primary"/>
+                        <h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
+                        <h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
+                </div>
+        </ui:define>
+</ui:composition>

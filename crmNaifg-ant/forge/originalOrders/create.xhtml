@@ -1,0 +1,215 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:forgeview="http://jboss.org/forge/view"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="id" value='#{originalOrdersBean.id}'/>
+		<f:event type="preRenderView" listener='#{originalOrdersBean.retrieve}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="Create Original Orders"/>
+
+	<ui:define name="header">
+		Original Orders
+	</ui:define>
+
+	<ui:define name="subheader">
+		<c:choose>
+			<c:when test='#{!empty originalOrdersBean.id}'>
+				Edit existing Original Orders
+			</c:when>
+			<c:otherwise>
+				Create a new Original Orders
+			</c:otherwise>
+		</c:choose>
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:form id="create">
+			<h:messages globalOnly="true" styleClass="error"/>
+
+			<h:panelGrid columnClasses="label,component,required" columns="3">
+				<h:outputLabel for="originalOrdersBeanOriginalOrdersAlias" value="Alias:"/>
+				<h:panelGroup>
+					<h:inputText id="originalOrdersBeanOriginalOrdersAlias" value="#{originalOrdersBean.originalOrders.alias}"/>
+					<h:message for="originalOrdersBeanOriginalOrdersAlias" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="originalOrdersBeanOriginalOrdersOrden" value="Orden:"/>
+				<h:panelGroup>
+					<h:inputText id="originalOrdersBeanOriginalOrdersOrden" value="#{originalOrdersBean.originalOrders.orden}"/>
+					<h:message for="originalOrdersBeanOriginalOrdersOrden" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="originalOrdersBeanOriginalOrdersObservations" value="Observations:"/>
+				<h:panelGroup>
+					<h:inputTextarea id="originalOrdersBeanOriginalOrdersObservations" value="#{originalOrdersBean.originalOrders.observations}"/>
+					<h:message for="originalOrdersBeanOriginalOrdersObservations" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="originalOrdersBeanOriginalOrdersSubject" value="Subject:"/>
+				<h:panelGroup>
+					<h:inputText id="originalOrdersBeanOriginalOrdersSubject" value="#{originalOrdersBean.originalOrders.subject}"/>
+					<h:message for="originalOrdersBeanOriginalOrdersSubject" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="originalOrdersBeanOriginalOrdersCode" value="Code:"/>
+				<h:panelGroup>
+					<h:inputText id="originalOrdersBeanOriginalOrdersCode" value="#{originalOrdersBean.originalOrders.code}"/>
+					<h:message for="originalOrdersBeanOriginalOrdersCode" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="originalOrdersBeanOriginalOrdersEntryDate" value="Entry Date:"/>
+				<h:panelGroup>
+					<h:inputText id="originalOrdersBeanOriginalOrdersEntryDate" value="#{originalOrdersBean.originalOrders.entryDate}">
+						<f:convertDateTime type="date"/>
+					</h:inputText>
+					<h:message for="originalOrdersBeanOriginalOrdersEntryDate" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="originalOrdersBeanOriginalOrdersStartDate" value="Start Date:"/>
+				<h:panelGroup>
+					<h:inputText id="originalOrdersBeanOriginalOrdersStartDate" value="#{originalOrdersBean.originalOrders.startDate}">
+						<f:convertDateTime type="date"/>
+					</h:inputText>
+					<h:message for="originalOrdersBeanOriginalOrdersStartDate" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="originalOrdersBeanOriginalOrdersFinalDate" value="Final Date:"/>
+				<h:panelGroup>
+					<h:inputText id="originalOrdersBeanOriginalOrdersFinalDate" value="#{originalOrdersBean.originalOrders.finalDate}">
+						<f:convertDateTime type="date"/>
+					</h:inputText>
+					<h:message for="originalOrdersBeanOriginalOrdersFinalDate" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="originalOrdersBeanOriginalOrdersFolios" value="Folios:"/>
+				<h:panelGroup>
+					<h:inputText id="originalOrdersBeanOriginalOrdersFolios" value="#{originalOrdersBean.originalOrders.folios}"/>
+					<h:message for="originalOrdersBeanOriginalOrdersFolios" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="originalOrdersBeanOriginalOrdersQuantity" value="Quantity:"/>
+				<h:panelGroup>
+					<h:inputText id="originalOrdersBeanOriginalOrdersQuantity" value="#{originalOrdersBean.originalOrders.quantity}"/>
+					<h:message for="originalOrdersBeanOriginalOrdersQuantity" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="originalOrdersBeanOriginalOrdersLocated" value="Located:"/>
+				<h:panelGroup>
+					<h:inputText id="originalOrdersBeanOriginalOrdersLocated" value="#{originalOrdersBean.originalOrders.located}"/>
+					<h:message for="originalOrdersBeanOriginalOrdersLocated" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="originalOrdersBeanOriginalOrdersMail" value="Mail:"/>
+				<h:panelGroup>
+					<h:inputText id="originalOrdersBeanOriginalOrdersMail" value="#{originalOrdersBean.originalOrders.mail}"/>
+					<h:message for="originalOrdersBeanOriginalOrdersMail" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="originalOrdersBeanOriginalOrdersNotes" value="Notes:"/>
+				<h:panelGroup>
+					<h:inputText id="originalOrdersBeanOriginalOrdersNotes" value="#{originalOrdersBean.originalOrders.notes}"/>
+					<h:message for="originalOrdersBeanOriginalOrdersNotes" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="originalOrdersBeanOriginalOrdersFileName" value="File Name:"/>
+				<h:panelGroup>
+					<h:inputText id="originalOrdersBeanOriginalOrdersFileName" value="#{originalOrdersBean.originalOrders.fileName}"/>
+					<h:message for="originalOrdersBeanOriginalOrdersFileName" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="originalOrdersBeanOriginalOrdersFileType" value="File Type:"/>
+				<h:panelGroup>
+					<h:inputText id="originalOrdersBeanOriginalOrdersFileType" value="#{originalOrdersBean.originalOrders.fileType}"/>
+					<h:message for="originalOrdersBeanOriginalOrdersFileType" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="originalOrdersBeanOriginalOrdersFiledir" value="Filedir:"/>
+				<h:panelGroup>
+					<h:inputText id="originalOrdersBeanOriginalOrdersFiledir" value="#{originalOrdersBean.originalOrders.filedir}"/>
+					<h:message for="originalOrdersBeanOriginalOrdersFiledir" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="originalOrdersBeanOriginalOrdersContinualImprovements" value="Continual Improvements:"/>
+				<h:panelGroup>
+					<h:selectOneMenu converter="#{continualImprovementsBean.converter}" id="originalOrdersBeanOriginalOrdersContinualImprovements" value="#{originalOrdersBean.originalOrders.continualImprovements}">
+						<f:selectItem/>
+						<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{continualImprovementsBean.all}" var="_item"/>
+					</h:selectOneMenu>
+					<h:message for="originalOrdersBeanOriginalOrdersContinualImprovements" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="originalOrdersBeanOriginalOrdersDocumentalsUnits" value="Documentals Units:"/>
+				<h:panelGroup>
+					<h:selectOneMenu converter="#{documentalsUnitsBean.converter}" id="originalOrdersBeanOriginalOrdersDocumentalsUnits" value="#{originalOrdersBean.originalOrders.documentalsUnits}">
+						<f:selectItem/>
+						<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{documentalsUnitsBean.all}" var="_item"/>
+					</h:selectOneMenu>
+					<h:message for="originalOrdersBeanOriginalOrdersDocumentalsUnits" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="originalOrdersBeanOriginalOrdersDocumentalsSupports" value="Documentals Supports:"/>
+				<h:panelGroup>
+					<h:selectOneMenu converter="#{documentalsSupportsBean.converter}" id="originalOrdersBeanOriginalOrdersDocumentalsSupports" value="#{originalOrdersBean.originalOrders.documentalsSupports}">
+						<f:selectItem/>
+						<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{documentalsSupportsBean.all}" var="_item"/>
+					</h:selectOneMenu>
+					<h:message for="originalOrdersBeanOriginalOrdersDocumentalsSupports" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="originalOrdersBeanOriginalOrdersConservationUnits" value="Conservation Units:"/>
+				<h:panelGroup>
+					<h:selectOneMenu converter="#{conservationUnitsBean.converter}" id="originalOrdersBeanOriginalOrdersConservationUnits" value="#{originalOrdersBean.originalOrders.conservationUnits}">
+						<f:selectItem/>
+						<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{conservationUnitsBean.all}" var="_item"/>
+					</h:selectOneMenu>
+					<h:message for="originalOrdersBeanOriginalOrdersConservationUnits" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="originalOrdersBeanOriginalOrdersConservationUnitsTypes" value="Conservation Units Types:"/>
+				<h:panelGroup>
+					<h:selectOneMenu converter="#{conservationUnitsTypesBean.converter}" id="originalOrdersBeanOriginalOrdersConservationUnitsTypes" value="#{originalOrdersBean.originalOrders.conservationUnitsTypes}">
+						<f:selectItem/>
+						<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{conservationUnitsTypesBean.all}" var="_item"/>
+					</h:selectOneMenu>
+					<h:message for="originalOrdersBeanOriginalOrdersConservationUnitsTypes" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="originalOrdersBeanOriginalOrdersDocumentalInventory" value="Documental Inventory:"/>
+				<h:panelGroup>
+					<h:selectOneMenu converter="#{documentalInventoryBean.converter}" id="originalOrdersBeanOriginalOrdersDocumentalInventory" value="#{originalOrdersBean.originalOrders.documentalInventory}">
+						<f:selectItem/>
+						<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{documentalInventoryBean.all}" var="_item"/>
+					</h:selectOneMenu>
+					<h:message for="originalOrdersBeanOriginalOrdersDocumentalInventory" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+			</h:panelGrid>
+
+			<div class="buttons">
+				<h:commandLink value="Save" action='#{originalOrdersBean.update}' styleClass="btn btn-primary"/>
+				<c:choose>
+					<c:when test='#{!empty originalOrdersBean.id}'>
+						<h:link value="Cancel" outcome="view" styleClass="btn btn-primary">
+							<f:param name="id" value='#{originalOrdersBean.id}'/>
+						</h:link>
+						<h:commandLink value="Delete" action='#{originalOrdersBean.delete}' styleClass="btn btn-primary"/>
+					</c:when>
+					<c:otherwise>
+						<h:link value="Cancel" outcome="search" styleClass="btn btn-primary"/>
+					</c:otherwise>
+				</c:choose>
+			</div>
+		</h:form>
+	</ui:define>
+
+</ui:composition>

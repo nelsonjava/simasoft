@@ -1,2 +1,5 @@
 String;String;DocumentalsSupports
 name;code;
+FISICO;F;
+DIGITAL;D;
+FISICO Y/DIGITAL;FD;

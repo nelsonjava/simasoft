@@ -478,7 +478,7 @@ public class FindBean {
 
 //      ---------------------- ConservationUnits ------------------------
 
-    public List<ConservationUnits> AllConservationUnits() {
+    public List<ConservationUnits> AllConservationUnits(EntityManager em) {
         List<ConservationUnits> results = em.createQuery("SELECT o FROM ConservationUnits o").getResultList();
         if (results.isEmpty()) {
             return new ArrayList<ConservationUnits>();

@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="page" value='#{inventoryFinalityBean.page}'/>
+		<f:event type="preRenderView" listener='#{inventoryFinalityBean.paginate}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="Search Inventory Finality entities"/>
+
+	<ui:define name="header">
+		Inventory Finality
+	</ui:define>
+
+	<ui:define name="subheader">
+		Search Inventory Finality entities
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:form id="search">
+			<f:validateBean disabled="true">
+				<h:panelGroup styleClass="search">
+
+					<h:panelGrid columnClasses="label,component,required" columns="3">
+						<h:outputLabel for="inventoryFinalityBeanExampleAlias" value="Alias:"/>
+						<h:panelGroup>
+							<h:inputText id="inventoryFinalityBeanExampleAlias" value="#{inventoryFinalityBean.example.alias}"/>
+							<h:message for="inventoryFinalityBeanExampleAlias" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="inventoryFinalityBeanExampleObservations" value="Observations:"/>
+						<h:panelGroup>
+							<h:inputTextarea id="inventoryFinalityBeanExampleObservations" value="#{inventoryFinalityBean.example.observations}"/>
+							<h:message for="inventoryFinalityBeanExampleObservations" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="inventoryFinalityBeanExampleName" value="Name:"/>
+						<h:panelGroup>
+							<h:inputText id="inventoryFinalityBeanExampleName" value="#{inventoryFinalityBean.example.name}"/>
+							<h:message for="inventoryFinalityBeanExampleName" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+					</h:panelGrid>
+					<h:panelGroup styleClass="buttons">
+						<h:commandLink value="Search" action='#{inventoryFinalityBean.search}' styleClass="btn btn-primary"/>
+						<h:commandLink value="Create New" action='#{inventoryFinalityBean.create}' styleClass="btn btn-primary"/>
+					</h:panelGroup>
+				</h:panelGroup>
+			</f:validateBean>
+			
+			<h:dataTable id="inventoryFinalityBeanPageItems" styleClass="data-table" value="#{inventoryFinalityBean.pageItems}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Name"/>
+					</f:facet>
+					<h:link outcome="/admin/inventoryFinality/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemName" value="#{_item.name}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<ui:include src="/resources/scaffold/paginator.xhtml">
+				<ui:param name="paginatorBean" value='#{inventoryFinalityBean}'/>
+			</ui:include>
+		</h:form>
+			
+	</ui:define>
+
+</ui:composition>

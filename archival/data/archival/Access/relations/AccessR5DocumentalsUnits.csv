@@ -1,2 +1,161 @@
 From;FromProperty;FromValue;To;ToProperty;ToValue;Name;Cardinalities
-Access;        ;        ;DocumentalsUnits;        ;        ;       ;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;INFORME DE RESULTADO DE REVISIÓN POR LA DIRECCIÓN;;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;INFORME VISITA HERMANO PROVINCIAL;;Uno a Muchos Bidirecccional No.5
+Access;name;LIBRE;DocumentalsUnits;name;MATRIZ DE INDICADORES DEL SISTEMA DE GESTIÓN DE LA CALIDAD;;Uno a Muchos Bidirecccional No.5
+Access;name;LIBRE;DocumentalsUnits;name;PLAN OPERATIVO ANUAL;;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;INFORME DE  GESTIÓN O DESEMPEÑO DEL PROCESO;;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;ACTA DE CONSEJO DIRECTIVO;;Uno a Muchos Bidirecccional No.5
+Access;name;LIBRE;DocumentalsUnits;name;RESOLUCIONES DE RECTORÍA;;Uno a Muchos Bidirecccional No.5
+Access;name;LIBRE;DocumentalsUnits;name;CIRCULARES DE RECTORÍA;;Uno a Muchos Bidirecccional No.5
+Access;name;LIBRE;DocumentalsUnits;name;CRONOGRAMA DISTRITAL;;Uno a Muchos Bidirecccional No.5
+Access;name;LIBRE;DocumentalsUnits;name;CRONOGRAMA INSTITUCIONAL;;Uno a Muchos Bidirecccional No.5
+Access;name;LIBRE;DocumentalsUnits;name;EVALUACIÓN INSTITUCIONAL;;Uno a Muchos Bidirecccional No.5
+Access;name;LIBRE;DocumentalsUnits;name;GUÍA DE AUTOEVALUACIÓN;;Uno a Muchos Bidirecccional No.5
+Access;name;LIBRE;DocumentalsUnits;name;GUÍA PARA LA ENTREGA DE UNA OBRA LASALLISTA;;Uno a Muchos Bidirecccional No.5
+Access;name;LIBRE;DocumentalsUnits;name;CARTA DE NOMBRAMIENTO DE RECTOR;;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;CONVENIOS INTERINSTITUCIONALES;;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;ACTAS - COMITÉ DE COORDINACIÓN;;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;GD - CORRESPONDENCIA ENVIADA;;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;GD - CIRCULARES EXTERNAS;;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;FORMULARIO DE INSCRIPCIÓN;;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;REGISTRO DE RESULTADOS DE ADMISIÓN;;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;HOJA DE MATRÍCULA;;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;DEVOLUCIÓN DE DOCUMENTOS;;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;AUTORIZACIÓN RETIRO DE ESTUDIANTES;;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;LISTA DE CHEQUEO PARA RECEPCIÓN DE DOCUMENTOS PARA LA MATRICULA;;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;CONTRATO DE PRESTACIÓN DEL SERVICIO EDUCATIVO;;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;LISTADO DE ESTUDIANTES MATRICULADOS;;Uno a Muchos Bidirecccional No.5
+Access;name;LIBRE;DocumentalsUnits;name;LISTADO DE ASPIRANTES INSCRITOS;;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;LISTADOS DE ASPIRANTES ADMITIDOS;;Uno a Muchos Bidirecccional No.5
+Access;name;LIBRE;DocumentalsUnits;name;PAZ Y SALVO ESTUDIANTES;;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;LIBRO DE ACTAS DE GRADO;;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;AM - CORRESPONDENCIA ENVIADA;;Uno a Muchos Bidirecccional No.5
+Access;name;LIBRE;DocumentalsUnits;name;AM - CIRCULARES;;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;HORARIO DE CLASES;;Uno a Muchos Bidirecccional No.5
+Access;name;LIBRE;DocumentalsUnits;name;REGISTRO DE VALIDACIÓN DE LA PRESTACIÓN DEL SERVICIO EDUCATIVO;;Uno a Muchos Bidirecccional No.5
+Access;name;LIBRE;DocumentalsUnits;name;CONTROL DE ACTIVIDADES DE SUPERACIÓN O RECUPERACIÓN;;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;OBSERVADOR DEL ESTUDIANTE;;Uno a Muchos Bidirecccional No.5
+Access;name;LIBRE;DocumentalsUnits;name;PLAN DE CURSO;;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;CONTROL DE ATENCIÓN PARA ORIENTACIÓN;;Uno a Muchos Bidirecccional No.5
+Access;name;LIBRE;DocumentalsUnits;name;AUTORIZACIÓN PARA ESTUDIANTES;;Uno a Muchos Bidirecccional No.5
+Access;name;LIBRE;DocumentalsUnits;name;CITACIÓN A PADRES DE FAMILIA;;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;REMISIÓN DE ESTUDIANTES A ORIENTACIÓN;;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;HISTORIA Y SEGUIMIENTO PSICOLOGÍA;;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;PLAN DE ÁREA;;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;PLAN DE ASIGNATURA;;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;PROYECTO PEDAGÓGICO;;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;COMPROMISO ACADÉMICO;;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;COMPROMISO COMPORTAMENTAL;;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;AUTO REGISTRO DE RETARDOS;;Uno a Muchos Bidirecccional No.5
+Access;name;LIBRE;DocumentalsUnits;name;CONTENIDOS PROGRAMATICOS;;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;CONTROL DE CITACIONES A PADRES DE FAMILIA;;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;REGISTRO DE NORMALIZACIÓN;;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;CONTROL DE ASISTENCIA A ACTIVIDADES DE APOYO;;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;EVALUACIÓN DE ACTIVIDADES D APOYO;;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;INFORME PERIÓDICO DE PSICOLOGÍA A COORDINACIÓN;;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;CLAUSULA ESPECIAL DE MATRICULA;;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;PROYECTOS DE AULA PRE-ESCOLAR;;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;ACTAS (COMISIÓN DE EVALUACIÓN Y PROMOCIÓN);;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;ACTAS (CONSEJO ACADÉMICO);;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;ACTAS (REUNIÓN DE DEPARTAMENTO O ÁREA);;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;LIBRO DE CALIFICACIONES FINAL;;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;GE - CORRESPONDENCIA ENVIADA;;Uno a Muchos Bidirecccional No.5
+Access;name;LIBRE;DocumentalsUnits;name;GE - CIRCULARES;;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;SOLICITUD DE PERSONAL;;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;FORMATO DE ENTREVISTA;;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;HOJA DE VIDA INSTITUCIONAL;;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;REGISTRO DE INDUCCIÓN;;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;EVALUACIÓN DE DESEMPEÑO;;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;ENCUESTA DE CLIMA ORGANIZACIONAL;;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;DECLARACIÓN DE COMPETENCIA;;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;PLAN DE FORMACIÓN;;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;SOLICITUD DE CAPACITACIÓN;;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;PLAN DE BIENESTAR;;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;SOLICITUD DE PERMISOS;;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;SEGUIMIENTO Y ASISTENCIA A CAPACITACIÓN;;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;ACTA DE DESCARGOS, CONCILIACIÓN O COMPROMISO;;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;CONTRATO LABORAL;;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;INGRESO DE PERSONAL;;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;REGISTRO DE NOVEDADES;;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;RETIRO DE PERSONAL;;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;NÓMINA MENSUAL;;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;CONTRATO INDIVIDUAL DE TRABAJO PARA PERSONAL DOCENTE AÑO ESCOLAR;;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;PROTOCOLIZACIÓN DEL PERSONAL DOCENTE;;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;PAZ Y SALVO GENERAL;;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;EVALUACIÓN DE DOCENTES(PREESCOLAR Y PRIMERO);;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;ACTA DE REUNIÓN DE COPASST;;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;ACTAS DE COMITÉ DE CONVIVENCIA LABORAL;;Uno a Muchos Bidirecccional No.5
+Access;name;LIBRE;DocumentalsUnits;name;DOCUMENTOS DEL SISTEMA DE GESTIÓN DE LA SEGURIDAD Y SALUD EN EL TRABAJO;;Uno a Muchos Bidirecccional No.5
+Access;name;LIBRE;DocumentalsUnits;name;PLAN DE EMERGENCIAS;;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;PLAN DE MEJORAMIENTO ENCUESTA DE CLIMA ORGANIZACIONAL.;;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;LIQUIDACIONES DE PERSONAL;;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;GT - CORRESPONDENCIA ENVIADA;;Uno a Muchos Bidirecccional No.5
+Access;name;LIBRE;DocumentalsUnits;name;GT - CIRCULARES;;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;EJECUCIÓN PRESUPUESTAL;;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;GF - REQUISICIÓN;;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;CARTERA ACTUALIZADA COLEGIOS;;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;CONCILIACIÓN CUENTA MOROSOS;;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;RESUMEN DE CARTERA MOROSA;;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;PLANILLA DIARIA DE VENTAS EN CAFETERÍA;;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;COMPROBANTES DE EGRESO;;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;SOPORTES COMPROBANTES DE EGRESO;;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;GF - CORRESPONDENCIA ENVIADA;;Uno a Muchos Bidirecccional No.5
+Access;name;LIBRE;DocumentalsUnits;name;GF - CIRCULARES;;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;SOLICITUD Y ENTREGA DE SUMINISTROS;;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;COMPARATIVO DE OFERTAS;;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;ORDEN DE COMPRA;;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;DEVOLUCIÓN DE ARTÍCULOS;;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;RELACIÓN DE FACTURAS POR PAGAR;;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;INSCRIPCIÓN DE PROVEEDORES;;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;EVALUACIÓN Y SELECCIÓN DE PROVEEDORES;;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;LISTADO DE PROVEEDORES;;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;REEVALUACIÓN DE PROVEEDORES;;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;SOLICITUD DE COMPRAS;;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;KÁRDEX DE ALMACÉN;;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;GC - REQUISICIÓN;;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;LISTADO DE INVENTARIO DE ACTIVOS Y RELACIÓN DE NOVEDADES;;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;EVALUACIÓN DEL SERVICIO DE COMPRAS Y SUMINISTROS;;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;REGISTROS SOPORTES DE INSCRIPCIÓN Y EVALUACIÓN DE PROVEEDORES;;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;GC - CORRESPONDENCIA ENVIADA;;Uno a Muchos Bidirecccional No.5
+Access;name;LIBRE;DocumentalsUnits;name;GC - CIRCULARES;;Uno a Muchos Bidirecccional No.5
+Access;name;LIBRE;DocumentalsUnits;name;PLAN DE MANTENIMIENTO;;Uno a Muchos Bidirecccional No.5
+Access;name;LIBRE;DocumentalsUnits;name;PLAN CONTROL DE PLAGAS;;Uno a Muchos Bidirecccional No.5
+Access;name;LIBRE;DocumentalsUnits;name;SOLICITUD DE MANTENIMIENTO CORRECTIVO;;Uno a Muchos Bidirecccional No.5
+Access;name;LIBRE;DocumentalsUnits;name;PLANILLA DE ACTIVIDADES DE MANTENIMIENTO;;Uno a Muchos Bidirecccional No.5
+Access;name;LIBRE;DocumentalsUnits;name;HOJA DE VIDA DE EQUIPOS;;Uno a Muchos Bidirecccional No.5
+Access;name;LIBRE;DocumentalsUnits;name;CONTROL DE ASEO SEMANAL;;Uno a Muchos Bidirecccional No.5
+Access;name;LIBRE;DocumentalsUnits;name;CONTROL DE MANTENIMIENTO DE LA PISCINA;;Uno a Muchos Bidirecccional No.5
+Access;name;LIBRE;DocumentalsUnits;name;EVALUACIÓN DEL SERVICIO DE ASEO Y MANTENIMIENTO;;Uno a Muchos Bidirecccional No.5
+Access;name;LIBRE;DocumentalsUnits;name;REPORTE DE  DAÑOS;;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;SG - CORRESPONDENCIA ENVIADA;;Uno a Muchos Bidirecccional No.5
+Access;name;LIBRE;DocumentalsUnits;name;SG - CIRCULARES;;Uno a Muchos Bidirecccional No.5
+Access;name;LIBRE;DocumentalsUnits;name;MATRIZ DE SERVICIOS COMPLEMENTARIOS;;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;SOLICITUD DEL SERVICIO DE FOTOCOPIADO E IMPRESIÓN;;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;SC - CORRESPONDENCIA ENVIADA;;Uno a Muchos Bidirecccional No.5
+Access;name;LIBRE;DocumentalsUnits;name;SC - CIRCULARES;;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;RADICACIÓN Y DISTRIBUCIÓN DE CORRESPONDENCIA ENVIADA RECIBIDA;;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;RADICACIÓN DE CORRESPONDENCIA ENVIADA ENVIADA;;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;ENTRADA DE DOCUMENTOS AL ARCHIVO CENTRAL;;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;DEPURACIÓN DE ARCHIVO;;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;GI - CORRESPONDENCIA ENVIADA;;Uno a Muchos Bidirecccional No.5
+Access;name;LIBRE;DocumentalsUnits;name;GI - CIRCULARES;;Uno a Muchos Bidirecccional No.5
+Access;name;LIBRE;DocumentalsUnits;name;ELABORACIÓN, MODIFICACIÓN O ELIMINACIÓN DE DOCUMENTOS DEL SGC;;Uno a Muchos Bidirecccional No.5
+Access;name;LIBRE;DocumentalsUnits;name;LISTADO MAESTRO DE DOCUMENTOS;;Uno a Muchos Bidirecccional No.5
+Access;name;LIBRE;DocumentalsUnits;name;LISTADO MAESTRO DE REGISTROS;;Uno a Muchos Bidirecccional No.5
+Access;name;LIBRE;DocumentalsUnits;name;PLAN DE AUDITORÍA INTERNA;;Uno a Muchos Bidirecccional No.5
+Access;name;LIBRE;DocumentalsUnits;name;ACTA DE APERTURA Y CIERRE DE AUDITORÍA INTERNA;;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;LISTA DE CHEQUEO;;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;EVALUACIÓN DE GESTIÓN DE LA AUDITORÍA;;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;INFORME DE AUDITORÍA INTERNA;;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;CONTROL DEL SERVICIO NO CONFORME;;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;IMPLEMENTACIÓN DE ACCIONES CORRECTIVAS, PREVENTIVAS O DE MEJORA;;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;QUEJAS, SUGERENCIAS Y FELICITACIONES;;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;SEGUIMIENTO Y CONTROL DE QUEJAS, SUGERENCIAS Y FELICITACIONES;;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;COMPORTAMIENTO DE LOS INDICADORES DE GESTIÓN;;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;ENCUESTA DE SATISFACCIÓN DE PADRES DE FAMILIA Y ESTUDIANTES;;Uno a Muchos Bidirecccional No.5
+Access;name;LIBRE;DocumentalsUnits;name;MATRIZ DE POSIBLES SERVICIOS NO CONFORMES;;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;PROGRAMA DE AUDITORIA;;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;INFORME DE RESULTADOS DE ENCUESTAS DE SATISFACCIÓN;;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;ACTA DE REUNIÓN DEL COMITÉ DE LA CALIDAD;;Uno a Muchos Bidirecccional No.5
+Access;name;RESTRINGIDO;DocumentalsUnits;name;GQ - CORRESPONDENCIA ENVIADA;;Uno a Muchos Bidirecccional No.5
+Access;name;LIBRE;DocumentalsUnits;name;GQ - CIRCULARES;;Uno a Muchos Bidirecccional No.5

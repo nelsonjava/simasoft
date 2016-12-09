@@ -1,0 +1,130 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:forgeview="http://jboss.org/forge/view"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="page" value='#{diariesBean.page}'/>
+		<f:event type="preRenderView" listener='#{diariesBean.paginate}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="Search Diaries entities"/>
+
+	<ui:define name="header">
+		Diaries
+	</ui:define>
+
+	<ui:define name="subheader">
+		Search Diaries entities
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:form id="search">
+			<f:validateBean disabled="true">
+				<h:panelGroup styleClass="search">
+
+					<h:panelGrid columnClasses="label,component,required" columns="3">
+						<h:outputLabel for="diariesBeanExampleAlias" value="Alias:"/>
+						<h:panelGroup>
+							<h:inputText id="diariesBeanExampleAlias" value="#{diariesBean.example.alias}"/>
+							<h:message for="diariesBeanExampleAlias" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="diariesBeanExampleObservations" value="Observations:"/>
+						<h:panelGroup>
+							<h:inputTextarea id="diariesBeanExampleObservations" value="#{diariesBean.example.observations}"/>
+							<h:message for="diariesBeanExampleObservations" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="diariesBeanExampleName" value="Name:"/>
+						<h:panelGroup>
+							<h:inputText id="diariesBeanExampleName" value="#{diariesBean.example.name}"/>
+							<h:message for="diariesBeanExampleName" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="diariesBeanExampleDescription" value="Description:"/>
+						<h:panelGroup>
+							<h:inputText id="diariesBeanExampleDescription" value="#{diariesBean.example.description}"/>
+							<h:message for="diariesBeanExampleDescription" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="diariesBeanExampleChapters" value="Chapters:"/>
+						<h:panelGroup>
+							<h:selectOneMenu converter="#{chaptersBean.converter}" id="diariesBeanExampleChapters" value="#{diariesBean.example.chapters}">
+								<f:selectItem/>
+								<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{chaptersBean.all}" var="_item"/>
+							</h:selectOneMenu>
+							<h:message for="diariesBeanExampleChapters" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+					</h:panelGrid>
+					<h:panelGroup styleClass="buttons">
+						<h:commandLink value="Search" action='#{diariesBean.search}' styleClass="btn btn-primary"/>
+						<h:commandLink value="Create New" action='#{diariesBean.create}' styleClass="btn btn-primary"/>
+					</h:panelGroup>
+				</h:panelGroup>
+			</f:validateBean>
+			
+			<h:dataTable id="diariesBeanPageItems" styleClass="data-table" value="#{diariesBean.pageItems}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Alias"/>
+					</f:facet>
+					<h:link outcome="/admin/diaries/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemAlias" value="#{_item.alias}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Orden"/>
+					</f:facet>
+					<h:link outcome="/admin/diaries/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemOrden" value="#{_item.orden}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Observations"/>
+					</f:facet>
+					<h:link outcome="/admin/diaries/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:inputTextarea id="_itemObservations" value="#{_item.observations}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Name"/>
+					</f:facet>
+					<h:link outcome="/admin/diaries/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemName" value="#{_item.name}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Date"/>
+					</f:facet>
+					<h:link outcome="/admin/diaries/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemDate" value="#{_item.date}">
+							<f:convertDateTime type="date"/>
+						</h:outputText>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<ui:include src="/resources/scaffold/paginator.xhtml">
+				<ui:param name="paginatorBean" value='#{diariesBean}'/>
+			</ui:include>
+		</h:form>
+			
+	</ui:define>
+
+</ui:composition>

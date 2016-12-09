@@ -23,6 +23,7 @@ line("import co.simasoft.utils.*;\n");
 line("import co.simasoft.models.*;\n");
 
 line("import java.util.*;");
+line("import java.text.*;");
 line("import java.util.Map.*;\n");
 
 line("import java.io.BufferedReader;");
@@ -55,10 +56,12 @@ line("    BufferedReader br = null;\n");
 line("    Integer i = 0;");
 line("    String entity = \"\";");
 line("    String line = \"\";");
-line("    String cvsSplitBy = \";\";\n");
+line("    SimpleDateFormat formatter = new SimpleDateFormat(\"dd/MM/yyyy\");");
+line("    String cvsSplitBy = null;\n");
 
 line("    String[] types = new String[100];");
-line("    String[] fields = new String[100];\n");
+line("    String[] fields = new String[100];");
+line("    String[] data;\n");
 
 line("    @PersistenceContext(unitName = \"leanCrmPU-JTA\")");
 line("    private EntityManager em;\n");
@@ -91,25 +94,32 @@ line("           FacesContext.getCurrentInstance().addMessage(null, message);\n"
 line("           br = new BufferedReader(new FileReader(filePath));");
 line("           while ((line = br.readLine()) != null) {\n");
 
-line("              // use comma as separator");
-line("              String[] data = line.split(cvsSplitBy);\n");
-
 line("              i++;");
+line("              if (i==1){");
+line("                  data = line.split(\"\");");
+line("                  cvsSplitBy = data[data.length-1];");
+line("              }");
+line("              else{");
+line("                  data = line.split(cvsSplitBy);");
+line("              }\n");
+
 line("              switch (i) {");
 line("                  case 1:");
+line("                       f.line(\"cvsSplitBy=\"+cvsSplitBy);");
+line("                       break;");
+line("                  case 2:");
 line("                       entity = data[data.length-1];");
 line("                       types = data;");
 line("                       f.line(\"Entidad:\"+entity);");
 line("                       break;");
-
-line("                  case 2:");
+line("                  case 3:");
 line("                       fields = data;");
 line("                       break;");
-
 line("                  default:");
 line("                       entitiesData(entity,fields,types,data,f,em);");
 line("                       break;");
-line("              }");
+line("              }\n");
+
 line("           }");
 line("           f.saveFile(\"\\\\docs\", entity+\"Data.txt\");\n");
 
@@ -157,15 +167,15 @@ line("    } // Entities\n");
       for(Entidad entidad : entidades) {
 
 
-line("    public void "+entidad.getName()+"(String entity,String[] fields,String[] types,String[] data,FileTxt f,EntityManager em) {\n");
+line("    public void "+entidad.getName()+"(String entity,String[] field,String[] types,String[] data,FileTxt f,EntityManager em) {\n");
 
 line("        "+entidad.getName()+" "+Utils._1raMin(entidad.getName())+" = new "+entidad.getName()+"();\n");
 
 line("        for(Integer i=0;i<=data.length-1;i+=1){\n");
 
-line("            f.line(\"(\"+types[i]+\")\"+fields[i]+\"=\"+data[i]);\n");
+line("            f.line(\"(\"+types[i]+\")\"+field[i]+\"=\"+data[i]);\n");
 
-line("            switch (fields[i]) {");
+line("            switch (field[i]) {");
 
          atributos = entidad.getAtributos();
          Collections.sort(atributos);
@@ -180,6 +190,22 @@ line("                     break;");
 
                       break;
 
+                 case "Integer":
+
+line("                case \""+atributo.getField()+"\":");
+line("                     "+Utils._1raMin(entidad.getName())+".set"+Utils._1raMay(atributo.getField())+"(Integer.parseInt(data[i]));");
+line("                     break;");
+
+                      break;
+
+                 case "Float":
+
+line("                case \""+atributo.getField()+"\":");
+line("                     "+Utils._1raMin(entidad.getName())+".set"+Utils._1raMay(atributo.getField())+"(Float.valueOf(data[i]));");
+line("                     break;");
+
+                      break;
+
                  case "Double":
 
 line("                case \""+atributo.getField()+"\":");
@@ -188,6 +214,26 @@ line("                     break;");
 
                       break;
 
+                 case "Boolean":
+
+line("                case \""+atributo.getField()+"\":");
+line("                     "+Utils._1raMin(entidad.getName())+".set"+Utils._1raMay(atributo.getField())+"(Boolean.valueOf(data[i]));");
+line("                     break;");
+
+                      break;
+
+                 case "Date":
+
+line("                case \""+atributo.getField()+"\":");
+line("                     try {");
+line("                       "+Utils._1raMin(entidad.getName())+".set"+Utils._1raMay(atributo.getField())+"(formatter.parse(data[i]));");
+line("                     }");
+line("                     catch (ParseException e) {");
+line("                       e.printStackTrace();");
+line("                     }");
+line("                     break;");
+
+                      break;
 
                  default:
                       break;

@@ -1,0 +1,104 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:c="http://java.sun.com/jsp/jstl/core"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:forgeview="http://jboss.org/forge/view"
+        template="/resources/scaffold/iso9001Template.xhtml">
+
+        <f:metadata>
+                <f:viewParam name="id" value='#{actionPlansBean.id}'/>
+                <f:event type="preRenderView" listener='#{actionPlansBean.retrieve}'/>
+        </f:metadata>
+
+        <ui:param name="pageTitle" value="Create ActionPlans"/>
+
+        <ui:define name="header">
+                ActionPlans
+        </ui:define>
+
+        <ui:define name="subheader">
+                <c:choose>
+                        <c:when test='#{!empty actionPlansBean.id}'>
+                                Edit existing ActionPlans
+                        </c:when>
+                        <c:otherwise>
+                                Create a new ActionPlans
+                        </c:otherwise>
+                </c:choose>
+        </ui:define>
+
+        <ui:define name="footer"/>
+
+        <ui:define name="main">
+                <h:form id="create">
+                        <h:messages globalOnly="true" styleClass="error"/>
+
+                        <h:panelGrid columnClasses="label,component,required" columns="3">
+
+
+                                <h:outputLabel for="actionPlansBeanActionPlansScheduledDate" value="ScheduledDate:"/>
+                                <h:panelGroup>
+                                <p:calendar id="developmentsBeanDevelopmentsScheduledDate"
+                                            showButtonPanel="true"
+                                            pattern="dd/MM/yyyy HH:mm a"
+                                            value="#{actionPlansBean.actionPlans.scheduledDate}"/>
+                                </h:panelGroup>
+                                <h:outputText/>
+
+                                <h:outputLabel for="actionPlansBeanActionPlansEvidences" value="Evidences:"/>
+                                <h:panelGroup>
+                                        <h:inputText id="actionPlansBeanActionPlansEvidences" value="#{actionPlansBean.actionPlans.evidences}"/>
+                                        <h:message for="actionPlansBeanActionPlansEvidences" styleClass="error"/>
+                                </h:panelGroup>
+                                <h:outputText/>
+
+                                <h:outputLabel for="actionPlansBeanActionPlansTrackingDate" value="TrackingDate:"/>
+                                <h:panelGroup>
+                                <p:calendar id="developmentsBeanDevelopmentsTrackingDate"
+                                            showButtonPanel="true"
+                                            pattern="dd/MM/yyyy HH:mm a"
+                                            value="#{actionPlansBean.actionPlans.trackingDate}"/>
+                                </h:panelGroup>
+                                <h:outputText/>
+
+                                <h:outputLabel for="actionPlansBeanActionPlansContinualImprovements" value="ContinualImprovements:"/>
+                                <h:panelGroup>
+                                         <h:selectOneMenu converter="#{continualImprovementsBean.converter}" id="actionPlansBeanActionPlansContinualImprovements" value="#{actionPlansBean.actionPlans.continualImprovements}">
+                                                <f:selectItem/>
+                                                <f:selectItems itemLabel="#{forgeview:display(_item.code)}" itemValue="#{_item}" value="#{continualImprovementsBean.all}" var="_item"/>
+                                        </h:selectOneMenu>
+                                        <h:message for="actionPlansBeanActionPlans" styleClass="error"/>
+                                </h:panelGroup>
+                                <h:outputText/>
+
+                                <h:outputLabel for="actionPlansBeanActionPlansObservations" value="Observations:"/>
+                                <h:panelGroup>
+                                        <p:editor id="actionPlansBeanActionPlansObservations" value="#{actionPlansBean.actionPlans.observations}"/>
+                                        <h:message for="actionPlansBeanActionPlansObservations" styleClass="error"/>
+                                </h:panelGroup>
+                                <h:outputText/>
+
+                        </h:panelGrid>
+
+                        <div class="buttons">
+                                <h:commandLink value="Save" action='#{actionPlansBean.update}' styleClass="btn btn-primary"/>
+                                <c:choose>
+                                        <c:when test='#{!empty actionPlansBean.id}'>
+                                                <h:link value="Cancel" outcome="view" styleClass="btn btn-primary">
+                                                        <f:param name="id" value='#{actionPlansBean.id}'/>
+                                                </h:link>
+                                                <h:commandLink value="Delete" action='#{actionPlansBean.delete}' styleClass="btn btn-primary"/>
+                                        </c:when>
+                                        <c:otherwise>
+                                                <h:link value="Cancel" outcome="search" styleClass="btn btn-primary"/>
+                                        </c:otherwise>
+                                </c:choose>
+                        </div>
+                </h:form>
+        </ui:define>
+
+</ui:composition>

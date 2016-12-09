@@ -1,0 +1,45 @@
+[INFO] Scanning for projects...
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building crmNaifg 1.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ crmNaifg ---
+[INFO] Deleting d:\docs\h2\war\crmNaifg-ok\target
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ crmNaifg ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ crmNaifg ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 139 source files to d:\docs\h2\war\crmNaifg-ok\target\classes
+[WARNING] /d:/docs/h2/war/crmNaifg-ok/src/main/java/co/simasoft/Beans/FindBean.java: Some input files use unchecked or unsafe operations.
+[WARNING] /d:/docs/h2/war/crmNaifg-ok/src/main/java/co/simasoft/Beans/FindBean.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ crmNaifg ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory d:\docs\h2\war\crmNaifg-ok\src\test\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ crmNaifg ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ crmNaifg ---
+[INFO] No tests to run.
+[INFO] 
+[INFO] --- maven-war-plugin:2.1.1:war (default-war) @ crmNaifg ---
+[INFO] Packaging webapp
+[INFO] Assembling webapp [crmNaifg] in [d:\docs\h2\war\crmNaifg-ok\target\crmNaifg]
+[INFO] Processing war project
+[INFO] Copying webapp resources [d:\docs\h2\war\crmNaifg-ok\src\main\webapp]
+[INFO] Webapp assembled in [1368 msecs]
+[INFO] Building war: d:\docs\h2\war\crmNaifg-ok\target\crmNaifg.war
+[WARNING] Warning: selected war files include a WEB-INF/web.xml which will be ignored 
+(webxml attribute is missing from war task, or ignoreWebxml attribute is specified as 'true')
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 9.580s
+[INFO] Finished at: Wed Nov 30 11:13:20 COT 2016
+[INFO] Final Memory: 22M/73M
+[INFO] ------------------------------------------------------------------------

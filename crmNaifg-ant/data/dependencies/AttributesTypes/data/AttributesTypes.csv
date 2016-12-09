@@ -1,0 +1,15 @@
+String;String;String;AttributesTypes
+name;type;annotations;
+byte;byte;;
+double;double;;
+Email;Email;;
+String;String;;
+Text;String;;
+Integer;Integer;;
+Float;Float;;
+Date;Date;;
+Time;Date;;
+Boolean;Boolean;;
+Enumeration;Enumeration;;
+Blob;byte[];;
+Url;Url;;
