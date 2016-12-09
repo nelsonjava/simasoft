@@ -67,6 +67,7 @@ public class FileUploadCsvR {
 
         } // if
 
+
     } // data()
 
     public void relationshipsR5(String filePath,EntityManager em,Boolean isValidate,FileTxt f) {
@@ -3570,6 +3571,10 @@ public class FileUploadCsvR {
            name = data[6];
            cardinalities = data[7];
 
+           if(cardinalities.equals("Cardinalities")){
+              continue; // Descarta el primer registro
+           }
+
            f.line(Integer.toString(i)+"=From:"+from+"\n"+
                                       " FromProperty:"+fromProperty+"\n"+
                                       " FromValue:"+fromValue+"\n"+
@@ -3579,15 +3584,11 @@ public class FileUploadCsvR {
                                       " Name:"+name+"\n"+
                                       " Cardinalities:"+cardinalities);
 
-           if(cardinalities.equals("Cardinalities")){
-              continue; // Descarta el primer registro
-           }
-
            if(i==3){
-              anterior = fromValue;
+             anterior = toValue;
            }
 
-           actual = fromValue;
+           actual = toValue;
            if (actual.equals(anterior)){
                isCambio = false;
            }
@@ -3595,7 +3596,20 @@ public class FileUploadCsvR {
                isCambio = true;
                ant = anterior;
                anterior = actual;
+f.line("Si Cambio="+String.valueOf(isCambio));
            }
+
+/*
+          f.line("AttributesProperties="+String.valueOf(from.equals("AttributesProperties")));
+          f.line("Muchos a Muchos Bidirecccional No.7"+String.valueOf(cardinalities.equals("Muchos a Muchos Bidirecccional No.7")));
+          f.line("Imports"+String.valueOf(to.equals("Imports")));
+          f.line("Utils.isEmpty(name)"+String.valueOf(Utils.isEmpty(name)));
+*/
+
+
+           f.line(" "+Integer.toString(i)+":Anterior="+anterior+" Actual="+actual+" Cambio="+String.valueOf(isCambio));
+
+f.saveFile("\\docs", "PRUEBA1.txt");
 
            if (from.equals("Brands") &&
                cardinalities.equals("Muchos a Muchos Bidirecccional No.7") &&
@@ -4266,6 +4280,8 @@ public class FileUploadCsvR {
                cardinalities.equals("Muchos a Muchos Bidirecccional No.7") &&
                to.equals("Imports") &&
                Utils.isEmpty(name)){
+                 
+f.line("PASO Cambio="+String.valueOf(isCambio));
 
                if (isCambio){
 
@@ -4305,7 +4321,7 @@ public class FileUploadCsvR {
                   importss = new HashSet<Imports>();
                   imports = new Imports();
 
-               } // isCambio 
+               } // isCambio
 
               if (toProperty.equals("name")){
                   imports = findBean.nameImports(toValue,em);
@@ -5080,7 +5096,7 @@ public class FileUploadCsvR {
                   sitess = new HashSet<Sites>();
                   sites = new Sites();
 
-               } // isCambio 
+               } // isCambio
 
               if (toProperty.equals("title")){
                   sites = findBean.titleSites(toValue,em);
