@@ -1,0 +1,111 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:forgeview="http://jboss.org/forge/view"
+        template="/resources/scaffold/pageTemplate.xhtml">
+
+        <f:metadata>
+                <f:viewParam name="id" value='#{modelsGroupsBean.id}'/>
+                <f:event type="preRenderView" listener='#{modelsGroupsBean.retrieve}'/>
+        </f:metadata>
+
+        <ui:param name="pageTitle" value="View ModelsGroups"/>
+
+        <ui:define name="header">
+                ModelsGroups
+        </ui:define>
+
+        <ui:define name="subheader">
+                View existing ModelsGroups
+        </ui:define>
+
+        <ui:define name="footer"/>
+
+        <ui:define name="main">
+                <h:panelGrid columnClasses="label,component,required" columns="3">
+
+                        <h:outputLabel for="modelsGroupsBeanModelsGroupsOrden" value="Orden:"/>
+                        <h:outputText id="modelsGroupsBeanModelsGroupsOrden" value="#{modelsGroupsBean.modelsGroups.orden}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="modelsGroupsBeanModelsGroupsName" value="Name:"/>
+                        <h:outputText id="modelsGroupsBeanModelsGroupsName" value="#{modelsGroupsBean.modelsGroups.name}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="modelsGroupsBeanModelsGroupsCode" value="Code:"/>
+                        <h:outputText id="modelsGroupsBeanModelsGroupsCode" value="#{modelsGroupsBean.modelsGroups.code}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="modelsGroupsBeanModelsGroupsObservations" value="Observations:"/>
+                        <h:outputText id="modelsGroupsBeanModelsGroupsObservations" value="#{modelsGroupsBean.modelsGroups.observations}" escape="false" />
+                        <h:outputText/>
+
+                        <h:outputLabel for="modelsGroupsBeanModelsGroupsModels" value="Models:"/>
+                        <h:dataTable id="modelsGroupsBeanModelsGroupsmodels" styleClass="data-table" value="#{forgeview:asList(modelsGroupsBean.modelsGroups.models)}" var="_item">
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Orden"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/models/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemOrden" value="#{_item.orden}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="GroupIds"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/models/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemGroupIds" value="#{_item.groupIds.artifactId}"/>
+                                              </h:link>
+                                           </h:column>
+
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Name"/>
+                                              </f:facet>
+                                              <h:link target="_blank" outcome="/admin/varios/models">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemName" value="#{_item.name}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Code"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/models/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemCode" value="#{_item.code}"/>
+                                              </h:link>
+                                           </h:column>
+
+                        </h:dataTable>
+                        <h:outputText/>
+
+                        Muchos a Muchos Unidireccional No.6
+
+                </h:panelGrid>
+
+		<h:outputLabel for="DevelopmentsAdd" value="Developments:"/>
+                   <h:form>
+                     <h:commandButton value="Add" action="#{ModelsGroupsGen.data(modelsGroupsBean.modelsGroups)}" />
+                   </h:form>
+		<h:outputText/>
+
+
+                <div class="buttons">
+                        <h:link value="View All" outcome="search" styleClass="btn btn-primary"/>
+                        <h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
+                        <h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
+                </div>
+        </ui:define>
+</ui:composition>

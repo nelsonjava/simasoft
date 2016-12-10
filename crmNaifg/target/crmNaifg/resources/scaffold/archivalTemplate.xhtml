@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+  <title>#{empty pageTitle ? 'Page Title' : pageTitle}</title>
+  <link rel="icon" href='#{resource["favicon.ico"]}' />
+  <h:outputStylesheet name="bootstrap.css" />
+  <h:outputStylesheet name="forge-style.css" />
+</h:head>
+
+<h:body>
+  <ui:debug rendered="#{facesContext.application.projectStage == 'Development'}" />
+  <div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <h:link id="brandLink" outcome="/index.xhtml" styleClass="brand">
+          <h:outputText value="Welcome to " rendered=" #{request.userPrincipal !=null} "/>
+          crmNaifg
+          <h:outputText value=", #{request.userPrincipal.name}" rendered="#{request.userPrincipal !=null} "/>
+        </h:link>
+        <div class="nav-collapse collapse">
+          <ul class="nav">
+            <li><a href="/crmNaifg/home.jsf">Home</a></li>
+            <li><a href="/crmNaifg/admin/index.jsf">Admin</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container forgecontainer">
+    <div id="navigation">
+      <h:link id="homeLink" outcome="/index.xhtml">
+        <img src='#{resource["forge-logo.png"]}' alt="Forge... get hammered" border="0" />
+      </h:link>
+      <ul>
+        <li><h:link outcome="/admin/fundsLife/search" value="FundsLife"/></li>
+        <li><h:link outcome="/admin/funds/search" value="Funds"/></li>
+        <li><h:link outcome="/admin/sectionsTypes/search" value="SectionsTypes"/></li>
+        <li><h:link outcome="/admin/sections/search" value="Sections"/></li>
+        <li><h:link outcome="/admin/series/search" value="Series"/></li>
+        <li><h:link outcome="/admin/trdSeries/search" value="TrdSeries"/></li>
+        <li><h:link outcome="/admin/trd/search" value="Trd"/></li>
+        <li><h:link outcome="/admin/finalDisposition/search" value="FinalDisposition"/></li>
+        <li><h:link outcome="/admin/documentalRetention/search" value="DocumentalRetention"/></li>
+        <li><h:link outcome="/admin/frequentlyQuery/search" value="FrequentlyQuery"/></li>
+        <li><h:link outcome="/admin/documentalsUnits/search" value="DocumentalsUnits"/></li>
+        <li><h:link outcome="/admin/conservationUnits/search" value="ConservationUnits"/></li>
+        <li><h:link outcome="/admin/versionsControls/search" value="VersionsControls"/></li>
+        <li><h:link outcome="/admin/documentalInventory/search" value="DocumentalInventory"/></li>
+        <li><h:link outcome="/admin/originalOrders/search" value="OriginalOrders"/></li>
+        <li><h:link outcome="/admin/documentalsUnitsTypes/search" value="DocumentalsUnitsTypes"/></li>
+        <li><h:link outcome="/admin/access/search" value="Access"/></li>
+        <li><h:link outcome="/admin/organizeds/search" value="Organizeds"/></li>
+        <li><h:link outcome="/admin/inventoryFinality/search" value="InventoryFinality"/></li>
+        <li><h:link outcome="/admin/documentalsSupports/search" value="DocumentalsSupports"/></li>
+        <li><h:link outcome="/admin/conservationUnitsTypes/search" value="ConservationUnitsTypes"/></li>
+      </ul>
+    </div>
+
+    <div id="content">
+      <h1><ui:insert name="header" /></h1>
+      <h2><ui:insert name="subheader" /></h2>
+      <ui:insert name="main" />
+    </div>
+  </div>
+
+  <footer>
+    <div id="footer-wrapper">
+      <p>Powered by <a href="http://jboss.org/forge">Forge</a></p>
+    </div>
+  </footer>
+
+</h:body>
+</html>

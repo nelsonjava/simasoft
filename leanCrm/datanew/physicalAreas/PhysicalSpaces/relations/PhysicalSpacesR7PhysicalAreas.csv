@@ -1,5 +1,5 @@
 From;FromProperty;FromValue;To;ToProperty;ToValue;Name;Cardinalities
-PhysicalSpaces;name;Local L1;PhysicalAreas;name;Porton Local L1;       ;Muchos a Muchos Bidirecccional No.7
+PhysicalSpaces;name;Local L1;PhysicalAreas;name;Porton Local L1;;Muchos a Muchos Bidirecccional No.7
 PhysicalSpaces;name;Local L1;PhysicalAreas;name;Marco  Porton Local  L1;;Muchos a Muchos Bidirecccional No.7
 PhysicalSpaces;name;Local L1;PhysicalAreas;name;Filo Marco Porton Local L1;;Muchos a Muchos Bidirecccional No.7
 PhysicalSpaces;name;Local L1;PhysicalAreas;name;Pared Fachada Interior Local L1;;Muchos a Muchos Bidirecccional No.7
@@ -180,6 +180,27 @@ PhysicalSpaces;name;Baño  L4;PhysicalAreas;name;Filo Columna PLI Baño L4;;Muchos
 PhysicalSpaces;name;Baño  L4;PhysicalAreas;name;Piso Baño  L4;;Muchos a Muchos Bidirecccional No.7
 PhysicalSpaces;name;Baño  L4;PhysicalAreas;name;Guardascoba Baño L4;;Muchos a Muchos Bidirecccional No.7
 PhysicalSpaces;name;Baño  L4;PhysicalAreas;name;Techo Baño  L4;;Muchos a Muchos Bidirecccional No.7
+PhysicalSpaces;name;Local L5;PhysicalAreas;name;Porton Local L5;;Muchos a Muchos Bidirecccional No.7
+PhysicalSpaces;name;Local L5;PhysicalAreas;name;Marco Porton Local L5;;Muchos a Muchos Bidirecccional No.7
+PhysicalSpaces;name;Local L5;PhysicalAreas;name;Filo Marco Porton Local L5;;Muchos a Muchos Bidirecccional No.7
+PhysicalSpaces;name;Local L5;PhysicalAreas;name;Pared Fachada Interior Local L5;;Muchos a Muchos Bidirecccional No.7
+PhysicalSpaces;name;Local L5;PhysicalAreas;name;Pared Frontal Local L5;;Muchos a Muchos Bidirecccional No.7
+PhysicalSpaces;name;Local L5;PhysicalAreas;name;Pared Lado Derecho Local L5;;Muchos a Muchos Bidirecccional No.7
+PhysicalSpaces;name;Local L5;PhysicalAreas;name;Pared Lado Izquierdo Local L5;;Muchos a Muchos Bidirecccional No.7
+PhysicalSpaces;name;Local L5;PhysicalAreas;name;Filos Columnas PFI Local  L5;;Muchos a Muchos Bidirecccional No.7
+PhysicalSpaces;name;Local L5;PhysicalAreas;name;Piso Local  L5;;Muchos a Muchos Bidirecccional No.7
+PhysicalSpaces;name;Local L5;PhysicalAreas;name;Guardascoba Local  L5;;Muchos a Muchos Bidirecccional No.7
+PhysicalSpaces;name;Local L5;PhysicalAreas;name;Techo Local  L5;;Muchos a Muchos Bidirecccional No.7
+PhysicalSpaces;name;Baño L5;PhysicalAreas;name;Puerta Baño L5;;Muchos a Muchos Bidirecccional No.7
+PhysicalSpaces;name;Baño L5;PhysicalAreas;name;Marco Puerta Baño L5;;Muchos a Muchos Bidirecccional No.7
+PhysicalSpaces;name;Baño L5;PhysicalAreas;name;Filo Marco Puerta Baño L5;;Muchos a Muchos Bidirecccional No.7
+PhysicalSpaces;name;Baño L5;PhysicalAreas;name;Pared Fachada Interior Baño L5;;Muchos a Muchos Bidirecccional No.7
+PhysicalSpaces;name;Baño L5;PhysicalAreas;name;Pared Frontal Baño L5;;Muchos a Muchos Bidirecccional No.7
+PhysicalSpaces;name;Baño L5;PhysicalAreas;name;Pared Lado Derecho Baño L5;;Muchos a Muchos Bidirecccional No.7
+PhysicalSpaces;name;Baño L5;PhysicalAreas;name;Pared Lado Izquierdo Baño L5;;Muchos a Muchos Bidirecccional No.7
+PhysicalSpaces;name;Baño L5;PhysicalAreas;name;Piso Baño  L5;;Muchos a Muchos Bidirecccional No.7
+PhysicalSpaces;name;Baño L5;PhysicalAreas;name;Guardascoba Baño  L5;;Muchos a Muchos Bidirecccional No.7
+PhysicalSpaces;name;Baño L5;PhysicalAreas;name;Techo Baño  L5;;Muchos a Muchos Bidirecccional No.7
 PhysicalSpaces;name;Pasillo A201;PhysicalAreas;name;Puerta A201;;Muchos a Muchos Bidirecccional No.7
 PhysicalSpaces;name;Pasillo A201;PhysicalAreas;name;Marco Puerta A201;;Muchos a Muchos Bidirecccional No.7
 PhysicalSpaces;name;Pasillo A201;PhysicalAreas;name;Filo Marco Puerta A201;;Muchos a Muchos Bidirecccional No.7

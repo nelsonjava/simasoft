@@ -51,10 +51,17 @@ public class PrediosGen extends FileTxt {
 
         for(Predio predio : predios){
 
+//            line(predio.getCode()+";"+predio.getNomenclatura());
+
             for(PhysicalSpaces physicalSpaces : predio.getPhysicalSpaces()){
 
-                for(PhysicalAreas physicalAreas : physicalSpaces.getPhysicalAreas()){
+/*
+                line(predio.getCode()+"."+physicalSpaces.getPhysicalSpacesTypes().getCode()+";"+
+                     predio.getNomenclatura()+";"+
+                     physicalSpaces.getName());
+*/                     
 
+                for(PhysicalAreas physicalAreas : physicalSpaces.getPhysicalAreas()){
 
                    line(predio.getCode()+"."+physicalSpaces.getPhysicalSpacesTypes().getCode()+"."+physicalAreas.getPhysicalAreasTypes().getCode()+";"+
                         predio.getNomenclatura()+";"+
@@ -64,16 +71,6 @@ public class PrediosGen extends FileTxt {
                         physicalAreas.getHigh()+";"+
                         physicalAreas.getHigh()+";"+
                         physicalAreas.getPhysicalAreasTypes().getName());
-
-/*
-                   line(predio.getCode()+"."+physicalSpaces.getPhysicalSpacesTypes().getCode()+"."+physicalAreas.getPhysicalAreasTypes().getCode()+";"+
-                        predio.getNomenclatura()+";"+
-                        physicalSpaces.getName()+";"+
-                        physicalAreas.getName()+";"+
-                        physicalAreas.getWidth()+";"+
-                        physicalAreas.getHigh()+";"+
-                        physicalAreas.getWidth()*physicalAreas.getHigh());
-*/
 
                 } // physicalSpaces.getPhysicalAreas()
 
