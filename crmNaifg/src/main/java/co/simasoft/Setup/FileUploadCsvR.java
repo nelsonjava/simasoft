@@ -58,7 +58,7 @@ public class FileUploadCsvR {
            FacesContext.getCurrentInstance().addMessage(null, message);
 
            if(file.getFileName().indexOf("R5") > 0){
-//              relationshipsR5(filePath,em,isValidate,f);
+              relationshipsR5(filePath,em,isValidate,f);
            }
 
            if(file.getFileName().indexOf("R7") > 0){
@@ -77,7 +77,7 @@ public class FileUploadCsvR {
         Integer i = 0;
         Integer j = 0;
         String line = "";
-        String cvsSplitBy = ";";
+        String cvsSplitBy = null;
         String[] fields = new String[100];
         String[] data;
 
@@ -156,19 +156,19 @@ public class FileUploadCsvR {
            }
 
            f.line(Integer.toString(i)+"=From:"+from+"\n"+
-                                      " FromProperty:"+fromProperty+"\n"+
-                                      " FromValue:"+fromValue+"\n"+
-                                      " To:"+to+"\n"+
-                                      " ToProperty:"+toProperty+"\n"+
-                                      " ToValue:"+toValue+"\n"+
-                                      " Name:"+name+"\n"+
-                                      " Cardinalities:"+cardinalities);
+                                      "  FromProperty:"+fromProperty+"\n"+
+                                      "  FromValue:"+fromValue+"\n"+
+                                      "  To:"+to+"\n"+
+                                      "  ToProperty:"+toProperty+"\n"+
+                                      "  ToValue:"+toValue+"\n"+
+                                      "  Name:"+name+"\n"+
+                                      "  Cardinalities:"+cardinalities);
 
            if(i==3){
-             anterior = toValue;
+             anterior = fromValue;
            }
 
-           actual = toValue;
+           actual = fromValue;
            if (actual.equals(anterior)){
                isCambio = false;
            }
@@ -176,43 +176,23 @@ public class FileUploadCsvR {
                isCambio = true;
                ant = anterior;
                anterior = actual;
-f.line("Si Cambio="+String.valueOf(isCambio));
            }
-
-/*
-          f.line("AttributesProperties="+String.valueOf(from.equals("AttributesProperties")));
-          f.line("Muchos a Muchos Bidirecccional No.7"+String.valueOf(cardinalities.equals("Muchos a Muchos Bidirecccional No.7")));
-          f.line("Imports"+String.valueOf(to.equals("Imports")));
-          f.line("Utils.isEmpty(name)"+String.valueOf(Utils.isEmpty(name)));
-*/
-
 
            if (from.equals("AttributesProperties") &&
                cardinalities.equals("Muchos a Muchos Bidirecccional No.7") &&
                to.equals("Imports") &&
                Utils.isEmpty(name)){
 
-f.line(" "+Integer.toString(i)+":Anterior="+anterior+" Actual="+actual+" Cambio="+String.valueOf(isCambio));
-
-f.line("PASOO Cambio="+String.valueOf(isCambio));
-
-f.line("=======================================");
-
                if (isCambio){
-
-f.line("PASOO Cambio="+String.valueOf(isCambio));
-
-f.line("importss.size="+String.valueOf(importss.size()));
 
                   f.line("cambio:"+ant);
 
                   if (importss.size() > 0){
 
-f.line("PASOOOOOOOOOO.importss.size="+String.valueOf(importss.size()));
-
                       if (fromProperty.equals("name")){
                           attributesProperties = findBean.nameAttributesProperties(ant,em);
                           attributesProperties.setImports(importss);
+                          f.line("No."+Integer.toString(i)+" id="+String.valueOf(attributesProperties.getId())+" name="+attributesProperties.getName());
 
                       } // attributesProperties
 
@@ -224,31 +204,17 @@ f.line("PASOOOOOOOOOO.importss.size="+String.valueOf(importss.size()));
 
                       if (!isValidate) {
 
-//                          em.merge(attributesProperties);
-//                          em.flush();
-
-
-f.line("name="+attributesProperties.getName());
-f.line("value="+attributesProperties.getValue());
-for(Imports imp : attributesProperties.getImports()){
-   f.line("imports="+imp.getName());
-}
-
-
-f.line("PASO1:"+ant);
-
-                          if (fromProperty.equals("name")){
-f.line("PASO2:"+ant);
-                              j = 0;
-                              for(Imports importsx : importss){
-                                  f.line("       "+Integer.toString(++j)+":"+importsx.getName());
-f.line("PASO3:"+ant);
-                              }
-f.line("PASO4:"+ant);
-
-                          } // attributesProperties
-
+                          em.merge(attributesProperties);
+                          em.flush();
                       }
+
+                      if (fromProperty.equals("name")){
+                          j = 0;
+                          for(Imports importsx : attributesProperties.getImports()){
+                              f.line("id="+String.valueOf(importsx.getId())+" names="+importsx.getName());
+                          }
+                          f.line("===========");
+                      } // attributesProperties
 
                   } // size()
 
@@ -264,8 +230,6 @@ f.line("PASO4:"+ant);
               importss.add(imports);
 
            } // from: AttributesProperties
-
-f.saveFile("\\docs", "PRUEBA1.txt");
 
         } // while
 

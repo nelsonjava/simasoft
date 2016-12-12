@@ -269,8 +269,9 @@ line("        BufferedReader br = null;\n");
 line("        Integer i = 0;");
 line("        Integer j = 0;");
 line("        String line = \"\";");
-line("        String cvsSplitBy = \";\";");
-line("        String[] fields = new String[100];\n");
+line("        String cvsSplitBy = null;");
+line("        String[] fields = new String[100];");
+line("        String[] data;\n");
 
 line("        String ant = \"\";");
 line("        String actual = \"\";");
@@ -332,7 +333,14 @@ line("");
 line("        br = new BufferedReader(new FileReader(filePath));");
 line("        while ((line = br.readLine()) != null) {\n");
 
-line("           String[] data = line.split(cvsSplitBy);\n");
+line("           i++;");
+line("           if (i==1){");
+line("               data = line.split(\"\");");
+line("               cvsSplitBy = data[data.length-1];");
+line("               continue;");
+line("           }\n");
+
+line("           data = line.split(cvsSplitBy);\n");
 
 line("           from = data[0];");
 line("           fromProperty = data[1];");
@@ -343,7 +351,6 @@ line("           toValue = data[5];");
 line("           name = data[6];");
 line("           cardinalities = data[7];\n");
 
-line("           i++;");
 line("           f.line(Integer.toString(i)+\"=From:\"+from+\"\\n\"+");
 line("                                      \" FromProperty:\"+fromProperty+\"\\n\"+");
 line("                                      \" FromValue:\"+fromValue+\"\\n\"+");
@@ -354,10 +361,10 @@ line("                                      \" Name:\"+name+\"\\n\"+");
 line("                                      \" Cardinalities:\"+cardinalities);\n");
 
 line("           if(cardinalities.equals(\"Cardinalities\")){");
-line("              continue; // Descarta el primer registro");
+line("              continue; // Descarta el segundo registro");
 line("           }\n");
 
-line("           if(i==2){");
+line("           if(i==3){");
 line("              anterior = fromValue;");
 line("           }\n");
 
@@ -407,7 +414,8 @@ line("                  if ("+Utils._1raMin(entityTo.getName())+"s.size() > 0){\
 
 line("                      if (fromProperty.equals(\""+atributo.getField()+"\")){");
 line("                          "+Utils._1raMin(entityFrom.getName())+" = findBean."+atributo.getField()+entityFrom.getName()+"(ant,em);");
-line("                          "+Utils._1raMin(entityFrom.getName())+".set"+entityTo.getName()+"("+Utils._1raMin(entityTo.getName())+"s);\n");
+line("                          "+Utils._1raMin(entityFrom.getName())+".set"+entityTo.getName()+"("+Utils._1raMin(entityTo.getName())+"s);");
+line("                          f.line(\"No.\"+Integer.toString(i)+\" id=\"+String.valueOf("+Utils._1raMin(entityFrom.getName())+".getId())+\" "+atributo.getField()+"=\"+"+Utils._1raMin(entityFrom.getName())+".get"+Utils._1raMay(atributo.getField())+"());\n");
 line("                      } // "+Utils._1raMin(entityFrom.getName())+"\n");
 
                          break;
@@ -422,6 +430,8 @@ line("                      if (!isValidate) {\n");
 line("                          em.merge("+Utils._1raMin(entityFrom.getName())+");");
 line("                          em.flush();\n");
 
+line("                      }\n");
+
             atributos = entityTo.getAtributos();
             Collections.sort(atributos);
             for(Atributos atributo : atributos ){ // to
@@ -429,12 +439,13 @@ line("                          em.flush();\n");
                 switch (atributo.getType()) {
                     case "String":
 
-line("                          if (fromProperty.equals(\""+atributo.getField()+"\")){");
-line("                              j = 0;");
-line("                              for("+entityTo.getName()+" "+Utils._1raMin(entityTo.getName())+"x : "+Utils._1raMin(entityTo.getName())+"s){");
-line("                                  f.line(\"       \"+Integer.toString(++j)+\":\"+"+Utils._1raMin(entityTo.getName())+"x.get"+Utils._1raMay(atributo.getField())+"());");
-line("                              }\n");
-line("                          } // "+Utils._1raMin(entityFrom.getName())+"\n");
+line("                      if (fromProperty.equals(\""+atributo.getField()+"\")){");
+line("                          j = 0;");
+line("                          for("+entityTo.getName()+" "+Utils._1raMin(entityTo.getName())+"x : "+Utils._1raMin(entityTo.getName())+"s){");
+line("                              f.line(\"id=\"+String.valueOf("+Utils._1raMin(entityTo.getName())+"x.getId())+\" "+atributo.getField()+"=\"+"+Utils._1raMin(entityTo.getName())+"x.get"+Utils._1raMay(atributo.getField())+"());");
+line("                          }\n");
+line("                          f.line(\"===========\");");
+line("                      } // "+Utils._1raMin(entityFrom.getName())+"\n");
 
                          break;
                     default:
@@ -442,8 +453,6 @@ line("                          } // "+Utils._1raMin(entityFrom.getName())+"\n")
                 } // switch (atributo.getType())
 
             } //atributos
-
-line("                      }\n");
 
 
 line("                  } // size()\n");
@@ -481,85 +490,6 @@ line("           } // from: "+entityFrom.getName()+"\n");
     } // entidades
 
 line("        } // while\n");
-
-    for(Entidad entidad : entidades) {
-
-        for(Relation relation : entidad.getRelations()) {
-
-            entityFrom = relation.getEntityFrom();
-            entityTo = relation.getEntityTo();
-            cardinality = relation.getNameCardinality();
-            relationName = relation.getName();
-
-            if (!(entidad.getName().equals(entityFrom.getName()))){
-                continue;
-            }
-            if (!(cardinality.equals("Muchos a Muchos Bidirecccional No.7"))){
-                continue;
-            }
-
-line("        if (from.equals(\""+entityFrom.getName()+"\") &&");
-line("            cardinalities.equals(\""+cardinality+"\") &&");
-line("            to.equals(\""+entityTo.getName()+"\") &&");
-line("            Utils.isEmpty(name)){\n");
-
-line("            if ("+Utils._1raMin(entityTo.getName())+"s.size() > 0){\n");
-
-
-            atributos = entityFrom.getAtributos();
-            Collections.sort(atributos);
-            for(Atributos atributo : atributos ){ // to
-
-                switch (atributo.getType()) {
-                    case "String":
-
-line("                if (fromProperty.equals(\""+atributo.getField()+"\")){");
-line("                    "+Utils._1raMin(entityFrom.getName())+" = findBean."+atributo.getField()+entityFrom.getName()+"(anterior,em);");
-line("                    "+Utils._1raMin(entityFrom.getName())+".set"+entityTo.getName()+"("+Utils._1raMin(entityTo.getName())+"s);\n");
-line("                } // "+Utils._1raMin(entityFrom.getName())+"\n");
-
-                         break;
-                    default:
-                         break;
-                } // switch (atributo.getType())
-
-            } //atributos
-
-line("            if (!isValidate) {\n");
-
-line("                em.merge("+Utils._1raMin(entityFrom.getName())+");");
-line("                em.flush();\n");
-
-            atributos = entityTo.getAtributos();
-            Collections.sort(atributos);
-            for(Atributos atributo : atributos ){ // to
-
-                switch (atributo.getType()) {
-                    case "String":
-
-line("                          if (fromProperty.equals(\""+atributo.getField()+"\")){");
-line("                              j = 0;");
-line("                              for("+entityTo.getName()+" "+Utils._1raMin(entityTo.getName())+"x : "+Utils._1raMin(entityTo.getName())+"s){");
-line("                                  f.line(\"       \"+Integer.toString(++j)+\":\"+"+Utils._1raMin(entityTo.getName())+"x.get"+Utils._1raMay(atributo.getField())+"());");
-line("                              }\n");
-line("                          } // "+Utils._1raMin(entityFrom.getName())+"\n");
-
-                         break;
-                    default:
-                         break;
-                } // switch (atributo.getType())
-
-            } //atributos
-
-line("            }\n");
-
-line("            } //size()\n");
-
-line("        } // from: "+entityFrom.getName()+"\n");
-
-        } // entidad.getRelations()
-
-    } // entidades
 
 line("        if (isValidate) {");
 line("            f.saveFile(\"\\\\docs\", \"VR7.txt\");\n");
