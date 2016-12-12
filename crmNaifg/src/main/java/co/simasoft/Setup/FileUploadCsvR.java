@@ -202,9 +202,13 @@ f.line("=======================================");
 
 f.line("PASOO Cambio="+String.valueOf(isCambio));
 
+f.line("importss.size="+String.valueOf(importss.size()));
+
                   f.line("cambio:"+ant);
 
                   if (importss.size() > 0){
+
+f.line("PASOOOOOOOOOO.importss.size="+String.valueOf(importss.size()));
 
                       if (fromProperty.equals("name")){
                           attributesProperties = findBean.nameAttributesProperties(ant,em);
