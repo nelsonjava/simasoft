@@ -100,30 +100,43 @@ line("        BufferedReader br = null;\n");
 
 line("        Integer i = 0;");
 line("        String line = \"\";");
-line("        String cvsSplitBy = \";\";");
-line("        String[] fields = new String[100];\n");
+line("        String cvsSplitBy = null;");
+line("        String[] fields = new String[100];");
+line("        String[] data;\n");
 
 line("    try {\n");
 
 line("        br = new BufferedReader(new FileReader(filePath));");
 line("        while ((line = br.readLine()) != null) {\n");
 
-line("           // use comma as separator");
-line("           String[] data = line.split(cvsSplitBy);\n");
-
 line("           i++;");
+line("           if (i==1){");
+line("               data = line.split(\"\");");
+line("               cvsSplitBy = data[data.length-1];");
+line("           }");
+line("           else{");
+line("               data = line.split(cvsSplitBy);");
+line("           }\n");
+
 line("           switch (i) {");
 line("               case 1:");
+line("                    f.line(\"cvsSplitBy=\"+cvsSplitBy);");
+line("                    break;");
+line("               case 2:");
 line("                    fields = data;");
 line("                    break;");
 line("               default:");
 line("                    relationshipsR5Data(fields,data,em,isValidate,f);");
 line("                    break;");
-line("           }");
+line("           }\n");
+
 line("        }\n");
 
 line("        if (isValidate) {");
 line("            f.saveFile(\"\\\\docs\", \"R5.txt\");\n");
+line("        }");
+line("        else{");
+line("            f.saveFile(\"\\\\docs\", \"VR5.txt\");\n");
 line("        }\n");
 
 line("    } catch (FileNotFoundException ex) {");
