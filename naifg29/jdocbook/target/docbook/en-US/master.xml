@@ -1,0 +1,5634 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+
+<?asciidoc-numbered?>
+
+<book lang="en">
+  <bookinfo>
+    
+    <title>MODELO</title>
+    
+    
+    <date>2017-02-03</date>
+    
+    
+    
+    
+<!--<subtitle>Some subtitle</subtitle -->
+<!--
+<releaseinfo>4.0.0-SNAPSHOT</releaseinfo>
+<corpauthor>
+   <inlinemediaobject>
+      <imageobject>
+         <imagedata fileref="./images/hibernate_ogm_600px.png"
+                    format="PNG"
+                    scalefit="1"
+                    width="444"/>
+      </imageobject>
+      <textobject>
+         <phrase>Logo</phrase>
+      </textobject>
+   </inlinemediaobject>
+</corpauthor>
+
+<authorgroup xml:base="Author_Group.xml">
+   <author>
+      <firstname>Emmanuel</firstname>
+      <surname>Bernard</surname>
+      <affiliation>
+         <shortaffil>Red Hat</shortaffil>
+      </affiliation>
+   </author>
+   <author>
+      <firstname>Sanne</firstname>
+      <surname>Grinovero</surname>
+      <affiliation>
+         <shortaffil>Red Hat</shortaffil>
+      </affiliation>
+   </author>
+   <collab>
+     <collabname>Guillaume Scheibel</collabname>
+   </collab>
+</authorgroup>
+ -->
+
+<authorgroup xml:base="Author_Group.xml">
+   <author>
+      <firstname>NAIF</firstname>
+      <affiliation>
+         <shortaffil>SIMASOFT</shortaffil>
+      </affiliation>
+   </author>
+</authorgroup>
+    
+    
+
+  </bookinfo>
+<chapter id="wildfly-instalacion">
+<title>MODELO</title>
+<figure>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="images/modelo.jpg"/>
+    </imageobject>
+    <textobject><phrase>modelo</phrase></textobject>
+  </mediaobject>
+</figure>
+</chapter>
+<chapter id="_entity_attributesproperties">
+<title>ENTITY:AttributesProperties</title>
+<simpara><emphasis role="strong">ATRIBUTES:</emphasis></simpara>
+<informaltable frame="all"
+    rowsep="1" colsep="1">
+  
+  <tgroup cols="13">
+    
+    <colspec colname="col_1" colwidth="7*"/>
+    
+    <colspec colname="col_2" colwidth="7*"/>
+    
+    <colspec colname="col_3" colwidth="7*"/>
+    
+    <colspec colname="col_4" colwidth="7*"/>
+    
+    <colspec colname="col_5" colwidth="7*"/>
+    
+    <colspec colname="col_6" colwidth="7*"/>
+    
+    <colspec colname="col_7" colwidth="7*"/>
+    
+    <colspec colname="col_8" colwidth="7*"/>
+    
+    <colspec colname="col_9" colwidth="7*"/>
+    
+    <colspec colname="col_10" colwidth="7*"/>
+    
+    <colspec colname="col_11" colwidth="7*"/>
+    
+    <colspec colname="col_12" colwidth="7*"/>
+    
+    <colspec colname="col_13" colwidth="7*"/>
+    
+    
+    <thead>
+      
+      <row>
+        
+        <entry align="left" valign="top">name</entry>
+        
+        <entry align="left" valign="top">description</entry>
+        
+        <entry align="left" valign="top">Type</entry>
+        
+        <entry align="left" valign="top">length</entry>
+        
+        <entry align="left" valign="top">precision</entry>
+        
+        <entry align="left" valign="top">isNullable</entry>
+        
+        <entry align="left" valign="top">isUnique</entry>
+        
+        <entry align="left" valign="top">isSimplified</entry>
+        
+        <entry align="left" valign="top">isCreate</entry>
+        
+        <entry align="left" valign="top">isSearch</entry>
+        
+        <entry align="left" valign="top">isView</entry>
+        
+        <entry align="left" valign="top">isViewColumn</entry>
+        
+        <entry align="left" valign="top">isViewRelation</entry>
+        
+      </row>
+      
+    </thead>
+    
+    <tbody>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>name</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>String</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>value</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>String</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+      </row>
+      
+    </tbody>
+    
+  </tgroup>
+</informaltable>
+<simpara><emphasis role="strong">RELATIONS:</emphasis> 7</simpara>
+<informaltable frame="all"
+    rowsep="1" colsep="1">
+  
+  <tgroup cols="6">
+    
+    <colspec colname="col_1" colwidth="16*"/>
+    
+    <colspec colname="col_2" colwidth="16*"/>
+    
+    <colspec colname="col_3" colwidth="16*"/>
+    
+    <colspec colname="col_4" colwidth="16*"/>
+    
+    <colspec colname="col_5" colwidth="16*"/>
+    
+    <colspec colname="col_6" colwidth="16*"/>
+    
+    
+    <thead>
+      
+      <row>
+        
+        <entry align="left" valign="top">From</entry>
+        
+        <entry align="left" valign="top">Cardinality</entry>
+        
+        <entry align="left" valign="top">To</entry>
+        
+        <entry align="left" valign="top">Optionality</entry>
+        
+        <entry align="left" valign="top">Navigability</entry>
+        
+        <entry align="left" valign="top">Atribute</entry>
+        
+      </row>
+      
+    </thead>
+    
+    <tbody>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>AttributesProperties</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara><emphasis role="strong">..</emphasis></simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>Imports</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>name</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>AttributesProperties</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara><emphasis role="strong">..</emphasis></simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>Sites</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>title</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>AttributesProperties</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara><emphasis role="strong">..</emphasis></simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>AttributesTypes</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>name</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>AttributesProperties</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara><emphasis role="strong">..</emphasis></simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>Cardinalities</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>name</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>AttributesProperties</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara><emphasis role="strong">..</emphasis></simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>Relationships</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>name</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>AttributesProperties</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>*..1</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>Entities</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>name</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>AttributesProperties</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara><emphasis role="strong">..</emphasis></simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>Attributes</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>isUnique</simpara></entry>
+        
+      </row>
+      
+    </tbody>
+    
+  </tgroup>
+</informaltable>
+</chapter>
+<chapter id="_entity_attributes">
+<title>ENTITY:Attributes</title>
+<simpara><emphasis role="strong">ATRIBUTES:</emphasis></simpara>
+<informaltable frame="all"
+    rowsep="1" colsep="1">
+  
+  <tgroup cols="13">
+    
+    <colspec colname="col_1" colwidth="7*"/>
+    
+    <colspec colname="col_2" colwidth="7*"/>
+    
+    <colspec colname="col_3" colwidth="7*"/>
+    
+    <colspec colname="col_4" colwidth="7*"/>
+    
+    <colspec colname="col_5" colwidth="7*"/>
+    
+    <colspec colname="col_6" colwidth="7*"/>
+    
+    <colspec colname="col_7" colwidth="7*"/>
+    
+    <colspec colname="col_8" colwidth="7*"/>
+    
+    <colspec colname="col_9" colwidth="7*"/>
+    
+    <colspec colname="col_10" colwidth="7*"/>
+    
+    <colspec colname="col_11" colwidth="7*"/>
+    
+    <colspec colname="col_12" colwidth="7*"/>
+    
+    <colspec colname="col_13" colwidth="7*"/>
+    
+    
+    <thead>
+      
+      <row>
+        
+        <entry align="left" valign="top">name</entry>
+        
+        <entry align="left" valign="top">description</entry>
+        
+        <entry align="left" valign="top">Type</entry>
+        
+        <entry align="left" valign="top">length</entry>
+        
+        <entry align="left" valign="top">precision</entry>
+        
+        <entry align="left" valign="top">isNullable</entry>
+        
+        <entry align="left" valign="top">isUnique</entry>
+        
+        <entry align="left" valign="top">isSimplified</entry>
+        
+        <entry align="left" valign="top">isCreate</entry>
+        
+        <entry align="left" valign="top">isSearch</entry>
+        
+        <entry align="left" valign="top">isView</entry>
+        
+        <entry align="left" valign="top">isViewColumn</entry>
+        
+        <entry align="left" valign="top">isViewRelation</entry>
+        
+      </row>
+      
+    </thead>
+    
+    <tbody>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>isUnique</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>Boolean</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>isCreate</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>Boolean</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>isSearch</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>Boolean</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>isView</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>Boolean</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>isViewColumn</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>Boolean</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>isViewRelation</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>Boolean</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>name</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>String</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>description</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>String</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>length</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>Integer</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>precision</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>Integer</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>isNullable</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>Boolean</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+      </row>
+      
+    </tbody>
+    
+  </tgroup>
+</informaltable>
+<simpara><emphasis role="strong">RELATIONS:</emphasis> 5</simpara>
+<informaltable frame="all"
+    rowsep="1" colsep="1">
+  
+  <tgroup cols="6">
+    
+    <colspec colname="col_1" colwidth="16*"/>
+    
+    <colspec colname="col_2" colwidth="16*"/>
+    
+    <colspec colname="col_3" colwidth="16*"/>
+    
+    <colspec colname="col_4" colwidth="16*"/>
+    
+    <colspec colname="col_5" colwidth="16*"/>
+    
+    <colspec colname="col_6" colwidth="16*"/>
+    
+    
+    <thead>
+      
+      <row>
+        
+        <entry align="left" valign="top">From</entry>
+        
+        <entry align="left" valign="top">Cardinality</entry>
+        
+        <entry align="left" valign="top">To</entry>
+        
+        <entry align="left" valign="top">Optionality</entry>
+        
+        <entry align="left" valign="top">Navigability</entry>
+        
+        <entry align="left" valign="top">Atribute</entry>
+        
+      </row>
+      
+    </thead>
+    
+    <tbody>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>Attributes</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>1..*</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>Sites</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>title</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>Attributes</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara><emphasis role="strong">..</emphasis></simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>AttributesProperties</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>name</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>Attributes</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>*..1</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>Entities</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>name</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>Attributes</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>*..1</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>AttributesTypes</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>name</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>Attributes</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>*..1</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>Fields</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>description</simpara></entry>
+        
+      </row>
+      
+    </tbody>
+    
+  </tgroup>
+</informaltable>
+</chapter>
+<chapter id="_entity_modelsgroups">
+<title>ENTITY:ModelsGroups</title>
+<simpara><emphasis role="strong">ATRIBUTES:</emphasis></simpara>
+<informaltable frame="all"
+    rowsep="1" colsep="1">
+  
+  <tgroup cols="13">
+    
+    <colspec colname="col_1" colwidth="7*"/>
+    
+    <colspec colname="col_2" colwidth="7*"/>
+    
+    <colspec colname="col_3" colwidth="7*"/>
+    
+    <colspec colname="col_4" colwidth="7*"/>
+    
+    <colspec colname="col_5" colwidth="7*"/>
+    
+    <colspec colname="col_6" colwidth="7*"/>
+    
+    <colspec colname="col_7" colwidth="7*"/>
+    
+    <colspec colname="col_8" colwidth="7*"/>
+    
+    <colspec colname="col_9" colwidth="7*"/>
+    
+    <colspec colname="col_10" colwidth="7*"/>
+    
+    <colspec colname="col_11" colwidth="7*"/>
+    
+    <colspec colname="col_12" colwidth="7*"/>
+    
+    <colspec colname="col_13" colwidth="7*"/>
+    
+    
+    <thead>
+      
+      <row>
+        
+        <entry align="left" valign="top">name</entry>
+        
+        <entry align="left" valign="top">description</entry>
+        
+        <entry align="left" valign="top">Type</entry>
+        
+        <entry align="left" valign="top">length</entry>
+        
+        <entry align="left" valign="top">precision</entry>
+        
+        <entry align="left" valign="top">isNullable</entry>
+        
+        <entry align="left" valign="top">isUnique</entry>
+        
+        <entry align="left" valign="top">isSimplified</entry>
+        
+        <entry align="left" valign="top">isCreate</entry>
+        
+        <entry align="left" valign="top">isSearch</entry>
+        
+        <entry align="left" valign="top">isView</entry>
+        
+        <entry align="left" valign="top">isViewColumn</entry>
+        
+        <entry align="left" valign="top">isViewRelation</entry>
+        
+      </row>
+      
+    </thead>
+    
+    <tbody>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>name</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>String</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>code</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>String</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+      </row>
+      
+    </tbody>
+    
+  </tgroup>
+</informaltable>
+<simpara><emphasis role="strong">RELATIONS:</emphasis> 2</simpara>
+<informaltable frame="all"
+    rowsep="1" colsep="1">
+  
+  <tgroup cols="6">
+    
+    <colspec colname="col_1" colwidth="16*"/>
+    
+    <colspec colname="col_2" colwidth="16*"/>
+    
+    <colspec colname="col_3" colwidth="16*"/>
+    
+    <colspec colname="col_4" colwidth="16*"/>
+    
+    <colspec colname="col_5" colwidth="16*"/>
+    
+    <colspec colname="col_6" colwidth="16*"/>
+    
+    
+    <thead>
+      
+      <row>
+        
+        <entry align="left" valign="top">From</entry>
+        
+        <entry align="left" valign="top">Cardinality</entry>
+        
+        <entry align="left" valign="top">To</entry>
+        
+        <entry align="left" valign="top">Optionality</entry>
+        
+        <entry align="left" valign="top">Navigability</entry>
+        
+        <entry align="left" valign="top">Atribute</entry>
+        
+      </row>
+      
+    </thead>
+    
+    <tbody>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>ModelsGroups</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara><emphasis role="strong">..</emphasis></simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>Models</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>name</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>ModelsGroups</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara><emphasis role="strong">..</emphasis></simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>Developments</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>artifactId</simpara></entry>
+        
+      </row>
+      
+    </tbody>
+    
+  </tgroup>
+</informaltable>
+</chapter>
+<chapter id="_entity_imports">
+<title>ENTITY:Imports</title>
+<simpara><emphasis role="strong">ATRIBUTES:</emphasis></simpara>
+<informaltable frame="all"
+    rowsep="1" colsep="1">
+  
+  <tgroup cols="13">
+    
+    <colspec colname="col_1" colwidth="7*"/>
+    
+    <colspec colname="col_2" colwidth="7*"/>
+    
+    <colspec colname="col_3" colwidth="7*"/>
+    
+    <colspec colname="col_4" colwidth="7*"/>
+    
+    <colspec colname="col_5" colwidth="7*"/>
+    
+    <colspec colname="col_6" colwidth="7*"/>
+    
+    <colspec colname="col_7" colwidth="7*"/>
+    
+    <colspec colname="col_8" colwidth="7*"/>
+    
+    <colspec colname="col_9" colwidth="7*"/>
+    
+    <colspec colname="col_10" colwidth="7*"/>
+    
+    <colspec colname="col_11" colwidth="7*"/>
+    
+    <colspec colname="col_12" colwidth="7*"/>
+    
+    <colspec colname="col_13" colwidth="7*"/>
+    
+    
+    <thead>
+      
+      <row>
+        
+        <entry align="left" valign="top">name</entry>
+        
+        <entry align="left" valign="top">description</entry>
+        
+        <entry align="left" valign="top">Type</entry>
+        
+        <entry align="left" valign="top">length</entry>
+        
+        <entry align="left" valign="top">precision</entry>
+        
+        <entry align="left" valign="top">isNullable</entry>
+        
+        <entry align="left" valign="top">isUnique</entry>
+        
+        <entry align="left" valign="top">isSimplified</entry>
+        
+        <entry align="left" valign="top">isCreate</entry>
+        
+        <entry align="left" valign="top">isSearch</entry>
+        
+        <entry align="left" valign="top">isView</entry>
+        
+        <entry align="left" valign="top">isViewColumn</entry>
+        
+        <entry align="left" valign="top">isViewRelation</entry>
+        
+      </row>
+      
+    </thead>
+    
+    <tbody>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>name</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>String</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+      </row>
+      
+    </tbody>
+    
+  </tgroup>
+</informaltable>
+<simpara><emphasis role="strong">RELATIONS:</emphasis> 5</simpara>
+<informaltable frame="all"
+    rowsep="1" colsep="1">
+  
+  <tgroup cols="6">
+    
+    <colspec colname="col_1" colwidth="16*"/>
+    
+    <colspec colname="col_2" colwidth="16*"/>
+    
+    <colspec colname="col_3" colwidth="16*"/>
+    
+    <colspec colname="col_4" colwidth="16*"/>
+    
+    <colspec colname="col_5" colwidth="16*"/>
+    
+    <colspec colname="col_6" colwidth="16*"/>
+    
+    
+    <thead>
+      
+      <row>
+        
+        <entry align="left" valign="top">From</entry>
+        
+        <entry align="left" valign="top">Cardinality</entry>
+        
+        <entry align="left" valign="top">To</entry>
+        
+        <entry align="left" valign="top">Optionality</entry>
+        
+        <entry align="left" valign="top">Navigability</entry>
+        
+        <entry align="left" valign="top">Atribute</entry>
+        
+      </row>
+      
+    </thead>
+    
+    <tbody>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>Imports</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara><emphasis role="strong">..</emphasis></simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>Sites</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>title</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>Imports</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>*..1</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>Dependencies</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>groupId</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>Imports</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara><emphasis role="strong">..</emphasis></simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>AttributesProperties</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>name</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>Imports</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara><emphasis role="strong">..</emphasis></simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>Cardinalities</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>name</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>Imports</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara><emphasis role="strong">..</emphasis></simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>Entities</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>name</simpara></entry>
+        
+      </row>
+      
+    </tbody>
+    
+  </tgroup>
+</informaltable>
+</chapter>
+<chapter id="_entity_entities">
+<title>ENTITY:Entities</title>
+<simpara><emphasis role="strong">ATRIBUTES:</emphasis></simpara>
+<informaltable frame="all"
+    rowsep="1" colsep="1">
+  
+  <tgroup cols="13">
+    
+    <colspec colname="col_1" colwidth="7*"/>
+    
+    <colspec colname="col_2" colwidth="7*"/>
+    
+    <colspec colname="col_3" colwidth="7*"/>
+    
+    <colspec colname="col_4" colwidth="7*"/>
+    
+    <colspec colname="col_5" colwidth="7*"/>
+    
+    <colspec colname="col_6" colwidth="7*"/>
+    
+    <colspec colname="col_7" colwidth="7*"/>
+    
+    <colspec colname="col_8" colwidth="7*"/>
+    
+    <colspec colname="col_9" colwidth="7*"/>
+    
+    <colspec colname="col_10" colwidth="7*"/>
+    
+    <colspec colname="col_11" colwidth="7*"/>
+    
+    <colspec colname="col_12" colwidth="7*"/>
+    
+    <colspec colname="col_13" colwidth="7*"/>
+    
+    
+    <thead>
+      
+      <row>
+        
+        <entry align="left" valign="top">name</entry>
+        
+        <entry align="left" valign="top">description</entry>
+        
+        <entry align="left" valign="top">Type</entry>
+        
+        <entry align="left" valign="top">length</entry>
+        
+        <entry align="left" valign="top">precision</entry>
+        
+        <entry align="left" valign="top">isNullable</entry>
+        
+        <entry align="left" valign="top">isUnique</entry>
+        
+        <entry align="left" valign="top">isSimplified</entry>
+        
+        <entry align="left" valign="top">isCreate</entry>
+        
+        <entry align="left" valign="top">isSearch</entry>
+        
+        <entry align="left" valign="top">isView</entry>
+        
+        <entry align="left" valign="top">isViewColumn</entry>
+        
+        <entry align="left" valign="top">isViewRelation</entry>
+        
+      </row>
+      
+    </thead>
+    
+    <tbody>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>name</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>String</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>serialID</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>String</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>table</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>String</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>description</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>String</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+      </row>
+      
+    </tbody>
+    
+  </tgroup>
+</informaltable>
+<simpara><emphasis role="strong">RELATIONS:</emphasis> 7</simpara>
+<informaltable frame="all"
+    rowsep="1" colsep="1">
+  
+  <tgroup cols="6">
+    
+    <colspec colname="col_1" colwidth="16*"/>
+    
+    <colspec colname="col_2" colwidth="16*"/>
+    
+    <colspec colname="col_3" colwidth="16*"/>
+    
+    <colspec colname="col_4" colwidth="16*"/>
+    
+    <colspec colname="col_5" colwidth="16*"/>
+    
+    <colspec colname="col_6" colwidth="16*"/>
+    
+    
+    <thead>
+      
+      <row>
+        
+        <entry align="left" valign="top">From</entry>
+        
+        <entry align="left" valign="top">Cardinality</entry>
+        
+        <entry align="left" valign="top">To</entry>
+        
+        <entry align="left" valign="top">Optionality</entry>
+        
+        <entry align="left" valign="top">Navigability</entry>
+        
+        <entry align="left" valign="top">Atribute</entry>
+        
+      </row>
+      
+    </thead>
+    
+    <tbody>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>Entities</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>1..*</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>Attributes</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>isUnique</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>Entities</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>1..*</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>Relationships</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>name</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>Entities</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>1..*</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>Relationships</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>name</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>Entities</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara><emphasis role="strong">..</emphasis></simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>Sites</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>title</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>Entities</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>1..*</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>AttributesProperties</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>name</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>Entities</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara><emphasis role="strong">..</emphasis></simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>Imports</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>name</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>Entities</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>*..1</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>GroupIds</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>artifactId</simpara></entry>
+        
+      </row>
+      
+    </tbody>
+    
+  </tgroup>
+</informaltable>
+</chapter>
+<chapter id="_entity_sites">
+<title>ENTITY:Sites</title>
+<simpara><emphasis role="strong">ATRIBUTES:</emphasis></simpara>
+<informaltable frame="all"
+    rowsep="1" colsep="1">
+  
+  <tgroup cols="13">
+    
+    <colspec colname="col_1" colwidth="7*"/>
+    
+    <colspec colname="col_2" colwidth="7*"/>
+    
+    <colspec colname="col_3" colwidth="7*"/>
+    
+    <colspec colname="col_4" colwidth="7*"/>
+    
+    <colspec colname="col_5" colwidth="7*"/>
+    
+    <colspec colname="col_6" colwidth="7*"/>
+    
+    <colspec colname="col_7" colwidth="7*"/>
+    
+    <colspec colname="col_8" colwidth="7*"/>
+    
+    <colspec colname="col_9" colwidth="7*"/>
+    
+    <colspec colname="col_10" colwidth="7*"/>
+    
+    <colspec colname="col_11" colwidth="7*"/>
+    
+    <colspec colname="col_12" colwidth="7*"/>
+    
+    <colspec colname="col_13" colwidth="7*"/>
+    
+    
+    <thead>
+      
+      <row>
+        
+        <entry align="left" valign="top">name</entry>
+        
+        <entry align="left" valign="top">description</entry>
+        
+        <entry align="left" valign="top">Type</entry>
+        
+        <entry align="left" valign="top">length</entry>
+        
+        <entry align="left" valign="top">precision</entry>
+        
+        <entry align="left" valign="top">isNullable</entry>
+        
+        <entry align="left" valign="top">isUnique</entry>
+        
+        <entry align="left" valign="top">isSimplified</entry>
+        
+        <entry align="left" valign="top">isCreate</entry>
+        
+        <entry align="left" valign="top">isSearch</entry>
+        
+        <entry align="left" valign="top">isView</entry>
+        
+        <entry align="left" valign="top">isViewColumn</entry>
+        
+        <entry align="left" valign="top">isViewRelation</entry>
+        
+      </row>
+      
+    </thead>
+    
+    <tbody>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>title</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>String</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>link</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>String</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>abc</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>String</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+      </row>
+      
+    </tbody>
+    
+  </tgroup>
+</informaltable>
+<simpara><emphasis role="strong">RELATIONS:</emphasis> 11</simpara>
+<informaltable frame="all"
+    rowsep="1" colsep="1">
+  
+  <tgroup cols="6">
+    
+    <colspec colname="col_1" colwidth="16*"/>
+    
+    <colspec colname="col_2" colwidth="16*"/>
+    
+    <colspec colname="col_3" colwidth="16*"/>
+    
+    <colspec colname="col_4" colwidth="16*"/>
+    
+    <colspec colname="col_5" colwidth="16*"/>
+    
+    <colspec colname="col_6" colwidth="16*"/>
+    
+    
+    <thead>
+      
+      <row>
+        
+        <entry align="left" valign="top">From</entry>
+        
+        <entry align="left" valign="top">Cardinality</entry>
+        
+        <entry align="left" valign="top">To</entry>
+        
+        <entry align="left" valign="top">Optionality</entry>
+        
+        <entry align="left" valign="top">Navigability</entry>
+        
+        <entry align="left" valign="top">Atribute</entry>
+        
+      </row>
+      
+    </thead>
+    
+    <tbody>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>Sites</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara><emphasis role="strong">..</emphasis></simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>SitesTypes</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>name</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>Sites</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara><emphasis role="strong">..</emphasis></simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>Models</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>name</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>Sites</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara><emphasis role="strong">..</emphasis></simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>Entities</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>name</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>Sites</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara><emphasis role="strong">..</emphasis></simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>Developments</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>artifactId</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>Sites</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara><emphasis role="strong">..</emphasis></simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>GroupIds</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>artifactId</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>Sites</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara><emphasis role="strong">..</emphasis></simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>Cardinalities</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>name</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>Sites</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>*..1</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>Attributes</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>isUnique</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>Sites</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara><emphasis role="strong">..</emphasis></simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>Imports</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>name</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>Sites</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara><emphasis role="strong">..</emphasis></simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>AttributesProperties</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>name</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>Sites</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara><emphasis role="strong">..</emphasis></simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>Dependencies</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>groupId</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>Sites</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara><emphasis role="strong">..</emphasis></simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>AttributesTypes</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>name</simpara></entry>
+        
+      </row>
+      
+    </tbody>
+    
+  </tgroup>
+</informaltable>
+</chapter>
+<chapter id="_entity_pom">
+<title>ENTITY:Pom</title>
+<simpara><emphasis role="strong">ATRIBUTES:</emphasis></simpara>
+<informaltable frame="all"
+    rowsep="1" colsep="1">
+  
+  <tgroup cols="13">
+    
+    <colspec colname="col_1" colwidth="7*"/>
+    
+    <colspec colname="col_2" colwidth="7*"/>
+    
+    <colspec colname="col_3" colwidth="7*"/>
+    
+    <colspec colname="col_4" colwidth="7*"/>
+    
+    <colspec colname="col_5" colwidth="7*"/>
+    
+    <colspec colname="col_6" colwidth="7*"/>
+    
+    <colspec colname="col_7" colwidth="7*"/>
+    
+    <colspec colname="col_8" colwidth="7*"/>
+    
+    <colspec colname="col_9" colwidth="7*"/>
+    
+    <colspec colname="col_10" colwidth="7*"/>
+    
+    <colspec colname="col_11" colwidth="7*"/>
+    
+    <colspec colname="col_12" colwidth="7*"/>
+    
+    <colspec colname="col_13" colwidth="7*"/>
+    
+    
+    <thead>
+      
+      <row>
+        
+        <entry align="left" valign="top">name</entry>
+        
+        <entry align="left" valign="top">description</entry>
+        
+        <entry align="left" valign="top">Type</entry>
+        
+        <entry align="left" valign="top">length</entry>
+        
+        <entry align="left" valign="top">precision</entry>
+        
+        <entry align="left" valign="top">isNullable</entry>
+        
+        <entry align="left" valign="top">isUnique</entry>
+        
+        <entry align="left" valign="top">isSimplified</entry>
+        
+        <entry align="left" valign="top">isCreate</entry>
+        
+        <entry align="left" valign="top">isSearch</entry>
+        
+        <entry align="left" valign="top">isView</entry>
+        
+        <entry align="left" valign="top">isViewColumn</entry>
+        
+        <entry align="left" valign="top">isViewRelation</entry>
+        
+      </row>
+      
+    </thead>
+    
+    <tbody>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>groupId</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>String</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>artifactId</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>String</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>version</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>String</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+      </row>
+      
+    </tbody>
+    
+  </tgroup>
+</informaltable>
+<simpara><emphasis role="strong">RELATIONS:</emphasis> 3</simpara>
+<informaltable frame="all"
+    rowsep="1" colsep="1">
+  
+  <tgroup cols="6">
+    
+    <colspec colname="col_1" colwidth="16*"/>
+    
+    <colspec colname="col_2" colwidth="16*"/>
+    
+    <colspec colname="col_3" colwidth="16*"/>
+    
+    <colspec colname="col_4" colwidth="16*"/>
+    
+    <colspec colname="col_5" colwidth="16*"/>
+    
+    <colspec colname="col_6" colwidth="16*"/>
+    
+    
+    <thead>
+      
+      <row>
+        
+        <entry align="left" valign="top">From</entry>
+        
+        <entry align="left" valign="top">Cardinality</entry>
+        
+        <entry align="left" valign="top">To</entry>
+        
+        <entry align="left" valign="top">Optionality</entry>
+        
+        <entry align="left" valign="top">Navigability</entry>
+        
+        <entry align="left" valign="top">Atribute</entry>
+        
+      </row>
+      
+    </thead>
+    
+    <tbody>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>Pom</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>1..*</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>Dependencies</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>groupId</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>Pom</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara><emphasis role="strong">..</emphasis></simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>Developments</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>artifactId</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>Pom</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara><emphasis role="strong">..</emphasis></simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>GroupIds</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>artifactId</simpara></entry>
+        
+      </row>
+      
+    </tbody>
+    
+  </tgroup>
+</informaltable>
+</chapter>
+<chapter id="_entity_groupids">
+<title>ENTITY:GroupIds</title>
+<simpara><emphasis role="strong">ATRIBUTES:</emphasis></simpara>
+<informaltable frame="all"
+    rowsep="1" colsep="1">
+  
+  <tgroup cols="13">
+    
+    <colspec colname="col_1" colwidth="7*"/>
+    
+    <colspec colname="col_2" colwidth="7*"/>
+    
+    <colspec colname="col_3" colwidth="7*"/>
+    
+    <colspec colname="col_4" colwidth="7*"/>
+    
+    <colspec colname="col_5" colwidth="7*"/>
+    
+    <colspec colname="col_6" colwidth="7*"/>
+    
+    <colspec colname="col_7" colwidth="7*"/>
+    
+    <colspec colname="col_8" colwidth="7*"/>
+    
+    <colspec colname="col_9" colwidth="7*"/>
+    
+    <colspec colname="col_10" colwidth="7*"/>
+    
+    <colspec colname="col_11" colwidth="7*"/>
+    
+    <colspec colname="col_12" colwidth="7*"/>
+    
+    <colspec colname="col_13" colwidth="7*"/>
+    
+    
+    <thead>
+      
+      <row>
+        
+        <entry align="left" valign="top">name</entry>
+        
+        <entry align="left" valign="top">description</entry>
+        
+        <entry align="left" valign="top">Type</entry>
+        
+        <entry align="left" valign="top">length</entry>
+        
+        <entry align="left" valign="top">precision</entry>
+        
+        <entry align="left" valign="top">isNullable</entry>
+        
+        <entry align="left" valign="top">isUnique</entry>
+        
+        <entry align="left" valign="top">isSimplified</entry>
+        
+        <entry align="left" valign="top">isCreate</entry>
+        
+        <entry align="left" valign="top">isSearch</entry>
+        
+        <entry align="left" valign="top">isView</entry>
+        
+        <entry align="left" valign="top">isViewColumn</entry>
+        
+        <entry align="left" valign="top">isViewRelation</entry>
+        
+      </row>
+      
+    </thead>
+    
+    <tbody>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>artifactId</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>String</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>groupId</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>String</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>version</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>String</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>code</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>String</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>date</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>Date</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+      </row>
+      
+    </tbody>
+    
+  </tgroup>
+</informaltable>
+<simpara><emphasis role="strong">RELATIONS:</emphasis> 5</simpara>
+<informaltable frame="all"
+    rowsep="1" colsep="1">
+  
+  <tgroup cols="6">
+    
+    <colspec colname="col_1" colwidth="16*"/>
+    
+    <colspec colname="col_2" colwidth="16*"/>
+    
+    <colspec colname="col_3" colwidth="16*"/>
+    
+    <colspec colname="col_4" colwidth="16*"/>
+    
+    <colspec colname="col_5" colwidth="16*"/>
+    
+    <colspec colname="col_6" colwidth="16*"/>
+    
+    
+    <thead>
+      
+      <row>
+        
+        <entry align="left" valign="top">From</entry>
+        
+        <entry align="left" valign="top">Cardinality</entry>
+        
+        <entry align="left" valign="top">To</entry>
+        
+        <entry align="left" valign="top">Optionality</entry>
+        
+        <entry align="left" valign="top">Navigability</entry>
+        
+        <entry align="left" valign="top">Atribute</entry>
+        
+      </row>
+      
+    </thead>
+    
+    <tbody>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>GroupIds</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>1..*</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>Entities</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>name</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>GroupIds</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>1..*</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>Models</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>name</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>GroupIds</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara><emphasis role="strong">..</emphasis></simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>Sites</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>title</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>GroupIds</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara><emphasis role="strong">..</emphasis></simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>Pom</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>groupId</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>GroupIds</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>*..1</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>GroupIdsTypes</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>name</simpara></entry>
+        
+      </row>
+      
+    </tbody>
+    
+  </tgroup>
+</informaltable>
+</chapter>
+<chapter id="_entity_relationships">
+<title>ENTITY:Relationships</title>
+<simpara><emphasis role="strong">ATRIBUTES:</emphasis></simpara>
+<informaltable frame="all"
+    rowsep="1" colsep="1">
+  
+  <tgroup cols="13">
+    
+    <colspec colname="col_1" colwidth="7*"/>
+    
+    <colspec colname="col_2" colwidth="7*"/>
+    
+    <colspec colname="col_3" colwidth="7*"/>
+    
+    <colspec colname="col_4" colwidth="7*"/>
+    
+    <colspec colname="col_5" colwidth="7*"/>
+    
+    <colspec colname="col_6" colwidth="7*"/>
+    
+    <colspec colname="col_7" colwidth="7*"/>
+    
+    <colspec colname="col_8" colwidth="7*"/>
+    
+    <colspec colname="col_9" colwidth="7*"/>
+    
+    <colspec colname="col_10" colwidth="7*"/>
+    
+    <colspec colname="col_11" colwidth="7*"/>
+    
+    <colspec colname="col_12" colwidth="7*"/>
+    
+    <colspec colname="col_13" colwidth="7*"/>
+    
+    
+    <thead>
+      
+      <row>
+        
+        <entry align="left" valign="top">name</entry>
+        
+        <entry align="left" valign="top">description</entry>
+        
+        <entry align="left" valign="top">Type</entry>
+        
+        <entry align="left" valign="top">length</entry>
+        
+        <entry align="left" valign="top">precision</entry>
+        
+        <entry align="left" valign="top">isNullable</entry>
+        
+        <entry align="left" valign="top">isUnique</entry>
+        
+        <entry align="left" valign="top">isSimplified</entry>
+        
+        <entry align="left" valign="top">isCreate</entry>
+        
+        <entry align="left" valign="top">isSearch</entry>
+        
+        <entry align="left" valign="top">isView</entry>
+        
+        <entry align="left" valign="top">isViewColumn</entry>
+        
+        <entry align="left" valign="top">isViewRelation</entry>
+        
+      </row>
+      
+    </thead>
+    
+    <tbody>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>name</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>String</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>isOptionality</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>Boolean</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>isCreate</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>Boolean</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>isSearch</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>Boolean</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>isView</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>Boolean</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+      </row>
+      
+    </tbody>
+    
+  </tgroup>
+</informaltable>
+<simpara><emphasis role="strong">RELATIONS:</emphasis> 5</simpara>
+<informaltable frame="all"
+    rowsep="1" colsep="1">
+  
+  <tgroup cols="6">
+    
+    <colspec colname="col_1" colwidth="16*"/>
+    
+    <colspec colname="col_2" colwidth="16*"/>
+    
+    <colspec colname="col_3" colwidth="16*"/>
+    
+    <colspec colname="col_4" colwidth="16*"/>
+    
+    <colspec colname="col_5" colwidth="16*"/>
+    
+    <colspec colname="col_6" colwidth="16*"/>
+    
+    
+    <thead>
+      
+      <row>
+        
+        <entry align="left" valign="top">From</entry>
+        
+        <entry align="left" valign="top">Cardinality</entry>
+        
+        <entry align="left" valign="top">To</entry>
+        
+        <entry align="left" valign="top">Optionality</entry>
+        
+        <entry align="left" valign="top">Navigability</entry>
+        
+        <entry align="left" valign="top">Atribute</entry>
+        
+      </row>
+      
+    </thead>
+    
+    <tbody>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>Relationships</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>1..*</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>ModelRelationships</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>name</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>Relationships</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara><emphasis role="strong">..</emphasis></simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>AttributesProperties</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>name</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>Relationships</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>*..1</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>Cardinalities</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>name</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>Relationships</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>*..1</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>Entities</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>name</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>Relationships</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>*..1</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>Entities</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>name</simpara></entry>
+        
+      </row>
+      
+    </tbody>
+    
+  </tgroup>
+</informaltable>
+</chapter>
+<chapter id="_entity_fields">
+<title>ENTITY:Fields</title>
+<simpara><emphasis role="strong">ATRIBUTES:</emphasis></simpara>
+<informaltable frame="all"
+    rowsep="1" colsep="1">
+  
+  <tgroup cols="13">
+    
+    <colspec colname="col_1" colwidth="7*"/>
+    
+    <colspec colname="col_2" colwidth="7*"/>
+    
+    <colspec colname="col_3" colwidth="7*"/>
+    
+    <colspec colname="col_4" colwidth="7*"/>
+    
+    <colspec colname="col_5" colwidth="7*"/>
+    
+    <colspec colname="col_6" colwidth="7*"/>
+    
+    <colspec colname="col_7" colwidth="7*"/>
+    
+    <colspec colname="col_8" colwidth="7*"/>
+    
+    <colspec colname="col_9" colwidth="7*"/>
+    
+    <colspec colname="col_10" colwidth="7*"/>
+    
+    <colspec colname="col_11" colwidth="7*"/>
+    
+    <colspec colname="col_12" colwidth="7*"/>
+    
+    <colspec colname="col_13" colwidth="7*"/>
+    
+    
+    <thead>
+      
+      <row>
+        
+        <entry align="left" valign="top">name</entry>
+        
+        <entry align="left" valign="top">description</entry>
+        
+        <entry align="left" valign="top">Type</entry>
+        
+        <entry align="left" valign="top">length</entry>
+        
+        <entry align="left" valign="top">precision</entry>
+        
+        <entry align="left" valign="top">isNullable</entry>
+        
+        <entry align="left" valign="top">isUnique</entry>
+        
+        <entry align="left" valign="top">isSimplified</entry>
+        
+        <entry align="left" valign="top">isCreate</entry>
+        
+        <entry align="left" valign="top">isSearch</entry>
+        
+        <entry align="left" valign="top">isView</entry>
+        
+        <entry align="left" valign="top">isViewColumn</entry>
+        
+        <entry align="left" valign="top">isViewRelation</entry>
+        
+      </row>
+      
+    </thead>
+    
+    <tbody>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>description</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>String</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>length</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>Integer</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>precision</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>Integer</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>isNullable</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>Boolean</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>isUnique</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>Boolean</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>isCreate</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>Boolean</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>isSearch</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>Boolean</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>isView</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>Boolean</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>isViewColumn</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>Boolean</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>isViewRelation</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>Boolean</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>name</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>String</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+      </row>
+      
+    </tbody>
+    
+  </tgroup>
+</informaltable>
+<simpara><emphasis role="strong">RELATIONS:</emphasis> 2</simpara>
+<informaltable frame="all"
+    rowsep="1" colsep="1">
+  
+  <tgroup cols="6">
+    
+    <colspec colname="col_1" colwidth="16*"/>
+    
+    <colspec colname="col_2" colwidth="16*"/>
+    
+    <colspec colname="col_3" colwidth="16*"/>
+    
+    <colspec colname="col_4" colwidth="16*"/>
+    
+    <colspec colname="col_5" colwidth="16*"/>
+    
+    <colspec colname="col_6" colwidth="16*"/>
+    
+    
+    <thead>
+      
+      <row>
+        
+        <entry align="left" valign="top">From</entry>
+        
+        <entry align="left" valign="top">Cardinality</entry>
+        
+        <entry align="left" valign="top">To</entry>
+        
+        <entry align="left" valign="top">Optionality</entry>
+        
+        <entry align="left" valign="top">Navigability</entry>
+        
+        <entry align="left" valign="top">Atribute</entry>
+        
+      </row>
+      
+    </thead>
+    
+    <tbody>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>Fields</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>1..*</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>Attributes</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>isUnique</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>Fields</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>*..1</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>AttributesTypes</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>name</simpara></entry>
+        
+      </row>
+      
+    </tbody>
+    
+  </tgroup>
+</informaltable>
+</chapter>
+<chapter id="_entity_cardinalities">
+<title>ENTITY:Cardinalities</title>
+<simpara><emphasis role="strong">ATRIBUTES:</emphasis></simpara>
+<informaltable frame="all"
+    rowsep="1" colsep="1">
+  
+  <tgroup cols="13">
+    
+    <colspec colname="col_1" colwidth="7*"/>
+    
+    <colspec colname="col_2" colwidth="7*"/>
+    
+    <colspec colname="col_3" colwidth="7*"/>
+    
+    <colspec colname="col_4" colwidth="7*"/>
+    
+    <colspec colname="col_5" colwidth="7*"/>
+    
+    <colspec colname="col_6" colwidth="7*"/>
+    
+    <colspec colname="col_7" colwidth="7*"/>
+    
+    <colspec colname="col_8" colwidth="7*"/>
+    
+    <colspec colname="col_9" colwidth="7*"/>
+    
+    <colspec colname="col_10" colwidth="7*"/>
+    
+    <colspec colname="col_11" colwidth="7*"/>
+    
+    <colspec colname="col_12" colwidth="7*"/>
+    
+    <colspec colname="col_13" colwidth="7*"/>
+    
+    
+    <thead>
+      
+      <row>
+        
+        <entry align="left" valign="top">name</entry>
+        
+        <entry align="left" valign="top">description</entry>
+        
+        <entry align="left" valign="top">Type</entry>
+        
+        <entry align="left" valign="top">length</entry>
+        
+        <entry align="left" valign="top">precision</entry>
+        
+        <entry align="left" valign="top">isNullable</entry>
+        
+        <entry align="left" valign="top">isUnique</entry>
+        
+        <entry align="left" valign="top">isSimplified</entry>
+        
+        <entry align="left" valign="top">isCreate</entry>
+        
+        <entry align="left" valign="top">isSearch</entry>
+        
+        <entry align="left" valign="top">isView</entry>
+        
+        <entry align="left" valign="top">isViewColumn</entry>
+        
+        <entry align="left" valign="top">isViewRelation</entry>
+        
+      </row>
+      
+    </thead>
+    
+    <tbody>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>name</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>String</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>cardinality</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>String</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>isUnidirectional</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>Boolean</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+      </row>
+      
+    </tbody>
+    
+  </tgroup>
+</informaltable>
+<simpara><emphasis role="strong">RELATIONS:</emphasis> 6</simpara>
+<informaltable frame="all"
+    rowsep="1" colsep="1">
+  
+  <tgroup cols="6">
+    
+    <colspec colname="col_1" colwidth="16*"/>
+    
+    <colspec colname="col_2" colwidth="16*"/>
+    
+    <colspec colname="col_3" colwidth="16*"/>
+    
+    <colspec colname="col_4" colwidth="16*"/>
+    
+    <colspec colname="col_5" colwidth="16*"/>
+    
+    <colspec colname="col_6" colwidth="16*"/>
+    
+    
+    <thead>
+      
+      <row>
+        
+        <entry align="left" valign="top">From</entry>
+        
+        <entry align="left" valign="top">Cardinality</entry>
+        
+        <entry align="left" valign="top">To</entry>
+        
+        <entry align="left" valign="top">Optionality</entry>
+        
+        <entry align="left" valign="top">Navigability</entry>
+        
+        <entry align="left" valign="top">Atribute</entry>
+        
+      </row>
+      
+    </thead>
+    
+    <tbody>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>Cardinalities</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>1..*</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>Relationships</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>name</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>Cardinalities</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>1..*</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>Cardinalities</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>name</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>Cardinalities</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara><emphasis role="strong">..</emphasis></simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>Sites</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>title</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>Cardinalities</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara><emphasis role="strong">..</emphasis></simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>AttributesProperties</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>name</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>Cardinalities</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara><emphasis role="strong">..</emphasis></simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>Imports</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>name</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>Cardinalities</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>*..1</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>Cardinalities</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>name</simpara></entry>
+        
+      </row>
+      
+    </tbody>
+    
+  </tgroup>
+</informaltable>
+</chapter>
+<chapter id="_entity_attributestypes">
+<title>ENTITY:AttributesTypes</title>
+<simpara><emphasis role="strong">ATRIBUTES:</emphasis></simpara>
+<informaltable frame="all"
+    rowsep="1" colsep="1">
+  
+  <tgroup cols="13">
+    
+    <colspec colname="col_1" colwidth="7*"/>
+    
+    <colspec colname="col_2" colwidth="7*"/>
+    
+    <colspec colname="col_3" colwidth="7*"/>
+    
+    <colspec colname="col_4" colwidth="7*"/>
+    
+    <colspec colname="col_5" colwidth="7*"/>
+    
+    <colspec colname="col_6" colwidth="7*"/>
+    
+    <colspec colname="col_7" colwidth="7*"/>
+    
+    <colspec colname="col_8" colwidth="7*"/>
+    
+    <colspec colname="col_9" colwidth="7*"/>
+    
+    <colspec colname="col_10" colwidth="7*"/>
+    
+    <colspec colname="col_11" colwidth="7*"/>
+    
+    <colspec colname="col_12" colwidth="7*"/>
+    
+    <colspec colname="col_13" colwidth="7*"/>
+    
+    
+    <thead>
+      
+      <row>
+        
+        <entry align="left" valign="top">name</entry>
+        
+        <entry align="left" valign="top">description</entry>
+        
+        <entry align="left" valign="top">Type</entry>
+        
+        <entry align="left" valign="top">length</entry>
+        
+        <entry align="left" valign="top">precision</entry>
+        
+        <entry align="left" valign="top">isNullable</entry>
+        
+        <entry align="left" valign="top">isUnique</entry>
+        
+        <entry align="left" valign="top">isSimplified</entry>
+        
+        <entry align="left" valign="top">isCreate</entry>
+        
+        <entry align="left" valign="top">isSearch</entry>
+        
+        <entry align="left" valign="top">isView</entry>
+        
+        <entry align="left" valign="top">isViewColumn</entry>
+        
+        <entry align="left" valign="top">isViewRelation</entry>
+        
+      </row>
+      
+    </thead>
+    
+    <tbody>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>name</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>String</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>type</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>String</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>length</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>Integer</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>precision</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>Integer</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>annotations</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>String</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+      </row>
+      
+    </tbody>
+    
+  </tgroup>
+</informaltable>
+<simpara><emphasis role="strong">RELATIONS:</emphasis> 4</simpara>
+<informaltable frame="all"
+    rowsep="1" colsep="1">
+  
+  <tgroup cols="6">
+    
+    <colspec colname="col_1" colwidth="16*"/>
+    
+    <colspec colname="col_2" colwidth="16*"/>
+    
+    <colspec colname="col_3" colwidth="16*"/>
+    
+    <colspec colname="col_4" colwidth="16*"/>
+    
+    <colspec colname="col_5" colwidth="16*"/>
+    
+    <colspec colname="col_6" colwidth="16*"/>
+    
+    
+    <thead>
+      
+      <row>
+        
+        <entry align="left" valign="top">From</entry>
+        
+        <entry align="left" valign="top">Cardinality</entry>
+        
+        <entry align="left" valign="top">To</entry>
+        
+        <entry align="left" valign="top">Optionality</entry>
+        
+        <entry align="left" valign="top">Navigability</entry>
+        
+        <entry align="left" valign="top">Atribute</entry>
+        
+      </row>
+      
+    </thead>
+    
+    <tbody>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>AttributesTypes</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>1..*</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>Fields</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>description</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>AttributesTypes</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara><emphasis role="strong">..</emphasis></simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>AttributesProperties</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>name</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>AttributesTypes</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara><emphasis role="strong">..</emphasis></simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>Sites</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>title</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>AttributesTypes</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>1..*</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>Attributes</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>isUnique</simpara></entry>
+        
+      </row>
+      
+    </tbody>
+    
+  </tgroup>
+</informaltable>
+</chapter>
+<chapter id="_entity_groupidstypes">
+<title>ENTITY:GroupIdsTypes</title>
+<simpara><emphasis role="strong">ATRIBUTES:</emphasis></simpara>
+<informaltable frame="all"
+    rowsep="1" colsep="1">
+  
+  <tgroup cols="13">
+    
+    <colspec colname="col_1" colwidth="7*"/>
+    
+    <colspec colname="col_2" colwidth="7*"/>
+    
+    <colspec colname="col_3" colwidth="7*"/>
+    
+    <colspec colname="col_4" colwidth="7*"/>
+    
+    <colspec colname="col_5" colwidth="7*"/>
+    
+    <colspec colname="col_6" colwidth="7*"/>
+    
+    <colspec colname="col_7" colwidth="7*"/>
+    
+    <colspec colname="col_8" colwidth="7*"/>
+    
+    <colspec colname="col_9" colwidth="7*"/>
+    
+    <colspec colname="col_10" colwidth="7*"/>
+    
+    <colspec colname="col_11" colwidth="7*"/>
+    
+    <colspec colname="col_12" colwidth="7*"/>
+    
+    <colspec colname="col_13" colwidth="7*"/>
+    
+    
+    <thead>
+      
+      <row>
+        
+        <entry align="left" valign="top">name</entry>
+        
+        <entry align="left" valign="top">description</entry>
+        
+        <entry align="left" valign="top">Type</entry>
+        
+        <entry align="left" valign="top">length</entry>
+        
+        <entry align="left" valign="top">precision</entry>
+        
+        <entry align="left" valign="top">isNullable</entry>
+        
+        <entry align="left" valign="top">isUnique</entry>
+        
+        <entry align="left" valign="top">isSimplified</entry>
+        
+        <entry align="left" valign="top">isCreate</entry>
+        
+        <entry align="left" valign="top">isSearch</entry>
+        
+        <entry align="left" valign="top">isView</entry>
+        
+        <entry align="left" valign="top">isViewColumn</entry>
+        
+        <entry align="left" valign="top">isViewRelation</entry>
+        
+      </row>
+      
+    </thead>
+    
+    <tbody>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>name</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>String</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+      </row>
+      
+    </tbody>
+    
+  </tgroup>
+</informaltable>
+<simpara><emphasis role="strong">RELATIONS:</emphasis> 1</simpara>
+<informaltable frame="all"
+    rowsep="1" colsep="1">
+  
+  <tgroup cols="6">
+    
+    <colspec colname="col_1" colwidth="16*"/>
+    
+    <colspec colname="col_2" colwidth="16*"/>
+    
+    <colspec colname="col_3" colwidth="16*"/>
+    
+    <colspec colname="col_4" colwidth="16*"/>
+    
+    <colspec colname="col_5" colwidth="16*"/>
+    
+    <colspec colname="col_6" colwidth="16*"/>
+    
+    
+    <thead>
+      
+      <row>
+        
+        <entry align="left" valign="top">From</entry>
+        
+        <entry align="left" valign="top">Cardinality</entry>
+        
+        <entry align="left" valign="top">To</entry>
+        
+        <entry align="left" valign="top">Optionality</entry>
+        
+        <entry align="left" valign="top">Navigability</entry>
+        
+        <entry align="left" valign="top">Atribute</entry>
+        
+      </row>
+      
+    </thead>
+    
+    <tbody>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>GroupIdsTypes</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>1..*</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>GroupIds</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>artifactId</simpara></entry>
+        
+      </row>
+      
+    </tbody>
+    
+  </tgroup>
+</informaltable>
+</chapter>
+<chapter id="_entity_sitestypes">
+<title>ENTITY:SitesTypes</title>
+<simpara><emphasis role="strong">ATRIBUTES:</emphasis></simpara>
+<informaltable frame="all"
+    rowsep="1" colsep="1">
+  
+  <tgroup cols="13">
+    
+    <colspec colname="col_1" colwidth="7*"/>
+    
+    <colspec colname="col_2" colwidth="7*"/>
+    
+    <colspec colname="col_3" colwidth="7*"/>
+    
+    <colspec colname="col_4" colwidth="7*"/>
+    
+    <colspec colname="col_5" colwidth="7*"/>
+    
+    <colspec colname="col_6" colwidth="7*"/>
+    
+    <colspec colname="col_7" colwidth="7*"/>
+    
+    <colspec colname="col_8" colwidth="7*"/>
+    
+    <colspec colname="col_9" colwidth="7*"/>
+    
+    <colspec colname="col_10" colwidth="7*"/>
+    
+    <colspec colname="col_11" colwidth="7*"/>
+    
+    <colspec colname="col_12" colwidth="7*"/>
+    
+    <colspec colname="col_13" colwidth="7*"/>
+    
+    
+    <thead>
+      
+      <row>
+        
+        <entry align="left" valign="top">name</entry>
+        
+        <entry align="left" valign="top">description</entry>
+        
+        <entry align="left" valign="top">Type</entry>
+        
+        <entry align="left" valign="top">length</entry>
+        
+        <entry align="left" valign="top">precision</entry>
+        
+        <entry align="left" valign="top">isNullable</entry>
+        
+        <entry align="left" valign="top">isUnique</entry>
+        
+        <entry align="left" valign="top">isSimplified</entry>
+        
+        <entry align="left" valign="top">isCreate</entry>
+        
+        <entry align="left" valign="top">isSearch</entry>
+        
+        <entry align="left" valign="top">isView</entry>
+        
+        <entry align="left" valign="top">isViewColumn</entry>
+        
+        <entry align="left" valign="top">isViewRelation</entry>
+        
+      </row>
+      
+    </thead>
+    
+    <tbody>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>name</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>String</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+      </row>
+      
+    </tbody>
+    
+  </tgroup>
+</informaltable>
+<simpara><emphasis role="strong">RELATIONS:</emphasis> 3</simpara>
+<informaltable frame="all"
+    rowsep="1" colsep="1">
+  
+  <tgroup cols="6">
+    
+    <colspec colname="col_1" colwidth="16*"/>
+    
+    <colspec colname="col_2" colwidth="16*"/>
+    
+    <colspec colname="col_3" colwidth="16*"/>
+    
+    <colspec colname="col_4" colwidth="16*"/>
+    
+    <colspec colname="col_5" colwidth="16*"/>
+    
+    <colspec colname="col_6" colwidth="16*"/>
+    
+    
+    <thead>
+      
+      <row>
+        
+        <entry align="left" valign="top">From</entry>
+        
+        <entry align="left" valign="top">Cardinality</entry>
+        
+        <entry align="left" valign="top">To</entry>
+        
+        <entry align="left" valign="top">Optionality</entry>
+        
+        <entry align="left" valign="top">Navigability</entry>
+        
+        <entry align="left" valign="top">Atribute</entry>
+        
+      </row>
+      
+    </thead>
+    
+    <tbody>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>SitesTypes</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>1..*</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>SitesTypes</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>name</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>SitesTypes</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>*..1</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>SitesTypes</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>name</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>SitesTypes</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara><emphasis role="strong">..</emphasis></simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>Sites</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>title</simpara></entry>
+        
+      </row>
+      
+    </tbody>
+    
+  </tgroup>
+</informaltable>
+</chapter>
+<chapter id="_entity_models">
+<title>ENTITY:Models</title>
+<simpara><emphasis role="strong">ATRIBUTES:</emphasis></simpara>
+<informaltable frame="all"
+    rowsep="1" colsep="1">
+  
+  <tgroup cols="13">
+    
+    <colspec colname="col_1" colwidth="7*"/>
+    
+    <colspec colname="col_2" colwidth="7*"/>
+    
+    <colspec colname="col_3" colwidth="7*"/>
+    
+    <colspec colname="col_4" colwidth="7*"/>
+    
+    <colspec colname="col_5" colwidth="7*"/>
+    
+    <colspec colname="col_6" colwidth="7*"/>
+    
+    <colspec colname="col_7" colwidth="7*"/>
+    
+    <colspec colname="col_8" colwidth="7*"/>
+    
+    <colspec colname="col_9" colwidth="7*"/>
+    
+    <colspec colname="col_10" colwidth="7*"/>
+    
+    <colspec colname="col_11" colwidth="7*"/>
+    
+    <colspec colname="col_12" colwidth="7*"/>
+    
+    <colspec colname="col_13" colwidth="7*"/>
+    
+    
+    <thead>
+      
+      <row>
+        
+        <entry align="left" valign="top">name</entry>
+        
+        <entry align="left" valign="top">description</entry>
+        
+        <entry align="left" valign="top">Type</entry>
+        
+        <entry align="left" valign="top">length</entry>
+        
+        <entry align="left" valign="top">precision</entry>
+        
+        <entry align="left" valign="top">isNullable</entry>
+        
+        <entry align="left" valign="top">isUnique</entry>
+        
+        <entry align="left" valign="top">isSimplified</entry>
+        
+        <entry align="left" valign="top">isCreate</entry>
+        
+        <entry align="left" valign="top">isSearch</entry>
+        
+        <entry align="left" valign="top">isView</entry>
+        
+        <entry align="left" valign="top">isViewColumn</entry>
+        
+        <entry align="left" valign="top">isViewRelation</entry>
+        
+      </row>
+      
+    </thead>
+    
+    <tbody>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>name</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>String</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>code</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>String</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+      </row>
+      
+    </tbody>
+    
+  </tgroup>
+</informaltable>
+<simpara><emphasis role="strong">RELATIONS:</emphasis> 4</simpara>
+<informaltable frame="all"
+    rowsep="1" colsep="1">
+  
+  <tgroup cols="6">
+    
+    <colspec colname="col_1" colwidth="16*"/>
+    
+    <colspec colname="col_2" colwidth="16*"/>
+    
+    <colspec colname="col_3" colwidth="16*"/>
+    
+    <colspec colname="col_4" colwidth="16*"/>
+    
+    <colspec colname="col_5" colwidth="16*"/>
+    
+    <colspec colname="col_6" colwidth="16*"/>
+    
+    
+    <thead>
+      
+      <row>
+        
+        <entry align="left" valign="top">From</entry>
+        
+        <entry align="left" valign="top">Cardinality</entry>
+        
+        <entry align="left" valign="top">To</entry>
+        
+        <entry align="left" valign="top">Optionality</entry>
+        
+        <entry align="left" valign="top">Navigability</entry>
+        
+        <entry align="left" valign="top">Atribute</entry>
+        
+      </row>
+      
+    </thead>
+    
+    <tbody>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>Models</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara><emphasis role="strong">..</emphasis></simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>Sites</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>title</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>Models</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>1..*</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>ModelRelationships</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>name</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>Models</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara><emphasis role="strong">..</emphasis></simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>ModelsGroups</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>name</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>Models</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>*..1</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>GroupIds</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>artifactId</simpara></entry>
+        
+      </row>
+      
+    </tbody>
+    
+  </tgroup>
+</informaltable>
+</chapter>
+<chapter id="_entity_dependencies">
+<title>ENTITY:Dependencies</title>
+<simpara><emphasis role="strong">ATRIBUTES:</emphasis></simpara>
+<informaltable frame="all"
+    rowsep="1" colsep="1">
+  
+  <tgroup cols="13">
+    
+    <colspec colname="col_1" colwidth="7*"/>
+    
+    <colspec colname="col_2" colwidth="7*"/>
+    
+    <colspec colname="col_3" colwidth="7*"/>
+    
+    <colspec colname="col_4" colwidth="7*"/>
+    
+    <colspec colname="col_5" colwidth="7*"/>
+    
+    <colspec colname="col_6" colwidth="7*"/>
+    
+    <colspec colname="col_7" colwidth="7*"/>
+    
+    <colspec colname="col_8" colwidth="7*"/>
+    
+    <colspec colname="col_9" colwidth="7*"/>
+    
+    <colspec colname="col_10" colwidth="7*"/>
+    
+    <colspec colname="col_11" colwidth="7*"/>
+    
+    <colspec colname="col_12" colwidth="7*"/>
+    
+    <colspec colname="col_13" colwidth="7*"/>
+    
+    
+    <thead>
+      
+      <row>
+        
+        <entry align="left" valign="top">name</entry>
+        
+        <entry align="left" valign="top">description</entry>
+        
+        <entry align="left" valign="top">Type</entry>
+        
+        <entry align="left" valign="top">length</entry>
+        
+        <entry align="left" valign="top">precision</entry>
+        
+        <entry align="left" valign="top">isNullable</entry>
+        
+        <entry align="left" valign="top">isUnique</entry>
+        
+        <entry align="left" valign="top">isSimplified</entry>
+        
+        <entry align="left" valign="top">isCreate</entry>
+        
+        <entry align="left" valign="top">isSearch</entry>
+        
+        <entry align="left" valign="top">isView</entry>
+        
+        <entry align="left" valign="top">isViewColumn</entry>
+        
+        <entry align="left" valign="top">isViewRelation</entry>
+        
+      </row>
+      
+    </thead>
+    
+    <tbody>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>groupId</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>String</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>artifactId</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>String</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>version</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>String</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>type</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>String</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>scope</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>String</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>maven</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>String</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+      </row>
+      
+    </tbody>
+    
+  </tgroup>
+</informaltable>
+<simpara><emphasis role="strong">RELATIONS:</emphasis> 3</simpara>
+<informaltable frame="all"
+    rowsep="1" colsep="1">
+  
+  <tgroup cols="6">
+    
+    <colspec colname="col_1" colwidth="16*"/>
+    
+    <colspec colname="col_2" colwidth="16*"/>
+    
+    <colspec colname="col_3" colwidth="16*"/>
+    
+    <colspec colname="col_4" colwidth="16*"/>
+    
+    <colspec colname="col_5" colwidth="16*"/>
+    
+    <colspec colname="col_6" colwidth="16*"/>
+    
+    
+    <thead>
+      
+      <row>
+        
+        <entry align="left" valign="top">From</entry>
+        
+        <entry align="left" valign="top">Cardinality</entry>
+        
+        <entry align="left" valign="top">To</entry>
+        
+        <entry align="left" valign="top">Optionality</entry>
+        
+        <entry align="left" valign="top">Navigability</entry>
+        
+        <entry align="left" valign="top">Atribute</entry>
+        
+      </row>
+      
+    </thead>
+    
+    <tbody>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>Dependencies</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>1..*</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>Imports</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>name</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>Dependencies</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara><emphasis role="strong">..</emphasis></simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>Sites</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>title</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>Dependencies</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>*..1</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>Pom</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>groupId</simpara></entry>
+        
+      </row>
+      
+    </tbody>
+    
+  </tgroup>
+</informaltable>
+</chapter>
+<chapter id="_entity_modelrelationships">
+<title>ENTITY:ModelRelationships</title>
+<simpara><emphasis role="strong">ATRIBUTES:</emphasis></simpara>
+<informaltable frame="all"
+    rowsep="1" colsep="1">
+  
+  <tgroup cols="13">
+    
+    <colspec colname="col_1" colwidth="7*"/>
+    
+    <colspec colname="col_2" colwidth="7*"/>
+    
+    <colspec colname="col_3" colwidth="7*"/>
+    
+    <colspec colname="col_4" colwidth="7*"/>
+    
+    <colspec colname="col_5" colwidth="7*"/>
+    
+    <colspec colname="col_6" colwidth="7*"/>
+    
+    <colspec colname="col_7" colwidth="7*"/>
+    
+    <colspec colname="col_8" colwidth="7*"/>
+    
+    <colspec colname="col_9" colwidth="7*"/>
+    
+    <colspec colname="col_10" colwidth="7*"/>
+    
+    <colspec colname="col_11" colwidth="7*"/>
+    
+    <colspec colname="col_12" colwidth="7*"/>
+    
+    <colspec colname="col_13" colwidth="7*"/>
+    
+    
+    <thead>
+      
+      <row>
+        
+        <entry align="left" valign="top">name</entry>
+        
+        <entry align="left" valign="top">description</entry>
+        
+        <entry align="left" valign="top">Type</entry>
+        
+        <entry align="left" valign="top">length</entry>
+        
+        <entry align="left" valign="top">precision</entry>
+        
+        <entry align="left" valign="top">isNullable</entry>
+        
+        <entry align="left" valign="top">isUnique</entry>
+        
+        <entry align="left" valign="top">isSimplified</entry>
+        
+        <entry align="left" valign="top">isCreate</entry>
+        
+        <entry align="left" valign="top">isSearch</entry>
+        
+        <entry align="left" valign="top">isView</entry>
+        
+        <entry align="left" valign="top">isViewColumn</entry>
+        
+        <entry align="left" valign="top">isViewRelation</entry>
+        
+      </row>
+      
+    </thead>
+    
+    <tbody>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>name</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>String</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+      </row>
+      
+    </tbody>
+    
+  </tgroup>
+</informaltable>
+<simpara><emphasis role="strong">RELATIONS:</emphasis> 2</simpara>
+<informaltable frame="all"
+    rowsep="1" colsep="1">
+  
+  <tgroup cols="6">
+    
+    <colspec colname="col_1" colwidth="16*"/>
+    
+    <colspec colname="col_2" colwidth="16*"/>
+    
+    <colspec colname="col_3" colwidth="16*"/>
+    
+    <colspec colname="col_4" colwidth="16*"/>
+    
+    <colspec colname="col_5" colwidth="16*"/>
+    
+    <colspec colname="col_6" colwidth="16*"/>
+    
+    
+    <thead>
+      
+      <row>
+        
+        <entry align="left" valign="top">From</entry>
+        
+        <entry align="left" valign="top">Cardinality</entry>
+        
+        <entry align="left" valign="top">To</entry>
+        
+        <entry align="left" valign="top">Optionality</entry>
+        
+        <entry align="left" valign="top">Navigability</entry>
+        
+        <entry align="left" valign="top">Atribute</entry>
+        
+      </row>
+      
+    </thead>
+    
+    <tbody>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>ModelRelationships</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>*..1</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>Relationships</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>name</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>ModelRelationships</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>*..1</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>Models</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>name</simpara></entry>
+        
+      </row>
+      
+    </tbody>
+    
+  </tgroup>
+</informaltable>
+</chapter>
+<chapter id="_entity_developments">
+<title>ENTITY:Developments</title>
+<simpara><emphasis role="strong">ATRIBUTES:</emphasis></simpara>
+<informaltable frame="all"
+    rowsep="1" colsep="1">
+  
+  <tgroup cols="13">
+    
+    <colspec colname="col_1" colwidth="7*"/>
+    
+    <colspec colname="col_2" colwidth="7*"/>
+    
+    <colspec colname="col_3" colwidth="7*"/>
+    
+    <colspec colname="col_4" colwidth="7*"/>
+    
+    <colspec colname="col_5" colwidth="7*"/>
+    
+    <colspec colname="col_6" colwidth="7*"/>
+    
+    <colspec colname="col_7" colwidth="7*"/>
+    
+    <colspec colname="col_8" colwidth="7*"/>
+    
+    <colspec colname="col_9" colwidth="7*"/>
+    
+    <colspec colname="col_10" colwidth="7*"/>
+    
+    <colspec colname="col_11" colwidth="7*"/>
+    
+    <colspec colname="col_12" colwidth="7*"/>
+    
+    <colspec colname="col_13" colwidth="7*"/>
+    
+    
+    <thead>
+      
+      <row>
+        
+        <entry align="left" valign="top">name</entry>
+        
+        <entry align="left" valign="top">description</entry>
+        
+        <entry align="left" valign="top">Type</entry>
+        
+        <entry align="left" valign="top">length</entry>
+        
+        <entry align="left" valign="top">precision</entry>
+        
+        <entry align="left" valign="top">isNullable</entry>
+        
+        <entry align="left" valign="top">isUnique</entry>
+        
+        <entry align="left" valign="top">isSimplified</entry>
+        
+        <entry align="left" valign="top">isCreate</entry>
+        
+        <entry align="left" valign="top">isSearch</entry>
+        
+        <entry align="left" valign="top">isView</entry>
+        
+        <entry align="left" valign="top">isViewColumn</entry>
+        
+        <entry align="left" valign="top">isViewRelation</entry>
+        
+      </row>
+      
+    </thead>
+    
+    <tbody>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>artifactId</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>String</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>groupId</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>String</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>version</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>String</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>code</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>String</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>date</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>Date</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>null</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+      </row>
+      
+    </tbody>
+    
+  </tgroup>
+</informaltable>
+<simpara><emphasis role="strong">RELATIONS:</emphasis> 3</simpara>
+<informaltable frame="all"
+    rowsep="1" colsep="1">
+  
+  <tgroup cols="6">
+    
+    <colspec colname="col_1" colwidth="16*"/>
+    
+    <colspec colname="col_2" colwidth="16*"/>
+    
+    <colspec colname="col_3" colwidth="16*"/>
+    
+    <colspec colname="col_4" colwidth="16*"/>
+    
+    <colspec colname="col_5" colwidth="16*"/>
+    
+    <colspec colname="col_6" colwidth="16*"/>
+    
+    
+    <thead>
+      
+      <row>
+        
+        <entry align="left" valign="top">From</entry>
+        
+        <entry align="left" valign="top">Cardinality</entry>
+        
+        <entry align="left" valign="top">To</entry>
+        
+        <entry align="left" valign="top">Optionality</entry>
+        
+        <entry align="left" valign="top">Navigability</entry>
+        
+        <entry align="left" valign="top">Atribute</entry>
+        
+      </row>
+      
+    </thead>
+    
+    <tbody>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>Developments</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara><emphasis role="strong">..</emphasis></simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>Sites</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>title</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>Developments</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara><emphasis role="strong">..</emphasis></simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>Pom</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>groupId</simpara></entry>
+        
+      </row>
+      
+      <row>
+        
+        <entry align="left" valign="top"><simpara>Developments</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara><emphasis role="strong">..</emphasis></simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>ModelsGroups</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>true</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>false</simpara></entry>
+        
+        <entry align="left" valign="top"><simpara>name</simpara></entry>
+        
+      </row>
+      
+    </tbody>
+    
+  </tgroup>
+</informaltable>
+</chapter>
+</book>
