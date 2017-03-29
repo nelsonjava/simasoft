@@ -752,7 +752,12 @@ public class Entidad implements Comparable<Entidad> {
                      xhtml += space+"        <h:panelGrid columnClasses=\",remove-column\" columns=\"2\" styleClass=\"data-table-footer\">\n";
                      xhtml += space+"           <h:selectOneMenu converter=\"#{"+to+"Bean.converter}\" id=\""+from+"Bean"+From+To+"Select\" value=\"#{requestScope['"+from+"Bean"+From+To+"Select']}\">\n";
                      xhtml += space+"             <f:selectItem/>\n";
+                     if (atributeTo.isEmpty()){
+                     xhtml += space+"             <f:selectItems itemLabel=\"#{forgeview:display(_item)}\" itemValue=\"#{_item}\" value=\"#{"+to+"Bean.all}\" var=\"_item\"/>\n";
+                     }
+                     else{
                      xhtml += space+"             <f:selectItems itemLabel=\"#{forgeview:display(_item."+atributeTo+")}\" itemValue=\"#{_item}\" value=\"#{"+to+"Bean.all}\" var=\"_item\"/>\n";
+                     }
                      xhtml += space+"           </h:selectOneMenu>\n";
                      xhtml += space+"           <h:commandLink action=\"#{_collection.add(requestScope['"+from+"Bean"+From+To+"Select'])}\" id=\""+from+"Bean"+From+To+"Add\" onclick=\"if (document.getElementById(document.forms[0].id+':"+from+"Bean"+From+To+"Select').selectedIndex &lt; 1) { alert('Must select a "+To+"'); return false; }\" styleClass=\"add-button\"/>\n";
                      xhtml += space+"        </h:panelGrid>\n";
@@ -774,7 +779,12 @@ public class Entidad implements Comparable<Entidad> {
                      xhtml += space+"<h:panelGroup>\n";
                      xhtml += space+"         <h:selectOneMenu converter=\"#{"+to+"Bean.converter}\" id=\""+from+"Bean"+From+"objPadre\" value=\"#{"+from+"Bean."+from+".objPadre}\">\n";
                      xhtml += space+"                <f:selectItem/>\n";
+                     if (atributeFrom.isEmpty()){
+                     xhtml += space+"                <f:selectItems itemLabel=\"#{forgeview:display(_item)}\" itemValue=\"#{_item}\" value=\"#{"+to+"Bean.all}\" var=\"_item\"/>\n";
+                     }
+                     else{
                      xhtml += space+"                <f:selectItems itemLabel=\"#{forgeview:display(_item."+atributeFrom+")}\" itemValue=\"#{_item}\" value=\"#{"+to+"Bean.all}\" var=\"_item\"/>\n";
+                     }
                      xhtml += space+"        </h:selectOneMenu>\n";
                      xhtml += space+"        <h:message for=\"entitiesBeanEntitiesIsSimplified\" styleClass=\"error\"/>\n";
                      xhtml += space+"</h:panelGroup>\n";
@@ -784,12 +794,18 @@ public class Entidad implements Comparable<Entidad> {
                  else{ // relación inversa.
 
 
+
                       if (relation.getName() == null || relation.getName().isEmpty()){
                           xhtml =  space+"<h:outputLabel for=\""+from+"Bean"+From+To+"\" value=\""+To+":\"/>"+"\n";
                           xhtml += space+"<h:panelGroup>\n";
                           xhtml += space+"         <h:selectOneMenu converter=\"#{"+to+"Bean.converter}\" id=\""+from+"Bean"+From+To+"\" value=\"#{"+from+"Bean."+from+"."+to+"}\">\n";
                           xhtml += space+"                <f:selectItem/>\n";
+                          if (atributeTo.isEmpty()){
+                          xhtml += space+"                <f:selectItems itemLabel=\"#{forgeview:display(_item)}\" itemValue=\"#{_item}\" value=\"#{"+to+"Bean.all}\" var=\"_item\"/>\n";
+                          }
+                          else{
                           xhtml += space+"                <f:selectItems itemLabel=\"#{forgeview:display(_item."+atributeTo+")}\" itemValue=\"#{_item}\" value=\"#{"+to+"Bean.all}\" var=\"_item\"/>\n";
+                          }
                           xhtml += space+"        </h:selectOneMenu>\n";
                           xhtml += space+"        <h:message for=\""+from+"Bean"+From+"\" styleClass=\"error\"/>\n";
                           xhtml += space+"</h:panelGroup>\n";
@@ -800,7 +816,12 @@ public class Entidad implements Comparable<Entidad> {
                           xhtml += space+"<h:panelGroup>\n";
                           xhtml += space+"         <h:selectOneMenu converter=\"#{"+to+"Bean.converter}\" id=\""+from+"Bean"+from+Utils._1raMay(relation.getName())+"\" value=\"#{"+from+"Bean."+from+"."+relation.getName()+"}\">\n";
                           xhtml += space+"                <f:selectItem/>\n";
+                          if (atributeFrom.isEmpty()){
+                          xhtml += space+"                <f:selectItems itemLabel=\"#{forgeview:display(_item)}\" itemValue=\"#{_item}\" value=\"#{"+to+"Bean.all}\" var=\"_item\"/>\n";
+                          }
+                          else{
                           xhtml += space+"                <f:selectItems itemLabel=\"#{forgeview:display(_item."+atributeFrom+")}\" itemValue=\"#{_item}\" value=\"#{"+to+"Bean.all}\" var=\"_item\"/>\n";
+                          }
                           xhtml += space+"        </h:selectOneMenu>\n";
                           xhtml += space+"        <h:message for=\"entitiesBeanEntitiesIsSimplified\" styleClass=\"error\"/>\n";
                           xhtml += space+"</h:panelGroup>\n";
