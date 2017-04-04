@@ -26,7 +26,7 @@ import javax.persistence.criteria.Root;
 
 import co.simasoft.models.Chapters;
 import co.simasoft.models.Books;
-import co.simasoft.models.Sites;
+import co.simasoft.models.VideoContents;
 import java.util.Iterator;
 
 /**
@@ -133,6 +133,14 @@ public class ChaptersBean implements Serializable {
 
 		try {
 			Chapters deletableEntity = findById(getId());
+			Iterator<VideoContents> iterVideoContents = deletableEntity
+					.getVideoContents().iterator();
+			for (; iterVideoContents.hasNext();) {
+				VideoContents nextInVideoContents = iterVideoContents.next();
+				nextInVideoContents.getChapters().remove(deletableEntity);
+				iterVideoContents.remove();
+				this.entityManager.merge(nextInVideoContents);
+			}
 			Iterator<Chapters> iterObjHijos = deletableEntity.getObjHijos()
 					.iterator();
 			for (; iterObjHijos.hasNext();) {
@@ -140,13 +148,6 @@ public class ChaptersBean implements Serializable {
 				nextInObjHijos.setObjPadre(null);
 				iterObjHijos.remove();
 				this.entityManager.merge(nextInObjHijos);
-			}
-			Iterator<Sites> iterSites = deletableEntity.getSites().iterator();
-			for (; iterSites.hasNext();) {
-				Sites nextInSites = iterSites.next();
-				nextInSites.getChapters().remove(deletableEntity);
-				iterSites.remove();
-				this.entityManager.merge(nextInSites);
 			}
 			Books books = deletableEntity.getBooks();
 			books.getChapters().remove(deletableEntity);
@@ -242,17 +243,17 @@ public class ChaptersBean implements Serializable {
 					builder.lower(root.<String> get("observations")),
 					'%' + observations.toLowerCase() + '%'));
 		}
-		String name = this.example.getName();
-		if (name != null && !"".equals(name)) {
-			predicatesList.add(builder.like(
-					builder.lower(root.<String> get("name")),
-					'%' + name.toLowerCase() + '%'));
-		}
 		String code = this.example.getCode();
 		if (code != null && !"".equals(code)) {
 			predicatesList.add(builder.like(
 					builder.lower(root.<String> get("code")),
 					'%' + code.toLowerCase() + '%'));
+		}
+		String name = this.example.getName();
+		if (name != null && !"".equals(name)) {
+			predicatesList.add(builder.like(
+					builder.lower(root.<String> get("name")),
+					'%' + name.toLowerCase() + '%'));
 		}
 		Books books = this.example.getBooks();
 		if (books != null) {

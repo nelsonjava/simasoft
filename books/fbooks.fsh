@@ -9,9 +9,10 @@ scaffold-setup --provider AngularJS
 jpa-new-entity --named BooksTypes --targetPackage co.simasoft.models
 jpa-new-field --named name --type String
 
-#  SitesTypes entity
+#  Books entity
 #  ############
-jpa-new-entity --named SitesTypes --targetPackage co.simasoft.models
+jpa-new-entity --named Books --targetPackage co.simasoft.models
+jpa-new-field --named code --type String
 jpa-new-field --named name --type String
 
 #  Chapters entity
@@ -20,35 +21,42 @@ jpa-new-entity --named Chapters --targetPackage co.simasoft.models
 jpa-new-field --named code --type String
 jpa-new-field --named name --type String
 
-#  Books entity
+#  TypesFilms entity
 #  ############
-jpa-new-entity --named Books --targetPackage co.simasoft.models
-jpa-new-field --named code --type String
+jpa-new-entity --named TypesFilms --targetPackage co.simasoft.models
 jpa-new-field --named name --type String
 
-#  Sites entity
+#  Films entity
 #  ############
-jpa-new-entity --named Sites --targetPackage co.simasoft.models
-jpa-new-field --named title --type String
-jpa-new-field --named link --type String
-jpa-new-field --named abc --type String
-jpa-new-field --named ipAddress1 --type String
-jpa-new-field --named ipAddress2 --type String
-jpa-new-field --named ipAddress3 --type String
+jpa-new-entity --named Films --targetPackage co.simasoft.models
+jpa-new-field --named name --type String
+
+#  Videos entity
+#  ############
+jpa-new-entity --named Videos --targetPackage co.simasoft.models
+jpa-new-field --named name --type String
+jpa-new-field --named time --type String
+
+#  VideoContents entity
+#  ############
+jpa-new-entity --named VideoContents --targetPackage co.simasoft.models
+jpa-new-field --named name --type String
+jpa-new-field --named startTime --type String
+jpa-new-field --named endTime --type String
 
 #  BooksTypes Relationships 
 #  ############
-#  ############1..*
-#Unitaria  BooksTypes Uno a Muchos Bidirecccional No.5 BooksTypes
-cd ..
-cd BooksTypes.java
-jpa-new-field --named objHijos --type co.simasoft.models.BooksTypes --relationshipType One-to-Many;
-
 #  ############1..*
 #  BooksTypes Uno a Muchos Bidirecccional No.5 Books
 cd ..
 cd BooksTypes.java
 jpa-new-field --named books --type co.simasoft.models.Books --relationshipType One-to-Many;
+
+#  ############1..*
+#Unitaria  BooksTypes Uno a Muchos Bidirecccional No.5 BooksTypes
+cd ..
+cd BooksTypes.java
+jpa-new-field --named objHijos --type co.simasoft.models.BooksTypes --relationshipType One-to-Many;
 
 #  ############*..1
 #Unitaria  BooksTypes Muchos a Uno Unidireccional No.3 BooksTypes
@@ -56,45 +64,39 @@ cd ..
 cd BooksTypes.java
 jpa-new-field --named objPadre --type co.simasoft.models.BooksTypes --relationshipType Many-to-One;
 
-#  SitesTypes Relationships 
+#  Books Relationships 
 #  ############
-#  ############1..*
-#Unitaria  SitesTypes Uno a Muchos Bidirecccional No.5 SitesTypes
+#  ############*..*
+#  Books Muchos a Muchos Bidirecccional No.7 Films
 cd ..
-cd SitesTypes.java
-jpa-new-field --named objHijos --type co.simasoft.models.SitesTypes --relationshipType One-to-Many;
+cd Books.java
+jpa-new-field --named films --type co.simasoft.models.Films --relationshipType Many-to-Many  ----inverseFieldName books;
+
+#  ############1..*
+#  Books Uno a Muchos Bidirecccional No.5 Chapters
+cd ..
+cd Books.java
+jpa-new-field --named chapters --type co.simasoft.models.Chapters --relationshipType One-to-Many;
 
 #  ############*..1
-#Unitaria  SitesTypes Muchos a Uno Unidireccional No.3 SitesTypes
+#  Books Muchos a Uno Unidireccional No.3 BooksTypes
 cd ..
-cd SitesTypes.java
-jpa-new-field --named objPadre --type co.simasoft.models.SitesTypes --relationshipType Many-to-One;
-
-#  ############*..*
-#  SitesTypes Muchos a Muchos Bidirecccional No.7 Sites
-cd ..
-cd SitesTypes.java
-jpa-new-field --named sites --type co.simasoft.models.Sites --relationshipType Many-to-Many  ----inverseFieldName sitesTypes;
-
-#  ############*..*
-#  SitesTypes Muchos a Muchos Bidirecccional No.7 Books
-cd ..
-cd SitesTypes.java
-jpa-new-field --named books --type co.simasoft.models.Books --relationshipType Many-to-Many  ----inverseFieldName sitesTypes;
+cd Books.java
+jpa-new-field --named booksTypes --type co.simasoft.models.BooksTypes --relationshipType Many-to-One;
 
 #  Chapters Relationships 
 #  ############
+#  ############*..*
+#  Chapters Muchos a Muchos Bidirecccional No.7 VideoContents
+cd ..
+cd Chapters.java
+jpa-new-field --named videoContents --type co.simasoft.models.VideoContents --relationshipType Many-to-Many  ----inverseFieldName chapters;
+
 #  ############1..*
 #Unitaria  Chapters Uno a Muchos Bidirecccional No.5 Chapters
 cd ..
 cd Chapters.java
 jpa-new-field --named objHijos --type co.simasoft.models.Chapters --relationshipType One-to-Many;
-
-#  ############*..*
-#  Chapters Muchos a Muchos Bidirecccional No.7 Sites
-cd ..
-cd Chapters.java
-jpa-new-field --named sites --type co.simasoft.models.Sites --relationshipType Many-to-Many  ----inverseFieldName chapters;
 
 #  ############*..1
 #  Chapters Muchos a Uno Unidireccional No.3 Books
@@ -108,50 +110,60 @@ cd ..
 cd Chapters.java
 jpa-new-field --named objPadre --type co.simasoft.models.Chapters --relationshipType Many-to-One;
 
-#  Books Relationships 
+#  TypesFilms Relationships 
 #  ############
 #  ############1..*
-#  Books Uno a Muchos Bidirecccional No.5 Chapters
+#  TypesFilms Uno a Muchos Bidirecccional No.5 Films
 cd ..
-cd Books.java
-jpa-new-field --named chapters --type co.simasoft.models.Chapters --relationshipType One-to-Many;
+cd TypesFilms.java
+jpa-new-field --named films --type co.simasoft.models.Films --relationshipType One-to-Many;
 
-#  ############*..*
-#  Books Muchos a Muchos Bidirecccional No.7 SitesTypes
+#  Films Relationships 
+#  ############
+#  ############1..*
+#  Films Uno a Muchos Bidirecccional No.5 Videos
 cd ..
-cd Books.java
-jpa-new-field --named sitesTypes --type co.simasoft.models.SitesTypes --relationshipType Many-to-Many  ----inverseFieldName books;
-
-#  ############*..*
-#  Books Muchos a Muchos Bidirecccional No.7 Sites
-cd ..
-cd Books.java
-jpa-new-field --named sites --type co.simasoft.models.Sites --relationshipType Many-to-Many  ----inverseFieldName books;
+cd Films.java
+jpa-new-field --named videos --type co.simasoft.models.Videos --relationshipType One-to-Many;
 
 #  ############*..1
-#  Books Muchos a Uno Unidireccional No.3 BooksTypes
+#  Films Muchos a Uno Unidireccional No.3 TypesFilms
 cd ..
-cd Books.java
-jpa-new-field --named booksTypes --type co.simasoft.models.BooksTypes --relationshipType Many-to-One;
+cd Films.java
+jpa-new-field --named typesFilms --type co.simasoft.models.TypesFilms --relationshipType Many-to-One;
 
-#  Sites Relationships 
+#  ############*..*
+#  Films Muchos a Muchos Unidireccional No.6 Books
+cd ..
+cd Films.java
+jpa-new-field --named books --type co.simasoft.models.Books --relationshipType Many-to-Many  ----inverseFieldName films;
+
+#  Videos Relationships 
 #  ############
-#  ############*..*
-#  Sites Muchos a Muchos Bidirecccional No.7 SitesTypes
+#  ############1..*
+#  Videos Uno a Muchos Bidirecccional No.5 VideoContents
 cd ..
-cd Sites.java
-jpa-new-field --named sitesTypes --type co.simasoft.models.SitesTypes --relationshipType Many-to-Many  ----inverseFieldName sites;
+cd Videos.java
+jpa-new-field --named videoContents --type co.simasoft.models.VideoContents --relationshipType One-to-Many;
+
+#  ############*..1
+#  Videos Muchos a Uno Unidireccional No.3 Films
+cd ..
+cd Videos.java
+jpa-new-field --named films --type co.simasoft.models.Films --relationshipType Many-to-One;
+
+#  VideoContents Relationships 
+#  ############
+#  ############*..1
+#  VideoContents Muchos a Uno Unidireccional No.3 Videos
+cd ..
+cd VideoContents.java
+jpa-new-field --named videos --type co.simasoft.models.Videos --relationshipType Many-to-One;
 
 #  ############*..*
-#  Sites Muchos a Muchos Bidirecccional No.7 Chapters
+#  VideoContents Muchos a Muchos Unidireccional No.6 Chapters
 cd ..
-cd Sites.java
-jpa-new-field --named chapters --type co.simasoft.models.Chapters --relationshipType Many-to-Many  ----inverseFieldName sites;
-
-#  ############*..*
-#  Sites Muchos a Muchos Bidirecccional No.7 Books
-cd ..
-cd Sites.java
-jpa-new-field --named books --type co.simasoft.models.Books --relationshipType Many-to-Many  ----inverseFieldName sites;
+cd VideoContents.java
+jpa-new-field --named chapters --type co.simasoft.models.Chapters --relationshipType Many-to-Many  ----inverseFieldName videoContents;
 
 rest-generate-endpoints-from-entities --targets co.simasoft.models.*

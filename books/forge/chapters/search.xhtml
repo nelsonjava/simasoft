@@ -42,16 +42,16 @@
 							<h:message for="chaptersBeanExampleObservations" styleClass="error"/>
 						</h:panelGroup>
 						<h:outputText/>
-						<h:outputLabel for="chaptersBeanExampleName" value="Name:"/>
-						<h:panelGroup>
-							<h:inputText id="chaptersBeanExampleName" value="#{chaptersBean.example.name}"/>
-							<h:message for="chaptersBeanExampleName" styleClass="error"/>
-						</h:panelGroup>
-						<h:outputText/>
 						<h:outputLabel for="chaptersBeanExampleCode" value="Code:"/>
 						<h:panelGroup>
 							<h:inputText id="chaptersBeanExampleCode" value="#{chaptersBean.example.code}"/>
 							<h:message for="chaptersBeanExampleCode" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="chaptersBeanExampleName" value="Name:"/>
+						<h:panelGroup>
+							<h:inputText id="chaptersBeanExampleName" value="#{chaptersBean.example.name}"/>
+							<h:message for="chaptersBeanExampleName" styleClass="error"/>
 						</h:panelGroup>
 						<h:outputText/>
 						<h:outputLabel for="chaptersBeanExampleBooks" value="Books:"/>
@@ -78,7 +78,7 @@
 					</f:facet>
 					<h:link outcome="/admin/chapters/view">
 						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemAlias" value="#{_item.alias}"/>
+						<h:outputText id="_itemAlias" value="#{_item.alias}"/>
 					</h:link>
 				</h:column>
 				<h:column>
@@ -87,7 +87,7 @@
 					</f:facet>
 					<h:link outcome="/admin/chapters/view">
 						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemOrden" value="#{_item.orden}"/>
+						<h:outputText id="_itemOrden" value="#{_item.orden}"/>
 					</h:link>
 				</h:column>
 				<h:column>
@@ -96,16 +96,7 @@
 					</f:facet>
 					<h:link outcome="/admin/chapters/view">
 						<f:param name="id" value="#{_item.id}"/>
-						<h:inputTextarea id="itemObservations" value="#{_item.observations}"/>
-					</h:link>
-				</h:column>
-				<h:column>
-					<f:facet name="header">
-						<h:outputText value="Name"/>
-					</f:facet>
-					<h:link outcome="/admin/chapters/view">
-						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemName" value="#{_item.name}"/>
+						<h:inputTextarea id="_itemObservations" value="#{_item.observations}"/>
 					</h:link>
 				</h:column>
 				<h:column>
@@ -114,7 +105,16 @@
 					</f:facet>
 					<h:link outcome="/admin/chapters/view">
 						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemCode" value="#{_item.code}"/>
+						<h:outputText id="_itemCode" value="#{_item.code}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Name"/>
+					</f:facet>
+					<h:link outcome="/admin/chapters/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemName" value="#{_item.name}"/>
 					</h:link>
 				</h:column>
 			</h:dataTable>

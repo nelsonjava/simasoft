@@ -17,25 +17,25 @@ image::images/modelo.jpg[]
 [options="header"]
 |===
 |From | Cardinality | To | Optionality | Navigability | Atribute 
-|BooksTypes|1..*|BooksTypes|true|false|name
 |BooksTypes|1..*|Books|true|false|code
+|BooksTypes|1..*|BooksTypes|true|false|name
 |BooksTypes|*..1|BooksTypes|true|false|name
 |===
-== ENTITY:SitesTypes
+== ENTITY:Books
 *ATRIBUTES:*
 [options="header"]
 |===
 |name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|code|null|String|null|null|true|false|false|false|true|true|true|true
 |name|null|String|null|null|false|true|false|true|true|true|true|true
 |===
-*RELATIONS:* 4
+*RELATIONS:* 3
 [options="header"]
 |===
 |From | Cardinality | To | Optionality | Navigability | Atribute 
-|SitesTypes|1..*|SitesTypes|true|false|name
-|SitesTypes|*..1|SitesTypes|true|false|name
-|SitesTypes|*..*|Sites|true|false|title
-|SitesTypes|*..*|Books|true|false|code
+|Books|*..*|Films|true|false|name
+|Books|1..*|Chapters|true|false|code
+|Books|*..1|BooksTypes|true|false|name
 |===
 == ENTITY:Chapters
 *ATRIBUTES:*
@@ -49,45 +49,67 @@ image::images/modelo.jpg[]
 [options="header"]
 |===
 |From | Cardinality | To | Optionality | Navigability | Atribute 
-|Chapters|1..*|Chapters|true|false|name
-|Chapters|*..*|Sites|true|false|title
+|Chapters|*..*|VideoContents|true|false|name
+|Chapters|1..*|Chapters|true|false|code
 |Chapters|*..1|Books|true|false|code
-|Chapters|*..1|Chapters|true|false|name
+|Chapters|*..1|Chapters|true|false|code
 |===
-== ENTITY:Books
+== ENTITY:TypesFilms
 *ATRIBUTES:*
 [options="header"]
 |===
 |name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
-|code|null|String|null|null|true|false|false|false|true|true|true|true
-|name|null|String|null|null|false|true|false|true|true|true|true|true
+|name|null|String|null|null|true|true|false|true|true|true|true|true
 |===
-*RELATIONS:* 4
+*RELATIONS:* 1
 [options="header"]
 |===
 |From | Cardinality | To | Optionality | Navigability | Atribute 
-|Books|1..*|Chapters|true|false|name
-|Books|*..*|SitesTypes|true|false|name
-|Books|*..*|Sites|true|false|title
-|Books|*..1|BooksTypes|true|false|name
+|TypesFilms|1..*|Films|true|false|name
 |===
-== ENTITY:Sites
+== ENTITY:Films
 *ATRIBUTES:*
 [options="header"]
 |===
 |name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
-|title|null|String|null|null|true|false|false|true|true|true|true|true
-|link||String|null|null|false|true|false|false|false|true|false|false
-|abc||String|null|null|true|false|false|false|false|false|false|false
-|ipAddress1||String|null|null|true|false|false|false|false|false|false|false
-|ipAddress2||String|null|null|true|false|false|false|false|false|false|false
-|ipAddress3||String|null|null|true|false|false|false|false|false|false|false
+|name|null|String|null|null|true|true|false|true|true|true|true|true
 |===
 *RELATIONS:* 3
 [options="header"]
 |===
 |From | Cardinality | To | Optionality | Navigability | Atribute 
-|Sites|*..*|SitesTypes|true|false|name
-|Sites|*..*|Chapters|true|false|name
-|Sites|*..*|Books|true|false|code
+|Films|1..*|Videos|true|false|name
+|Films|*..1|TypesFilms|true|false|name
+|Films|*..*|Books|true|false|code
+|===
+== ENTITY:Videos
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|name|null|String|null|null|true|false|false|false|true|true|true|true
+|time|null|String|null|null|true|false|false|false|true|true|true|true
+|===
+*RELATIONS:* 2
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|Videos|1..*|VideoContents|true|false|name
+|Videos|*..1|Films|true|false|name
+|===
+== ENTITY:VideoContents
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|name|null|String|null|null|true|false|false|false|true|true|true|true
+|startTime|null|String|null|null|true|false|false|false|true|true|true|true
+|endTime|null|String|null|null|true|false|false|false|true|true|true|true
+|===
+*RELATIONS:* 2
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|VideoContents|*..1|Videos|true|false|name
+|VideoContents|*..*|Chapters|true|false|code
 |===

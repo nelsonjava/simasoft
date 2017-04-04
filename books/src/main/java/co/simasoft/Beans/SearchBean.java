@@ -100,13 +100,13 @@ public class SearchBean {
         return results;
     }
 
-    public List<SitesTypes> selectAllSitesTypes(EntityManager em) {
-        prepare(SitesTypes.class,em);
+    public List<Books> selectAllBooks(EntityManager em) {
+        prepare(Books.class,em);
 
         Query query = qb.all().createQuery();
 
-        List<SitesTypes> results = execute(query,
-                                              new Class[]{SitesTypes.class}, null,
+        List<Books> results = execute(query,
+                                              new Class[]{Books.class}, null,
                                               new SortField("orden", SortField.DOUBLE));
         return results;
     }
@@ -122,24 +122,46 @@ public class SearchBean {
         return results;
     }
 
-    public List<Books> selectAllBooks(EntityManager em) {
-        prepare(Books.class,em);
+    public List<TypesFilms> selectAllTypesFilms(EntityManager em) {
+        prepare(TypesFilms.class,em);
 
         Query query = qb.all().createQuery();
 
-        List<Books> results = execute(query,
-                                              new Class[]{Books.class}, null,
+        List<TypesFilms> results = execute(query,
+                                              new Class[]{TypesFilms.class}, null,
                                               new SortField("orden", SortField.DOUBLE));
         return results;
     }
 
-    public List<Sites> selectAllSites(EntityManager em) {
-        prepare(Sites.class,em);
+    public List<Films> selectAllFilms(EntityManager em) {
+        prepare(Films.class,em);
 
         Query query = qb.all().createQuery();
 
-        List<Sites> results = execute(query,
-                                              new Class[]{Sites.class}, null,
+        List<Films> results = execute(query,
+                                              new Class[]{Films.class}, null,
+                                              new SortField("orden", SortField.DOUBLE));
+        return results;
+    }
+
+    public List<Videos> selectAllVideos(EntityManager em) {
+        prepare(Videos.class,em);
+
+        Query query = qb.all().createQuery();
+
+        List<Videos> results = execute(query,
+                                              new Class[]{Videos.class}, null,
+                                              new SortField("orden", SortField.DOUBLE));
+        return results;
+    }
+
+    public List<VideoContents> selectAllVideoContents(EntityManager em) {
+        prepare(VideoContents.class,em);
+
+        Query query = qb.all().createQuery();
+
+        List<VideoContents> results = execute(query,
+                                              new Class[]{VideoContents.class}, null,
                                               new SortField("orden", SortField.DOUBLE));
         return results;
     }

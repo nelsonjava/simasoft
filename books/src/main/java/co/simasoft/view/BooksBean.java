@@ -27,8 +27,7 @@ import javax.persistence.criteria.Root;
 import co.simasoft.models.Books;
 import co.simasoft.models.BooksTypes;
 import co.simasoft.models.Chapters;
-import co.simasoft.models.Sites;
-import co.simasoft.models.SitesTypes;
+import co.simasoft.models.Films;
 import java.util.Iterator;
 
 /**
@@ -135,6 +134,13 @@ public class BooksBean implements Serializable {
 
 		try {
 			Books deletableEntity = findById(getId());
+			Iterator<Films> iterFilms = deletableEntity.getFilms().iterator();
+			for (; iterFilms.hasNext();) {
+				Films nextInFilms = iterFilms.next();
+				nextInFilms.getBooks().remove(deletableEntity);
+				iterFilms.remove();
+				this.entityManager.merge(nextInFilms);
+			}
 			Iterator<Chapters> iterChapters = deletableEntity.getChapters()
 					.iterator();
 			for (; iterChapters.hasNext();) {
@@ -142,21 +148,6 @@ public class BooksBean implements Serializable {
 				nextInChapters.setBooks(null);
 				iterChapters.remove();
 				this.entityManager.merge(nextInChapters);
-			}
-			Iterator<SitesTypes> iterSitesTypes = deletableEntity
-					.getSitesTypes().iterator();
-			for (; iterSitesTypes.hasNext();) {
-				SitesTypes nextInSitesTypes = iterSitesTypes.next();
-				nextInSitesTypes.getBooks().remove(deletableEntity);
-				iterSitesTypes.remove();
-				this.entityManager.merge(nextInSitesTypes);
-			}
-			Iterator<Sites> iterSites = deletableEntity.getSites().iterator();
-			for (; iterSites.hasNext();) {
-				Sites nextInSites = iterSites.next();
-				nextInSites.getBooks().remove(deletableEntity);
-				iterSites.remove();
-				this.entityManager.merge(nextInSites);
 			}
 			BooksTypes booksTypes = deletableEntity.getBooksTypes();
 			booksTypes.getBooks().remove(deletableEntity);

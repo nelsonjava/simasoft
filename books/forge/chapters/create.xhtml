@@ -55,16 +55,78 @@
 					<h:message for="chaptersBeanChaptersObservations" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
+				<h:outputLabel for="chaptersBeanChaptersCode" value="Code:"/>
+				<h:panelGroup>
+					<h:inputText id="chaptersBeanChaptersCode" value="#{chaptersBean.chapters.code}"/>
+					<h:message for="chaptersBeanChaptersCode" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
 				<h:outputLabel for="chaptersBeanChaptersName" value="Name:"/>
 				<h:panelGroup>
 					<h:inputText id="chaptersBeanChaptersName" value="#{chaptersBean.chapters.name}"/>
 					<h:message for="chaptersBeanChaptersName" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
-				<h:outputLabel for="chaptersBeanChaptersCode" value="Code:"/>
+				<h:outputLabel for="chaptersBeanChaptersVideoContents" value="Video Contents:"/>
 				<h:panelGroup>
-					<h:inputText id="chaptersBeanChaptersCode" value="#{chaptersBean.chapters.code}"/>
-					<h:message for="chaptersBeanChaptersCode" styleClass="error"/>
+					<ui:param name="_collection" value="#{chaptersBean.chapters.videoContents}"/>
+					<h:dataTable id="chaptersBeanChaptersVideoContents" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Alias"/>
+							</f:facet>
+							<h:link outcome="/admin/videoContents/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="_itemAlias" value="#{_item.alias}"/>
+							</h:link>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Orden"/>
+							</f:facet>
+							<h:link outcome="/admin/videoContents/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="_itemOrden" value="#{_item.orden}"/>
+							</h:link>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Observations"/>
+							</f:facet>
+							<h:link outcome="/admin/videoContents/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:inputTextarea id="_itemObservations" value="#{_item.observations}"/>
+							</h:link>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Name"/>
+							</f:facet>
+							<h:link outcome="/admin/videoContents/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="_itemName" value="#{_item.name}"/>
+							</h:link>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Start Time"/>
+							</f:facet>
+							<h:link outcome="/admin/videoContents/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="_itemStartTime" value="#{_item.startTime}"/>
+							</h:link>
+						</h:column>
+						<h:column footerClass="remove-column" headerClass="remove-column">
+							<h:commandLink action="#{_collection.remove(_item)}" styleClass="remove-button"/>
+						</h:column>
+					</h:dataTable>
+					<h:panelGrid columnClasses=",remove-column" columns="2" styleClass="data-table-footer">
+						<h:selectOneMenu converter="#{videoContentsBean.converter}" id="chaptersBeanChaptersVideoContentsSelect" value="#{requestScope['chaptersBeanChaptersVideoContentsSelect']}">
+							<f:selectItem/>
+							<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{videoContentsBean.all}" var="_item"/>
+						</h:selectOneMenu>
+						<h:commandLink action="#{_collection.add(requestScope['chaptersBeanChaptersVideoContentsSelect'])}" id="chaptersBeanChaptersVideoContentsAdd" onclick="if (document.getElementById(document.forms[0].id+':chaptersBeanChaptersVideoContentsSelect').selectedIndex &lt; 1) { alert('Must select a Video Contents'); return false; }" styleClass="add-button"/>
+					</h:panelGrid>
 				</h:panelGroup>
 				<h:outputText/>
 				<h:outputLabel for="chaptersBeanChaptersObjHijos" value="Obj Hijos:"/>
@@ -77,7 +139,7 @@
 							</f:facet>
 							<h:link outcome="/admin/chapters/view">
 								<f:param name="id" value="#{_item.id}"/>
-								<h:outputText id="itemAlias" value="#{_item.alias}"/>
+								<h:outputText id="_itemAlias" value="#{_item.alias}"/>
 							</h:link>
 							<f:facet name="footer">
 								<h:inputText id="chaptersBeanAddAlias" value="#{chaptersBean.add.alias}"/>
@@ -90,7 +152,7 @@
 							</f:facet>
 							<h:link outcome="/admin/chapters/view">
 								<f:param name="id" value="#{_item.id}"/>
-								<h:outputText id="itemOrden" value="#{_item.orden}"/>
+								<h:outputText id="_itemOrden" value="#{_item.orden}"/>
 							</h:link>
 							<f:facet name="footer">
 								<h:inputText id="chaptersBeanAddOrden" value="#{chaptersBean.add.orden}"/>
@@ -103,7 +165,7 @@
 							</f:facet>
 							<h:link outcome="/admin/chapters/view">
 								<f:param name="id" value="#{_item.id}"/>
-								<h:inputTextarea id="itemObservations" value="#{_item.observations}"/>
+								<h:inputTextarea id="_itemObservations" value="#{_item.observations}"/>
 							</h:link>
 							<f:facet name="footer">
 								<h:inputTextarea id="chaptersBeanAddObservations" value="#{chaptersBean.add.observations}"/>
@@ -112,28 +174,28 @@
 						</h:column>
 						<h:column>
 							<f:facet name="header">
-								<h:outputText value="Name"/>
-							</f:facet>
-							<h:link outcome="/admin/chapters/view">
-								<f:param name="id" value="#{_item.id}"/>
-								<h:outputText id="itemName" value="#{_item.name}"/>
-							</h:link>
-							<f:facet name="footer">
-								<h:inputText id="chaptersBeanAddName" value="#{chaptersBean.add.name}"/>
-								<h:message for="chaptersBeanAddName" styleClass="error"/>
-							</f:facet>
-						</h:column>
-						<h:column>
-							<f:facet name="header">
 								<h:outputText value="Code"/>
 							</f:facet>
 							<h:link outcome="/admin/chapters/view">
 								<f:param name="id" value="#{_item.id}"/>
-								<h:outputText id="itemCode" value="#{_item.code}"/>
+								<h:outputText id="_itemCode" value="#{_item.code}"/>
 							</h:link>
 							<f:facet name="footer">
 								<h:inputText id="chaptersBeanAddCode" value="#{chaptersBean.add.code}"/>
 								<h:message for="chaptersBeanAddCode" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Name"/>
+							</f:facet>
+							<h:link outcome="/admin/chapters/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="_itemName" value="#{_item.name}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="chaptersBeanAddName" value="#{chaptersBean.add.name}"/>
+								<h:message for="chaptersBeanAddName" styleClass="error"/>
 							</f:facet>
 						</h:column>
 						<h:column footerClass="remove-column" headerClass="remove-column">
@@ -145,32 +207,6 @@
 							</f:facet>
 						</h:column>
 					</h:dataTable>
-				</h:panelGroup>
-				<h:outputText/>
-				<h:outputLabel for="chaptersBeanChaptersSites" value="Sites:"/>
-				<h:panelGroup>
-					<ui:param name="_collection" value="#{chaptersBean.chapters.sites}"/>
-					<h:dataTable id="chaptersBeanChaptersSites" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
-						<h:column>
-							<f:facet name="header">
-								<h:outputText value="Link"/>
-							</f:facet>
-							<h:link outcome="/admin/sites/view">
-								<f:param name="id" value="#{_item.id}"/>
-								<h:outputText id="itemLink" value="#{_item.link}"/>
-							</h:link>
-						</h:column>
-						<h:column footerClass="remove-column" headerClass="remove-column">
-							<h:commandLink action="#{_collection.remove(_item)}" styleClass="remove-button"/>
-						</h:column>
-					</h:dataTable>
-					<h:panelGrid columnClasses=",remove-column" columns="2" styleClass="data-table-footer">
-						<h:selectOneMenu converter="#{sitesBean.converter}" id="chaptersBeanChaptersSitesSelect" value="#{requestScope['chaptersBeanChaptersSitesSelect']}">
-							<f:selectItem/>
-							<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{sitesBean.all}" var="_item"/>
-						</h:selectOneMenu>
-						<h:commandLink action="#{_collection.add(requestScope['chaptersBeanChaptersSitesSelect'])}" id="chaptersBeanChaptersSitesAdd" onclick="if (document.getElementById(document.forms[0].id+':chaptersBeanChaptersSitesSelect').selectedIndex &lt; 1) { alert('Must select a Sites'); return false; }" styleClass="add-button"/>
-					</h:panelGrid>
 				</h:panelGroup>
 				<h:outputText/>
 				<h:outputLabel for="chaptersBeanChaptersBooks" value="Books:"/>

@@ -1,0 +1,94 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:forgeview="http://jboss.org/forge/view"
+        template="/resources/scaffold/filmsTemplate.xhtml">
+
+        <f:metadata>
+                <f:viewParam name="id" value='#{videosBean.id}'/>
+                <f:event type="preRenderView" listener='#{videosBean.retrieve}'/>
+        </f:metadata>
+
+        <ui:param name="pageTitle" value="View Videos"/>
+
+        <ui:define name="header">
+                Videos
+        </ui:define>
+
+        <ui:define name="subheader">
+                View existing Videos
+        </ui:define>
+
+        <ui:define name="footer"/>
+
+        <ui:define name="main">
+                <h:panelGrid columnClasses="label,component,required" columns="3">
+
+
+                        <h:outputLabel for="videosBeanVideosName" value="Name:"/>
+                        <h:outputText id="videosBeanVideosName" value="#{videosBean.videos.name}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="videosBeanVideosTime" value="Time:"/>
+                        <h:outputText id="videosBeanVideosTime" value="#{videosBean.videos.time}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="videosBeanVideosObservations" value="Observations:"/>
+                        <h:outputText id="videosBeanVideosObservations" value="#{videosBean.videos.observations}" escape="false" />
+                        <h:outputText/>
+
+                        <h:outputLabel for="VideosBeanVideosVideoContents" value="VideoContents:"/>
+                        <h:dataTable id="videosBeanVideosvideoContents" styleClass="data-table" value="#{forgeview:asList(videosBean.videos.videoContents)}" var="_item">
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Name"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/videoContents/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemName" value="#{_item.name}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="StartTime"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/videoContents/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemStartTime" value="#{_item.startTime}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="EndTime"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/videoContents/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemEndTime" value="#{_item.endTime}"/>
+                                              </h:link>
+                                           </h:column>
+
+                        </h:dataTable>
+                        <h:outputText/>
+
+                        <h:outputLabel for="videosBeanVideosFilms" value="Films:"/>
+                        <h:link id="videosBeanVideosFilms" outcome="/admin/films/view" rendered="#{!empty videosBean.videos.films}" value="#{videosBean.videos.films.name}">
+                                 <f:param name="id" value="#{videosBean.videos.films.id}"/>
+                        </h:link>
+                        <h:outputText/>
+
+                </h:panelGrid>
+
+                <div class="buttons">
+                        <h:link value="View All" outcome="search" styleClass="btn btn-primary"/>
+                        <h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
+                        <h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
+                </div>
+        </ui:define>
+</ui:composition>

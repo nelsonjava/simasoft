@@ -132,6 +132,13 @@ public class BooksTypesBean implements Serializable {
 
 		try {
 			BooksTypes deletableEntity = findById(getId());
+			Iterator<Books> iterBooks = deletableEntity.getBooks().iterator();
+			for (; iterBooks.hasNext();) {
+				Books nextInBooks = iterBooks.next();
+				nextInBooks.setBooksTypes(null);
+				iterBooks.remove();
+				this.entityManager.merge(nextInBooks);
+			}
 			Iterator<BooksTypes> iterObjHijos = deletableEntity.getObjHijos()
 					.iterator();
 			for (; iterObjHijos.hasNext();) {
@@ -139,13 +146,6 @@ public class BooksTypesBean implements Serializable {
 				nextInObjHijos.setObjPadre(null);
 				iterObjHijos.remove();
 				this.entityManager.merge(nextInObjHijos);
-			}
-			Iterator<Books> iterBooks = deletableEntity.getBooks().iterator();
-			for (; iterBooks.hasNext();) {
-				Books nextInBooks = iterBooks.next();
-				nextInBooks.setBooksTypes(null);
-				iterBooks.remove();
-				this.entityManager.merge(nextInBooks);
 			}
 			BooksTypes objPadre = deletableEntity.getObjPadre();
 			objPadre.getObjHijos().remove(deletableEntity);

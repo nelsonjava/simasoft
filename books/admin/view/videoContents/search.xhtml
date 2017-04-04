@@ -1,0 +1,115 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        template="/resources/scaffold/filmsTemplate.xhtml">
+
+        <f:metadata>
+                <f:viewParam name="page" value='#{videoContentsBean.page}'/>
+                <f:event type="preRenderView" listener='#{videoContentsBean.paginate}'/>
+        </f:metadata>
+
+        <ui:param name="pageTitle" value="Search VideoContents entities"/>
+
+        <ui:define name="header">
+                VideoContents
+        </ui:define>
+
+        <ui:define name="subheader">
+                Search VideoContents entities
+        </ui:define>
+
+        <ui:define name="footer"/>
+
+        <ui:define name="main">
+                <h:form id="search">
+                        <f:validateBean disabled="true">
+                                <h:panelGroup styleClass="search">
+
+                                        <h:panelGrid columnClasses="label,component,required" columns="3">
+                                                <h:outputLabel for="videoContentsBeanExampleName" value="Name:"/>
+                                                <h:panelGroup>
+                                                        <h:inputText id="videoContentsBeanExampleName" value="#{videoContentsBean.example.name}"/>
+                                                        <h:message for="videoContentsBeanExampleName" styleClass="error"/>
+                                                </h:panelGroup>
+                                                <h:outputText/>
+
+                                                <h:outputLabel for="videoContentsBeanExampleStartTime" value="StartTime:"/>
+                                                <h:panelGroup>
+                                                        <h:inputText id="videoContentsBeanExampleStartTime" value="#{videoContentsBean.example.startTime}"/>
+                                                        <h:message for="videoContentsBeanExampleStartTime" styleClass="error"/>
+                                                </h:panelGroup>
+                                                <h:outputText/>
+
+                                                <h:outputLabel for="videoContentsBeanExampleEndTime" value="EndTime:"/>
+                                                <h:panelGroup>
+                                                        <h:inputText id="videoContentsBeanExampleEndTime" value="#{videoContentsBean.example.endTime}"/>
+                                                        <h:message for="videoContentsBeanExampleEndTime" styleClass="error"/>
+                                                </h:panelGroup>
+                                                <h:outputText/>
+
+                                        </h:panelGrid>
+                                        <h:panelGroup styleClass="buttons">
+                                                <h:commandLink value="Search" action='#{videoContentsBean.search}' styleClass="btn btn-primary"/>
+                                                <h:commandLink value="Create New" action='#{videoContentsBean.create}' styleClass="btn btn-primary"/>
+                                        </h:panelGroup>
+                                </h:panelGroup>
+                        </f:validateBean>
+
+                        <h:dataTable id="videoContentsBeanPageItems" styleClass="data-table" value="#{videoContentsBean.pageItems}" var="_item">
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Orden"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/videoContents/view">
+                                                <f:param name="id" value="#{_item.orden}"/>
+                                                <h:outputText id="itemOrden" value="#{_item.orden}"/>
+                                        </h:link>
+                                </h:column>
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Name"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/videoContents/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemName" value="#{_item.name}"/>
+                                        </h:link>
+                                </h:column>
+
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="StartTime"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/videoContents/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemStartTime" value="#{_item.startTime}"/>
+                                        </h:link>
+                                </h:column>
+
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="EndTime"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/videoContents/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemEndTime" value="#{_item.endTime}"/>
+                                        </h:link>
+                                </h:column>
+
+
+                        </h:dataTable>
+                        <ui:include src="/resources/scaffold/paginator.xhtml">
+                                <ui:param name="paginatorBean" value='#{videoContentsBean}'/>
+                        </ui:include>
+                </h:form>
+
+        </ui:define>
+
+</ui:composition>

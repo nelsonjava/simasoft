@@ -47,48 +47,15 @@ public class FindBean {
         return booksTypes;
     }
 
-//      ---------------------- SitesTypes ------------------------
+    public BooksTypes nameBooksTypes(String search,EntityManager em) {
 
-    public List<SitesTypes> AllSitesTypes() {
-        List<SitesTypes> results = em.createQuery("SELECT o FROM SitesTypes o").getResultList();
-        if (results.isEmpty()) {
-            return new ArrayList<SitesTypes>();
-        }
-        return results;
-    }
-
-    public SitesTypes idSitesTypes(Long id) {
-
-        SitesTypes sitesTypes = new SitesTypes();
-        List<SitesTypes> results = em.createQuery("SELECT o FROM SitesTypes o WHERE o.id LIKE :custId").setParameter("custId", id).getResultList();
+        BooksTypes booksTypes = new BooksTypes();
+        List<BooksTypes> results = em.createQuery("SELECT o FROM BooksTypes o WHERE o.name LIKE :field").setParameter("field", search).getResultList();
 
         if (!results.isEmpty()) {
-
-           sitesTypes = results.get(0);
+           booksTypes = results.get(0);
         }
-        return sitesTypes;
-    }
-
-//      ---------------------- Chapters ------------------------
-
-    public List<Chapters> AllChapters() {
-        List<Chapters> results = em.createQuery("SELECT o FROM Chapters o").getResultList();
-        if (results.isEmpty()) {
-            return new ArrayList<Chapters>();
-        }
-        return results;
-    }
-
-    public Chapters idChapters(Long id) {
-
-        Chapters chapters = new Chapters();
-        List<Chapters> results = em.createQuery("SELECT o FROM Chapters o WHERE o.id LIKE :custId").setParameter("custId", id).getResultList();
-
-        if (!results.isEmpty()) {
-
-           chapters = results.get(0);
-        }
-        return chapters;
+        return booksTypes;
     }
 
 //      ---------------------- Books ------------------------
@@ -113,26 +80,235 @@ public class FindBean {
         return books;
     }
 
-//      ---------------------- Sites ------------------------
+    public Books codeBooks(String search,EntityManager em) {
 
-    public List<Sites> AllSites() {
-        List<Sites> results = em.createQuery("SELECT o FROM Sites o").getResultList();
+        Books books = new Books();
+        List<Books> results = em.createQuery("SELECT o FROM Books o WHERE o.code LIKE :field").setParameter("field", search).getResultList();
+
+        if (!results.isEmpty()) {
+           books = results.get(0);
+        }
+        return books;
+    }
+
+    public Books nameBooks(String search,EntityManager em) {
+
+        Books books = new Books();
+        List<Books> results = em.createQuery("SELECT o FROM Books o WHERE o.name LIKE :field").setParameter("field", search).getResultList();
+
+        if (!results.isEmpty()) {
+           books = results.get(0);
+        }
+        return books;
+    }
+
+//      ---------------------- Chapters ------------------------
+
+    public List<Chapters> AllChapters() {
+        List<Chapters> results = em.createQuery("SELECT o FROM Chapters o").getResultList();
         if (results.isEmpty()) {
-            return new ArrayList<Sites>();
+            return new ArrayList<Chapters>();
         }
         return results;
     }
 
-    public Sites idSites(Long id) {
+    public Chapters idChapters(Long id) {
 
-        Sites sites = new Sites();
-        List<Sites> results = em.createQuery("SELECT o FROM Sites o WHERE o.id LIKE :custId").setParameter("custId", id).getResultList();
+        Chapters chapters = new Chapters();
+        List<Chapters> results = em.createQuery("SELECT o FROM Chapters o WHERE o.id LIKE :custId").setParameter("custId", id).getResultList();
 
         if (!results.isEmpty()) {
 
-           sites = results.get(0);
+           chapters = results.get(0);
         }
-        return sites;
+        return chapters;
+    }
+
+    public Chapters codeChapters(String search,EntityManager em) {
+
+        Chapters chapters = new Chapters();
+        List<Chapters> results = em.createQuery("SELECT o FROM Chapters o WHERE o.code LIKE :field").setParameter("field", search).getResultList();
+
+        if (!results.isEmpty()) {
+           chapters = results.get(0);
+        }
+        return chapters;
+    }
+
+    public Chapters nameChapters(String search,EntityManager em) {
+
+        Chapters chapters = new Chapters();
+        List<Chapters> results = em.createQuery("SELECT o FROM Chapters o WHERE o.name LIKE :field").setParameter("field", search).getResultList();
+
+        if (!results.isEmpty()) {
+           chapters = results.get(0);
+        }
+        return chapters;
+    }
+
+//      ---------------------- TypesFilms ------------------------
+
+    public List<TypesFilms> AllTypesFilms() {
+        List<TypesFilms> results = em.createQuery("SELECT o FROM TypesFilms o").getResultList();
+        if (results.isEmpty()) {
+            return new ArrayList<TypesFilms>();
+        }
+        return results;
+    }
+
+    public TypesFilms idTypesFilms(Long id) {
+
+        TypesFilms typesFilms = new TypesFilms();
+        List<TypesFilms> results = em.createQuery("SELECT o FROM TypesFilms o WHERE o.id LIKE :custId").setParameter("custId", id).getResultList();
+
+        if (!results.isEmpty()) {
+
+           typesFilms = results.get(0);
+        }
+        return typesFilms;
+    }
+
+    public TypesFilms nameTypesFilms(String search,EntityManager em) {
+
+        TypesFilms typesFilms = new TypesFilms();
+        List<TypesFilms> results = em.createQuery("SELECT o FROM TypesFilms o WHERE o.name LIKE :field").setParameter("field", search).getResultList();
+
+        if (!results.isEmpty()) {
+           typesFilms = results.get(0);
+        }
+        return typesFilms;
+    }
+
+//      ---------------------- Films ------------------------
+
+    public List<Films> AllFilms() {
+        List<Films> results = em.createQuery("SELECT o FROM Films o").getResultList();
+        if (results.isEmpty()) {
+            return new ArrayList<Films>();
+        }
+        return results;
+    }
+
+    public Films idFilms(Long id) {
+
+        Films films = new Films();
+        List<Films> results = em.createQuery("SELECT o FROM Films o WHERE o.id LIKE :custId").setParameter("custId", id).getResultList();
+
+        if (!results.isEmpty()) {
+
+           films = results.get(0);
+        }
+        return films;
+    }
+
+    public Films nameFilms(String search,EntityManager em) {
+
+        Films films = new Films();
+        List<Films> results = em.createQuery("SELECT o FROM Films o WHERE o.name LIKE :field").setParameter("field", search).getResultList();
+
+        if (!results.isEmpty()) {
+           films = results.get(0);
+        }
+        return films;
+    }
+
+//      ---------------------- Videos ------------------------
+
+    public List<Videos> AllVideos() {
+        List<Videos> results = em.createQuery("SELECT o FROM Videos o").getResultList();
+        if (results.isEmpty()) {
+            return new ArrayList<Videos>();
+        }
+        return results;
+    }
+
+    public Videos idVideos(Long id) {
+
+        Videos videos = new Videos();
+        List<Videos> results = em.createQuery("SELECT o FROM Videos o WHERE o.id LIKE :custId").setParameter("custId", id).getResultList();
+
+        if (!results.isEmpty()) {
+
+           videos = results.get(0);
+        }
+        return videos;
+    }
+
+    public Videos nameVideos(String search,EntityManager em) {
+
+        Videos videos = new Videos();
+        List<Videos> results = em.createQuery("SELECT o FROM Videos o WHERE o.name LIKE :field").setParameter("field", search).getResultList();
+
+        if (!results.isEmpty()) {
+           videos = results.get(0);
+        }
+        return videos;
+    }
+
+    public Videos timeVideos(String search,EntityManager em) {
+
+        Videos videos = new Videos();
+        List<Videos> results = em.createQuery("SELECT o FROM Videos o WHERE o.time LIKE :field").setParameter("field", search).getResultList();
+
+        if (!results.isEmpty()) {
+           videos = results.get(0);
+        }
+        return videos;
+    }
+
+//      ---------------------- VideoContents ------------------------
+
+    public List<VideoContents> AllVideoContents() {
+        List<VideoContents> results = em.createQuery("SELECT o FROM VideoContents o").getResultList();
+        if (results.isEmpty()) {
+            return new ArrayList<VideoContents>();
+        }
+        return results;
+    }
+
+    public VideoContents idVideoContents(Long id) {
+
+        VideoContents videoContents = new VideoContents();
+        List<VideoContents> results = em.createQuery("SELECT o FROM VideoContents o WHERE o.id LIKE :custId").setParameter("custId", id).getResultList();
+
+        if (!results.isEmpty()) {
+
+           videoContents = results.get(0);
+        }
+        return videoContents;
+    }
+
+    public VideoContents nameVideoContents(String search,EntityManager em) {
+
+        VideoContents videoContents = new VideoContents();
+        List<VideoContents> results = em.createQuery("SELECT o FROM VideoContents o WHERE o.name LIKE :field").setParameter("field", search).getResultList();
+
+        if (!results.isEmpty()) {
+           videoContents = results.get(0);
+        }
+        return videoContents;
+    }
+
+    public VideoContents startTimeVideoContents(String search,EntityManager em) {
+
+        VideoContents videoContents = new VideoContents();
+        List<VideoContents> results = em.createQuery("SELECT o FROM VideoContents o WHERE o.startTime LIKE :field").setParameter("field", search).getResultList();
+
+        if (!results.isEmpty()) {
+           videoContents = results.get(0);
+        }
+        return videoContents;
+    }
+
+    public VideoContents endTimeVideoContents(String search,EntityManager em) {
+
+        VideoContents videoContents = new VideoContents();
+        List<VideoContents> results = em.createQuery("SELECT o FROM VideoContents o WHERE o.endTime LIKE :field").setParameter("field", search).getResultList();
+
+        if (!results.isEmpty()) {
+           videoContents = results.get(0);
+        }
+        return videoContents;
     }
 
 } // Fin de clase

@@ -1,0 +1,122 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:forgeview="http://jboss.org/forge/view"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="page" value='#{filmsBean.page}'/>
+		<f:event type="preRenderView" listener='#{filmsBean.paginate}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="Search Films entities"/>
+
+	<ui:define name="header">
+		Films
+	</ui:define>
+
+	<ui:define name="subheader">
+		Search Films entities
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:form id="search">
+			<f:validateBean disabled="true">
+				<h:panelGroup styleClass="search">
+
+					<h:panelGrid columnClasses="label,component,required" columns="3">
+						<h:outputLabel for="filmsBeanExampleAlias" value="Alias:"/>
+						<h:panelGroup>
+							<h:inputText id="filmsBeanExampleAlias" value="#{filmsBean.example.alias}"/>
+							<h:message for="filmsBeanExampleAlias" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="filmsBeanExampleObservations" value="Observations:"/>
+						<h:panelGroup>
+							<h:inputTextarea id="filmsBeanExampleObservations" value="#{filmsBean.example.observations}"/>
+							<h:message for="filmsBeanExampleObservations" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="filmsBeanExampleName" value="Name:"/>
+						<h:panelGroup>
+							<h:inputText id="filmsBeanExampleName" value="#{filmsBean.example.name}"/>
+							<h:message for="filmsBeanExampleName" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="filmsBeanExampleTypesFilms" value="Types Films:"/>
+						<h:panelGroup>
+							<h:selectOneMenu converter="#{typesFilmsBean.converter}" id="filmsBeanExampleTypesFilms" value="#{filmsBean.example.typesFilms}">
+								<f:selectItem/>
+								<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{typesFilmsBean.all}" var="_item"/>
+							</h:selectOneMenu>
+							<h:message for="filmsBeanExampleTypesFilms" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+					</h:panelGrid>
+					<h:panelGroup styleClass="buttons">
+						<h:commandLink value="Search" action='#{filmsBean.search}' styleClass="btn btn-primary"/>
+						<h:commandLink value="Create New" action='#{filmsBean.create}' styleClass="btn btn-primary"/>
+					</h:panelGroup>
+				</h:panelGroup>
+			</f:validateBean>
+			
+			<h:dataTable id="filmsBeanPageItems" styleClass="data-table" value="#{filmsBean.pageItems}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Alias"/>
+					</f:facet>
+					<h:link outcome="/admin/films/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemAlias" value="#{_item.alias}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Orden"/>
+					</f:facet>
+					<h:link outcome="/admin/films/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemOrden" value="#{_item.orden}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Observations"/>
+					</f:facet>
+					<h:link outcome="/admin/films/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:inputTextarea id="_itemObservations" value="#{_item.observations}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Name"/>
+					</f:facet>
+					<h:link outcome="/admin/films/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemName" value="#{_item.name}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Types Films"/>
+					</f:facet>
+					<h:link outcome="/admin/films/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="forgeview:display(_itemTypesFilms)" value="#{forgeview:display(_item.typesFilms)}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<ui:include src="/resources/scaffold/paginator.xhtml">
+				<ui:param name="paginatorBean" value='#{filmsBean}'/>
+			</ui:include>
+		</h:form>
+			
+	</ui:define>
+
+</ui:composition>

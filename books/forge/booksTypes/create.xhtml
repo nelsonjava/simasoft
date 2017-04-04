@@ -61,34 +61,6 @@
 					<h:message for="booksTypesBeanBooksTypesName" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText value="*"/>
-				<h:outputLabel for="booksTypesBeanBooksTypesObjHijos" value="Obj Hijos:"/>
-				<h:panelGroup>
-					<ui:param name="_collection" value="#{booksTypesBean.booksTypes.objHijos}"/>
-					<h:dataTable id="booksTypesBeanBooksTypesObjHijos" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
-						<h:column>
-							<f:facet name="header">
-								<h:outputText value="Name"/>
-							</f:facet>
-							<h:link outcome="/admin/booksTypes/view">
-								<f:param name="id" value="#{_item.id}"/>
-								<h:outputText id="itemName" value="#{_item.name}"/>
-							</h:link>
-							<f:facet name="footer">
-								<h:inputText id="booksTypesBeanAddName" value="#{booksTypesBean.add.name}"/>
-								<h:message for="booksTypesBeanAddName" styleClass="error"/>
-							</f:facet>
-						</h:column>
-						<h:column footerClass="remove-column" headerClass="remove-column">
-							<h:commandLink action="#{_collection.remove(_item)}" styleClass="remove-button"/>
-							<f:facet name="footer">
-								<h:commandLink action="#{_collection.add(booksTypesBean.added)}" id="booksTypesBeanBooksTypesObjHijosAdd" styleClass="add-button">
-									<f:setPropertyActionListener target="#{booksTypesBean.add.objPadre}" value="#{booksTypesBean.booksTypes}"/>
-								</h:commandLink>
-							</f:facet>
-						</h:column>
-					</h:dataTable>
-				</h:panelGroup>
-				<h:outputText/>
 				<h:outputLabel for="booksTypesBeanBooksTypesBooks" value="Books:"/>
 				<h:panelGroup>
 					<ui:param name="_collection" value="#{booksTypesBean.booksTypes.books}"/>
@@ -99,7 +71,7 @@
 							</f:facet>
 							<h:link outcome="/admin/books/view">
 								<f:param name="id" value="#{_item.id}"/>
-								<h:outputText id="itemName" value="#{_item.name}"/>
+								<h:outputText id="_itemName" value="#{_item.name}"/>
 							</h:link>
 							<f:facet name="footer">
 								<h:inputText id="booksBeanAddName" value="#{booksBean.add.name}"/>
@@ -111,6 +83,34 @@
 							<f:facet name="footer">
 								<h:commandLink action="#{_collection.add(booksBean.added)}" id="booksTypesBeanBooksTypesBooksAdd" styleClass="add-button">
 									<f:setPropertyActionListener target="#{booksBean.add.booksTypes}" value="#{booksTypesBean.booksTypes}"/>
+								</h:commandLink>
+							</f:facet>
+						</h:column>
+					</h:dataTable>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="booksTypesBeanBooksTypesObjHijos" value="Obj Hijos:"/>
+				<h:panelGroup>
+					<ui:param name="_collection" value="#{booksTypesBean.booksTypes.objHijos}"/>
+					<h:dataTable id="booksTypesBeanBooksTypesObjHijos" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Name"/>
+							</f:facet>
+							<h:link outcome="/admin/booksTypes/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="_itemName" value="#{_item.name}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="booksTypesBeanAddName" value="#{booksTypesBean.add.name}"/>
+								<h:message for="booksTypesBeanAddName" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column footerClass="remove-column" headerClass="remove-column">
+							<h:commandLink action="#{_collection.remove(_item)}" styleClass="remove-button"/>
+							<f:facet name="footer">
+								<h:commandLink action="#{_collection.add(booksTypesBean.added)}" id="booksTypesBeanBooksTypesObjHijosAdd" styleClass="add-button">
+									<f:setPropertyActionListener target="#{booksTypesBean.add.objPadre}" value="#{booksTypesBean.booksTypes}"/>
 								</h:commandLink>
 							</f:facet>
 						</h:column>

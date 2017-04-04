@@ -1,0 +1,82 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:forgeview="http://jboss.org/forge/view"
+        template="/resources/scaffold/filmsTemplate.xhtml">
+
+        <f:metadata>
+                <f:viewParam name="id" value='#{filmsBean.id}'/>
+                <f:event type="preRenderView" listener='#{filmsBean.retrieve}'/>
+        </f:metadata>
+
+        <ui:param name="pageTitle" value="View Films"/>
+
+        <ui:define name="header">
+                Films
+        </ui:define>
+
+        <ui:define name="subheader">
+                View existing Films
+        </ui:define>
+
+        <ui:define name="footer"/>
+
+        <ui:define name="main">
+                <h:panelGrid columnClasses="label,component,required" columns="3">
+
+
+                        <h:outputLabel for="filmsBeanFilmsName" value="Name:"/>
+                        <h:outputText id="filmsBeanFilmsName" value="#{filmsBean.films.name}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="filmsBeanFilmsObservations" value="Observations:"/>
+                        <h:outputText id="filmsBeanFilmsObservations" value="#{filmsBean.films.observations}" escape="false" />
+                        <h:outputText/>
+
+                        <h:outputLabel for="FilmsBeanFilmsVideos" value="Videos:"/>
+                        <h:dataTable id="filmsBeanFilmsvideos" styleClass="data-table" value="#{forgeview:asList(filmsBean.films.videos)}" var="_item">
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Name"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/videos/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemName" value="#{_item.name}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Time"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/videos/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemTime" value="#{_item.time}"/>
+                                              </h:link>
+                                           </h:column>
+
+                        </h:dataTable>
+                        <h:outputText/>
+
+                        <h:outputLabel for="filmsBeanFilmsTypesFilms" value="TypesFilms:"/>
+                        <h:link id="filmsBeanFilmsTypesFilms" outcome="/admin/typesFilms/view" rendered="#{!empty filmsBean.films.typesFilms}" value="#{filmsBean.films.typesFilms.name}">
+                                 <f:param name="id" value="#{filmsBean.films.typesFilms.id}"/>
+                        </h:link>
+                        <h:outputText/>
+
+                        Muchos a Muchos Unidireccional No.6
+
+                </h:panelGrid>
+
+                <div class="buttons">
+                        <h:link value="View All" outcome="search" styleClass="btn btn-primary"/>
+                        <h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
+                        <h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
+                </div>
+        </ui:define>
+</ui:composition>

@@ -38,19 +38,6 @@
 			<h:outputLabel for="booksTypesBeanBooksTypesName" value="Name:"/>
 			<h:outputText id="booksTypesBeanBooksTypesName" value="#{booksTypesBean.booksTypes.name}"/>
 			<h:outputText/>
-			<h:outputLabel for="booksTypesBeanBooksTypesObjHijos" value="Obj Hijos:"/>
-			<h:dataTable id="booksTypesBeanBooksTypesObjHijos" styleClass="data-table" value="#{forgeview:asList(booksTypesBean.booksTypes.objHijos)}" var="_item">
-				<h:column>
-					<f:facet name="header">
-						<h:outputText value="Name"/>
-					</f:facet>
-					<h:link outcome="/admin/booksTypes/view">
-						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemName" value="#{_item.name}"/>
-					</h:link>
-				</h:column>
-			</h:dataTable>
-			<h:outputText/>
 			<h:outputLabel for="booksTypesBeanBooksTypesBooks" value="Books:"/>
 			<h:dataTable id="booksTypesBeanBooksTypesBooks" styleClass="data-table" value="#{forgeview:asList(booksTypesBean.booksTypes.books)}" var="_item">
 				<h:column>
@@ -59,7 +46,20 @@
 					</f:facet>
 					<h:link outcome="/admin/books/view">
 						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="itemName" value="#{_item.name}"/>
+						<h:outputText id="_itemName" value="#{_item.name}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<h:outputText/>
+			<h:outputLabel for="booksTypesBeanBooksTypesObjHijos" value="Obj Hijos:"/>
+			<h:dataTable id="booksTypesBeanBooksTypesObjHijos" styleClass="data-table" value="#{forgeview:asList(booksTypesBean.booksTypes.objHijos)}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Name"/>
+					</f:facet>
+					<h:link outcome="/admin/booksTypes/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemName" value="#{_item.name}"/>
 					</h:link>
 				</h:column>
 			</h:dataTable>

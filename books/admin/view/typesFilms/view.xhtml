@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:forgeview="http://jboss.org/forge/view"
+        template="/resources/scaffold/filmsTemplate.xhtml">
+
+        <f:metadata>
+                <f:viewParam name="id" value='#{typesFilmsBean.id}'/>
+                <f:event type="preRenderView" listener='#{typesFilmsBean.retrieve}'/>
+        </f:metadata>
+
+        <ui:param name="pageTitle" value="View TypesFilms"/>
+
+        <ui:define name="header">
+                TypesFilms
+        </ui:define>
+
+        <ui:define name="subheader">
+                View existing TypesFilms
+        </ui:define>
+
+        <ui:define name="footer"/>
+
+        <ui:define name="main">
+                <h:panelGrid columnClasses="label,component,required" columns="3">
+
+
+                        <h:outputLabel for="typesFilmsBeanTypesFilmsName" value="Name:"/>
+                        <h:outputText id="typesFilmsBeanTypesFilmsName" value="#{typesFilmsBean.typesFilms.name}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="typesFilmsBeanTypesFilmsObservations" value="Observations:"/>
+                        <h:outputText id="typesFilmsBeanTypesFilmsObservations" value="#{typesFilmsBean.typesFilms.observations}" escape="false" />
+                        <h:outputText/>
+
+                        <h:outputLabel for="TypesFilmsBeanTypesFilmsFilms" value="Films:"/>
+                        <h:dataTable id="typesFilmsBeanTypesFilmsfilms" styleClass="data-table" value="#{forgeview:asList(typesFilmsBean.typesFilms.films)}" var="_item">
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Name"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/films/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemName" value="#{_item.name}"/>
+                                              </h:link>
+                                           </h:column>
+
+                        </h:dataTable>
+                        <h:outputText/>
+
+                </h:panelGrid>
+
+                <div class="buttons">
+                        <h:link value="View All" outcome="search" styleClass="btn btn-primary"/>
+                        <h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
+                        <h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
+                </div>
+        </ui:define>
+</ui:composition>

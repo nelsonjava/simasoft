@@ -1,0 +1,30 @@
+{
+  "properties": [
+    {
+      "model": "booksFilmsModel",
+      "groupIds": "books"
+    }
+  ],
+  "Relationships": [
+    {
+      "From": "Books",
+      "To": "Films",
+      "name": "",
+      "orden": "1",
+      "isOptionality": true,
+      "isEmbedded": false,
+      "isSimplified": false,
+      "Cardinalities": "Muchos a Muchos Bidirecccional No.7"
+    },
+    {
+      "From": "Chapters",
+      "To": "VideoContents",
+      "name": "",
+      "orden": "2",
+      "isOptionality": true,
+      "isEmbedded": false,
+      "isSimplified": false,
+      "Cardinalities": "Muchos a Muchos Bidirecccional No.7"
+    }
+  ]
+}

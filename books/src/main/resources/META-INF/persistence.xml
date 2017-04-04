@@ -10,10 +10,12 @@
     <provider>org.hibernate.ejb.HibernatePersistence</provider>
 
     <class>co.simasoft.models.BooksTypes</class>
-    <class>co.simasoft.models.SitesTypes</class>
-    <class>co.simasoft.models.Chapters</class>
     <class>co.simasoft.models.Books</class>
-    <class>co.simasoft.models.Sites</class>
+    <class>co.simasoft.models.Chapters</class>
+    <class>co.simasoft.models.TypesFilms</class>
+    <class>co.simasoft.models.Films</class>
+    <class>co.simasoft.models.Videos</class>
+    <class>co.simasoft.models.VideoContents</class>
 
     <exclude-unlisted-classes>true</exclude-unlisted-classes>
     <jta-data-source>java:jboss/datasources/booksDS</jta-data-source>

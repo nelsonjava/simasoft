@@ -1,0 +1,102 @@
+{
+  "Attributes": [
+    {
+      "entity": "Films",
+      "orden": "1.0",
+      "name": "name",
+      "isNullable": true,
+      "isUnique": true,
+      "AttributesTypes": "String",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
+    },
+    {
+      "entity": "TypesFilms",
+      "orden": "1.0",
+      "name": "name",
+      "isNullable": true,
+      "isUnique": true,
+      "AttributesTypes": "String",
+      "isSimplified": false,
+      "isCreate": true,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
+    },
+    {
+      "entity": "Videos",
+      "orden": "1.0",
+      "name": "name",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "String",
+      "isSimplified": false,
+      "isCreate": false,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
+    },
+    {
+      "entity": "Videos",
+      "orden": "2.0",
+      "name": "time",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "String",
+      "isSimplified": false,
+      "isCreate": false,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
+    },
+    {
+      "entity": "VideoContents",
+      "orden": "1.0",
+      "name": "name",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "String",
+      "isSimplified": false,
+      "isCreate": false,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
+    },
+    {
+      "entity": "VideoContents",
+      "orden": "2.0",
+      "name": "startTime",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "String",
+      "isSimplified": false,
+      "isCreate": false,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
+    },
+    {
+      "entity": "VideoContents",
+      "orden": "3.0",
+      "name": "endTime",
+      "isNullable": true,
+      "isUnique": false,
+      "AttributesTypes": "String",
+      "isSimplified": false,
+      "isCreate": false,
+      "isSearch": true,
+      "isView": true,
+      "isViewRelation": true,
+      "isViewColumn": true
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+developments:books
+developmentsGroups:films
+
+==== RELACIONES:3
+936:Videos 1..* VideoContents Bidirectional 
+938:Films 1..* Videos Bidirectional 
+940:TypesFilms 1..* Films Bidirectional 
+developmentsGroups:booksFilms
+
+==== RELACIONES:2
+945:Chapters *..* VideoContents Bidirectional 
+943:Books *..* Films Bidirectional 
+developmentsGroups:books
+
+==== RELACIONES:4
+98:BooksTypes 1..* Books Bidirectional 
+100:Books 1..* Chapters Bidirectional 
+102:BooksTypes 1..* BooksTypes Bidirectional 
+104:Chapters 1..* Chapters Bidirectional 
+
+==== ENTIDADES ====:7
+BooksTypes
+---name
+   ***Relationshipss:
+      BooksTypes 1..* Books Bidirectional. Uno a Muchos Bidirecccional No.5
+      BooksTypes 1..* BooksTypes Bidirectional. Uno a Muchos Bidirecccional No.5
+      BooksTypes *..1 BooksTypes Unidirectional?. Muchos a Uno Unidireccional No.3
+VideoContents
+---name
+---startTime
+---endTime
+   ***Relationshipss:
+      VideoContents *..1 Videos Unidirectional?. Muchos a Uno Unidireccional No.3
+      VideoContents *..* Chapters Unidirectional?. Muchos a Muchos Unidireccional No.6
+Films
+---name
+   ***Relationshipss:
+      Films 1..* Videos Bidirectional. Uno a Muchos Bidirecccional No.5
+      Films *..1 TypesFilms Unidirectional?. Muchos a Uno Unidireccional No.3
+      Films *..* Books Unidirectional?. Muchos a Muchos Unidireccional No.6
+TypesFilms
+---name
+   ***Relationshipss:
+      TypesFilms 1..* Films Bidirectional. Uno a Muchos Bidirecccional No.5
+Chapters
+---code
+---name
+   ***Relationshipss:
+      Chapters *..* VideoContents Bidirectional. Muchos a Muchos Bidirecccional No.7
+      Chapters 1..* Chapters Bidirectional. Uno a Muchos Bidirecccional No.5
+      Chapters *..1 Books Unidirectional?. Muchos a Uno Unidireccional No.3
+      Chapters *..1 Chapters Unidirectional?. Muchos a Uno Unidireccional No.3
+Books
+---code
+---name
+   ***Relationshipss:
+      Books *..* Films Bidirectional. Muchos a Muchos Bidirecccional No.7
+      Books 1..* Chapters Bidirectional. Uno a Muchos Bidirecccional No.5
+      Books *..1 BooksTypes Unidirectional?. Muchos a Uno Unidireccional No.3
+Videos
+---name
+---time
+   ***Relationshipss:
+      Videos 1..* VideoContents Bidirectional. Uno a Muchos Bidirecccional No.5
+      Videos *..1 Films Unidirectional?. Muchos a Uno Unidireccional No.3
+TOTAL ENTITIES=7
+
+==== Imports ====
+import org.hibernate.search.annotations.Indexed;
+import org.hibernate.search.annotations.Store;
+import org.hibernate.search.annotations.Analyze;
+import org.hibernate.search.annotations.DocumentId;
+import org.hibernate.search.annotations.Field;
+import org.hibernate.search.annotations.Index;
+import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.ManyToMany;
+import co.simasoft.models.*;
