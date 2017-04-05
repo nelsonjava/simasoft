@@ -1395,24 +1395,24 @@ LABL 0 Arial,8,N</a:FontList>
 <c:Attributes>
 <o:Attribute Id="o12">
 <a:ObjectID>FEA1067E-8A5E-4B0E-9291-D40E375FFE55</a:ObjectID>
-<a:Name>code</a:Name>
-<a:Code>code</a:Code>
+<a:Name>*code</a:Name>
+<a:Code>_code</a:Code>
 <a:CreationDate>1490900441</a:CreationDate>
 <a:Creator>admin</a:Creator>
-<a:ModificationDate>1490900441</a:ModificationDate>
+<a:ModificationDate>1491427269</a:ModificationDate>
 <a:Modifier>admin</a:Modifier>
-<a:DataType>String</a:DataType>
+<a:DataType>*String</a:DataType>
 <a:Attribute.Visibility>-</a:Attribute.Visibility>
 </o:Attribute>
 <o:Attribute Id="o13">
 <a:ObjectID>6CFEC0FE-F4DE-4E82-B4D5-B0C5BD9AF93F</a:ObjectID>
-<a:Name>name</a:Name>
-<a:Code>name</a:Code>
+<a:Name>*name</a:Name>
+<a:Code>_name</a:Code>
 <a:CreationDate>1490900441</a:CreationDate>
 <a:Creator>admin</a:Creator>
-<a:ModificationDate>1490900441</a:ModificationDate>
+<a:ModificationDate>1491427269</a:ModificationDate>
 <a:Modifier>admin</a:Modifier>
-<a:DataType>String</a:DataType>
+<a:DataType>*String</a:DataType>
 <a:Attribute.Visibility>-</a:Attribute.Visibility>
 </o:Attribute>
 <o:Attribute Id="o14">
