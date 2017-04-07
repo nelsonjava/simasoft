@@ -92,6 +92,7 @@ public void entities(String fileJson) throws IOException {
     line("  \"Entities\": [");
     i = 1;
     for (Entidad entidad : entidades ) {
+
         line("    {");
         line("      \"orden\": \""+entidad.getOrden()+"\",");
         line("      \"name\": \""+entidad.getName()+"\"");
@@ -109,7 +110,7 @@ public void entities(String fileJson) throws IOException {
 
     line("}");
 
-    saveFile("\\docs",fileJson+"Entities.json");
+    saveFile("\\docs.json.entities",fileJson+"Entities.json");
 
     attributes(fileJson);
 
@@ -160,7 +161,7 @@ public void attributes(String fileJson) throws IOException {
     line("  ]");
     line("}");
 
-    saveFile("\\docs",fileJson+"Attributes.json");
+    saveFile("\\docs.json.atributes",fileJson+"Attributes.json");
 
     } // try
     catch(Exception ioe) {
@@ -208,7 +209,7 @@ public void relations(String fileJson) throws IOException {
 
     line("}");
 
-    saveFile("\\docs",fileJson+"relations.json");
+    saveFile("\\docs.json.relations",fileJson+"relations.json");
 
     } // try
     catch(Exception ioe) {
