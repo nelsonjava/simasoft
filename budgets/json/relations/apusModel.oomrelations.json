@@ -1,0 +1,50 @@
+{
+  "properties": [
+    {
+      "model": "apusModel",
+      "groupIds": "apus"
+    }
+  ],
+  "Relationships": [
+    {
+      "From": "TypesMeasurementUnits",
+      "To": "MeasurementUnits",
+      "name": "",
+      "orden": "1",
+      "isOptionality": true,
+      "isEmbedded": false,
+      "isSimplified": false,
+      "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+    },
+    {
+      "From": "MeasurementUnits",
+      "To": "Apus",
+      "name": "",
+      "orden": "2",
+      "isOptionality": true,
+      "isEmbedded": false,
+      "isSimplified": false,
+      "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+    },
+    {
+      "From": "ConstructionActivities",
+      "To": "Apus",
+      "name": "",
+      "orden": "3",
+      "isOptionality": true,
+      "isEmbedded": false,
+      "isSimplified": false,
+      "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+    },
+    {
+      "From": "ConstructionChapters",
+      "To": "ConstructionActivities",
+      "name": "",
+      "orden": "4",
+      "isOptionality": true,
+      "isEmbedded": false,
+      "isSimplified": false,
+      "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+    }
+  ]
+}

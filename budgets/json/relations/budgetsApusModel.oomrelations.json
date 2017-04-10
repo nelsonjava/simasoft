@@ -1,0 +1,30 @@
+{
+  "properties": [
+    {
+      "model": "budgetsApusModel",
+      "groupIds": "budgets"
+    }
+  ],
+  "Relationships": [
+    {
+      "From": "ConstructionActivities",
+      "To": "WorkActivities",
+      "name": "",
+      "orden": "1",
+      "isOptionality": true,
+      "isEmbedded": false,
+      "isSimplified": false,
+      "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+    },
+    {
+      "From": "TypesWorksConstruction",
+      "To": "ConstructionActivities",
+      "name": "",
+      "orden": "2",
+      "isOptionality": true,
+      "isEmbedded": false,
+      "isSimplified": false,
+      "Cardinalities": "Muchos a Muchos Bidirecccional No.7"
+    }
+  ]
+}

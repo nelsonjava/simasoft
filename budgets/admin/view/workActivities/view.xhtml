@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:forgeview="http://jboss.org/forge/view"
+        template="/resources/scaffold/budgetsTemplate.xhtml">
+
+        <f:metadata>
+                <f:viewParam name="id" value='#{workActivitiesBean.id}'/>
+                <f:event type="preRenderView" listener='#{workActivitiesBean.retrieve}'/>
+        </f:metadata>
+
+        <ui:param name="pageTitle" value="View WorkActivities"/>
+
+        <ui:define name="header">
+                WorkActivities
+        </ui:define>
+
+        <ui:define name="subheader">
+                View existing WorkActivities
+        </ui:define>
+
+        <ui:define name="footer"/>
+
+        <ui:define name="main">
+                <h:panelGrid columnClasses="label,component,required" columns="3">
+
+
+                        <h:outputLabel for="workActivitiesBeanWorkActivitiesCode" value="Code:"/>
+                        <h:outputText id="workActivitiesBeanWorkActivitiesCode" value="#{workActivitiesBean.workActivities.code}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="workActivitiesBeanWorkActivitiesName" value="Name:"/>
+                        <h:outputText id="workActivitiesBeanWorkActivitiesName" value="#{workActivitiesBean.workActivities.name}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="workActivitiesBeanWorkActivitiesObservations" value="Observations:"/>
+                        <h:outputText id="workActivitiesBeanWorkActivitiesObservations" value="#{workActivitiesBean.workActivities.observations}" escape="false" />
+                        <h:outputText/>
+
+                        <h:outputLabel for="workActivitiesBeanWorkActivitiesWorksConstruction" value="WorksConstruction:"/>
+                        <h:link id="workActivitiesBeanWorkActivitiesWorksConstruction" outcome="/admin/worksConstruction/view" rendered="#{!empty workActivitiesBean.workActivities.worksConstruction}" value="#{workActivitiesBean.workActivities.worksConstruction.code}">
+                                 <f:param name="id" value="#{workActivitiesBean.workActivities.worksConstruction.id}"/>
+                        </h:link>
+                        <h:outputText/>
+
+                        <h:outputLabel for="workActivitiesBeanWorkActivitiesConstructionActivities" value="ConstructionActivities:"/>
+                        <h:link id="workActivitiesBeanWorkActivitiesConstructionActivities" outcome="/admin/constructionActivities/view" rendered="#{!empty workActivitiesBean.workActivities.constructionActivities}" value="#{workActivitiesBean.workActivities.constructionActivities.code}">
+                                 <f:param name="id" value="#{workActivitiesBean.workActivities.constructionActivities.id}"/>
+                        </h:link>
+                        <h:outputText/>
+
+                </h:panelGrid>
+
+                <div class="buttons">
+                        <h:link value="View All" outcome="search" styleClass="btn btn-primary"/>
+                        <h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
+                        <h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
+                </div>
+        </ui:define>
+</ui:composition>

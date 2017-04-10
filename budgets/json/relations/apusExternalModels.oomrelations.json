@@ -1,0 +1,50 @@
+{
+  "properties": [
+    {
+      "model": "externalApusModel",
+      "groupIds": "apus"
+    }
+  ],
+  "Relationships": [
+    {
+      "From": "Apus",
+      "To": "ConstructionMaterials",
+      "name": "",
+      "orden": "1",
+      "isOptionality": true,
+      "isEmbedded": false,
+      "isSimplified": false,
+      "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+    },
+    {
+      "From": "Apus",
+      "To": "ConstructionTransports",
+      "name": "",
+      "orden": "2",
+      "isOptionality": true,
+      "isEmbedded": false,
+      "isSimplified": false,
+      "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+    },
+    {
+      "From": "Apus",
+      "To": "ConstructionWorkforce",
+      "name": "",
+      "orden": "3",
+      "isOptionality": true,
+      "isEmbedded": false,
+      "isSimplified": false,
+      "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+    },
+    {
+      "From": "Apus",
+      "To": "ConstructionEquipments",
+      "name": "",
+      "orden": "4",
+      "isOptionality": true,
+      "isEmbedded": false,
+      "isSimplified": false,
+      "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+    }
+  ]
+}

@@ -1,0 +1,228 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:forgeview="http://jboss.org/forge/view"
+        template="/resources/scaffold/apusTemplate.xhtml">
+
+        <f:metadata>
+                <f:viewParam name="id" value='#{apusBean.id}'/>
+                <f:event type="preRenderView" listener='#{apusBean.retrieve}'/>
+        </f:metadata>
+
+        <ui:param name="pageTitle" value="View Apus"/>
+
+        <ui:define name="header">
+                Apus
+        </ui:define>
+
+        <ui:define name="subheader">
+                View existing Apus
+        </ui:define>
+
+        <ui:define name="footer"/>
+
+        <ui:define name="main">
+                <h:panelGrid columnClasses="label,component,required" columns="3">
+
+
+                        <h:outputLabel for="apusBeanApusCode" value="Code:"/>
+                        <h:outputText id="apusBeanApusCode" value="#{apusBean.apus.code}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="apusBeanApusName" value="Name:"/>
+                        <h:outputText id="apusBeanApusName" value="#{apusBean.apus.name}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="apusBeanApusObservations" value="Observations:"/>
+                        <h:outputText id="apusBeanApusObservations" value="#{apusBean.apus.observations}" escape="false" />
+                        <h:outputText/>
+
+                        <h:outputLabel for="ApusBeanApusConstructionMaterials" value="ConstructionMaterials:"/>
+                        <h:dataTable id="apusBeanApusconstructionMaterials" styleClass="data-table" value="#{forgeview:asList(apusBean.apus.constructionMaterials)}" var="_item">
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Code"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/constructionMaterials/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemCode" value="#{_item.code}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Name"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/constructionMaterials/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemName" value="#{_item.name}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Price"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/constructionMaterials/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemPrice" value="#{_item.price}"/>
+                                              </h:link>
+                                           </h:column>
+
+                        </h:dataTable>
+                        <h:outputText/>
+
+                        <h:outputLabel for="ApusBeanApusConstructionWorkforce" value="ConstructionWorkforce:"/>
+                        <h:dataTable id="apusBeanApusconstructionWorkforce" styleClass="data-table" value="#{forgeview:asList(apusBean.apus.constructionWorkforce)}" var="_item">
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Code"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/constructionWorkforce/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemCode" value="#{_item.code}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Name"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/constructionWorkforce/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemName" value="#{_item.name}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Basic"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/constructionWorkforce/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemBasic" value="#{_item.basic}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Benefits"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/constructionWorkforce/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemBenefits" value="#{_item.benefits}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Salary"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/constructionWorkforce/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemSalary" value="#{_item.salary}"/>
+                                              </h:link>
+                                           </h:column>
+
+                        </h:dataTable>
+                        <h:outputText/>
+
+                        <h:outputLabel for="ApusBeanApusConstructionEquipments" value="ConstructionEquipments:"/>
+                        <h:dataTable id="apusBeanApusconstructionEquipments" styleClass="data-table" value="#{forgeview:asList(apusBean.apus.constructionEquipments)}" var="_item">
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Code"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/constructionEquipments/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemCode" value="#{_item.code}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Name"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/constructionEquipments/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemName" value="#{_item.name}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Rate"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/constructionEquipments/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemRate" value="#{_item.rate}"/>
+                                              </h:link>
+                                           </h:column>
+
+                        </h:dataTable>
+                        <h:outputText/>
+
+                        <h:outputLabel for="ApusBeanApusConstructionTransports" value="ConstructionTransports:"/>
+                        <h:dataTable id="apusBeanApusconstructionTransports" styleClass="data-table" value="#{forgeview:asList(apusBean.apus.constructionTransports)}" var="_item">
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Code"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/constructionTransports/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemCode" value="#{_item.code}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Name"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/constructionTransports/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemName" value="#{_item.name}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Rate"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/constructionTransports/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemRate" value="#{_item.rate}"/>
+                                              </h:link>
+                                           </h:column>
+
+                        </h:dataTable>
+                        <h:outputText/>
+
+                        <h:outputLabel for="apusBeanApusMeasurementUnits" value="MeasurementUnits:"/>
+                        <h:link id="apusBeanApusMeasurementUnits" outcome="/admin/measurementUnits/view" rendered="#{!empty apusBean.apus.measurementUnits}" value="#{apusBean.apus.measurementUnits.code}">
+                                 <f:param name="id" value="#{apusBean.apus.measurementUnits.id}"/>
+                        </h:link>
+                        <h:outputText/>
+
+                        <h:outputLabel for="apusBeanApusConstructionActivities" value="ConstructionActivities:"/>
+                        <h:link id="apusBeanApusConstructionActivities" outcome="/admin/constructionActivities/view" rendered="#{!empty apusBean.apus.constructionActivities}" value="#{apusBean.apus.constructionActivities.code}">
+                                 <f:param name="id" value="#{apusBean.apus.constructionActivities.id}"/>
+                        </h:link>
+                        <h:outputText/>
+
+                </h:panelGrid>
+
+                <div class="buttons">
+                        <h:link value="View All" outcome="search" styleClass="btn btn-primary"/>
+                        <h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
+                        <h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
+                </div>
+        </ui:define>
+</ui:composition>

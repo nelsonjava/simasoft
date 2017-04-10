@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:forgeview="http://jboss.org/forge/view"
+        template="/resources/scaffold/apusTemplate.xhtml">
+
+        <f:metadata>
+                <f:viewParam name="id" value='#{measurementUnitsBean.id}'/>
+                <f:event type="preRenderView" listener='#{measurementUnitsBean.retrieve}'/>
+        </f:metadata>
+
+        <ui:param name="pageTitle" value="View MeasurementUnits"/>
+
+        <ui:define name="header">
+                MeasurementUnits
+        </ui:define>
+
+        <ui:define name="subheader">
+                View existing MeasurementUnits
+        </ui:define>
+
+        <ui:define name="footer"/>
+
+        <ui:define name="main">
+                <h:panelGrid columnClasses="label,component,required" columns="3">
+
+
+                        <h:outputLabel for="measurementUnitsBeanMeasurementUnitsCode" value="Code:"/>
+                        <h:outputText id="measurementUnitsBeanMeasurementUnitsCode" value="#{measurementUnitsBean.measurementUnits.code}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="measurementUnitsBeanMeasurementUnitsName" value="Name:"/>
+                        <h:outputText id="measurementUnitsBeanMeasurementUnitsName" value="#{measurementUnitsBean.measurementUnits.name}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="measurementUnitsBeanMeasurementUnitsObservations" value="Observations:"/>
+                        <h:outputText id="measurementUnitsBeanMeasurementUnitsObservations" value="#{measurementUnitsBean.measurementUnits.observations}" escape="false" />
+                        <h:outputText/>
+
+                        <h:outputLabel for="MeasurementUnitsBeanMeasurementUnitsApus" value="Apus:"/>
+                        <h:dataTable id="measurementUnitsBeanMeasurementUnitsapus" styleClass="data-table" value="#{forgeview:asList(measurementUnitsBean.measurementUnits.apus)}" var="_item">
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Code"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/apus/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemCode" value="#{_item.code}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Name"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/apus/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemName" value="#{_item.name}"/>
+                                              </h:link>
+                                           </h:column>
+
+                        </h:dataTable>
+                        <h:outputText/>
+
+                        <h:outputLabel for="measurementUnitsBeanMeasurementUnitsTypesMeasurementUnits" value="TypesMeasurementUnits:"/>
+                        <h:link id="measurementUnitsBeanMeasurementUnitsTypesMeasurementUnits" outcome="/admin/typesMeasurementUnits/view" rendered="#{!empty measurementUnitsBean.measurementUnits.typesMeasurementUnits}" value="#{measurementUnitsBean.measurementUnits.typesMeasurementUnits.code}">
+                                 <f:param name="id" value="#{measurementUnitsBean.measurementUnits.typesMeasurementUnits.id}"/>
+                        </h:link>
+                        <h:outputText/>
+
+                </h:panelGrid>
+
+                <div class="buttons">
+                        <h:link value="View All" outcome="search" styleClass="btn btn-primary"/>
+                        <h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
+                        <h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
+                </div>
+        </ui:define>
+</ui:composition>

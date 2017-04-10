@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:forgeview="http://jboss.org/forge/view"
+        template="/resources/scaffold/suppliesTemplate.xhtml">
+
+        <f:metadata>
+                <f:viewParam name="id" value='#{constructionEquipmentsBean.id}'/>
+                <f:event type="preRenderView" listener='#{constructionEquipmentsBean.retrieve}'/>
+        </f:metadata>
+
+        <ui:param name="pageTitle" value="View ConstructionEquipments"/>
+
+        <ui:define name="header">
+                ConstructionEquipments
+        </ui:define>
+
+        <ui:define name="subheader">
+                View existing ConstructionEquipments
+        </ui:define>
+
+        <ui:define name="footer"/>
+
+        <ui:define name="main">
+                <h:panelGrid columnClasses="label,component,required" columns="3">
+
+
+                        <h:outputLabel for="constructionEquipmentsBeanConstructionEquipmentsCode" value="Code:"/>
+                        <h:outputText id="constructionEquipmentsBeanConstructionEquipmentsCode" value="#{constructionEquipmentsBean.constructionEquipments.code}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="constructionEquipmentsBeanConstructionEquipmentsName" value="Name:"/>
+                        <h:outputText id="constructionEquipmentsBeanConstructionEquipmentsName" value="#{constructionEquipmentsBean.constructionEquipments.name}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="constructionEquipmentsBeanConstructionEquipmentsRate" value="Rate:"/>
+                        <h:outputText id="constructionEquipmentsBeanConstructionEquipmentsRate" value="#{constructionEquipmentsBean.constructionEquipments.rate}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="constructionEquipmentsBeanConstructionEquipmentsObservations" value="Observations:"/>
+                        <h:outputText id="constructionEquipmentsBeanConstructionEquipmentsObservations" value="#{constructionEquipmentsBean.constructionEquipments.observations}" escape="false" />
+                        <h:outputText/>
+
+                        <h:outputLabel for="constructionEquipmentsBeanConstructionEquipmentsApus" value="Apus:"/>
+                        <h:link id="constructionEquipmentsBeanConstructionEquipmentsApus" outcome="/admin/apus/view" rendered="#{!empty constructionEquipmentsBean.constructionEquipments.apus}" value="#{constructionEquipmentsBean.constructionEquipments.apus.code}">
+                                 <f:param name="id" value="#{constructionEquipmentsBean.constructionEquipments.apus.id}"/>
+                        </h:link>
+                        <h:outputText/>
+
+                        <h:outputLabel for="constructionEquipmentsBeanConstructionEquipmentsTypesConstructionEquipments" value="TypesConstructionEquipments:"/>
+                        <h:link id="constructionEquipmentsBeanConstructionEquipmentsTypesConstructionEquipments" outcome="/admin/typesConstructionEquipments/view" rendered="#{!empty constructionEquipmentsBean.constructionEquipments.typesConstructionEquipments}" value="#{constructionEquipmentsBean.constructionEquipments.typesConstructionEquipments.code}">
+                                 <f:param name="id" value="#{constructionEquipmentsBean.constructionEquipments.typesConstructionEquipments.id}"/>
+                        </h:link>
+                        <h:outputText/>
+
+                </h:panelGrid>
+
+                <div class="buttons">
+                        <h:link value="View All" outcome="search" styleClass="btn btn-primary"/>
+                        <h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
+                        <h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
+                </div>
+        </ui:define>
+</ui:composition>

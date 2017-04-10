@@ -1,0 +1,30 @@
+{
+  "properties": [
+    {
+      "groupIds": "apus",
+      "version": "1.0.0.beta"
+    }
+  ],
+  "Entities": [
+    {
+      "orden": "1",
+      "name": "Apus"
+    },
+    {
+      "orden": "2",
+      "name": "ConstructionActivities"
+    },
+    {
+      "orden": "3",
+      "name": "ConstructionChapters"
+    },
+    {
+      "orden": "4",
+      "name": "TypesMeasurementUnits"
+    },
+    {
+      "orden": "5",
+      "name": "MeasurementUnits"
+    }
+  ]
+}

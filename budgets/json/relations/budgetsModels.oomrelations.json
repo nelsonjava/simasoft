@@ -1,0 +1,50 @@
+{
+  "properties": [
+    {
+      "model": "budgetsModel",
+      "groupIds": "budgets"
+    }
+  ],
+  "Relationships": [
+    {
+      "From": "Years",
+      "To": "WorksConstruction",
+      "name": "",
+      "orden": "1",
+      "isOptionality": true,
+      "isEmbedded": false,
+      "isSimplified": false,
+      "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+    },
+    {
+      "From": "WorksConstruction",
+      "To": "WorkActivities",
+      "name": "",
+      "orden": "3",
+      "isOptionality": true,
+      "isEmbedded": false,
+      "isSimplified": false,
+      "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+    },
+    {
+      "From": "WorksConstruction",
+      "To": "WorksConstruction",
+      "name": "",
+      "orden": "4",
+      "isOptionality": true,
+      "isEmbedded": false,
+      "isSimplified": false,
+      "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+    },
+    {
+      "From": "TypesWorksConstruction",
+      "To": "WorksConstruction",
+      "name": "",
+      "orden": "2",
+      "isOptionality": true,
+      "isEmbedded": false,
+      "isSimplified": false,
+      "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+    }
+  ]
+}

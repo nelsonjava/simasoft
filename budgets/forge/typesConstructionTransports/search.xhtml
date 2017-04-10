@@ -1,0 +1,91 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="page" value='#{typesConstructionTransportsBean.page}'/>
+		<f:event type="preRenderView" listener='#{typesConstructionTransportsBean.paginate}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="Search Types Construction Transports entities"/>
+
+	<ui:define name="header">
+		Types Construction Transports
+	</ui:define>
+
+	<ui:define name="subheader">
+		Search Types Construction Transports entities
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:form id="search">
+			<f:validateBean disabled="true">
+				<h:panelGroup styleClass="search">
+
+					<h:panelGrid columnClasses="label,component,required" columns="3">
+						<h:outputLabel for="typesConstructionTransportsBeanExampleAlias" value="Alias:"/>
+						<h:panelGroup>
+							<h:inputText id="typesConstructionTransportsBeanExampleAlias" value="#{typesConstructionTransportsBean.example.alias}"/>
+							<h:message for="typesConstructionTransportsBeanExampleAlias" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="typesConstructionTransportsBeanExampleObservations" value="Observations:"/>
+						<h:panelGroup>
+							<h:inputTextarea id="typesConstructionTransportsBeanExampleObservations" value="#{typesConstructionTransportsBean.example.observations}"/>
+							<h:message for="typesConstructionTransportsBeanExampleObservations" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="typesConstructionTransportsBeanExampleCode" value="Code:"/>
+						<h:panelGroup>
+							<h:inputText id="typesConstructionTransportsBeanExampleCode" value="#{typesConstructionTransportsBean.example.code}"/>
+							<h:message for="typesConstructionTransportsBeanExampleCode" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="typesConstructionTransportsBeanExampleName" value="Name:"/>
+						<h:panelGroup>
+							<h:inputText id="typesConstructionTransportsBeanExampleName" value="#{typesConstructionTransportsBean.example.name}"/>
+							<h:message for="typesConstructionTransportsBeanExampleName" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+					</h:panelGrid>
+					<h:panelGroup styleClass="buttons">
+						<h:commandLink value="Search" action='#{typesConstructionTransportsBean.search}' styleClass="btn btn-primary"/>
+						<h:commandLink value="Create New" action='#{typesConstructionTransportsBean.create}' styleClass="btn btn-primary"/>
+					</h:panelGroup>
+				</h:panelGroup>
+			</f:validateBean>
+			
+			<h:dataTable id="typesConstructionTransportsBeanPageItems" styleClass="data-table" value="#{typesConstructionTransportsBean.pageItems}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Code"/>
+					</f:facet>
+					<h:link outcome="/admin/typesConstructionTransports/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemCode" value="#{_item.code}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Name"/>
+					</f:facet>
+					<h:link outcome="/admin/typesConstructionTransports/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemName" value="#{_item.name}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<ui:include src="/resources/scaffold/paginator.xhtml">
+				<ui:param name="paginatorBean" value='#{typesConstructionTransportsBean}'/>
+			</ui:include>
+		</h:form>
+			
+	</ui:define>
+
+</ui:composition>

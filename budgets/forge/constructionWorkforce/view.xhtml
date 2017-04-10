@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="id" value='#{constructionWorkforceBean.id}'/>
+		<f:event type="preRenderView" listener='#{constructionWorkforceBean.retrieve}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="View Construction Workforce"/>
+
+	<ui:define name="header">
+		Construction Workforce
+	</ui:define>
+
+	<ui:define name="subheader">
+		View existing Construction Workforce
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:panelGrid columnClasses="label,component,required" columns="3">
+			<h:outputLabel for="constructionWorkforceBeanConstructionWorkforceAlias" value="Alias:"/>
+			<h:outputText id="constructionWorkforceBeanConstructionWorkforceAlias" value="#{constructionWorkforceBean.constructionWorkforce.alias}"/>
+			<h:outputText/>
+			<h:outputLabel for="constructionWorkforceBeanConstructionWorkforceOrden" value="Orden:"/>
+			<h:outputText id="constructionWorkforceBeanConstructionWorkforceOrden" value="#{constructionWorkforceBean.constructionWorkforce.orden}"/>
+			<h:outputText/>
+			<h:outputLabel for="constructionWorkforceBeanConstructionWorkforceObservations" value="Observations:"/>
+			<h:inputTextarea id="constructionWorkforceBeanConstructionWorkforceObservations" value="#{constructionWorkforceBean.constructionWorkforce.observations}"/>
+			<h:outputText/>
+			<h:outputLabel for="constructionWorkforceBeanConstructionWorkforceCode" value="Code:"/>
+			<h:outputText id="constructionWorkforceBeanConstructionWorkforceCode" value="#{constructionWorkforceBean.constructionWorkforce.code}"/>
+			<h:outputText/>
+			<h:outputLabel for="constructionWorkforceBeanConstructionWorkforceName" value="Name:"/>
+			<h:outputText id="constructionWorkforceBeanConstructionWorkforceName" value="#{constructionWorkforceBean.constructionWorkforce.name}"/>
+			<h:outputText/>
+			<h:outputLabel for="constructionWorkforceBeanConstructionWorkforceBasic" value="Basic:"/>
+			<h:outputText id="constructionWorkforceBeanConstructionWorkforceBasic" value="#{constructionWorkforceBean.constructionWorkforce.basic}"/>
+			<h:outputText/>
+			<h:outputLabel for="constructionWorkforceBeanConstructionWorkforceBenefits" value="Benefits:"/>
+			<h:outputText id="constructionWorkforceBeanConstructionWorkforceBenefits" value="#{constructionWorkforceBean.constructionWorkforce.benefits}"/>
+			<h:outputText/>
+			<h:outputLabel for="constructionWorkforceBeanConstructionWorkforceSalary" value="Salary:"/>
+			<h:outputText id="constructionWorkforceBeanConstructionWorkforceSalary" value="#{constructionWorkforceBean.constructionWorkforce.salary}"/>
+			<h:outputText/>
+			<h:outputLabel for="constructionWorkforceBeanConstructionWorkforceApus" value="Apus:"/>
+			<h:link id="constructionWorkforceBeanConstructionWorkforceApus" outcome="/admin/apus/view" rendered="#{!empty constructionWorkforceBean.constructionWorkforce.apus}" value="#{constructionWorkforceBean.constructionWorkforce.apus}">
+				<f:param name="id" value="#{constructionWorkforceBean.constructionWorkforce.apus.id}"/>
+			</h:link>
+			<h:outputText/>
+			<h:outputLabel for="constructionWorkforceBeanConstructionWorkforceTypesConstructionWorkforce" value="Types Construction Workforce:"/>
+			<h:link id="constructionWorkforceBeanConstructionWorkforceTypesConstructionWorkforce" outcome="/admin/typesConstructionWorkforce/view" rendered="#{!empty constructionWorkforceBean.constructionWorkforce.typesConstructionWorkforce}" value="#{constructionWorkforceBean.constructionWorkforce.typesConstructionWorkforce}">
+				<f:param name="id" value="#{constructionWorkforceBean.constructionWorkforce.typesConstructionWorkforce.id}"/>
+			</h:link>
+			<h:outputText/>
+		</h:panelGrid>
+
+		<div class="buttons">
+			<h:link value="View All" outcome="search" styleClass="btn btn-primary"/> 
+			<h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
+			<h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
+		</div>
+	</ui:define>
+
+</ui:composition>

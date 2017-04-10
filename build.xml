@@ -47,6 +47,7 @@
     <delete dir="crm/target" failonerror="no"/>
     <delete dir="crmNaifg-ant/target" failonerror="no"/>
     <delete dir="crmNaifg/target" failonerror="no"/>
+    <delete dir="budgets/target" failonerror="no"/>
 
     <delete dir="naifgm/target" failonerror="no"/>
     <delete dir="naifg1/target" failonerror="no"/>

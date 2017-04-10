@@ -1,7 +1,10 @@
 package co.simasoft.utils;
 
-public class Relation{
-  
+import java.io.*;
+import java.lang.*;
+
+public class Relation implements Comparable<Relation>{
+
     private String model = "";
 
     private String orden;
@@ -290,5 +293,17 @@ public class Relation{
         }
 
     }
+
+    @Override
+    public int compareTo(Relation a) {
+           if (Integer.parseInt(orden) < Integer.parseInt(a.orden)) {
+              return -1;
+           }
+           if (Integer.parseInt(orden) > Integer.parseInt(a.orden)) {
+              return 1;
+           }
+           return 0;
+    }
+
 
 }

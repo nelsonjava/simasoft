@@ -1,0 +1,272 @@
+[[wildfly-instalacion]]
+////
+a=&#225; e=&#233; i=&#237; o=&#243; u=&#250;
+A=&#193; E=&#201; I=&#205; O=&#211; U=&#218;
+n=&#241; N=&#209;
+////
+== MODELO
+image::images/modelo.jpg[]
+== ENTITY:Apus
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|code|null|String|null|null|false|true|false|false|true|true|true|true
+|name|null|String|null|null|false|true|false|false|true|true|true|true
+|===
+*RELATIONS:* 6
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|Apus|1..*|ConstructionMaterials|true|false|price
+|Apus|1..*|ConstructionWorkforce|true|false|code
+|Apus|1..*|ConstructionEquipments|true|false|code
+|Apus|1..*|ConstructionTransports|true|false|code
+|Apus|*..1|MeasurementUnits|true|false|code
+|Apus|*..1|ConstructionActivities|true|false|code
+|===
+== ENTITY:ConstructionActivities
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|code|null|String|null|null|false|true|false|false|true|true|true|true
+|name|null|String|null|null|false|true|false|false|true|true|true|true
+|===
+*RELATIONS:* 4
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|ConstructionActivities|1..*|WorkActivities|true|false|code
+|ConstructionActivities|1..*|Apus|true|false|code
+|ConstructionActivities|*..*|TypesWorksConstruction|true|false|code
+|ConstructionActivities|*..1|ConstructionChapters|true|false|name
+|===
+== ENTITY:ConstructionChapters
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|code|null|String|null|null|false|true|false|false|true|true|true|true
+|name|null|String|null|null|false|true|false|false|true|true|true|true
+|===
+*RELATIONS:* 1
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|ConstructionChapters|1..*|ConstructionActivities|true|false|code
+|===
+== ENTITY:TypesMeasurementUnits
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|code|null|String|null|null|false|true|false|false|true|true|true|true
+|name|null|String|null|null|false|true|false|false|true|true|true|true
+|===
+*RELATIONS:* 1
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|TypesMeasurementUnits|1..*|MeasurementUnits|true|false|code
+|===
+== ENTITY:MeasurementUnits
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|code|null|String|null|null|false|true|false|false|true|true|true|true
+|name|null|String|null|null|false|true|false|false|true|true|true|true
+|===
+*RELATIONS:* 2
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|MeasurementUnits|1..*|Apus|true|false|code
+|MeasurementUnits|*..1|TypesMeasurementUnits|true|false|code
+|===
+== ENTITY:Years
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|year|null|String|null|null|false|true|false|true|true|true|true|true
+|ipc|null|Double|null|null|true|false|false|false|true|true|true|true
+|===
+*RELATIONS:* 1
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|Years|1..*|WorksConstruction|true|false|code
+|===
+== ENTITY:WorksConstruction
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|code|null|String|null|null|false|true|false|false|true|true|true|true
+|name|null|String|null|null|false|true|false|false|true|true|true|true
+|date|null|Date|null|null|true|false|false|false|true|true|true|true
+|===
+*RELATIONS:* 5
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|WorksConstruction|1..*|WorkActivities|true|false|code
+|WorksConstruction|1..*|WorksConstruction|true|false|code
+|WorksConstruction|*..1|Years|true|false|year
+|WorksConstruction|*..1|WorksConstruction|true|false|code
+|WorksConstruction|*..1|TypesWorksConstruction|true|false|code
+|===
+== ENTITY:WorkActivities
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|code|null|String|null|null|false|true|false|false|true|true|true|true
+|name|null|String|null|null|false|true|false|false|true|true|true|true
+|===
+*RELATIONS:* 2
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|WorkActivities|*..1|WorksConstruction|true|false|code
+|WorkActivities|*..1|ConstructionActivities|true|false|code
+|===
+== ENTITY:TypesWorksConstruction
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|code|null|String|null|null|false|true|false|false|true|true|true|true
+|name|null|String|null|null|false|true|false|false|true|true|true|true
+|===
+*RELATIONS:* 2
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|TypesWorksConstruction|1..*|WorksConstruction|true|false|code
+|TypesWorksConstruction|*..*|ConstructionActivities|true|false|code
+|===
+== ENTITY:ConstructionMaterials
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|code|null|String|null|null|false|true|false|false|true|true|true|true
+|name|null|String|null|null|false|true|false|false|true|true|true|true
+|price|null|Double|null|null|true|false|false|false|true|true|true|true
+|===
+*RELATIONS:* 2
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|ConstructionMaterials|*..1|Apus|true|false|code
+|ConstructionMaterials|*..1|TypesConstructionMaterials|true|false|code
+|===
+== ENTITY:ConstructionTransports
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|code|null|String|null|null|false|true|false|false|true|true|true|true
+|name|null|String|null|null|false|true|false|false|true|true|true|true
+|rate|null|Double|null|null|true|false|false|false|true|true|true|true
+|===
+*RELATIONS:* 2
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|ConstructionTransports|*..1|Apus|true|false|code
+|ConstructionTransports|*..1|TypesConstructionTransports|true|false|code
+|===
+== ENTITY:ConstructionWorkforce
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|code|null|String|null|null|false|true|false|false|true|true|true|true
+|name|null|String|null|null|false|true|false|false|true|true|true|true
+|basic|null|Double|null|null|true|false|false|false|true|true|true|true
+|benefits|null|Double|null|null|true|false|false|false|true|true|true|true
+|salary|null|Double|null|null|true|false|false|false|true|true|true|true
+|===
+*RELATIONS:* 2
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|ConstructionWorkforce|*..1|Apus|true|false|code
+|ConstructionWorkforce|*..1|TypesConstructionWorkforce|true|false|code
+|===
+== ENTITY:ConstructionEquipments
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|code|null|String|null|null|false|true|false|false|true|true|true|true
+|name|null|String|null|null|false|true|false|false|true|true|true|true
+|rate|null|Double|null|null|true|false|false|false|true|true|true|true
+|===
+*RELATIONS:* 2
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|ConstructionEquipments|*..1|Apus|true|false|code
+|ConstructionEquipments|*..1|TypesConstructionEquipments|true|false|code
+|===
+== ENTITY:TypesConstructionMaterials
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|code|null|String|null|null|false|true|false|false|true|true|true|true
+|name|null|String|null|null|false|true|false|false|true|true|true|true
+|===
+*RELATIONS:* 1
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|TypesConstructionMaterials|1..*|ConstructionMaterials|true|false|price
+|===
+== ENTITY:TypesConstructionTransports
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|code|null|String|null|null|false|true|false|false|true|true|true|true
+|name|null|String|null|null|false|true|false|false|true|true|true|true
+|===
+*RELATIONS:* 1
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|TypesConstructionTransports|1..*|ConstructionTransports|true|false|code
+|===
+== ENTITY:TypesConstructionWorkforce
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|code|null|String|null|null|false|true|false|false|true|true|true|true
+|name|null|String|null|null|false|true|false|false|true|true|true|true
+|===
+*RELATIONS:* 1
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|TypesConstructionWorkforce|1..*|ConstructionWorkforce|true|false|code
+|===
+== ENTITY:TypesConstructionEquipments
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|code|null|String|null|null|false|true|false|false|true|true|true|true
+|name|null|String|null|null|false|true|false|false|true|true|true|true
+|===
+*RELATIONS:* 1
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|TypesConstructionEquipments|1..*|ConstructionEquipments|true|false|code
+|===

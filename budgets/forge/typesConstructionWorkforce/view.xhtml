@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:forgeview="http://jboss.org/forge/view"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="id" value='#{typesConstructionWorkforceBean.id}'/>
+		<f:event type="preRenderView" listener='#{typesConstructionWorkforceBean.retrieve}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="View Types Construction Workforce"/>
+
+	<ui:define name="header">
+		Types Construction Workforce
+	</ui:define>
+
+	<ui:define name="subheader">
+		View existing Types Construction Workforce
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:panelGrid columnClasses="label,component,required" columns="3">
+			<h:outputLabel for="typesConstructionWorkforceBeanTypesConstructionWorkforceAlias" value="Alias:"/>
+			<h:outputText id="typesConstructionWorkforceBeanTypesConstructionWorkforceAlias" value="#{typesConstructionWorkforceBean.typesConstructionWorkforce.alias}"/>
+			<h:outputText/>
+			<h:outputLabel for="typesConstructionWorkforceBeanTypesConstructionWorkforceOrden" value="Orden:"/>
+			<h:outputText id="typesConstructionWorkforceBeanTypesConstructionWorkforceOrden" value="#{typesConstructionWorkforceBean.typesConstructionWorkforce.orden}"/>
+			<h:outputText/>
+			<h:outputLabel for="typesConstructionWorkforceBeanTypesConstructionWorkforceObservations" value="Observations:"/>
+			<h:inputTextarea id="typesConstructionWorkforceBeanTypesConstructionWorkforceObservations" value="#{typesConstructionWorkforceBean.typesConstructionWorkforce.observations}"/>
+			<h:outputText/>
+			<h:outputLabel for="typesConstructionWorkforceBeanTypesConstructionWorkforceCode" value="Code:"/>
+			<h:outputText id="typesConstructionWorkforceBeanTypesConstructionWorkforceCode" value="#{typesConstructionWorkforceBean.typesConstructionWorkforce.code}"/>
+			<h:outputText/>
+			<h:outputLabel for="typesConstructionWorkforceBeanTypesConstructionWorkforceName" value="Name:"/>
+			<h:outputText id="typesConstructionWorkforceBeanTypesConstructionWorkforceName" value="#{typesConstructionWorkforceBean.typesConstructionWorkforce.name}"/>
+			<h:outputText/>
+			<h:outputLabel for="typesConstructionWorkforceBeanTypesConstructionWorkforceConstructionWorkforce" value="Construction Workforce:"/>
+			<h:dataTable id="typesConstructionWorkforceBeanTypesConstructionWorkforceConstructionWorkforce" styleClass="data-table" value="#{forgeview:asList(typesConstructionWorkforceBean.typesConstructionWorkforce.constructionWorkforce)}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Code"/>
+					</f:facet>
+					<h:link outcome="/admin/constructionWorkforce/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemCode" value="#{_item.code}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Name"/>
+					</f:facet>
+					<h:link outcome="/admin/constructionWorkforce/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemName" value="#{_item.name}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<h:outputText/>
+		</h:panelGrid>
+
+		<div class="buttons">
+			<h:link value="View All" outcome="search" styleClass="btn btn-primary"/> 
+			<h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
+			<h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
+		</div>
+	</ui:define>
+
+</ui:composition>

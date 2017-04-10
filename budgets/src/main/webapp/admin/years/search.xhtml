@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        template="/resources/scaffold/budgetsTemplate.xhtml">
+
+        <f:metadata>
+                <f:viewParam name="page" value='#{yearsBean.page}'/>
+                <f:event type="preRenderView" listener='#{yearsBean.paginate}'/>
+        </f:metadata>
+
+        <ui:param name="pageTitle" value="Search Years entities"/>
+
+        <ui:define name="header">
+                Years
+        </ui:define>
+
+        <ui:define name="subheader">
+                Search Years entities
+        </ui:define>
+
+        <ui:define name="footer"/>
+
+        <ui:define name="main">
+                <h:form id="search">
+                        <f:validateBean disabled="true">
+                                <h:panelGroup styleClass="search">
+
+                                        <h:panelGrid columnClasses="label,component,required" columns="3">
+                                                <h:outputLabel for="yearsBeanExampleYear" value="Year:"/>
+                                                <h:panelGroup>
+                                                        <h:inputText id="yearsBeanExampleYear" value="#{yearsBean.example.year}"/>
+                                                        <h:message for="yearsBeanExampleYear" styleClass="error"/>
+                                                </h:panelGroup>
+                                                <h:outputText/>
+
+                                                <h:outputLabel for="yearsBeanExampleIpc" value="Ipc:"/>
+                                                <h:panelGroup>
+                                                        <h:inputText id="yearsBeanExampleIpc" value="#{yearsBean.example.ipc}"/>
+                                                        <h:message for="yearsBeanExampleIpc" styleClass="error"/>
+                                                </h:panelGroup>
+                                                <h:outputText/>
+
+                                        </h:panelGrid>
+                                        <h:panelGroup styleClass="buttons">
+                                                <h:commandLink value="Search" action='#{yearsBean.search}' styleClass="btn btn-primary"/>
+                                                <h:commandLink value="Create New" action='#{yearsBean.create}' styleClass="btn btn-primary"/>
+                                        </h:panelGroup>
+                                </h:panelGroup>
+                        </f:validateBean>
+
+                        <h:dataTable id="yearsBeanPageItems" styleClass="data-table" value="#{yearsBean.pageItems}" var="_item">
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Orden"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/years/view">
+                                                <f:param name="id" value="#{_item.orden}"/>
+                                                <h:outputText id="itemOrden" value="#{_item.orden}"/>
+                                        </h:link>
+                                </h:column>
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Year"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/years/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemYear" value="#{_item.year}"/>
+                                        </h:link>
+                                </h:column>
+
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Ipc"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/years/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemIpc" value="#{_item.ipc}"/>
+                                        </h:link>
+                                </h:column>
+
+
+                        </h:dataTable>
+                        <ui:include src="/resources/scaffold/paginator.xhtml">
+                                <ui:param name="paginatorBean" value='#{yearsBean}'/>
+                        </ui:include>
+                </h:form>
+
+        </ui:define>
+
+</ui:composition>

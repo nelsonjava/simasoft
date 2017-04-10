@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:forgeview="http://jboss.org/forge/view"
+        template="/resources/scaffold/suppliesTemplate.xhtml">
+
+        <f:metadata>
+                <f:viewParam name="id" value='#{constructionMaterialsBean.id}'/>
+                <f:event type="preRenderView" listener='#{constructionMaterialsBean.retrieve}'/>
+        </f:metadata>
+
+        <ui:param name="pageTitle" value="View ConstructionMaterials"/>
+
+        <ui:define name="header">
+                ConstructionMaterials
+        </ui:define>
+
+        <ui:define name="subheader">
+                View existing ConstructionMaterials
+        </ui:define>
+
+        <ui:define name="footer"/>
+
+        <ui:define name="main">
+                <h:panelGrid columnClasses="label,component,required" columns="3">
+
+
+                        <h:outputLabel for="constructionMaterialsBeanConstructionMaterialsCode" value="Code:"/>
+                        <h:outputText id="constructionMaterialsBeanConstructionMaterialsCode" value="#{constructionMaterialsBean.constructionMaterials.code}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="constructionMaterialsBeanConstructionMaterialsName" value="Name:"/>
+                        <h:outputText id="constructionMaterialsBeanConstructionMaterialsName" value="#{constructionMaterialsBean.constructionMaterials.name}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="constructionMaterialsBeanConstructionMaterialsPrice" value="Price:"/>
+                        <h:outputText id="constructionMaterialsBeanConstructionMaterialsPrice" value="#{constructionMaterialsBean.constructionMaterials.price}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="constructionMaterialsBeanConstructionMaterialsObservations" value="Observations:"/>
+                        <h:outputText id="constructionMaterialsBeanConstructionMaterialsObservations" value="#{constructionMaterialsBean.constructionMaterials.observations}" escape="false" />
+                        <h:outputText/>
+
+                        <h:outputLabel for="constructionMaterialsBeanConstructionMaterialsApus" value="Apus:"/>
+                        <h:link id="constructionMaterialsBeanConstructionMaterialsApus" outcome="/admin/apus/view" rendered="#{!empty constructionMaterialsBean.constructionMaterials.apus}" value="#{constructionMaterialsBean.constructionMaterials.apus.code}">
+                                 <f:param name="id" value="#{constructionMaterialsBean.constructionMaterials.apus.id}"/>
+                        </h:link>
+                        <h:outputText/>
+
+                        <h:outputLabel for="constructionMaterialsBeanConstructionMaterialsTypesConstructionMaterials" value="TypesConstructionMaterials:"/>
+                        <h:link id="constructionMaterialsBeanConstructionMaterialsTypesConstructionMaterials" outcome="/admin/typesConstructionMaterials/view" rendered="#{!empty constructionMaterialsBean.constructionMaterials.typesConstructionMaterials}" value="#{constructionMaterialsBean.constructionMaterials.typesConstructionMaterials.code}">
+                                 <f:param name="id" value="#{constructionMaterialsBean.constructionMaterials.typesConstructionMaterials.id}"/>
+                        </h:link>
+                        <h:outputText/>
+
+                </h:panelGrid>
+
+                <div class="buttons">
+                        <h:link value="View All" outcome="search" styleClass="btn btn-primary"/>
+                        <h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
+                        <h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
+                </div>
+        </ui:define>
+</ui:composition>

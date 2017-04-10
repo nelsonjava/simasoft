@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        template="/resources/scaffold/suppliesTemplate.xhtml">
+
+        <f:metadata>
+                <f:viewParam name="page" value='#{typesConstructionEquipmentsBean.page}'/>
+                <f:event type="preRenderView" listener='#{typesConstructionEquipmentsBean.paginate}'/>
+        </f:metadata>
+
+        <ui:param name="pageTitle" value="Search TypesConstructionEquipments entities"/>
+
+        <ui:define name="header">
+                TypesConstructionEquipments
+        </ui:define>
+
+        <ui:define name="subheader">
+                Search TypesConstructionEquipments entities
+        </ui:define>
+
+        <ui:define name="footer"/>
+
+        <ui:define name="main">
+                <h:form id="search">
+                        <f:validateBean disabled="true">
+                                <h:panelGroup styleClass="search">
+
+                                        <h:panelGrid columnClasses="label,component,required" columns="3">
+                                                <h:outputLabel for="typesConstructionEquipmentsBeanExampleCode" value="Code:"/>
+                                                <h:panelGroup>
+                                                        <h:inputText id="typesConstructionEquipmentsBeanExampleCode" value="#{typesConstructionEquipmentsBean.example.code}"/>
+                                                        <h:message for="typesConstructionEquipmentsBeanExampleCode" styleClass="error"/>
+                                                </h:panelGroup>
+                                                <h:outputText/>
+
+                                                <h:outputLabel for="typesConstructionEquipmentsBeanExampleName" value="Name:"/>
+                                                <h:panelGroup>
+                                                        <h:inputText id="typesConstructionEquipmentsBeanExampleName" value="#{typesConstructionEquipmentsBean.example.name}"/>
+                                                        <h:message for="typesConstructionEquipmentsBeanExampleName" styleClass="error"/>
+                                                </h:panelGroup>
+                                                <h:outputText/>
+
+                                        </h:panelGrid>
+                                        <h:panelGroup styleClass="buttons">
+                                                <h:commandLink value="Search" action='#{typesConstructionEquipmentsBean.search}' styleClass="btn btn-primary"/>
+                                                <h:commandLink value="Create New" action='#{typesConstructionEquipmentsBean.create}' styleClass="btn btn-primary"/>
+                                        </h:panelGroup>
+                                </h:panelGroup>
+                        </f:validateBean>
+
+                        <h:dataTable id="typesConstructionEquipmentsBeanPageItems" styleClass="data-table" value="#{typesConstructionEquipmentsBean.pageItems}" var="_item">
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Orden"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/typesConstructionEquipments/view">
+                                                <f:param name="id" value="#{_item.orden}"/>
+                                                <h:outputText id="itemOrden" value="#{_item.orden}"/>
+                                        </h:link>
+                                </h:column>
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Code"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/typesConstructionEquipments/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemCode" value="#{_item.code}"/>
+                                        </h:link>
+                                </h:column>
+
+
+                                <h:column>
+                                        <f:facet name="header">
+                                                <h:outputText value="Name"/>
+                                        </f:facet>
+                                        <h:link outcome="/admin/typesConstructionEquipments/view">
+                                                <f:param name="id" value="#{_item.id}"/>
+                                                <h:outputText id="itemName" value="#{_item.name}"/>
+                                        </h:link>
+                                </h:column>
+
+
+                        </h:dataTable>
+                        <ui:include src="/resources/scaffold/paginator.xhtml">
+                                <ui:param name="paginatorBean" value='#{typesConstructionEquipmentsBean}'/>
+                        </ui:include>
+                </h:form>
+
+        </ui:define>
+
+</ui:composition>

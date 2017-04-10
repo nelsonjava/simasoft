@@ -1,0 +1,50 @@
+{
+  "properties": [
+    {
+      "model": "suppliesModel",
+      "groupIds": "supplies"
+    }
+  ],
+  "Relationships": [
+    {
+      "From": "TypesConstructionWorkforce",
+      "To": "ConstructionWorkforce",
+      "name": "",
+      "orden": "3",
+      "isOptionality": true,
+      "isEmbedded": false,
+      "isSimplified": false,
+      "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+    },
+    {
+      "From": "TypesConstructionEquipments",
+      "To": "ConstructionEquipments",
+      "name": "",
+      "orden": "4",
+      "isOptionality": true,
+      "isEmbedded": false,
+      "isSimplified": false,
+      "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+    },
+    {
+      "From": "TypesConstructionMaterials",
+      "To": "ConstructionMaterials",
+      "name": "",
+      "orden": "1",
+      "isOptionality": true,
+      "isEmbedded": false,
+      "isSimplified": false,
+      "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+    },
+    {
+      "From": "TypesConstructionTransports",
+      "To": "ConstructionTransports",
+      "name": "",
+      "orden": "2",
+      "isOptionality": true,
+      "isEmbedded": false,
+      "isSimplified": false,
+      "Cardinalities": "Uno a Muchos Bidirecccional No.5"
+    }
+  ]
+}

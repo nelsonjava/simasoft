@@ -1,0 +1,42 @@
+{
+  "properties": [
+    {
+      "groupIds": "supplies",
+      "version": "1.0.0.rc"
+    }
+  ],
+  "Entities": [
+    {
+      "orden": "1",
+      "name": "ConstructionMaterials"
+    },
+    {
+      "orden": "2",
+      "name": "ConstructionTransports"
+    },
+    {
+      "orden": "3",
+      "name": "ConstructionWorkforce"
+    },
+    {
+      "orden": "4",
+      "name": "ConstructionEquipments"
+    },
+    {
+      "orden": "5",
+      "name": "TypesConstructionMaterials"
+    },
+    {
+      "orden": "6",
+      "name": "TypesConstructionTransports"
+    },
+    {
+      "orden": "7",
+      "name": "TypesConstructionWorkforce"
+    },
+    {
+      "orden": "8",
+      "name": "TypesConstructionEquipments"
+    }
+  ]
+}

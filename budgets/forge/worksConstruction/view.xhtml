@@ -1,0 +1,117 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:forgeview="http://jboss.org/forge/view"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="id" value='#{worksConstructionBean.id}'/>
+		<f:event type="preRenderView" listener='#{worksConstructionBean.retrieve}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="View Works Construction"/>
+
+	<ui:define name="header">
+		Works Construction
+	</ui:define>
+
+	<ui:define name="subheader">
+		View existing Works Construction
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:panelGrid columnClasses="label,component,required" columns="3">
+			<h:outputLabel for="worksConstructionBeanWorksConstructionAlias" value="Alias:"/>
+			<h:outputText id="worksConstructionBeanWorksConstructionAlias" value="#{worksConstructionBean.worksConstruction.alias}"/>
+			<h:outputText/>
+			<h:outputLabel for="worksConstructionBeanWorksConstructionOrden" value="Orden:"/>
+			<h:outputText id="worksConstructionBeanWorksConstructionOrden" value="#{worksConstructionBean.worksConstruction.orden}"/>
+			<h:outputText/>
+			<h:outputLabel for="worksConstructionBeanWorksConstructionObservations" value="Observations:"/>
+			<h:inputTextarea id="worksConstructionBeanWorksConstructionObservations" value="#{worksConstructionBean.worksConstruction.observations}"/>
+			<h:outputText/>
+			<h:outputLabel for="worksConstructionBeanWorksConstructionCode" value="Code:"/>
+			<h:outputText id="worksConstructionBeanWorksConstructionCode" value="#{worksConstructionBean.worksConstruction.code}"/>
+			<h:outputText/>
+			<h:outputLabel for="worksConstructionBeanWorksConstructionName" value="Name:"/>
+			<h:outputText id="worksConstructionBeanWorksConstructionName" value="#{worksConstructionBean.worksConstruction.name}"/>
+			<h:outputText/>
+			<h:outputLabel for="worksConstructionBeanWorksConstructionDate" value="Date:"/>
+			<h:outputText id="worksConstructionBeanWorksConstructionDate" value="#{worksConstructionBean.worksConstruction.date}">
+				<f:convertDateTime type="date"/>
+			</h:outputText>
+			<h:outputText/>
+			<h:outputLabel for="worksConstructionBeanWorksConstructionWorkActivities" value="Work Activities:"/>
+			<h:dataTable id="worksConstructionBeanWorksConstructionWorkActivities" styleClass="data-table" value="#{forgeview:asList(worksConstructionBean.worksConstruction.workActivities)}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Code"/>
+					</f:facet>
+					<h:link outcome="/admin/workActivities/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemCode" value="#{_item.code}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Name"/>
+					</f:facet>
+					<h:link outcome="/admin/workActivities/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemName" value="#{_item.name}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<h:outputText/>
+			<h:outputLabel for="worksConstructionBeanWorksConstructionObjHijos" value="Obj Hijos:"/>
+			<h:dataTable id="worksConstructionBeanWorksConstructionObjHijos" styleClass="data-table" value="#{forgeview:asList(worksConstructionBean.worksConstruction.objHijos)}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Code"/>
+					</f:facet>
+					<h:link outcome="/admin/worksConstruction/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemCode" value="#{_item.code}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Name"/>
+					</f:facet>
+					<h:link outcome="/admin/worksConstruction/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemName" value="#{_item.name}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<h:outputText/>
+			<h:outputLabel for="worksConstructionBeanWorksConstructionYears" value="Years:"/>
+			<h:link id="worksConstructionBeanWorksConstructionYears" outcome="/admin/years/view" rendered="#{!empty worksConstructionBean.worksConstruction.years}" value="#{worksConstructionBean.worksConstruction.years}">
+				<f:param name="id" value="#{worksConstructionBean.worksConstruction.years.id}"/>
+			</h:link>
+			<h:outputText/>
+			<h:outputLabel for="worksConstructionBeanWorksConstructionObjPadre" value="Obj Padre:"/>
+			<h:link id="worksConstructionBeanWorksConstructionObjPadre" outcome="/admin/worksConstruction/view" rendered="#{!empty worksConstructionBean.worksConstruction.objPadre}" value="#{worksConstructionBean.worksConstruction.objPadre}">
+				<f:param name="id" value="#{worksConstructionBean.worksConstruction.objPadre.id}"/>
+			</h:link>
+			<h:outputText/>
+			<h:outputLabel for="worksConstructionBeanWorksConstructionTypesWorksConstruction" value="Types Works Construction:"/>
+			<h:link id="worksConstructionBeanWorksConstructionTypesWorksConstruction" outcome="/admin/typesWorksConstruction/view" rendered="#{!empty worksConstructionBean.worksConstruction.typesWorksConstruction}" value="#{worksConstructionBean.worksConstruction.typesWorksConstruction}">
+				<f:param name="id" value="#{worksConstructionBean.worksConstruction.typesWorksConstruction.id}"/>
+			</h:link>
+			<h:outputText/>
+		</h:panelGrid>
+
+		<div class="buttons">
+			<h:link value="View All" outcome="search" styleClass="btn btn-primary"/> 
+			<h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
+			<h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
+		</div>
+	</ui:define>
+
+</ui:composition>

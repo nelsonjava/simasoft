@@ -1,0 +1,26 @@
+{
+  "properties": [
+    {
+      "groupIds": "budgets",
+      "version": "rc1.0.0"
+    }
+  ],
+  "Entities": [
+    {
+      "orden": "1",
+      "name": "Years"
+    },
+    {
+      "orden": "2",
+      "name": "WorksConstruction"
+    },
+    {
+      "orden": "3",
+      "name": "WorkActivities"
+    },
+    {
+      "orden": "4",
+      "name": "TypesWorksConstruction"
+    }
+  ]
+}

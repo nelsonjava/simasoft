@@ -69,6 +69,7 @@ public JsonGenPower(String fileOom) throws IOException {
            code = powerDesigner.getCode();
       entidades = powerDesigner.getEntidades();
       relations = powerDesigner.getRelations();
+      Collections.sort(entidades);
     }
     catch(Exception ioe) {
       ioe.printStackTrace();
@@ -131,8 +132,11 @@ public void attributes(String fileJson) throws IOException {
     i = 1;
     for (Entidad entidad : entidades ) {
 
+        ArrayList<Atributos> atributos = entidad.getAtributos();
+        Collections.sort(atributos);
         j = 1;
-        for(Atributos attri : entidad.getAtributos() ){
+//        for(Atributos attri : entidad.getAtributos() ){
+          for(Atributos attri : atributos ){
 
            line("    {");
            line("      \"entity\": \""+entidad.getName()+"\",");
@@ -183,6 +187,8 @@ public void relations(String fileJson) throws IOException {
     line("  ],");
 
     line("  \"Relationships\": [");
+    
+    Collections.sort(relations);
     i = 1;
     for(Relation relation: relations) {
 

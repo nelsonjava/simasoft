@@ -1,0 +1,112 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:forgeview="http://jboss.org/forge/view"
+        template="/resources/scaffold/apusTemplate.xhtml">
+
+        <f:metadata>
+                <f:viewParam name="id" value='#{constructionActivitiesBean.id}'/>
+                <f:event type="preRenderView" listener='#{constructionActivitiesBean.retrieve}'/>
+        </f:metadata>
+
+        <ui:param name="pageTitle" value="View ConstructionActivities"/>
+
+        <ui:define name="header">
+                ConstructionActivities
+        </ui:define>
+
+        <ui:define name="subheader">
+                View existing ConstructionActivities
+        </ui:define>
+
+        <ui:define name="footer"/>
+
+        <ui:define name="main">
+                <h:panelGrid columnClasses="label,component,required" columns="3">
+
+
+                        <h:outputLabel for="constructionActivitiesBeanConstructionActivitiesCode" value="Code:"/>
+                        <h:outputText id="constructionActivitiesBeanConstructionActivitiesCode" value="#{constructionActivitiesBean.constructionActivities.code}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="constructionActivitiesBeanConstructionActivitiesName" value="Name:"/>
+                        <h:outputText id="constructionActivitiesBeanConstructionActivitiesName" value="#{constructionActivitiesBean.constructionActivities.name}"/>
+                        <h:outputText/>
+
+                        <h:outputLabel for="constructionActivitiesBeanConstructionActivitiesObservations" value="Observations:"/>
+                        <h:outputText id="constructionActivitiesBeanConstructionActivitiesObservations" value="#{constructionActivitiesBean.constructionActivities.observations}" escape="false" />
+                        <h:outputText/>
+
+                        <h:outputLabel for="ConstructionActivitiesBeanConstructionActivitiesWorkActivities" value="WorkActivities:"/>
+                        <h:dataTable id="constructionActivitiesBeanConstructionActivitiesworkActivities" styleClass="data-table" value="#{forgeview:asList(constructionActivitiesBean.constructionActivities.workActivities)}" var="_item">
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Code"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/workActivities/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemCode" value="#{_item.code}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Name"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/workActivities/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemName" value="#{_item.name}"/>
+                                              </h:link>
+                                           </h:column>
+
+                        </h:dataTable>
+                        <h:outputText/>
+
+                        <h:outputLabel for="ConstructionActivitiesBeanConstructionActivitiesApus" value="Apus:"/>
+                        <h:dataTable id="constructionActivitiesBeanConstructionActivitiesapus" styleClass="data-table" value="#{forgeview:asList(constructionActivitiesBean.constructionActivities.apus)}" var="_item">
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Code"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/apus/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemCode" value="#{_item.code}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Name"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/apus/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemName" value="#{_item.name}"/>
+                                              </h:link>
+                                           </h:column>
+
+                        </h:dataTable>
+                        <h:outputText/>
+
+                        Muchos a Muchos Unidireccional No.6
+
+                        <h:outputLabel for="constructionActivitiesBeanConstructionActivitiesConstructionChapters" value="ConstructionChapters:"/>
+                        <h:link id="constructionActivitiesBeanConstructionActivitiesConstructionChapters" outcome="/admin/constructionChapters/view" rendered="#{!empty constructionActivitiesBean.constructionActivities.constructionChapters}" value="#{constructionActivitiesBean.constructionActivities.constructionChapters.name}">
+                                 <f:param name="id" value="#{constructionActivitiesBean.constructionActivities.constructionChapters.id}"/>
+                        </h:link>
+                        <h:outputText/>
+
+                </h:panelGrid>
+
+                <div class="buttons">
+                        <h:link value="View All" outcome="search" styleClass="btn btn-primary"/>
+                        <h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
+                        <h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
+                </div>
+        </ui:define>
+</ui:composition>

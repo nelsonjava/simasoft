@@ -1,0 +1,271 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:forgeview="http://jboss.org/forge/view"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="id" value='#{apusBean.id}'/>
+		<f:event type="preRenderView" listener='#{apusBean.retrieve}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="Create Apus"/>
+
+	<ui:define name="header">
+		Apus
+	</ui:define>
+
+	<ui:define name="subheader">
+		<c:choose>
+			<c:when test='#{!empty apusBean.id}'>
+				Edit existing Apus
+			</c:when>
+			<c:otherwise>
+				Create a new Apus
+			</c:otherwise>
+		</c:choose>
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:form id="create">
+			<h:messages globalOnly="true" styleClass="error"/>
+
+			<h:panelGrid columnClasses="label,component,required" columns="3">
+				<h:outputLabel for="apusBeanApusAlias" value="Alias:"/>
+				<h:panelGroup>
+					<h:inputText id="apusBeanApusAlias" value="#{apusBean.apus.alias}"/>
+					<h:message for="apusBeanApusAlias" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="apusBeanApusOrden" value="Orden:"/>
+				<h:panelGroup>
+					<h:inputText id="apusBeanApusOrden" value="#{apusBean.apus.orden}"/>
+					<h:message for="apusBeanApusOrden" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="apusBeanApusObservations" value="Observations:"/>
+				<h:panelGroup>
+					<h:inputTextarea id="apusBeanApusObservations" value="#{apusBean.apus.observations}"/>
+					<h:message for="apusBeanApusObservations" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="apusBeanApusCode" value="Code:"/>
+				<h:panelGroup>
+					<h:inputText id="apusBeanApusCode" required="true" value="#{apusBean.apus.code}"/>
+					<h:message for="apusBeanApusCode" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText value="*"/>
+				<h:outputLabel for="apusBeanApusName" value="Name:"/>
+				<h:panelGroup>
+					<h:inputText id="apusBeanApusName" required="true" value="#{apusBean.apus.name}"/>
+					<h:message for="apusBeanApusName" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText value="*"/>
+				<h:outputLabel for="apusBeanApusConstructionMaterials" value="Construction Materials:"/>
+				<h:panelGroup>
+					<ui:param name="_collection" value="#{apusBean.apus.constructionMaterials}"/>
+					<h:dataTable id="apusBeanApusConstructionMaterials" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Code"/>
+							</f:facet>
+							<h:link outcome="/admin/constructionMaterials/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="_itemCode" value="#{_item.code}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="constructionMaterialsBeanAddCode" value="#{constructionMaterialsBean.add.code}"/>
+								<h:message for="constructionMaterialsBeanAddCode" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Name"/>
+							</f:facet>
+							<h:link outcome="/admin/constructionMaterials/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="_itemName" value="#{_item.name}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="constructionMaterialsBeanAddName" value="#{constructionMaterialsBean.add.name}"/>
+								<h:message for="constructionMaterialsBeanAddName" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column footerClass="remove-column" headerClass="remove-column">
+							<h:commandLink action="#{_collection.remove(_item)}" styleClass="remove-button"/>
+							<f:facet name="footer">
+								<h:commandLink action="#{_collection.add(constructionMaterialsBean.added)}" id="apusBeanApusConstructionMaterialsAdd" styleClass="add-button">
+									<f:setPropertyActionListener target="#{constructionMaterialsBean.add.apus}" value="#{apusBean.apus}"/>
+								</h:commandLink>
+							</f:facet>
+						</h:column>
+					</h:dataTable>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="apusBeanApusConstructionWorkforce" value="Construction Workforce:"/>
+				<h:panelGroup>
+					<ui:param name="_collection" value="#{apusBean.apus.constructionWorkforce}"/>
+					<h:dataTable id="apusBeanApusConstructionWorkforce" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Code"/>
+							</f:facet>
+							<h:link outcome="/admin/constructionWorkforce/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="_itemCode" value="#{_item.code}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="constructionWorkforceBeanAddCode" value="#{constructionWorkforceBean.add.code}"/>
+								<h:message for="constructionWorkforceBeanAddCode" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Name"/>
+							</f:facet>
+							<h:link outcome="/admin/constructionWorkforce/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="_itemName" value="#{_item.name}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="constructionWorkforceBeanAddName" value="#{constructionWorkforceBean.add.name}"/>
+								<h:message for="constructionWorkforceBeanAddName" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column footerClass="remove-column" headerClass="remove-column">
+							<h:commandLink action="#{_collection.remove(_item)}" styleClass="remove-button"/>
+							<f:facet name="footer">
+								<h:commandLink action="#{_collection.add(constructionWorkforceBean.added)}" id="apusBeanApusConstructionWorkforceAdd" styleClass="add-button">
+									<f:setPropertyActionListener target="#{constructionWorkforceBean.add.apus}" value="#{apusBean.apus}"/>
+								</h:commandLink>
+							</f:facet>
+						</h:column>
+					</h:dataTable>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="apusBeanApusConstructionEquipments" value="Construction Equipments:"/>
+				<h:panelGroup>
+					<ui:param name="_collection" value="#{apusBean.apus.constructionEquipments}"/>
+					<h:dataTable id="apusBeanApusConstructionEquipments" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Code"/>
+							</f:facet>
+							<h:link outcome="/admin/constructionEquipments/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="_itemCode" value="#{_item.code}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="constructionEquipmentsBeanAddCode" value="#{constructionEquipmentsBean.add.code}"/>
+								<h:message for="constructionEquipmentsBeanAddCode" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Name"/>
+							</f:facet>
+							<h:link outcome="/admin/constructionEquipments/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="_itemName" value="#{_item.name}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="constructionEquipmentsBeanAddName" value="#{constructionEquipmentsBean.add.name}"/>
+								<h:message for="constructionEquipmentsBeanAddName" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column footerClass="remove-column" headerClass="remove-column">
+							<h:commandLink action="#{_collection.remove(_item)}" styleClass="remove-button"/>
+							<f:facet name="footer">
+								<h:commandLink action="#{_collection.add(constructionEquipmentsBean.added)}" id="apusBeanApusConstructionEquipmentsAdd" styleClass="add-button">
+									<f:setPropertyActionListener target="#{constructionEquipmentsBean.add.apus}" value="#{apusBean.apus}"/>
+								</h:commandLink>
+							</f:facet>
+						</h:column>
+					</h:dataTable>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="apusBeanApusConstructionTransports" value="Construction Transports:"/>
+				<h:panelGroup>
+					<ui:param name="_collection" value="#{apusBean.apus.constructionTransports}"/>
+					<h:dataTable id="apusBeanApusConstructionTransports" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Code"/>
+							</f:facet>
+							<h:link outcome="/admin/constructionTransports/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="_itemCode" value="#{_item.code}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="constructionTransportsBeanAddCode" value="#{constructionTransportsBean.add.code}"/>
+								<h:message for="constructionTransportsBeanAddCode" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Name"/>
+							</f:facet>
+							<h:link outcome="/admin/constructionTransports/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="_itemName" value="#{_item.name}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="constructionTransportsBeanAddName" value="#{constructionTransportsBean.add.name}"/>
+								<h:message for="constructionTransportsBeanAddName" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column footerClass="remove-column" headerClass="remove-column">
+							<h:commandLink action="#{_collection.remove(_item)}" styleClass="remove-button"/>
+							<f:facet name="footer">
+								<h:commandLink action="#{_collection.add(constructionTransportsBean.added)}" id="apusBeanApusConstructionTransportsAdd" styleClass="add-button">
+									<f:setPropertyActionListener target="#{constructionTransportsBean.add.apus}" value="#{apusBean.apus}"/>
+								</h:commandLink>
+							</f:facet>
+						</h:column>
+					</h:dataTable>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="apusBeanApusMeasurementUnits" value="Measurement Units:"/>
+				<h:panelGroup>
+					<h:selectOneMenu converter="#{measurementUnitsBean.converter}" id="apusBeanApusMeasurementUnits" value="#{apusBean.apus.measurementUnits}">
+						<f:selectItem/>
+						<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{measurementUnitsBean.all}" var="_item"/>
+					</h:selectOneMenu>
+					<h:message for="apusBeanApusMeasurementUnits" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="apusBeanApusConstructionActivities" value="Construction Activities:"/>
+				<h:panelGroup>
+					<h:selectOneMenu converter="#{constructionActivitiesBean.converter}" id="apusBeanApusConstructionActivities" value="#{apusBean.apus.constructionActivities}">
+						<f:selectItem/>
+						<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{constructionActivitiesBean.all}" var="_item"/>
+					</h:selectOneMenu>
+					<h:message for="apusBeanApusConstructionActivities" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+			</h:panelGrid>
+
+			<div class="buttons">
+				<h:commandLink value="Save" action='#{apusBean.update}' styleClass="btn btn-primary"/>
+				<c:choose>
+					<c:when test='#{!empty apusBean.id}'>
+						<h:link value="Cancel" outcome="view" styleClass="btn btn-primary">
+							<f:param name="id" value='#{apusBean.id}'/>
+						</h:link>
+						<h:commandLink value="Delete" action='#{apusBean.delete}' styleClass="btn btn-primary"/>
+					</c:when>
+					<c:otherwise>
+						<h:link value="Cancel" outcome="search" styleClass="btn btn-primary"/>
+					</c:otherwise>
+				</c:choose>
+			</div>
+		</h:form>
+	</ui:define>
+
+</ui:composition>
