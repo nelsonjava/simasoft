@@ -1,3 +1,31 @@
-";"
-String;String;Double;ConstructionEquipments;
+";";;;
+String;String;Double;ConstructionEquipments
 code;name;rate;
+1;Herramienta (10%m.o. );;
+2;Andamios ;;
+3;Andamios tubulares;;
+61;"Angulo L2"" ";;
+62;Formaleta ;;
+63;Cinta y jalones;;
+100;Vibradores para concreto;;
+105;Vibrocompactadores;;
+106;Rana;;
+108;Elevadores ;;
+201;Pulidora;;
+202;Pulidora ;;
+203;Colilladora;;
+204;Grapadora;;
+205;compresor de un martillo;;
+206;Teodolito;;
+207;Nivel de Precisi¢n;;
+208;Carrotanque1;;
+209;Compresor de 2 martillos;;
+210;Compactador Vibratorio;;
+211;Finisher;;
+212;Irrigador de Asfalto;;
+213;Motoniveladora;;
+214;Retroexcavadora;;
+215;Vibrocompactador Autopr;;
+216;Volqueta de 6 M3;;
+217;Carrotanque2;;
+218;Compactador de Llanta;;

@@ -1502,9 +1502,9 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Code>_name</a:Code>
 <a:CreationDate>1490899117</a:CreationDate>
 <a:Creator>admin</a:Creator>
-<a:ModificationDate>1491360476</a:ModificationDate>
-<a:Modifier>Nelson Fernandez</a:Modifier>
-<a:DataType>*String</a:DataType>
+<a:ModificationDate>1491842634</a:ModificationDate>
+<a:Modifier>admin</a:Modifier>
+<a:DataType>*String*</a:DataType>
 <a:Attribute.Visibility>-</a:Attribute.Visibility>
 </o:Attribute>
 </c:Attributes>
@@ -1547,9 +1547,9 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Code>rate</a:Code>
 <a:CreationDate>1490902549</a:CreationDate>
 <a:Creator>admin</a:Creator>
-<a:ModificationDate>1490902675</a:ModificationDate>
+<a:ModificationDate>1491853402</a:ModificationDate>
 <a:Modifier>admin</a:Modifier>
-<a:DataType>Double</a:DataType>
+<a:DataType>double</a:DataType>
 <a:Attribute.Visibility>-</a:Attribute.Visibility>
 </o:Attribute>
 </c:Attributes>
@@ -1581,9 +1581,9 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Code>_name</a:Code>
 <a:CreationDate>1491782123</a:CreationDate>
 <a:Creator>Nelson Fernandez</a:Creator>
-<a:ModificationDate>1491782123</a:ModificationDate>
-<a:Modifier>Nelson Fernandez</a:Modifier>
-<a:DataType>*String</a:DataType>
+<a:ModificationDate>1491842600</a:ModificationDate>
+<a:Modifier>admin</a:Modifier>
+<a:DataType>*String*</a:DataType>
 <a:Attribute.Visibility>-</a:Attribute.Visibility>
 </o:Attribute>
 <o:Attribute Id="o29">
@@ -1592,9 +1592,9 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Code>price</a:Code>
 <a:CreationDate>1491782123</a:CreationDate>
 <a:Creator>Nelson Fernandez</a:Creator>
-<a:ModificationDate>1491782123</a:ModificationDate>
-<a:Modifier>Nelson Fernandez</a:Modifier>
-<a:DataType>Double</a:DataType>
+<a:ModificationDate>1491842600</a:ModificationDate>
+<a:Modifier>admin</a:Modifier>
+<a:DataType>double</a:DataType>
 <a:Attribute.Visibility>-</a:Attribute.Visibility>
 </o:Attribute>
 </c:Attributes>
@@ -1626,9 +1626,9 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Code>_name</a:Code>
 <a:CreationDate>1491782123</a:CreationDate>
 <a:Creator>Nelson Fernandez</a:Creator>
-<a:ModificationDate>1491782123</a:ModificationDate>
-<a:Modifier>Nelson Fernandez</a:Modifier>
-<a:DataType>*String</a:DataType>
+<a:ModificationDate>1491842574</a:ModificationDate>
+<a:Modifier>admin</a:Modifier>
+<a:DataType>*String*</a:DataType>
 <a:Attribute.Visibility>-</a:Attribute.Visibility>
 </o:Attribute>
 </c:Attributes>
@@ -1660,9 +1660,9 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Code>_name</a:Code>
 <a:CreationDate>1491782159</a:CreationDate>
 <a:Creator>Nelson Fernandez</a:Creator>
-<a:ModificationDate>1491782159</a:ModificationDate>
-<a:Modifier>Nelson Fernandez</a:Modifier>
-<a:DataType>*String</a:DataType>
+<a:ModificationDate>1491842584</a:ModificationDate>
+<a:Modifier>admin</a:Modifier>
+<a:DataType>*String*</a:DataType>
 <a:Attribute.Visibility>-</a:Attribute.Visibility>
 </o:Attribute>
 </c:Attributes>
@@ -1694,9 +1694,9 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Code>_name</a:Code>
 <a:CreationDate>1491782159</a:CreationDate>
 <a:Creator>Nelson Fernandez</a:Creator>
-<a:ModificationDate>1491782159</a:ModificationDate>
-<a:Modifier>Nelson Fernandez</a:Modifier>
-<a:DataType>*String</a:DataType>
+<a:ModificationDate>1491842619</a:ModificationDate>
+<a:Modifier>admin</a:Modifier>
+<a:DataType>*String*</a:DataType>
 <a:Attribute.Visibility>-</a:Attribute.Visibility>
 </o:Attribute>
 <o:Attribute Id="o36">
@@ -1705,9 +1705,9 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Code>rate</a:Code>
 <a:CreationDate>1491782159</a:CreationDate>
 <a:Creator>Nelson Fernandez</a:Creator>
-<a:ModificationDate>1491782159</a:ModificationDate>
-<a:Modifier>Nelson Fernandez</a:Modifier>
-<a:DataType>Double</a:DataType>
+<a:ModificationDate>1491842619</a:ModificationDate>
+<a:Modifier>admin</a:Modifier>
+<a:DataType>double</a:DataType>
 <a:Attribute.Visibility>-</a:Attribute.Visibility>
 </o:Attribute>
 </c:Attributes>
@@ -1739,9 +1739,9 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Code>_name</a:Code>
 <a:CreationDate>1491782218</a:CreationDate>
 <a:Creator>Nelson Fernandez</a:Creator>
-<a:ModificationDate>1491782218</a:ModificationDate>
-<a:Modifier>Nelson Fernandez</a:Modifier>
-<a:DataType>*String</a:DataType>
+<a:ModificationDate>1491842644</a:ModificationDate>
+<a:Modifier>admin</a:Modifier>
+<a:DataType>*String*</a:DataType>
 <a:Attribute.Visibility>-</a:Attribute.Visibility>
 </o:Attribute>
 </c:Attributes>
@@ -1784,9 +1784,9 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Code>basic</a:Code>
 <a:CreationDate>1491782218</a:CreationDate>
 <a:Creator>Nelson Fernandez</a:Creator>
-<a:ModificationDate>1491782218</a:ModificationDate>
-<a:Modifier>Nelson Fernandez</a:Modifier>
-<a:DataType>Double</a:DataType>
+<a:ModificationDate>1491853391</a:ModificationDate>
+<a:Modifier>admin</a:Modifier>
+<a:DataType>double</a:DataType>
 <a:Attribute.Visibility>-</a:Attribute.Visibility>
 </o:Attribute>
 <o:Attribute Id="o42">
@@ -1795,9 +1795,9 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Code>benefits</a:Code>
 <a:CreationDate>1491782218</a:CreationDate>
 <a:Creator>Nelson Fernandez</a:Creator>
-<a:ModificationDate>1491782218</a:ModificationDate>
-<a:Modifier>Nelson Fernandez</a:Modifier>
-<a:DataType>Double</a:DataType>
+<a:ModificationDate>1491853391</a:ModificationDate>
+<a:Modifier>admin</a:Modifier>
+<a:DataType>double</a:DataType>
 <a:Attribute.Visibility>-</a:Attribute.Visibility>
 </o:Attribute>
 <o:Attribute Id="o43">
@@ -1806,9 +1806,9 @@ LABL 0 Arial,8,N</a:FontList>
 <a:Code>salary</a:Code>
 <a:CreationDate>1491782218</a:CreationDate>
 <a:Creator>Nelson Fernandez</a:Creator>
-<a:ModificationDate>1491782218</a:ModificationDate>
-<a:Modifier>Nelson Fernandez</a:Modifier>
-<a:DataType>Double</a:DataType>
+<a:ModificationDate>1491853391</a:ModificationDate>
+<a:Modifier>admin</a:Modifier>
+<a:DataType>double</a:DataType>
 <a:Attribute.Visibility>-</a:Attribute.Visibility>
 </o:Attribute>
 </c:Attributes>

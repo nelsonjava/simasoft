@@ -1,3 +1,19 @@
-";"
-String;String;Double;Double;Double;ConstructionWorkforce;
+";";;;;;
+String;String;Double;Double;Double;ConstructionWorkforce
 code;name;basic;benefits;salary;
+2000;Ayudante;;;;
+2001;Oficial;;;;
+2002;Cuadrilla A;;;;
+2003;Cuadrilla O-A;;;;
+2004;Cuadrilla M-O-A;;;;
+2005;Operario equipo semipesado;;;;
+2006;Ayudante Equipo;;;;
+2007;Machinero;;;;
+2008;Maestro;;;;
+2009;2 Cadeneros;;;;
+2010;1 Topografo;;;;
+2011;5 Obreros;;;;
+2012;3 Obreros;;;;
+2013;4 Obreros;;;;
+2014;6 Obreros;;;;
+2015;9 Obreros;;;;

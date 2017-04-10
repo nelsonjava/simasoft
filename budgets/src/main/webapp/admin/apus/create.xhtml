@@ -62,7 +62,7 @@
                                 <h:panelGroup>
                                          <h:selectOneMenu converter="#{measurementUnitsBean.converter}" id="apusBeanApusMeasurementUnits" value="#{apusBean.apus.measurementUnits}">
                                                 <f:selectItem/>
-                                                <f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{measurementUnitsBean.all}" var="_item"/>
+                                                <f:selectItems itemLabel="#{forgeview:display(_item.name)}" itemValue="#{_item}" value="#{measurementUnitsBean.all}" var="_item"/>
                                         </h:selectOneMenu>
                                         <h:message for="apusBeanApus" styleClass="error"/>
                                 </h:panelGroup>
@@ -72,7 +72,7 @@
                                 <h:panelGroup>
                                          <h:selectOneMenu converter="#{constructionActivitiesBean.converter}" id="apusBeanApusConstructionActivities" value="#{apusBean.apus.constructionActivities}">
                                                 <f:selectItem/>
-                                                <f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{constructionActivitiesBean.all}" var="_item"/>
+                                                <f:selectItems itemLabel="#{forgeview:display(_item.name)}" itemValue="#{_item}" value="#{constructionActivitiesBean.all}" var="_item"/>
                                         </h:selectOneMenu>
                                         <h:message for="apusBeanApus" styleClass="error"/>
                                 </h:panelGroup>

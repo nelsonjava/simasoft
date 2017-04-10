@@ -66,7 +66,7 @@ public class ConstructionMaterials implements Serializable {
 	private String name;
 
 	@Column(nullable = true, unique = false)
-	@NumericField
+	// @NumericField
 	// @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
 	private Double price;
 
