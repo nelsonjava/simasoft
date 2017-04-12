@@ -1,0 +1,5 @@
+orden;sections;trd;From;FromProperty;FromValue;To;ToProperty;ToValue;Name;Cardinalities
+1.0;SC;N.A;DocumentalsUnits;name;MATRIZ DE SERVICIOS COMPLEMENTARIOS;OriginalOrders;subject;2016-F-SC-01-MATRIZ DE SERVICIOS COMPLEMENTARIOS;;Uno a Muchos Bidirecccional No.5
+2.0;SC;N.A;DocumentalsUnits;name;SOLICITUD DEL SERVICIO DE FOTOCOPIADO E IMPRESIÓN;OriginalOrders;subject;2016-L-SC-01-SOLICITUD DEL SERVICIO DE FOTOCOPIADO E IMPRESIÓN;;Uno a Muchos Bidirecccional No.5
+3.0;SC;5 AÑOS;DocumentalsUnits;name;SC - CORRESPONDENCIA ENVIADA;OriginalOrders;subject;2016-N.A-SC - CORRESPONDENCIA ENVIADA;;Uno a Muchos Bidirecccional No.5
+4.0;SC;5 AÑOS;DocumentalsUnits;name;SC - CIRCULARES;OriginalOrders;subject;2016-N.A-SC - CIRCULARES;;Uno a Muchos Bidirecccional No.5

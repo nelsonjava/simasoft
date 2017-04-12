@@ -1,0 +1,12 @@
+orden;sections;trd;From;FromProperty;FromValue;To;ToProperty;ToValue;Name;Cardinalities
+1.0;SG;N.A;DocumentalsUnits;name;PLAN DE MANTENIMIENTO;OriginalOrders;subject;2016-F-SG-01-PLAN DE MANTENIMIENTO;;Uno a Muchos Bidirecccional No.5
+2.0;SG;N.A;DocumentalsUnits;name;PLAN CONTROL DE PLAGAS;OriginalOrders;subject;2016-F-SG-02-PLAN CONTROL DE PLAGAS;;Uno a Muchos Bidirecccional No.5
+3.0;SG;N.A;DocumentalsUnits;name;SOLICITUD DE MANTENIMIENTO CORRECTIVO;OriginalOrders;subject;2016-F-SG-03-SOLICITUD DE MANTENIMIENTO CORRECTIVO;;Uno a Muchos Bidirecccional No.5
+4.0;SG;N.A;DocumentalsUnits;name;PLANILLA DE ACTIVIDADES DE MANTENIMIENTO;OriginalOrders;subject;2016-F-SG-04-PLANILLA DE ACTIVIDADES DE MANTENIMIENTO;;Uno a Muchos Bidirecccional No.5
+5.0;SG;2 AÑOS;DocumentalsUnits;name;HOJA DE VIDA DE EQUIPOS;OriginalOrders;subject;2016-F-SG-05-HOJA DE VIDA DE EQUIPOS;;Uno a Muchos Bidirecccional No.5
+6.0;SG;N.A;DocumentalsUnits;name;CONTROL DE ASEO SEMANAL;OriginalOrders;subject;2016-L-SG-01-CONTROL DE ASEO SEMANAL;;Uno a Muchos Bidirecccional No.5
+7.0;SG;N.A;DocumentalsUnits;name;CONTROL DE MANTENIMIENTO DE LA PISCINA;OriginalOrders;subject;2016-L-SG-02-CONTROL DE MANTENIMIENTO DE LA PISCINA;;Uno a Muchos Bidirecccional No.5
+8.0;SG;N.A;DocumentalsUnits;name;EVALUACIÓN DEL SERVICIO DE ASEO Y MANTENIMIENTO;OriginalOrders;subject;2016-L-SG-03-EVALUACIÓN DEL SERVICIO DE ASEO Y MANTENIMIENTO;;Uno a Muchos Bidirecccional No.5
+9.0;SG;N.A;DocumentalsUnits;name;REPORTE DE  DAÑOS;OriginalOrders;subject;2016-L-SG-04-REPORTE DE  DAÑOS;;Uno a Muchos Bidirecccional No.5
+10.0;SG;5 AÑOS;DocumentalsUnits;name;SG - CORRESPONDENCIA ENVIADA;OriginalOrders;subject;2016-N.A-SG - CORRESPONDENCIA ENVIADA;;Uno a Muchos Bidirecccional No.5
+11.0;SG;5 AÑOS;DocumentalsUnits;name;SG - CIRCULARES;OriginalOrders;subject;2016-N.A-SG - CIRCULARES;;Uno a Muchos Bidirecccional No.5

@@ -1,0 +1,31 @@
+orden;sections;trd;From;FromProperty;FromValue;To;ToProperty;ToValue;Name;Cardinalities
+1.0;GT;N.A;DocumentalsUnits;name;SOLICITUD DE PERSONAL;OriginalOrders;subject;2016-F-GT-01-SOLICITUD DE PERSONAL;;Uno a Muchos Bidirecccional No.5
+2.0;GT;100 AÑOS;DocumentalsUnits;name;FORMATO DE ENTREVISTA;OriginalOrders;subject;2016-F-GT-02-FORMATO DE ENTREVISTA;;Uno a Muchos Bidirecccional No.5
+3.0;GT;100 AÑOS;DocumentalsUnits;name;HOJA DE VIDA INSTITUCIONAL;OriginalOrders;subject;2016-F-GT-04-HOJA DE VIDA INSTITUCIONAL;;Uno a Muchos Bidirecccional No.5
+4.0;GT;100 AÑOS;DocumentalsUnits;name;REGISTRO DE INDUCCIÓN;OriginalOrders;subject;2016-F-GT-05-REGISTRO DE INDUCCIÓN;;Uno a Muchos Bidirecccional No.5
+5.0;GT;5 AÑOS;DocumentalsUnits;name;EVALUACIÓN DE DESEMPEÑO;OriginalOrders;subject;2016-F-GT-06-EVALUACIÓN DE DESEMPEÑO;;Uno a Muchos Bidirecccional No.5
+6.0;GT;5 AÑOS;DocumentalsUnits;name;ENCUESTA DE CLIMA ORGANIZACIONAL;OriginalOrders;subject;2016-F-GT-09-ENCUESTA DE CLIMA ORGANIZACIONAL;;Uno a Muchos Bidirecccional No.5
+7.0;GT;100 AÑOS;DocumentalsUnits;name;DECLARACIÓN DE COMPETENCIA;OriginalOrders;subject;2016-F-GT-10-DECLARACIÓN DE COMPETENCIA;;Uno a Muchos Bidirecccional No.5
+8.0;GT;N.A;DocumentalsUnits;name;PLAN DE FORMACIÓN;OriginalOrders;subject;2016-F-GT-11-PLAN DE FORMACIÓN;;Uno a Muchos Bidirecccional No.5
+9.0;GT;N.A;DocumentalsUnits;name;SOLICITUD DE CAPACITACIÓN;OriginalOrders;subject;2016-F-GT-12-SOLICITUD DE CAPACITACIÓN;;Uno a Muchos Bidirecccional No.5
+10.0;GT;N.A;DocumentalsUnits;name;PLAN DE BIENESTAR;OriginalOrders;subject;2016-F-GT-13-PLAN DE BIENESTAR;;Uno a Muchos Bidirecccional No.5
+11.0;GT;N.A;DocumentalsUnits;name;SOLICITUD DE PERMISOS;OriginalOrders;subject;2016-F-GT-14-SOLICITUD DE PERMISOS;;Uno a Muchos Bidirecccional No.5
+12.0;GT;N.A;DocumentalsUnits;name;SEGUIMIENTO Y ASISTENCIA A CAPACITACIÓN;OriginalOrders;subject;2016-F-GT-15-SEGUIMIENTO Y ASISTENCIA A CAPACITACIÓN;;Uno a Muchos Bidirecccional No.5
+13.0;GT;100 AÑOS;DocumentalsUnits;name;ACTA DE DESCARGOS, CONCILIACIÓN O COMPROMISO;OriginalOrders;subject;2016-F-GT-16-ACTA DE DESCARGOS, CONCILIACIÓN O COMPROMISO;;Uno a Muchos Bidirecccional No.5
+14.0;GT;100 AÑOS;DocumentalsUnits;name;CONTRATO LABORAL;OriginalOrders;subject;2016-F-GT-04*-CONTRATO LABORAL;;Uno a Muchos Bidirecccional No.5
+15.0;GT;100 AÑOS;DocumentalsUnits;name;INGRESO DE PERSONAL;OriginalOrders;subject;2016-F-GT-05*-INGRESO DE PERSONAL;;Uno a Muchos Bidirecccional No.5
+16.0;GT;5 AÑOS;DocumentalsUnits;name;REGISTRO DE NOVEDADES;OriginalOrders;subject;2016-F-GT-08*-REGISTRO DE NOVEDADES;;Uno a Muchos Bidirecccional No.5
+17.0;GT;100 AÑOS;DocumentalsUnits;name;RETIRO DE PERSONAL;OriginalOrders;subject;2016-F-GT-13*-RETIRO DE PERSONAL;;Uno a Muchos Bidirecccional No.5
+18.0;GT;5 AÑOS;DocumentalsUnits;name;NÓMINA MENSUAL;OriginalOrders;subject;2016-F-GT15*-NÓMINA MENSUAL;;Uno a Muchos Bidirecccional No.5
+19.0;GT;100 AÑOS;DocumentalsUnits;name;CONTRATO INDIVIDUAL DE TRABAJO PARA PERSONAL DOCENTE AÑO ESCOLAR;OriginalOrders;subject;2016-F-GT19*-CONTRATO INDIVIDUAL DE TRABAJO PARA PERSONAL DOCENTE AÑO ESCOLAR;;Uno a Muchos Bidirecccional No.5
+20.0;GT;INDEFINIDO;DocumentalsUnits;name;PROTOCOLIZACIÓN DEL PERSONAL DOCENTE;OriginalOrders;subject;2016-N.A-PROTOCOLIZACIÓN DEL PERSONAL DOCENTE;;Uno a Muchos Bidirecccional No.5
+21.0;GT;100 AÑOS;DocumentalsUnits;name;PAZ Y SALVO GENERAL;OriginalOrders;subject;2016-L-GT-02-PAZ Y SALVO GENERAL;;Uno a Muchos Bidirecccional No.5
+22.0;GT;N.A;DocumentalsUnits;name;EVALUACIÓN DE DOCENTES(PREESCOLAR Y PRIMERO);OriginalOrders;subject;2016-L-GT-03-EVALUACIÓN DE DOCENTES(PREESCOLAR Y PRIMERO);;Uno a Muchos Bidirecccional No.5
+23.0;GT;5 AÑOS;DocumentalsUnits;name;ACTA DE REUNIÓN DE COPASST;OriginalOrders;subject;2016-N.A-ACTA DE REUNIÓN DE COPASST;;Uno a Muchos Bidirecccional No.5
+24.0;GT;5 AÑOS;DocumentalsUnits;name;ACTAS DE COMITÉ DE CONVIVENCIA LABORAL;OriginalOrders;subject;2016-N.A-ACTAS DE COMITÉ DE CONVIVENCIA LABORAL;;Uno a Muchos Bidirecccional No.5
+25.0;GT;20 AÑOS;DocumentalsUnits;name;DOCUMENTOS DEL SISTEMA DE GESTIÓN DE LA SEGURIDAD Y SALUD EN EL TRABAJO;OriginalOrders;subject;2016-N.A-DOCUMENTOS DEL SISTEMA DE GESTIÓN DE LA SEGURIDAD Y SALUD EN EL TRABAJO;;Uno a Muchos Bidirecccional No.5
+26.0;GT;N.A;DocumentalsUnits;name;PLAN DE EMERGENCIAS;OriginalOrders;subject;2016-N.A-PLAN DE EMERGENCIAS;;Uno a Muchos Bidirecccional No.5
+27.0;GT;N.A;DocumentalsUnits;name;PLAN DE MEJORAMIENTO ENCUESTA DE CLIMA ORGANIZACIONAL.;OriginalOrders;subject;2016-N.A-PLAN DE MEJORAMIENTO ENCUESTA DE CLIMA ORGANIZACIONAL.;;Uno a Muchos Bidirecccional No.5
+28.0;GT;100 AÑOS;DocumentalsUnits;name;LIQUIDACIONES DE PERSONAL;OriginalOrders;subject;2016-N.A-LIQUIDACIONES DE PERSONAL;;Uno a Muchos Bidirecccional No.5
+29.0;GT;5 AÑOS;DocumentalsUnits;name;GT - CORRESPONDENCIA ENVIADA;OriginalOrders;subject;2016-N.A-GT - CORRESPONDENCIA ENVIADA;;Uno a Muchos Bidirecccional No.5
+30.0;GT;5 AÑOS;DocumentalsUnits;name;GT - CIRCULARES;OriginalOrders;subject;2016-N.A-GT - CIRCULARES;;Uno a Muchos Bidirecccional No.5

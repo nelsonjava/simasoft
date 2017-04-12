@@ -1,0 +1,6 @@
+From;FromProperty;FromValue;To;ToProperty;ToValue;Name;Cardinalities
+DocumentalsUnits;name;HOJA DE MATRÍCULA;OriginalOrders;subject;2016-F-AM-04-HOJA DE MATRÍCULA;;Uno a Muchos Bidirecccional No.5
+DocumentalsUnits;name;DEVOLUCIÓN DE DOCUMENTOS;OriginalOrders;subject;2016-F-AM-05-DEVOLUCIÓN DE DOCUMENTOS;;Uno a Muchos Bidirecccional No.5
+DocumentalsUnits;name;AUTORIZACIÓN RETIRO DE ESTUDIANTES;OriginalOrders;subject;2016-F-AM-06-AUTORIZACIÓN RETIRO DE ESTUDIANTES;;Uno a Muchos Bidirecccional No.5
+DocumentalsUnits;name;AM - CORRESPONDENCIA ENVIADA;OriginalOrders;subject;2016-N.A-AM - CORRESPONDENCIA ENVIADA;;Uno a Muchos Bidirecccional No.5
+DocumentalsUnits;name;AM - CIRCULARES;OriginalOrders;subject;2016-N.A-AM - CIRCULARES;;Uno a Muchos Bidirecccional No.5

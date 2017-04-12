@@ -1,0 +1,15 @@
+orden;sections;trd;From;FromProperty;FromValue;To;ToProperty;ToValue;Name;Cardinalities
+1.0;AM;N.A;DocumentalsUnits;name;FORMULARIO DE INSCRIPCIÓN;OriginalOrders;subject;2016-F-AM-01-FORMULARIO DE INSCRIPCIÓN;;Uno a Muchos Bidirecccional No.5
+2.0;AM;N.A;DocumentalsUnits;name;REGISTRO DE RESULTADOS DE ADMISIÓN;OriginalOrders;subject;2016-F-AM-02-REGISTRO DE RESULTADOS DE ADMISIÓN;;Uno a Muchos Bidirecccional No.5
+3.0;AM;50 AÑOS;DocumentalsUnits;name;HOJA DE MATRÍCULA;OriginalOrders;subject;2016-F-AM-04-HOJA DE MATRÍCULA;;Uno a Muchos Bidirecccional No.5
+4.0;AM;5 AÑOS;DocumentalsUnits;name;DEVOLUCIÓN DE DOCUMENTOS;OriginalOrders;subject;2016-F-AM-05-DEVOLUCIÓN DE DOCUMENTOS;;Uno a Muchos Bidirecccional No.5
+5.0;AM;5 AÑOS;DocumentalsUnits;name;AUTORIZACIÓN RETIRO DE ESTUDIANTES;OriginalOrders;subject;2016-F-AM-06-AUTORIZACIÓN RETIRO DE ESTUDIANTES;;Uno a Muchos Bidirecccional No.5
+6.0;AM;N.A;DocumentalsUnits;name;LISTA DE CHEQUEO PARA RECEPCIÓN DE DOCUMENTOS PARA LA MATRICULA;OriginalOrders;subject;2016-L-AM-01-LISTA DE CHEQUEO PARA RECEPCIÓN DE DOCUMENTOS PARA LA MATRICULA;;Uno a Muchos Bidirecccional No.5
+7.0;AM;N.A;DocumentalsUnits;name;CONTRATO DE PRESTACIÓN DEL SERVICIO EDUCATIVO;OriginalOrders;subject;2016-N.A-CONTRATO DE PRESTACIÓN DEL SERVICIO EDUCATIVO;;Uno a Muchos Bidirecccional No.5
+8.0;AM;N.A;DocumentalsUnits;name;LISTADO DE ESTUDIANTES MATRICULADOS;OriginalOrders;subject;2016-N.A-LISTADO DE ESTUDIANTES MATRICULADOS;;Uno a Muchos Bidirecccional No.5
+9.0;AM;N.A;DocumentalsUnits;name;LISTADO DE ASPIRANTES INSCRITOS;OriginalOrders;subject;2016-N.A-LISTADO DE ASPIRANTES INSCRITOS;;Uno a Muchos Bidirecccional No.5
+10.0;AM;N.A;DocumentalsUnits;name;LISTADOS DE ASPIRANTES ADMITIDOS;OriginalOrders;subject;2016-N.A-LISTADOS DE ASPIRANTES ADMITIDOS;;Uno a Muchos Bidirecccional No.5
+11.0;AM;N.A;DocumentalsUnits;name;PAZ Y SALVO ESTUDIANTES;OriginalOrders;subject;2016-N.A-PAZ Y SALVO ESTUDIANTES;;Uno a Muchos Bidirecccional No.5
+12.0;AM;N.A;DocumentalsUnits;name;LIBRO DE ACTAS DE GRADO;OriginalOrders;subject;2016-N.A-LIBRO DE ACTAS DE GRADO;;Uno a Muchos Bidirecccional No.5
+13.0;AM;5 AÑOS;DocumentalsUnits;name;AM - CORRESPONDENCIA ENVIADA;OriginalOrders;subject;2016-N.A-AM - CORRESPONDENCIA ENVIADA;;Uno a Muchos Bidirecccional No.5
+14.0;AM;5 AÑOS;DocumentalsUnits;name;AM - CIRCULARES;OriginalOrders;subject;2016-N.A-AM - CIRCULARES;;Uno a Muchos Bidirecccional No.5

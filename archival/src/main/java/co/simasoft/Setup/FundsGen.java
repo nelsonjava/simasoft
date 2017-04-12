@@ -54,6 +54,7 @@ public class FundsGen extends FileTxt {
     FileTxt f2 = new FileTxt();
     FileTxt f3 = new FileTxt();
     FileTxt f4 = new FileTxt();
+    FileTxt f5 = new FileTxt();
 
     public Map<String, String> trd(Set<TrdSeries> trdSeries,String year) {
 
@@ -128,13 +129,16 @@ public class FundsGen extends FileTxt {
 
         for (Sections sections : funds.getSections()){
 
+            line("Orden;YEAR;AREA;NOMBRE DEL DOCUMENTO;FIS;MAG;ESTADO;FOLIOS;TRD;PROCESO;F.INGRESO;ACCESO;F.INICIAL;F.FINAL;ALMACENAMIENTO;NOMBRE;FIRMA");
+
             clearFileTxt();
             f3.clearFileTxt();
 
             f4.clearFileTxt();
-            f2.line("subject;code;entryDate;startDate;finalDate;folios;quantity;located;mail;notes;fileName;fileType;filedir");
+            f4.line("orden;sections;trd;subject;code;entryDate;startDate;finalDate;folios;quantity;located;mail;notes;fileName;fileType;filedir");
 
-            line("Orden;YEAR;AREA;NOMBRE DEL DOCUMENTO;FIS;MAG;ESTADO;FOLIOS;TRD;PROCESO;F.INGRESO;ACCESO;F.INICIAL;F.FINAL;ALMACENAMIENTO;NOMBRE;FIRMA");
+            f5.clearFileTxt();
+            f5.line("orden;sections;trd;From;FromProperty;FromValue;To;ToProperty;ToValue;Name;Cardinalities");
 
             for (Series series : sections.getSeries()){
 
@@ -205,10 +209,15 @@ public class FundsGen extends FileTxt {
                      f1.line("  },");
 
                      f4.line(Double.toString(documentalsUnits.getOrden())+";"+
-                             sections.getCode()+";"+year+"-"+documentalsUnits.getCode()+"-"+documentalsUnits.getName()+";"+
+                             sections.getCode()+";"+central+";"+year+"-"+documentalsUnits.getCode()+"-"+documentalsUnits.getName()+";"+
                              year+";"+
-                             central+";"+
                              "entryDate;startDate;finalDate;folios;quantity;located;mail;notes;fileName;fileType;filedir");
+
+                     f5.line(Double.toString(documentalsUnits.getOrden())+";"+sections.getCode()+";"+central+";"+
+                             "DocumentalsUnits;name;"+documentalsUnits.getName()+";OriginalOrders;subject;"+
+                             year+"-"+documentalsUnits.getCode()+"-"+documentalsUnits.getName()+
+                             ";;Uno a Muchos Bidirecccional No.5");
+
 
                      f2.line("  {");
                      f2.line("    \"From\": \"DocumentalsUnits\",");
@@ -228,10 +237,10 @@ public class FundsGen extends FileTxt {
 
             } // Series
 
-            saveFile("\\docs", year+"-"+sections.getCode()+"-LMR"+".csv");
-            f3.saveFile("\\docs", year+"-"+sections.getCode()+"-rotulos"+".txt");
-            f4.saveFile("\\docs", year+"-"+sections.getCode()+"-OriginalOrders"+".csv");
-
+            saveFile("\\docs.zdata."+sections.getCode(), year+"-"+sections.getCode()+"-LMR"+".csv");
+            f3.saveFile("\\docs.zdata."+sections.getCode(), year+"-"+sections.getCode()+"-rotulos"+".txt");
+            f4.saveFile("\\docs.zdata."+sections.getCode(), year+"-"+sections.getCode()+"-OriginalOrders"+".csv");
+            f5.saveFile("\\docs.zdata."+sections.getCode(), year+"-"+sections.getCode()+"-DocumentalsUnitsR5OriginalOrders"+".csv");
 
         } // Sections
 
@@ -241,8 +250,8 @@ public class FundsGen extends FileTxt {
         f2.line("  ]");
         f2.line("}");
 
-        f1.saveFile("\\docs", "OriginalOrders-"+year+".json");
-        f2.saveFile("\\docs", "DocumentalsUnitsR5OriginalOrders-"+year+".json");
+        f1.saveFile("\\docs.data", "OriginalOrders-"+year+".json");
+        f2.saveFile("\\docs.data", "DocumentalsUnitsR5OriginalOrders-"+year+".json");
 
     }
     catch(Exception ioe) {

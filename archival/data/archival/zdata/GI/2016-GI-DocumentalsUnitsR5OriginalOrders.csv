@@ -1,0 +1,7 @@
+orden;sections;trd;From;FromProperty;FromValue;To;ToProperty;ToValue;Name;Cardinalities
+1.0;GI;2 AÑOS;DocumentalsUnits;name;RADICACIÓN Y DISTRIBUCIÓN DE CORRESPONDENCIA ENVIADA RECIBIDA;OriginalOrders;subject;2016-F-GI-01-RADICACIÓN Y DISTRIBUCIÓN DE CORRESPONDENCIA ENVIADA RECIBIDA;;Uno a Muchos Bidirecccional No.5
+2.0;GI;2 AÑOS;DocumentalsUnits;name;RADICACIÓN DE CORRESPONDENCIA ENVIADA ENVIADA;OriginalOrders;subject;2016-F-GI-02-RADICACIÓN DE CORRESPONDENCIA ENVIADA ENVIADA;;Uno a Muchos Bidirecccional No.5
+3.0;GI;2 AÑOS;DocumentalsUnits;name;ENTRADA DE DOCUMENTOS AL ARCHIVO CENTRAL;OriginalOrders;subject;2016-F-GI-04-ENTRADA DE DOCUMENTOS AL ARCHIVO CENTRAL;;Uno a Muchos Bidirecccional No.5
+4.0;GI;5 AÑOS;DocumentalsUnits;name;DEPURACIÓN DE ARCHIVO;OriginalOrders;subject;2016-F-GI-05-DEPURACIÓN DE ARCHIVO;;Uno a Muchos Bidirecccional No.5
+5.0;GI;5 AÑOS;DocumentalsUnits;name;GI - CORRESPONDENCIA ENVIADA;OriginalOrders;subject;2016-N.A-GI - CORRESPONDENCIA ENVIADA;;Uno a Muchos Bidirecccional No.5
+6.0;GI;5 AÑOS;DocumentalsUnits;name;GI - CIRCULARES;OriginalOrders;subject;2016-N.A-GI - CIRCULARES;;Uno a Muchos Bidirecccional No.5

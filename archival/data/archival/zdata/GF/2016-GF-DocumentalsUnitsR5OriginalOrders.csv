@@ -1,0 +1,11 @@
+orden;sections;trd;From;FromProperty;FromValue;To;ToProperty;ToValue;Name;Cardinalities
+7.0;GF;N.A;DocumentalsUnits;name;COMPROBANTES DE EGRESO;OriginalOrders;subject;2016-N.A-COMPROBANTES DE EGRESO;;Uno a Muchos Bidirecccional No.5
+8.0;GF;N.A;DocumentalsUnits;name;SOPORTES COMPROBANTES DE EGRESO;OriginalOrders;subject;2016-N.A-SOPORTES COMPROBANTES DE EGRESO;;Uno a Muchos Bidirecccional No.5
+9.0;GF;5 AÑOS;DocumentalsUnits;name;GF - CORRESPONDENCIA ENVIADA;OriginalOrders;subject;2016-N.A-GF - CORRESPONDENCIA ENVIADA;;Uno a Muchos Bidirecccional No.5
+10.0;GF;5 AÑOS;DocumentalsUnits;name;GF - CIRCULARES;OriginalOrders;subject;2016-N.A-GF - CIRCULARES;;Uno a Muchos Bidirecccional No.5
+1.0;GF;N.A;DocumentalsUnits;name;EJECUCIÓN PRESUPUESTAL;OriginalOrders;subject;2016-F-GF-01*-EJECUCIÓN PRESUPUESTAL;;Uno a Muchos Bidirecccional No.5
+2.0;GF;N.A;DocumentalsUnits;name;GF - REQUISICIÓN;OriginalOrders;subject;2016-F-GF-08*-GF - REQUISICIÓN;;Uno a Muchos Bidirecccional No.5
+3.0;GF;N.A;DocumentalsUnits;name;CARTERA ACTUALIZADA COLEGIOS;OriginalOrders;subject;2016-F-GF-17*-CARTERA ACTUALIZADA COLEGIOS;;Uno a Muchos Bidirecccional No.5
+4.0;GF;N.A;DocumentalsUnits;name;CONCILIACIÓN CUENTA MOROSOS;OriginalOrders;subject;2016-F-GF-18*-CONCILIACIÓN CUENTA MOROSOS;;Uno a Muchos Bidirecccional No.5
+5.0;GF;N.A;DocumentalsUnits;name;RESUMEN DE CARTERA MOROSA;OriginalOrders;subject;2016-F-GF-19*-RESUMEN DE CARTERA MOROSA;;Uno a Muchos Bidirecccional No.5
+6.0;GF;N.A;DocumentalsUnits;name;PLANILLA DIARIA DE VENTAS EN CAFETERÍA;OriginalOrders;subject;2016-L-GF-01-PLANILLA DIARIA DE VENTAS EN CAFETERÍA;;Uno a Muchos Bidirecccional No.5
