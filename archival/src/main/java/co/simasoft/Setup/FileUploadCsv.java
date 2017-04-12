@@ -6,6 +6,7 @@ import co.simasoft.utils.*;
 import co.simasoft.models.*;
 
 import java.util.*;
+import java.text.*;
 import java.util.Map.*;
 
 import java.io.BufferedReader;
@@ -38,10 +39,12 @@ public class FileUploadCsv {
     Integer i = 0;
     String entity = "";
     String line = "";
-    String cvsSplitBy = ";";
+    SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+    String cvsSplitBy = null;
 
     String[] types = new String[100];
     String[] fields = new String[100];
+    String[] data;
 
     @PersistenceContext(unitName = "archivalPU-JTA")
     private EntityManager em;
@@ -73,23 +76,32 @@ public class FileUploadCsv {
            br = new BufferedReader(new FileReader(filePath));
            while ((line = br.readLine()) != null) {
 
-              // use comma as separator
-              String[] data = line.split(cvsSplitBy);
-
               i++;
+              if (i==1){
+                  data = line.split("");
+                  cvsSplitBy = data[data.length-1];
+              }
+              else{
+                  data = line.split(cvsSplitBy);
+              }
+
               switch (i) {
                   case 1:
+                       f.line("cvsSplitBy="+cvsSplitBy);
+                       break;
+                  case 2:
                        entity = data[data.length-1];
                        types = data;
                        f.line("Entidad:"+entity);
                        break;
-                  case 2:
+                  case 3:
                        fields = data;
                        break;
                   default:
                        entitiesData(entity,fields,types,data,f,em);
                        break;
               }
+
            }
            f.saveFile("\\docs", entity+"Data.txt");
 
@@ -198,17 +210,20 @@ public class FileUploadCsv {
 
     } // Entities
 
-    public void FundsLife(String entity,String[] fields,String[] types,String[] data,FileTxt f,EntityManager em) {
+    public void FundsLife(String entity,String[] field,String[] types,String[] data,FileTxt f,EntityManager em) {
 
         FundsLife fundsLife = new FundsLife();
 
         for(Integer i=0;i<=data.length-1;i+=1){
 
-            f.line("("+types[i]+")"+fields[i]+"="+data[i]);
+            f.line("("+types[i]+")"+field[i]+"="+data[i]);
 
-            switch (fields[i]) {
+            switch (field[i]) {
                 case "name":
                      fundsLife.setName(data[i]);
+                     break;
+                case "isOpen":
+                     fundsLife.setIsOpen(Boolean.valueOf(data[i]));
                      break;
             }
 
@@ -219,15 +234,15 @@ public class FileUploadCsv {
 
     } // FundsLife
 
-    public void Funds(String entity,String[] fields,String[] types,String[] data,FileTxt f,EntityManager em) {
+    public void Funds(String entity,String[] field,String[] types,String[] data,FileTxt f,EntityManager em) {
 
         Funds funds = new Funds();
 
         for(Integer i=0;i<=data.length-1;i+=1){
 
-            f.line("("+types[i]+")"+fields[i]+"="+data[i]);
+            f.line("("+types[i]+")"+field[i]+"="+data[i]);
 
-            switch (fields[i]) {
+            switch (field[i]) {
                 case "name":
                      funds.setName(data[i]);
                      break;
@@ -243,15 +258,15 @@ public class FileUploadCsv {
 
     } // Funds
 
-    public void SectionsTypes(String entity,String[] fields,String[] types,String[] data,FileTxt f,EntityManager em) {
+    public void SectionsTypes(String entity,String[] field,String[] types,String[] data,FileTxt f,EntityManager em) {
 
         SectionsTypes sectionsTypes = new SectionsTypes();
 
         for(Integer i=0;i<=data.length-1;i+=1){
 
-            f.line("("+types[i]+")"+fields[i]+"="+data[i]);
+            f.line("("+types[i]+")"+field[i]+"="+data[i]);
 
-            switch (fields[i]) {
+            switch (field[i]) {
                 case "name":
                      sectionsTypes.setName(data[i]);
                      break;
@@ -264,15 +279,15 @@ public class FileUploadCsv {
 
     } // SectionsTypes
 
-    public void Sections(String entity,String[] fields,String[] types,String[] data,FileTxt f,EntityManager em) {
+    public void Sections(String entity,String[] field,String[] types,String[] data,FileTxt f,EntityManager em) {
 
         Sections sections = new Sections();
 
         for(Integer i=0;i<=data.length-1;i+=1){
 
-            f.line("("+types[i]+")"+fields[i]+"="+data[i]);
+            f.line("("+types[i]+")"+field[i]+"="+data[i]);
 
-            switch (fields[i]) {
+            switch (field[i]) {
                 case "name":
                      sections.setName(data[i]);
                      break;
@@ -291,15 +306,15 @@ public class FileUploadCsv {
 
     } // Sections
 
-    public void Series(String entity,String[] fields,String[] types,String[] data,FileTxt f,EntityManager em) {
+    public void Series(String entity,String[] field,String[] types,String[] data,FileTxt f,EntityManager em) {
 
         Series series = new Series();
 
         for(Integer i=0;i<=data.length-1;i+=1){
 
-            f.line("("+types[i]+")"+fields[i]+"="+data[i]);
+            f.line("("+types[i]+")"+field[i]+"="+data[i]);
 
-            switch (fields[i]) {
+            switch (field[i]) {
                 case "name":
                      series.setName(data[i]);
                      break;
@@ -324,15 +339,15 @@ public class FileUploadCsv {
 
     } // Series
 
-    public void TrdSeries(String entity,String[] fields,String[] types,String[] data,FileTxt f,EntityManager em) {
+    public void TrdSeries(String entity,String[] field,String[] types,String[] data,FileTxt f,EntityManager em) {
 
         TrdSeries trdSeries = new TrdSeries();
 
         for(Integer i=0;i<=data.length-1;i+=1){
 
-            f.line("("+types[i]+")"+fields[i]+"="+data[i]);
+            f.line("("+types[i]+")"+field[i]+"="+data[i]);
 
-            switch (fields[i]) {
+            switch (field[i]) {
                 case "name":
                      trdSeries.setName(data[i]);
                      break;
@@ -345,15 +360,15 @@ public class FileUploadCsv {
 
     } // TrdSeries
 
-    public void Trd(String entity,String[] fields,String[] types,String[] data,FileTxt f,EntityManager em) {
+    public void Trd(String entity,String[] field,String[] types,String[] data,FileTxt f,EntityManager em) {
 
         Trd trd = new Trd();
 
         for(Integer i=0;i<=data.length-1;i+=1){
 
-            f.line("("+types[i]+")"+fields[i]+"="+data[i]);
+            f.line("("+types[i]+")"+field[i]+"="+data[i]);
 
-            switch (fields[i]) {
+            switch (field[i]) {
                 case "name":
                      trd.setName(data[i]);
                      break;
@@ -366,15 +381,15 @@ public class FileUploadCsv {
 
     } // Trd
 
-    public void FinalDisposition(String entity,String[] fields,String[] types,String[] data,FileTxt f,EntityManager em) {
+    public void FinalDisposition(String entity,String[] field,String[] types,String[] data,FileTxt f,EntityManager em) {
 
         FinalDisposition finalDisposition = new FinalDisposition();
 
         for(Integer i=0;i<=data.length-1;i+=1){
 
-            f.line("("+types[i]+")"+fields[i]+"="+data[i]);
+            f.line("("+types[i]+")"+field[i]+"="+data[i]);
 
-            switch (fields[i]) {
+            switch (field[i]) {
                 case "name":
                      finalDisposition.setName(data[i]);
                      break;
@@ -387,17 +402,20 @@ public class FileUploadCsv {
 
     } // FinalDisposition
 
-    public void DocumentalRetention(String entity,String[] fields,String[] types,String[] data,FileTxt f,EntityManager em) {
+    public void DocumentalRetention(String entity,String[] field,String[] types,String[] data,FileTxt f,EntityManager em) {
 
         DocumentalRetention documentalRetention = new DocumentalRetention();
 
         for(Integer i=0;i<=data.length-1;i+=1){
 
-            f.line("("+types[i]+")"+fields[i]+"="+data[i]);
+            f.line("("+types[i]+")"+field[i]+"="+data[i]);
 
-            switch (fields[i]) {
+            switch (field[i]) {
                 case "name":
                      documentalRetention.setName(data[i]);
+                     break;
+                case "year":
+                     documentalRetention.setYear(Integer.parseInt(data[i]));
                      break;
             }
 
@@ -408,15 +426,15 @@ public class FileUploadCsv {
 
     } // DocumentalRetention
 
-    public void FrequentlyQuery(String entity,String[] fields,String[] types,String[] data,FileTxt f,EntityManager em) {
+    public void FrequentlyQuery(String entity,String[] field,String[] types,String[] data,FileTxt f,EntityManager em) {
 
         FrequentlyQuery frequentlyQuery = new FrequentlyQuery();
 
         for(Integer i=0;i<=data.length-1;i+=1){
 
-            f.line("("+types[i]+")"+fields[i]+"="+data[i]);
+            f.line("("+types[i]+")"+field[i]+"="+data[i]);
 
-            switch (fields[i]) {
+            switch (field[i]) {
                 case "name":
                      frequentlyQuery.setName(data[i]);
                      break;
@@ -429,20 +447,28 @@ public class FileUploadCsv {
 
     } // FrequentlyQuery
 
-    public void DocumentalsUnits(String entity,String[] fields,String[] types,String[] data,FileTxt f,EntityManager em) {
+    public void DocumentalsUnits(String entity,String[] field,String[] types,String[] data,FileTxt f,EntityManager em) {
 
         DocumentalsUnits documentalsUnits = new DocumentalsUnits();
 
         for(Integer i=0;i<=data.length-1;i+=1){
 
-            f.line("("+types[i]+")"+fields[i]+"="+data[i]);
+            f.line("("+types[i]+")"+field[i]+"="+data[i]);
 
-            switch (fields[i]) {
+            switch (field[i]) {
                 case "name":
                      documentalsUnits.setName(data[i]);
                      break;
                 case "code":
                      documentalsUnits.setCode(data[i]);
+                     break;
+                case "startDate":
+                     try {
+                       documentalsUnits.setStartDate(formatter.parse(data[i]));
+                     }
+                     catch (ParseException e) {
+                       e.printStackTrace();
+                     }
                      break;
             }
 
@@ -453,15 +479,15 @@ public class FileUploadCsv {
 
     } // DocumentalsUnits
 
-    public void ConservationUnits(String entity,String[] fields,String[] types,String[] data,FileTxt f,EntityManager em) {
+    public void ConservationUnits(String entity,String[] field,String[] types,String[] data,FileTxt f,EntityManager em) {
 
         ConservationUnits conservationUnits = new ConservationUnits();
 
         for(Integer i=0;i<=data.length-1;i+=1){
 
-            f.line("("+types[i]+")"+fields[i]+"="+data[i]);
+            f.line("("+types[i]+")"+field[i]+"="+data[i]);
 
-            switch (fields[i]) {
+            switch (field[i]) {
                 case "name":
                      conservationUnits.setName(data[i]);
                      break;
@@ -477,15 +503,15 @@ public class FileUploadCsv {
 
     } // ConservationUnits
 
-    public void VersionsControls(String entity,String[] fields,String[] types,String[] data,FileTxt f,EntityManager em) {
+    public void VersionsControls(String entity,String[] field,String[] types,String[] data,FileTxt f,EntityManager em) {
 
         VersionsControls versionsControls = new VersionsControls();
 
         for(Integer i=0;i<=data.length-1;i+=1){
 
-            f.line("("+types[i]+")"+fields[i]+"="+data[i]);
+            f.line("("+types[i]+")"+field[i]+"="+data[i]);
 
-            switch (fields[i]) {
+            switch (field[i]) {
                 case "name":
                      versionsControls.setName(data[i]);
                      break;
@@ -494,6 +520,14 @@ public class FileUploadCsv {
                      break;
                 case "version":
                      versionsControls.setVersion(data[i]);
+                     break;
+                case "date":
+                     try {
+                       versionsControls.setDate(formatter.parse(data[i]));
+                     }
+                     catch (ParseException e) {
+                       e.printStackTrace();
+                     }
                      break;
                 case "request":
                      versionsControls.setRequest(data[i]);
@@ -513,17 +547,36 @@ public class FileUploadCsv {
 
     } // VersionsControls
 
-    public void DocumentalInventory(String entity,String[] fields,String[] types,String[] data,FileTxt f,EntityManager em) {
+    public void DocumentalInventory(String entity,String[] field,String[] types,String[] data,FileTxt f,EntityManager em) {
 
         DocumentalInventory documentalInventory = new DocumentalInventory();
 
         for(Integer i=0;i<=data.length-1;i+=1){
 
-            f.line("("+types[i]+")"+fields[i]+"="+data[i]);
+            f.line("("+types[i]+")"+field[i]+"="+data[i]);
 
-            switch (fields[i]) {
+            switch (field[i]) {
                 case "object":
                      documentalInventory.setObject(data[i]);
+                     break;
+                case "deliveryDate":
+                     try {
+                       documentalInventory.setDeliveryDate(formatter.parse(data[i]));
+                     }
+                     catch (ParseException e) {
+                       e.printStackTrace();
+                     }
+                     break;
+                case "transferNumber":
+                     documentalInventory.setTransferNumber(Integer.parseInt(data[i]));
+                     break;
+                case "debugDate":
+                     try {
+                       documentalInventory.setDebugDate(formatter.parse(data[i]));
+                     }
+                     catch (ParseException e) {
+                       e.printStackTrace();
+                     }
                      break;
             }
 
@@ -534,20 +587,50 @@ public class FileUploadCsv {
 
     } // DocumentalInventory
 
-    public void OriginalOrders(String entity,String[] fields,String[] types,String[] data,FileTxt f,EntityManager em) {
+    public void OriginalOrders(String entity,String[] field,String[] types,String[] data,FileTxt f,EntityManager em) {
 
         OriginalOrders originalOrders = new OriginalOrders();
 
         for(Integer i=0;i<=data.length-1;i+=1){
 
-            f.line("("+types[i]+")"+fields[i]+"="+data[i]);
+            f.line("("+types[i]+")"+field[i]+"="+data[i]);
 
-            switch (fields[i]) {
+            switch (field[i]) {
                 case "subject":
                      originalOrders.setSubject(data[i]);
                      break;
                 case "code":
                      originalOrders.setCode(data[i]);
+                     break;
+                case "entryDate":
+                     try {
+                       originalOrders.setEntryDate(formatter.parse(data[i]));
+                     }
+                     catch (ParseException e) {
+                       e.printStackTrace();
+                     }
+                     break;
+                case "startDate":
+                     try {
+                       originalOrders.setStartDate(formatter.parse(data[i]));
+                     }
+                     catch (ParseException e) {
+                       e.printStackTrace();
+                     }
+                     break;
+                case "finalDate":
+                     try {
+                       originalOrders.setFinalDate(formatter.parse(data[i]));
+                     }
+                     catch (ParseException e) {
+                       e.printStackTrace();
+                     }
+                     break;
+                case "folios":
+                     originalOrders.setFolios(Integer.parseInt(data[i]));
+                     break;
+                case "quantity":
+                     originalOrders.setQuantity(Integer.parseInt(data[i]));
                      break;
                 case "located":
                      originalOrders.setLocated(data[i]);
@@ -576,15 +659,15 @@ public class FileUploadCsv {
 
     } // OriginalOrders
 
-    public void DocumentalsUnitsTypes(String entity,String[] fields,String[] types,String[] data,FileTxt f,EntityManager em) {
+    public void DocumentalsUnitsTypes(String entity,String[] field,String[] types,String[] data,FileTxt f,EntityManager em) {
 
         DocumentalsUnitsTypes documentalsUnitsTypes = new DocumentalsUnitsTypes();
 
         for(Integer i=0;i<=data.length-1;i+=1){
 
-            f.line("("+types[i]+")"+fields[i]+"="+data[i]);
+            f.line("("+types[i]+")"+field[i]+"="+data[i]);
 
-            switch (fields[i]) {
+            switch (field[i]) {
                 case "name":
                      documentalsUnitsTypes.setName(data[i]);
                      break;
@@ -597,15 +680,15 @@ public class FileUploadCsv {
 
     } // DocumentalsUnitsTypes
 
-    public void Access(String entity,String[] fields,String[] types,String[] data,FileTxt f,EntityManager em) {
+    public void Access(String entity,String[] field,String[] types,String[] data,FileTxt f,EntityManager em) {
 
         Access access = new Access();
 
         for(Integer i=0;i<=data.length-1;i+=1){
 
-            f.line("("+types[i]+")"+fields[i]+"="+data[i]);
+            f.line("("+types[i]+")"+field[i]+"="+data[i]);
 
-            switch (fields[i]) {
+            switch (field[i]) {
                 case "name":
                      access.setName(data[i]);
                      break;
@@ -618,15 +701,15 @@ public class FileUploadCsv {
 
     } // Access
 
-    public void Organizeds(String entity,String[] fields,String[] types,String[] data,FileTxt f,EntityManager em) {
+    public void Organizeds(String entity,String[] field,String[] types,String[] data,FileTxt f,EntityManager em) {
 
         Organizeds organizeds = new Organizeds();
 
         for(Integer i=0;i<=data.length-1;i+=1){
 
-            f.line("("+types[i]+")"+fields[i]+"="+data[i]);
+            f.line("("+types[i]+")"+field[i]+"="+data[i]);
 
-            switch (fields[i]) {
+            switch (field[i]) {
                 case "name":
                      organizeds.setName(data[i]);
                      break;
@@ -639,15 +722,15 @@ public class FileUploadCsv {
 
     } // Organizeds
 
-    public void InventoryFinality(String entity,String[] fields,String[] types,String[] data,FileTxt f,EntityManager em) {
+    public void InventoryFinality(String entity,String[] field,String[] types,String[] data,FileTxt f,EntityManager em) {
 
         InventoryFinality inventoryFinality = new InventoryFinality();
 
         for(Integer i=0;i<=data.length-1;i+=1){
 
-            f.line("("+types[i]+")"+fields[i]+"="+data[i]);
+            f.line("("+types[i]+")"+field[i]+"="+data[i]);
 
-            switch (fields[i]) {
+            switch (field[i]) {
                 case "name":
                      inventoryFinality.setName(data[i]);
                      break;
@@ -660,15 +743,15 @@ public class FileUploadCsv {
 
     } // InventoryFinality
 
-    public void DocumentalsSupports(String entity,String[] fields,String[] types,String[] data,FileTxt f,EntityManager em) {
+    public void DocumentalsSupports(String entity,String[] field,String[] types,String[] data,FileTxt f,EntityManager em) {
 
         DocumentalsSupports documentalsSupports = new DocumentalsSupports();
 
         for(Integer i=0;i<=data.length-1;i+=1){
 
-            f.line("("+types[i]+")"+fields[i]+"="+data[i]);
+            f.line("("+types[i]+")"+field[i]+"="+data[i]);
 
-            switch (fields[i]) {
+            switch (field[i]) {
                 case "name":
                      documentalsSupports.setName(data[i]);
                      break;
@@ -684,15 +767,15 @@ public class FileUploadCsv {
 
     } // DocumentalsSupports
 
-    public void ConservationUnitsTypes(String entity,String[] fields,String[] types,String[] data,FileTxt f,EntityManager em) {
+    public void ConservationUnitsTypes(String entity,String[] field,String[] types,String[] data,FileTxt f,EntityManager em) {
 
         ConservationUnitsTypes conservationUnitsTypes = new ConservationUnitsTypes();
 
         for(Integer i=0;i<=data.length-1;i+=1){
 
-            f.line("("+types[i]+")"+fields[i]+"="+data[i]);
+            f.line("("+types[i]+")"+field[i]+"="+data[i]);
 
-            switch (fields[i]) {
+            switch (field[i]) {
                 case "name":
                      conservationUnitsTypes.setName(data[i]);
                      break;
@@ -705,15 +788,15 @@ public class FileUploadCsv {
 
     } // ConservationUnitsTypes
 
-    public void Companies(String entity,String[] fields,String[] types,String[] data,FileTxt f,EntityManager em) {
+    public void Companies(String entity,String[] field,String[] types,String[] data,FileTxt f,EntityManager em) {
 
         Companies companies = new Companies();
 
         for(Integer i=0;i<=data.length-1;i+=1){
 
-            f.line("("+types[i]+")"+fields[i]+"="+data[i]);
+            f.line("("+types[i]+")"+field[i]+"="+data[i]);
 
-            switch (fields[i]) {
+            switch (field[i]) {
                 case "name":
                      companies.setName(data[i]);
                      break;
@@ -726,15 +809,15 @@ public class FileUploadCsv {
 
     } // Companies
 
-    public void CompaniesRoles(String entity,String[] fields,String[] types,String[] data,FileTxt f,EntityManager em) {
+    public void CompaniesRoles(String entity,String[] field,String[] types,String[] data,FileTxt f,EntityManager em) {
 
         CompaniesRoles companiesRoles = new CompaniesRoles();
 
         for(Integer i=0;i<=data.length-1;i+=1){
 
-            f.line("("+types[i]+")"+fields[i]+"="+data[i]);
+            f.line("("+types[i]+")"+field[i]+"="+data[i]);
 
-            switch (fields[i]) {
+            switch (field[i]) {
                 case "name":
                      companiesRoles.setName(data[i]);
                      break;
@@ -747,15 +830,15 @@ public class FileUploadCsv {
 
     } // CompaniesRoles
 
-    public void Activities(String entity,String[] fields,String[] types,String[] data,FileTxt f,EntityManager em) {
+    public void Activities(String entity,String[] field,String[] types,String[] data,FileTxt f,EntityManager em) {
 
         Activities activities = new Activities();
 
         for(Integer i=0;i<=data.length-1;i+=1){
 
-            f.line("("+types[i]+")"+fields[i]+"="+data[i]);
+            f.line("("+types[i]+")"+field[i]+"="+data[i]);
 
-            switch (fields[i]) {
+            switch (field[i]) {
                 case "name":
                      activities.setName(data[i]);
                      break;
@@ -768,17 +851,49 @@ public class FileUploadCsv {
 
     } // Activities
 
-    public void Tasks(String entity,String[] fields,String[] types,String[] data,FileTxt f,EntityManager em) {
+    public void Tasks(String entity,String[] field,String[] types,String[] data,FileTxt f,EntityManager em) {
 
         Tasks tasks = new Tasks();
 
         for(Integer i=0;i<=data.length-1;i+=1){
 
-            f.line("("+types[i]+")"+fields[i]+"="+data[i]);
+            f.line("("+types[i]+")"+field[i]+"="+data[i]);
 
-            switch (fields[i]) {
+            switch (field[i]) {
                 case "name":
                      tasks.setName(data[i]);
+                     break;
+                case "optimisticDate":
+                     try {
+                       tasks.setOptimisticDate(formatter.parse(data[i]));
+                     }
+                     catch (ParseException e) {
+                       e.printStackTrace();
+                     }
+                     break;
+                case "pessimisticDate":
+                     try {
+                       tasks.setPessimisticDate(formatter.parse(data[i]));
+                     }
+                     catch (ParseException e) {
+                       e.printStackTrace();
+                     }
+                     break;
+                case "startDate":
+                     try {
+                       tasks.setStartDate(formatter.parse(data[i]));
+                     }
+                     catch (ParseException e) {
+                       e.printStackTrace();
+                     }
+                     break;
+                case "finalDate":
+                     try {
+                       tasks.setFinalDate(formatter.parse(data[i]));
+                     }
+                     catch (ParseException e) {
+                       e.printStackTrace();
+                     }
                      break;
             }
 

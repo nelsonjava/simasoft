@@ -1,0 +1,18 @@
+orden;sections;trd;From;FromProperty;FromValue;To;ToProperty;ToValue;Name;Cardinalities
+1.0;GC;N.A;DocumentalsUnits;name;SOLICITUD Y ENTREGA DE SUMINISTROS;OriginalOrders;subject;2016-F-GC-01-SOLICITUD Y ENTREGA DE SUMINISTROS;;Uno a Muchos Bidirecccional No.5
+2.0;GC;N.A;DocumentalsUnits;name;COMPARATIVO DE OFERTAS;OriginalOrders;subject;2016-F-GC-02-COMPARATIVO DE OFERTAS;;Uno a Muchos Bidirecccional No.5
+3.0;GC;N.A;DocumentalsUnits;name;ORDEN DE COMPRA;OriginalOrders;subject;2016-F-GC-03-ORDEN DE COMPRA;;Uno a Muchos Bidirecccional No.5
+4.0;GC;N.A;DocumentalsUnits;name;DEVOLUCIÓN DE ARTÍCULOS;OriginalOrders;subject;2016-F-GC-04-DEVOLUCIÓN DE ARTÍCULOS;;Uno a Muchos Bidirecccional No.5
+5.0;GC;N.A;DocumentalsUnits;name;RELACIÓN DE FACTURAS POR PAGAR;OriginalOrders;subject;2016-F-GC-05-RELACIÓN DE FACTURAS POR PAGAR;;Uno a Muchos Bidirecccional No.5
+6.0;GC;N.A;DocumentalsUnits;name;INSCRIPCIÓN DE PROVEEDORES;OriginalOrders;subject;2016-F-GC-06-INSCRIPCIÓN DE PROVEEDORES;;Uno a Muchos Bidirecccional No.5
+7.0;GC;N.A;DocumentalsUnits;name;EVALUACIÓN Y SELECCIÓN DE PROVEEDORES;OriginalOrders;subject;2016-F-GC-07-EVALUACIÓN Y SELECCIÓN DE PROVEEDORES;;Uno a Muchos Bidirecccional No.5
+8.0;GC;N.A;DocumentalsUnits;name;LISTADO DE PROVEEDORES;OriginalOrders;subject;2016-F-GC-08-LISTADO DE PROVEEDORES;;Uno a Muchos Bidirecccional No.5
+9.0;GC;2 AÑOS;DocumentalsUnits;name;REEVALUACIÓN DE PROVEEDORES;OriginalOrders;subject;2016-F-GC-09-REEVALUACIÓN DE PROVEEDORES;;Uno a Muchos Bidirecccional No.5
+10.0;GC;2 AÑOS;DocumentalsUnits;name;SOLICITUD DE COMPRAS;OriginalOrders;subject;2016-F-GC-13-SOLICITUD DE COMPRAS;;Uno a Muchos Bidirecccional No.5
+11.0;GC;2 AÑOS;DocumentalsUnits;name;KÁRDEX DE ALMACÉN;OriginalOrders;subject;2016-F-GF-03*-KÁRDEX DE ALMACÉN;;Uno a Muchos Bidirecccional No.5
+12.0;GC;2 AÑOS;DocumentalsUnits;name;GC - REQUISICIÓN;OriginalOrders;subject;2016-F-GF-08*-GC - REQUISICIÓN;;Uno a Muchos Bidirecccional No.5
+13.0;GC;N.A;DocumentalsUnits;name;LISTADO DE INVENTARIO DE ACTIVOS Y RELACIÓN DE NOVEDADES;OriginalOrders;subject;2016-F-GF-09*-LISTADO DE INVENTARIO DE ACTIVOS Y RELACIÓN DE NOVEDADES;;Uno a Muchos Bidirecccional No.5
+14.0;GC;N.A;DocumentalsUnits;name;EVALUACIÓN DEL SERVICIO DE COMPRAS Y SUMINISTROS;OriginalOrders;subject;2016-L-GC-01-EVALUACIÓN DEL SERVICIO DE COMPRAS Y SUMINISTROS;;Uno a Muchos Bidirecccional No.5
+15.0;GC;N.A;DocumentalsUnits;name;REGISTROS SOPORTES DE INSCRIPCIÓN Y EVALUACIÓN DE PROVEEDORES;OriginalOrders;subject;2016-N.A-REGISTROS SOPORTES DE INSCRIPCIÓN Y EVALUACIÓN DE PROVEEDORES;;Uno a Muchos Bidirecccional No.5
+16.0;GC;5 AÑOS;DocumentalsUnits;name;GC - CORRESPONDENCIA ENVIADA;OriginalOrders;subject;2016-N.A-GC - CORRESPONDENCIA ENVIADA;;Uno a Muchos Bidirecccional No.5
+17.0;GC;5 AÑOS;DocumentalsUnits;name;GC - CIRCULARES;OriginalOrders;subject;2016-N.A-GC - CIRCULARES;;Uno a Muchos Bidirecccional No.5

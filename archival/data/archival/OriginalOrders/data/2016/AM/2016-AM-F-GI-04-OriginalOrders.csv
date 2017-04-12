@@ -1,0 +1,8 @@
+";";;;;;;;;;;;;;
+String;String;Date;Date;Date;Integer;Integer;String;String;String;String;String;String;OriginalOrders
+subject;code;entryDate;startDate;finalDate;folios;quantity;located;mail;notes;fileName;fileType;filedir;
+2016-F-AM-04-HOJA DE MATRÍCULA;2016;10/04/2017;1/02/2016;30/11/2016;782;3;;;;;;;
+2016-F-AM-05-DEVOLUCIÓN DE DOCUMENTOS;2016;10/04/2017;21/01/2016;13/12/2016;37;1;;;;;;;
+2016-F-AM-06-AUTORIZACIÓN RETIRO DE ESTUDIANTES;2016;10/04/2017;18/01/2016;9/12/2016;58;1;;;;;;;
+2016-N.A-AM - CORRESPONDENCIA ENVIADA;2016;10/04/2017;18/02/2015;10/11/2015;108;1;;;;;;;
+2016-N.A-AM - CIRCULARES;2016;10/04/2017;;;0;0;;;;;;;

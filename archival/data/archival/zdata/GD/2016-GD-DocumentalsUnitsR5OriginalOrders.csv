@@ -1,0 +1,19 @@
+orden;sections;trd;From;FromProperty;FromValue;To;ToProperty;ToValue;Name;Cardinalities
+3.0;GD;N.A;DocumentalsUnits;name;MATRIZ DE INDICADORES DEL SISTEMA DE GESTIÓN DE LA CALIDAD;OriginalOrders;subject;2016-F-GD-03-MATRIZ DE INDICADORES DEL SISTEMA DE GESTIÓN DE LA CALIDAD;;Uno a Muchos Bidirecccional No.5
+4.0;GD;5 AÑOS;DocumentalsUnits;name;PLAN OPERATIVO ANUAL;OriginalOrders;subject;2016-F-GD-04-PLAN OPERATIVO ANUAL;;Uno a Muchos Bidirecccional No.5
+5.0;GD;5 AÑOS;DocumentalsUnits;name;INFORME DE  GESTIÓN O DESEMPEÑO DEL PROCESO;OriginalOrders;subject;2016-F-GD-05-INFORME DE  GESTIÓN O DESEMPEÑO DEL PROCESO;;Uno a Muchos Bidirecccional No.5
+6.0;GD;INDEFINIDO;DocumentalsUnits;name;ACTA DE CONSEJO DIRECTIVO;OriginalOrders;subject;2016-N.A-ACTA DE CONSEJO DIRECTIVO;;Uno a Muchos Bidirecccional No.5
+7.0;GD;INDEFINIDO;DocumentalsUnits;name;RESOLUCIONES DE RECTORÍA;OriginalOrders;subject;2016-N.A-RESOLUCIONES DE RECTORÍA;;Uno a Muchos Bidirecccional No.5
+8.0;GD;5 AÑOS;DocumentalsUnits;name;CIRCULARES DE RECTORÍA;OriginalOrders;subject;2016-N.A-CIRCULARES DE RECTORÍA;;Uno a Muchos Bidirecccional No.5
+9.0;GD;5 AÑOS;DocumentalsUnits;name;CRONOGRAMA DISTRITAL;OriginalOrders;subject;2016-N.A-CRONOGRAMA DISTRITAL;;Uno a Muchos Bidirecccional No.5
+10.0;GD;5 AÑOS;DocumentalsUnits;name;CRONOGRAMA INSTITUCIONAL;OriginalOrders;subject;2016-N.A-CRONOGRAMA INSTITUCIONAL;;Uno a Muchos Bidirecccional No.5
+11.0;GD;5 AÑOS;DocumentalsUnits;name;EVALUACIÓN INSTITUCIONAL;OriginalOrders;subject;2016-N.A-EVALUACIÓN INSTITUCIONAL;;Uno a Muchos Bidirecccional No.5
+12.0;GD;5 AÑOS;DocumentalsUnits;name;GUÍA DE AUTOEVALUACIÓN;OriginalOrders;subject;2016-N.A-GUÍA DE AUTOEVALUACIÓN;;Uno a Muchos Bidirecccional No.5
+13.0;GD;5 AÑOS;DocumentalsUnits;name;GUÍA PARA LA ENTREGA DE UNA OBRA LASALLISTA;OriginalOrders;subject;2016-N.A-GUÍA PARA LA ENTREGA DE UNA OBRA LASALLISTA;;Uno a Muchos Bidirecccional No.5
+14.0;GD;N.A;DocumentalsUnits;name;CARTA DE NOMBRAMIENTO DE RECTOR;OriginalOrders;subject;2016-N.A-CARTA DE NOMBRAMIENTO DE RECTOR;;Uno a Muchos Bidirecccional No.5
+15.0;GD;2 AÑOS;DocumentalsUnits;name;CONVENIOS INTERINSTITUCIONALES;OriginalOrders;subject;2016-N.A-CONVENIOS INTERINSTITUCIONALES;;Uno a Muchos Bidirecccional No.5
+16.0;GD;N.A;DocumentalsUnits;name;ACTAS - COMITÉ DE COORDINACIÓN;OriginalOrders;subject;2016-N.A-ACTAS - COMITÉ DE COORDINACIÓN;;Uno a Muchos Bidirecccional No.5
+17.0;GD;5 AÑOS;DocumentalsUnits;name;GD - CORRESPONDENCIA ENVIADA;OriginalOrders;subject;2016-N.A-GD - CORRESPONDENCIA ENVIADA;;Uno a Muchos Bidirecccional No.5
+18.0;GD;5 AÑOS;DocumentalsUnits;name;GD - CIRCULARES EXTERNAS;OriginalOrders;subject;2016-N.A-GD - CIRCULARES EXTERNAS;;Uno a Muchos Bidirecccional No.5
+1.0;GD;5 AÑOS;DocumentalsUnits;name;INFORME DE RESULTADO DE REVISIÓN POR LA DIRECCIÓN;OriginalOrders;subject;2016-F-GD-01-INFORME DE RESULTADO DE REVISIÓN POR LA DIRECCIÓN;;Uno a Muchos Bidirecccional No.5
+2.0;GD;5 AÑOS;DocumentalsUnits;name;INFORME VISITA HERMANO PROVINCIAL;OriginalOrders;subject;2016-F-GD-02-INFORME VISITA HERMANO PROVINCIAL;;Uno a Muchos Bidirecccional No.5

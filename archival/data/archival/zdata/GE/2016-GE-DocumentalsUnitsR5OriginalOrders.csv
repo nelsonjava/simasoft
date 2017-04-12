@@ -1,0 +1,31 @@
+orden;sections;trd;From;FromProperty;FromValue;To;ToProperty;ToValue;Name;Cardinalities
+3.0;GE;5 AÑOS;DocumentalsUnits;name;CONTROL DE ACTIVIDADES DE SUPERACIÓN O RECUPERACIÓN;OriginalOrders;subject;2016-F-GE-04-CONTROL DE ACTIVIDADES DE SUPERACIÓN O RECUPERACIÓN;;Uno a Muchos Bidirecccional No.5
+4.0;GE;15 AÑOS;DocumentalsUnits;name;OBSERVADOR DEL ESTUDIANTE;OriginalOrders;subject;2016-F-GE-05-OBSERVADOR DEL ESTUDIANTE;;Uno a Muchos Bidirecccional No.5
+5.0;GE;3 AÑOS;DocumentalsUnits;name;PLAN DE CURSO;OriginalOrders;subject;2016-F-GE-06-PLAN DE CURSO;;Uno a Muchos Bidirecccional No.5
+6.0;GE;2 AÑOS;DocumentalsUnits;name;CONTROL DE ATENCIÓN PARA ORIENTACIÓN;OriginalOrders;subject;2016-F-GE-07-CONTROL DE ATENCIÓN PARA ORIENTACIÓN;;Uno a Muchos Bidirecccional No.5
+7.0;GE;2 AÑOS;DocumentalsUnits;name;AUTORIZACIÓN PARA ESTUDIANTES;OriginalOrders;subject;2016-F-GE-08-AUTORIZACIÓN PARA ESTUDIANTES;;Uno a Muchos Bidirecccional No.5
+8.0;GE;2 AÑOS;DocumentalsUnits;name;CITACIÓN A PADRES DE FAMILIA;OriginalOrders;subject;2016-F-GE-10-CITACIÓN A PADRES DE FAMILIA;;Uno a Muchos Bidirecccional No.5
+9.0;GE;2 AÑOS;DocumentalsUnits;name;REMISIÓN DE ESTUDIANTES A ORIENTACIÓN;OriginalOrders;subject;2016-F-GE-11-REMISIÓN DE ESTUDIANTES A ORIENTACIÓN;;Uno a Muchos Bidirecccional No.5
+10.0;GE;5 AÑOS;DocumentalsUnits;name;HISTORIA Y SEGUIMIENTO PSICOLOGÍA;OriginalOrders;subject;2016-F-GE-12-HISTORIA Y SEGUIMIENTO PSICOLOGÍA;;Uno a Muchos Bidirecccional No.5
+11.0;GE;5 AÑOS;DocumentalsUnits;name;PLAN DE ÁREA;OriginalOrders;subject;2016-L-GE-14-PLAN DE ÁREA;;Uno a Muchos Bidirecccional No.5
+12.0;GE;5 AÑOS;DocumentalsUnits;name;PLAN DE ASIGNATURA;OriginalOrders;subject;2016-L-GE-04-PLAN DE ASIGNATURA;;Uno a Muchos Bidirecccional No.5
+13.0;GE;5 AÑOS;DocumentalsUnits;name;PROYECTO PEDAGÓGICO;OriginalOrders;subject;2016-L-GE-15-PROYECTO PEDAGÓGICO;;Uno a Muchos Bidirecccional No.5
+14.0;GE;15 AÑOS;DocumentalsUnits;name;COMPROMISO ACADÉMICO;OriginalOrders;subject;2016-L-GE-07-COMPROMISO ACADÉMICO;;Uno a Muchos Bidirecccional No.5
+15.0;GE;15 AÑOS;DocumentalsUnits;name;COMPROMISO COMPORTAMENTAL;OriginalOrders;subject;2016-L-GE-08-COMPROMISO COMPORTAMENTAL;;Uno a Muchos Bidirecccional No.5
+16.0;GE;N.A;DocumentalsUnits;name;AUTO REGISTRO DE RETARDOS;OriginalOrders;subject;2016-L-GE-01-AUTO REGISTRO DE RETARDOS;;Uno a Muchos Bidirecccional No.5
+17.0;GE;5 AÑOS;DocumentalsUnits;name;CONTENIDOS PROGRAMATICOS;OriginalOrders;subject;2016-L-GE-02-CONTENIDOS PROGRAMATICOS;;Uno a Muchos Bidirecccional No.5
+18.0;GE;N.A;DocumentalsUnits;name;CONTROL DE CITACIONES A PADRES DE FAMILIA;OriginalOrders;subject;2016-L-GE-03-CONTROL DE CITACIONES A PADRES DE FAMILIA;;Uno a Muchos Bidirecccional No.5
+19.0;GE;N.A;DocumentalsUnits;name;REGISTRO DE NORMALIZACIÓN;OriginalOrders;subject;2016-L-GE-06-REGISTRO DE NORMALIZACIÓN;;Uno a Muchos Bidirecccional No.5
+20.0;GE;N.A;DocumentalsUnits;name;CONTROL DE ASISTENCIA A ACTIVIDADES DE APOYO;OriginalOrders;subject;2016-L-GE-10-CONTROL DE ASISTENCIA A ACTIVIDADES DE APOYO;;Uno a Muchos Bidirecccional No.5
+21.0;GE;N.A;DocumentalsUnits;name;EVALUACIÓN DE ACTIVIDADES D APOYO;OriginalOrders;subject;2016-L-GE-11-EVALUACIÓN DE ACTIVIDADES D APOYO;;Uno a Muchos Bidirecccional No.5
+22.0;GE;N.A;DocumentalsUnits;name;INFORME PERIÓDICO DE PSICOLOGÍA A COORDINACIÓN;OriginalOrders;subject;2016-L-GE12-INFORME PERIÓDICO DE PSICOLOGÍA A COORDINACIÓN;;Uno a Muchos Bidirecccional No.5
+23.0;GE;N.A;DocumentalsUnits;name;CLAUSULA ESPECIAL DE MATRICULA;OriginalOrders;subject;2016-L-GE-09-CLAUSULA ESPECIAL DE MATRICULA;;Uno a Muchos Bidirecccional No.5
+24.0;GE;5 AÑOS;DocumentalsUnits;name;PROYECTOS DE AULA PRE-ESCOLAR;OriginalOrders;subject;2016-L-GE-16-PROYECTOS DE AULA PRE-ESCOLAR;;Uno a Muchos Bidirecccional No.5
+25.0;GE;15 AÑOS;DocumentalsUnits;name;ACTAS (COMISIÓN DE EVALUACIÓN Y PROMOCIÓN);OriginalOrders;subject;2016-N.A-ACTAS (COMISIÓN DE EVALUACIÓN Y PROMOCIÓN);;Uno a Muchos Bidirecccional No.5
+26.0;GE;INDEFINIDO;DocumentalsUnits;name;ACTAS (CONSEJO ACADÉMICO);OriginalOrders;subject;2016-N.A-ACTAS (CONSEJO ACADÉMICO);;Uno a Muchos Bidirecccional No.5
+27.0;GE;5 AÑOS;DocumentalsUnits;name;ACTAS (REUNIÓN DE DEPARTAMENTO O ÁREA);OriginalOrders;subject;2016-N.A-ACTAS (REUNIÓN DE DEPARTAMENTO O ÁREA);;Uno a Muchos Bidirecccional No.5
+28.0;GE;N.A;DocumentalsUnits;name;LIBRO DE CALIFICACIONES FINAL;OriginalOrders;subject;2016-N.A-LIBRO DE CALIFICACIONES FINAL;;Uno a Muchos Bidirecccional No.5
+29.0;GE;5 AÑOS;DocumentalsUnits;name;GE - CORRESPONDENCIA ENVIADA;OriginalOrders;subject;2016-N.A-GE - CORRESPONDENCIA ENVIADA;;Uno a Muchos Bidirecccional No.5
+30.0;GE;5 AÑOS;DocumentalsUnits;name;GE - CIRCULARES;OriginalOrders;subject;2016-N.A-GE - CIRCULARES;;Uno a Muchos Bidirecccional No.5
+1.0;GE;3 AÑOS;DocumentalsUnits;name;HORARIO DE CLASES;OriginalOrders;subject;2016-F-GE-01-HORARIO DE CLASES;;Uno a Muchos Bidirecccional No.5
+2.0;GE;5 AÑOS;DocumentalsUnits;name;REGISTRO DE VALIDACIÓN DE LA PRESTACIÓN DEL SERVICIO EDUCATIVO;OriginalOrders;subject;2016-F-GE-03-REGISTRO DE VALIDACIÓN DE LA PRESTACIÓN DEL SERVICIO EDUCATIVO;;Uno a Muchos Bidirecccional No.5

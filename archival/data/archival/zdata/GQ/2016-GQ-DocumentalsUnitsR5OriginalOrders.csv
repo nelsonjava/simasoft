@@ -1,0 +1,21 @@
+orden;sections;trd;From;FromProperty;FromValue;To;ToProperty;ToValue;Name;Cardinalities
+1.0;GQ;N.A;DocumentalsUnits;name;ELABORACIÓN, MODIFICACIÓN O ELIMINACIÓN DE DOCUMENTOS DEL SGC;OriginalOrders;subject;2016-F-GQ-01-ELABORACIÓN, MODIFICACIÓN O ELIMINACIÓN DE DOCUMENTOS DEL SGC;;Uno a Muchos Bidirecccional No.5
+2.0;GQ;N.A;DocumentalsUnits;name;LISTADO MAESTRO DE DOCUMENTOS;OriginalOrders;subject;2016-F-GQ-03-LISTADO MAESTRO DE DOCUMENTOS;;Uno a Muchos Bidirecccional No.5
+3.0;GQ;N.A;DocumentalsUnits;name;LISTADO MAESTRO DE REGISTROS;OriginalOrders;subject;2016-F-GQ-04-LISTADO MAESTRO DE REGISTROS;;Uno a Muchos Bidirecccional No.5
+4.0;GQ;5 AÑOS;DocumentalsUnits;name;PLAN DE AUDITORÍA INTERNA;OriginalOrders;subject;2016-F-GQ-05-PLAN DE AUDITORÍA INTERNA;;Uno a Muchos Bidirecccional No.5
+5.0;GQ;5 AÑOS;DocumentalsUnits;name;ACTA DE APERTURA Y CIERRE DE AUDITORÍA INTERNA;OriginalOrders;subject;2016-F-GQ-06-ACTA DE APERTURA Y CIERRE DE AUDITORÍA INTERNA;;Uno a Muchos Bidirecccional No.5
+6.0;GQ;N.A;DocumentalsUnits;name;LISTA DE CHEQUEO;OriginalOrders;subject;2016-F-GQ-07-LISTA DE CHEQUEO;;Uno a Muchos Bidirecccional No.5
+7.0;GQ;5 AÑOS;DocumentalsUnits;name;EVALUACIÓN DE GESTIÓN DE LA AUDITORÍA;OriginalOrders;subject;2016-F-GQ-08-EVALUACIÓN DE GESTIÓN DE LA AUDITORÍA;;Uno a Muchos Bidirecccional No.5
+8.0;GQ;5 AÑOS;DocumentalsUnits;name;INFORME DE AUDITORÍA INTERNA;OriginalOrders;subject;2016-F-GQ-09-INFORME DE AUDITORÍA INTERNA;;Uno a Muchos Bidirecccional No.5
+9.0;GQ;5 AÑOS;DocumentalsUnits;name;CONTROL DEL SERVICIO NO CONFORME;OriginalOrders;subject;2016-F-GQ-10-CONTROL DEL SERVICIO NO CONFORME;;Uno a Muchos Bidirecccional No.5
+10.0;GQ;N.A;DocumentalsUnits;name;IMPLEMENTACIÓN DE ACCIONES CORRECTIVAS, PREVENTIVAS O DE MEJORA;OriginalOrders;subject;2016-F-GQ-11-IMPLEMENTACIÓN DE ACCIONES CORRECTIVAS, PREVENTIVAS O DE MEJORA;;Uno a Muchos Bidirecccional No.5
+11.0;GQ;N.A;DocumentalsUnits;name;QUEJAS, SUGERENCIAS Y FELICITACIONES;OriginalOrders;subject;2016-F-GQ-12-QUEJAS, SUGERENCIAS Y FELICITACIONES;;Uno a Muchos Bidirecccional No.5
+12.0;GQ;N.A;DocumentalsUnits;name;SEGUIMIENTO Y CONTROL DE QUEJAS, SUGERENCIAS Y FELICITACIONES;OriginalOrders;subject;2016-F-GQ-13-SEGUIMIENTO Y CONTROL DE QUEJAS, SUGERENCIAS Y FELICITACIONES;;Uno a Muchos Bidirecccional No.5
+13.0;GQ;N.A;DocumentalsUnits;name;COMPORTAMIENTO DE LOS INDICADORES DE GESTIÓN;OriginalOrders;subject;2016-F-GQ-14-COMPORTAMIENTO DE LOS INDICADORES DE GESTIÓN;;Uno a Muchos Bidirecccional No.5
+14.0;GQ;N.A;DocumentalsUnits;name;ENCUESTA DE SATISFACCIÓN DE PADRES DE FAMILIA Y ESTUDIANTES;OriginalOrders;subject;2016-F-GQ-15-ENCUESTA DE SATISFACCIÓN DE PADRES DE FAMILIA Y ESTUDIANTES;;Uno a Muchos Bidirecccional No.5
+15.0;GQ;N.A;DocumentalsUnits;name;MATRIZ DE POSIBLES SERVICIOS NO CONFORMES;OriginalOrders;subject;2016-F-GQ-16-MATRIZ DE POSIBLES SERVICIOS NO CONFORMES;;Uno a Muchos Bidirecccional No.5
+16.0;GQ;5 AÑOS;DocumentalsUnits;name;PROGRAMA DE AUDITORIA;OriginalOrders;subject;2016-F-GQ-17-PROGRAMA DE AUDITORIA;;Uno a Muchos Bidirecccional No.5
+17.0;GQ;5 AÑOS;DocumentalsUnits;name;INFORME DE RESULTADOS DE ENCUESTAS DE SATISFACCIÓN;OriginalOrders;subject;2016-N.A-INFORME DE RESULTADOS DE ENCUESTAS DE SATISFACCIÓN;;Uno a Muchos Bidirecccional No.5
+18.0;GQ;N.A;DocumentalsUnits;name;ACTA DE REUNIÓN DEL COMITÉ DE LA CALIDAD;OriginalOrders;subject;2016-N.A-ACTA DE REUNIÓN DEL COMITÉ DE LA CALIDAD;;Uno a Muchos Bidirecccional No.5
+19.0;GQ;5 AÑOS;DocumentalsUnits;name;GQ - CORRESPONDENCIA ENVIADA;OriginalOrders;subject;2016-N.A-GQ - CORRESPONDENCIA ENVIADA;;Uno a Muchos Bidirecccional No.5
+20.0;GQ;5 AÑOS;DocumentalsUnits;name;GQ - CIRCULARES;OriginalOrders;subject;2016-N.A-GQ - CIRCULARES;;Uno a Muchos Bidirecccional No.5
