@@ -27,6 +27,7 @@ import javax.persistence.criteria.Root;
 import co.simasoft.models.ConstructionMaterials;
 import co.simasoft.models.Apus;
 import co.simasoft.models.TypesConstructionMaterials;
+import java.util.Iterator;
 
 /**
  * Backing bean for ConstructionMaterials entities.
@@ -134,10 +135,13 @@ public class ConstructionMaterialsBean implements Serializable {
 
 		try {
 			ConstructionMaterials deletableEntity = findById(getId());
-			Apus apus = deletableEntity.getApus();
-			apus.getConstructionMaterials().remove(deletableEntity);
-			deletableEntity.setApus(null);
-			this.entityManager.merge(apus);
+			Iterator<Apus> iterApus = deletableEntity.getApus().iterator();
+			for (; iterApus.hasNext();) {
+				Apus nextInApus = iterApus.next();
+				nextInApus.getConstructionMaterials().remove(deletableEntity);
+				iterApus.remove();
+				this.entityManager.merge(nextInApus);
+			}
 			TypesConstructionMaterials typesConstructionMaterials = deletableEntity
 					.getTypesConstructionMaterials();
 			typesConstructionMaterials.getConstructionMaterials().remove(
@@ -245,9 +249,12 @@ public class ConstructionMaterialsBean implements Serializable {
 					builder.lower(root.<String> get("name")),
 					'%' + name.toLowerCase() + '%'));
 		}
-		Apus apus = this.example.getApus();
-		if (apus != null) {
-			predicatesList.add(builder.equal(root.get("apus"), apus));
+		TypesConstructionMaterials typesConstructionMaterials = this.example
+				.getTypesConstructionMaterials();
+		if (typesConstructionMaterials != null) {
+			predicatesList.add(builder.equal(
+					root.get("typesConstructionMaterials"),
+					typesConstructionMaterials));
 		}
 
 		return predicatesList.toArray(new Predicate[predicatesList.size()]);

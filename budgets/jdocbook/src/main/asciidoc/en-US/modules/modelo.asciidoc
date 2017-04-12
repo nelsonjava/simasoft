@@ -18,10 +18,10 @@ image::images/modelo.jpg[]
 [options="header"]
 |===
 |From | Cardinality | To | Optionality | Navigability | Atribute 
-|Apus|1..*|ConstructionMaterials|true|false|price
-|Apus|1..*|ConstructionWorkforce|true|false|code
-|Apus|1..*|ConstructionEquipments|true|false|code
-|Apus|1..*|ConstructionTransports|true|false|code
+|Apus|*..*|ConstructionMaterials|true|false|price
+|Apus|*..*|ConstructionWorkforce|true|false|code
+|Apus|*..*|ConstructionEquipments|true|false|code
+|Apus|*..*|ConstructionTransports|true|false|code
 |Apus|*..1|MeasurementUnits|true|false|code
 |Apus|*..1|ConstructionActivities|true|false|code
 |===
@@ -154,14 +154,14 @@ image::images/modelo.jpg[]
 |===
 |name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
 |code|null|String|null|null|false|true|false|false|true|true|true|true
-|name|null|String|null|null|false|true|false|false|true|true|true|true
+|name||String|null|null|false|true|false|true|true|true|true|true
 |price|null|Double|null|null|true|false|false|false|true|true|true|true
 |===
 *RELATIONS:* 2
 [options="header"]
 |===
 |From | Cardinality | To | Optionality | Navigability | Atribute 
-|ConstructionMaterials|*..1|Apus|true|false|code
+|ConstructionMaterials|*..*|Apus|true|false|code
 |ConstructionMaterials|*..1|TypesConstructionMaterials|true|false|code
 |===
 == ENTITY:ConstructionTransports
@@ -170,14 +170,14 @@ image::images/modelo.jpg[]
 |===
 |name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
 |code|null|String|null|null|false|true|false|false|true|true|true|true
-|name|null|String|null|null|false|true|false|false|true|true|true|true
+|name||String|null|null|false|true|false|true|true|true|true|true
 |rate|null|Double|null|null|true|false|false|false|true|true|true|true
 |===
 *RELATIONS:* 2
 [options="header"]
 |===
 |From | Cardinality | To | Optionality | Navigability | Atribute 
-|ConstructionTransports|*..1|Apus|true|false|code
+|ConstructionTransports|*..*|Apus|true|false|code
 |ConstructionTransports|*..1|TypesConstructionTransports|true|false|code
 |===
 == ENTITY:ConstructionWorkforce
@@ -186,7 +186,7 @@ image::images/modelo.jpg[]
 |===
 |name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
 |code|null|String|null|null|false|true|false|false|true|true|true|true
-|name|null|String|null|null|false|true|false|false|true|true|true|true
+|name||String|null|null|false|true|false|true|true|true|true|true
 |basic|null|Double|null|null|true|false|false|false|true|true|true|true
 |benefits|null|Double|null|null|true|false|false|false|true|true|true|true
 |salary|null|Double|null|null|true|false|false|false|true|true|true|true
@@ -195,7 +195,7 @@ image::images/modelo.jpg[]
 [options="header"]
 |===
 |From | Cardinality | To | Optionality | Navigability | Atribute 
-|ConstructionWorkforce|*..1|Apus|true|false|code
+|ConstructionWorkforce|*..*|Apus|true|false|code
 |ConstructionWorkforce|*..1|TypesConstructionWorkforce|true|false|code
 |===
 == ENTITY:ConstructionEquipments
@@ -204,14 +204,14 @@ image::images/modelo.jpg[]
 |===
 |name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
 |code|null|String|null|null|false|true|false|false|true|true|true|true
-|name|null|String|null|null|false|true|false|false|true|true|true|true
+|name||String|null|null|false|true|false|true|true|true|true|true
 |rate|null|Double|null|null|true|false|false|false|true|true|true|true
 |===
 *RELATIONS:* 2
 [options="header"]
 |===
 |From | Cardinality | To | Optionality | Navigability | Atribute 
-|ConstructionEquipments|*..1|Apus|true|false|code
+|ConstructionEquipments|*..*|Apus|true|false|code
 |ConstructionEquipments|*..1|TypesConstructionEquipments|true|false|code
 |===
 == ENTITY:TypesConstructionMaterials

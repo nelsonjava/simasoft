@@ -70,8 +70,8 @@ public class ConstructionEquipments implements Serializable {
 	// @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
 	private Double rate;
 
-	@ManyToOne
-	private Apus apus;
+	@ManyToMany(mappedBy = "constructionEquipments")
+	private Set<Apus> apus = new HashSet<Apus>();
 
 	@ManyToOne
 	private TypesConstructionEquipments typesConstructionEquipments;
@@ -140,10 +140,10 @@ public class ConstructionEquipments implements Serializable {
 		this.rate = rate;
 	}
 
-	public Apus getApus() {
+	public Set<Apus> getApus() {
 		return apus;
 	}
-	public void setApus(Apus apus) {
+	public void setApus(Set<Apus> apus) {
 		this.apus = apus;
 	}
 

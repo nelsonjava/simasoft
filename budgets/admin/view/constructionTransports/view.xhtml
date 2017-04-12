@@ -45,11 +45,7 @@
                         <h:outputText id="constructionTransportsBeanConstructionTransportsObservations" value="#{constructionTransportsBean.constructionTransports.observations}" escape="false" />
                         <h:outputText/>
 
-                        <h:outputLabel for="constructionTransportsBeanConstructionTransportsApus" value="Apus:"/>
-                        <h:link id="constructionTransportsBeanConstructionTransportsApus" outcome="/admin/apus/view" rendered="#{!empty constructionTransportsBean.constructionTransports.apus}" value="#{constructionTransportsBean.constructionTransports.apus.code}">
-                                 <f:param name="id" value="#{constructionTransportsBean.constructionTransports.apus.id}"/>
-                        </h:link>
-                        <h:outputText/>
+                        Muchos a Muchos Unidireccional No.6
 
                         <h:outputLabel for="constructionTransportsBeanConstructionTransportsTypesConstructionTransports" value="TypesConstructionTransports:"/>
                         <h:link id="constructionTransportsBeanConstructionTransportsTypesConstructionTransports" outcome="/admin/typesConstructionTransports/view" rendered="#{!empty constructionTransportsBean.constructionTransports.typesConstructionTransports}" value="#{constructionTransportsBean.constructionTransports.typesConstructionTransports.code}">

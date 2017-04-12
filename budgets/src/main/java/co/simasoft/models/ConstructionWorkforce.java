@@ -80,8 +80,8 @@ public class ConstructionWorkforce implements Serializable {
 	// @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
 	private Double salary;
 
-	@ManyToOne
-	private Apus apus;
+	@ManyToMany(mappedBy = "constructionWorkforce")
+	private Set<Apus> apus = new HashSet<Apus>();
 
 	@ManyToOne
 	private TypesConstructionWorkforce typesConstructionWorkforce;
@@ -167,10 +167,10 @@ public class ConstructionWorkforce implements Serializable {
 		this.salary = salary;
 	}
 
-	public Apus getApus() {
+	public Set<Apus> getApus() {
 		return apus;
 	}
-	public void setApus(Apus apus) {
+	public void setApus(Set<Apus> apus) {
 		this.apus = apus;
 	}
 

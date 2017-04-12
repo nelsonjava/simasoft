@@ -4,6 +4,7 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:forgeview="http://jboss.org/forge/view"
 	template="/resources/scaffold/pageTemplate.xhtml">
 
 	<f:metadata>
@@ -44,9 +45,26 @@
 			<h:outputText id="constructionEquipmentsBeanConstructionEquipmentsRate" value="#{constructionEquipmentsBean.constructionEquipments.rate}"/>
 			<h:outputText/>
 			<h:outputLabel for="constructionEquipmentsBeanConstructionEquipmentsApus" value="Apus:"/>
-			<h:link id="constructionEquipmentsBeanConstructionEquipmentsApus" outcome="/admin/apus/view" rendered="#{!empty constructionEquipmentsBean.constructionEquipments.apus}" value="#{constructionEquipmentsBean.constructionEquipments.apus}">
-				<f:param name="id" value="#{constructionEquipmentsBean.constructionEquipments.apus.id}"/>
-			</h:link>
+			<h:dataTable id="constructionEquipmentsBeanConstructionEquipmentsApus" styleClass="data-table" value="#{forgeview:asList(constructionEquipmentsBean.constructionEquipments.apus)}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Code"/>
+					</f:facet>
+					<h:link outcome="/admin/apus/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemCode" value="#{_item.code}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Name"/>
+					</f:facet>
+					<h:link outcome="/admin/apus/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemName" value="#{_item.name}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
 			<h:outputText/>
 			<h:outputLabel for="constructionEquipmentsBeanConstructionEquipmentsTypesConstructionEquipments" value="Types Construction Equipments:"/>
 			<h:link id="constructionEquipmentsBeanConstructionEquipmentsTypesConstructionEquipments" outcome="/admin/typesConstructionEquipments/view" rendered="#{!empty constructionEquipmentsBean.constructionEquipments.typesConstructionEquipments}" value="#{constructionEquipmentsBean.constructionEquipments.typesConstructionEquipments}">

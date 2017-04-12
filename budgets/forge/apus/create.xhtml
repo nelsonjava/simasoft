@@ -79,10 +79,6 @@
 								<f:param name="id" value="#{_item.id}"/>
 								<h:outputText id="_itemCode" value="#{_item.code}"/>
 							</h:link>
-							<f:facet name="footer">
-								<h:inputText id="constructionMaterialsBeanAddCode" value="#{constructionMaterialsBean.add.code}"/>
-								<h:message for="constructionMaterialsBeanAddCode" styleClass="error"/>
-							</f:facet>
 						</h:column>
 						<h:column>
 							<f:facet name="header">
@@ -92,20 +88,18 @@
 								<f:param name="id" value="#{_item.id}"/>
 								<h:outputText id="_itemName" value="#{_item.name}"/>
 							</h:link>
-							<f:facet name="footer">
-								<h:inputText id="constructionMaterialsBeanAddName" value="#{constructionMaterialsBean.add.name}"/>
-								<h:message for="constructionMaterialsBeanAddName" styleClass="error"/>
-							</f:facet>
 						</h:column>
 						<h:column footerClass="remove-column" headerClass="remove-column">
 							<h:commandLink action="#{_collection.remove(_item)}" styleClass="remove-button"/>
-							<f:facet name="footer">
-								<h:commandLink action="#{_collection.add(constructionMaterialsBean.added)}" id="apusBeanApusConstructionMaterialsAdd" styleClass="add-button">
-									<f:setPropertyActionListener target="#{constructionMaterialsBean.add.apus}" value="#{apusBean.apus}"/>
-								</h:commandLink>
-							</f:facet>
 						</h:column>
 					</h:dataTable>
+					<h:panelGrid columnClasses=",remove-column" columns="2" styleClass="data-table-footer">
+						<h:selectOneMenu converter="#{constructionMaterialsBean.converter}" id="apusBeanApusConstructionMaterialsSelect" value="#{requestScope['apusBeanApusConstructionMaterialsSelect']}">
+							<f:selectItem/>
+							<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{constructionMaterialsBean.all}" var="_item"/>
+						</h:selectOneMenu>
+						<h:commandLink action="#{_collection.add(requestScope['apusBeanApusConstructionMaterialsSelect'])}" id="apusBeanApusConstructionMaterialsAdd" onclick="if (document.getElementById(document.forms[0].id+':apusBeanApusConstructionMaterialsSelect').selectedIndex &lt; 1) { alert('Must select a Construction Materials'); return false; }" styleClass="add-button"/>
+					</h:panelGrid>
 				</h:panelGroup>
 				<h:outputText/>
 				<h:outputLabel for="apusBeanApusConstructionWorkforce" value="Construction Workforce:"/>
@@ -120,10 +114,6 @@
 								<f:param name="id" value="#{_item.id}"/>
 								<h:outputText id="_itemCode" value="#{_item.code}"/>
 							</h:link>
-							<f:facet name="footer">
-								<h:inputText id="constructionWorkforceBeanAddCode" value="#{constructionWorkforceBean.add.code}"/>
-								<h:message for="constructionWorkforceBeanAddCode" styleClass="error"/>
-							</f:facet>
 						</h:column>
 						<h:column>
 							<f:facet name="header">
@@ -133,20 +123,18 @@
 								<f:param name="id" value="#{_item.id}"/>
 								<h:outputText id="_itemName" value="#{_item.name}"/>
 							</h:link>
-							<f:facet name="footer">
-								<h:inputText id="constructionWorkforceBeanAddName" value="#{constructionWorkforceBean.add.name}"/>
-								<h:message for="constructionWorkforceBeanAddName" styleClass="error"/>
-							</f:facet>
 						</h:column>
 						<h:column footerClass="remove-column" headerClass="remove-column">
 							<h:commandLink action="#{_collection.remove(_item)}" styleClass="remove-button"/>
-							<f:facet name="footer">
-								<h:commandLink action="#{_collection.add(constructionWorkforceBean.added)}" id="apusBeanApusConstructionWorkforceAdd" styleClass="add-button">
-									<f:setPropertyActionListener target="#{constructionWorkforceBean.add.apus}" value="#{apusBean.apus}"/>
-								</h:commandLink>
-							</f:facet>
 						</h:column>
 					</h:dataTable>
+					<h:panelGrid columnClasses=",remove-column" columns="2" styleClass="data-table-footer">
+						<h:selectOneMenu converter="#{constructionWorkforceBean.converter}" id="apusBeanApusConstructionWorkforceSelect" value="#{requestScope['apusBeanApusConstructionWorkforceSelect']}">
+							<f:selectItem/>
+							<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{constructionWorkforceBean.all}" var="_item"/>
+						</h:selectOneMenu>
+						<h:commandLink action="#{_collection.add(requestScope['apusBeanApusConstructionWorkforceSelect'])}" id="apusBeanApusConstructionWorkforceAdd" onclick="if (document.getElementById(document.forms[0].id+':apusBeanApusConstructionWorkforceSelect').selectedIndex &lt; 1) { alert('Must select a Construction Workforce'); return false; }" styleClass="add-button"/>
+					</h:panelGrid>
 				</h:panelGroup>
 				<h:outputText/>
 				<h:outputLabel for="apusBeanApusConstructionEquipments" value="Construction Equipments:"/>
@@ -161,10 +149,6 @@
 								<f:param name="id" value="#{_item.id}"/>
 								<h:outputText id="_itemCode" value="#{_item.code}"/>
 							</h:link>
-							<f:facet name="footer">
-								<h:inputText id="constructionEquipmentsBeanAddCode" value="#{constructionEquipmentsBean.add.code}"/>
-								<h:message for="constructionEquipmentsBeanAddCode" styleClass="error"/>
-							</f:facet>
 						</h:column>
 						<h:column>
 							<f:facet name="header">
@@ -174,20 +158,18 @@
 								<f:param name="id" value="#{_item.id}"/>
 								<h:outputText id="_itemName" value="#{_item.name}"/>
 							</h:link>
-							<f:facet name="footer">
-								<h:inputText id="constructionEquipmentsBeanAddName" value="#{constructionEquipmentsBean.add.name}"/>
-								<h:message for="constructionEquipmentsBeanAddName" styleClass="error"/>
-							</f:facet>
 						</h:column>
 						<h:column footerClass="remove-column" headerClass="remove-column">
 							<h:commandLink action="#{_collection.remove(_item)}" styleClass="remove-button"/>
-							<f:facet name="footer">
-								<h:commandLink action="#{_collection.add(constructionEquipmentsBean.added)}" id="apusBeanApusConstructionEquipmentsAdd" styleClass="add-button">
-									<f:setPropertyActionListener target="#{constructionEquipmentsBean.add.apus}" value="#{apusBean.apus}"/>
-								</h:commandLink>
-							</f:facet>
 						</h:column>
 					</h:dataTable>
+					<h:panelGrid columnClasses=",remove-column" columns="2" styleClass="data-table-footer">
+						<h:selectOneMenu converter="#{constructionEquipmentsBean.converter}" id="apusBeanApusConstructionEquipmentsSelect" value="#{requestScope['apusBeanApusConstructionEquipmentsSelect']}">
+							<f:selectItem/>
+							<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{constructionEquipmentsBean.all}" var="_item"/>
+						</h:selectOneMenu>
+						<h:commandLink action="#{_collection.add(requestScope['apusBeanApusConstructionEquipmentsSelect'])}" id="apusBeanApusConstructionEquipmentsAdd" onclick="if (document.getElementById(document.forms[0].id+':apusBeanApusConstructionEquipmentsSelect').selectedIndex &lt; 1) { alert('Must select a Construction Equipments'); return false; }" styleClass="add-button"/>
+					</h:panelGrid>
 				</h:panelGroup>
 				<h:outputText/>
 				<h:outputLabel for="apusBeanApusConstructionTransports" value="Construction Transports:"/>
@@ -202,10 +184,6 @@
 								<f:param name="id" value="#{_item.id}"/>
 								<h:outputText id="_itemCode" value="#{_item.code}"/>
 							</h:link>
-							<f:facet name="footer">
-								<h:inputText id="constructionTransportsBeanAddCode" value="#{constructionTransportsBean.add.code}"/>
-								<h:message for="constructionTransportsBeanAddCode" styleClass="error"/>
-							</f:facet>
 						</h:column>
 						<h:column>
 							<f:facet name="header">
@@ -215,20 +193,18 @@
 								<f:param name="id" value="#{_item.id}"/>
 								<h:outputText id="_itemName" value="#{_item.name}"/>
 							</h:link>
-							<f:facet name="footer">
-								<h:inputText id="constructionTransportsBeanAddName" value="#{constructionTransportsBean.add.name}"/>
-								<h:message for="constructionTransportsBeanAddName" styleClass="error"/>
-							</f:facet>
 						</h:column>
 						<h:column footerClass="remove-column" headerClass="remove-column">
 							<h:commandLink action="#{_collection.remove(_item)}" styleClass="remove-button"/>
-							<f:facet name="footer">
-								<h:commandLink action="#{_collection.add(constructionTransportsBean.added)}" id="apusBeanApusConstructionTransportsAdd" styleClass="add-button">
-									<f:setPropertyActionListener target="#{constructionTransportsBean.add.apus}" value="#{apusBean.apus}"/>
-								</h:commandLink>
-							</f:facet>
 						</h:column>
 					</h:dataTable>
+					<h:panelGrid columnClasses=",remove-column" columns="2" styleClass="data-table-footer">
+						<h:selectOneMenu converter="#{constructionTransportsBean.converter}" id="apusBeanApusConstructionTransportsSelect" value="#{requestScope['apusBeanApusConstructionTransportsSelect']}">
+							<f:selectItem/>
+							<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{constructionTransportsBean.all}" var="_item"/>
+						</h:selectOneMenu>
+						<h:commandLink action="#{_collection.add(requestScope['apusBeanApusConstructionTransportsSelect'])}" id="apusBeanApusConstructionTransportsAdd" onclick="if (document.getElementById(document.forms[0].id+':apusBeanApusConstructionTransportsSelect').selectedIndex &lt; 1) { alert('Must select a Construction Transports'); return false; }" styleClass="add-button"/>
+					</h:panelGrid>
 				</h:panelGroup>
 				<h:outputText/>
 				<h:outputLabel for="apusBeanApusMeasurementUnits" value="Measurement Units:"/>

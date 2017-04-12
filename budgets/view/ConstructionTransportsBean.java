@@ -135,10 +135,6 @@ public class ConstructionTransportsBean implements Serializable {
 
                 try {
                         ConstructionTransports deletableEntity = findById(getId());
-                        Apus apus = deletableEntity.getApus();
-                        apus.getConstructionTransports().remove(deletableEntity);
-                        deletableEntity.setApus(null);
-                        this.entityManager.merge(apus);
                         TypesConstructionTransports typesConstructionTransports = deletableEntity.getTypesConstructionTransports();
                         typesConstructionTransports.getConstructionTransports().remove(deletableEntity);
                         deletableEntity.setTypesConstructionTransports(null);

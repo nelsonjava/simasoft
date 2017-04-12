@@ -135,10 +135,6 @@ public class ConstructionWorkforceBean implements Serializable {
 
                 try {
                         ConstructionWorkforce deletableEntity = findById(getId());
-                        Apus apus = deletableEntity.getApus();
-                        apus.getConstructionWorkforce().remove(deletableEntity);
-                        deletableEntity.setApus(null);
-                        this.entityManager.merge(apus);
                         TypesConstructionWorkforce typesConstructionWorkforce = deletableEntity.getTypesConstructionWorkforce();
                         typesConstructionWorkforce.getConstructionWorkforce().remove(deletableEntity);
                         deletableEntity.setTypesConstructionWorkforce(null);

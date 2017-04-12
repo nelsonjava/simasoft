@@ -150,162 +150,6 @@ public class FileUploadCsvR {
 
         FindBean findBean = new FindBean();
 
-        if (from.equals("Apus") &&
-            cardinalities.equals("Uno a Muchos Bidirecccional No.5") &&
-            to.equals("ConstructionMaterials") &&
-            name.equals("")){
-
-            Apus apusFrom = new Apus();
-            ConstructionMaterials constructionMaterialsTo = new ConstructionMaterials();
-
-            if (fromProperty.equals("code")){
-                apusFrom = findBean.codeApus(fromValue,em);
-                f.line("from:"+fromValue+":"+apusFrom.getCode());
-            } // apus
-
-            if (fromProperty.equals("name")){
-                apusFrom = findBean.nameApus(fromValue,em);
-                f.line("from:"+fromValue+":"+apusFrom.getName());
-            } // apus
-
-            if (toProperty.equals("code")){
-                constructionMaterialsTo = findBean.codeConstructionMaterials(toValue,em);
-                f.line("to:"+toValue+":"+constructionMaterialsTo.getCode());
-            } // constructionMaterials
-
-            if (toProperty.equals("name")){
-                constructionMaterialsTo = findBean.nameConstructionMaterials(toValue,em);
-                f.line("to:"+toValue+":"+constructionMaterialsTo.getName());
-            } // constructionMaterials
-
-            if (cardinalities.equals("Uno a Muchos Bidirecccional No.5")){
-                constructionMaterialsTo.setApus(apusFrom);
-            }
-
-            if (!isValidate) {
-                em.merge(constructionMaterialsTo);
-                em.flush();
-            }
-
-        } // from: Apus
-
-        if (from.equals("Apus") &&
-            cardinalities.equals("Uno a Muchos Bidirecccional No.5") &&
-            to.equals("ConstructionWorkforce") &&
-            name.equals("")){
-
-            Apus apusFrom = new Apus();
-            ConstructionWorkforce constructionWorkforceTo = new ConstructionWorkforce();
-
-            if (fromProperty.equals("code")){
-                apusFrom = findBean.codeApus(fromValue,em);
-                f.line("from:"+fromValue+":"+apusFrom.getCode());
-            } // apus
-
-            if (fromProperty.equals("name")){
-                apusFrom = findBean.nameApus(fromValue,em);
-                f.line("from:"+fromValue+":"+apusFrom.getName());
-            } // apus
-
-            if (toProperty.equals("code")){
-                constructionWorkforceTo = findBean.codeConstructionWorkforce(toValue,em);
-                f.line("to:"+toValue+":"+constructionWorkforceTo.getCode());
-            } // constructionWorkforce
-
-            if (toProperty.equals("name")){
-                constructionWorkforceTo = findBean.nameConstructionWorkforce(toValue,em);
-                f.line("to:"+toValue+":"+constructionWorkforceTo.getName());
-            } // constructionWorkforce
-
-            if (cardinalities.equals("Uno a Muchos Bidirecccional No.5")){
-                constructionWorkforceTo.setApus(apusFrom);
-            }
-
-            if (!isValidate) {
-                em.merge(constructionWorkforceTo);
-                em.flush();
-            }
-
-        } // from: Apus
-
-        if (from.equals("Apus") &&
-            cardinalities.equals("Uno a Muchos Bidirecccional No.5") &&
-            to.equals("ConstructionEquipments") &&
-            name.equals("")){
-
-            Apus apusFrom = new Apus();
-            ConstructionEquipments constructionEquipmentsTo = new ConstructionEquipments();
-
-            if (fromProperty.equals("code")){
-                apusFrom = findBean.codeApus(fromValue,em);
-                f.line("from:"+fromValue+":"+apusFrom.getCode());
-            } // apus
-
-            if (fromProperty.equals("name")){
-                apusFrom = findBean.nameApus(fromValue,em);
-                f.line("from:"+fromValue+":"+apusFrom.getName());
-            } // apus
-
-            if (toProperty.equals("code")){
-                constructionEquipmentsTo = findBean.codeConstructionEquipments(toValue,em);
-                f.line("to:"+toValue+":"+constructionEquipmentsTo.getCode());
-            } // constructionEquipments
-
-            if (toProperty.equals("name")){
-                constructionEquipmentsTo = findBean.nameConstructionEquipments(toValue,em);
-                f.line("to:"+toValue+":"+constructionEquipmentsTo.getName());
-            } // constructionEquipments
-
-            if (cardinalities.equals("Uno a Muchos Bidirecccional No.5")){
-                constructionEquipmentsTo.setApus(apusFrom);
-            }
-
-            if (!isValidate) {
-                em.merge(constructionEquipmentsTo);
-                em.flush();
-            }
-
-        } // from: Apus
-
-        if (from.equals("Apus") &&
-            cardinalities.equals("Uno a Muchos Bidirecccional No.5") &&
-            to.equals("ConstructionTransports") &&
-            name.equals("")){
-
-            Apus apusFrom = new Apus();
-            ConstructionTransports constructionTransportsTo = new ConstructionTransports();
-
-            if (fromProperty.equals("code")){
-                apusFrom = findBean.codeApus(fromValue,em);
-                f.line("from:"+fromValue+":"+apusFrom.getCode());
-            } // apus
-
-            if (fromProperty.equals("name")){
-                apusFrom = findBean.nameApus(fromValue,em);
-                f.line("from:"+fromValue+":"+apusFrom.getName());
-            } // apus
-
-            if (toProperty.equals("code")){
-                constructionTransportsTo = findBean.codeConstructionTransports(toValue,em);
-                f.line("to:"+toValue+":"+constructionTransportsTo.getCode());
-            } // constructionTransports
-
-            if (toProperty.equals("name")){
-                constructionTransportsTo = findBean.nameConstructionTransports(toValue,em);
-                f.line("to:"+toValue+":"+constructionTransportsTo.getName());
-            } // constructionTransports
-
-            if (cardinalities.equals("Uno a Muchos Bidirecccional No.5")){
-                constructionTransportsTo.setApus(apusFrom);
-            }
-
-            if (!isValidate) {
-                em.merge(constructionTransportsTo);
-                em.flush();
-            }
-
-        } // from: Apus
-
         if (from.equals("ConstructionActivities") &&
             cardinalities.equals("Uno a Muchos Bidirecccional No.5") &&
             to.equals("WorkActivities") &&
@@ -841,9 +685,18 @@ public class FileUploadCsvR {
 
         anterior = "";
 
+        Apus apus = new Apus();
+        ConstructionMaterials constructionMaterials = new ConstructionMaterials();
+        ConstructionWorkforce constructionWorkforce = new ConstructionWorkforce();
+        ConstructionEquipments constructionEquipments = new ConstructionEquipments();
+        ConstructionTransports constructionTransports = new ConstructionTransports();
         TypesWorksConstruction typesWorksConstruction = new TypesWorksConstruction();
         ConstructionActivities constructionActivities = new ConstructionActivities();
 
+        Set<ConstructionMaterials> constructionMaterialss = new HashSet<ConstructionMaterials>();
+        Set<ConstructionWorkforce> constructionWorkforces = new HashSet<ConstructionWorkforce>();
+        Set<ConstructionEquipments> constructionEquipmentss = new HashSet<ConstructionEquipments>();
+        Set<ConstructionTransports> constructionTransportss = new HashSet<ConstructionTransports>();
         Set<ConstructionActivities> constructionActivitiess = new HashSet<ConstructionActivities>();
 
         br = new BufferedReader(new FileReader(filePath));
@@ -893,6 +746,282 @@ public class FileUploadCsvR {
                ant = anterior;
                anterior = actual;
            }
+
+           if (from.equals("Apus") &&
+               cardinalities.equals("Muchos a Muchos Bidirecccional No.7") &&
+               to.equals("ConstructionMaterials") &&
+               Utils.isEmpty(name)){
+
+               if (isCambio){
+
+                  f.line("cambio:"+ant);
+
+                  if (constructionMaterialss.size() > 0){
+
+                      if (fromProperty.equals("code")){
+                          apus = findBean.codeApus(ant,em);
+                          apus.setConstructionMaterials(constructionMaterialss);
+                          f.line("No."+Integer.toString(i)+" id="+String.valueOf(apus.getId())+" code="+apus.getCode());
+
+                      } // apus
+
+                      if (fromProperty.equals("name")){
+                          apus = findBean.nameApus(ant,em);
+                          apus.setConstructionMaterials(constructionMaterialss);
+                          f.line("No."+Integer.toString(i)+" id="+String.valueOf(apus.getId())+" name="+apus.getName());
+
+                      } // apus
+
+                      if (!isValidate) {
+
+                          em.merge(apus);
+                          em.flush();
+
+                      }
+
+                      if (fromProperty.equals("code")){
+                          j = 0;
+                          for(ConstructionMaterials constructionMaterialsx : constructionMaterialss){
+                              f.line("id="+String.valueOf(constructionMaterialsx.getId())+" code="+constructionMaterialsx.getCode());
+                          }
+
+                          f.line("===========");
+                      } // apus
+
+                      if (fromProperty.equals("name")){
+                          j = 0;
+                          for(ConstructionMaterials constructionMaterialsx : constructionMaterialss){
+                              f.line("id="+String.valueOf(constructionMaterialsx.getId())+" name="+constructionMaterialsx.getName());
+                          }
+
+                          f.line("===========");
+                      } // apus
+
+                  } // size()
+
+                  constructionMaterialss = new HashSet<ConstructionMaterials>();
+                  constructionMaterials = new ConstructionMaterials();
+
+               } // isCambio 
+
+              if (toProperty.equals("code")){
+                  constructionMaterials = findBean.codeConstructionMaterials(toValue,em);
+              } // constructionMaterials
+
+              if (toProperty.equals("name")){
+                  constructionMaterials = findBean.nameConstructionMaterials(toValue,em);
+              } // constructionMaterials
+
+              constructionMaterialss.add(constructionMaterials);
+
+           } // from: Apus
+
+           if (from.equals("Apus") &&
+               cardinalities.equals("Muchos a Muchos Bidirecccional No.7") &&
+               to.equals("ConstructionWorkforce") &&
+               Utils.isEmpty(name)){
+
+               if (isCambio){
+
+                  f.line("cambio:"+ant);
+
+                  if (constructionWorkforces.size() > 0){
+
+                      if (fromProperty.equals("code")){
+                          apus = findBean.codeApus(ant,em);
+                          apus.setConstructionWorkforce(constructionWorkforces);
+                          f.line("No."+Integer.toString(i)+" id="+String.valueOf(apus.getId())+" code="+apus.getCode());
+
+                      } // apus
+
+                      if (fromProperty.equals("name")){
+                          apus = findBean.nameApus(ant,em);
+                          apus.setConstructionWorkforce(constructionWorkforces);
+                          f.line("No."+Integer.toString(i)+" id="+String.valueOf(apus.getId())+" name="+apus.getName());
+
+                      } // apus
+
+                      if (!isValidate) {
+
+                          em.merge(apus);
+                          em.flush();
+
+                      }
+
+                      if (fromProperty.equals("code")){
+                          j = 0;
+                          for(ConstructionWorkforce constructionWorkforcex : constructionWorkforces){
+                              f.line("id="+String.valueOf(constructionWorkforcex.getId())+" code="+constructionWorkforcex.getCode());
+                          }
+
+                          f.line("===========");
+                      } // apus
+
+                      if (fromProperty.equals("name")){
+                          j = 0;
+                          for(ConstructionWorkforce constructionWorkforcex : constructionWorkforces){
+                              f.line("id="+String.valueOf(constructionWorkforcex.getId())+" name="+constructionWorkforcex.getName());
+                          }
+
+                          f.line("===========");
+                      } // apus
+
+                  } // size()
+
+                  constructionWorkforces = new HashSet<ConstructionWorkforce>();
+                  constructionWorkforce = new ConstructionWorkforce();
+
+               } // isCambio 
+
+              if (toProperty.equals("code")){
+                  constructionWorkforce = findBean.codeConstructionWorkforce(toValue,em);
+              } // constructionWorkforce
+
+              if (toProperty.equals("name")){
+                  constructionWorkforce = findBean.nameConstructionWorkforce(toValue,em);
+              } // constructionWorkforce
+
+              constructionWorkforces.add(constructionWorkforce);
+
+           } // from: Apus
+
+           if (from.equals("Apus") &&
+               cardinalities.equals("Muchos a Muchos Bidirecccional No.7") &&
+               to.equals("ConstructionEquipments") &&
+               Utils.isEmpty(name)){
+
+               if (isCambio){
+
+                  f.line("cambio:"+ant);
+
+                  if (constructionEquipmentss.size() > 0){
+
+                      if (fromProperty.equals("code")){
+                          apus = findBean.codeApus(ant,em);
+                          apus.setConstructionEquipments(constructionEquipmentss);
+                          f.line("No."+Integer.toString(i)+" id="+String.valueOf(apus.getId())+" code="+apus.getCode());
+
+                      } // apus
+
+                      if (fromProperty.equals("name")){
+                          apus = findBean.nameApus(ant,em);
+                          apus.setConstructionEquipments(constructionEquipmentss);
+                          f.line("No."+Integer.toString(i)+" id="+String.valueOf(apus.getId())+" name="+apus.getName());
+
+                      } // apus
+
+                      if (!isValidate) {
+
+                          em.merge(apus);
+                          em.flush();
+
+                      }
+
+                      if (fromProperty.equals("code")){
+                          j = 0;
+                          for(ConstructionEquipments constructionEquipmentsx : constructionEquipmentss){
+                              f.line("id="+String.valueOf(constructionEquipmentsx.getId())+" code="+constructionEquipmentsx.getCode());
+                          }
+
+                          f.line("===========");
+                      } // apus
+
+                      if (fromProperty.equals("name")){
+                          j = 0;
+                          for(ConstructionEquipments constructionEquipmentsx : constructionEquipmentss){
+                              f.line("id="+String.valueOf(constructionEquipmentsx.getId())+" name="+constructionEquipmentsx.getName());
+                          }
+
+                          f.line("===========");
+                      } // apus
+
+                  } // size()
+
+                  constructionEquipmentss = new HashSet<ConstructionEquipments>();
+                  constructionEquipments = new ConstructionEquipments();
+
+               } // isCambio 
+
+              if (toProperty.equals("code")){
+                  constructionEquipments = findBean.codeConstructionEquipments(toValue,em);
+              } // constructionEquipments
+
+              if (toProperty.equals("name")){
+                  constructionEquipments = findBean.nameConstructionEquipments(toValue,em);
+              } // constructionEquipments
+
+              constructionEquipmentss.add(constructionEquipments);
+
+           } // from: Apus
+
+           if (from.equals("Apus") &&
+               cardinalities.equals("Muchos a Muchos Bidirecccional No.7") &&
+               to.equals("ConstructionTransports") &&
+               Utils.isEmpty(name)){
+
+               if (isCambio){
+
+                  f.line("cambio:"+ant);
+
+                  if (constructionTransportss.size() > 0){
+
+                      if (fromProperty.equals("code")){
+                          apus = findBean.codeApus(ant,em);
+                          apus.setConstructionTransports(constructionTransportss);
+                          f.line("No."+Integer.toString(i)+" id="+String.valueOf(apus.getId())+" code="+apus.getCode());
+
+                      } // apus
+
+                      if (fromProperty.equals("name")){
+                          apus = findBean.nameApus(ant,em);
+                          apus.setConstructionTransports(constructionTransportss);
+                          f.line("No."+Integer.toString(i)+" id="+String.valueOf(apus.getId())+" name="+apus.getName());
+
+                      } // apus
+
+                      if (!isValidate) {
+
+                          em.merge(apus);
+                          em.flush();
+
+                      }
+
+                      if (fromProperty.equals("code")){
+                          j = 0;
+                          for(ConstructionTransports constructionTransportsx : constructionTransportss){
+                              f.line("id="+String.valueOf(constructionTransportsx.getId())+" code="+constructionTransportsx.getCode());
+                          }
+
+                          f.line("===========");
+                      } // apus
+
+                      if (fromProperty.equals("name")){
+                          j = 0;
+                          for(ConstructionTransports constructionTransportsx : constructionTransportss){
+                              f.line("id="+String.valueOf(constructionTransportsx.getId())+" name="+constructionTransportsx.getName());
+                          }
+
+                          f.line("===========");
+                      } // apus
+
+                  } // size()
+
+                  constructionTransportss = new HashSet<ConstructionTransports>();
+                  constructionTransports = new ConstructionTransports();
+
+               } // isCambio 
+
+              if (toProperty.equals("code")){
+                  constructionTransports = findBean.codeConstructionTransports(toValue,em);
+              } // constructionTransports
+
+              if (toProperty.equals("name")){
+                  constructionTransports = findBean.nameConstructionTransports(toValue,em);
+              } // constructionTransports
+
+              constructionTransportss.add(constructionTransports);
+
+           } // from: Apus
 
            if (from.equals("TypesWorksConstruction") &&
                cardinalities.equals("Muchos a Muchos Bidirecccional No.7") &&

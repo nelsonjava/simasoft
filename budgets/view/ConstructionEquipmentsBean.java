@@ -135,10 +135,6 @@ public class ConstructionEquipmentsBean implements Serializable {
 
                 try {
                         ConstructionEquipments deletableEntity = findById(getId());
-                        Apus apus = deletableEntity.getApus();
-                        apus.getConstructionEquipments().remove(deletableEntity);
-                        deletableEntity.setApus(null);
-                        this.entityManager.merge(apus);
                         TypesConstructionEquipments typesConstructionEquipments = deletableEntity.getTypesConstructionEquipments();
                         typesConstructionEquipments.getConstructionEquipments().remove(deletableEntity);
                         deletableEntity.setTypesConstructionEquipments(null);

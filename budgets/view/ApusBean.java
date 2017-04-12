@@ -135,34 +135,6 @@ public class ApusBean implements Serializable {
 
                 try {
                         Apus deletableEntity = findById(getId());
-                        Iterator<ConstructionMaterials> iterConstructionMaterials = deletableEntity.getConstructionMaterials().iterator();
-                        for (; iterConstructionMaterials.hasNext();){
-                               ConstructionMaterials nextInConstructionMaterials = iterConstructionMaterials.next();
-                                nextInConstructionMaterials.setApus(null);
-                               iterConstructionMaterials.remove();
-                               this.entityManager.merge(nextInConstructionMaterials);
-                        }
-                        Iterator<ConstructionWorkforce> iterConstructionWorkforce = deletableEntity.getConstructionWorkforce().iterator();
-                        for (; iterConstructionWorkforce.hasNext();){
-                               ConstructionWorkforce nextInConstructionWorkforce = iterConstructionWorkforce.next();
-                                nextInConstructionWorkforce.setApus(null);
-                               iterConstructionWorkforce.remove();
-                               this.entityManager.merge(nextInConstructionWorkforce);
-                        }
-                        Iterator<ConstructionEquipments> iterConstructionEquipments = deletableEntity.getConstructionEquipments().iterator();
-                        for (; iterConstructionEquipments.hasNext();){
-                               ConstructionEquipments nextInConstructionEquipments = iterConstructionEquipments.next();
-                                nextInConstructionEquipments.setApus(null);
-                               iterConstructionEquipments.remove();
-                               this.entityManager.merge(nextInConstructionEquipments);
-                        }
-                        Iterator<ConstructionTransports> iterConstructionTransports = deletableEntity.getConstructionTransports().iterator();
-                        for (; iterConstructionTransports.hasNext();){
-                               ConstructionTransports nextInConstructionTransports = iterConstructionTransports.next();
-                                nextInConstructionTransports.setApus(null);
-                               iterConstructionTransports.remove();
-                               this.entityManager.merge(nextInConstructionTransports);
-                        }
                         MeasurementUnits measurementUnits = deletableEntity.getMeasurementUnits();
                         measurementUnits.getApus().remove(deletableEntity);
                         deletableEntity.setMeasurementUnits(null);

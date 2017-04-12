@@ -54,9 +54,221 @@
                                 </h:panelGroup>
                                 <h:outputText value="*"/>
 
+                                <h:outputLabel for="apusBeanapusConstructionMaterials" value="ConstructionMaterials:"/>
+                                <h:panelGroup>
+                                        <ui:param name="_collection" value="#{apusBean.apus.constructionMaterials}"/>
+                                        <h:dataTable id="apusBeanApusConstructionMaterials" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Code"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/constructionMaterials/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemCode" value="#{_item.code}"/>
+                                              </h:link>
+                                           </h:column>
 
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Name"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/constructionMaterials/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemName" value="#{_item.name}"/>
+                                              </h:link>
+                                           </h:column>
 
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Price"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/constructionMaterials/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemPrice" value="#{_item.price}"/>
+                                              </h:link>
+                                           </h:column>
 
+                                     <h:column footerClass="remove-column" headerClass="remove-column">
+                                        <h:commandLink action="#{_collection.remove(_item)}" styleClass="remove-button"/>
+                                     </h:column>
+                                        </h:dataTable>
+
+                                        <h:panelGrid columnClasses=",remove-column" columns="2" styleClass="data-table-footer">
+                                           <h:selectOneMenu converter="#{constructionMaterialsBean.converter}" id="apusBeanApusConstructionMaterialsSelect" value="#{requestScope['apusBeanApusConstructionMaterialsSelect']}">
+                                             <f:selectItem/>
+                                             <f:selectItems itemLabel="#{forgeview:display(_item.name)}" itemValue="#{_item}" value="#{constructionMaterialsBean.all}" var="_item"/>
+                                           </h:selectOneMenu>
+                                           <h:commandLink action="#{_collection.add(requestScope['apusBeanApusConstructionMaterialsSelect'])}" id="apusBeanApusConstructionMaterialsAdd" onclick="if (document.getElementById(document.forms[0].id+':apusBeanApusConstructionMaterialsSelect').selectedIndex &lt; 1) { alert('Must select a ConstructionMaterials'); return false; }" styleClass="add-button"/>
+                                        </h:panelGrid>
+                                </h:panelGroup>
+                                <h:outputText/>
+
+                                <h:outputLabel for="apusBeanapusConstructionWorkforce" value="ConstructionWorkforce:"/>
+                                <h:panelGroup>
+                                        <ui:param name="_collection" value="#{apusBean.apus.constructionWorkforce}"/>
+                                        <h:dataTable id="apusBeanApusConstructionWorkforce" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Code"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/constructionWorkforce/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemCode" value="#{_item.code}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Name"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/constructionWorkforce/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemName" value="#{_item.name}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Basic"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/constructionWorkforce/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemBasic" value="#{_item.basic}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Benefits"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/constructionWorkforce/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemBenefits" value="#{_item.benefits}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Salary"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/constructionWorkforce/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemSalary" value="#{_item.salary}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                     <h:column footerClass="remove-column" headerClass="remove-column">
+                                        <h:commandLink action="#{_collection.remove(_item)}" styleClass="remove-button"/>
+                                     </h:column>
+                                        </h:dataTable>
+
+                                        <h:panelGrid columnClasses=",remove-column" columns="2" styleClass="data-table-footer">
+                                           <h:selectOneMenu converter="#{constructionWorkforceBean.converter}" id="apusBeanApusConstructionWorkforceSelect" value="#{requestScope['apusBeanApusConstructionWorkforceSelect']}">
+                                             <f:selectItem/>
+                                             <f:selectItems itemLabel="#{forgeview:display(_item.name)}" itemValue="#{_item}" value="#{constructionWorkforceBean.all}" var="_item"/>
+                                           </h:selectOneMenu>
+                                           <h:commandLink action="#{_collection.add(requestScope['apusBeanApusConstructionWorkforceSelect'])}" id="apusBeanApusConstructionWorkforceAdd" onclick="if (document.getElementById(document.forms[0].id+':apusBeanApusConstructionWorkforceSelect').selectedIndex &lt; 1) { alert('Must select a ConstructionWorkforce'); return false; }" styleClass="add-button"/>
+                                        </h:panelGrid>
+                                </h:panelGroup>
+                                <h:outputText/>
+
+                                <h:outputLabel for="apusBeanapusConstructionEquipments" value="ConstructionEquipments:"/>
+                                <h:panelGroup>
+                                        <ui:param name="_collection" value="#{apusBean.apus.constructionEquipments}"/>
+                                        <h:dataTable id="apusBeanApusConstructionEquipments" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Code"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/constructionEquipments/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemCode" value="#{_item.code}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Name"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/constructionEquipments/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemName" value="#{_item.name}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Rate"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/constructionEquipments/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemRate" value="#{_item.rate}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                     <h:column footerClass="remove-column" headerClass="remove-column">
+                                        <h:commandLink action="#{_collection.remove(_item)}" styleClass="remove-button"/>
+                                     </h:column>
+                                        </h:dataTable>
+
+                                        <h:panelGrid columnClasses=",remove-column" columns="2" styleClass="data-table-footer">
+                                           <h:selectOneMenu converter="#{constructionEquipmentsBean.converter}" id="apusBeanApusConstructionEquipmentsSelect" value="#{requestScope['apusBeanApusConstructionEquipmentsSelect']}">
+                                             <f:selectItem/>
+                                             <f:selectItems itemLabel="#{forgeview:display(_item.name)}" itemValue="#{_item}" value="#{constructionEquipmentsBean.all}" var="_item"/>
+                                           </h:selectOneMenu>
+                                           <h:commandLink action="#{_collection.add(requestScope['apusBeanApusConstructionEquipmentsSelect'])}" id="apusBeanApusConstructionEquipmentsAdd" onclick="if (document.getElementById(document.forms[0].id+':apusBeanApusConstructionEquipmentsSelect').selectedIndex &lt; 1) { alert('Must select a ConstructionEquipments'); return false; }" styleClass="add-button"/>
+                                        </h:panelGrid>
+                                </h:panelGroup>
+                                <h:outputText/>
+
+                                <h:outputLabel for="apusBeanapusConstructionTransports" value="ConstructionTransports:"/>
+                                <h:panelGroup>
+                                        <ui:param name="_collection" value="#{apusBean.apus.constructionTransports}"/>
+                                        <h:dataTable id="apusBeanApusConstructionTransports" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Code"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/constructionTransports/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemCode" value="#{_item.code}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Name"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/constructionTransports/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemName" value="#{_item.name}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Rate"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/constructionTransports/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemRate" value="#{_item.rate}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                     <h:column footerClass="remove-column" headerClass="remove-column">
+                                        <h:commandLink action="#{_collection.remove(_item)}" styleClass="remove-button"/>
+                                     </h:column>
+                                        </h:dataTable>
+
+                                        <h:panelGrid columnClasses=",remove-column" columns="2" styleClass="data-table-footer">
+                                           <h:selectOneMenu converter="#{constructionTransportsBean.converter}" id="apusBeanApusConstructionTransportsSelect" value="#{requestScope['apusBeanApusConstructionTransportsSelect']}">
+                                             <f:selectItem/>
+                                             <f:selectItems itemLabel="#{forgeview:display(_item.name)}" itemValue="#{_item}" value="#{constructionTransportsBean.all}" var="_item"/>
+                                           </h:selectOneMenu>
+                                           <h:commandLink action="#{_collection.add(requestScope['apusBeanApusConstructionTransportsSelect'])}" id="apusBeanApusConstructionTransportsAdd" onclick="if (document.getElementById(document.forms[0].id+':apusBeanApusConstructionTransportsSelect').selectedIndex &lt; 1) { alert('Must select a ConstructionTransports'); return false; }" styleClass="add-button"/>
+                                        </h:panelGrid>
+                                </h:panelGroup>
+                                <h:outputText/>
 
                                 <h:outputLabel for="apusBeanApusMeasurementUnits" value="MeasurementUnits:"/>
                                 <h:panelGroup>

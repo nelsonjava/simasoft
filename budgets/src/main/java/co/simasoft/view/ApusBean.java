@@ -142,7 +142,7 @@ public class ApusBean implements Serializable {
 			for (; iterConstructionMaterials.hasNext();) {
 				ConstructionMaterials nextInConstructionMaterials = iterConstructionMaterials
 						.next();
-				nextInConstructionMaterials.setApus(null);
+				nextInConstructionMaterials.getApus().remove(deletableEntity);
 				iterConstructionMaterials.remove();
 				this.entityManager.merge(nextInConstructionMaterials);
 			}
@@ -151,7 +151,7 @@ public class ApusBean implements Serializable {
 			for (; iterConstructionWorkforce.hasNext();) {
 				ConstructionWorkforce nextInConstructionWorkforce = iterConstructionWorkforce
 						.next();
-				nextInConstructionWorkforce.setApus(null);
+				nextInConstructionWorkforce.getApus().remove(deletableEntity);
 				iterConstructionWorkforce.remove();
 				this.entityManager.merge(nextInConstructionWorkforce);
 			}
@@ -160,7 +160,7 @@ public class ApusBean implements Serializable {
 			for (; iterConstructionEquipments.hasNext();) {
 				ConstructionEquipments nextInConstructionEquipments = iterConstructionEquipments
 						.next();
-				nextInConstructionEquipments.setApus(null);
+				nextInConstructionEquipments.getApus().remove(deletableEntity);
 				iterConstructionEquipments.remove();
 				this.entityManager.merge(nextInConstructionEquipments);
 			}
@@ -169,7 +169,7 @@ public class ApusBean implements Serializable {
 			for (; iterConstructionTransports.hasNext();) {
 				ConstructionTransports nextInConstructionTransports = iterConstructionTransports
 						.next();
-				nextInConstructionTransports.setApus(null);
+				nextInConstructionTransports.getApus().remove(deletableEntity);
 				iterConstructionTransports.remove();
 				this.entityManager.merge(nextInConstructionTransports);
 			}

@@ -27,6 +27,7 @@ import javax.persistence.criteria.Root;
 import co.simasoft.models.ConstructionTransports;
 import co.simasoft.models.Apus;
 import co.simasoft.models.TypesConstructionTransports;
+import java.util.Iterator;
 
 /**
  * Backing bean for ConstructionTransports entities.
@@ -134,10 +135,13 @@ public class ConstructionTransportsBean implements Serializable {
 
 		try {
 			ConstructionTransports deletableEntity = findById(getId());
-			Apus apus = deletableEntity.getApus();
-			apus.getConstructionTransports().remove(deletableEntity);
-			deletableEntity.setApus(null);
-			this.entityManager.merge(apus);
+			Iterator<Apus> iterApus = deletableEntity.getApus().iterator();
+			for (; iterApus.hasNext();) {
+				Apus nextInApus = iterApus.next();
+				nextInApus.getConstructionTransports().remove(deletableEntity);
+				iterApus.remove();
+				this.entityManager.merge(nextInApus);
+			}
 			TypesConstructionTransports typesConstructionTransports = deletableEntity
 					.getTypesConstructionTransports();
 			typesConstructionTransports.getConstructionTransports().remove(
@@ -245,9 +249,12 @@ public class ConstructionTransportsBean implements Serializable {
 					builder.lower(root.<String> get("name")),
 					'%' + name.toLowerCase() + '%'));
 		}
-		Apus apus = this.example.getApus();
-		if (apus != null) {
-			predicatesList.add(builder.equal(root.get("apus"), apus));
+		TypesConstructionTransports typesConstructionTransports = this.example
+				.getTypesConstructionTransports();
+		if (typesConstructionTransports != null) {
+			predicatesList.add(builder.equal(
+					root.get("typesConstructionTransports"),
+					typesConstructionTransports));
 		}
 
 		return predicatesList.toArray(new Predicate[predicatesList.size()]);

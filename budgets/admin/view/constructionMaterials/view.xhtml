@@ -45,11 +45,7 @@
                         <h:outputText id="constructionMaterialsBeanConstructionMaterialsObservations" value="#{constructionMaterialsBean.constructionMaterials.observations}" escape="false" />
                         <h:outputText/>
 
-                        <h:outputLabel for="constructionMaterialsBeanConstructionMaterialsApus" value="Apus:"/>
-                        <h:link id="constructionMaterialsBeanConstructionMaterialsApus" outcome="/admin/apus/view" rendered="#{!empty constructionMaterialsBean.constructionMaterials.apus}" value="#{constructionMaterialsBean.constructionMaterials.apus.code}">
-                                 <f:param name="id" value="#{constructionMaterialsBean.constructionMaterials.apus.id}"/>
-                        </h:link>
-                        <h:outputText/>
+                        Muchos a Muchos Unidireccional No.6
 
                         <h:outputLabel for="constructionMaterialsBeanConstructionMaterialsTypesConstructionMaterials" value="TypesConstructionMaterials:"/>
                         <h:link id="constructionMaterialsBeanConstructionMaterialsTypesConstructionMaterials" outcome="/admin/typesConstructionMaterials/view" rendered="#{!empty constructionMaterialsBean.constructionMaterials.typesConstructionMaterials}" value="#{constructionMaterialsBean.constructionMaterials.typesConstructionMaterials.code}">

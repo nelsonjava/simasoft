@@ -27,6 +27,7 @@ import javax.persistence.criteria.Root;
 import co.simasoft.models.ConstructionEquipments;
 import co.simasoft.models.Apus;
 import co.simasoft.models.TypesConstructionEquipments;
+import java.util.Iterator;
 
 /**
  * Backing bean for ConstructionEquipments entities.
@@ -134,10 +135,13 @@ public class ConstructionEquipmentsBean implements Serializable {
 
 		try {
 			ConstructionEquipments deletableEntity = findById(getId());
-			Apus apus = deletableEntity.getApus();
-			apus.getConstructionEquipments().remove(deletableEntity);
-			deletableEntity.setApus(null);
-			this.entityManager.merge(apus);
+			Iterator<Apus> iterApus = deletableEntity.getApus().iterator();
+			for (; iterApus.hasNext();) {
+				Apus nextInApus = iterApus.next();
+				nextInApus.getConstructionEquipments().remove(deletableEntity);
+				iterApus.remove();
+				this.entityManager.merge(nextInApus);
+			}
 			TypesConstructionEquipments typesConstructionEquipments = deletableEntity
 					.getTypesConstructionEquipments();
 			typesConstructionEquipments.getConstructionEquipments().remove(
@@ -245,9 +249,12 @@ public class ConstructionEquipmentsBean implements Serializable {
 					builder.lower(root.<String> get("name")),
 					'%' + name.toLowerCase() + '%'));
 		}
-		Apus apus = this.example.getApus();
-		if (apus != null) {
-			predicatesList.add(builder.equal(root.get("apus"), apus));
+		TypesConstructionEquipments typesConstructionEquipments = this.example
+				.getTypesConstructionEquipments();
+		if (typesConstructionEquipments != null) {
+			predicatesList.add(builder.equal(
+					root.get("typesConstructionEquipments"),
+					typesConstructionEquipments));
 		}
 
 		return predicatesList.toArray(new Predicate[predicatesList.size()]);

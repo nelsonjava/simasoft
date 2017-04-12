@@ -27,6 +27,7 @@ import javax.persistence.criteria.Root;
 import co.simasoft.models.ConstructionWorkforce;
 import co.simasoft.models.Apus;
 import co.simasoft.models.TypesConstructionWorkforce;
+import java.util.Iterator;
 
 /**
  * Backing bean for ConstructionWorkforce entities.
@@ -134,10 +135,13 @@ public class ConstructionWorkforceBean implements Serializable {
 
 		try {
 			ConstructionWorkforce deletableEntity = findById(getId());
-			Apus apus = deletableEntity.getApus();
-			apus.getConstructionWorkforce().remove(deletableEntity);
-			deletableEntity.setApus(null);
-			this.entityManager.merge(apus);
+			Iterator<Apus> iterApus = deletableEntity.getApus().iterator();
+			for (; iterApus.hasNext();) {
+				Apus nextInApus = iterApus.next();
+				nextInApus.getConstructionWorkforce().remove(deletableEntity);
+				iterApus.remove();
+				this.entityManager.merge(nextInApus);
+			}
 			TypesConstructionWorkforce typesConstructionWorkforce = deletableEntity
 					.getTypesConstructionWorkforce();
 			typesConstructionWorkforce.getConstructionWorkforce().remove(
@@ -245,9 +249,12 @@ public class ConstructionWorkforceBean implements Serializable {
 					builder.lower(root.<String> get("name")),
 					'%' + name.toLowerCase() + '%'));
 		}
-		Apus apus = this.example.getApus();
-		if (apus != null) {
-			predicatesList.add(builder.equal(root.get("apus"), apus));
+		TypesConstructionWorkforce typesConstructionWorkforce = this.example
+				.getTypesConstructionWorkforce();
+		if (typesConstructionWorkforce != null) {
+			predicatesList.add(builder.equal(
+					root.get("typesConstructionWorkforce"),
+					typesConstructionWorkforce));
 		}
 
 		return predicatesList.toArray(new Predicate[predicatesList.size()]);

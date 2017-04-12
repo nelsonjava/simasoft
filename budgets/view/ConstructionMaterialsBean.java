@@ -135,10 +135,6 @@ public class ConstructionMaterialsBean implements Serializable {
 
                 try {
                         ConstructionMaterials deletableEntity = findById(getId());
-                        Apus apus = deletableEntity.getApus();
-                        apus.getConstructionMaterials().remove(deletableEntity);
-                        deletableEntity.setApus(null);
-                        this.entityManager.merge(apus);
                         TypesConstructionMaterials typesConstructionMaterials = deletableEntity.getTypesConstructionMaterials();
                         typesConstructionMaterials.getConstructionMaterials().remove(deletableEntity);
                         deletableEntity.setTypesConstructionMaterials(null);

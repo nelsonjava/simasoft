@@ -65,16 +65,16 @@ public class Apus implements Serializable {
 	// @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
 	private String name;
 
-	@OneToMany(mappedBy = "apus")
+	@ManyToMany
 	private Set<ConstructionMaterials> constructionMaterials = new HashSet<ConstructionMaterials>();
 
-	@OneToMany(mappedBy = "apus")
+	@ManyToMany
 	private Set<ConstructionWorkforce> constructionWorkforce = new HashSet<ConstructionWorkforce>();
 
-	@OneToMany(mappedBy = "apus")
+	@ManyToMany
 	private Set<ConstructionEquipments> constructionEquipments = new HashSet<ConstructionEquipments>();
 
-	@OneToMany(mappedBy = "apus")
+	@ManyToMany
 	private Set<ConstructionTransports> constructionTransports = new HashSet<ConstructionTransports>();
 
 	@ManyToOne

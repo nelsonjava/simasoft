@@ -75,13 +75,42 @@
                                 </h:panelGroup>
                                 <h:outputText/>
 
-                                <h:outputLabel for="constructionWorkforceBeanConstructionWorkforceApus" value="Apus:"/>
+                                <h:outputLabel for="constructionWorkforceBeanconstructionWorkforceApus" value="Apus:"/>
                                 <h:panelGroup>
-                                         <h:selectOneMenu converter="#{apusBean.converter}" id="constructionWorkforceBeanConstructionWorkforceApus" value="#{constructionWorkforceBean.constructionWorkforce.apus}">
-                                                <f:selectItem/>
-                                                <f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{apusBean.all}" var="_item"/>
-                                        </h:selectOneMenu>
-                                        <h:message for="constructionWorkforceBeanConstructionWorkforce" styleClass="error"/>
+                                        <ui:param name="_collection" value="#{constructionWorkforceBean.constructionWorkforce.apus}"/>
+                                        <h:dataTable id="constructionWorkforceBeanConstructionWorkforceApus" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Code"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/apus/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemCode" value="#{_item.code}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                           <h:column>
+                                              <f:facet name="header">
+                                                      <h:outputText value="Name"/>
+                                              </f:facet>
+                                              <h:link outcome="/admin/apus/view">
+                                                      <f:param name="id" value="#{_item.id}"/>
+                                                      <h:outputText id="itemName" value="#{_item.name}"/>
+                                              </h:link>
+                                           </h:column>
+
+                                     <h:column footerClass="remove-column" headerClass="remove-column">
+                                        <h:commandLink action="#{_collection.remove(_item)}" styleClass="remove-button"/>
+                                     </h:column>
+                                        </h:dataTable>
+
+                                        <h:panelGrid columnClasses=",remove-column" columns="2" styleClass="data-table-footer">
+                                           <h:selectOneMenu converter="#{apusBean.converter}" id="constructionWorkforceBeanConstructionWorkforceApusSelect" value="#{requestScope['constructionWorkforceBeanConstructionWorkforceApusSelect']}">
+                                             <f:selectItem/>
+                                             <f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{apusBean.all}" var="_item"/>
+                                           </h:selectOneMenu>
+                                           <h:commandLink action="#{_collection.add(requestScope['constructionWorkforceBeanConstructionWorkforceApusSelect'])}" id="constructionWorkforceBeanConstructionWorkforceApusAdd" onclick="if (document.getElementById(document.forms[0].id+':constructionWorkforceBeanConstructionWorkforceApusSelect').selectedIndex &lt; 1) { alert('Must select a Apus'); return false; }" styleClass="add-button"/>
+                                        </h:panelGrid>
                                 </h:panelGroup>
                                 <h:outputText/>
 

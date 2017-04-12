@@ -115,29 +115,29 @@ jpa-new-field --named name --type String
 
 #  Apus Relationships 
 #  ############
-#  ############1..*
-#  Apus Uno a Muchos Bidirecccional No.5 ConstructionMaterials
+#  ############*..*
+#  Apus Muchos a Muchos Bidirecccional No.7 ConstructionMaterials
 cd ..
 cd Apus.java
-jpa-new-field --named constructionMaterials --type co.simasoft.models.ConstructionMaterials --relationshipType One-to-Many;
+jpa-new-field --named constructionMaterials --type co.simasoft.models.ConstructionMaterials --relationshipType Many-to-Many  ----inverseFieldName apus;
 
-#  ############1..*
-#  Apus Uno a Muchos Bidirecccional No.5 ConstructionWorkforce
+#  ############*..*
+#  Apus Muchos a Muchos Bidirecccional No.7 ConstructionWorkforce
 cd ..
 cd Apus.java
-jpa-new-field --named constructionWorkforce --type co.simasoft.models.ConstructionWorkforce --relationshipType One-to-Many;
+jpa-new-field --named constructionWorkforce --type co.simasoft.models.ConstructionWorkforce --relationshipType Many-to-Many  ----inverseFieldName apus;
 
-#  ############1..*
-#  Apus Uno a Muchos Bidirecccional No.5 ConstructionEquipments
+#  ############*..*
+#  Apus Muchos a Muchos Bidirecccional No.7 ConstructionEquipments
 cd ..
 cd Apus.java
-jpa-new-field --named constructionEquipments --type co.simasoft.models.ConstructionEquipments --relationshipType One-to-Many;
+jpa-new-field --named constructionEquipments --type co.simasoft.models.ConstructionEquipments --relationshipType Many-to-Many  ----inverseFieldName apus;
 
-#  ############1..*
-#  Apus Uno a Muchos Bidirecccional No.5 ConstructionTransports
+#  ############*..*
+#  Apus Muchos a Muchos Bidirecccional No.7 ConstructionTransports
 cd ..
 cd Apus.java
-jpa-new-field --named constructionTransports --type co.simasoft.models.ConstructionTransports --relationshipType One-to-Many;
+jpa-new-field --named constructionTransports --type co.simasoft.models.ConstructionTransports --relationshipType Many-to-Many  ----inverseFieldName apus;
 
 #  ############*..1
 #  Apus Muchos a Uno Unidireccional No.3 MeasurementUnits
@@ -277,11 +277,11 @@ jpa-new-field --named constructionActivities --type co.simasoft.models.Construct
 
 #  ConstructionMaterials Relationships 
 #  ############
-#  ############*..1
-#  ConstructionMaterials Muchos a Uno Unidireccional No.3 Apus
+#  ############*..*
+#  ConstructionMaterials Muchos a Muchos Unidireccional No.6 Apus
 cd ..
 cd ConstructionMaterials.java
-jpa-new-field --named apus --type co.simasoft.models.Apus --relationshipType Many-to-One;
+jpa-new-field --named apus --type co.simasoft.models.Apus --relationshipType Many-to-Many  ----inverseFieldName constructionMaterials;
 
 #  ############*..1
 #  ConstructionMaterials Muchos a Uno Unidireccional No.3 TypesConstructionMaterials
@@ -291,11 +291,11 @@ jpa-new-field --named typesConstructionMaterials --type co.simasoft.models.Types
 
 #  ConstructionTransports Relationships 
 #  ############
-#  ############*..1
-#  ConstructionTransports Muchos a Uno Unidireccional No.3 Apus
+#  ############*..*
+#  ConstructionTransports Muchos a Muchos Unidireccional No.6 Apus
 cd ..
 cd ConstructionTransports.java
-jpa-new-field --named apus --type co.simasoft.models.Apus --relationshipType Many-to-One;
+jpa-new-field --named apus --type co.simasoft.models.Apus --relationshipType Many-to-Many  ----inverseFieldName constructionTransports;
 
 #  ############*..1
 #  ConstructionTransports Muchos a Uno Unidireccional No.3 TypesConstructionTransports
@@ -305,11 +305,11 @@ jpa-new-field --named typesConstructionTransports --type co.simasoft.models.Type
 
 #  ConstructionWorkforce Relationships 
 #  ############
-#  ############*..1
-#  ConstructionWorkforce Muchos a Uno Unidireccional No.3 Apus
+#  ############*..*
+#  ConstructionWorkforce Muchos a Muchos Unidireccional No.6 Apus
 cd ..
 cd ConstructionWorkforce.java
-jpa-new-field --named apus --type co.simasoft.models.Apus --relationshipType Many-to-One;
+jpa-new-field --named apus --type co.simasoft.models.Apus --relationshipType Many-to-Many  ----inverseFieldName constructionWorkforce;
 
 #  ############*..1
 #  ConstructionWorkforce Muchos a Uno Unidireccional No.3 TypesConstructionWorkforce
@@ -319,11 +319,11 @@ jpa-new-field --named typesConstructionWorkforce --type co.simasoft.models.Types
 
 #  ConstructionEquipments Relationships 
 #  ############
-#  ############*..1
-#  ConstructionEquipments Muchos a Uno Unidireccional No.3 Apus
+#  ############*..*
+#  ConstructionEquipments Muchos a Muchos Unidireccional No.6 Apus
 cd ..
 cd ConstructionEquipments.java
-jpa-new-field --named apus --type co.simasoft.models.Apus --relationshipType Many-to-One;
+jpa-new-field --named apus --type co.simasoft.models.Apus --relationshipType Many-to-Many  ----inverseFieldName constructionEquipments;
 
 #  ############*..1
 #  ConstructionEquipments Muchos a Uno Unidireccional No.3 TypesConstructionEquipments

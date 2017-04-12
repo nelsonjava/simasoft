@@ -54,13 +54,13 @@
 							<h:message for="constructionEquipmentsBeanExampleName" styleClass="error"/>
 						</h:panelGroup>
 						<h:outputText/>
-						<h:outputLabel for="constructionEquipmentsBeanExampleApus" value="Apus:"/>
+						<h:outputLabel for="constructionEquipmentsBeanExampleTypesConstructionEquipments" value="Types Construction Equipments:"/>
 						<h:panelGroup>
-							<h:selectOneMenu converter="#{apusBean.converter}" id="constructionEquipmentsBeanExampleApus" value="#{constructionEquipmentsBean.example.apus}">
+							<h:selectOneMenu converter="#{typesConstructionEquipmentsBean.converter}" id="constructionEquipmentsBeanExampleTypesConstructionEquipments" value="#{constructionEquipmentsBean.example.typesConstructionEquipments}">
 								<f:selectItem/>
-								<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{apusBean.all}" var="_item"/>
+								<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{typesConstructionEquipmentsBean.all}" var="_item"/>
 							</h:selectOneMenu>
-							<h:message for="constructionEquipmentsBeanExampleApus" styleClass="error"/>
+							<h:message for="constructionEquipmentsBeanExampleTypesConstructionEquipments" styleClass="error"/>
 						</h:panelGroup>
 						<h:outputText/>
 					</h:panelGrid>
