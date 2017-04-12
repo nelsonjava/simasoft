@@ -35,7 +35,7 @@ import javax.persistence.ManyToMany;
 // @Indexed
 @Entity
 @XmlRootElement
-public class DocumentalsUnits implements Serializable {
+public class DocumentalsUnits implements Serializable,Comparable<DocumentalsUnits> {
 
 	private static final long serialVersionUID = 1L;
 
@@ -243,6 +243,17 @@ public class DocumentalsUnits implements Serializable {
 	public void setObjPadre(DocumentalsUnits objPadre) {
 		this.objPadre = objPadre;
 	}
+
+    @Override
+    public int compareTo(DocumentalsUnits a) {
+           if (orden < a.orden) {
+              return -1;
+           }
+           if (orden > a.orden) {
+              return 1;
+           }
+           return 0;
+    }
 
 	@Override
 	public int hashCode() {

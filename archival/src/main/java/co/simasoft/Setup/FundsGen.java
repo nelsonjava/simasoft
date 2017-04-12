@@ -53,6 +53,7 @@ public class FundsGen extends FileTxt {
     FileTxt f1 = new FileTxt();
     FileTxt f2 = new FileTxt();
     FileTxt f3 = new FileTxt();
+    FileTxt f4 = new FileTxt();
 
     public Map<String, String> trd(Set<TrdSeries> trdSeries,String year) {
 
@@ -130,12 +131,16 @@ public class FundsGen extends FileTxt {
             clearFileTxt();
             f3.clearFileTxt();
 
+            f4.clearFileTxt();
+            f2.line("subject;code;entryDate;startDate;finalDate;folios;quantity;located;mail;notes;fileName;fileType;filedir");
+
             line("Orden;YEAR;AREA;NOMBRE DEL DOCUMENTO;FIS;MAG;ESTADO;FOLIOS;TRD;PROCESO;F.INGRESO;ACCESO;F.INICIAL;F.FINAL;ALMACENAMIENTO;NOMBRE;FIRMA");
 
             for (Series series : sections.getSeries()){
 
                 texto = "";
                 for (DocumentalsUnits documentalsUnits : series.getDocumentalsUnits()){
+
 
                      for (TrdSeries trdSeries : documentalsUnits.getSeries().getTrdSeries()){
 
@@ -199,6 +204,12 @@ public class FundsGen extends FileTxt {
                      f1.line("    \"code\": \""+year+"\"");
                      f1.line("  },");
 
+                     f4.line(Double.toString(documentalsUnits.getOrden())+";"+
+                             sections.getCode()+";"+year+"-"+documentalsUnits.getCode()+"-"+documentalsUnits.getName()+";"+
+                             year+";"+
+                             central+";"+
+                             "entryDate;startDate;finalDate;folios;quantity;located;mail;notes;fileName;fileType;filedir");
+
                      f2.line("  {");
                      f2.line("    \"From\": \"DocumentalsUnits\",");
                      f2.line("    \"FromProperty\": \"name\",");
@@ -217,8 +228,10 @@ public class FundsGen extends FileTxt {
 
             } // Series
 
-            saveFile("\\docs", sections.getCode()+"-"+year+"-LMR"+".csv");
-            f3.saveFile("\\docs", sections.getCode()+"-"+year+"-rotulos"+".txt");
+            saveFile("\\docs", year+"-"+sections.getCode()+"-LMR"+".csv");
+            f3.saveFile("\\docs", year+"-"+sections.getCode()+"-rotulos"+".txt");
+            f4.saveFile("\\docs", year+"-"+sections.getCode()+"-OriginalOrders"+".csv");
+
 
         } // Sections
 
