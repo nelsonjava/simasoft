@@ -1,0 +1,125 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:forgeview="http://jboss.org/forge/view"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="page" value='#{budgetsBean.page}'/>
+		<f:event type="preRenderView" listener='#{budgetsBean.paginate}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="Search Budgets entities"/>
+
+	<ui:define name="header">
+		Budgets
+	</ui:define>
+
+	<ui:define name="subheader">
+		Search Budgets entities
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:form id="search">
+			<f:validateBean disabled="true">
+				<h:panelGroup styleClass="search">
+
+					<h:panelGrid columnClasses="label,component,required" columns="3">
+						<h:outputLabel for="budgetsBeanExampleAlias" value="Alias:"/>
+						<h:panelGroup>
+							<h:inputText id="budgetsBeanExampleAlias" value="#{budgetsBean.example.alias}"/>
+							<h:message for="budgetsBeanExampleAlias" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="budgetsBeanExampleObservations" value="Observations:"/>
+						<h:panelGroup>
+							<h:inputTextarea id="budgetsBeanExampleObservations" value="#{budgetsBean.example.observations}"/>
+							<h:message for="budgetsBeanExampleObservations" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="budgetsBeanExampleWorksConstruction" value="Works Construction:"/>
+						<h:panelGroup>
+							<h:selectOneMenu converter="#{worksConstructionBean.converter}" id="budgetsBeanExampleWorksConstruction" value="#{budgetsBean.example.worksConstruction}">
+								<f:selectItem/>
+								<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{worksConstructionBean.all}" var="_item"/>
+							</h:selectOneMenu>
+							<h:message for="budgetsBeanExampleWorksConstruction" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="budgetsBeanExampleWorkActivities" value="Work Activities:"/>
+						<h:panelGroup>
+							<h:selectOneMenu converter="#{workActivitiesBean.converter}" id="budgetsBeanExampleWorkActivities" value="#{budgetsBean.example.workActivities}">
+								<f:selectItem/>
+								<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{workActivitiesBean.all}" var="_item"/>
+							</h:selectOneMenu>
+							<h:message for="budgetsBeanExampleWorkActivities" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+					</h:panelGrid>
+					<h:panelGroup styleClass="buttons">
+						<h:commandLink value="Search" action='#{budgetsBean.search}' styleClass="btn btn-primary"/>
+						<h:commandLink value="Create New" action='#{budgetsBean.create}' styleClass="btn btn-primary"/>
+					</h:panelGroup>
+				</h:panelGroup>
+			</f:validateBean>
+			
+			<h:dataTable id="budgetsBeanPageItems" styleClass="data-table" value="#{budgetsBean.pageItems}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Alias"/>
+					</f:facet>
+					<h:link outcome="/admin/budgets/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemAlias" value="#{_item.alias}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Orden"/>
+					</f:facet>
+					<h:link outcome="/admin/budgets/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemOrden" value="#{_item.orden}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Observations"/>
+					</f:facet>
+					<h:link outcome="/admin/budgets/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:inputTextarea id="_itemObservations" value="#{_item.observations}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Quantity"/>
+					</f:facet>
+					<h:link outcome="/admin/budgets/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemQuantity" value="#{_item.quantity}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Total"/>
+					</f:facet>
+					<h:link outcome="/admin/budgets/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemTotal" value="#{_item.total}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<ui:include src="/resources/scaffold/paginator.xhtml">
+				<ui:param name="paginatorBean" value='#{budgetsBean}'/>
+			</ui:include>
+		</h:form>
+			
+	</ui:define>
+
+</ui:composition>

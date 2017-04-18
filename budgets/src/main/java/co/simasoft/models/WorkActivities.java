@@ -65,8 +65,8 @@ public class WorkActivities implements Serializable {
 	// @Field(index = Index.YES, analyze = Analyze.YES, store = Store.NO)
 	private String name;
 
-	@ManyToOne
-	private WorksConstruction worksConstruction;
+	@OneToMany(mappedBy = "workActivities")
+	private Set<Budgets> budgets = new HashSet<Budgets>();
 
 	@ManyToOne
 	private ConstructionActivities constructionActivities;
@@ -127,11 +127,11 @@ public class WorkActivities implements Serializable {
 		this.name = name;
 	}
 
-	public WorksConstruction getWorksConstruction() {
-		return worksConstruction;
+	public Set<Budgets> getBudgets() {
+		return budgets;
 	}
-	public void setWorksConstruction(WorksConstruction worksConstruction) {
-		this.worksConstruction = worksConstruction;
+	public void setBudgets(Set<Budgets> budgets) {
+		this.budgets = budgets;
 	}
 
 	public ConstructionActivities getConstructionActivities() {

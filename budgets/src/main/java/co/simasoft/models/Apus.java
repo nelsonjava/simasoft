@@ -77,11 +77,11 @@ public class Apus implements Serializable {
 	@ManyToMany
 	private Set<ConstructionTransports> constructionTransports = new HashSet<ConstructionTransports>();
 
-	@ManyToOne
-	private MeasurementUnits measurementUnits;
+	@OneToMany(mappedBy = "apus")
+	private Set<ConstructionActivities> constructionActivities = new HashSet<ConstructionActivities>();
 
 	@ManyToOne
-	private ConstructionActivities constructionActivities;
+	private MeasurementUnits measurementUnits;
 
 	public Apus() {
 	}
@@ -171,19 +171,19 @@ public class Apus implements Serializable {
 		this.constructionTransports = constructionTransports;
 	}
 
+	public Set<ConstructionActivities> getConstructionActivities() {
+		return constructionActivities;
+	}
+	public void setConstructionActivities(
+			Set<ConstructionActivities> constructionActivities) {
+		this.constructionActivities = constructionActivities;
+	}
+
 	public MeasurementUnits getMeasurementUnits() {
 		return measurementUnits;
 	}
 	public void setMeasurementUnits(MeasurementUnits measurementUnits) {
 		this.measurementUnits = measurementUnits;
-	}
-
-	public ConstructionActivities getConstructionActivities() {
-		return constructionActivities;
-	}
-	public void setConstructionActivities(
-			ConstructionActivities constructionActivities) {
-		this.constructionActivities = constructionActivities;
 	}
 
 	@Override

@@ -46,24 +46,51 @@
 				<f:convertDateTime type="date"/>
 			</h:outputText>
 			<h:outputText/>
-			<h:outputLabel for="worksConstructionBeanWorksConstructionWorkActivities" value="Work Activities:"/>
-			<h:dataTable id="worksConstructionBeanWorksConstructionWorkActivities" styleClass="data-table" value="#{forgeview:asList(worksConstructionBean.worksConstruction.workActivities)}" var="_item">
+			<h:outputLabel for="worksConstructionBeanWorksConstructionBudgets" value="Budgets:"/>
+			<h:dataTable id="worksConstructionBeanWorksConstructionBudgets" styleClass="data-table" value="#{forgeview:asList(worksConstructionBean.worksConstruction.budgets)}" var="_item">
 				<h:column>
 					<f:facet name="header">
-						<h:outputText value="Code"/>
+						<h:outputText value="Alias"/>
 					</f:facet>
-					<h:link outcome="/admin/workActivities/view">
+					<h:link outcome="/admin/budgets/view">
 						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="_itemCode" value="#{_item.code}"/>
+						<h:outputText id="_itemAlias" value="#{_item.alias}"/>
 					</h:link>
 				</h:column>
 				<h:column>
 					<f:facet name="header">
-						<h:outputText value="Name"/>
+						<h:outputText value="Orden"/>
 					</f:facet>
-					<h:link outcome="/admin/workActivities/view">
+					<h:link outcome="/admin/budgets/view">
 						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="_itemName" value="#{_item.name}"/>
+						<h:outputText id="_itemOrden" value="#{_item.orden}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Observations"/>
+					</f:facet>
+					<h:link outcome="/admin/budgets/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:inputTextarea id="_itemObservations" value="#{_item.observations}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Quantity"/>
+					</f:facet>
+					<h:link outcome="/admin/budgets/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemQuantity" value="#{_item.quantity}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Total"/>
+					</f:facet>
+					<h:link outcome="/admin/budgets/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemTotal" value="#{_item.total}"/>
 					</h:link>
 				</h:column>
 			</h:dataTable>

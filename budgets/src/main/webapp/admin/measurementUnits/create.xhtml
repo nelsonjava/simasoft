@@ -59,7 +59,7 @@
                                 <h:panelGroup>
                                          <h:selectOneMenu converter="#{typesMeasurementUnitsBean.converter}" id="measurementUnitsBeanMeasurementUnitsTypesMeasurementUnits" value="#{measurementUnitsBean.measurementUnits.typesMeasurementUnits}">
                                                 <f:selectItem/>
-                                                <f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{typesMeasurementUnitsBean.all}" var="_item"/>
+                                                <f:selectItems itemLabel="#{forgeview:display(_item.name)}" itemValue="#{_item}" value="#{typesMeasurementUnitsBean.all}" var="_item"/>
                                         </h:selectOneMenu>
                                         <h:message for="measurementUnitsBeanMeasurementUnits" styleClass="error"/>
                                 </h:panelGroup>

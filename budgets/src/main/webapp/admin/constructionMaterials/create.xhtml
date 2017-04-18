@@ -93,7 +93,7 @@
                                         <h:panelGrid columnClasses=",remove-column" columns="2" styleClass="data-table-footer">
                                            <h:selectOneMenu converter="#{apusBean.converter}" id="constructionMaterialsBeanConstructionMaterialsApusSelect" value="#{requestScope['constructionMaterialsBeanConstructionMaterialsApusSelect']}">
                                              <f:selectItem/>
-                                             <f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{apusBean.all}" var="_item"/>
+                                             <f:selectItems itemLabel="#{forgeview:display(_item.name)}" itemValue="#{_item}" value="#{apusBean.all}" var="_item"/>
                                            </h:selectOneMenu>
                                            <h:commandLink action="#{_collection.add(requestScope['constructionMaterialsBeanConstructionMaterialsApusSelect'])}" id="constructionMaterialsBeanConstructionMaterialsApusAdd" onclick="if (document.getElementById(document.forms[0].id+':constructionMaterialsBeanConstructionMaterialsApusSelect').selectedIndex &lt; 1) { alert('Must select a Apus'); return false; }" styleClass="add-button"/>
                                         </h:panelGrid>
@@ -104,7 +104,7 @@
                                 <h:panelGroup>
                                          <h:selectOneMenu converter="#{typesConstructionMaterialsBean.converter}" id="constructionMaterialsBeanConstructionMaterialsTypesConstructionMaterials" value="#{constructionMaterialsBean.constructionMaterials.typesConstructionMaterials}">
                                                 <f:selectItem/>
-                                                <f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{typesConstructionMaterialsBean.all}" var="_item"/>
+                                                <f:selectItems itemLabel="#{forgeview:display(_item.name)}" itemValue="#{_item}" value="#{typesConstructionMaterialsBean.all}" var="_item"/>
                                         </h:selectOneMenu>
                                         <h:message for="constructionMaterialsBeanConstructionMaterials" styleClass="error"/>
                                 </h:panelGroup>

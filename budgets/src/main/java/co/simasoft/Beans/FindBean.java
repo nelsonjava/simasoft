@@ -322,50 +322,6 @@ public class FindBean {
         return worksConstruction;
     }
 
-//      ---------------------- WorkActivities ------------------------
-
-    public List<WorkActivities> AllWorkActivities() {
-        List<WorkActivities> results = em.createQuery("SELECT o FROM WorkActivities o").getResultList();
-        if (results.isEmpty()) {
-            return new ArrayList<WorkActivities>();
-        }
-        return results;
-    }
-
-    public WorkActivities idWorkActivities(Long id) {
-
-        WorkActivities workActivities = new WorkActivities();
-        List<WorkActivities> results = em.createQuery("SELECT o FROM WorkActivities o WHERE o.id LIKE :custId").setParameter("custId", id).getResultList();
-
-        if (!results.isEmpty()) {
-
-           workActivities = results.get(0);
-        }
-        return workActivities;
-    }
-
-    public WorkActivities codeWorkActivities(String search,EntityManager em) {
-
-        WorkActivities workActivities = new WorkActivities();
-        List<WorkActivities> results = em.createQuery("SELECT o FROM WorkActivities o WHERE o.code LIKE :field").setParameter("field", search).getResultList();
-
-        if (!results.isEmpty()) {
-           workActivities = results.get(0);
-        }
-        return workActivities;
-    }
-
-    public WorkActivities nameWorkActivities(String search,EntityManager em) {
-
-        WorkActivities workActivities = new WorkActivities();
-        List<WorkActivities> results = em.createQuery("SELECT o FROM WorkActivities o WHERE o.name LIKE :field").setParameter("field", search).getResultList();
-
-        if (!results.isEmpty()) {
-           workActivities = results.get(0);
-        }
-        return workActivities;
-    }
-
 //      ---------------------- TypesWorksConstruction ------------------------
 
     public List<TypesWorksConstruction> AllTypesWorksConstruction() {
@@ -408,6 +364,72 @@ public class FindBean {
            typesWorksConstruction = results.get(0);
         }
         return typesWorksConstruction;
+    }
+
+//      ---------------------- Budgets ------------------------
+
+    public List<Budgets> AllBudgets() {
+        List<Budgets> results = em.createQuery("SELECT o FROM Budgets o").getResultList();
+        if (results.isEmpty()) {
+            return new ArrayList<Budgets>();
+        }
+        return results;
+    }
+
+    public Budgets idBudgets(Long id) {
+
+        Budgets budgets = new Budgets();
+        List<Budgets> results = em.createQuery("SELECT o FROM Budgets o WHERE o.id LIKE :custId").setParameter("custId", id).getResultList();
+
+        if (!results.isEmpty()) {
+
+           budgets = results.get(0);
+        }
+        return budgets;
+    }
+
+//      ---------------------- WorkActivities ------------------------
+
+    public List<WorkActivities> AllWorkActivities() {
+        List<WorkActivities> results = em.createQuery("SELECT o FROM WorkActivities o").getResultList();
+        if (results.isEmpty()) {
+            return new ArrayList<WorkActivities>();
+        }
+        return results;
+    }
+
+    public WorkActivities idWorkActivities(Long id) {
+
+        WorkActivities workActivities = new WorkActivities();
+        List<WorkActivities> results = em.createQuery("SELECT o FROM WorkActivities o WHERE o.id LIKE :custId").setParameter("custId", id).getResultList();
+
+        if (!results.isEmpty()) {
+
+           workActivities = results.get(0);
+        }
+        return workActivities;
+    }
+
+    public WorkActivities codeWorkActivities(String search,EntityManager em) {
+
+        WorkActivities workActivities = new WorkActivities();
+        List<WorkActivities> results = em.createQuery("SELECT o FROM WorkActivities o WHERE o.code LIKE :field").setParameter("field", search).getResultList();
+
+        if (!results.isEmpty()) {
+           workActivities = results.get(0);
+        }
+        return workActivities;
+    }
+
+    public WorkActivities nameWorkActivities(String search,EntityManager em) {
+
+        WorkActivities workActivities = new WorkActivities();
+        List<WorkActivities> results = em.createQuery("SELECT o FROM WorkActivities o WHERE o.name LIKE :field").setParameter("field", search).getResultList();
+
+        if (!results.isEmpty()) {
+           workActivities = results.get(0);
+        }
+        return workActivities;
     }
 
 //      ---------------------- ConstructionMaterials ------------------------

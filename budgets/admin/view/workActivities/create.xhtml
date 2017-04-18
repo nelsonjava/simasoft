@@ -54,15 +54,6 @@
                                 </h:panelGroup>
                                 <h:outputText value="*"/>
 
-                                <h:outputLabel for="workActivitiesBeanWorkActivitiesWorksConstruction" value="WorksConstruction:"/>
-                                <h:panelGroup>
-                                         <h:selectOneMenu converter="#{worksConstructionBean.converter}" id="workActivitiesBeanWorkActivitiesWorksConstruction" value="#{workActivitiesBean.workActivities.worksConstruction}">
-                                                <f:selectItem/>
-                                                <f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{worksConstructionBean.all}" var="_item"/>
-                                        </h:selectOneMenu>
-                                        <h:message for="workActivitiesBeanWorkActivities" styleClass="error"/>
-                                </h:panelGroup>
-                                <h:outputText/>
 
                                 <h:outputLabel for="workActivitiesBeanWorkActivitiesConstructionActivities" value="ConstructionActivities:"/>
                                 <h:panelGroup>

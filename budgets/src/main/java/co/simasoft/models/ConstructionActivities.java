@@ -68,11 +68,11 @@ public class ConstructionActivities implements Serializable {
 	@OneToMany(mappedBy = "constructionActivities")
 	private Set<WorkActivities> workActivities = new HashSet<WorkActivities>();
 
-	@OneToMany(mappedBy = "constructionActivities")
-	private Set<Apus> apus = new HashSet<Apus>();
-
 	@ManyToMany(mappedBy = "constructionActivities")
 	private Set<TypesWorksConstruction> typesWorksConstruction = new HashSet<TypesWorksConstruction>();
+
+	@ManyToOne
+	private Apus apus;
 
 	@ManyToOne
 	private ConstructionChapters constructionChapters;
@@ -140,19 +140,19 @@ public class ConstructionActivities implements Serializable {
 		this.workActivities = workActivities;
 	}
 
-	public Set<Apus> getApus() {
-		return apus;
-	}
-	public void setApus(Set<Apus> apus) {
-		this.apus = apus;
-	}
-
 	public Set<TypesWorksConstruction> getTypesWorksConstruction() {
 		return typesWorksConstruction;
 	}
 	public void setTypesWorksConstruction(
 			Set<TypesWorksConstruction> typesWorksConstruction) {
 		this.typesWorksConstruction = typesWorksConstruction;
+	}
+
+	public Apus getApus() {
+		return apus;
+	}
+	public void setApus(Apus apus) {
+		this.apus = apus;
 	}
 
 	public ConstructionChapters getConstructionChapters() {

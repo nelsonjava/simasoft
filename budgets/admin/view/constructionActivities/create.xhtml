@@ -55,7 +55,6 @@
                                 <h:outputText value="*"/>
 
 
-
                                 <h:outputLabel for="constructionActivitiesBeanconstructionActivitiesTypesWorksConstruction" value="TypesWorksConstruction:"/>
                                 <h:panelGroup>
                                         <ui:param name="_collection" value="#{constructionActivitiesBean.constructionActivities.typesWorksConstruction}"/>
@@ -92,6 +91,16 @@
                                            </h:selectOneMenu>
                                            <h:commandLink action="#{_collection.add(requestScope['constructionActivitiesBeanConstructionActivitiesTypesWorksConstructionSelect'])}" id="constructionActivitiesBeanConstructionActivitiesTypesWorksConstructionAdd" onclick="if (document.getElementById(document.forms[0].id+':constructionActivitiesBeanConstructionActivitiesTypesWorksConstructionSelect').selectedIndex &lt; 1) { alert('Must select a TypesWorksConstruction'); return false; }" styleClass="add-button"/>
                                         </h:panelGrid>
+                                </h:panelGroup>
+                                <h:outputText/>
+
+                                <h:outputLabel for="constructionActivitiesBeanConstructionActivitiesApus" value="Apus:"/>
+                                <h:panelGroup>
+                                         <h:selectOneMenu converter="#{apusBean.converter}" id="constructionActivitiesBeanConstructionActivitiesApus" value="#{constructionActivitiesBean.constructionActivities.apus}">
+                                                <f:selectItem/>
+                                                <f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{apusBean.all}" var="_item"/>
+                                        </h:selectOneMenu>
+                                        <h:message for="constructionActivitiesBeanConstructionActivities" styleClass="error"/>
                                 </h:panelGroup>
                                 <h:outputText/>
 

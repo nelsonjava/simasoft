@@ -129,14 +129,31 @@
 				</h:column>
 			</h:dataTable>
 			<h:outputText/>
+			<h:outputLabel for="apusBeanApusConstructionActivities" value="Construction Activities:"/>
+			<h:dataTable id="apusBeanApusConstructionActivities" styleClass="data-table" value="#{forgeview:asList(apusBean.apus.constructionActivities)}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Code"/>
+					</f:facet>
+					<h:link outcome="/admin/constructionActivities/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemCode" value="#{_item.code}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Name"/>
+					</f:facet>
+					<h:link outcome="/admin/constructionActivities/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemName" value="#{_item.name}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<h:outputText/>
 			<h:outputLabel for="apusBeanApusMeasurementUnits" value="Measurement Units:"/>
 			<h:link id="apusBeanApusMeasurementUnits" outcome="/admin/measurementUnits/view" rendered="#{!empty apusBean.apus.measurementUnits}" value="#{apusBean.apus.measurementUnits}">
 				<f:param name="id" value="#{apusBean.apus.measurementUnits.id}"/>
-			</h:link>
-			<h:outputText/>
-			<h:outputLabel for="apusBeanApusConstructionActivities" value="Construction Activities:"/>
-			<h:link id="apusBeanApusConstructionActivities" outcome="/admin/constructionActivities/view" rendered="#{!empty apusBean.apus.constructionActivities}" value="#{apusBean.apus.constructionActivities}">
-				<f:param name="id" value="#{apusBean.apus.constructionActivities.id}"/>
 			</h:link>
 			<h:outputText/>
 		</h:panelGrid>

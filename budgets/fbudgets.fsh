@@ -47,15 +47,21 @@ jpa-new-field --named code --type String
 jpa-new-field --named name --type String
 jpa-new-field --named date --type java.util.Date --temporalType TIMESTAMP
 
-#  WorkActivities entity
-#  ############
-jpa-new-entity --named WorkActivities --targetPackage co.simasoft.models
-jpa-new-field --named code --type String
-jpa-new-field --named name --type String
-
 #  TypesWorksConstruction entity
 #  ############
 jpa-new-entity --named TypesWorksConstruction --targetPackage co.simasoft.models
+jpa-new-field --named code --type String
+jpa-new-field --named name --type String
+
+#  Budgets entity
+#  ############
+jpa-new-entity --named Budgets --targetPackage co.simasoft.models
+jpa-new-field --named quantity --type Double
+jpa-new-field --named total --type Double
+
+#  WorkActivities entity
+#  ############
+jpa-new-entity --named WorkActivities --targetPackage co.simasoft.models
 jpa-new-field --named code --type String
 jpa-new-field --named name --type String
 
@@ -139,17 +145,17 @@ cd ..
 cd Apus.java
 jpa-new-field --named constructionTransports --type co.simasoft.models.ConstructionTransports --relationshipType Many-to-Many  ----inverseFieldName apus;
 
+#  ############1..*
+#  Apus Uno a Muchos Bidirecccional No.5 ConstructionActivities
+cd ..
+cd Apus.java
+jpa-new-field --named constructionActivities --type co.simasoft.models.ConstructionActivities --relationshipType One-to-Many;
+
 #  ############*..1
 #  Apus Muchos a Uno Unidireccional No.3 MeasurementUnits
 cd ..
 cd Apus.java
 jpa-new-field --named measurementUnits --type co.simasoft.models.MeasurementUnits --relationshipType Many-to-One;
-
-#  ############*..1
-#  Apus Muchos a Uno Unidireccional No.3 ConstructionActivities
-cd ..
-cd Apus.java
-jpa-new-field --named constructionActivities --type co.simasoft.models.ConstructionActivities --relationshipType Many-to-One;
 
 #  ConstructionActivities Relationships 
 #  ############
@@ -159,17 +165,17 @@ cd ..
 cd ConstructionActivities.java
 jpa-new-field --named workActivities --type co.simasoft.models.WorkActivities --relationshipType One-to-Many;
 
-#  ############1..*
-#  ConstructionActivities Uno a Muchos Bidirecccional No.5 Apus
-cd ..
-cd ConstructionActivities.java
-jpa-new-field --named apus --type co.simasoft.models.Apus --relationshipType One-to-Many;
-
 #  ############*..*
 #  ConstructionActivities Muchos a Muchos Unidireccional No.6 TypesWorksConstruction
 cd ..
 cd ConstructionActivities.java
 jpa-new-field --named typesWorksConstruction --type co.simasoft.models.TypesWorksConstruction --relationshipType Many-to-Many  ----inverseFieldName constructionActivities;
+
+#  ############*..1
+#  ConstructionActivities Muchos a Uno Unidireccional No.3 Apus
+cd ..
+cd ConstructionActivities.java
+jpa-new-field --named apus --type co.simasoft.models.Apus --relationshipType Many-to-One;
 
 #  ############*..1
 #  ConstructionActivities Muchos a Uno Unidireccional No.3 ConstructionChapters
@@ -218,10 +224,10 @@ jpa-new-field --named worksConstruction --type co.simasoft.models.WorksConstruct
 #  WorksConstruction Relationships 
 #  ############
 #  ############1..*
-#  WorksConstruction Uno a Muchos Bidirecccional No.5 WorkActivities
+#  WorksConstruction Uno a Muchos Bidirecccional No.5 Budgets
 cd ..
 cd WorksConstruction.java
-jpa-new-field --named workActivities --type co.simasoft.models.WorkActivities --relationshipType One-to-Many;
+jpa-new-field --named budgets --type co.simasoft.models.Budgets --relationshipType One-to-Many;
 
 #  ############1..*
 #Unitaria  WorksConstruction Uno a Muchos Bidirecccional No.5 WorksConstruction
@@ -247,20 +253,6 @@ cd ..
 cd WorksConstruction.java
 jpa-new-field --named typesWorksConstruction --type co.simasoft.models.TypesWorksConstruction --relationshipType Many-to-One;
 
-#  WorkActivities Relationships 
-#  ############
-#  ############*..1
-#  WorkActivities Muchos a Uno Unidireccional No.3 WorksConstruction
-cd ..
-cd WorkActivities.java
-jpa-new-field --named worksConstruction --type co.simasoft.models.WorksConstruction --relationshipType Many-to-One;
-
-#  ############*..1
-#  WorkActivities Muchos a Uno Unidireccional No.3 ConstructionActivities
-cd ..
-cd WorkActivities.java
-jpa-new-field --named constructionActivities --type co.simasoft.models.ConstructionActivities --relationshipType Many-to-One;
-
 #  TypesWorksConstruction Relationships 
 #  ############
 #  ############1..*
@@ -274,6 +266,34 @@ jpa-new-field --named worksConstruction --type co.simasoft.models.WorksConstruct
 cd ..
 cd TypesWorksConstruction.java
 jpa-new-field --named constructionActivities --type co.simasoft.models.ConstructionActivities --relationshipType Many-to-Many  ----inverseFieldName typesWorksConstruction;
+
+#  Budgets Relationships 
+#  ############
+#  ############*..1
+#  Budgets Muchos a Uno Unidireccional No.3 WorksConstruction
+cd ..
+cd Budgets.java
+jpa-new-field --named worksConstruction --type co.simasoft.models.WorksConstruction --relationshipType Many-to-One;
+
+#  ############*..1
+#  Budgets Muchos a Uno Unidireccional No.3 WorkActivities
+cd ..
+cd Budgets.java
+jpa-new-field --named workActivities --type co.simasoft.models.WorkActivities --relationshipType Many-to-One;
+
+#  WorkActivities Relationships 
+#  ############
+#  ############1..*
+#  WorkActivities Uno a Muchos Bidirecccional No.5 Budgets
+cd ..
+cd WorkActivities.java
+jpa-new-field --named budgets --type co.simasoft.models.Budgets --relationshipType One-to-Many;
+
+#  ############*..1
+#  WorkActivities Muchos a Uno Unidireccional No.3 ConstructionActivities
+cd ..
+cd WorkActivities.java
+jpa-new-field --named constructionActivities --type co.simasoft.models.ConstructionActivities --relationshipType Many-to-One;
 
 #  ConstructionMaterials Relationships 
 #  ############

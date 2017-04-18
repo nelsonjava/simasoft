@@ -145,13 +145,6 @@ public class ConstructionActivitiesBean implements Serializable {
 				iterWorkActivities.remove();
 				this.entityManager.merge(nextInWorkActivities);
 			}
-			Iterator<Apus> iterApus = deletableEntity.getApus().iterator();
-			for (; iterApus.hasNext();) {
-				Apus nextInApus = iterApus.next();
-				nextInApus.setConstructionActivities(null);
-				iterApus.remove();
-				this.entityManager.merge(nextInApus);
-			}
 			Iterator<TypesWorksConstruction> iterTypesWorksConstruction = deletableEntity
 					.getTypesWorksConstruction().iterator();
 			for (; iterTypesWorksConstruction.hasNext();) {
@@ -162,6 +155,10 @@ public class ConstructionActivitiesBean implements Serializable {
 				iterTypesWorksConstruction.remove();
 				this.entityManager.merge(nextInTypesWorksConstruction);
 			}
+			Apus apus = deletableEntity.getApus();
+			apus.getConstructionActivities().remove(deletableEntity);
+			deletableEntity.setApus(null);
+			this.entityManager.merge(apus);
 			ConstructionChapters constructionChapters = deletableEntity
 					.getConstructionChapters();
 			constructionChapters.getConstructionActivities().remove(
@@ -269,11 +266,9 @@ public class ConstructionActivitiesBean implements Serializable {
 					builder.lower(root.<String> get("name")),
 					'%' + name.toLowerCase() + '%'));
 		}
-		ConstructionChapters constructionChapters = this.example
-				.getConstructionChapters();
-		if (constructionChapters != null) {
-			predicatesList.add(builder.equal(root.get("constructionChapters"),
-					constructionChapters));
+		Apus apus = this.example.getApus();
+		if (apus != null) {
+			predicatesList.add(builder.equal(root.get("apus"), apus));
 		}
 
 		return predicatesList.toArray(new Predicate[predicatesList.size()]);

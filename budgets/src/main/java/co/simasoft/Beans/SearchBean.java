@@ -166,17 +166,6 @@ public class SearchBean {
         return results;
     }
 
-    public List<WorkActivities> selectAllWorkActivities(EntityManager em) {
-        prepare(WorkActivities.class,em);
-
-        Query query = qb.all().createQuery();
-
-        List<WorkActivities> results = execute(query,
-                                              new Class[]{WorkActivities.class}, null,
-                                              new SortField("orden", SortField.DOUBLE));
-        return results;
-    }
-
     public List<TypesWorksConstruction> selectAllTypesWorksConstruction(EntityManager em) {
         prepare(TypesWorksConstruction.class,em);
 
@@ -184,6 +173,28 @@ public class SearchBean {
 
         List<TypesWorksConstruction> results = execute(query,
                                               new Class[]{TypesWorksConstruction.class}, null,
+                                              new SortField("orden", SortField.DOUBLE));
+        return results;
+    }
+
+    public List<Budgets> selectAllBudgets(EntityManager em) {
+        prepare(Budgets.class,em);
+
+        Query query = qb.all().createQuery();
+
+        List<Budgets> results = execute(query,
+                                              new Class[]{Budgets.class}, null,
+                                              new SortField("orden", SortField.DOUBLE));
+        return results;
+    }
+
+    public List<WorkActivities> selectAllWorkActivities(EntityManager em) {
+        prepare(WorkActivities.class,em);
+
+        Query query = qb.all().createQuery();
+
+        List<WorkActivities> results = execute(query,
+                                              new Class[]{WorkActivities.class}, null,
                                               new SortField("orden", SortField.DOUBLE));
         return results;
     }

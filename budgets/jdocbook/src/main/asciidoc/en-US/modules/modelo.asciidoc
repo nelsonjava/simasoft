@@ -22,8 +22,8 @@ image::images/modelo.jpg[]
 |Apus|*..*|ConstructionWorkforce|true|false|code
 |Apus|*..*|ConstructionEquipments|true|false|code
 |Apus|*..*|ConstructionTransports|true|false|code
+|Apus|1..*|ConstructionActivities|true|false|code
 |Apus|*..1|MeasurementUnits|true|false|code
-|Apus|*..1|ConstructionActivities|true|false|code
 |===
 == ENTITY:ConstructionActivities
 *ATRIBUTES:*
@@ -38,8 +38,8 @@ image::images/modelo.jpg[]
 |===
 |From | Cardinality | To | Optionality | Navigability | Atribute 
 |ConstructionActivities|1..*|WorkActivities|true|false|code
-|ConstructionActivities|1..*|Apus|true|false|code
 |ConstructionActivities|*..*|TypesWorksConstruction|true|false|code
+|ConstructionActivities|*..1|Apus|true|false|code
 |ConstructionActivities|*..1|ConstructionChapters|true|false|name
 |===
 == ENTITY:ConstructionChapters
@@ -112,26 +112,11 @@ image::images/modelo.jpg[]
 [options="header"]
 |===
 |From | Cardinality | To | Optionality | Navigability | Atribute 
-|WorksConstruction|1..*|WorkActivities|true|false|code
+|WorksConstruction|1..*|Budgets|true|false|quantity
 |WorksConstruction|1..*|WorksConstruction|true|false|code
 |WorksConstruction|*..1|Years|true|false|year
 |WorksConstruction|*..1|WorksConstruction|true|false|code
 |WorksConstruction|*..1|TypesWorksConstruction|true|false|code
-|===
-== ENTITY:WorkActivities
-*ATRIBUTES:*
-[options="header"]
-|===
-|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
-|code|null|String|null|null|false|true|false|false|true|true|true|true
-|name|null|String|null|null|false|true|false|false|true|true|true|true
-|===
-*RELATIONS:* 2
-[options="header"]
-|===
-|From | Cardinality | To | Optionality | Navigability | Atribute 
-|WorkActivities|*..1|WorksConstruction|true|false|code
-|WorkActivities|*..1|ConstructionActivities|true|false|code
 |===
 == ENTITY:TypesWorksConstruction
 *ATRIBUTES:*
@@ -147,6 +132,36 @@ image::images/modelo.jpg[]
 |From | Cardinality | To | Optionality | Navigability | Atribute 
 |TypesWorksConstruction|1..*|WorksConstruction|true|false|code
 |TypesWorksConstruction|*..*|ConstructionActivities|true|false|code
+|===
+== ENTITY:Budgets
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|quantity|null|Double|null|null|true|false|false|false|true|true|true|true
+|total|null|Double|null|null|true|false|false|false|true|true|true|true
+|===
+*RELATIONS:* 2
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|Budgets|*..1|WorksConstruction|true|false|code
+|Budgets|*..1|WorkActivities|true|false|code
+|===
+== ENTITY:WorkActivities
+*ATRIBUTES:*
+[options="header"]
+|===
+|name  |description  |Type  |length  |precision  |isNullable |isUnique  |isSimplified  |isCreate  |isSearch  |isView |isViewColumn |isViewRelation 
+|code|null|String|null|null|false|true|false|false|true|true|true|true
+|name|null|String|null|null|false|true|false|false|true|true|true|true
+|===
+*RELATIONS:* 2
+[options="header"]
+|===
+|From | Cardinality | To | Optionality | Navigability | Atribute 
+|WorkActivities|1..*|Budgets|true|false|quantity
+|WorkActivities|*..1|ConstructionActivities|true|false|code
 |===
 == ENTITY:ConstructionMaterials
 *ATRIBUTES:*

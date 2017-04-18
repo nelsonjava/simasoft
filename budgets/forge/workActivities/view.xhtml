@@ -4,6 +4,7 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:forgeview="http://jboss.org/forge/view"
 	template="/resources/scaffold/pageTemplate.xhtml">
 
 	<f:metadata>
@@ -40,10 +41,54 @@
 			<h:outputLabel for="workActivitiesBeanWorkActivitiesName" value="Name:"/>
 			<h:outputText id="workActivitiesBeanWorkActivitiesName" value="#{workActivitiesBean.workActivities.name}"/>
 			<h:outputText/>
-			<h:outputLabel for="workActivitiesBeanWorkActivitiesWorksConstruction" value="Works Construction:"/>
-			<h:link id="workActivitiesBeanWorkActivitiesWorksConstruction" outcome="/admin/worksConstruction/view" rendered="#{!empty workActivitiesBean.workActivities.worksConstruction}" value="#{workActivitiesBean.workActivities.worksConstruction}">
-				<f:param name="id" value="#{workActivitiesBean.workActivities.worksConstruction.id}"/>
-			</h:link>
+			<h:outputLabel for="workActivitiesBeanWorkActivitiesBudgets" value="Budgets:"/>
+			<h:dataTable id="workActivitiesBeanWorkActivitiesBudgets" styleClass="data-table" value="#{forgeview:asList(workActivitiesBean.workActivities.budgets)}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Alias"/>
+					</f:facet>
+					<h:link outcome="/admin/budgets/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemAlias" value="#{_item.alias}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Orden"/>
+					</f:facet>
+					<h:link outcome="/admin/budgets/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemOrden" value="#{_item.orden}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Observations"/>
+					</f:facet>
+					<h:link outcome="/admin/budgets/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:inputTextarea id="_itemObservations" value="#{_item.observations}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Quantity"/>
+					</f:facet>
+					<h:link outcome="/admin/budgets/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemQuantity" value="#{_item.quantity}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Total"/>
+					</f:facet>
+					<h:link outcome="/admin/budgets/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemTotal" value="#{_item.total}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
 			<h:outputText/>
 			<h:outputLabel for="workActivitiesBeanWorkActivitiesConstructionActivities" value="Construction Activities:"/>
 			<h:link id="workActivitiesBeanWorkActivitiesConstructionActivities" outcome="/admin/constructionActivities/view" rendered="#{!empty workActivitiesBean.workActivities.constructionActivities}" value="#{workActivitiesBean.workActivities.constructionActivities}">

@@ -135,14 +135,17 @@ public class ApusBean implements Serializable {
 
                 try {
                         Apus deletableEntity = findById(getId());
+                        Iterator<ConstructionActivities> iterConstructionActivities = deletableEntity.getConstructionActivities().iterator();
+                        for (; iterConstructionActivities.hasNext();){
+                               ConstructionActivities nextInConstructionActivities = iterConstructionActivities.next();
+                                nextInConstructionActivities.setApus(null);
+                               iterConstructionActivities.remove();
+                               this.entityManager.merge(nextInConstructionActivities);
+                        }
                         MeasurementUnits measurementUnits = deletableEntity.getMeasurementUnits();
                         measurementUnits.getApus().remove(deletableEntity);
                         deletableEntity.setMeasurementUnits(null);
                         this.entityManager.merge(measurementUnits);
-                        ConstructionActivities constructionActivities = deletableEntity.getConstructionActivities();
-                        constructionActivities.getApus().remove(deletableEntity);
-                        deletableEntity.setConstructionActivities(null);
-                        this.entityManager.merge(constructionActivities);
                         this.entityManager.remove(deletableEntity);
                         this.entityManager.flush();
                         return "search?faces-redirect=true";

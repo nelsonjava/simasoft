@@ -71,7 +71,7 @@ public class WorksConstruction implements Serializable {
 	private Date date;
 
 	@OneToMany(mappedBy = "worksConstruction")
-	private Set<WorkActivities> workActivities = new HashSet<WorkActivities>();
+	private Set<Budgets> budgets = new HashSet<Budgets>();
 
 	@OneToMany(mappedBy = "objPadre")
 	private Set<WorksConstruction> objHijos = new HashSet<WorksConstruction>();
@@ -149,11 +149,11 @@ public class WorksConstruction implements Serializable {
 		this.date = date;
 	}
 
-	public Set<WorkActivities> getWorkActivities() {
-		return workActivities;
+	public Set<Budgets> getBudgets() {
+		return budgets;
 	}
-	public void setWorkActivities(Set<WorkActivities> workActivities) {
-		this.workActivities = workActivities;
+	public void setBudgets(Set<Budgets> budgets) {
+		this.budgets = budgets;
 	}
 
 	public Set<WorksConstruction> getObjHijos() {

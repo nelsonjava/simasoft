@@ -67,33 +67,13 @@
                         </h:dataTable>
                         <h:outputText/>
 
-                        <h:outputLabel for="ConstructionActivitiesBeanConstructionActivitiesApus" value="Apus:"/>
-                        <h:dataTable id="constructionActivitiesBeanConstructionActivitiesapus" styleClass="data-table" value="#{forgeview:asList(constructionActivitiesBean.constructionActivities.apus)}" var="_item">
-
-                                           <h:column>
-                                              <f:facet name="header">
-                                                      <h:outputText value="Code"/>
-                                              </f:facet>
-                                              <h:link outcome="/admin/apus/view">
-                                                      <f:param name="id" value="#{_item.id}"/>
-                                                      <h:outputText id="itemCode" value="#{_item.code}"/>
-                                              </h:link>
-                                           </h:column>
-
-                                           <h:column>
-                                              <f:facet name="header">
-                                                      <h:outputText value="Name"/>
-                                              </f:facet>
-                                              <h:link outcome="/admin/apus/view">
-                                                      <f:param name="id" value="#{_item.id}"/>
-                                                      <h:outputText id="itemName" value="#{_item.name}"/>
-                                              </h:link>
-                                           </h:column>
-
-                        </h:dataTable>
-                        <h:outputText/>
-
                         Muchos a Muchos Unidireccional No.6
+
+                        <h:outputLabel for="constructionActivitiesBeanConstructionActivitiesApus" value="Apus:"/>
+                        <h:link id="constructionActivitiesBeanConstructionActivitiesApus" outcome="/admin/apus/view" rendered="#{!empty constructionActivitiesBean.constructionActivities.apus}" value="#{constructionActivitiesBean.constructionActivities.apus.code}">
+                                 <f:param name="id" value="#{constructionActivitiesBean.constructionActivities.apus.id}"/>
+                        </h:link>
+                        <h:outputText/>
 
                         <h:outputLabel for="constructionActivitiesBeanConstructionActivitiesConstructionChapters" value="ConstructionChapters:"/>
                         <h:link id="constructionActivitiesBeanConstructionActivitiesConstructionChapters" outcome="/admin/constructionChapters/view" rendered="#{!empty constructionActivitiesBean.constructionActivities.constructionChapters}" value="#{constructionActivitiesBean.constructionActivities.constructionChapters.name}">

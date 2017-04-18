@@ -481,67 +481,6 @@ public class FileUpload {
 
     } // worksConstruction()
 
-    public void workActivities() {
-    try {
-
-        if(file != null) {
-
-           filePath = "\\docs\\"+file.getFileName();
-
-           FacesMessage message = new FacesMessage("Succesful", filePath + " is uploaded.");
-           FacesContext.getCurrentInstance().addMessage(null, message);
-
-           FileTxt f = new FileTxt();
-
-           // read the json file
-           FileReader reader = new FileReader(filePath);
-
-           JSONParser jsonParser = new JSONParser();
-           JSONObject jsonObject = (JSONObject) jsonParser.parse(reader);
-
-           // get an array from the JSON object
-           JSONArray arrayRelationships = (JSONArray) jsonObject.get("WorkActivities");
-           Iterator iteRelation = arrayRelationships.iterator();
-           while (iteRelation.hasNext()) {
-
-                 JSONObject relationObj = (JSONObject) iteRelation.next();
-
-                 String code = (String)relationObj.get("code");
-                 String name = (String)relationObj.get("name");
-
-                 WorkActivities workActivities = new WorkActivities();
-
-                 workActivities.setCode(code);
-                 f.line(workActivities.getCode());
-                 f.line("");
-
-                 workActivities.setName(name);
-                 f.line(workActivities.getName());
-                 f.line("");
-
-                 em.persist(workActivities);
-                 em.flush();
-
-           } // while
-
-           f.saveFile("\\docs", "workActivities.txt");
-
-        } // if
-
-    } catch (FileNotFoundException ex) {
-             ex.printStackTrace();
-    } catch (IOException ex) {
-             ex.printStackTrace();
-    } catch (ParseException ex) {
-             ex.printStackTrace();
-    } catch (NullPointerException ex) {
-             ex.printStackTrace();
-    } catch(Exception ioe) {
-            ioe.printStackTrace();
-    }
-
-    } // workActivities()
-
     public void typesWorksConstruction() {
     try {
 
@@ -602,6 +541,118 @@ public class FileUpload {
     }
 
     } // typesWorksConstruction()
+
+    public void budgets() {
+    try {
+
+        if(file != null) {
+
+           filePath = "\\docs\\"+file.getFileName();
+
+           FacesMessage message = new FacesMessage("Succesful", filePath + " is uploaded.");
+           FacesContext.getCurrentInstance().addMessage(null, message);
+
+           FileTxt f = new FileTxt();
+
+           // read the json file
+           FileReader reader = new FileReader(filePath);
+
+           JSONParser jsonParser = new JSONParser();
+           JSONObject jsonObject = (JSONObject) jsonParser.parse(reader);
+
+           // get an array from the JSON object
+           JSONArray arrayRelationships = (JSONArray) jsonObject.get("Budgets");
+           Iterator iteRelation = arrayRelationships.iterator();
+           while (iteRelation.hasNext()) {
+
+                 JSONObject relationObj = (JSONObject) iteRelation.next();
+
+
+                 Budgets budgets = new Budgets();
+
+                 em.persist(budgets);
+                 em.flush();
+
+           } // while
+
+           f.saveFile("\\docs", "budgets.txt");
+
+        } // if
+
+    } catch (FileNotFoundException ex) {
+             ex.printStackTrace();
+    } catch (IOException ex) {
+             ex.printStackTrace();
+    } catch (ParseException ex) {
+             ex.printStackTrace();
+    } catch (NullPointerException ex) {
+             ex.printStackTrace();
+    } catch(Exception ioe) {
+            ioe.printStackTrace();
+    }
+
+    } // budgets()
+
+    public void workActivities() {
+    try {
+
+        if(file != null) {
+
+           filePath = "\\docs\\"+file.getFileName();
+
+           FacesMessage message = new FacesMessage("Succesful", filePath + " is uploaded.");
+           FacesContext.getCurrentInstance().addMessage(null, message);
+
+           FileTxt f = new FileTxt();
+
+           // read the json file
+           FileReader reader = new FileReader(filePath);
+
+           JSONParser jsonParser = new JSONParser();
+           JSONObject jsonObject = (JSONObject) jsonParser.parse(reader);
+
+           // get an array from the JSON object
+           JSONArray arrayRelationships = (JSONArray) jsonObject.get("WorkActivities");
+           Iterator iteRelation = arrayRelationships.iterator();
+           while (iteRelation.hasNext()) {
+
+                 JSONObject relationObj = (JSONObject) iteRelation.next();
+
+                 String code = (String)relationObj.get("code");
+                 String name = (String)relationObj.get("name");
+
+                 WorkActivities workActivities = new WorkActivities();
+
+                 workActivities.setCode(code);
+                 f.line(workActivities.getCode());
+                 f.line("");
+
+                 workActivities.setName(name);
+                 f.line(workActivities.getName());
+                 f.line("");
+
+                 em.persist(workActivities);
+                 em.flush();
+
+           } // while
+
+           f.saveFile("\\docs", "workActivities.txt");
+
+        } // if
+
+    } catch (FileNotFoundException ex) {
+             ex.printStackTrace();
+    } catch (IOException ex) {
+             ex.printStackTrace();
+    } catch (ParseException ex) {
+             ex.printStackTrace();
+    } catch (NullPointerException ex) {
+             ex.printStackTrace();
+    } catch(Exception ioe) {
+            ioe.printStackTrace();
+    }
+
+    } // workActivities()
 
     public void constructionMaterials() {
     try {

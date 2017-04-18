@@ -67,13 +67,84 @@
 					<h:message for="workActivitiesBeanWorkActivitiesName" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText value="*"/>
-				<h:outputLabel for="workActivitiesBeanWorkActivitiesWorksConstruction" value="Works Construction:"/>
+				<h:outputLabel for="workActivitiesBeanWorkActivitiesBudgets" value="Budgets:"/>
 				<h:panelGroup>
-					<h:selectOneMenu converter="#{worksConstructionBean.converter}" id="workActivitiesBeanWorkActivitiesWorksConstruction" value="#{workActivitiesBean.workActivities.worksConstruction}">
-						<f:selectItem/>
-						<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{worksConstructionBean.all}" var="_item"/>
-					</h:selectOneMenu>
-					<h:message for="workActivitiesBeanWorkActivitiesWorksConstruction" styleClass="error"/>
+					<ui:param name="_collection" value="#{workActivitiesBean.workActivities.budgets}"/>
+					<h:dataTable id="workActivitiesBeanWorkActivitiesBudgets" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Alias"/>
+							</f:facet>
+							<h:link outcome="/admin/budgets/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="_itemAlias" value="#{_item.alias}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="budgetsBeanAddAlias" value="#{budgetsBean.add.alias}"/>
+								<h:message for="budgetsBeanAddAlias" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Orden"/>
+							</f:facet>
+							<h:link outcome="/admin/budgets/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="_itemOrden" value="#{_item.orden}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="budgetsBeanAddOrden" value="#{budgetsBean.add.orden}"/>
+								<h:message for="budgetsBeanAddOrden" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Observations"/>
+							</f:facet>
+							<h:link outcome="/admin/budgets/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:inputTextarea id="_itemObservations" value="#{_item.observations}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputTextarea id="budgetsBeanAddObservations" value="#{budgetsBean.add.observations}"/>
+								<h:message for="budgetsBeanAddObservations" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Quantity"/>
+							</f:facet>
+							<h:link outcome="/admin/budgets/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="_itemQuantity" value="#{_item.quantity}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="budgetsBeanAddQuantity" value="#{budgetsBean.add.quantity}"/>
+								<h:message for="budgetsBeanAddQuantity" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Total"/>
+							</f:facet>
+							<h:link outcome="/admin/budgets/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="_itemTotal" value="#{_item.total}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="budgetsBeanAddTotal" value="#{budgetsBean.add.total}"/>
+								<h:message for="budgetsBeanAddTotal" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column footerClass="remove-column" headerClass="remove-column">
+							<h:commandLink action="#{_collection.remove(_item)}" styleClass="remove-button"/>
+							<f:facet name="footer">
+								<h:commandLink action="#{_collection.add(budgetsBean.added)}" id="workActivitiesBeanWorkActivitiesBudgetsAdd" styleClass="add-button">
+									<f:setPropertyActionListener target="#{budgetsBean.add.workActivities}" value="#{workActivitiesBean.workActivities}"/>
+								</h:commandLink>
+							</f:facet>
+						</h:column>
+					</h:dataTable>
 				</h:panelGroup>
 				<h:outputText/>
 				<h:outputLabel for="workActivitiesBeanWorkActivitiesConstructionActivities" value="Construction Activities:"/>

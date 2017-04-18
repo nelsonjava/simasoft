@@ -150,6 +150,45 @@ public class FileUploadCsvR {
 
         FindBean findBean = new FindBean();
 
+        if (from.equals("Apus") &&
+            cardinalities.equals("Uno a Muchos Bidirecccional No.5") &&
+            to.equals("ConstructionActivities") &&
+            name.equals("")){
+
+            Apus apusFrom = new Apus();
+            ConstructionActivities constructionActivitiesTo = new ConstructionActivities();
+
+            if (fromProperty.equals("code")){
+                apusFrom = findBean.codeApus(fromValue,em);
+                f.line("from:"+fromValue+":"+apusFrom.getCode());
+            } // apus
+
+            if (fromProperty.equals("name")){
+                apusFrom = findBean.nameApus(fromValue,em);
+                f.line("from:"+fromValue+":"+apusFrom.getName());
+            } // apus
+
+            if (toProperty.equals("code")){
+                constructionActivitiesTo = findBean.codeConstructionActivities(toValue,em);
+                f.line("to:"+toValue+":"+constructionActivitiesTo.getCode());
+            } // constructionActivities
+
+            if (toProperty.equals("name")){
+                constructionActivitiesTo = findBean.nameConstructionActivities(toValue,em);
+                f.line("to:"+toValue+":"+constructionActivitiesTo.getName());
+            } // constructionActivities
+
+            if (cardinalities.equals("Uno a Muchos Bidirecccional No.5")){
+                constructionActivitiesTo.setApus(apusFrom);
+            }
+
+            if (!isValidate) {
+                em.merge(constructionActivitiesTo);
+                em.flush();
+            }
+
+        } // from: Apus
+
         if (from.equals("ConstructionActivities") &&
             cardinalities.equals("Uno a Muchos Bidirecccional No.5") &&
             to.equals("WorkActivities") &&
@@ -184,45 +223,6 @@ public class FileUploadCsvR {
 
             if (!isValidate) {
                 em.merge(workActivitiesTo);
-                em.flush();
-            }
-
-        } // from: ConstructionActivities
-
-        if (from.equals("ConstructionActivities") &&
-            cardinalities.equals("Uno a Muchos Bidirecccional No.5") &&
-            to.equals("Apus") &&
-            name.equals("")){
-
-            ConstructionActivities constructionActivitiesFrom = new ConstructionActivities();
-            Apus apusTo = new Apus();
-
-            if (fromProperty.equals("code")){
-                constructionActivitiesFrom = findBean.codeConstructionActivities(fromValue,em);
-                f.line("from:"+fromValue+":"+constructionActivitiesFrom.getCode());
-            } // constructionActivities
-
-            if (fromProperty.equals("name")){
-                constructionActivitiesFrom = findBean.nameConstructionActivities(fromValue,em);
-                f.line("from:"+fromValue+":"+constructionActivitiesFrom.getName());
-            } // constructionActivities
-
-            if (toProperty.equals("code")){
-                apusTo = findBean.codeApus(toValue,em);
-                f.line("to:"+toValue+":"+apusTo.getCode());
-            } // apus
-
-            if (toProperty.equals("name")){
-                apusTo = findBean.nameApus(toValue,em);
-                f.line("to:"+toValue+":"+apusTo.getName());
-            } // apus
-
-            if (cardinalities.equals("Uno a Muchos Bidirecccional No.5")){
-                apusTo.setConstructionActivities(constructionActivitiesFrom);
-            }
-
-            if (!isValidate) {
-                em.merge(apusTo);
                 em.flush();
             }
 
@@ -381,11 +381,11 @@ public class FileUploadCsvR {
 
         if (from.equals("WorksConstruction") &&
             cardinalities.equals("Uno a Muchos Bidirecccional No.5") &&
-            to.equals("WorkActivities") &&
+            to.equals("Budgets") &&
             name.equals("")){
 
             WorksConstruction worksConstructionFrom = new WorksConstruction();
-            WorkActivities workActivitiesTo = new WorkActivities();
+            Budgets budgetsTo = new Budgets();
 
             if (fromProperty.equals("code")){
                 worksConstructionFrom = findBean.codeWorksConstruction(fromValue,em);
@@ -397,22 +397,12 @@ public class FileUploadCsvR {
                 f.line("from:"+fromValue+":"+worksConstructionFrom.getName());
             } // worksConstruction
 
-            if (toProperty.equals("code")){
-                workActivitiesTo = findBean.codeWorkActivities(toValue,em);
-                f.line("to:"+toValue+":"+workActivitiesTo.getCode());
-            } // workActivities
-
-            if (toProperty.equals("name")){
-                workActivitiesTo = findBean.nameWorkActivities(toValue,em);
-                f.line("to:"+toValue+":"+workActivitiesTo.getName());
-            } // workActivities
-
             if (cardinalities.equals("Uno a Muchos Bidirecccional No.5")){
-                workActivitiesTo.setWorksConstruction(worksConstructionFrom);
+                budgetsTo.setWorksConstruction(worksConstructionFrom);
             }
 
             if (!isValidate) {
-                em.merge(workActivitiesTo);
+                em.merge(budgetsTo);
                 em.flush();
             }
 
@@ -495,6 +485,35 @@ public class FileUploadCsvR {
             }
 
         } // from: TypesWorksConstruction
+
+        if (from.equals("WorkActivities") &&
+            cardinalities.equals("Uno a Muchos Bidirecccional No.5") &&
+            to.equals("Budgets") &&
+            name.equals("")){
+
+            WorkActivities workActivitiesFrom = new WorkActivities();
+            Budgets budgetsTo = new Budgets();
+
+            if (fromProperty.equals("code")){
+                workActivitiesFrom = findBean.codeWorkActivities(fromValue,em);
+                f.line("from:"+fromValue+":"+workActivitiesFrom.getCode());
+            } // workActivities
+
+            if (fromProperty.equals("name")){
+                workActivitiesFrom = findBean.nameWorkActivities(fromValue,em);
+                f.line("from:"+fromValue+":"+workActivitiesFrom.getName());
+            } // workActivities
+
+            if (cardinalities.equals("Uno a Muchos Bidirecccional No.5")){
+                budgetsTo.setWorkActivities(workActivitiesFrom);
+            }
+
+            if (!isValidate) {
+                em.merge(budgetsTo);
+                em.flush();
+            }
+
+        } // from: WorkActivities
 
         if (from.equals("TypesConstructionMaterials") &&
             cardinalities.equals("Uno a Muchos Bidirecccional No.5") &&

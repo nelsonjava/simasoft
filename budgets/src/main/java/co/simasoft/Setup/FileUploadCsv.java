@@ -152,11 +152,14 @@ public class FileUploadCsv {
             case "WorksConstruction":
                  WorksConstruction(entity,fields,types,data,f,em);
                  break;
-            case "WorkActivities":
-                 WorkActivities(entity,fields,types,data,f,em);
-                 break;
             case "TypesWorksConstruction":
                  TypesWorksConstruction(entity,fields,types,data,f,em);
+                 break;
+            case "Budgets":
+                 Budgets(entity,fields,types,data,f,em);
+                 break;
+            case "WorkActivities":
+                 WorkActivities(entity,fields,types,data,f,em);
                  break;
             case "ConstructionMaterials":
                  ConstructionMaterials(entity,fields,types,data,f,em);
@@ -362,30 +365,6 @@ public class FileUploadCsv {
 
     } // WorksConstruction
 
-    public void WorkActivities(String entity,String[] field,String[] types,String[] data,FileTxt f,EntityManager em) {
-
-        WorkActivities workActivities = new WorkActivities();
-
-        for(Integer i=0;i<=data.length-1;i+=1){
-
-            f.line("("+types[i]+")"+field[i]+"="+data[i]);
-
-            switch (field[i]) {
-                case "code":
-                     workActivities.setCode(data[i]);
-                     break;
-                case "name":
-                     workActivities.setName(data[i]);
-                     break;
-            }
-
-        } // for
-
-        em.persist(workActivities);
-        em.flush();
-
-    } // WorkActivities
-
     public void TypesWorksConstruction(String entity,String[] field,String[] types,String[] data,FileTxt f,EntityManager em) {
 
         TypesWorksConstruction typesWorksConstruction = new TypesWorksConstruction();
@@ -409,6 +388,54 @@ public class FileUploadCsv {
         em.flush();
 
     } // TypesWorksConstruction
+
+    public void Budgets(String entity,String[] field,String[] types,String[] data,FileTxt f,EntityManager em) {
+
+        Budgets budgets = new Budgets();
+
+        for(Integer i=0;i<=data.length-1;i+=1){
+
+            f.line("("+types[i]+")"+field[i]+"="+data[i]);
+
+            switch (field[i]) {
+                case "quantity":
+                     budgets.setQuantity(Double.parseDouble(data[i]));
+                     break;
+                case "total":
+                     budgets.setTotal(Double.parseDouble(data[i]));
+                     break;
+            }
+
+        } // for
+
+        em.persist(budgets);
+        em.flush();
+
+    } // Budgets
+
+    public void WorkActivities(String entity,String[] field,String[] types,String[] data,FileTxt f,EntityManager em) {
+
+        WorkActivities workActivities = new WorkActivities();
+
+        for(Integer i=0;i<=data.length-1;i+=1){
+
+            f.line("("+types[i]+")"+field[i]+"="+data[i]);
+
+            switch (field[i]) {
+                case "code":
+                     workActivities.setCode(data[i]);
+                     break;
+                case "name":
+                     workActivities.setName(data[i]);
+                     break;
+            }
+
+        } // for
+
+        em.persist(workActivities);
+        em.flush();
+
+    } // WorkActivities
 
     public void ConstructionMaterials(String entity,String[] field,String[] types,String[] data,FileTxt f,EntityManager em) {
 

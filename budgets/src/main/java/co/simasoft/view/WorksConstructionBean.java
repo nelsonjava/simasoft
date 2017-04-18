@@ -25,8 +25,8 @@ import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
 import co.simasoft.models.WorksConstruction;
+import co.simasoft.models.Budgets;
 import co.simasoft.models.TypesWorksConstruction;
-import co.simasoft.models.WorkActivities;
 import co.simasoft.models.Years;
 import java.util.Iterator;
 
@@ -135,13 +135,13 @@ public class WorksConstructionBean implements Serializable {
 
 		try {
 			WorksConstruction deletableEntity = findById(getId());
-			Iterator<WorkActivities> iterWorkActivities = deletableEntity
-					.getWorkActivities().iterator();
-			for (; iterWorkActivities.hasNext();) {
-				WorkActivities nextInWorkActivities = iterWorkActivities.next();
-				nextInWorkActivities.setWorksConstruction(null);
-				iterWorkActivities.remove();
-				this.entityManager.merge(nextInWorkActivities);
+			Iterator<Budgets> iterBudgets = deletableEntity.getBudgets()
+					.iterator();
+			for (; iterBudgets.hasNext();) {
+				Budgets nextInBudgets = iterBudgets.next();
+				nextInBudgets.setWorksConstruction(null);
+				iterBudgets.remove();
+				this.entityManager.merge(nextInBudgets);
 			}
 			Iterator<WorksConstruction> iterObjHijos = deletableEntity
 					.getObjHijos().iterator();

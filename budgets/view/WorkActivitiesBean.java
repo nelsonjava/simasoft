@@ -135,10 +135,13 @@ public class WorkActivitiesBean implements Serializable {
 
                 try {
                         WorkActivities deletableEntity = findById(getId());
-                        WorksConstruction worksConstruction = deletableEntity.getWorksConstruction();
-                        worksConstruction.getWorkActivities().remove(deletableEntity);
-                        deletableEntity.setWorksConstruction(null);
-                        this.entityManager.merge(worksConstruction);
+                        Iterator<Budgets> iterBudgets = deletableEntity.getBudgets().iterator();
+                        for (; iterBudgets.hasNext();){
+                               Budgets nextInBudgets = iterBudgets.next();
+                                nextInBudgets.setWorkActivities(null);
+                               iterBudgets.remove();
+                               this.entityManager.merge(nextInBudgets);
+                        }
                         ConstructionActivities constructionActivities = deletableEntity.getConstructionActivities();
                         constructionActivities.getWorkActivities().remove(deletableEntity);
                         deletableEntity.setConstructionActivities(null);

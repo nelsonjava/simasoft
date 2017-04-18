@@ -108,47 +108,6 @@
 					</h:dataTable>
 				</h:panelGroup>
 				<h:outputText/>
-				<h:outputLabel for="constructionActivitiesBeanConstructionActivitiesApus" value="Apus:"/>
-				<h:panelGroup>
-					<ui:param name="_collection" value="#{constructionActivitiesBean.constructionActivities.apus}"/>
-					<h:dataTable id="constructionActivitiesBeanConstructionActivitiesApus" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
-						<h:column>
-							<f:facet name="header">
-								<h:outputText value="Code"/>
-							</f:facet>
-							<h:link outcome="/admin/apus/view">
-								<f:param name="id" value="#{_item.id}"/>
-								<h:outputText id="_itemCode" value="#{_item.code}"/>
-							</h:link>
-							<f:facet name="footer">
-								<h:inputText id="apusBeanAddCode" value="#{apusBean.add.code}"/>
-								<h:message for="apusBeanAddCode" styleClass="error"/>
-							</f:facet>
-						</h:column>
-						<h:column>
-							<f:facet name="header">
-								<h:outputText value="Name"/>
-							</f:facet>
-							<h:link outcome="/admin/apus/view">
-								<f:param name="id" value="#{_item.id}"/>
-								<h:outputText id="_itemName" value="#{_item.name}"/>
-							</h:link>
-							<f:facet name="footer">
-								<h:inputText id="apusBeanAddName" value="#{apusBean.add.name}"/>
-								<h:message for="apusBeanAddName" styleClass="error"/>
-							</f:facet>
-						</h:column>
-						<h:column footerClass="remove-column" headerClass="remove-column">
-							<h:commandLink action="#{_collection.remove(_item)}" styleClass="remove-button"/>
-							<f:facet name="footer">
-								<h:commandLink action="#{_collection.add(apusBean.added)}" id="constructionActivitiesBeanConstructionActivitiesApusAdd" styleClass="add-button">
-									<f:setPropertyActionListener target="#{apusBean.add.constructionActivities}" value="#{constructionActivitiesBean.constructionActivities}"/>
-								</h:commandLink>
-							</f:facet>
-						</h:column>
-					</h:dataTable>
-				</h:panelGroup>
-				<h:outputText/>
 				<h:outputLabel for="constructionActivitiesBeanConstructionActivitiesTypesWorksConstruction" value="Types Works Construction:"/>
 				<h:panelGroup>
 					<ui:param name="_collection" value="#{constructionActivitiesBean.constructionActivities.typesWorksConstruction}"/>
@@ -182,6 +141,15 @@
 						</h:selectOneMenu>
 						<h:commandLink action="#{_collection.add(requestScope['constructionActivitiesBeanConstructionActivitiesTypesWorksConstructionSelect'])}" id="constructionActivitiesBeanConstructionActivitiesTypesWorksConstructionAdd" onclick="if (document.getElementById(document.forms[0].id+':constructionActivitiesBeanConstructionActivitiesTypesWorksConstructionSelect').selectedIndex &lt; 1) { alert('Must select a Types Works Construction'); return false; }" styleClass="add-button"/>
 					</h:panelGrid>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="constructionActivitiesBeanConstructionActivitiesApus" value="Apus:"/>
+				<h:panelGroup>
+					<h:selectOneMenu converter="#{apusBean.converter}" id="constructionActivitiesBeanConstructionActivitiesApus" value="#{constructionActivitiesBean.constructionActivities.apus}">
+						<f:selectItem/>
+						<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{apusBean.all}" var="_item"/>
+					</h:selectOneMenu>
+					<h:message for="constructionActivitiesBeanConstructionActivitiesApus" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
 				<h:outputLabel for="constructionActivitiesBeanConstructionActivitiesConstructionChapters" value="Construction Chapters:"/>

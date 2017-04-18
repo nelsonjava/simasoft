@@ -94,20 +94,66 @@ public class FileUploadR {
                  String cardinalities = (String)relationObj.get("Cardinalities");
 
 /*
+Apus::Apus Uno a Muchos Bidirecccional No.5 ConstructionActivities 
 ConstructionActivities::ConstructionActivities Uno a Muchos Bidirecccional No.5 WorkActivities 
-ConstructionActivities::ConstructionActivities Uno a Muchos Bidirecccional No.5 Apus 
 ConstructionChapters::ConstructionChapters Uno a Muchos Bidirecccional No.5 ConstructionActivities 
 TypesMeasurementUnits::TypesMeasurementUnits Uno a Muchos Bidirecccional No.5 MeasurementUnits 
 MeasurementUnits::MeasurementUnits Uno a Muchos Bidirecccional No.5 Apus 
 Years::Years Uno a Muchos Bidirecccional No.5 WorksConstruction 
-WorksConstruction::WorksConstruction Uno a Muchos Bidirecccional No.5 WorkActivities 
+WorksConstruction::WorksConstruction Uno a Muchos Bidirecccional No.5 Budgets 
 WorksConstruction::WorksConstruction Uno a Muchos Bidirecccional No.5 WorksConstruction 
 TypesWorksConstruction::TypesWorksConstruction Uno a Muchos Bidirecccional No.5 WorksConstruction 
+WorkActivities::WorkActivities Uno a Muchos Bidirecccional No.5 Budgets 
 TypesConstructionMaterials::TypesConstructionMaterials Uno a Muchos Bidirecccional No.5 ConstructionMaterials 
 TypesConstructionTransports::TypesConstructionTransports Uno a Muchos Bidirecccional No.5 ConstructionTransports 
 TypesConstructionWorkforce::TypesConstructionWorkforce Uno a Muchos Bidirecccional No.5 ConstructionWorkforce 
 TypesConstructionEquipments::TypesConstructionEquipments Uno a Muchos Bidirecccional No.5 ConstructionEquipments 
 */
+
+                 if (from.equals("Apus") &&
+                     cardinalities.equals("Uno a Muchos Bidirecccional No.5") &&
+                     to.equals("ConstructionActivities") &&
+                     name.equals("")){
+
+                     Apus apusFrom = new Apus();
+
+                     ConstructionActivities constructionActivitiesTo = new ConstructionActivities();
+
+                     if (fromProperty.equals("code")){
+                         apusFrom = findBean.codeApus(fromValue,em);
+                         f.line("from:"+fromValue+":"+apusFrom.getCode());
+                     } // apus
+
+                     if (fromProperty.equals("name")){
+                         apusFrom = findBean.nameApus(fromValue,em);
+                         f.line("from:"+fromValue+":"+apusFrom.getName());
+                     } // apus
+
+                     if (toProperty.equals("code")){
+                         constructionActivitiesTo = findBean.codeConstructionActivities(toValue,em);
+                         f.line("to:"+toValue+":"+constructionActivitiesTo.getCode());
+                     } // ConstructionActivities.code
+
+                     if (toProperty.equals("name")){
+                         constructionActivitiesTo = findBean.nameConstructionActivities(toValue,em);
+                         f.line("to:"+toValue+":"+constructionActivitiesTo.getName());
+                     } // ConstructionActivities.name
+
+                     if (cardinalities.equals("Uno a Muchos Bidirecccional No.5")){
+                         constructionActivitiesTo.setApus(apusFrom);
+                     }
+
+                     if (!isValidate) {
+                         em.merge(constructionActivitiesTo);
+                         em.flush();
+                     }
+
+                     if (isValidate) {
+                         f.saveFile("\\docs", "apus.txt");
+
+                     }
+
+                 } // from: Apus
 
                  if (from.equals("ConstructionActivities") &&
                      cardinalities.equals("Uno a Muchos Bidirecccional No.5") &&
@@ -144,51 +190,6 @@ TypesConstructionEquipments::TypesConstructionEquipments Uno a Muchos Bidireccci
 
                      if (!isValidate) {
                          em.merge(workActivitiesTo);
-                         em.flush();
-                     }
-
-                     if (isValidate) {
-                         f.saveFile("\\docs", "constructionActivities.txt");
-
-                     }
-
-                 } // from: ConstructionActivities
-
-                 if (from.equals("ConstructionActivities") &&
-                     cardinalities.equals("Uno a Muchos Bidirecccional No.5") &&
-                     to.equals("Apus") &&
-                     name.equals("")){
-
-                     ConstructionActivities constructionActivitiesFrom = new ConstructionActivities();
-
-                     Apus apusTo = new Apus();
-
-                     if (fromProperty.equals("code")){
-                         constructionActivitiesFrom = findBean.codeConstructionActivities(fromValue,em);
-                         f.line("from:"+fromValue+":"+constructionActivitiesFrom.getCode());
-                     } // constructionActivities
-
-                     if (fromProperty.equals("name")){
-                         constructionActivitiesFrom = findBean.nameConstructionActivities(fromValue,em);
-                         f.line("from:"+fromValue+":"+constructionActivitiesFrom.getName());
-                     } // constructionActivities
-
-                     if (toProperty.equals("code")){
-                         apusTo = findBean.codeApus(toValue,em);
-                         f.line("to:"+toValue+":"+apusTo.getCode());
-                     } // Apus.code
-
-                     if (toProperty.equals("name")){
-                         apusTo = findBean.nameApus(toValue,em);
-                         f.line("to:"+toValue+":"+apusTo.getName());
-                     } // Apus.name
-
-                     if (cardinalities.equals("Uno a Muchos Bidirecccional No.5")){
-                         apusTo.setConstructionActivities(constructionActivitiesFrom);
-                     }
-
-                     if (!isValidate) {
-                         em.merge(apusTo);
                          em.flush();
                      }
 
@@ -376,12 +377,12 @@ TypesConstructionEquipments::TypesConstructionEquipments Uno a Muchos Bidireccci
 
                  if (from.equals("WorksConstruction") &&
                      cardinalities.equals("Uno a Muchos Bidirecccional No.5") &&
-                     to.equals("WorkActivities") &&
+                     to.equals("Budgets") &&
                      name.equals("")){
 
                      WorksConstruction worksConstructionFrom = new WorksConstruction();
 
-                     WorkActivities workActivitiesTo = new WorkActivities();
+                     Budgets budgetsTo = new Budgets();
 
                      if (fromProperty.equals("code")){
                          worksConstructionFrom = findBean.codeWorksConstruction(fromValue,em);
@@ -393,22 +394,12 @@ TypesConstructionEquipments::TypesConstructionEquipments Uno a Muchos Bidireccci
                          f.line("from:"+fromValue+":"+worksConstructionFrom.getName());
                      } // worksConstruction
 
-                     if (toProperty.equals("code")){
-                         workActivitiesTo = findBean.codeWorkActivities(toValue,em);
-                         f.line("to:"+toValue+":"+workActivitiesTo.getCode());
-                     } // WorkActivities.code
-
-                     if (toProperty.equals("name")){
-                         workActivitiesTo = findBean.nameWorkActivities(toValue,em);
-                         f.line("to:"+toValue+":"+workActivitiesTo.getName());
-                     } // WorkActivities.name
-
                      if (cardinalities.equals("Uno a Muchos Bidirecccional No.5")){
-                         workActivitiesTo.setWorksConstruction(worksConstructionFrom);
+                         budgetsTo.setWorksConstruction(worksConstructionFrom);
                      }
 
                      if (!isValidate) {
-                         em.merge(workActivitiesTo);
+                         em.merge(budgetsTo);
                          em.flush();
                      }
 
@@ -508,6 +499,41 @@ TypesConstructionEquipments::TypesConstructionEquipments Uno a Muchos Bidireccci
                      }
 
                  } // from: TypesWorksConstruction
+
+                 if (from.equals("WorkActivities") &&
+                     cardinalities.equals("Uno a Muchos Bidirecccional No.5") &&
+                     to.equals("Budgets") &&
+                     name.equals("")){
+
+                     WorkActivities workActivitiesFrom = new WorkActivities();
+
+                     Budgets budgetsTo = new Budgets();
+
+                     if (fromProperty.equals("code")){
+                         workActivitiesFrom = findBean.codeWorkActivities(fromValue,em);
+                         f.line("from:"+fromValue+":"+workActivitiesFrom.getCode());
+                     } // workActivities
+
+                     if (fromProperty.equals("name")){
+                         workActivitiesFrom = findBean.nameWorkActivities(fromValue,em);
+                         f.line("from:"+fromValue+":"+workActivitiesFrom.getName());
+                     } // workActivities
+
+                     if (cardinalities.equals("Uno a Muchos Bidirecccional No.5")){
+                         budgetsTo.setWorkActivities(workActivitiesFrom);
+                     }
+
+                     if (!isValidate) {
+                         em.merge(budgetsTo);
+                         em.flush();
+                     }
+
+                     if (isValidate) {
+                         f.saveFile("\\docs", "workActivities.txt");
+
+                     }
+
+                 } // from: WorkActivities
 
                  if (from.equals("TypesConstructionMaterials") &&
                      cardinalities.equals("Uno a Muchos Bidirecccional No.5") &&

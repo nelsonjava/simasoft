@@ -142,13 +142,10 @@ public class ConstructionActivitiesBean implements Serializable {
                                iterWorkActivities.remove();
                                this.entityManager.merge(nextInWorkActivities);
                         }
-                        Iterator<Apus> iterApus = deletableEntity.getApus().iterator();
-                        for (; iterApus.hasNext();){
-                               Apus nextInApus = iterApus.next();
-                                nextInApus.setConstructionActivities(null);
-                               iterApus.remove();
-                               this.entityManager.merge(nextInApus);
-                        }
+                        Apus apus = deletableEntity.getApus();
+                        apus.getConstructionActivities().remove(deletableEntity);
+                        deletableEntity.setApus(null);
+                        this.entityManager.merge(apus);
                         ConstructionChapters constructionChapters = deletableEntity.getConstructionChapters();
                         constructionChapters.getConstructionActivities().remove(deletableEntity);
                         deletableEntity.setConstructionChapters(null);

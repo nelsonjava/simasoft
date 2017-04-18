@@ -45,26 +45,26 @@
                         <h:outputText id="worksConstructionBeanWorksConstructionObservations" value="#{worksConstructionBean.worksConstruction.observations}" escape="false" />
                         <h:outputText/>
 
-                        <h:outputLabel for="WorksConstructionBeanWorksConstructionWorkActivities" value="WorkActivities:"/>
-                        <h:dataTable id="worksConstructionBeanWorksConstructionworkActivities" styleClass="data-table" value="#{forgeview:asList(worksConstructionBean.worksConstruction.workActivities)}" var="_item">
+                        <h:outputLabel for="WorksConstructionBeanWorksConstructionBudgets" value="Budgets:"/>
+                        <h:dataTable id="worksConstructionBeanWorksConstructionbudgets" styleClass="data-table" value="#{forgeview:asList(worksConstructionBean.worksConstruction.budgets)}" var="_item">
 
                                            <h:column>
                                               <f:facet name="header">
-                                                      <h:outputText value="Code"/>
+                                                      <h:outputText value="Quantity"/>
                                               </f:facet>
-                                              <h:link outcome="/admin/workActivities/view">
+                                              <h:link outcome="/admin/budgets/view">
                                                       <f:param name="id" value="#{_item.id}"/>
-                                                      <h:outputText id="itemCode" value="#{_item.code}"/>
+                                                      <h:outputText id="itemQuantity" value="#{_item.quantity}"/>
                                               </h:link>
                                            </h:column>
 
                                            <h:column>
                                               <f:facet name="header">
-                                                      <h:outputText value="Name"/>
+                                                      <h:outputText value="Total"/>
                                               </f:facet>
-                                              <h:link outcome="/admin/workActivities/view">
+                                              <h:link outcome="/admin/budgets/view">
                                                       <f:param name="id" value="#{_item.id}"/>
-                                                      <h:outputText id="itemName" value="#{_item.name}"/>
+                                                      <h:outputText id="itemTotal" value="#{_item.total}"/>
                                               </h:link>
                                            </h:column>
 

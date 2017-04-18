@@ -63,28 +63,6 @@
 				</h:column>
 			</h:dataTable>
 			<h:outputText/>
-			<h:outputLabel for="constructionActivitiesBeanConstructionActivitiesApus" value="Apus:"/>
-			<h:dataTable id="constructionActivitiesBeanConstructionActivitiesApus" styleClass="data-table" value="#{forgeview:asList(constructionActivitiesBean.constructionActivities.apus)}" var="_item">
-				<h:column>
-					<f:facet name="header">
-						<h:outputText value="Code"/>
-					</f:facet>
-					<h:link outcome="/admin/apus/view">
-						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="_itemCode" value="#{_item.code}"/>
-					</h:link>
-				</h:column>
-				<h:column>
-					<f:facet name="header">
-						<h:outputText value="Name"/>
-					</f:facet>
-					<h:link outcome="/admin/apus/view">
-						<f:param name="id" value="#{_item.id}"/>
-						<h:outputText id="_itemName" value="#{_item.name}"/>
-					</h:link>
-				</h:column>
-			</h:dataTable>
-			<h:outputText/>
 			<h:outputLabel for="constructionActivitiesBeanConstructionActivitiesTypesWorksConstruction" value="Types Works Construction:"/>
 			<h:dataTable id="constructionActivitiesBeanConstructionActivitiesTypesWorksConstruction" styleClass="data-table" value="#{forgeview:asList(constructionActivitiesBean.constructionActivities.typesWorksConstruction)}" var="_item">
 				<h:column>
@@ -106,6 +84,11 @@
 					</h:link>
 				</h:column>
 			</h:dataTable>
+			<h:outputText/>
+			<h:outputLabel for="constructionActivitiesBeanConstructionActivitiesApus" value="Apus:"/>
+			<h:link id="constructionActivitiesBeanConstructionActivitiesApus" outcome="/admin/apus/view" rendered="#{!empty constructionActivitiesBean.constructionActivities.apus}" value="#{constructionActivitiesBean.constructionActivities.apus}">
+				<f:param name="id" value="#{constructionActivitiesBean.constructionActivities.apus.id}"/>
+			</h:link>
 			<h:outputText/>
 			<h:outputLabel for="constructionActivitiesBeanConstructionActivitiesConstructionChapters" value="Construction Chapters:"/>
 			<h:link id="constructionActivitiesBeanConstructionActivitiesConstructionChapters" outcome="/admin/constructionChapters/view" rendered="#{!empty constructionActivitiesBean.constructionActivities.constructionChapters}" value="#{constructionActivitiesBean.constructionActivities.constructionChapters}">

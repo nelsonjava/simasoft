@@ -16,8 +16,9 @@
     <class>co.simasoft.models.MeasurementUnits</class>
     <class>co.simasoft.models.Years</class>
     <class>co.simasoft.models.WorksConstruction</class>
-    <class>co.simasoft.models.WorkActivities</class>
     <class>co.simasoft.models.TypesWorksConstruction</class>
+    <class>co.simasoft.models.Budgets</class>
+    <class>co.simasoft.models.WorkActivities</class>
     <class>co.simasoft.models.ConstructionMaterials</class>
     <class>co.simasoft.models.ConstructionTransports</class>
     <class>co.simasoft.models.ConstructionWorkforce</class>

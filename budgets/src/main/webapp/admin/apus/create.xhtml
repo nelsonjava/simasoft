@@ -270,21 +270,12 @@
                                 </h:panelGroup>
                                 <h:outputText/>
 
+
                                 <h:outputLabel for="apusBeanApusMeasurementUnits" value="MeasurementUnits:"/>
                                 <h:panelGroup>
                                          <h:selectOneMenu converter="#{measurementUnitsBean.converter}" id="apusBeanApusMeasurementUnits" value="#{apusBean.apus.measurementUnits}">
                                                 <f:selectItem/>
                                                 <f:selectItems itemLabel="#{forgeview:display(_item.name)}" itemValue="#{_item}" value="#{measurementUnitsBean.all}" var="_item"/>
-                                        </h:selectOneMenu>
-                                        <h:message for="apusBeanApus" styleClass="error"/>
-                                </h:panelGroup>
-                                <h:outputText/>
-
-                                <h:outputLabel for="apusBeanApusConstructionActivities" value="ConstructionActivities:"/>
-                                <h:panelGroup>
-                                         <h:selectOneMenu converter="#{constructionActivitiesBean.converter}" id="apusBeanApusConstructionActivities" value="#{apusBean.apus.constructionActivities}">
-                                                <f:selectItem/>
-                                                <f:selectItems itemLabel="#{forgeview:display(_item.name)}" itemValue="#{_item}" value="#{constructionActivitiesBean.all}" var="_item"/>
                                         </h:selectOneMenu>
                                         <h:message for="apusBeanApus" styleClass="error"/>
                                 </h:panelGroup>
