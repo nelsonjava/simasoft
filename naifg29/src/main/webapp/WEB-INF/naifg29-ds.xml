@@ -9,7 +9,7 @@
                enabled="true"
                use-java-context="true">
 
-     <connection-url>jdbc:h2:/db/naifg29/data</connection-url>
+     <connection-url>jdbc:h2:/db/h2/naifg29/data</connection-url>
        <driver>h2</driver>
        <security>
          <user-name>sa</user-name>
